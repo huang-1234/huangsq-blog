@@ -9,7 +9,9 @@
   "private": true,
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "gh-pages -d docs/.vuepress/dist",
+    "commit": "yarn build && yarn deploy"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",
