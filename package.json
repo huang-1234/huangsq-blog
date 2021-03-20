@@ -1,0 +1,24 @@
+{
+  "name": "jshuangblog",
+  "version": "y",
+  "description": "myBlogForMynote",
+  "main": "y",
+  "repository": "y",
+  "author": "y",
+  "license": "y",
+  "private": true,
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass-loader": "^11.0.1",
+    "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "surge": "^0.22.1"
+  }
+}
