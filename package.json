@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "gh-pages -d docs/.vuepress/dist",
+    "deploy": "bash deploy.sh",
     "commit": "yarn build && yarn deploy"
   },
   "devDependencies": {

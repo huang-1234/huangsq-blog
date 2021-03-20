@@ -1,9 +1,8 @@
-
 ---
 home: true
-# heroImage: /logo.png
+heroImage: /logo.png
 actionText: 开始学习 →
-actionLink: /JS/
+actionLink: /CSS/
 features:
 - title: 个人前端笔记
   details: 个人下学习过程中记录下来的笔记
