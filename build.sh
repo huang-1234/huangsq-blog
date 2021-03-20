@@ -13,5 +13,5 @@ cd docs/.vuepress/dist
 git init
 git add .
 git commit -m 'deploy'
-git remote add origin https://github.com/Nodreame/Nodreame.github.io.git
+git remote add origin https://github.com/huang-1234/huang-1234.github.io.git
 git push -f origin master
