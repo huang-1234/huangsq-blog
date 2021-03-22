@@ -1,16 +1,16 @@
 {
   "name": "jshuangblog",
-  "version": "y",
+  "version": "1.0.1",
   "description": "myBlogForMynote",
   "main": "y",
   "repository": "y",
-  "author": "y",
+  "author": "hsq",
   "license": "y",
   "private": true,
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh",
+    "deploy": "deploy.sh",
     "commit": "yarn build && yarn deploy"
   },
   "devDependencies": {

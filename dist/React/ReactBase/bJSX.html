@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2. 理解JSX | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.2cfa8f92.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/36.013ce9f8.js" as="script"><link rel="prefetch" href="/assets/js/10.459a1c32.js"><link rel="prefetch" href="/assets/js/11.7f2880ab.js"><link rel="prefetch" href="/assets/js/12.a03255b7.js"><link rel="prefetch" href="/assets/js/13.166d5e07.js"><link rel="prefetch" href="/assets/js/14.0f98a014.js"><link rel="prefetch" href="/assets/js/15.087fa9b7.js"><link rel="prefetch" href="/assets/js/16.f3117383.js"><link rel="prefetch" href="/assets/js/17.fad9a953.js"><link rel="prefetch" href="/assets/js/18.cd303ac4.js"><link rel="prefetch" href="/assets/js/19.b44168f0.js"><link rel="prefetch" href="/assets/js/20.4fa55797.js"><link rel="prefetch" href="/assets/js/21.b4131a5b.js"><link rel="prefetch" href="/assets/js/22.4508d8e1.js"><link rel="prefetch" href="/assets/js/23.2a99dff1.js"><link rel="prefetch" href="/assets/js/24.55be6271.js"><link rel="prefetch" href="/assets/js/25.6a0eb372.js"><link rel="prefetch" href="/assets/js/26.63d01026.js"><link rel="prefetch" href="/assets/js/27.3b436940.js"><link rel="prefetch" href="/assets/js/28.bd6ddfaf.js"><link rel="prefetch" href="/assets/js/29.96e2c565.js"><link rel="prefetch" href="/assets/js/3.acfe42d0.js"><link rel="prefetch" href="/assets/js/30.fc490f6f.js"><link rel="prefetch" href="/assets/js/31.c80dc000.js"><link rel="prefetch" href="/assets/js/32.2c75328d.js"><link rel="prefetch" href="/assets/js/33.20b75efa.js"><link rel="prefetch" href="/assets/js/34.fb8442cc.js"><link rel="prefetch" href="/assets/js/35.3cc4e86b.js"><link rel="prefetch" href="/assets/js/37.3b21b797.js"><link rel="prefetch" href="/assets/js/38.4455228b.js"><link rel="prefetch" href="/assets/js/39.e3d435fe.js"><link rel="prefetch" href="/assets/js/4.9401f5f2.js"><link rel="prefetch" href="/assets/js/40.8d5ec2bd.js"><link rel="prefetch" href="/assets/js/41.d2a081d2.js"><link rel="prefetch" href="/assets/js/42.a4100341.js"><link rel="prefetch" href="/assets/js/43.5764ac2d.js"><link rel="prefetch" href="/assets/js/44.1f1d2a92.js"><link rel="prefetch" href="/assets/js/45.299f7abb.js"><link rel="prefetch" href="/assets/js/46.2c3e604b.js"><link rel="prefetch" href="/assets/js/47.535e09e7.js"><link rel="prefetch" href="/assets/js/5.b8fa1d9c.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/7.01cfdf99.js"><link rel="prefetch" href="/assets/js/8.cb8fb895.js"><link rel="prefetch" href="/assets/js/9.e4c27fc6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/aReactNewLearner.html" class="sidebar-link">1. react新手入门</a></li><li><a href="/React/ReactBase/bJSX.html" aria-current="page" class="active sidebar-link">2. 理解JSX</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/React/ReactBase/cStateHooks.html" class="sidebar-link">3. setState Hooks</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/zReactPhilosophy.html" class="sidebar-link">49. React 哲学</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_2-理解jsx"><a href="#_2-理解jsx" class="header-anchor">#</a> 2. 理解JSX</h1> <p>考虑如下变量声明：</p> <div class="language- extra-class"><pre class="language-text"><code>const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+</code></pre></div><p>这个有趣的标签语法既不是字符串也不是 HTML。</p> <p>它被称为 JSX，是一个 JavaScript 的语法扩展。我们建议在 React 中配合使用 JSX，JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式。JSX 可能会使人联想到模版语言，但它具有 JavaScript 的全部功能。</p> <p>JSX 可以生成 React “元素”。我们将在<a href="https://react.docschina.org/docs/rendering-elements.html" target="_blank" rel="noopener noreferrer">下一章节<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中探讨如何将这些元素渲染为 DOM。下面我们看下学习 JSX 所需的基础知识。</p> <h3 id="为什么使用-jsx"><a href="#为什么使用-jsx" class="header-anchor">#</a> 为什么使用 JSX？</h3> <p>React 认为渲染逻辑本质上与其他 UI 逻辑内在耦合，比如，在 UI 中需要绑定处理事件、在某些时刻状态发生变化时需要通知到 UI，以及需要在 UI 中展示准备好的数据。</p> <p>React 并没有采用将<em>标记与逻辑进行分离到不同文件</em>这种人为地分离方式，而是通过将二者共同存放在称之为“组件”的松散耦合单元之中，来实现<a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank" rel="noopener noreferrer"><em>关注点分离</em><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。我们将在<a href="https://react.docschina.org/docs/components-and-props.html" target="_blank" rel="noopener noreferrer">后面章节<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中深入学习组件。如果你还没有适应在 JS 中使用标记语言，这个<a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY" target="_blank" rel="noopener noreferrer">会议讨论<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>应该可以说服你。</p> <p>React <a href="https://react.docschina.org/docs/react-without-jsx.html" target="_blank" rel="noopener noreferrer">不强制要求<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>使用 JSX，但是大多数人发现，在 JavaScript 代码中将 JSX 和 UI 放在一起时，会在视觉上有辅助作用。它还可以使 React 显示更多有用的错误和警告消息。</p> <p>搞清楚这个问题后，我们就开始学习 JSX 吧！</p> <h3 id="在-jsx-中嵌入表达式"><a href="#在-jsx-中嵌入表达式" class="header-anchor">#</a> 在 JSX 中嵌入表达式</h3> <p>在下面的例子中，我们声明了一个名为 <code>name</code> 的变量，然后在 JSX 中使用它，并将它包裹在大括号中：</p> <div class="language- extra-class"><pre class="language-text"><code>const name = 'Josh Perez';const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+</code></pre></div><p>在 JSX 语法中，你可以在大括号内放置任何有效的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions" target="_blank" rel="noopener noreferrer">JavaScript 表达式<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。例如，<code>2 + 2</code>，<code>user.firstName</code> 或 <code>formatName(user)</code> 都是有效的 JavaScript 表达式。</p> <p>在下面的示例中，我们将调用 JavaScript 函数 <code>formatName(user)</code> 的结果，并将结果嵌入到 <code>&lt;h1&gt;</code> 元素中。</p> <div class="language- extra-class"><pre class="language-text"><code>function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = (
+  &lt;h1&gt;
+    Hello, {formatName(user)}!  &lt;/h1&gt;
+);
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+</code></pre></div><p><a href="https://react.docschina.org/redirect-to-codepen/introducing-jsx" target="_blank" rel="noopener noreferrer"><strong>在 CodePen 上尝试</strong><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>为了便于阅读，我们会将 JSX 拆分为多行。同时，我们建议将内容包裹在括号中，虽然这样做不是强制要求的，但是这可以避免遇到<a href="http://stackoverflow.com/q/2846283" target="_blank" rel="noopener noreferrer">自动插入分号<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>陷阱。</p> <h3 id="jsx-也是一个表达式"><a href="#jsx-也是一个表达式" class="header-anchor">#</a> JSX 也是一个表达式</h3> <p>在编译之后，JSX 表达式会被转为普通 JavaScript 函数调用，并且对其取值后得到 JavaScript 对象。</p> <p>也就是说，你可以在 <code>if</code> 语句和 <code>for</code> 循环的代码块中使用 JSX，将 JSX 赋值给变量，把 JSX 当作参数传入，以及从函数中返回 JSX：</p> <div class="language- extra-class"><pre class="language-text"><code>function getGreeting(user) {
+  if (user) {
+    return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;  }
+  return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;}
+</code></pre></div><h3 id="jsx-特定属性"><a href="#jsx-特定属性" class="header-anchor">#</a> JSX 特定属性</h3> <p>你可以通过使用引号，来将属性值指定为字符串字面量：</p> <div class="language- extra-class"><pre class="language-text"><code>const element = &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;
+</code></pre></div><p>也可以使用大括号，来在属性值中插入一个 JavaScript 表达式：</p> <div class="language- extra-class"><pre class="language-text"><code>const element = &lt;img src={user.avatarUrl}&gt;&lt;/img&gt;;
+</code></pre></div><p>在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。</p> <blockquote><p><strong>警告：</strong></p> <p>因为 JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 <code>camelCase</code>（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定。</p> <p>例如，JSX 里的 <code>class</code> 变成了 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className" target="_blank" rel="noopener noreferrer"><code>className</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，而 <code>tabindex</code> 则变为 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex" target="_blank" rel="noopener noreferrer"><code>tabIndex</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p></blockquote> <h3 id="使用-jsx-指定子元素"><a href="#使用-jsx-指定子元素" class="header-anchor">#</a> 使用 JSX 指定子元素</h3> <p>假如一个标签里面没有内容，你可以使用 <code>/&gt;</code> 来闭合标签，就像 XML 语法一样：</p> <div class="language- extra-class"><pre class="language-text"><code>const element = &lt;img src={user.avatarUrl} /&gt;;
+</code></pre></div><p>JSX 标签里能够包含很多子元素:</p> <div class="language- extra-class"><pre class="language-text"><code>const element = (
+  &lt;div&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;h2&gt;Good to see you here.&lt;/h2&gt;
+  &lt;/div&gt;
+);
+</code></pre></div><h3 id="jsx-防止注入攻击"><a href="#jsx-防止注入攻击" class="header-anchor">#</a> JSX 防止注入攻击</h3> <p>你可以安全地在 JSX 当中插入用户输入内容：</p> <div class="language- extra-class"><pre class="language-text"><code>const title = response.potentiallyMaliciousInput;
+// 直接使用是安全的：
+const element = &lt;h1&gt;{title}&lt;/h1&gt;;
+</code></pre></div><p>React DOM 在渲染所有输入内容之前，默认会进行<a href="https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html" target="_blank" rel="noopener noreferrer">转义<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。它可以确保在你的应用中，永远不会注入那些并非自己明确编写的内容。所有的内容在渲染之前都被转换成了字符串。这样可以有效地防止 <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener noreferrer">XSS（cross-site-scripting, 跨站脚本）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>攻击。</p> <h3 id="jsx-表示对象"><a href="#jsx-表示对象" class="header-anchor">#</a> JSX 表示对象</h3> <p>Babel 会把 JSX 转译成一个名为 <code>React.createElement()</code> 函数调用。</p> <p>以下两种示例代码完全等效：</p> <div class="language- extra-class"><pre class="language-text"><code>const element = (
+  &lt;h1 className=&quot;greeting&quot;&gt;
+    Hello, world!
+  &lt;/h1&gt;
+);
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+</code></pre></div><p><code>React.createElement()</code> 会预先执行一些检查，以帮助你编写无错代码，但实际上它创建了一个这样的对象：</p> <div class="language- extra-class"><pre class="language-text"><code>// 注意：这是简化过的结构
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+</code></pre></div><p>这些对象被称为 “React 元素”。它们描述了你希望在屏幕上看到的内容。React 通过读取这些对象，然后使用它们来构建 DOM 以及保持随时更新。</p> <p>我们将在<a href="https://react.docschina.org/docs/rendering-elements.html" target="_blank" rel="noopener noreferrer">下一章节<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中探讨如何将 React 元素渲染为 DOM。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/React/ReactBase/aReactNewLearner.html" class="prev">
+        1. react新手入门
+      </a></span> <span class="next"><a href="/React/ReactBase/cStateHooks.html">
+        3. setState Hooks
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2cfa8f92.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/36.013ce9f8.js" defer></script>
+  </body>
+</html>

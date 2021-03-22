@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>3. setState Hooks | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.2cfa8f92.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/37.3b21b797.js" as="script"><link rel="prefetch" href="/assets/js/10.459a1c32.js"><link rel="prefetch" href="/assets/js/11.7f2880ab.js"><link rel="prefetch" href="/assets/js/12.a03255b7.js"><link rel="prefetch" href="/assets/js/13.166d5e07.js"><link rel="prefetch" href="/assets/js/14.0f98a014.js"><link rel="prefetch" href="/assets/js/15.087fa9b7.js"><link rel="prefetch" href="/assets/js/16.f3117383.js"><link rel="prefetch" href="/assets/js/17.fad9a953.js"><link rel="prefetch" href="/assets/js/18.cd303ac4.js"><link rel="prefetch" href="/assets/js/19.b44168f0.js"><link rel="prefetch" href="/assets/js/20.4fa55797.js"><link rel="prefetch" href="/assets/js/21.b4131a5b.js"><link rel="prefetch" href="/assets/js/22.4508d8e1.js"><link rel="prefetch" href="/assets/js/23.2a99dff1.js"><link rel="prefetch" href="/assets/js/24.55be6271.js"><link rel="prefetch" href="/assets/js/25.6a0eb372.js"><link rel="prefetch" href="/assets/js/26.63d01026.js"><link rel="prefetch" href="/assets/js/27.3b436940.js"><link rel="prefetch" href="/assets/js/28.bd6ddfaf.js"><link rel="prefetch" href="/assets/js/29.96e2c565.js"><link rel="prefetch" href="/assets/js/3.acfe42d0.js"><link rel="prefetch" href="/assets/js/30.fc490f6f.js"><link rel="prefetch" href="/assets/js/31.c80dc000.js"><link rel="prefetch" href="/assets/js/32.2c75328d.js"><link rel="prefetch" href="/assets/js/33.20b75efa.js"><link rel="prefetch" href="/assets/js/34.fb8442cc.js"><link rel="prefetch" href="/assets/js/35.3cc4e86b.js"><link rel="prefetch" href="/assets/js/36.013ce9f8.js"><link rel="prefetch" href="/assets/js/38.4455228b.js"><link rel="prefetch" href="/assets/js/39.e3d435fe.js"><link rel="prefetch" href="/assets/js/4.9401f5f2.js"><link rel="prefetch" href="/assets/js/40.8d5ec2bd.js"><link rel="prefetch" href="/assets/js/41.d2a081d2.js"><link rel="prefetch" href="/assets/js/42.a4100341.js"><link rel="prefetch" href="/assets/js/43.5764ac2d.js"><link rel="prefetch" href="/assets/js/44.1f1d2a92.js"><link rel="prefetch" href="/assets/js/45.299f7abb.js"><link rel="prefetch" href="/assets/js/46.2c3e604b.js"><link rel="prefetch" href="/assets/js/47.535e09e7.js"><link rel="prefetch" href="/assets/js/5.b8fa1d9c.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/7.01cfdf99.js"><link rel="prefetch" href="/assets/js/8.cb8fb895.js"><link rel="prefetch" href="/assets/js/9.e4c27fc6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/aReactNewLearner.html" class="sidebar-link">1. react新手入门</a></li><li><a href="/React/ReactBase/bJSX.html" class="sidebar-link">2. 理解JSX</a></li><li><a href="/React/ReactBase/cStateHooks.html" aria-current="page" class="active sidebar-link">3. setState Hooks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_3-setstate-hooks" class="sidebar-link">3. setState Hooks</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_2-lazyload" class="sidebar-link">2. lazyLoad</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_3-hooks" class="sidebar-link">3. Hooks</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_4-fragment" class="sidebar-link">4. Fragment</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_5-context" class="sidebar-link">5. Context</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_6-组件优化" class="sidebar-link">6. 组件优化</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_7-render-props" class="sidebar-link">7. render props</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_8-错误边界" class="sidebar-link">8. 错误边界</a></li><li class="sidebar-sub-header"><a href="/React/ReactBase/cStateHooks.html#_9-组件通信方式总结" class="sidebar-link">9. 组件通信方式总结</a></li></ul></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/zReactPhilosophy.html" class="sidebar-link">49. React 哲学</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_3-setstate-hooks"><a href="#_3-setstate-hooks" class="header-anchor">#</a> 3. setState Hooks</h2> <h3 id="setstate更新状态的2种写法"><a href="#setstate更新状态的2种写法" class="header-anchor">#</a> setState更新状态的2种写法</h3> <div class="language- extra-class"><pre class="language-text"><code>	(1). setState(stateChange, [callback])------对象式的setState
+            1.stateChange为状态改变对象(该对象可以体现出状态的更改)
+            2.callback是可选的回调函数, 它在状态更新完毕、界面也更新后(render调用后)才被调用
+					
+	(2). setState(updater, [callback])------函数式的setState
+            1.updater为返回stateChange对象的函数。
+            2.updater可以接收到state和props。
+            4.callback是可选的回调函数, 它在状态更新、界面也更新后(render调用后)才被调用。
+总结:
+		1.对象式的setState是函数式的setState的简写方式(语法糖)
+		2.使用原则：
+				(1).如果新状态不依赖于原状态 ===&gt; 使用对象方式
+				(2).如果新状态依赖于原状态 ===&gt; 使用函数方式
+				(3).如果需要在setState()执行后获取最新的状态数据, 
+					要在第二个callback函数中读取
+</code></pre></div><hr> <h2 id="_2-lazyload"><a href="#_2-lazyload" class="header-anchor">#</a> 2. lazyLoad</h2> <h3 id="路由组件的lazyload"><a href="#路由组件的lazyload" class="header-anchor">#</a> 路由组件的lazyLoad</h3> <div class="language-js extra-class"><pre class="language-js"><code>	<span class="token comment">//1.通过React的lazy函数配合import()函数动态加载路由组件 ===&gt; 路由组件代码会被分开打包</span>
+	<span class="token keyword">const</span> Login <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/pages/Login'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	
+	<span class="token comment">//2.通过&lt;Suspense&gt;指定在加载得到路由打包文件前显示一个自定义loading界面</span>
+	<span class="token operator">&lt;</span>Suspense fallback<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>loading<span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Switch<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">&quot;/xxx&quot;</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Xxxx<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>Redirect to<span class="token operator">=</span><span class="token string">&quot;/login&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Switch<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Suspense<span class="token operator">&gt;</span>
+</code></pre></div><hr> <h2 id="_3-hooks"><a href="#_3-hooks" class="header-anchor">#</a> 3. Hooks</h2> <h4 id="_1-react-hook-hooks是什么"><a href="#_1-react-hook-hooks是什么" class="header-anchor">#</a> 1. React Hook/Hooks是什么?</h4> <div class="language- extra-class"><pre class="language-text"><code>(1). Hook是React 16.8.0版本增加的新特性/新语法
+(2). 可以让你在函数组件中使用 state 以及其他的 React 特性
+</code></pre></div><h4 id="_2-三个常用的hook"><a href="#_2-三个常用的hook" class="header-anchor">#</a> 2. 三个常用的Hook</h4> <div class="language- extra-class"><pre class="language-text"><code>(1). State Hook: React.useState()
+(2). Effect Hook: React.useEffect()
+(3). Ref Hook: React.useRef()
+</code></pre></div><h4 id="_3-state-hook"><a href="#_3-state-hook" class="header-anchor">#</a> 3. State Hook</h4> <div class="language- extra-class"><pre class="language-text"><code>(1). State Hook让函数组件也可以有state状态, 并进行状态数据的读写操作
+(2). 语法: const [xxx, setXxx] = React.useState(initValue)  
+(3). useState()说明:
+        参数: 第一次初始化指定的值在内部作缓存
+        返回值: 包含2个元素的数组, 第1个为内部当前状态值, 第2个为更新状态值的函数
+(4). setXxx()2种写法:
+        setXxx(newValue): 参数为非函数值, 直接指定新的状态值, 内部用其覆盖原来的状态值
+        setXxx(value =&gt; newValue): 参数为函数, 接收原本的状态值, 返回新的状态值, 内部用其覆盖原来的状态值
+</code></pre></div><h4 id="_4-effect-hook"><a href="#_4-effect-hook" class="header-anchor">#</a> 4. Effect Hook</h4> <div class="language- extra-class"><pre class="language-text"><code>(1). Effect Hook 可以让你在函数组件中执行副作用操作(用于模拟类组件中的生命周期钩子)
+(2). React中的副作用操作:
+        发ajax请求数据获取
+        设置订阅 / 启动定时器
+        手动更改真实DOM
+(3). 语法和说明: 
+        useEffect(() =&gt; { 
+          // 在此可以执行任何带副作用操作
+          return () =&gt; { // 在组件卸载前执行
+            // 在此做一些收尾工作, 比如清除定时器/取消订阅等
+          }
+        }, [stateValue]) // 如果指定的是[], 回调函数只会在第一次render()后执行
+    
+(4). 可以把 useEffect Hook 看做如下三个函数的组合
+        componentDidMount()
+        componentDidUpdate()
+    	componentWillUnmount() 
+</code></pre></div><h4 id="_5-ref-hook"><a href="#_5-ref-hook" class="header-anchor">#</a> 5. Ref Hook</h4> <div class="language- extra-class"><pre class="language-text"><code>(1). Ref Hook可以在函数组件中存储/查找组件内的标签或任意其它数据
+(2). 语法: const refContainer = useRef()
+(3). 作用:保存标签对象,功能与React.createRef()一样
+</code></pre></div><hr> <h2 id="_4-fragment"><a href="#_4-fragment" class="header-anchor">#</a> 4. Fragment</h2> <h3 id="使用"><a href="#使用" class="header-anchor">#</a> 使用</h3> <div class="language- extra-class"><pre><code>&lt;Fragment&gt;&lt;Fragment&gt;
+&lt;&gt;&lt;/&gt;
+</code></pre></div><h3 id="作用"><a href="#作用" class="header-anchor">#</a> 作用</h3> <blockquote><p>可以不用必须有一个真实的DOM根标签了</p></blockquote> <hr> <h2 id="_5-context"><a href="#_5-context" class="header-anchor">#</a> 5. Context</h2> <h3 id="理解"><a href="#理解" class="header-anchor">#</a> 理解</h3> <blockquote><p>一种组件间通信方式, 常用于【祖组件】与【后代组件】间通信</p></blockquote> <h3 id="使用-2"><a href="#使用-2" class="header-anchor">#</a> 使用</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token number">1</span><span class="token punctuation">)</span> 创建Context容器对象：
+	<span class="token keyword">const</span> XxxContext <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+	
+<span class="token number">2</span><span class="token punctuation">)</span> 渲染子组时，外面包裹xxxContext<span class="token punctuation">.</span>Provider<span class="token punctuation">,</span> 通过value属性给后代组件传递数据：
+	<span class="token operator">&lt;</span>xxxContext<span class="token punctuation">.</span>Provider value<span class="token operator">=</span><span class="token punctuation">{</span>数据<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+		子组件
+    <span class="token operator">&lt;</span><span class="token operator">/</span>xxxContext<span class="token punctuation">.</span>Provider<span class="token operator">&gt;</span>
+    
+<span class="token number">3</span><span class="token punctuation">)</span> 后代组件读取数据：
+
+	<span class="token comment">//第一种方式:仅适用于类组件 </span>
+	  <span class="token keyword">static</span> contextType <span class="token operator">=</span> xxxContext  <span class="token comment">// 声明接收context</span>
+	  <span class="token keyword">this</span><span class="token punctuation">.</span>context <span class="token comment">// 读取context中的value数据</span>
+	  
+	<span class="token comment">//第二种方式: 函数组件与类组件都可以</span>
+	  <span class="token operator">&lt;</span>xxxContext<span class="token punctuation">.</span>Consumer<span class="token operator">&gt;</span>
+	    <span class="token punctuation">{</span>
+	      <span class="token parameter">value</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span> <span class="token comment">// value就是context中的value数据</span>
+	        要显示的内容
+	      <span class="token punctuation">)</span>
+	    <span class="token punctuation">}</span>
+	  <span class="token operator">&lt;</span><span class="token operator">/</span>xxxContext<span class="token punctuation">.</span>Consumer<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="注意"><a href="#注意" class="header-anchor">#</a> 注意</h3> <div class="language- extra-class"><pre><code>在应用开发中一般不用context, 一般都它的封装react插件
+</code></pre></div><hr> <h2 id="_6-组件优化"><a href="#_6-组件优化" class="header-anchor">#</a> 6. 组件优化</h2> <h3 id="component的2个问题"><a href="#component的2个问题" class="header-anchor">#</a> Component的2个问题</h3> <blockquote><ol><li><p>只要执行setState(),即使不改变状态数据, 组件也会重新render()</p></li> <li><p>只当前组件重新render(), 就会自动重新render子组件 ==&gt; 效率低</p></li></ol></blockquote> <h3 id="效率高的做法"><a href="#效率高的做法" class="header-anchor">#</a> 效率高的做法</h3> <blockquote><p>只有当组件的state或props数据发生改变时才重新render()</p></blockquote> <h3 id="原因"><a href="#原因" class="header-anchor">#</a> 原因</h3> <blockquote><p>Component中的shouldComponentUpdate()总是返回true</p></blockquote> <h3 id="解决"><a href="#解决" class="header-anchor">#</a> 解决</h3> <div class="language- extra-class"><pre><code>办法1: 
+	重写shouldComponentUpdate()方法
+	比较新旧state或props数据, 如果有变化才返回true, 如果没有返回false
+办法2:  
+	使用PureComponent
+	PureComponent重写了shouldComponentUpdate(), 只有state或props数据有变化才返回true
+	注意: 
+		只是进行state和props数据的浅比较, 如果只是数据对象内部数据变了, 返回false  
+		不要直接修改state数据, 而是要产生新数据
+项目中一般使用PureComponent来优化
+</code></pre></div><hr> <h2 id="_7-render-props"><a href="#_7-render-props" class="header-anchor">#</a> 7. render props</h2> <h3 id="如何向组件内部动态传入带内容的结构-标签"><a href="#如何向组件内部动态传入带内容的结构-标签" class="header-anchor">#</a> 如何向组件内部动态传入带内容的结构(标签)?</h3> <div class="language- extra-class"><pre><code>Vue中: 
+	使用slot技术, 也就是通过组件标签体传入结构  &lt;AA&gt;&lt;BB/&gt;&lt;/AA&gt;
+React中:
+	使用children props: 通过组件标签体传入结构
+	使用render props: 通过组件标签属性传入结构, 一般用render函数属性
+</code></pre></div><h3 id="children-props"><a href="#children-props" class="header-anchor">#</a> children props</h3> <div class="language- extra-class"><pre><code>&lt;A&gt;
+  &lt;B&gt;xxxx&lt;/B&gt;
+&lt;/A&gt;
+{this.props.children}
+问题: 如果B组件需要A组件内的数据, ==&gt; 做不到 
+</code></pre></div><h3 id="render-props"><a href="#render-props" class="header-anchor">#</a> render props</h3> <div class="language- extra-class"><pre><code>&lt;A render={(data) =&gt; &lt;C data={data}&gt;&lt;/C&gt;}&gt;&lt;/A&gt;
+A组件: {this.props.render(内部state数据)}
+C组件: 读取A组件传入的数据显示 {this.props.data} 
+</code></pre></div><hr> <h2 id="_8-错误边界"><a href="#_8-错误边界" class="header-anchor">#</a> 8. 错误边界</h2> <h4 id="理解-2"><a href="#理解-2" class="header-anchor">#</a> 理解：</h4> <p>错误边界：用来捕获后代组件错误，渲染出备用页面</p> <h4 id="特点"><a href="#特点" class="header-anchor">#</a> 特点：</h4> <p>只能捕获后代组件生命周期产生的错误，不能捕获自己组件产生的错误和其他组件在合成事件、定时器中产生的错误</p> <h5 id="使用方式"><a href="#使用方式" class="header-anchor">#</a> 使用方式：</h5> <p>getDerivedStateFromError配合componentDidCatch</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 生命周期函数，一旦后台组件报错，就会触发</span>
+<span class="token keyword">static</span> <span class="token function">getDerivedStateFromError</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 在render之前触发</span>
+    <span class="token comment">// 返回新的state</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        hasError<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">componentDidCatch</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> info</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 统计页面的错误。发送请求发送到后台去</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_9-组件通信方式总结"><a href="#_9-组件通信方式总结" class="header-anchor">#</a> 9. 组件通信方式总结</h2> <h4 id="方式"><a href="#方式" class="header-anchor">#</a> 方式：</h4> <div class="language-text extra-class"><pre class="language-text"><code>	props：
+		(1).children props
+		(2).render props
+	消息订阅-发布：
+		pubs-sub、event等等
+	集中式管理：
+		redux、dva等等
+	conText:
+		生产者-消费者模式
+</code></pre></div><h4 id="组件间的关系"><a href="#组件间的关系" class="header-anchor">#</a> 组件间的关系</h4> <div class="language-text extra-class"><pre class="language-text"><code>	父子组件：props
+	兄弟组件(非嵌套组件)：消息订阅-发布、集中式管理
+	祖孙组件(跨级组件)：消息订阅-发布、集中式管理、conText(用的少)
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/React/ReactBase/bJSX.html" class="prev">
+        2. 理解JSX
+      </a></span> <span class="next"><a href="/React/ReactBase/dRouter.html">
+        4.关于Router
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.2cfa8f92.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/37.3b21b797.js" defer></script>
+  </body>
+</html>

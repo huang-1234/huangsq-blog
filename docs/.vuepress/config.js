@@ -2,7 +2,7 @@
 const config = {
   base: '/',
   dest: 'dist',
-  title: 'huangshuiqing',
+  title: 'hsq',
   description: '前端人',
   head:[
 		['link',{rel:'icon',href:'/favicon.ico'}]
@@ -13,6 +13,10 @@ const config = {
     docsDir: 'docs',
     lastUpdated: 'Last Updated',
     smoothScroll: true,
+    //GitHub仓库，请正确填写
+    repo: 'https://github.com/huang-1234',
+    // 自定义仓库链接文字。
+    repoLabel: 'GitHub',
     nav: [
       {
         text: '前端',
@@ -20,8 +24,19 @@ const config = {
         items: [
           { text: 'CSS', link: '/CSS/' },
           { text: 'JS', link: '/JS/' },
-          { text:'React',link:'/React/'}
-        ]
+          {
+            text: 'React',
+            items: [
+              { text: 'React基础', link: '/React/' },
+            ]
+          },
+          {
+            text: 'Vue',
+            items: [
+              {text:'Vue基础',link:'/Vue/'}
+            ]
+          }
+        ],
       },
       {
         text: 'Algorithm',
@@ -31,10 +46,16 @@ const config = {
         ]
       },
       {
-        text: 'Project',
+        text: '项目相关',
         ariaLabel: 'webDesign',
         items: [
-          {text:'Project',link:'/Project/'}
+          { text: '项目', link: '/Project/' },
+          {
+            text: '项目工具',
+            items: [
+              {text:'Git工具',link:'/Tools/'}
+            ],
+          }
         ]
       }
     ],
@@ -42,8 +63,11 @@ const config = {
       '/CSS/': getCSS(),
       '/JS/': getJS(),
       '/React/': getReact(),
+      // '/ReactExtends/':getReactExtends(),
+      '/Vue/':getVueBase(),
       '/Algorithm/': getAlgorithm(),
-      '/Project/':getInnovative()
+      '/Project/': getProject(),
+      '/Tools/':getTools(),
     }
   }
 }
@@ -54,13 +78,15 @@ const config = {
   return [
     {
       title: 'JS',
-        children: [
-          'es/promise',
-          'es/Object',
-          'es/modules',
-          'es/jsType',
-          'es/String',
-          'es/Array',
+      children: [
+        'es/aJSType',
+        'es/bVarLetConst',
+        'es/cString',
+        'es/dArray',
+        'es/eObject',
+        'es/fRegExp',
+        'es/gModules',
+        'es/LongPromise'
       ]
     },
     {
@@ -94,7 +120,6 @@ const config = {
         'box',
         'layout',
         'cssCartoon/rotate',
-        
       ]
     },
     {
@@ -109,10 +134,35 @@ const config = {
  function getReact() {
   return [
     {
-      title: 'React',
+      title: 'React基础',
       children: [
-        'React/reactPhilosophy'
+        'ReactBase/aReactNewLearner',
+        'ReactBase/bJSX',
+        'ReactBase/cStateHooks',
+        'ReactBase/dRouter',
+        'ReactBase/zReactPhilosophy',
       ]
+    },
+    {
+      title: 'React进阶',
+      children: [
+        '/'
+      ]
+    }
+  ]
+}
+function getReactExtends() {
+  return [
+    {
+      
+    }
+  ]
+}
+// getVue
+function getVueBase() {
+  return [
+    {
+
     }
   ]
 }
@@ -128,16 +178,28 @@ const config = {
   ]
 }
 //getInnovative
- function getInnovative() {
+ function getProject() {
   return [
     {
-      title: 'Second-handBooks',
+      title: '创新创业项目',
       children: [
         'Innovative/Second-handBooks'
       ]
     }
   ]
 }
-
+// getTools
+function getTools() {
+  return [
+    {
+      title: '前端项目工具',
+      chiledren: [
+        'Git/git',
+        'Git/gitCmCmd',
+        'Git/error'
+      ]
+    }
+  ]
+}
 
 module.exports = config;
