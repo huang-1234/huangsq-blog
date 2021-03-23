@@ -14,7 +14,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'deploy'
+git commit -m 'commitBlog update the renderEngine'
 
 # 如果发布到 https://<USERNAME>.github.io
 git push -f git@github.com:huang-1234/huang-1234.github.io.git master

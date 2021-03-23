@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>【React进阶系列】手写redux api | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.3bb8992b.css" as="style"><link rel="preload" href="/assets/js/app.bbde0c32.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/46.18b0883f.js" as="script"><link rel="prefetch" href="/assets/js/10.9a9ada96.js"><link rel="prefetch" href="/assets/js/11.80736d21.js"><link rel="prefetch" href="/assets/js/12.cc1b2541.js"><link rel="prefetch" href="/assets/js/13.6f9bb327.js"><link rel="prefetch" href="/assets/js/14.67ab6753.js"><link rel="prefetch" href="/assets/js/15.40aa7e12.js"><link rel="prefetch" href="/assets/js/16.a80c6f54.js"><link rel="prefetch" href="/assets/js/17.13b06ca0.js"><link rel="prefetch" href="/assets/js/18.9af81e9d.js"><link rel="prefetch" href="/assets/js/19.d7d6b78c.js"><link rel="prefetch" href="/assets/js/20.c4d9da4c.js"><link rel="prefetch" href="/assets/js/21.0575f6e8.js"><link rel="prefetch" href="/assets/js/22.fb0d9f54.js"><link rel="prefetch" href="/assets/js/23.c8dfd3ba.js"><link rel="prefetch" href="/assets/js/24.52a704eb.js"><link rel="prefetch" href="/assets/js/25.79dd1534.js"><link rel="prefetch" href="/assets/js/26.aa1ddb63.js"><link rel="prefetch" href="/assets/js/27.df51169d.js"><link rel="prefetch" href="/assets/js/28.6bc8832d.js"><link rel="prefetch" href="/assets/js/29.f8a76931.js"><link rel="prefetch" href="/assets/js/3.4843e3d6.js"><link rel="prefetch" href="/assets/js/30.fd0d9107.js"><link rel="prefetch" href="/assets/js/31.36393dda.js"><link rel="prefetch" href="/assets/js/32.8d506bcf.js"><link rel="prefetch" href="/assets/js/33.ef335f1c.js"><link rel="prefetch" href="/assets/js/34.0b134c66.js"><link rel="prefetch" href="/assets/js/35.3400e901.js"><link rel="prefetch" href="/assets/js/36.b93e6c82.js"><link rel="prefetch" href="/assets/js/37.76d4f4b0.js"><link rel="prefetch" href="/assets/js/38.552874fb.js"><link rel="prefetch" href="/assets/js/39.480b200a.js"><link rel="prefetch" href="/assets/js/4.a3b52ac1.js"><link rel="prefetch" href="/assets/js/40.c977e5cc.js"><link rel="prefetch" href="/assets/js/41.16ef488e.js"><link rel="prefetch" href="/assets/js/42.5586394e.js"><link rel="prefetch" href="/assets/js/43.81fcdae4.js"><link rel="prefetch" href="/assets/js/44.257560ff.js"><link rel="prefetch" href="/assets/js/45.80cad620.js"><link rel="prefetch" href="/assets/js/47.b9d78f66.js"><link rel="prefetch" href="/assets/js/48.9b6b90c3.js"><link rel="prefetch" href="/assets/js/49.5415ce8d.js"><link rel="prefetch" href="/assets/js/5.2fdda47e.js"><link rel="prefetch" href="/assets/js/50.41919e7a.js"><link rel="prefetch" href="/assets/js/51.ee641033.js"><link rel="prefetch" href="/assets/js/52.720545fa.js"><link rel="prefetch" href="/assets/js/53.0cee526a.js"><link rel="prefetch" href="/assets/js/54.9366fcec.js"><link rel="prefetch" href="/assets/js/55.460d0d5e.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/7.01cfdf99.js"><link rel="prefetch" href="/assets/js/8.69bf0a02.js"><link rel="prefetch" href="/assets/js/9.97289efe.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb8992b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Algorithm</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Algorithm</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Algorithm/" class="nav-link">
+  Algorithm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/aReactNewLearner.html" class="sidebar-link">1. react新手入门</a></li><li><a href="/React/ReactBase/bJSX.html" class="sidebar-link">2. 理解JSX</a></li><li><a href="/React/ReactBase/cStateHooks.html" class="sidebar-link">3. setState Hooks</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/zReactPhilosophy.html" class="sidebar-link">49. React 哲学</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="【react进阶系列】手写redux-api"><a href="#【react进阶系列】手写redux-api" class="header-anchor">#</a> <a href="https://segmentfault.com/a/1190000016726553" target="_blank" rel="noopener noreferrer">【React进阶系列】手写redux api<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h1> <p>简介： 手写实现redux基础api</p> <h2 id="createstore-和store相关方法"><a href="#createstore-和store相关方法" class="header-anchor">#</a> createStore( )和store相关方法</h2> <p><strong>api回顾：</strong></p> <p><strong>createStore(reducer, [preloadedState], enhancer)</strong></p> <div class="language- extra-class"><pre class="language-text"><code>创建一个 Redux store 来以存放应用中所有的 state
+reducer (Function): 接收两个参数，当前的 state 树/要处理的 action，返回新的 state 树
+preloadedState: 初始时的 state
+enhancer (Function): store creator 的高阶函数，返回一个新的强化过的 store creator
+</code></pre></div><p><strong>Store 方法</strong></p> <div class="language- extra-class"><pre class="language-text"><code>getState() 返回应用当前的 state 树
+dispatch(action) 分发 action。这是触发 state 变化的惟一途径
+subscribe(listener) 添加一个变化监听器。每当 dispatch action 的时候就会执行，state 树中的一部分可能已经变化
+replaceReducer(nextReducer) 替换 store 当前用来计算 state 的 reducer（高级不常用，不作实现）实现 Redux 热加载机制会用到
+</code></pre></div><hr> <p>源码实现：</p> <div class="language- extra-class"><pre class="language-text"><code>./self-redux.js
+
+export function createStore(reducer, enhancer) {
+  if(enhancer) {
+     return enhancer(createStore)(reducer)
+  }
+  let currentState = {}
+  let currentListeners = []
+  function getState() {
+    return currentState
+  }
+  function subscribe(listeners) {
+    currentListeners.push(listener)
+  }
+  function dispatch(action) {
+    currentState = reducer(currentState, action)
+    currentListeners.forEach(v =&gt; v())
+    return action
+  }
+  dispatch({ type: '@rainie/init-store' })
+  return {
+    getState,
+    subscribe,
+    dispatch
+  }
+}
+</code></pre></div><p>demo:验证正确性</p> <div class="language- extra-class"><pre class="language-text"><code>// import { createStore } from 'redux'
+// 将redux文件替换成自己实现的redux文件
+   import { createStore } from './self-redux.js'
+
+// 这就是reducer处理函数，参数是状态和新的action
+function counter(state=0, action) {
+  // let state = state||0
+  switch (action.type) {
+    case '加机关枪':
+      return state + 1
+    case '减机关枪':
+      return state - 1
+    default:
+      return 10
+  }
+}
+// 新建store
+const store = createStore(counter)
+const init = store.getState()
+console.log(`一开始有机枪${init}把`)
+function listener(){
+  const current = store.getState()
+  console.log(`现在有机枪${current}把`)
+}
+// 订阅，每次state修改，都会执行listener
+store.subscribe(listener)
+// 提交状态变更的申请
+store.dispatch({ type: '加机关枪' })
+</code></pre></div><h2 id="combinereducers-reducers"><a href="#combinereducers-reducers" class="header-anchor">#</a> combineReducers(reducers)</h2> <p><strong>api简介</strong></p> <div class="language- extra-class"><pre class="language-text"><code>把一个由多个不同 reducer 函数作为 value 的 object，合并成一个最终的 reducer 函数
+实现 Redux 热加载机制会用到
+import { combineReducers } from 'redux'
+import todos from './todos'
+import counter from './counter'
+
+export default combineReducers({
+  todos,
+  counter
+})
+</code></pre></div><p><strong>实现：</strong></p> <p>实质就是返回一个大的function 接受state，action，然后根据key用不同的reducer
+注：combinedReducer的key跟state的key一样</p> <div class="language- extra-class"><pre class="language-text"><code>const reducer = combineReducers({
+  a: doSomethingWithA,
+  b: processB,
+  c: c
+})
+function reducer(state = {}, action) {
+  return {
+    a: doSomethingWithA(state.a, action),
+    b: processB(state.b, action),
+    c: c(state.c, action)
+  }
+}
+function combindReducer(reducers) {
+    // 第一个只是先过滤一遍 把非function的reducer过滤掉
+  const reducerKeys = Object.keys(reducers)
+  const finalReducers = {}
+  reducerKeys.forEach((key) =&gt; {
+      if(typeof reducers[key] === 'function') {
+      finalReducers[key] = reducers[key]
+      } 
+  })
+  const finalReducersKeys = Object.keys(finalReducers)
+    // 第二步比较重要 就是将所有reducer合在一起
+    // 根据key调用每个reducer，将他们的值合并在一起
+    let hasChange = false;
+    const nextState = {};
+    return function combind(state={}, action) {
+        finalReducersKeys.forEach((key) =&gt; {
+            const previousValue = state[key];
+            const nextValue = reducers[key](previousValue, action);
+            nextState[key] = nextValue;
+            hasChange = hasChange || previousValue !== nextValue
+        })
+        return hasChange ? nextState : state;
+    }
+}
+</code></pre></div><hr> <p><strong>applyMiddleware(...middleware)</strong></p> <div class="language- extra-class"><pre class="language-text"><code>使用包含自定义功能的 middleware 来扩展 Redux 是
+...middleware (arguments): 遵循 Redux middleware API 的函数。
+每个 middleware 接受 Store 的 dispatch 和 getState 函数作为命名参数，并返回一个函数。
+该函数会被传入 被称为 next 的下一个 middleware 的 dispatch 方法，并返回一个接收 action 的新函数，这个函数可以直接调用 next(action)，或者在其他需要的时刻调用，甚至根本不去调用它。
+调用链中最后一个 middleware 会接受真实的 store 的 dispatch 方法作为 next 参数，并借此结束调用链。
+所以，middleware 的函数签名是 ({ getState, dispatch }) =&gt; next =&gt; action
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import * as reducers from './reducers'
+
+let reducer = combineReducers(reducers)
+// applyMiddleware 为 createStore 注入了 middleware:
+let store = createStore(reducer, applyMiddleware(thunk))
+</code></pre></div><h2 id="中间件机制applymiddleware的实现"><a href="#中间件机制applymiddleware的实现" class="header-anchor">#</a> 中间件机制applyMiddleware的实现</h2> <p>中间件机制图</p> <p><img src="Redux-api.assets/bVbit84" alt="clipboard.png"></p> <p>实现步骤
+1.扩展createStore,使其接受第二个参数（中间件其实就是对createStore方法的一次扩展）
+2.实现applyMiddleware,对store的disptach进行处理
+3.实现一个中间件</p> <p>正常调用</p> <div class="language- extra-class"><pre class="language-text"><code>import React from 'react'
+import ReactDOM from 'react-dom'
+// import { createStore, applyMiddleware} from 'redux'
+import { createStore, applyMiddleware} from './self-redux'
+// import thunk from 'redux-thunk'
+import thunk from './self-redux-thunk'
+import { counter } from './index.redux'
+import { Provider } from './self-react-redux';
+import App from './App'
+ 
+const store = createStore(counter, applyMiddleware(thunk))
+ReactDOM.render(
+  (
+    &lt;Provider store={store}&gt;
+      &lt;App /&gt;
+    &lt;/Provider&gt;
+  ),
+  document.getElementById('root')) 
+// 便于理解：函数柯利化例子
+function add(x) {
+  return function(y) {
+    return x+y
+  }
+}
+add(1)(2) //3
+</code></pre></div><p>applymiddleware</p> <div class="language- extra-class"><pre class="language-text"><code>// ehancer(createStore)(reducer)
+// createStore(counter, applyMiddleware(thunk))
+// applyMiddleware(thunk)(createStore)(reducer)
+// 写法函数柯利化
+export function applyMiddleware(middleware) {
+  return function (createStore) {
+    return function(...args) {
+      // ...
+    }
+  }
+}
+
+
+// 只处理一个 middleware 时
+export function applyMiddleware(middleware) {
+   return createStore =&gt; (...args) =&gt; {
+     const store = createStore(...args)
+     let dispatch = store.dispatch
+
+     const midApi = {
+       getState: store.getState,
+       dispatch: (...args) =&gt; dispatch(...args)
+     }
+    // 经过中间件处理，返回新的dispatch覆盖旧的
+     dispatch = middleware(midApi)(store.dispatch)
+    // 正常中间件调用：middleware(midApi)(store.dispatch)(action)
+
+    return {
+      ...store,
+      dispatch
+    }
+   }
+ }
+
+// 处理多个middleware时
+
+//  多个 compose
+ export function applyMiddleware(...middlewares) {
+   return createStore =&gt; (...args) =&gt; {
+     const store = createStore(...args)
+     let dispatch = store.dispatch
+
+     const midApi = {
+       getState: store.getState,
+       dispatch: (...args) =&gt; dispatch(...args)
+     }
+
+    const middlewareChain = middlewares.map(middleware =&gt; middleware(midApi))
+    dispatch =&gt; compose(...middlewareChain(store.dispatch))
+    //  dispatch = middleware(midApi)(store.dispatch)
+    // middleware(midApi)(store.dispatch)(action)
+
+    return {
+      ...store,
+      dispatch
+    }
+   }
+ }
+</code></pre></div><p>手写redux-thunk异步中间件实现</p> <div class="language- extra-class"><pre class="language-text"><code>// middleware(midApi)(store.dispatch)(action)
+const thunk = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {
+  // next就是store.dispatch函数
+  // 如果是函数，执行以下，参数dispatch和getState
+  if (typeof action == 'function') {
+    return action(dispatch, getState)
+  }
+  // 默认 什么都不干
+  return next(action)
+}
+export default thunk
+
+处理异步action
+export function addGunAsync() {
+  // thunk插件作用，这里可以返回函数
+  return dispatch =&gt; {
+    setTimeout(() =&gt; {
+      // 异步结束后，手动执行dispatch
+      dispatch(addGun())
+    }, 2000)
+  }
+}
+</code></pre></div><p>趁热打铁，再实现一个中间件: dispatch接受一个数组，一次处理多个action</p> <div class="language- extra-class"><pre class="language-text"><code>export arrayThunk = ({ dispatch, getState }) =&gt; next =&gt; action =&gt; {
+  if(Array.isArray(action)) {
+    return action.forEach(v =&gt; dispatch(v))
+  }
+
+  return next(action)
+}
+
+这类action会被处理
+export function addTimes() {
+  return [{ type: ADD_GUN },{ type: ADD_GUN },{ type: ADD_GUN }]
+}
+</code></pre></div><h2 id="bindactioncreators的实现"><a href="#bindactioncreators的实现" class="header-anchor">#</a> bindActionCreators的实现</h2> <p>在react-redux connect mapDispatchToProps中使用到了该方法，可以去看那篇blog,有详解~</p> <p><strong>api: bindActionCreators(actionCreators, dispatch)</strong></p> <div class="language- extra-class"><pre class="language-text"><code>把 action creators 转成拥有同名 keys 的对象，但使用 dispatch 把每个 action creator 包围起来，这样可以直接调用它们
+</code></pre></div><p><strong>实现：</strong></p> <div class="language- extra-class"><pre class="language-text"><code> function bindActionCreator(creator, dispatch) {
+   return (...args) =&gt; dispatch(creator(...args))
+ }
+
+ export function bindActionCreators(creators, dispatch) {
+   let bound = {}
+   Object.keys(creators).forEach( v =&gt; {
+     let creator = creators[v]
+     bound[v] = bindActionCreator(creator, dispatch)
+   })
+   return bound
+ }
+//  简写
+ export function bindActionCreators(creators, dispatch) {
+  return Object.keys(creators).reduce((ret, item) =&gt; {
+     ret[item] =  bindActionCreator(creators[item], dispatch)
+     return ret
+   }, {})
+ }
+</code></pre></div><h2 id="compose的实现"><a href="#compose的实现" class="header-anchor">#</a> compose的实现</h2> <p><strong>api: compose(...functions)</strong></p> <div class="language- extra-class"><pre class="language-text"><code>从右到左来组合多个函数。
+当需要把多个 store 增强器 依次执行的时候，需要用到它
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import DevTools from './containers/DevTools'
+import reducer from '../reducers'
+
+const store = createStore(
+  reducer,
+  compose(
+    applyMiddleware(thunk),
+    DevTools.instrument()
+  )
+)
+</code></pre></div><p><strong>实现：</strong>
+compose(fn1, fn2, fn3)
+fn1(fn2(fn3))</p> <div class="language- extra-class"><pre class="language-text"><code> export function compose(...funcs) {
+   if(funcs.length == 0) {
+     return arg =&gt; arg
+   }
+   if(funcs.length == 1) {
+     return funcs[0]
+   }
+   return funcs.reduce((ret,item) =&gt; (...args) =&gt; ret(item(...args)))
+ }
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.bbde0c32.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/46.18b0883f.js" defer></script>
+  </body>
+</html>

@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "deploy.sh",
+    "putCode": "bash build.sh",
+    "deploy": "bash deploy.sh",
     "commit": "yarn build && yarn deploy"
   },
   "devDependencies": {

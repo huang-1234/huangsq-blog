@@ -98,7 +98,8 @@ const config = {
     {
       title: '浏览器',
       children: [
-        'Browser/jsEventLoop',
+        'Browser/ajsEventLoop',
+        'Browser/bRenderEngine'
       ]
     },
     {
@@ -117,8 +118,8 @@ const config = {
       title: 'CSS基础',
       children: [
         'CSSsyntax',
-        'box',
-        'layout',
+        'aBox',
+        'dLayout',
         'cssCartoon/rotate',
       ]
     },
