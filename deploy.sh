@@ -6,6 +6,11 @@ set -e
 # 生成静态文件
 npm run build
 
+git init
+git add .
+git commit -m 'commitVuepress update the renderEngine'
+git push -f https://github.com/huang-1234/MyvuePressBlog.git main
+
 # 进入生成的文件夹
 cd dist
 

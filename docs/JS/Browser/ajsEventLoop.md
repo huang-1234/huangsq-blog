@@ -48,8 +48,6 @@ function Fn1() {
 Fn1();
 ```
 
-<img :src="$withBase('/images/JS/jsEventLoop.assets/bg2015071004-1615470682675.png')" alt="mixureSecure">
-
 #### 变量对象
 
 关于变量对象可以参考我之前的博客[浅谈JS执行环境及作用域](https://www.cnblogs.com/formercoding/p/5881304.html)
