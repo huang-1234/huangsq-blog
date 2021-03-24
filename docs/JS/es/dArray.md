@@ -1,12 +1,55 @@
 # 4. Array
 
+##  js自带数组方法的返回值以及是否改变原数组
+
+js数组对象自带的方法有如下这些，除了`toSource()`这个方法比较少见以外其他的方法都比较常用到，另外还有常用的遍历数组的6个高阶函数`forEach,filter,map,some,every,reduce`。
+
+| 方法               | 描述                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| concat()           | 连接两个或更多的数组，并返回结果。 `数组Array`               |
+| join()             | 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。`字符串String` |
+| `pop()`            | 删除并返回数组的最后一个元素。 `元素item`                    |
+| `push()`           | 向数组的末尾添加一个或更多元素，并返回新的长度。 `属性length` |
+| `reverse()`        | 颠倒数组中元素的顺序。 `数组Array`                           |
+| `shift()`          | 删除并返回数组的第一个元素。  `元素item`                     |
+| slice()            | 从某个已有的数组返回选定的元素。 `元素item`                  |
+| `sort()`           | 对数组的元素进行排序。 `数组Array`                           |
+| `splice()`         | 删除元素，并向数组添加新元素,返回被替换的元素。`元素item`    |
+| `toSource()`       | 返回该对象的源代码。                                         |
+| `toString()`       | 把数组转换为字符串，并返回结果。`字符串String`               |
+| `toLocaleString()` | 把数组转换为本地数组，并返回结果。`数组Array`                |
+| `unshift()`        | 向数组的开头添加一个或更多元素，并返回新的长度。 `属性length` |
+| `valueOf()`        | 返回数组对象的原始值。`对象Object`                           |
+| `forEach()`        | 方法用于调用数组的每个元素，并将元素传递给回调函数。(没有返回值，将数组遍历) |
+| `filter()`         | 创建一个新的数组，<font color=red>新数组中的元素是通过检查指定数组中符合条件的所有元素,返回新数组</font>。`数组Array` |
+| map()              | 返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。`数组Array` |
+| some()             | 判断是否含有符合条件的元素，返回布尔值如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。如果没有满足条件的元素，则返回false。`布尔值Boolen` |
+| every()            | 判断是否全部元素符合条件，返回布尔值。`布尔值Boolen`         |
+| reduce()           | 接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。 |
+
+### 从返回值的角度
+
+我们将这些方法分有返回值(上述描述中红色字体返回值的类型)的和没有返回值的
+
+返回值为数组的：`concat(),reverse(),sort(),toLocaleString(),map(),filter()`
+返回值为字符串的：`join(),toString()`
+返回值为数组元素的：`pop(),shift(),slice(),splice()`
+返回值为数组长度的：`push(),unshift()`
+返回值为对象的：`valueOf()`
+返回值为布尔值的：`some(),every()`
+
+### 从是否改变原数组的角度
+
+可以分为改变原数组(上述方法名为红色的方法)和不改变原数组
+
+改变原数组的方法：`pop(),push(),reverse(),shift(),sort(),splice(),unshift()`
+
 JavaScript的 `**Array**` 对象是用于构造数组的全局对象，数组是类似于列表的高阶对象。
 
 **创建数组**
 
 ```
 var fruits = ['Apple', 'Banana'];
-
 console.log(fruits.length);
 // 2
 ```
@@ -16,13 +59,11 @@ console.log(fruits.length);
 ```
 var first = fruits[0];
 // Apple
-
 var last = fruits[fruits.length - 1];
 // Banana
 ```
 
 **遍历数组**
-
 ```
 fruits.forEach(function (item, index, array) {
     console.log(item, index);
@@ -64,7 +105,6 @@ var newLength = fruits.unshift('Strawberry') // add to the front
 ```
 fruits.push('Mango');
 // ["Strawberry", "Banana", "Mango"]
-
 var pos = fruits.indexOf('Banana');
 // 1
 ```
@@ -73,7 +113,6 @@ var pos = fruits.indexOf('Banana');
 
 ```
 var removedItem = fruits.splice(pos, 1); // this is how to remove an item
-
 // ["Strawberry", "Mango"]
 ```
 
@@ -104,7 +143,8 @@ var shallowCopy = fruits.slice(); // this is how to make a copy
 // ["Strawberry", "Mango"]
 ```
 
-## [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#语法)
+
+### [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#语法)
 
 ```
 [element0, element1, ..., elementN]
@@ -122,9 +162,9 @@ new Array(arrayLength)
 
   一个范围在 0 到 232-1 之间的整数，此时将返回一个 `length` 的值等于 `arrayLength` 的数组对象（言外之意就是该数组此时并没有包含任何实际的元素，不能理所当然地认为它包含 `arrayLength` 个值为 `undefined` 的元素）。如果传入的参数不是有效值，则会抛出 [`RangeError`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RangeError) 异常。
 
-## [描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#描述)
+### [描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#描述)
 
-数组是一种类列表对象，它的原型中提供了遍历和修改元素的相关操作。JavaScript 数组的长度和元素类型都是非固定的。因为数组的长度可随时改变，并且其数据在内存中也可以不连续，所以 JavaScript 数组不一定是密集型的，这取决于它的使用方式。一般来说，数组的这些特性会给使用带来方便，但如果这些特性不适用于你的特定使用场景的话，可以考虑使用类型数组 [`TypedArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)。
+数组是一种类列表对象，它的原型中提供了遍历和修改元素的相关操作。JavaScript 数组的长度和元素类型都是非固定的。<font color=red>因为数组的长度可随时改变，并且其数据在内存中也可以不连续</font>，所以 JavaScript 数组不一定是密集型的，这取决于它的使用方式。一般来说，数组的这些特性会给使用带来方便，但如果这些特性不适用于你的特定使用场景的话，可以考虑使用类型数组 [`TypedArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)。
 
 只能用整数作为数组元素的索引，而不能用字符串。后者称为[关联数组](https://en.wikipedia.org/wiki/Associative_array)。使用非整数并通过[方括号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties)或[点号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors)来访问或设置数组元素时，所操作的并不是数组列表中的元素，而是数组对象的[属性集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#Properties)上的变量。数组对象的属性和数组元素列表是分开存储的，并且数组的遍历和修改操作也不能作用于这些命名属性。
 
@@ -179,7 +219,6 @@ JavaScript 数组的 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/Jav
 ```js
 var fruits = [];
 fruits.push('banana', 'apple', 'peach');
-
 console.log(fruits.length); // 3
 ```
 
@@ -231,50 +270,6 @@ myArray = myRe.exec("cdbBdbsbz");
 | `index`       | 只读属性，匹配到的子串在原始字符串中的索引                   | 1              |
 | `[0]`         | 只读元素，本次匹配到的子串                                   | dbBd           |
 | `[1], ...[n]` | 只读元素，正则表达式中所指定的分组所匹配到的子串，其数量由正则中的分组数量决定，无最大上限 | [1]: bB [2]: d |
-
-## [属性](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#属性)
-
-```
-Array.length
-```
-
-- [`get Array[@@species\]`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/@@species)
-
-  返回 `Array` 构造函数。
-
-- [`Array.prototype`](https://developer.mozilla.org/zh-CN/docs/orphaned/Web/JavaScript/Reference/Global_Objects/Array/prototype)
-
-  通过数组的原型对象可以为所有数组对象添加属性。
-
-## [方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#方法)
-
-- [`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
-
-  从类数组对象或者可迭代对象中创建一个新的数组实例。
-
-- [`Array.isArray()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
-
-  用来判断某个变量是否是一个数组对象。
-
-- [`Array.of()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
-
-  根据一组参数来创建新的数组实例，支持任意的参数数量和类型。
-
-## [数组实例](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#数组实例)
-
-所有数组实例都会从 [`Array.prototype`](https://developer.mozilla.org/zh-CN/docs/orphaned/Web/JavaScript/Reference/Global_Objects/Array/prototype) 继承属性和方法。修改 `Array` 的原型会影响到所有的数组实例。
-
-### [属性](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#属性_2)
-
-- `Array.prototype.constructor`
-
-  所有的数组实例都继承了这个属性，它的值就是 [`Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)，表明了所有的数组都是由 [`Array`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array) 构造出来的。
-
-- [`Array.prototype.length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
-
-  上面说了，因为 `Array.prototype` 也是个数组，所以它也有 `length` 属性，这个值为 `0`，因为它是个空数组。
-
-### [方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#方法_2)
 
 #### 修改器方法
 
@@ -362,11 +357,7 @@ Array.length
 
   返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
 
-
-
 #### 迭代方法
-
-
 
 在下面的众多遍历方法中，有很多方法都需要指定一个回调函数作为参数。在每一个数组元素都分别执行完回调函数之前，数组的length属性会被缓存在某个地方，所以，如果你在回调函数中为当前数组添加了新的元素，那么那些新添加的元素是不会被遍历到的。此外，如果在回调函数中对当前数组进行了其它修改，比如改变某个元素的值或者删掉某个元素，那么随后的遍历操作可能会受到未预期的影响。总之，不要尝试在遍历过程中对原数组进行任何修改，虽然规范对这样的操作进行了详细的定义，但为了可读性和可维护性，请不要这样做。
 
@@ -422,133 +413,6 @@ Array.length
 
   和上面的 `values() 方法是同一个函数。`
 
-
-
-## [数组泛型方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#数组泛型方法)
-
-**泛型方法是非标准，并且已弃用，有可能不久就会移除。** 需注意的是此方法同时有跨浏览器问题. 但是 [Github上有可用的shim](https://github.com/plusdude/array-generics)。
-
-有时我们会希望在字符串或其他类数组对象上使用数组所提供的方法（如函数的 [arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)）。此时你可以把一个字符串作为一个字符数组来看待（也就是说，把非数组以某种方式看成是一个数组）。比如，可以用下面的方法来检查变量 `str` 中的字符是否都是字母：
-
-```
-function isLetter(character) {
-  return character >= 'a' && character <= 'z';
-}
-
-if (Array.prototype.every.call(str, isLetter)) {
-  console.log("The string '" + str + "' contains only letters!");
-}
-```
-
-这种方法能够行得通，但不够简洁，JavaScript 1.6 中引入了一个泛型化的简写形式：
-
-```
-if (Array.every(str, isLetter)) {
-  console.log("The string '" + str + "' contains only letters!");
-}
-```
-
-[`String`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String) 对象也包含一些泛型方法，见： [Generics](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String#string_generic_methods)。
-
-注意，这些并不属于 ECMAScript 标准，也不能在非 Gecko 浏览器中使用。你可以用标准方法 [`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 来替代上面的写法， `from` 方法可以将一个对象转换为真正的数组（虽然老的浏览器可能不支持）：
-
-```
-if (Array.from(str).every(isLetter)) {
-  console.log("The string '" + str + "' contains only letters!");
-}
-```
-
-## [示例](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#示例)
-
-### [创建数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#创建数组)
-
-下面这个例子创建了一个长度为 0 的数组 `msgArray`，然后给 `msgArray[0]` 和 `msgArray[99]` 赋值，从而导致数组长度变为了 100。
-
-```
-var msgArray = [];
-msgArray[0] = 'Hello';
-msgArray[99] = 'world';
-
-if (msgArray.length === 100) {
-  console.log('The length is 100.');
-}
-```
-
-### [创建二维数组](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#创建二维数组)
-
-下面的例子创建了一个代表国际象棋棋盘的二维数组，然后将 (6, 4) 上的 Pawn （卒）拷贝到 (4, 4) 位置，而原本 (6, 4) 位置则被设置为空格。
-
-```
-var board = [
-  ['R','N','B','Q','K','B','N','R'],
-  ['P','P','P','P','P','P','P','P'],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  [' ',' ',' ',' ',' ',' ',' ',' '],
-  ['p','p','p','p','p','p','p','p'],
-  ['r','n','b','q','k','b','n','r'] ];
-
-console.log(board.join('\n') + '\n\n');
-
-// Move King's Pawn forward 2
-board[4][4] = board[6][4];
-board[6][4] = ' ';
-console.log(board.join('\n'));
-```
-
-下面是输出：
-
-```
-R,N,B,Q,K,B,N,R
-P,P,P,P,P,P,P,P
- , , , , , , ,
- , , , , , , ,
- , , , , , , ,
- , , , , , , ,
-p,p,p,p,p,p,p,p
-r,n,b,q,k,b,n,r
-
-R,N,B,Q,K,B,N,R
-P,P,P,P,P,P,P,P
- , , , , , , ,
- , , , , , , ,
- , , , ,p, , ,
- , , , , , , ,
-p,p,p,p, ,p,p,p
-r,n,b,q,k,b,n,r
-```
-
-### [用数组将一组值以表格形式显示](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#用数组将一组值以表格形式显示)
-
-```
-values = [];
-for (var x = 0; x < 10; x++){
- values.push([
-  2 ** x,
-  2 * x ** 2
- ])
-};
-console.table(values)
-```
-
-结果为：
-
-```
-0	1	0
-1	2	2
-2	4	8
-3	8	18
-4	16	32
-5	32	50
-6	64	72
-7	128	98
-8	256	128
-9	512	162
-```
-
-（第一列为索引）
-
 ## [规范](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#规范)
 
 | 规范                                                         | 状态            | 说明                                                         |
@@ -557,3 +421,176 @@ console.table(values)
 | [ECMAScript 5.1 (ECMA-262) Array](https://www.ecma-international.org/ecma-262/5.1/#sec-15.4) | Standard        | 新增方法: [`Array.isArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray), [`indexOf`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf), [`lastIndexOf`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf), [`every`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`some`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some), [`forEach`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach), [`map`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [`filter`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), [`reduce`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce), [`reduceRight`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight) |
 | [ECMAScript 2015 (6th Edition, ECMA-262) Array](https://www.ecma-international.org/ecma-262/6.0/#sec-array-objects) | Standard        | 新增方法：[`Array.from`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [`Array.of`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [`find`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [`findIndex`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex), [`fill`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill), [`copyWithin`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin) |
 | [ECMAScript (ECMA-262) Array](https://tc39.es/ecma262/#sec-array-objects) | Living Standard | 新增方法：[`Array.prototype.includes()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) |
+
+## MDN中系统学习Array
+
+### 数组方法列举
+
+> |[数组方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array) [`Array.prototype.at()`]|说明|备注|
+>
+>| ---------------- | ------------------------------------------------------------ |-----------|
+
+1. [`Array.prototype[@@iterator]()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)
+
+2. [`at()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+
+3. [`concat()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+
+4. [`copyWithin()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
+
+5. [`entries()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)
+
+6. [`every()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+
+7. [`fill()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+
+8. [`filter()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+9. [`find()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+
+10. [`findIndex()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+
+11. [`flat()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+
+12. [`flatMap()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
+
+13. [`forEach()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+14. [`Array.from()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+
+15. [`includes()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+
+16. [`indexOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+
+17. [`Array.isArray()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+
+18. [`join()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+
+19. [`keys()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys)
+
+20. [`lastIndexOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
+
+21. [`map()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+22. [`Array.of()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
+
+23. [`pop()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+
+24. [`push()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+25. [`reduce()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+26. [`reduceRight()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight)
+
+27. [`reverse()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+
+28. [`shift()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+
+29. [`slice()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+
+30. [`some()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+
+31. [`sort()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+32. *`splice()`*
+
+33. [`toLocaleString()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString)
+
+34. [`toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toSource)
+
+35. [`toString()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
+
+36. [`unshift()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+
+37. [`values()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values)
+
+## 数组方法细节
+
+### 31. sort()内部细节
+
+```text
+sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的
+由于它取决于具体实现，因此无法保证排序的时间和空间复杂性。
+arr.sort([compareFunction])
+参数f
+compareFunction 可选
+用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。
+firstEl
+第一个用于比较的元素。
+secondEl
+第二个用于比较的元素。
+返回值
+排序后的数组。请注意，数组已原地排序，并且不进行复制。
+
+描述
+如果没有指明 compareFunction ，那么元素会按照转换为的字符串的诸个字符的Unicode位点进行排序。例如 "Banana" 会被排列到 "cherry" 之前。当数字按由小到大排序时，9 出现在 80 之前，但因为（没有指明 compareFunction），比较的数字会先被转换为字符串，所以在Unicode顺序上 "80" 要比 "9" 要靠前。
+
+如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
+
+如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；
+如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+所以，比较函数格式如下：
+
+function compare(a, b) {
+  if (a < b ) {           // 按某种排序标准进行比较, a 小于 b
+    return -1;
+  }
+  if (a > b ) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
+要比较数字而非字符串，比较函数可以简单的以 a 减 b，如下的函数将会将数组升序排列
+
+function compareNumbers(a, b) {
+  return a - b;
+}
+sort 方法可以使用 函数表达式 方便地书写：
+
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return a - b;
+});
+console.log(numbers);
+
+也可以写成：
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+
+// [1, 2, 3, 4, 5]
+对象可以按照某个属性排序：
+
+var items = [
+  { name: 'Edward', value: 21 },
+  { name: 'Sharpe', value: 37 },
+  { name: 'And', value: 45 },
+  { name: 'The', value: -12 },
+  { name: 'Magnetic' },
+  { name: 'Zeros', value: 37 }
+];
+
+// sort by value
+items.sort(function (a, b) {
+  return (a.value - b.value)
+});
+
+// sort by name
+items.sort(function(a, b) {
+  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+```
+

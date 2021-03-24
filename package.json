@@ -2,10 +2,10 @@
   "name": "jshuangblog",
   "version": "1.0.1",
   "description": "myBlogForMynote",
-  "main": "y",
+  "main": "index.js",
   "repository": "y",
   "author": "hsq",
-  "license": "y",
+  "license": "2021",
   "private": true,
   "scripts": {
     "dev": "vuepress dev docs",

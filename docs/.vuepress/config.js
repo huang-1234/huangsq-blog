@@ -25,6 +25,12 @@ const config = {
           { text: 'CSS', link: '/CSS/' },
           { text: 'JS', link: '/JS/' },
           {
+            text: '浏览器相关',
+            items: [
+              {text:'浏览器',link:'/Browser/'}
+            ]
+          },
+          {
             text: 'React',
             items: [
               { text: 'React基础', link: '/React/' },
@@ -46,7 +52,7 @@ const config = {
         ]
       },
       {
-        text: '项目相关',
+        text: '项目',
         ariaLabel: 'webDesign',
         items: [
           { text: '项目', link: '/Project/' },
@@ -54,7 +60,7 @@ const config = {
             text: '项目工具',
             items: [
               {text:'Git工具',link:'/Tools/'}
-            ],
+            ]
           }
         ]
       }
@@ -62,11 +68,13 @@ const config = {
     sidebar: {
       '/CSS/': getCSS(),
       '/JS/': getJS(),
+      '/Browser/':getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
       '/Vue/':getVueBase(),
       '/Algorithm/': getAlgorithm(),
       '/Project/': getProject(),
+      '/Echart/':getEchart(),
       '/Tools/':getTools(),
     }
   }
@@ -96,13 +104,6 @@ const config = {
       ]
     },
     {
-      title: '浏览器',
-      children: [
-        'Browser/ajsEventLoop',
-        'Browser/bRenderEngine'
-      ]
-    },
-    {
       title: 'Node',
       children: [
         'Node/npm/npmAndYarn',
@@ -127,6 +128,18 @@ const config = {
       title: 'Sass',
       children: [
         'Sass/install-node-sass',
+      ]
+    }
+  ]
+}
+// getBrowser
+function getBrowser() {
+  return [
+    {
+      title:'浏览器原理',
+      children: [
+        'ajsEventLoop',
+        'bRenderEngine'
       ]
     }
   ]
@@ -186,6 +199,18 @@ function getVueBase() {
       children: [
         'Innovative/Second-handBooks'
       ]
+    },
+    {
+      title: 'Echart',
+      children: [
+        'Echart/aDataV'
+      ]
+    },
+    {
+      title: 'Umi',
+      children: [
+        'Umi/UmiFirst'
+      ]
     }
   ]
 }
@@ -198,6 +223,17 @@ function getTools() {
         'Git/git',
         'Git/gitCmCmd',
         'Git/error'
+      ]
+    }
+  ]
+}
+// getEchart
+function getEchart() {
+  return [
+    {
+      title: '百度数据可视化Echart',
+      children: [
+        'aDataV'
       ]
     }
   ]
