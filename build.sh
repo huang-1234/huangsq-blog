@@ -11,6 +11,6 @@ npm run build
 # git
 git init
 git add .
-git commit -m 'commitVuepress update the renderEngine'
+git commit -m 'commitVuepress update the JS'
 git remote add origin https://github.com/huang-1234/MyvuePressBlog.git
 git push -f origin main
