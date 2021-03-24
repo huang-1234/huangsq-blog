@@ -8,7 +8,7 @@ npm run build
 
 git init
 git add .
-git commit -m 'commitVuepress update the renderEngine'
+git commit -m 'commitVuepress update the Array and String'
 git push -f https://github.com/huang-1234/MyvuePressBlog.git main
 
 # 进入生成的文件夹
@@ -19,7 +19,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'commitBlog update the renderEngine'
+git commit -m 'commitBlog update the Array and String'
 
 # 如果发布到 https://<USERNAME>.github.io
 git push -f git@github.com:huang-1234/huang-1234.github.io.git master
