@@ -63,6 +63,13 @@ const config = {
             ]
           }
         ]
+      },
+      {
+        text: '工作',
+        ariaLabel: 'webDesign',
+        items: [
+          {text: '面经',link:'/Interface/'}
+        ]
       }
     ],
     sidebar: {
@@ -75,7 +82,8 @@ const config = {
       '/Algorithm/': getAlgorithm(),
       '/Project/': getProject(),
       '/Echart/':getEchart(),
-      '/Tools/':getTools(),
+      '/Tools/': getTools(),
+      '/Interface/':getInterface(),
     }
   }
 }
@@ -113,6 +121,7 @@ const config = {
   ]
 }
 
+// CSS学习的笔记
  function getCSS() {
   return [
     {
@@ -132,7 +141,7 @@ const config = {
     }
   ]
 }
-// getBrowser
+// 浏览器原理和渲染方面的问题
 function getBrowser() {
   return [
     {
@@ -141,10 +150,22 @@ function getBrowser() {
         'ajsEventLoop',
         'bRenderEngine'
       ]
+    },
+    {
+      title: 'HTTP',
+      children: [
+        'HTTP/aHTTPLife',
+        'HTTP/bHTTPTCP',
+        'HTTP/HTTP1',
+        'HTTP/HTTP2',
+        'HTTP/HTTPS',
+        'HTTP/whatHTTP',
+        'HTTP/httpStorage',
+      ]
     }
   ]
 }
-//getReact
+//React基础和扩展
  function getReact() {
   return [
     {
@@ -172,7 +193,7 @@ function getReactExtends() {
     }
   ]
 }
-// getVue
+// Vue基础和扩展
 function getVueBase() {
   return [
     {
@@ -180,7 +201,7 @@ function getVueBase() {
     }
   ]
 }
-//getAlgorithm
+//算法方面
  function getAlgorithm() {
   return [
     {
@@ -191,7 +212,7 @@ function getVueBase() {
     }
   ]
 }
-//getInnovative
+//各种项目方面，以及目前前端写项目需要用到的集成框架和工具
  function getProject() {
   return [
     {
@@ -219,7 +240,7 @@ function getTools() {
   return [
     {
       title: '前端项目工具',
-      chiledren: [
+      children: [
         'Git/git',
         'Git/gitCmCmd',
         'Git/error'
@@ -234,6 +255,32 @@ function getEchart() {
       title: '百度数据可视化Echart',
       children: [
         'aDataV'
+      ]
+    }
+  ]
+}
+
+// 工作导航栏部分
+function getInterface() {
+  return [
+    {
+      title: '面试基础重点',
+      children: [
+        'InfaExperience/Browser/BrowserWebkitHowToRender',
+        'InfaExperience/CSS/Important'
+      ]
+    },
+    {
+      title: '别人面试的经历',
+      children: [
+        'Others/Baidu',
+        'Others/ByteDance'
+      ]
+    },
+    {
+      title: 'me',
+      children: [
+        
       ]
     }
   ]

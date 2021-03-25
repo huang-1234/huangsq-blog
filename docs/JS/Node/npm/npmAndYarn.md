@@ -2,7 +2,6 @@
 
 ```js
 yarn init --yes # 简写 -y
-
 npm init --yes # 简写 -y
 ```
 
@@ -35,7 +34,6 @@ taobao --https://registry.npm.taobao.org/
 
 ```js
 yarn global add [package]
-
 npm install [package] -g 
 ```
 
@@ -43,7 +41,6 @@ npm install [package] -g
 
 ```js
 yarn remove <packageName>
-    
 npm uninstall <packageName> -S
 ```
 
@@ -51,7 +48,6 @@ npm uninstall <packageName> -S
 
 ```js
 yarn global remove <packageName>
-
 npm uninstall -g <packageName>    
 ```
 
@@ -138,7 +134,7 @@ npm i module_name -D(--save-dev)　  # --save-dev 的意思是将模块安装到
 运行 npm i 初始化项目时，会自动安装moudule_name到node_modules目录中
 之后运行npm i --production或者注明NODE_ENV变量值为production时，会自动安装moudule_name到node_modules目录中，即是在线上环境运行时会将包安装
 
-`npm i ``module_name ``–D`
+`npm i ` `module_name ` `–D`
 
 会把moudule_name包安装到node_modules目录中
 **会在package.json的devDependencies属性下添加moudule_name**
