@@ -96,7 +96,7 @@ var config = {
 function getJS() {
   return [{
     title: 'JS',
-    children: ['es/aJSType', 'es/bVarLetConst', 'es/cString', 'es/dArray', 'es/eObject', 'es/fRegExp', 'es/gModules', 'es/LongPromise']
+    children: ['es/aJSType', 'es/bVarLetConst', 'es/cString', 'es/dArray', 'es/eObject', 'es/fRegExp', 'es/gModules', 'es/ProtoTypeAndproto', 'es/zNewByme', 'es/LongPromise']
   }, {
     title: 'BOM',
     children: []

@@ -102,7 +102,11 @@ const config = {
         'es/eObject',
         'es/fRegExp',
         'es/gModules',
-        'es/LongPromise'
+        'es/ProtoTypeAndproto',
+
+        'es/zNewByme',
+
+        'es/LongPromise',
       ]
     },
     {
