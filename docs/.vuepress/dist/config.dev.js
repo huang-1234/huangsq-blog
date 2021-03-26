@@ -237,6 +237,9 @@ function getInterface() {
     title: '别人面试的经历',
     children: ['Others/Baidu', 'Others/ByteDance']
   }, {
+    title: '前端知识架构',
+    children: ['FrontEknowledgeArch/learnFront']
+  }, {
     title: 'me',
     children: []
   }];

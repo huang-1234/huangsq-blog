@@ -339,6 +339,12 @@ function getInterface() {
       ]
     },
     {
+      title: '前端知识架构',
+      children: [
+        'FrontEknowledgeArch/learnFront'
+      ]
+    },
+    {
       title: 'me',
       children: [
         
