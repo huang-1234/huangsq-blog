@@ -49,11 +49,11 @@ var config = {
         }]
       }]
     }, {
-      text: 'Algorithm',
+      text: '算法&&AI',
       ariaLabel: 'webDesign',
       items: [{
-        text: 'Algorithm',
-        link: '/Algorithm/'
+        text: '算法',
+        link: '/AlgorithmAI/'
       }]
     }, {
       text: '项目',
@@ -77,16 +77,22 @@ var config = {
       }]
     }],
     sidebar: {
+      // 前端基础&&浏览器&&框架
       '/CSS/': getCSS(),
       '/JS/': getJS(),
       '/Browser/': getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
       '/Vue/': getVueBase(),
-      '/Algorithm/': getAlgorithm(),
+      //算法&&数学&&机器学习&&人工智能
+      '/AlgorithmAI/': getAlgorithm(),
+      // '/AlgorithmAI/Math/': getMath(),
+      // '/AlgorithmAI/MachineLearning/':getMachineLearning(),
+      // 项目方面
       '/Project/': getProject(),
       '/Echart/': getEchart(),
       '/Tools/': getTools(),
+      // 工作和面试经历
       '/Interface/': getInterface()
     }
   }
@@ -96,7 +102,8 @@ var config = {
 function getJS() {
   return [{
     title: 'JS',
-    children: ['es/aJSType', 'es/bVarLetConst', 'es/cString', 'es/dArray', 'es/eObject', 'es/fRegExp', 'es/gModules', 'es/ProtoTypeAndproto', 'es/zNewByme', 'es/LongPromise']
+    children: [// es基础
+    'es/aJSType', 'es/bVarLetConst', 'es/cString', 'es/dArray', 'es/eObject', 'es/fRegExp', 'es/gModules', 'es/ProtoTypeAndproto', 'es/zNewByme', 'es/LongPromise']
   }, {
     title: 'BOM',
     children: []
@@ -110,10 +117,13 @@ function getJS() {
 function getCSS() {
   return [{
     title: 'CSS基础',
-    children: ['CSSsyntax', 'aBox', 'dLayout', 'cssCartoon/rotate']
+    children: [// CSS基础
+    'aBox', 'dLayout', // CSS特效
+    'cssCartoon/rotate', 'CSSsyntax']
   }, {
     title: 'Sass',
-    children: ['Sass/install-node-sass']
+    children: [// sass的使用入门
+    'Sass/install-node-sass']
   }];
 } // 浏览器原理和渲染方面的问题
 
@@ -124,7 +134,7 @@ function getBrowser() {
     children: ['ajsEventLoop', 'bRenderEngine']
   }, {
     title: 'HTTP',
-    children: ['HTTP/aHTTPLife', 'HTTP/bHTTPTCP', 'HTTP/HTTP1', 'HTTP/HTTP2', 'HTTP/HTTPS', 'HTTP/whatHTTP', 'HTTP/httpStorage']
+    children: ['HTTP/aHTTPLife', 'HTTP/bHTTPTCP', 'HTTP/cHTTPBase', 'HTTP/HTTP1', 'HTTP/HTTP2', 'HTTP/HTTPS', 'HTTP/httpStorage', 'HTTP/zLearnHTTP']
   }];
 } //React基础和扩展
 
@@ -140,19 +150,51 @@ function getReact() {
 }
 
 function getReactExtends() {
-  return [{}];
+  return [{
+    text: 'React扩展',
+    children: []
+  }];
 } // Vue基础和扩展
 
 
 function getVueBase() {
   return [{}];
-} //算法方面
+} //算法&&AI&&机器学习&&数学
 
 
 function getAlgorithm() {
   return [{
     title: 'Algorithm',
     children: ['DP/DP']
+  }, {
+    title: '数学基础',
+    children: ['Math/aCalculus', // 微积分
+    'Math/bLinearAlgebra', // 线性代数
+    'Math/cProbabilityTheory' // 概率论
+    ]
+  }, {
+    title: '机器学习',
+    children: []
+  }, {
+    title: 'AI',
+    children: []
+  }];
+}
+
+function getMath() {
+  return [{
+    text: '微积分',
+    children: ['aCalculus', // 微积分
+    'bLinearAlgebra', // 线性代数
+    'cProbabilityTheory' // 概率论
+    ]
+  }];
+}
+
+function getMachineLearning() {
+  return [{
+    text: '机器学习',
+    children: []
   }];
 } //各种项目方面，以及目前前端写项目需要用到的集成框架和工具
 

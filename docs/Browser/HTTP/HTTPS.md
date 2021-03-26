@@ -6,7 +6,7 @@
 
 鉴于 HTTP 的明文传输使得传输过程毫无安全性可言，且制约了网上购物、在线转账等一系列场景应用，于是倒逼着我们要引入加密方案。
 
-<img :src="$withBase('/HTTPS01.png')" alt="HTTPS01"/>
+<img :src="$withBase('/images/Browser/HTTP/HTTPS01.png')" alt="HTTPS01"/>
 
 通常 HTTP 直接和 TCP 通信，HTTPS 则先和安全层通信，然后安全层再和 TCP 层通信。也就是说 HTTPS 所有的安全核心都在安全层，它不会影响到上面的 HTTP 协议，也不会影响到下面的 TCP/IP。
 
@@ -16,7 +16,7 @@
 
 所谓对称加密是指加密和解密都使用的是相同的密钥。
 
-<img :src="$withBase('/HTTPS02.png')" alt="HTTPS02"/>
+<img :src="$withBase('/images/Browser/HTTP/HTTPS02.png')" alt="HTTPS02"/>
 
 HTTPS 首先要协商加解密方式，这个过程就是 HTTPS 建立安全连接的过程。
 
@@ -35,7 +35,7 @@ HTTPS 首先要协商加解密方式，这个过程就是 HTTPS 建立安全连�
 
 服务器会将其中的一个密钥通过明文的形式发送给浏览器，我们把这个密钥称为公钥，服务器自己留下的那个密钥称为私钥。顾名思义，公钥是每个人都能获取到的，而私钥只有服务器才能知道，不对任何人公开。
 
-<img :src="$withBase('/HTTPS03.png')" alt="HTTPS03"/>
+<img :src="$withBase('/images/Browser/HTTP/HTTPS03.png')" alt="HTTPS03"/>
 
 请求流程：
 
@@ -55,7 +55,7 @@ HTTPS 首先要协商加解密方式，这个过程就是 HTTPS 建立安全连�
 
 在传输数据阶段依然使用对称加密，但是对称加密的密钥我们采用非对称加密来传输。
 
-<img :src="$withBase('/HTTPS04.png')" alt="HTTPS04"/>
+<img :src="$withBase('/images/Browser/HTTP/HTTPS04.png')" alt="HTTPS04"/>
 
 流程如下：
 
@@ -79,7 +79,7 @@ HTTPS 首先要协商加解密方式，这个过程就是 HTTPS 建立安全连�
 
 数字证书有两个作用：一个是通过数字证书向浏览器证明服务器的身份，另一个是数字证书里面包含了服务器公钥。
 
-<img :src="$withBase('/HTTPS05.png')" alt="HTTPS05"/>
+<img :src="$withBase('/images/Browser/HTTP/HTTPS05.png')" alt="HTTPS05"/>
 
 主要做了两点改变：
 

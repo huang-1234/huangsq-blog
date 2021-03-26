@@ -45,10 +45,10 @@ const config = {
         ],
       },
       {
-        text: 'Algorithm',
+        text: '算法&&AI',
         ariaLabel: 'webDesign',
         items: [
-          {text:'Algorithm',link:'/Algorithm/'}
+          { text: '算法', link: '/AlgorithmAI/' }
         ]
       },
       {
@@ -73,16 +73,22 @@ const config = {
       }
     ],
     sidebar: {
+      // 前端基础&&浏览器&&框架
       '/CSS/': getCSS(),
       '/JS/': getJS(),
       '/Browser/':getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
-      '/Vue/':getVueBase(),
-      '/Algorithm/': getAlgorithm(),
+      '/Vue/': getVueBase(),
+      //算法&&数学&&机器学习&&人工智能
+      '/AlgorithmAI/': getAlgorithm(),
+      // '/AlgorithmAI/Math/': getMath(),
+      // '/AlgorithmAI/MachineLearning/':getMachineLearning(),
+      // 项目方面
       '/Project/': getProject(),
       '/Echart/':getEchart(),
       '/Tools/': getTools(),
+      // 工作和面试经历
       '/Interface/':getInterface(),
     }
   }
@@ -95,6 +101,7 @@ const config = {
     {
       title: 'JS',
       children: [
+        // es基础
         'es/aJSType',
         'es/bVarLetConst',
         'es/cString',
@@ -121,7 +128,6 @@ const config = {
         'Node/npm/npmAndYarn',
       ]
     }
-
   ]
 }
 
@@ -131,15 +137,18 @@ const config = {
     {
       title: 'CSS基础',
       children: [
-        'CSSsyntax',
+        // CSS基础
         'aBox',
         'dLayout',
+        // CSS特效
         'cssCartoon/rotate',
+        'CSSsyntax',
       ]
     },
     {
       title: 'Sass',
       children: [
+        // sass的使用入门
         'Sass/install-node-sass',
       ]
     }
@@ -160,11 +169,14 @@ function getBrowser() {
       children: [
         'HTTP/aHTTPLife',
         'HTTP/bHTTPTCP',
+        'HTTP/cHTTPBase',
         'HTTP/HTTP1',
         'HTTP/HTTP2',
         'HTTP/HTTPS',
-        'HTTP/whatHTTP',
+
         'HTTP/httpStorage',
+
+        'HTTP/zLearnHTTP'
       ]
     }
   ]
@@ -193,7 +205,10 @@ function getBrowser() {
 function getReactExtends() {
   return [
     {
-      
+      text: 'React扩展',
+      children: [
+        
+      ]
     }
   ]
 }
@@ -205,13 +220,55 @@ function getVueBase() {
     }
   ]
 }
-//算法方面
- function getAlgorithm() {
+//算法&&AI&&机器学习&&数学
+function getAlgorithm() {
   return [
     {
       title: 'Algorithm',
       children: [
         'DP/DP'
+      ]
+    },
+    {
+      title: '数学基础',
+      children: [
+        'Math/aCalculus', // 微积分
+        'Math/bLinearAlgebra', // 线性代数
+        'Math/cProbabilityTheory', // 概率论
+      ]
+    },
+    {
+      title: '机器学习',
+      children: [
+        
+      ]
+    },
+    {
+      title: 'AI',
+      children:[
+        
+      ]
+    }
+  ]
+}
+function getMath() {
+  return [
+    {
+      text: '微积分',
+      children: [
+        'aCalculus', // 微积分
+        'bLinearAlgebra', // 线性代数
+        'cProbabilityTheory', // 概率论
+      ]
+    }
+  ]
+}
+function getMachineLearning() {
+  return [
+    {
+      text: '机器学习',
+      children: [
+        
       ]
     }
   ]

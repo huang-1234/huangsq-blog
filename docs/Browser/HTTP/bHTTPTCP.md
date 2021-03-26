@@ -1,4 +1,4 @@
-# HTTP 前置知识
+# HTTP&TCP/IP协议栈
 
 ## 日常使用 HTTP
 
@@ -22,7 +22,7 @@ Web 使用一种名为 HTTP(HyperText Transfer Protocol，超文本传输协议 
 
 TCP/IP 协议族按层次分别分为以下 4 层：**应用层、传输层、网络层和数据链路层**。
 
-<img :src="$withBase('/whatHTTP02.png')" alt="whatHTTP02"/>
+<img :src="$withBase('/images/Browser/HTTP/whatHTTP02.png')" alt="whatHTTP02"/>
 
 **应用层**
 

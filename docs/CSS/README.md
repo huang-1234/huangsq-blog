@@ -1,2 +1,45 @@
-欢迎来到CSS学习
+# CSS学习中
 
+# 学习CSS 第一步
+
+CSS（层叠样式表）用于设置和布置网页 - 例如，更改内容的字体，颜色，大小和间距，将其拆分为多个列，或添加动画和其他装饰功能。这个模块为你掌握CSS的过程提供了一个温和的开端，包括它如何工作的基础知识，语法是什么样的，以及如何开始使用它来为HTML添加样式。
+
+## [先决条件](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps#先决条件)
+
+在开始本单元之前，您应该：
+
+1. 基本熟悉使用计算机，并被动地使用Web（即查看它，消费内容）。
+2. 基本工作环境的设置详见[安装基本软件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Installing_basic_software)，并了解如何创建和管理文件，详见[处理文件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Dealing_with_files)。
+3. 熟悉 [HTML概述](https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML) 章节中提到的基本HTML知识.
+
+**注意**： 如果你工作在一个无权创建自己文件的电脑/平板/其他设备上，你需要在一个在线编程工具上试验 （大多数）代码示例，如 [JSBin](http://jsbin.com/) 或者 [Thimble](https://thimble.mozilla.org/) 等。
+
+## [指南](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps#指南)
+
+该模块包含以下文章 , 这些文章将带您了解CSS的所有基本理论，并提供测试一些技能的机会。
+
+- [什么是 CSS?](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/What_is_CSS)
+
+  **[CSS](https://developer.mozilla.org/en-US/docs/Glossary/CSS)** (Cascading Style Sheets) 使你创建外观漂亮的网页，但它如何起作用的呢？这篇文章用一个简单的语法示例解释CSS是什么，还包括有关该语言的一些关键术语。
+
+- [CSS 入门](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/Getting_started)
+
+  在本文中，我们将采用一个简单的HTML文档并将CSS应用于该文档，并在此过程中学习一些关于语言的实用内容。
+
+- [如何构建CSS？](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/How_CSS_is_structured)
+
+  现在您已经了解了CSS是什么以及使用它的基础知识，现在是时候更深入地了解语言本身的结构。在这里，我们已经遇到了讨论过的许多概念; 如果你发现任何令人困惑的概念，你可以回到这个回顾。
+
+- [CSS 如何工作](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/How_CSS_works)
+
+  我们已经学习了CSS基础理论：CSS是什么以及如何编写简单的样式表。在这个课程中，我们将看看浏览器如何使用CSS和HTML并将其转换为网页。
+
+- [用用你刚学到的知识](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps/Using_your_new_knowledge)
+
+  根据您在最后几课中学到的内容，您应该发现可以使用CSS格式化简单的文本文档，以便为它们添加自己的样式。本文为您提供了实现这一目标的机会。
+
+## [相关链接](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/First_steps#相关链接)
+
+- [中级网络识字1：CSS简介](https://teach.mozilla.org/activities/intermediate-web-lit/)
+
+  一个优秀的Mozilla基础课程，探索和测试*CSS*模块*简介中*谈到的许多技能。了解在网页上设置HTML元素的样式，CSS选择器，属性和值。
