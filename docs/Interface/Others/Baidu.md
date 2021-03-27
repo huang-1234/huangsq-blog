@@ -5,7 +5,7 @@
 2. 讲讲自己的项目，用了什么技术，实现了什么功能，遇到了什么问题，怎么解决的。
 
 3. css盒模型，布局，
-<a href='../InfaExperience/CSS/Importtant'>优先级</a>
+<a href='../InfaExperience/CSS/Important'>优先级</a>
 
 4. 说说你对js原型的理解：
 

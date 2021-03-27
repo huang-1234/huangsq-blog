@@ -142,6 +142,7 @@ const config = {
         // CSS基础
         'aBox',
         'dLayout',
+        'display',
         // CSS特效
         'cssCartoon/rotate',
         'CSSsyntax',

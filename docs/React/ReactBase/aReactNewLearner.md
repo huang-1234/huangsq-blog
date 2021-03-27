@@ -113,17 +113,3 @@ react-router的中文官网 ： [中文官网](https://link.jianshu.com?t=http%3
 
 
 ### 四、小案列（自己前段时间写的一些小demo，比较low，大家可以看看）
-
-1，jquery、vue、react的todolist，最简单的
-
-- React-todolist的代办事项 : [https://github.com/darrell0904/todolist](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fdarrell0904%2Ftodolist)（没有使用redux）
-- Vue-todolist : [https://github.com/darrell0904/todolist-vue](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fdarrell0904%2Ftodolist-vue)
-- Jquery-todolist : [https://github.com/darrell0904/todolist-jquery](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fdarrell0904%2Ftodolist-jquery)
-
-2，基于ant-dedign的一个react简单的demo
-
-- react-news : [https://github.com/darrell0904/react-news](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fdarrell0904%2Freact-news)
-
-3,基于react写的一个简易大众点评的demo，里面用到了redux，mock，fetch，es6
-
-- 简单的大众点评：[https://github.com/darrell0904/webapp-dazhongdianping](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fdarrell0904%2Fwebapp-dazhongdianping);

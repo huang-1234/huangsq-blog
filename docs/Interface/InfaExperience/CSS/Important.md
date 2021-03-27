@@ -1,4 +1,4 @@
-## [优先级]()
+## [优先级](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity)
 
 浏览器通过优先级来判断哪些属性值与一个元素最为相关，从而在该元素上应用这些属性值。优先级是基于不同种类选择器组成的匹配规则。
 
