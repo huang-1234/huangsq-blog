@@ -25,9 +25,10 @@ const config = {
           { text: 'CSS', link: '/CSS/' },
           { text: 'JS', link: '/JS/' },
           {
-            text: '浏览器相关',
+            text: 'Browser',
             items: [
-              {text:'浏览器',link:'/Browser/'}
+              {text:'BrModel(MP)',link:'/BrowserModel/'},
+              {text:'RenderPr(MT)',link:'/Browser/'}
             ]
           },
           {
@@ -76,6 +77,7 @@ const config = {
       // 前端基础&&浏览器&&框架
       '/CSS/': getCSS(),
       '/JS/': getJS(),
+      '/BrowserModel/': getBrowserModel(),
       '/Browser/':getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
@@ -154,7 +156,19 @@ const config = {
     }
   ]
 }
-// 浏览器原理和渲染方面的问题
+// 浏览器模型和渲染方面的问题
+function getBrowserModel() {
+  return [
+    {
+      title: '浏览器架构',
+      children: [
+        'BrowserArch/BrowserArchFirst',
+        'BrowserArch/BrowserMultiProcessMultiThread'
+        
+      ]
+    }
+  ]
+}
 function getBrowser() {
   return [
     {
@@ -328,7 +342,9 @@ function getInterface() {
       title: '面试基础重点',
       children: [
         'InfaExperience/Browser/BrowserWebkitHowToRender',
-        'InfaExperience/CSS/Important'
+        'InfaExperience/Browser/JSMacrotasksAndGUIThreads',
+
+        'InfaExperience/CSS/Important',
       ]
     },
     {

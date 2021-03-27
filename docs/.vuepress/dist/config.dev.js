@@ -30,9 +30,12 @@ var config = {
         text: 'JS',
         link: '/JS/'
       }, {
-        text: '浏览器相关',
+        text: '浏览器',
         items: [{
-          text: '浏览器',
+          text: 'BrowserModel(MultiProcess)',
+          link: '/BrowserModel/'
+        }, {
+          text: 'RenderingProcess(MultiThread)',
           link: '/Browser/'
         }]
       }, {
@@ -80,6 +83,7 @@ var config = {
       // 前端基础&&浏览器&&框架
       '/CSS/': getCSS(),
       '/JS/': getJS(),
+      '/BrowserModel/': getBrowserModel(),
       '/Browser/': getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
@@ -125,8 +129,15 @@ function getCSS() {
     children: [// sass的使用入门
     'Sass/install-node-sass']
   }];
-} // 浏览器原理和渲染方面的问题
+} // 浏览器模型和渲染方面的问题
 
+
+function getBrowserModel() {
+  return [{
+    title: '浏览器架构',
+    children: ['BrowserArch/BrowserArchFirst', 'BrowserArch/BrowserMultiProcessMultiThread.md']
+  }];
+}
 
 function getBrowser() {
   return [{

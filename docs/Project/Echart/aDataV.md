@@ -1,8 +1,8 @@
-## 可视化面板介绍
+# 可视化面板介绍
 
 ​	应对现在数据可视化的趋势，越来越多企业需要在很多场景(营销数据，生产数据，用户数据)下使用，可视化图表来展示体现数据，让数据更加直观，数据特点更加突出。
 
-### 01-使用技术
+## 01-使用技术
 
 完成该项目需要具备以下知识：
 
@@ -15,7 +15,7 @@
 
 
 
-### 02- 案例适配方案
+## 02- 案例适配方案
 
 - 设计稿是1920px  
 
@@ -28,23 +28,23 @@
      但是别忘记重启vscode软件保证生效
 
 
-### 03-基础设置
+## 03-基础设置
 
 - body 设置背景图 ，缩放为 100%  ， 行高1.15
 - css初始化
 
-### 04-header 布局
+## 04-header 布局
 - 高度为100px
 - 背景图，在容器内显示
 - 缩放比例为 100%
 - h1 标题部分   白色  38像素 居中显示  行高为 80像素
 - 时间模块 showTime   定位右侧  right 为 30px   行高为 75px  文字颜色为：rgba(255, 255, 255, 0.7)     而文字大小为 20像素 
 
-~~~javascript
+```html
 // 格式： 当前时间：2020年3月17-0时54分14秒
 <script>
             var t = null;
-            t = setTimeout(time, 1000);//開始运行
+            t = setTimeout(time, 1000); //开始运行
             function time() {
                 clearTimeout(t);//清除定时器
                 dt = new Date();
@@ -58,11 +58,11 @@
                 t = setTimeout(time, 1000); //设定定时器，循环运行     
             }
  </script>
-~~~
+```
 
 - header部分css样式
 
-~~~css
+```css
 header {
   position: relative;
   height: 1.25rem;
@@ -83,9 +83,9 @@ header {
     color: rgba(255, 255, 255, 0.7);
   }
 }
-~~~
+```
 
-### 05-mainbox  主体模块
+## 05-mainbox  主体模块
   - 需要一个上左右的10px 的内边距
 
 
@@ -106,7 +106,7 @@ css样式：
 }
 ```
 
-### 06-公共面板模块 panel 
+## 06-公共面板模块 panel 
   - 高度为 310px
   - 1像素的 1px solid rgba(25, 186, 139, 0.17)  边框
   - 有line.jpg 背景图片
@@ -115,7 +115,7 @@ css样式：
   - 利用panel  盒子 before 和after 制作上面两个角   大小为 10px  线条为  2px solid #02a6b5
   - 新加一个盒子before 和after   制作下侧两个角  宽度高度为 10px
 
-~~~css
+```css
 .panel {
   position: relative;
   height: 3.875rem;
@@ -170,11 +170,8 @@ css样式：
     }
   }
 }
-~~~
-
-
-
-### 07-柱形图 bar 模块(布局)
+```
+## 07-柱形图 bar 模块(布局)
 
   - 标题模块  h2    高度为 48px   文字颜色为白色  文字大小为  20px  
 
@@ -182,8 +179,7 @@ css样式：
 
   - 以上可以作为panel公共样式部分 
 
-
-~~~css
+```css
   h2 {
     height: 0.6rem;
     line-height: 0.6rem;
@@ -196,9 +192,9 @@ css样式：
     height: 3rem;
     background-color: pink;
   }
-~~~
+```
 
-### 08-中间布局
+## 08-中间布局
 
 - 上面是no 数字模块
 - 下面是map 地图模块
@@ -212,15 +208,15 @@ css样式：
 7. 小竖线 给 第一个小li after 就可以  1px宽 背景颜色为 rgba(255, 255, 255, 0.2);     高度 50%  top 25% 即可
 8. no-bd 里面也有两个小li  高度为 40px   文字颜色为  rgba(255, 255, 255, 0.7)   文字大小为 18px   上内边距为  10px
 
-~~~css
+```css
 /* 声明字体*/
 @font-face {
   font-family: electronicFont;
   src: url(../font/DS-DIGIT.TTF);
 }
-~~~
+```
 
-地图模块制作：
+## 地图模块制作：
 
 1. 地图模块高度为 810px  里面包含4个盒子  chart 放图表模块      球体盒子  旋转1  旋转2  
 2. 球体图片模块 map1    大小为 518px  要加背景图片 因为要缩放100%     定位到最中央    透明度 .3   
@@ -385,7 +381,7 @@ css样式：
 
 
 
-### 09-Echarts-介绍
+## 09-Echarts-介绍
 
 常见的数据可视化库：
 
@@ -407,11 +403,11 @@ css样式：
 
 官网地址：<https://www.echartsjs.com/zh/index.html>
 
-### 10-Echarts-体验
+## 10-Echarts-体验
 
-官方教程：[五分钟上手ECharts](https://www.echartsjs.com/zh/tutorial.html#5 分钟上手 ECharts)
+官方教程：[五分钟上手ECharts](https://www.echartsjs.com/zh/tutorial.html)
 
-- 下载echarts  https://github.com/apache/incubator-echarts/tree/4.5.0  
+- [下载echarts](https://github.com/apache/incubator-echarts/tree/4.5.0)
 
 使用步骤：
 
@@ -452,7 +448,7 @@ var option = {
 myChart.setOption(option);
 ```
 
-### 11-Echarts-基础配置
+## 11-Echarts-基础配置
 
 这是要求同学们知道以下配置每个模块的主要作用干什么的就可以了
 
@@ -481,7 +477,7 @@ myChart.setOption(option);
 
   数据堆叠，同个类目轴上系列配置相同的`stack`值后 后一个系列的值会在前一个系列的值上相加。
 
-~~~javascript
+```js
 option = {
     // color设置我们线条的颜色 注意后面是个数组
     color: ['pink', 'red', 'green', 'skyblue'],
@@ -551,17 +547,15 @@ option = {
         }
     ]
 };
-
-~~~
-
-### 12- 柱状图图表（两大步骤）
+```
+## 12- 柱状图图表（两大步骤）
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
 
 1. 引入到html页面中
 
-~~~javascript
+```js
 // 柱状图1模块
 (function() {
   // 实例化对象
@@ -609,7 +603,7 @@ option = {
   // 把配置给实例对象
   myChart.setOption(option);
 })();
-~~~
+```
 
 2. 根据需求定制
 
@@ -618,7 +612,7 @@ option = {
 
    - 修改图表大小  top 为 10px   bottom 为  4%    grid决定我们的柱状图的大小
 
-   ~~~JavaScript
+   ```css
    color: ["#2f89cf"],
    grid: {
      left: "0%",
@@ -627,13 +621,13 @@ option = {
      bottom: "4%",
      containLabel: true
    },
-   ~~~
+   ```
 
    - X轴相关设置  xAxis
      - 文本颜色设置为   rgba(255,255,255,.6)   字体大小为 12px
      - X轴线的样式 不显示
 
-   ~~~JavaScript
+  ```js
    // 设置x轴标签文字样式
   // x轴的文字颜色和大小
         axisLabel: {
@@ -650,14 +644,14 @@ option = {
        //    type: "solid"
       }
    }
-   ~~~
+   ```
 
    - Y 轴相关定制
      - 文本颜色设置为   rgba(255,255,255,.6)   字体大小为 12px
      - Y 轴线条样式 更改为  1像素的  rgba(255,255,255,.1) 边框
      - 分隔线的颜色修饰为  1像素的  rgba(255,255,255,.1)   
 
-   ~~~JavaScript
+   ```js
    // y 轴文字标签样式
    axisLabel: {
          color: "rgba(255,255,255,.6)",
@@ -677,11 +671,11 @@ option = {
           color: "rgba(255,255,255,.1)"
         }
    }
-   ~~~
+   ```
 
    - 修改柱形为圆角以及柱子宽度  series 里面设置
 
-   ~~~JavaScript
+   ```js
    series: [
          {
            name: "直接访问",
@@ -696,54 +690,54 @@ option = {
          }
        ]
      };
-   ~~~
+   ```
 
    - 更换对应数据
 
-   ~~~JavaScript
+   ```js
    // x轴中更换data数据
     data: [ "旅游行业","教育培训", "游戏行业", "医疗行业", "电商行业", "社交行业", "金融行业" ],
    // series 更换数据
     data: [200, 300, 300, 900, 1500, 1200, 600]
-   ~~~
+   ```
 
 - 让图表跟随屏幕自适应
 
-~~~javascript
+```js
   window.addEventListener("resize", function() {
     myChart.resize();
   });
-~~~
+```
 
-### 13-柱状图2定制
+## 13-柱状图2定制
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
 
 需求1： 修改图形大小 grid
 
-~~~javascript
+```js
   // 图标位置
     grid: {
       top: "10%",
       left: "22%",
       bottom: "10%"
     },
-~~~
+```
 
 需求2： 不显示x轴 
 
-~~~javascript
+```js
    xAxis: {
       show: false
     },
-~~~
+```
 
 需求3： y轴相关定制
 
 - 不显示y轴线和相关刻度
 
-~~~javascript
+```js
 //不显示y轴线条
 axisLine: {
     show: false
@@ -752,19 +746,19 @@ axisLine: {
 axisTick: {
    show: false
 },
-~~~
+```
 
 - y轴文字的颜色设置为白色
 
-~~~javascript
+```js
    axisLabel: {
           color: "#fff"
    },
-~~~
+```
 
 需求4： 修改第一组柱子相关样式（条状）
 
-~~~javascript
+```js
 name: "条",
 // 柱子之间的距离
 barCategoryGap: 50,
@@ -776,11 +770,11 @@ itemStyle: {
       barBorderRadius: 20,       
     }
 },
-~~~
+```
 
 - 设置第一组柱子内百分比显示数据
 
-~~~javascript
+```javascript
 // 图形上的文本标签
 label: {
     normal: {
@@ -791,11 +785,11 @@ label: {
          formatter: "{c}%"
      }
 },
-~~~
+```
 
 - 设置第一组柱子不同颜色
 
-~~~javascript
+```javascript
 // 声明颜色数组
 var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
 // 2. 给 itemStyle  里面的color 属性设置一个 返回值函数
@@ -809,11 +803,11 @@ var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
           }
          
 },
-~~~
+```
 
 需求5： 修改第二组柱子的相关配置（框状）
 
-~~~javascript
+```javascript
   	    name: "框",
         type: "bar",
         barCategoryGap: 50,
@@ -826,7 +820,7 @@ var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
         },
         data: [19325, 23438, 31000, 121594, 134141, 681807]
       }
-~~~
+```
 
 需求6： 给y轴添加第二组数据
 
@@ -992,7 +986,7 @@ data:[702, 350, 610, 793, 664],
 })();
 
 ~~~
-### 14-折线图1 人员变化模块制作
+## 14-折线图1 人员变化模块制作
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
@@ -1279,7 +1273,7 @@ xAxis: {
 })();
 ~~~
 
-### 15-折线图2 播放量模块制作
+## 15-折线图2 播放量模块制作
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
@@ -1459,7 +1453,7 @@ data: [ "01","02","03","04","05","06","07","08","09","10","11","12","13","14","1
 
 ~~~
 
-### 16-饼形图 1年龄分布模块制作
+## 16-饼形图 1年龄分布模块制作
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
@@ -1542,7 +1536,7 @@ color: [
   });
 ~~~
 
-### 17-饼形图2 地区分布模块制作（南丁格尔玫瑰图）
+## 17-饼形图2 地区分布模块制作（南丁格尔玫瑰图）
 
 - 官网找到类似实例， 适当分析，并且引入到HTML页面中
 - 根据需求定制图表
@@ -1633,15 +1627,13 @@ window.addEventListener("resize", function() {
 
 
 
-### 18-Echarts-社区介绍
+## 18-Echarts-社区介绍
 
 > [社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)就是一些，活跃的echart使用者，交流和贡献定制好的图表的地方。
 
-![1576664444951](docs/media/1576664444951.png)
-
 - 在这里可以找到一些基于echart的高度定制好的图表，相当于基于jquery开发的插件，这里是基于echarts开发的第三方的图表。
 
-### 19-Echarts-map使用（扩展）
+## 19-Echarts-map使用（扩展）
 
 参考社区的例子：https://gallery.echartsjs.com/editor.html?c=x0-ExSkZDM  (模拟飞机航线)
 
@@ -1682,7 +1674,7 @@ window.addEventListener("resize", function() {
 
 总结：这例子是扩展案例，大家以后可以多看看社区里面的案例。
 
-### 20- 最后约束缩放
+## 20- 最后约束缩放
 
 ```css
 /* 约束屏幕尺寸 */

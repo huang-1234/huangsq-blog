@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>浏览器多进程多线程 | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.b722b220.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/17.adcd4f2b.js" as="script"><link rel="prefetch" href="/assets/js/10.533b63a2.js"><link rel="prefetch" href="/assets/js/11.d523bc44.js"><link rel="prefetch" href="/assets/js/12.ef8f5149.js"><link rel="prefetch" href="/assets/js/13.53c2d820.js"><link rel="prefetch" href="/assets/js/14.5ef57ac4.js"><link rel="prefetch" href="/assets/js/15.03edd88c.js"><link rel="prefetch" href="/assets/js/16.4182e5f4.js"><link rel="prefetch" href="/assets/js/18.f4e7b583.js"><link rel="prefetch" href="/assets/js/19.16154e23.js"><link rel="prefetch" href="/assets/js/20.0a027335.js"><link rel="prefetch" href="/assets/js/21.a53715fc.js"><link rel="prefetch" href="/assets/js/22.dc8f1867.js"><link rel="prefetch" href="/assets/js/23.4d92d7bf.js"><link rel="prefetch" href="/assets/js/24.7246d517.js"><link rel="prefetch" href="/assets/js/25.31d51247.js"><link rel="prefetch" href="/assets/js/26.f4779dc2.js"><link rel="prefetch" href="/assets/js/27.6d6bfa0b.js"><link rel="prefetch" href="/assets/js/28.3df4b97d.js"><link rel="prefetch" href="/assets/js/29.c0a8ec9a.js"><link rel="prefetch" href="/assets/js/3.a8f8ad18.js"><link rel="prefetch" href="/assets/js/30.00208531.js"><link rel="prefetch" href="/assets/js/31.760f79f9.js"><link rel="prefetch" href="/assets/js/32.5e97f7fb.js"><link rel="prefetch" href="/assets/js/33.4ab7f221.js"><link rel="prefetch" href="/assets/js/34.3832cc65.js"><link rel="prefetch" href="/assets/js/35.ad1f5ebf.js"><link rel="prefetch" href="/assets/js/36.5ec88002.js"><link rel="prefetch" href="/assets/js/37.3edca532.js"><link rel="prefetch" href="/assets/js/38.09d6be65.js"><link rel="prefetch" href="/assets/js/39.362e2a8d.js"><link rel="prefetch" href="/assets/js/4.9401f5f2.js"><link rel="prefetch" href="/assets/js/40.1ea94a8e.js"><link rel="prefetch" href="/assets/js/41.c6f00503.js"><link rel="prefetch" href="/assets/js/42.dab1319f.js"><link rel="prefetch" href="/assets/js/43.0f790cd1.js"><link rel="prefetch" href="/assets/js/44.f1927a91.js"><link rel="prefetch" href="/assets/js/45.3eccf62c.js"><link rel="prefetch" href="/assets/js/46.53a90d2d.js"><link rel="prefetch" href="/assets/js/47.659ef6e2.js"><link rel="prefetch" href="/assets/js/48.573732ec.js"><link rel="prefetch" href="/assets/js/49.893630f4.js"><link rel="prefetch" href="/assets/js/5.b8fa1d9c.js"><link rel="prefetch" href="/assets/js/50.1768c7d2.js"><link rel="prefetch" href="/assets/js/51.bd3d21eb.js"><link rel="prefetch" href="/assets/js/52.df10efca.js"><link rel="prefetch" href="/assets/js/53.63effc58.js"><link rel="prefetch" href="/assets/js/54.f5f41c76.js"><link rel="prefetch" href="/assets/js/55.9c7d8688.js"><link rel="prefetch" href="/assets/js/56.ef300f35.js"><link rel="prefetch" href="/assets/js/57.badb25a4.js"><link rel="prefetch" href="/assets/js/58.56a749b1.js"><link rel="prefetch" href="/assets/js/59.d9c3cbae.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/60.0e0623a6.js"><link rel="prefetch" href="/assets/js/61.0c8fc009.js"><link rel="prefetch" href="/assets/js/62.78dc2817.js"><link rel="prefetch" href="/assets/js/63.11bcc345.js"><link rel="prefetch" href="/assets/js/64.8ba116f6.js"><link rel="prefetch" href="/assets/js/65.f628fa72.js"><link rel="prefetch" href="/assets/js/66.02e1262a.js"><link rel="prefetch" href="/assets/js/67.da4d1fe3.js"><link rel="prefetch" href="/assets/js/68.5551dacf.js"><link rel="prefetch" href="/assets/js/69.6147e781.js"><link rel="prefetch" href="/assets/js/7.c4d3cd2e.js"><link rel="prefetch" href="/assets/js/70.44f2184b.js"><link rel="prefetch" href="/assets/js/71.dd706cda.js"><link rel="prefetch" href="/assets/js/72.d1dcef42.js"><link rel="prefetch" href="/assets/js/73.710ad299.js"><link rel="prefetch" href="/assets/js/74.bc5683a4.js"><link rel="prefetch" href="/assets/js/75.90aa20a0.js"><link rel="prefetch" href="/assets/js/76.66b1b239.js"><link rel="prefetch" href="/assets/js/77.32d78811.js"><link rel="prefetch" href="/assets/js/78.30cd9929.js"><link rel="prefetch" href="/assets/js/79.cb3db432.js"><link rel="prefetch" href="/assets/js/8.dcfbba0e.js"><link rel="prefetch" href="/assets/js/80.5c607cdd.js"><link rel="prefetch" href="/assets/js/81.0f713bb6.js"><link rel="prefetch" href="/assets/js/82.4de4a4bb.js"><link rel="prefetch" href="/assets/js/83.54b9e7e1.js"><link rel="prefetch" href="/assets/js/84.a7b45b2e.js"><link rel="prefetch" href="/assets/js/85.97bb1013.js"><link rel="prefetch" href="/assets/js/86.a872e5a4.js"><link rel="prefetch" href="/assets/js/87.34eb5394.js"><link rel="prefetch" href="/assets/js/88.9fe3f5f8.js"><link rel="prefetch" href="/assets/js/89.bcf8119c.js"><link rel="prefetch" href="/assets/js/9.618cd27b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link router-link-active">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">算法&amp;&amp;AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">算法&amp;&amp;AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">工作</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">工作</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSS/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link router-link-active">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  React基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  Vue基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">算法&amp;&amp;AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">算法&amp;&amp;AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  算法
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">工作</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">工作</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>浏览器架构</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/BrowserModel/BrowserArch/BrowserArchFirst.html" class="sidebar-link">浏览器多进程架构</a></li><li><a href="/BrowserModel/BrowserArch/BrowserMultiProcessMultiThread.html" aria-current="page" class="active sidebar-link">浏览器多进程多线程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/BrowserModel/BrowserArch/BrowserMultiProcessMultiThread.html#梳理主干流程" class="sidebar-link">梳理主干流程</a></li><li class="sidebar-sub-header"><a href="/BrowserModel/BrowserArch/BrowserMultiProcessMultiThread.html#从浏览器接收url到开启网络请求线程" class="sidebar-link">从浏览器接收url到开启网络请求线程</a></li><li class="sidebar-sub-header"><a href="/BrowserModel/BrowserArch/BrowserMultiProcessMultiThread.html#开启网络线程到发出一个完整的http请求" class="sidebar-link">开启网络线程到发出一个完整的http请求</a></li><li class="sidebar-sub-header"><a href="/BrowserModel/BrowserArch/BrowserMultiProcessMultiThread.html#从服务器接收到请求到对应后台接收到请求" class="sidebar-link">从服务器接收到请求到对应后台接收到请求</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="浏览器多进程多线程"><a href="#浏览器多进程多线程" class="header-anchor">#</a> 浏览器多进程多线程</h1> <h2 id="梳理主干流程"><a href="#梳理主干流程" class="header-anchor">#</a> 梳理主干流程</h2> <p>回到这道题上，如何回答呢？先梳理一个骨架</p> <p>知识体系中，最重要的是骨架，脉络。有了骨架后，才方便填充细节。所以，先梳理下主干流程：</p> <div class="language- extra-class"><pre class="language-text"><code>1. 从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）
+
+2. 开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）
+
+3. 从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）
+
+4. 后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）
+
+5. 单独拎出来的缓存问题，http的缓存（这部分包括http缓存头部，etag，catch-control等）
+
+6. 浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、合并成render树，然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和domcontentloaded等）
+
+7. CSS的可视化格式模型（元素的渲染规则，如包含块，控制框，BFC，IFC等概念）
+
+8. JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）
+
+9. 其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）
+</code></pre></div><p>梳理出主干骨架，然后就需要往骨架上填充细节内容</p> <h2 id="从浏览器接收url到开启网络请求线程"><a href="#从浏览器接收url到开启网络请求线程" class="header-anchor">#</a> 从浏览器接收url到开启网络请求线程</h2> <p>这一部分展开的内容是：浏览器进程/线程模型，JS的运行机制</p> <h3 id="多进程的浏览器"><a href="#多进程的浏览器" class="header-anchor">#</a> 多进程的浏览器</h3> <p>浏览器是多进程的，有一个主控进程，以及每一个tab页面都会新开一个进程（某些情况下多个tab会合并进程）</p> <p>进程可能包括主控进程，插件进程，GPU，tab页（浏览器内核）等等</p> <ul><li>Browser进程：浏览器的主进程（负责协调、主控），只有一个</li> <li>第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</li> <li>GPU进程：最多一个，用于3D绘制</li> <li>浏览器渲染进程（内核）：默认每个Tab页面一个进程，互不影响，控制页面渲染，脚本执行，事件处理等（有时候会优化，如多个空白tab会合并成一个进程）</li></ul> <p>如下图：</p> <p><img src="/images/BrowserModel/BrowserArch//images/BrowserModel/BrowserArch/BrowserMutilProcessMutilThread.assets/browser_process_list2.png" alt="img"></p> <h3 id="多线程的浏览器内核"><a href="#多线程的浏览器内核" class="header-anchor">#</a> 多线程的浏览器内核</h3> <p>每一个tab页面可以看作是浏览器内核进程，然后这个进程是多线程的，它有几大类子线程</p> <ul><li><p>GUI线程</p></li> <li><p>JS引擎线程</p></li> <li><p>事件触发线程</p></li> <li><p>定时器线程</p></li> <li><p>网络请求线程</p> <h3 id="本文重点-多进程浏览器架构"><a href="#本文重点-多进程浏览器架构" class="header-anchor">#</a> 本文重点 - 多进程浏览器架构</h3> <p>不扯以前的旧的浏览器架构，Chrome 浏览器的架构如下图所示（不一定最新）。<strong>需要注意的是，像 UI process, Network process 等等这些进程都有可能会被“降级”为 Browser process 的线程（UI thread, Network thread）</strong>。</p> <blockquote><p>When Chrome is running on powerful hardware, it may split each service into different processes giving more stability, but if it is on a resource-constraint device, Chrome consolidates services into one process saving memory footprint.</p></blockquote></li></ul> <p><img src="/images/BrowserModel/BrowserArch/BrowserMutilProcessMutilThread.assets/BrowserMultiProcess.jpg" alt="img"></p> <p><img src="/images/BrowserModel/BrowserArch/BrowserMutilProcessMutilThread.assets/browser_inner_thread.png" alt="img"> <img src="/images/BrowserModel/BrowserArch/BrowserMutilProcessMutilThread.assets/RenderingProcess.jpg" alt="img"></p> <p>可以看到，里面的JS引擎是内核进程中的一个线程，这也是为什么常说JS引擎是单线程的</p> <h3 id="解析url"><a href="#解析url" class="header-anchor">#</a> 解析URL</h3> <p>输入URL后，会进行解析（URL的本质就是统一资源定位符）</p> <p>URL一般包括几大部分：</p> <ul><li><code>protocol</code>，协议头，譬如有http，ftp等</li> <li><code>host</code>，主机域名或IP地址</li> <li><code>port</code>，端口号</li> <li><code>path</code>，目录路径</li> <li><code>query</code>，即查询参数</li> <li><code>fragment</code>，即<code>#</code>后的hash值，一般用来定位到某个位置</li></ul> <h3 id="网络请求都是单独的线程"><a href="#网络请求都是单独的线程" class="header-anchor">#</a> 网络请求都是单独的线程</h3> <p>每次网络请求时都需要开辟单独的线程进行，譬如如果URL解析到http协议，就会新建一个网络线程去处理资源下载</p> <p>因此浏览器会根据解析出得协议，开辟一个网络线程，前往请求资源（这里，暂时理解为是浏览器内核开辟的，如有错误，后续修复）</p> <h3 id="更多"><a href="#更多" class="header-anchor">#</a> 更多</h3> <p>由于篇幅关系，这里就大概介绍一个主干流程，关于浏览器的进程机制，更多可以参考以前总结的一篇文章（因为内容实在过多，里面包括JS运行机制，进程线程的详解）</p> <p><a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener noreferrer">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="开启网络线程到发出一个完整的http请求"><a href="#开启网络线程到发出一个完整的http请求" class="header-anchor">#</a> 开启网络线程到发出一个完整的http请求</h2> <p>这一部分主要内容包括：<code>dns</code>查询，<code>tcp/ip</code>请求构建，<code>五层因特网协议栈</code>等等</p> <p>仍然是先梳理主干，有些详细的过程不展开（因为展开的话内容过多）</p> <h3 id="dns查询得到ip"><a href="#dns查询得到ip" class="header-anchor">#</a> DNS查询得到IP</h3> <p>如果输入的是域名，需要进行dns解析成IP，大致流程：</p> <ul><li>如果浏览器有缓存，直接使用浏览器缓存，否则使用本机缓存，再没有的话就是用host</li> <li>如果本地没有，就向dns域名服务器查询（当然，中间可能还会经过路由，也有缓存等），查询到对应的IP</li></ul> <p>注意，域名查询时有可能是经过了CDN调度器的（如果有cdn存储功能的话）</p> <p>而且，需要知道dns解析是很耗时的，因此如果解析域名过多，会让首屏加载变得过慢，可以考虑<code>dns-prefetch</code>优化</p> <p>这一块可以深入展开，具体请去网上搜索，这里就不占篇幅了（网上可以看到很详细的解答）</p> <h3 id="tcp-ip请求"><a href="#tcp-ip请求" class="header-anchor">#</a> tcp/ip请求</h3> <p>http的本质就是<code>tcp/ip</code>请求</p> <p>需要了解3次握手规则建立连接以及断开连接时的四次挥手</p> <p>tcp将http长报文划分为短报文，通过三次握手与服务端建立连接，进行可靠传输</p> <p><strong>三次握手的步骤：（抽象派）</strong></p> <div class="language- extra-class"><pre class="language-text"><code>客户端：hello，你是server么？
+服务端：hello，我是server，你是client么
+客户端：yes，我是client
+</code></pre></div><p>建立连接成功后，接下来就正式传输数据</p> <p>然后，待到断开连接时，需要进行四次挥手（因为是全双工的，所以需要四次挥手）</p> <p><strong>四次挥手的步骤：（抽象派）</strong></p> <div class="language- extra-class"><pre class="language-text"><code>主动方：我已经关闭了向你那边的主动通道了，只能被动接收了
+被动方：收到通道关闭的信息
+被动方：那我也告诉你，我这边向你的主动通道也关闭了
+主动方：最后收到数据，之后双方无法通信
+</code></pre></div><p><strong>tcp/ip的并发限制</strong></p> <p>浏览器对同一域名下并发的tcp连接是有限制的（2-10个不等）</p> <p>而且在http1.0中往往一个资源下载就需要对应一个tcp/ip请求</p> <p>所以针对这个瓶颈，又出现了很多的资源优化方案</p> <p><strong>get和post的区别</strong></p> <p>get和post虽然本质都是tcp/ip，但两者除了在http层面外，在tcp/ip层面也有区别。</p> <p>get会产生一个tcp数据包，post两个</p> <p>具体就是：</p> <ul><li>get请求时，浏览器会把<code>headers</code>和<code>data</code>一起发送出去，服务器响应200（返回数据），</li> <li>post请求时，浏览器先发送<code>headers</code>，服务器响应<code>100 continue</code>， 浏览器再发送<code>data</code>，服务器响应200（返回数据）。</li></ul> <p>再说一点，这里的区别是<code>specification</code>（规范）层面，而不是<code>implementation</code>（对规范的实现）</p> <h3 id="五层因特网协议栈"><a href="#五层因特网协议栈" class="header-anchor">#</a> 五层因特网协议栈</h3> <p>其实这个概念挺难记全的，记不全没关系，但是要有一个整体概念</p> <p>其实就是一个概念： <strong>从客户端发出http请求到服务器接收，中间会经过一系列的流程。</strong></p> <p>简括就是：</p> <p><strong>从应用层的发送http请求，到传输层通过三次握手建立tcp/ip连接，再到网络层的ip寻址，再到数据链路层的封装成帧，最后到物理层的利用物理介质传输。</strong></p> <p>当然，服务端的接收就是反过来的步骤</p> <p>五层因特网协议栈其实就是：</p> <div class="language- extra-class"><pre class="language-text"><code>1.应用层(dns,http) DNS解析成IP并发送http请求
+
+2.传输层(tcp,udp) 建立tcp连接（三次握手）
+
+3.网络层(IP,ARP) IP寻址
+
+4.数据链路层(PPP) 封装成帧
+
+5.物理层(利用物理介质传输比特流) 物理传输（然后传输的时候通过双绞线，电磁波等各种介质）
+</code></pre></div><p>当然，其实也有一个完整的OSI七层框架，与之相比，多了会话层、表示层。</p> <p>OSI七层框架：<code>物理层</code>、<code>数据链路层</code>、<code>网络层</code>、<code>传输层</code>、<code>会话层</code>、<code>表示层</code>、<code>应用层</code></p> <div class="language- extra-class"><pre class="language-text"><code>表示层：主要处理两个通信系统中交换信息的表示方式，包括数据格式交换，数据加密与解密，数据压缩与终端类型转换等
+
+会话层：它具体管理不同用户和进程之间的对话，如控制登陆和注销过程
+</code></pre></div><h2 id="从服务器接收到请求到对应后台接收到请求"><a href="#从服务器接收到请求到对应后台接收到请求" class="header-anchor">#</a> 从服务器接收到请求到对应后台接收到请求</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/BrowserModel/BrowserArch/BrowserArchFirst.html" class="prev">
+        浏览器多进程架构
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b722b220.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/17.adcd4f2b.js" defer></script>
+  </body>
+</html>
