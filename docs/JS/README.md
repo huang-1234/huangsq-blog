@@ -2,6 +2,9 @@
 
 <a href='/JS/es/aJSType'>学习JS</a>
 
+> if you want to know the Webpages how to layout,please
+<a href='/CSS/aBox'>Click CSS</a>
+
 ## JavaScript 的前世今生
 Js之父简介
 JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014年 Brendan晋升为mozilla的CEO，但10天后被赶下台，原因是他曾经捐助过反同性恋的法案。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
