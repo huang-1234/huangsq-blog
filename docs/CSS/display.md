@@ -93,14 +93,14 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   justify-content: flex-start | flex-end | center | space-between | space-around;
+> justify-content: flex-start | flex-end | center | space-between | space-around;
 > }
 > // 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 > flex-start（默认值）：左对齐
 > flex-end：右对齐
 > center： 居中
 > space-between：两端对齐，项目之间的间隔都相等。
-> space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+> space-around：每个项目两侧的间隔相等。所以，<font color=red>项目之间的间隔比项目与边框的间隔大一倍。</font>
 > ```
 
 #### 3.5 align-items属性
@@ -213,3 +213,69 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 >   align-self: auto | flex-start | flex-end | center | baseline | stretch;
 > }
 > ```
+
+## 实战演练
+
+> 上图
+
+![image-20210328115054582](/images/CSS/display.assets/image-20210328115054582.png)
+
+> html
+
+```html
+<div class="container">
+    <div class="box1">
+      <div class="item"></div>
+      <div class="item" id=item2></div>
+      <div class="item" id=item3></div>
+      
+<!--       <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div> -->
+    </div>
+  </div>
+```
+
+> less
+
+```less
+.container {
+  display:flex;
+  justify-content: center;
+  margin-top: 100px;
+  .box1 {
+    @box-width:200px;
+    @box-height:200px;
+    @item-margin:5px; // 点item的外边距
+    width: @box-width;
+    height: @box-height;
+    // background-color: aquamarine;
+    border: 1px solid green;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    // 下面两句话让只有一点的骰子放在最中间
+/*     justify-content: center;
+    align-items: center; */
+    justify-content: space-between;
+    .item {
+      width: 0.25*@box-height;
+      height: 0.25*@box-height;
+      background-color: black;
+      // box-sizing: border-box; //可用可不用
+      border-radius: 25px;
+      margin: @item-margin;
+    }
+     #item2{
+      align-self: center;
+    }
+     #item3{
+      align-self: flex-end;
+    }
+  }
+}
+```
+
