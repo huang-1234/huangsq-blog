@@ -1,7 +1,7 @@
 # 1. 基础框盒模型介绍
 
 
-
+## 简明概要
 当对一个文档进行布局（lay out）的时候，浏览器的渲染引擎会根据标准之一的 **CSS 基础框盒模型**（**CSS basic box model**），将所有元素表示为一个个矩形的盒子（box）。CSS 决定这些盒子的大小、位置以及属性（例如颜色、背景、边框尺寸…）。
 
 每个盒子由四个部分（或称*区域*）组成，其效用由它们各自的边界（Edge）所定义（原文：defined by their respective edges，可能意指容纳、包含、限制等）。如图，与盒子的四个组成区域相对应，每个盒子有四个边界：*内容边界* *Content edge*、*内边距边界* *Padding Edge*、*边框边界* *Border Edge*、*外边框边界* *Margin Edge*。
@@ -19,7 +19,7 @@ TIP
 
 padding着色随background-color而变，可用background-clip隔离.
 
-## 类型
+## CSS盒子类型
 
 由于历史原因，盒模型分化成两种类型，分别是**标准盒模型**和**怪异盒模型**。
 
@@ -79,7 +79,7 @@ CSS3里提供一个属性用于声明盒模型的类型，它就是`box-sizing`�
   margin: 20px;
 }
 ```
-
+## 两种盒子的区别
 <img :src="$withBase('/images/CSS/box.assets/image-20210323175451998.png')" alt='标准盒模型和怪异盒模型的区别'/>
 
 外边距区域的大小由 [`margin-top`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-top)、[`margin-right`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-right)、[`margin-bottom`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-bottom)、[`margin-left`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-left)，和简写属性 [`margin`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin) 控制。在发生[外边距合并](https://developer.mozilla.org/en-US/CSS/margin_collapsing)的情况下，由于盒之间共享外边距，外边距不容易弄清楚。

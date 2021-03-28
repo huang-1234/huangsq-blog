@@ -2,7 +2,7 @@
 home: true
 heroImage: ./favicon.ico
 heroText: 黄水清
-tagline: 点击快速上手
+# tagline: 点击快速上手
 actionText: 点击开始学习 →
 actionLink: /JS/
 features:

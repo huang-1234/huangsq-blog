@@ -141,11 +141,13 @@ const config = {
       children: [
         // CSS基础
         'aBox',
+        'cStyleCompute',
         'dLayout',
-        'display',
+        'Flex',
+        'Grid',
         // CSS特效
         'cssCartoon/rotate',
-        'CSSsyntax',
+        'zCSSsyntax',
       ]
     },
     {
