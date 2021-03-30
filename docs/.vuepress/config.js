@@ -329,7 +329,8 @@ function getMachineLearning() {
     {
       title: '创新创业项目',
       children: [
-        'Innovative/Second-handBooks'
+        // 'Innovative/Second-handBooks',
+        'Innovative/xinqiu'
       ]
     },
     {
