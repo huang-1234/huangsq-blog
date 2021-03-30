@@ -46,10 +46,10 @@ const config = {
         ],
       },
       {
-        text: '算法&&AI',
+        text: 'AI',
         ariaLabel: 'webDesign',
         items: [
-          { text: '算法', link: '/AlgorithmAI/' }
+          { text: 'AI', link: '/AlgorithmAI/' }
         ]
       },
       {

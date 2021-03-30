@@ -223,3 +223,5 @@ Symbol.for() 可以在全局访问 symbol。
 ### NAN 以及 typeof NAN
 
 NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
+
+<span class="bottom-bar-item" style="right:20px"><a href="#">回顶部↑</a></span>

@@ -1,14 +1,13 @@
 ## [Vite 2.0 发布了](https://zhuanlan.zhihu.com/p/351147547)
 
-作者：尤雨溪
-链接：https://zhuanlan.zhihu.com/p/351147547
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+> 作者：尤雨溪
+> 
+> 链接：https://zhuanlan.zhihu.com/p/351147547
+> 来源：知乎
 
 下一代前端开发与构建工具Vite
 
 [开始](https://cn.vitejs.dev/guide/)
-
 [了解更多](https://cn.vitejs.dev/guide/why)
 
 Vite 2.0 正式发布了！

@@ -3,10 +3,10 @@
 <a href='/JS/es/aJSType'>学习JS</a>
 
 > if you want to know the Webpages how to layout,please
-<a href='/CSS/aBox'>Click CSS</a>
+<a href='/Styles/CSS/aBox'>Click CSS</a>
 
 ## JavaScript 的前世今生
-Js之父简介
+JS之父简介
 JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014年 Brendan晋升为mozilla的CEO，但10天后被赶下台，原因是他曾经捐助过反同性恋的法案。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
 
 牛逼的程序员（自勉）
@@ -18,6 +18,7 @@ JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司�
 - 可以干到50岁以上
 
 1. JS的诞生
+
 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。所以网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
 
 就在这时，发生了另外一件大事：1995年Sun公司将Oak语言改名为Java，正式向市场推出。Sun公司大肆宣传，许诺这种语言可以"一次编写，到处运行"（Write Once, Run Anywhere），它看上去很可能成为未来的主宰。
@@ -98,3 +99,5 @@ Chrome的js引擎（浏览器识别js）叫V8
 前端工程师可以在浏览器之外执行js了，Node.js快速风靡，同年，TJ受Sinatra启发，发布了Express.js框架，从此，前端工程师可以愉快的写后端应用了。
 这期间大量前端技术爆发，比如：Vue， React，Webpack等等
 以上就是关于Javascript的历史总结。
+
+<span class="bottom-bar-item" style="right:20px"><a href="#">回顶部↑</a></span>
