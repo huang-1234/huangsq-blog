@@ -22,8 +22,8 @@ const config = {
         text: '前端',
         ariaLabel: 'webDesign',
         items: [
-          { text: 'CSS', link: '/CSS/' },
           { text: 'JS', link: '/JS/' },
+          { text: 'Styles', link: '/Styles/' },
           {
             text: 'Browser',
             items: [
@@ -34,13 +34,13 @@ const config = {
           {
             text: 'React',
             items: [
-              { text: 'React基础', link: '/React/' },
+              { text: 'ReactBase', link: '/React/' },
             ]
           },
           {
             text: 'Vue',
             items: [
-              {text:'Vue基础',link:'/Vue/'}
+              {text:'VueBase',link:'/Vue/'}
             ]
           }
         ],
@@ -66,7 +66,7 @@ const config = {
         ]
       },
       {
-        text: '工作',
+        text: 'Works',
         ariaLabel: 'webDesign',
         items: [
           {text: '面经',link:'/Interface/'}
@@ -75,13 +75,13 @@ const config = {
     ],
     sidebar: {
       // 前端基础&&浏览器&&框架
-      '/CSS/': getCSS(),
+      '/Styles/': getStyles(),
       '/JS/': getJS(),
       '/BrowserModel/': getBrowserModel(),
       '/Browser/':getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
-      '/Vue/': getVueBase(),
+      '/Vue/': getVue(),
       //算法&&数学&&机器学习&&人工智能
       '/AlgorithmAI/': getAlgorithm(),
       // '/AlgorithmAI/Math/': getMath(),
@@ -119,6 +119,13 @@ const config = {
       ]
     },
     {
+      title: 'DOM',
+      children: [
+        'DOM/operateDOM',
+        'DOM/YouYuXi'
+      ]
+    },
+    {
       title: 'BOM',
       children: [
         
@@ -134,27 +141,42 @@ const config = {
 }
 
 // CSS学习的笔记
- function getCSS() {
+ function getStyles() {
   return [
     {
-      title: 'CSS基础',
+      title: '样式基础',
       children: [
         // CSS基础
-        'aBox',
-        'cStyleCompute',
-        'dLayout',
-        'Flex',
-        'Grid',
-        // CSS特效
-        'cssCartoon/rotate',
-        'zCSSsyntax',
+        'CSS/aBox',
+        'CSS/cStyleCompute',
+        'CSS/dLayout',
+        'CSS/Position',
+        'CSS/Flex',
+        'CSS/Grid',
+      
+        'CSS/zCSSsyntax',
+      ]
+    },
+    {
+      title: 'Less',
+      children: [
+        'Less/lessFirst',
       ]
     },
     {
       title: 'Sass',
       children: [
         // sass的使用入门
+        'Sass/sassFirst',
         'Sass/install-node-sass',
+        'Sass/zSassLess',
+      ]
+    },
+    {
+      title: 'CSS动画特效',
+      children: [
+        // CSS特效
+        'cssCartoon/rotate',
       ]
     }
   ]
@@ -202,7 +224,7 @@ function getBrowser() {
  function getReact() {
   return [
     {
-      title: 'React基础',
+      title: 'ReactBase',
       children: [
         'ReactBase/aReactNewLearner',
         'ReactBase/bJSX',
@@ -230,10 +252,21 @@ function getReactExtends() {
   ]
 }
 // Vue基础和扩展
-function getVueBase() {
+function getVue() {
   return [
     {
+      title: 'VueBase',
+      children: [
+        
+      ]
+    },
+    {
+      title: 'youyuxi',
+      children: [
+        'YouYuXi/Vite2.0',
+        'YouYuXi/VueAndReact'
 
+      ]
     }
   ]
 }
@@ -322,6 +355,12 @@ function getTools() {
         'Git/git',
         'Git/gitCmCmd',
         'Git/error'
+      ]
+    },
+    {
+      title: 'Webpack',
+      children: [
+        'Webpack/WebpackFirst'
       ]
     }
   ]
