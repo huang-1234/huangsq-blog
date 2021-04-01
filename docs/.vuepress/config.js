@@ -276,7 +276,7 @@ function getAlgorithm() {
     {
       title: 'Algorithm',
       children: [
-        'DP/DP'
+        'likou/findLongth'
       ]
     },
     {
@@ -291,6 +291,13 @@ function getAlgorithm() {
       title: '机器学习',
       children: [
         
+      ]
+    },
+    {
+      title: 'Python',
+      children: [
+        'Python/numpy/Numpy_methods',
+        'Python/numpy/numpyMachine'
       ]
     },
     {

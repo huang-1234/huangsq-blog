@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>求最长递增子序列 | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.b77c476a.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/18.3fb248dc.js" as="script"><link rel="prefetch" href="/assets/js/10.0b90b3cc.js"><link rel="prefetch" href="/assets/js/100.b7f2a666.js"><link rel="prefetch" href="/assets/js/101.9ff06b02.js"><link rel="prefetch" href="/assets/js/102.815dfdca.js"><link rel="prefetch" href="/assets/js/103.5bea33cc.js"><link rel="prefetch" href="/assets/js/104.c35ca598.js"><link rel="prefetch" href="/assets/js/105.85fdff9d.js"><link rel="prefetch" href="/assets/js/11.d523bc44.js"><link rel="prefetch" href="/assets/js/12.ef8f5149.js"><link rel="prefetch" href="/assets/js/13.8da701d3.js"><link rel="prefetch" href="/assets/js/14.75f5eff4.js"><link rel="prefetch" href="/assets/js/15.947d161d.js"><link rel="prefetch" href="/assets/js/16.1f7dec08.js"><link rel="prefetch" href="/assets/js/17.ded32e7c.js"><link rel="prefetch" href="/assets/js/19.e0db2c71.js"><link rel="prefetch" href="/assets/js/20.333b4f3d.js"><link rel="prefetch" href="/assets/js/21.03cb144f.js"><link rel="prefetch" href="/assets/js/22.3207b7a0.js"><link rel="prefetch" href="/assets/js/23.482241c4.js"><link rel="prefetch" href="/assets/js/24.04c636ef.js"><link rel="prefetch" href="/assets/js/25.84afdf36.js"><link rel="prefetch" href="/assets/js/26.9f179cbc.js"><link rel="prefetch" href="/assets/js/27.44f945db.js"><link rel="prefetch" href="/assets/js/28.d76596f4.js"><link rel="prefetch" href="/assets/js/29.e4ebde8c.js"><link rel="prefetch" href="/assets/js/3.b35dac72.js"><link rel="prefetch" href="/assets/js/30.68bbe567.js"><link rel="prefetch" href="/assets/js/31.ece921ed.js"><link rel="prefetch" href="/assets/js/32.d12c4235.js"><link rel="prefetch" href="/assets/js/33.80ae93ee.js"><link rel="prefetch" href="/assets/js/34.1ac31ecf.js"><link rel="prefetch" href="/assets/js/35.6a63457b.js"><link rel="prefetch" href="/assets/js/36.e8c6387e.js"><link rel="prefetch" href="/assets/js/37.bcad52fd.js"><link rel="prefetch" href="/assets/js/38.cd1bf70c.js"><link rel="prefetch" href="/assets/js/39.9e0d41dd.js"><link rel="prefetch" href="/assets/js/4.9401f5f2.js"><link rel="prefetch" href="/assets/js/40.493414e2.js"><link rel="prefetch" href="/assets/js/41.958910eb.js"><link rel="prefetch" href="/assets/js/42.2aa18711.js"><link rel="prefetch" href="/assets/js/43.9e5b3966.js"><link rel="prefetch" href="/assets/js/44.eb6dff76.js"><link rel="prefetch" href="/assets/js/45.a325aa60.js"><link rel="prefetch" href="/assets/js/46.33515eb1.js"><link rel="prefetch" href="/assets/js/47.3d7948a4.js"><link rel="prefetch" href="/assets/js/48.cbba3b92.js"><link rel="prefetch" href="/assets/js/49.a6d9da8c.js"><link rel="prefetch" href="/assets/js/5.b8fa1d9c.js"><link rel="prefetch" href="/assets/js/50.02dbd53a.js"><link rel="prefetch" href="/assets/js/51.c78953bc.js"><link rel="prefetch" href="/assets/js/52.2e238711.js"><link rel="prefetch" href="/assets/js/53.ac42c4f9.js"><link rel="prefetch" href="/assets/js/54.245da53e.js"><link rel="prefetch" href="/assets/js/55.04f1874d.js"><link rel="prefetch" href="/assets/js/56.4939de56.js"><link rel="prefetch" href="/assets/js/57.e635f583.js"><link rel="prefetch" href="/assets/js/58.5fb9c97c.js"><link rel="prefetch" href="/assets/js/59.36259616.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/60.defa480e.js"><link rel="prefetch" href="/assets/js/61.ee44c46e.js"><link rel="prefetch" href="/assets/js/62.8e1d7f9d.js"><link rel="prefetch" href="/assets/js/63.e96818c1.js"><link rel="prefetch" href="/assets/js/64.02c48634.js"><link rel="prefetch" href="/assets/js/65.cabc7e41.js"><link rel="prefetch" href="/assets/js/66.31a46196.js"><link rel="prefetch" href="/assets/js/67.2ad6a52b.js"><link rel="prefetch" href="/assets/js/68.38b4ada9.js"><link rel="prefetch" href="/assets/js/69.bb03b144.js"><link rel="prefetch" href="/assets/js/7.a38058e6.js"><link rel="prefetch" href="/assets/js/70.34c6e0e8.js"><link rel="prefetch" href="/assets/js/71.9a88f660.js"><link rel="prefetch" href="/assets/js/72.ec32dc29.js"><link rel="prefetch" href="/assets/js/73.72546e49.js"><link rel="prefetch" href="/assets/js/74.bc5683a4.js"><link rel="prefetch" href="/assets/js/75.ea2d8a81.js"><link rel="prefetch" href="/assets/js/76.4917c5d5.js"><link rel="prefetch" href="/assets/js/77.32d78811.js"><link rel="prefetch" href="/assets/js/78.52d43442.js"><link rel="prefetch" href="/assets/js/79.cb3db432.js"><link rel="prefetch" href="/assets/js/8.7ca33449.js"><link rel="prefetch" href="/assets/js/80.22ab967c.js"><link rel="prefetch" href="/assets/js/81.0956e24a.js"><link rel="prefetch" href="/assets/js/82.4de4a4bb.js"><link rel="prefetch" href="/assets/js/83.b37d5484.js"><link rel="prefetch" href="/assets/js/84.915dab07.js"><link rel="prefetch" href="/assets/js/85.49d018ad.js"><link rel="prefetch" href="/assets/js/86.e8168d44.js"><link rel="prefetch" href="/assets/js/87.1074da6a.js"><link rel="prefetch" href="/assets/js/88.3e3c518a.js"><link rel="prefetch" href="/assets/js/89.d2e209ce.js"><link rel="prefetch" href="/assets/js/9.33cca914.js"><link rel="prefetch" href="/assets/js/90.cbd77512.js"><link rel="prefetch" href="/assets/js/91.02a1f012.js"><link rel="prefetch" href="/assets/js/92.7370b4ed.js"><link rel="prefetch" href="/assets/js/93.5ef1ebf6.js"><link rel="prefetch" href="/assets/js/94.6c5aaf77.js"><link rel="prefetch" href="/assets/js/95.7c39ca4e.js"><link rel="prefetch" href="/assets/js/96.a9acbb9c.js"><link rel="prefetch" href="/assets/js/97.ef8972e0.js"><link rel="prefetch" href="/assets/js/98.907ca0c2.js"><link rel="prefetch" href="/assets/js/99.367a3176.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link router-link-active">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link router-link-active">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git工具
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Algorithm</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/AlgorithmAI/likou/findLongth.html" aria-current="page" class="active sidebar-link">求最长递增子序列</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数学基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>机器学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="求最长递增子序列"><a href="#求最长递增子序列" class="header-anchor">#</a> 求最长递增子序列</h1> <p>描述：给定一个未经排序的整数数组，找到最长且 连续递增的子序列，并返回该序列的长度。</p> <p>连续递增的子序列 可以由两个下标 l 和 r（l &lt; r）确定，如果对于每个 l &lt;= i &lt; r，都有 nums[i] &lt; nums[i + 1] ，那么子序列 [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] 就是连续递增子序列。</p> <p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p> <p>我的js源码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token function-variable function">FindLongth</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">numArr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 这里是保存每次遍历数组保存的结果，如果需要节约内存，可以直接使用numArr前面的部分存储结果值，</span>
+  <span class="token comment">//但是本着纯函数的原则，还是算了吧</span>
+  <span class="token keyword">let</span> lengthResult <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> next <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>numArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>numArr<span class="token punctuation">[</span>next<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      lengthResult<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      start <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 求出这个数组的最大值</span>
+  <span class="token keyword">let</span> maxValue <span class="token operator">=</span> lengthResult<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> lengthResult<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> nextValue <span class="token operator">=</span> lengthResult<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    maxValue <span class="token operator">=</span> maxValue <span class="token operator">&gt;</span> nextValue <span class="token operator">?</span> maxValue <span class="token operator">:</span> nextValue<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// return maxValue;</span>
+  <span class="token keyword">return</span> maxValue<span class="token punctuation">;</span>
+  <span class="token comment">// lengthResult</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// // 测试用例</span>
+<span class="token comment">// let testArr = [2,2,2,2,2,2,2]</span>
+<span class="token comment">// let re = FindLongth(testArr);</span>
+<span class="token comment">// console.log(re);</span>
+</code></pre></div><blockquote><p>结果：力扣结果</p></blockquote> <div class="language-text extra-class"><pre class="language-text"><code>已完成
+执行用时：100 ms
+输入
+[1,2,3,2,3,4,6,9,11,8,8,2,3,9,13,101,102,1]
+输出
+6
+预期结果
+6
+</code></pre></div><p>提交结果：</p> <div class="language-text extra-class"><pre class="language-text"><code>执行结果：
+解答错误
+显示详情
+输入：
+[]
+输出：
+undefined
+预期结果：
+0
+</code></pre></div><p>通过加上</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">===</span>numArr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>完整代码附上：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[]} numArr
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">findLengthOfLCIS</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">numArr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 这里是保存每次遍历数组保存的结果，如果需要节约内存，可以直接使用numArr前面的部分存储结果值，</span>
+  <span class="token comment">//但是本着纯函数的原则，还是算了吧</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">===</span>numArr<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> lengthResult <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> next <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>numArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>numArr<span class="token punctuation">[</span>next<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      lengthResult<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      start <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 求出这个数组的最大值</span>
+  <span class="token keyword">let</span> maxValue <span class="token operator">=</span> lengthResult<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> lengthResult<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> nextValue <span class="token operator">=</span> lengthResult<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    maxValue <span class="token operator">=</span> maxValue <span class="token operator">&gt;</span> nextValue <span class="token operator">?</span> maxValue <span class="token operator">:</span> nextValue<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// return maxValue;</span>
+  <span class="token keyword">return</span> maxValue<span class="token punctuation">;</span>
+  <span class="token comment">// lengthResult</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>执行结果：</p> <div class="language-text extra-class"><pre class="language-text"><code>执行结果：
+通过
+显示详情
+执行用时：
+100 ms
+, 在所有 JavaScript 提交中击败了
+16.02%
+的用户
+内存消耗：
+39.9 MB
+, 在所有 JavaScript 提交中击败了
+12.98%
+的用户
+炫耀一下:
+</code></pre></div><p>经过我的优化处理：完整代码</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number[]} numArr
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">findLengthOfLCIS</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">numArr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">===</span>numArr<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> max<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 这个就是所要求的最长递增子序列</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>numArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>numArr<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      max <span class="token operator">=</span> i <span class="token operator">-</span> start <span class="token operator">&gt;</span> max <span class="token operator">?</span> i <span class="token operator">-</span> start <span class="token operator">:</span> max<span class="token punctuation">;</span>
+      start <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> max<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>结果显示：</p> <div class="language-js extra-class"><pre class="language-js"><code>执行结果：
+通过
+显示详情
+执行用时：
+<span class="token number">96</span> ms
+<span class="token punctuation">,</span> 在所有 JavaScript 提交中击败了
+<span class="token number">23.84</span><span class="token operator">%</span>
+的用户
+内存消耗：
+<span class="token number">38.8</span> <span class="token constant">MB</span>
+<span class="token punctuation">,</span> 在所有 JavaScript 提交中击败了
+<span class="token number">37.60</span><span class="token operator">%</span>
+的用户
+炫耀一下<span class="token operator">:</span>
+</code></pre></div><p>来看下64ms代码</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">findLengthOfLCIS</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">1</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> nums<span class="token punctuation">.</span>length <span class="token operator">?</span> <span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">p<span class="token punctuation">,</span> v</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>v <span class="token operator">&gt;</span> p <span class="token operator">?</span> r <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token operator">++</span>l<span class="token punctuation">)</span> <span class="token operator">:</span> l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>当我看到优化以后时间还是这么长的时候，我有点失望了，但是当我看到我的代码一点特性也没有，完全可以使用c++来写，但是当时看到c++要写类，比较麻烦，于是我决定使用c语言来写</p> <p>源码展示：</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">int</span> <span class="token function">findLengthOfLCIS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">==</span>numsSize<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> tags <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numsSize<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>numsSize<span class="token operator">-</span><span class="token number">1</span><span class="token operator">!=</span>i <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token operator">++</span>tags<span class="token punctuation">;</span>
+            max <span class="token operator">=</span> i<span class="token operator">-</span>start <span class="token operator">&gt;</span> max <span class="token operator">?</span> i<span class="token operator">-</span>start <span class="token operator">:</span> max <span class="token punctuation">;</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            max <span class="token operator">=</span> i<span class="token operator">-</span>start <span class="token operator">&gt;</span> max <span class="token operator">?</span> i<span class="token operator">-</span>start <span class="token operator">:</span> max <span class="token punctuation">;</span>
+            start <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>numsSize<span class="token operator">-</span><span class="token number">1</span><span class="token operator">==</span>tags<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> tags<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> max<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>结果如下：</p> <div class="language-text extra-class"><pre class="language-text"><code>执行结果：
+通过
+显示详情
+执行用时：
+12 ms
+, 在所有 C 提交中击败了
+63.24%
+的用户
+内存消耗：
+6.3 MB
+, 在所有 C 提交中击败了
+62.29%
+的用户
+</code></pre></div><p>这可能还需要优化的地方吧</p> <p>再次看到别人的4ms代码：</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">int</span> <span class="token function">findLengthOfLCIS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> numsSize<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numsSize<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            start <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">-</span> start <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&gt;</span> sum<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            sum <span class="token operator">=</span> i <span class="token operator">-</span> start <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>C++实现：</p> <div class="language-c++ extra-class"><pre class="language-text"><code>// longge解答最长递增子序列
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int a[40005];
+int d[40005];
+
+int main()
+{
+  int n;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i = 1; i &lt;= n; i++)
+    scanf(&quot;%d&quot;, &amp;a[i]);
+  if (n == 0)
+  { //0个元素特判一下
+    printf(&quot;0\n&quot;);
+    return 0;
+  }
+  d[1] = a[1]; //初始化
+  int len = 1;
+  for (int i = 2; i &lt;= n; i++)
+  {
+    //如果可以接在len后面就接上，如果是最长上升子序列，这里变成&gt;
+    if (a[i] &gt;= d[len])
+      d[++len] = a[i];
+    else
+    { //否则就找一个最该替换的替换掉
+      //找到第一个大于它的d的下标，如果是最长上升子序列，这里变成lower_bound
+      int j = upper_bound(d + 1, d + len + 1, a[i]) - d;
+      d[j] = a[i];
+    }
+  }
+  printf(&quot;%d\n&quot;, len);
+  return 0;
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/AlgorithmAI/Math/aCalculus.html">
+        微积分
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b77c476a.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/18.3fb248dc.js" defer></script>
+  </body>
+</html>
