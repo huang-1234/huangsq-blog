@@ -12,5 +12,5 @@ npm run build
 git init
 git add .
 git commit -m 'commitVuepress update Algorithm'
-git remote add origin https://github.com/huang-1234/MyvuePressBlog.git
+# git remote add origin https://github.com/huang-1234/MyvuePressBlog.git
 git push -f origin main
