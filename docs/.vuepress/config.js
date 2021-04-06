@@ -23,6 +23,7 @@ const config = {
         ariaLabel: 'webDesign',
         items: [
           { text: 'JS', link: '/JS/' },
+          { text: 'HTML', link: '/HTML/' },
           { text: 'Styles', link: '/Styles/' },
           {
             text: 'Browser',
@@ -75,8 +76,9 @@ const config = {
     ],
     sidebar: {
       // 前端基础&&浏览器&&框架
-      '/Styles/': getStyles(),
       '/JS/': getJS(),
+      '/HTML/': getHTML(),
+      '/Styles/': getStyles(),
       '/BrowserModel/': getBrowserModel(),
       '/Browser/':getBrowser(),
       '/React/': getReact(),
@@ -139,7 +141,17 @@ const config = {
     }
   ]
 }
-
+function getHTML() {
+  return [
+    {
+      title: 'HTMLBase',
+      children: [
+        'form/input',
+        'form/button'
+      ]
+    }
+  ]
+}
 // CSS学习的笔记
  function getStyles() {
   return [
@@ -257,7 +269,21 @@ function getVue() {
     {
       title: 'VueBase',
       children: [
-        
+        'vueBase/aTemplate',
+        'vueBase/bComputed',
+        'vueBase/cStylesClass',
+        'vueBase/dIfRender',
+        'vueBase/eListRender',
+        'vueBase/fEventProcess',
+        'vueBase/gFormInputBind',
+        'vueBase/hComponent',
+        'vueBase/iSlot',
+      ]
+    },
+    {
+      title: 'vueExtend',
+      children: [
+        'vueExtend/Object.DefineProperty'
       ]
     },
     {
@@ -265,7 +291,6 @@ function getVue() {
       children: [
         'YouYuXi/Vite2.0',
         'YouYuXi/VueAndReact'
-
       ]
     }
   ]
@@ -368,7 +393,9 @@ function getTools() {
     {
       title: 'Webpack',
       children: [
-        'Webpack/WebpackFirst'
+        'Webpack/WebpackFirst',
+        'Webpack/learnWebpack',
+        'Webpack/webpack-loader/url-loader'
       ]
     }
   ]

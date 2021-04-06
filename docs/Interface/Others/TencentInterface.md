@@ -10,26 +10,26 @@
 
 然后废话不多说，罗列下面试官接下来问的几个相关的知识点（顺序不太准确，因为回忆不起来具体的顺序了）。
 
-1.因为是门户网站所有SEO搜索很重要，询问了vue对seo的影响。
+1. 因为是门户网站所有SEO搜索很重要，询问了vue对seo的影响。
 
-2.网站安全问题，询问登录的时候密码可能被拦截问题，我回答了加密，但其实面试官想问的是https。
+2. 网站安全问题，询问登录的时候密码可能被拦截问题，我回答了加密，但其实面试官想问的是https。
 
-3.get与post的区别。
+3. get与post的区别。
 
-4.promise的用法（这个几乎现在所有面试官都会问）询问了new Promise()的时候传入的方法参数是什么时候触发的，其实问的就是promise的原理。
+4. promise的用法（这个几乎现在所有面试官都会问）询问了new Promise()的时候传入的方法参数是什么时候触发的，其实问的就是promise的原理。
 
-5.react的react-hooks
+5. react的react-hooks
 
-6.隐藏一个组件的方式，display:none, visible:hidden,opacity:0.
+6. 隐藏一个组件的方式，display:none, visible:hidden,opacity:0.
 
-7.display:block，display:inline的区别
+7. display:block，display:inline的区别
 
-8.display:flex 的居中方式
+8. display:flex 的居中方式
 
-9.css选择器id和class标识 id-# class-
+9. css选择器id和class标识 id-# class-
 
-10. div,p{} div p{} div>p{} div+p{} 的意义
+10.  div,p{} div p{} div>p{} div+p{} 的意义
 
-11.算法题手写深拷贝方法另外也谈了JSON.parse(JSON.stringify(copyObj))性能不是很好，最好采用循环拷贝的方法
+11. 算法题手写深拷贝方法另外也谈了JSON.parse(JSON.stringify(copyObj))性能不是很好，最好采用循环拷贝的方法
 
 新增12.之前忘了，前端的常见攻击，比如XSS攻击 CSRF攻击和如何防范

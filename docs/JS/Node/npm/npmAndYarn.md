@@ -109,8 +109,8 @@ module_name是需要安装的模块名称
 ```
 npm i module_name 　　　　　　　　     # 安装模块到项目目录下
 npm i module_name -g 　　　　　　      # -g 的意思是将模块安装到全局，具体安装到磁盘哪个位置，要看 npm config prefix 的位置
-npm i module_name -S(-save) 　　　 　# --save 的意思是将模块安装到项目目录下，并在package.json文件的dependencies（运行依赖）节点写入依赖
-npm i module_name -D(--save-dev)　  # --save-dev 的意思是将模块安装到项目目录下，并在package.json文件的devDependencies（开发依赖）节点写入依赖
+npm i module_name -S(-save) 　　　 　# 运行时依赖--save 的意思是将模块安装到项目目录下，并在package.json文件的dependencies（运行依赖）节点写入依赖
+npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将模块安装到项目目录下，并在package.json文件的devDependencies（开发依赖）节点写入依赖
 ```
 
 具体说明如下：

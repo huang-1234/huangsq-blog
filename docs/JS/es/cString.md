@@ -100,7 +100,7 @@ replace() 方法用另一个值替换在字符串中指定的值：
 | 1. split()            | 通过分离字符串成字串，将字符串对象分割成字符串数组。         |                                                      |
 | 1. startsWith()       | 断字符串的起始位置是否匹配其他字符串中的字符。               |                                                      |
 | 1. substr()           | 通过指定字符数返回在指定位置开始的字符串中的字符。           |                                                      |
-| 1. substring()        | 返回在字符串中指定两个下标之间的字符。                       |                                                      |
+| 1. substring()        | 返回在字符串中指定两个下标之间的字符。                       | basic = basic.substring(0, basic.length - 1); |
 | 1.toLocaleLowerCase() | 根据当前区域设置，将符串中的字符转换成小写。对于大多数语言来说，toLowerCase的返回值是一致的。 |                                                      |
 | 1.toLocaleUpperCase() | 据当前区域设置，将字符串中的字符转换成大写，对于大多数语言来说，toUpperCase的返回值是一致的。 |                                                      |
 | 1. toLowerCase()      | 将字符串转换成小写并返回。                                   |                                                      |

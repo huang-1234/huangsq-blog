@@ -1,6 +1,6 @@
 # 概要学习Less
 
-# 概览
+## 1. 概览
 
 > Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言。这里呈现的是 Less 的官方文档（中文版），包含了 Less 语言以及利用 JavaScript 开发的用于将 Less 样式转换成 CSS 样式的 Less.js 工具。
 
@@ -13,7 +13,7 @@
 
 Less 到底为 CSS 添加了什么功能？以下就是这些新加功能的概览。
 
-# 变量（Variables）
+## 2. 变量（Variables）
 
 无需多说，看代码一目了然：
 
@@ -38,7 +38,7 @@ Less 到底为 CSS 添加了什么功能？以下就是这些新加功能的概�
 
 **[了解关于变量的更多信息](https://less.bootcss.com/features/#variables-feature)**
 
-# 混合（Mixins）
+## 3. 混合（Mixins）
 
 混合（Mixin）是一种将一组属性从一个规则集包含（或混入）到另一个规则集的方法。假设我们定义了一个类（class）如下：
 
@@ -67,7 +67,7 @@ Less 到底为 CSS 添加了什么功能？以下就是这些新加功能的概�
 
 **[了解关于混合（Mixin）的更多信息](https://less.bootcss.com/features/#mixins-feature)**
 
-# 嵌套（Nesting）
+## 4. 嵌套（Nesting）
 
 Less 提供了使用嵌套（nesting）代替层叠或与层叠结合使用的能力。假设我们有以下 CSS 代码：
 
@@ -119,7 +119,7 @@ Less 提供了使用嵌套（nesting）代替层叠或与层叠结合使用的�
 
 **[了解有关夫选择器的详细信息](https://less.bootcss.com/features/#parent-selectors-feature)**
 
-## @规则嵌套和冒泡
+## 5. @规则嵌套和冒泡
 
 @ 规则（例如 `@media` 或 `@supports`）可以与选择器以相同的方式进行嵌套。@ 规则会被放在前面，同一规则集中的其它元素的相对顺序保持不变。这叫做冒泡（bubbling）。
 
@@ -161,7 +161,7 @@ Less 提供了使用嵌套（nesting）代替层叠或与层叠结合使用的�
 }
 ```
 
-# 运算（Operations）
+## 6. 运算（Operations）
 
 算术运算符 `+`、`-`、`*`、`/` 可以对任何数字、颜色或变量进行运算。如果可能的话，算术运算符在加、减或比较之前会进行单位换算。计算的结果以最左侧操作数的单位类型为准。如果单位换算无效或失去意义，则忽略单位。无效的单位换算例如：px 到 cm 或 rad 到 % 的转换。
 
@@ -194,7 +194,7 @@ background-color: #112244 + #111; // 结果是 #223355
 
 不过，Less 提供的 [色彩函数](https://less.bootcss.com/functions/#color-operations) 更有使用价值。
 
-## calc() 特例
+## 7. calc() 特例
 
 *Released [v3.0.0](https://github.com/less/less.js/blob/master/CHANGELOG.md)*
 
@@ -205,7 +205,7 @@ background-color: #112244 + #111; // 结果是 #223355
 width: calc(50% + (@var - 20px));  // 结果是 calc(50% + (25vh - 20px))
 ```
 
-# 转义（Escaping）
+## 8. 转义（Escaping）
 
 转义（Escaping）允许你使用任意字符串作为属性或变量值。任何 `~"anything"` 或 `~'anything'` 形式的内容都将按原样输出，除非 [interpolation](https://less.bootcss.com/features/#variables-feature-variable-interpolation)。
 
@@ -241,7 +241,7 @@ width: calc(50% + (@var - 20px));  // 结果是 calc(50% + (25vh - 20px))
 
 在 Less 3.5+ 版本中，许多以前需要“引号转义”的情况就不再需要了。
 
-# 函数（Functions）
+## 9. 函数（Functions）
 
 Less 内置了多种函数用于转换颜色、处理字符串、算术运算等。这些函数在[Less 函数手册](https://less.bootcss.com/functions/)中有详细介绍。
 
@@ -260,7 +260,7 @@ Less 内置了多种函数用于转换颜色、处理字符串、算术运算等
 
 **[参见：函数手册](https://less.bootcss.com/functions/)**
 
-# 命名空间和访问符
+## 10. 命名空间和访问符
 
 (不要和 [CSS `@namespace`](http://www.w3.org/TR/css3-namespace/) 或 [namespace selectors](http://www.w3.org/TR/css3-selectors/#typenmsp) 混淆了)。
 
@@ -292,7 +292,7 @@ Less 内置了多种函数用于转换颜色、处理字符串、算术运算等
 
 注意：如果不希望它们出现在输出的 CSS 中，例如 `#bundle .tab`，请将 `()` 附加到命名空间（例如 `#bundle()`）后面。
 
-# 映射（Maps）
+## 11. 映射（Maps）
 
 从 Less 3.5 版本开始，你还可以将混合（mixins）和规则集（rulesets）作为一组值的映射（map）使用。
 
@@ -319,7 +319,7 @@ Less 内置了多种函数用于转换颜色、处理字符串、算术运算等
 
 **[参见： 映射（Maps）](https://less.bootcss.com/features/#maps-feature)**
 
-# 作用域（Scope）
+## 12. 作用域（Scope）
 
 Less 中的作用域与 CSS 中的作用域非常类似。首先在本地查找变量和混合（mixins），如果找不到，则从“父”级作用域继承。
 
@@ -349,7 +349,7 @@ Less 中的作用域与 CSS 中的作用域非常类似。首先在本地查找�
 
 **[参见：懒加载](https://less.bootcss.com/features/#variables-feature-lazy-loading)**
 
-# 注释（Comments）
+## 13. 注释（Comments）
 
 块注释和行注释都可以使用：
 
@@ -362,7 +362,7 @@ Less 中的作用域与 CSS 中的作用域非常类似。首先在本地查找�
 @var: white;
 ```
 
-# 导入（Importing）
+## 14. 导入（Importing）
 
 “导入”的工作方式和你预期的一样。你可以导入一个 `.less` 文件，此文件中的所有变量就可以全部使用了。如果导入的文件是 `.less` 扩展名，则可以将扩展名省略掉：
 
