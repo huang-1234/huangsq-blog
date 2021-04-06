@@ -61,7 +61,7 @@ const config = {
           {
             text: '项目工具',
             items: [
-              {text:'Git工具',link:'/Tools/'}
+              {text:'Git&webpack',link:'/Tools/'}
             ]
           }
         ]
@@ -383,7 +383,7 @@ function getMachineLearning() {
 function getTools() {
   return [
     {
-      title: '前端项目工具',
+      title: 'Git',
       children: [
         'Git/git',
         'Git/gitCmCmd',

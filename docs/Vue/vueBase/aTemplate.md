@@ -1,8 +1,9 @@
-## [指令](https://cn.vuejs.org/v2/guide/syntax.html#指令)
+## template
+### [指令](https://cn.vuejs.org/v2/guide/syntax.html#指令)
 
 指令 (Directives) 是带有 `v-` 前缀的特殊 attribute。指令 attribute 的值预期是**单个 JavaScript 表达式** (`v-for` 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。回顾我们在介绍中看到的例子：
 
-```
+```html
 <p v-if="seen">现在你看到我了</p>
 ```
 
@@ -12,7 +13,7 @@
 
 一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，`v-bind` 指令可以用于响应式地更新 HTML attribute：
 
-```
+```html
 <a v-bind:href="url">...</a>
 ```
 
@@ -20,7 +21,7 @@
 
 另一个例子是 `v-on` 指令，它用于监听 DOM 事件：
 
-```
+```html
 <a v-on:click="doSomething">...</a>
 ```
 
@@ -32,7 +33,7 @@
 
 从 2.6.0 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：
 
-```
+```html
 <!--
 注意，参数表达式的写法存在一些约束，如之后的“对动态参数表达式的约束”章节所述。
 -->
@@ -43,21 +44,21 @@
 
 同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：
 
-```
+```html
 <a v-on:[eventName]="doSomething"> ... </a>
 ```
 
 在这个示例中，当 `eventName` 的值为 `"focus"` 时，`v-on:[eventName]` 将等价于 `v-on:focus`。
 
-#### 对动态参数的值的约束
+### 对动态参数的值的约束
 
 动态参数预期会求出一个字符串，异常情况下值为 `null`。这个特殊的 `null` 值可以被显性地用于移除绑定。任何其它非字符串类型的值都将会触发一个警告。
 
-#### 对动态参数表达式的约束
+### 对动态参数表达式的约束
 
 动态参数表达式有一些语法约束，因为某些字符，如空格和引号，放在 HTML attribute 名里是无效的。例如：
 
-```
+```html
 <!-- 这会触发一个编译警告 -->
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
@@ -66,7 +67,7 @@
 
 在 DOM 中使用模板时 (直接在一个 HTML 文件里撰写模板)，还需要避免使用大写字符来命名键名，因为浏览器会把 attribute 名全部强制转为小写：
 
-```
+```html
 <!--
 在 DOM 中使用模板时这段代码会被转换为 `v-bind:[someattr]`。
 除非在实例中有一个名为“someattr”的 property，否则代码不会工作。
@@ -78,19 +79,19 @@
 
 修饰符 (modifier) 是以半角句号 `.` 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，`.prevent` 修饰符告诉 `v-on` 指令对于触发的事件调用 `event.preventDefault()`：
 
-```
+```html
 <form v-on:submit.prevent="onSubmit">...</form>
 ```
 
 在接下来对 [`v-on`](https://cn.vuejs.org/v2/guide/events.html#事件修饰符) 和 [`v-for`](https://cn.vuejs.org/v2/guide/forms.html#修饰符) 等功能的探索中，你会看到修饰符的其它例子。
 
-## [缩写](https://cn.vuejs.org/v2/guide/syntax.html#缩写)
+### [缩写](https://cn.vuejs.org/v2/guide/syntax.html#缩写)
 
 `v-` 前缀作为一种视觉提示，用来识别模板中 Vue 特定的 attribute。当你在使用 Vue.js 为现有标签添加动态行为 (dynamic behavior) 时，`v-` 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐。同时，在构建由 Vue 管理所有模板的[单页面应用程序 (SPA - single page application)](https://en.wikipedia.org/wiki/Single-page_application) 时，`v-` 前缀也变得没那么重要了。因此，Vue 为 `v-bind` 和 `v-on` 这两个最常用的指令，提供了特定简写：
 
 ### [`v-bind` 缩写](https://cn.vuejs.org/v2/guide/syntax.html#v-bind-缩写)
 
-```
+```html
 <!-- 完整语法 -->
 <a v-bind:href="url">...</a>
 
@@ -103,7 +104,7 @@
 
 ### [`v-on` 缩写](https://cn.vuejs.org/v2/guide/syntax.html#v-on-缩写)
 
-```
+```html
 <!-- 完整语法 -->
 <a v-on:click="doSomething">...</a>
 
