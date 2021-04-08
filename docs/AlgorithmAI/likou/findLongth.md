@@ -12,77 +12,8 @@
 
 
 
-我的js源码：
 
-```js
-let FindLongth = function (numArr) {
-  // 这里是保存每次遍历数组保存的结果，如果需要节约内存，可以直接使用numArr前面的部分存储结果值，
-  //但是本着纯函数的原则，还是算了吧
-  let lengthResult = [];
-  let start = -1;
-  for (let i = 0; i < numArr.length; i++) {
-    let next = i + 1;
-    if (numArr[i]<numArr[next]) {
-      continue;
-    } else {
-      lengthResult.push(i - start);
-      start = i;
-    }
-  }
-  // 求出这个数组的最大值
-  let maxValue = lengthResult[0]
-  for (let i = 1;i < lengthResult.length;i++) {
-    let nextValue = lengthResult[i];
-    maxValue = maxValue > nextValue ? maxValue : nextValue;
-  }
-  // return maxValue;
-  return maxValue;
-  // lengthResult
-}
-// // 测试用例
-// let testArr = [2,2,2,2,2,2,2]
-// let re = FindLongth(testArr);
-// console.log(re);
-```
-
-
-
-> 结果：力扣结果
-
-```text
-已完成
-执行用时：100 ms
-输入
-[1,2,3,2,3,4,6,9,11,8,8,2,3,9,13,101,102,1]
-输出
-6
-预期结果
-6
-```
-
-提交结果：
-
-```text
-执行结果：
-解答错误
-显示详情
-输入：
-[]
-输出：
-undefined
-预期结果：
-0
-```
-
-通过加上
-
-```js
-if(0===numArr.length){
-  return 0
-}
-```
-
-完整代码附上：
+js代码附上：
 
 ```js
 /**

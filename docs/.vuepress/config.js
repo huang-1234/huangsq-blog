@@ -14,9 +14,9 @@ const config = {
     lastUpdated: 'Last Updated',
     smoothScroll: true,
     //GitHub仓库，请正确填写
-    repo: 'https://github.com/huang-1234',
+    // repo: 'https://github.com/huang-1234',
     // 自定义仓库链接文字。
-    repoLabel: 'GitHub',
+    // repoLabel: 'GitHub',
     nav: [
       {
         text: '前端',

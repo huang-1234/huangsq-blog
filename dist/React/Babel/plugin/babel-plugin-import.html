@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>babel-plugin-import | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.3bb8992b.css" as="style"><link rel="preload" href="/assets/js/app.cadd5264.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/76.396bf363.js" as="script"><link rel="prefetch" href="/assets/js/10.21106a0a.js"><link rel="prefetch" href="/assets/js/100.7662e5e1.js"><link rel="prefetch" href="/assets/js/101.cec338c1.js"><link rel="prefetch" href="/assets/js/102.503f88f9.js"><link rel="prefetch" href="/assets/js/103.ab4f78a6.js"><link rel="prefetch" href="/assets/js/104.2f5e01b3.js"><link rel="prefetch" href="/assets/js/105.37bd327e.js"><link rel="prefetch" href="/assets/js/106.9e4992e1.js"><link rel="prefetch" href="/assets/js/107.2df47b6d.js"><link rel="prefetch" href="/assets/js/108.f24cbeac.js"><link rel="prefetch" href="/assets/js/109.f17b80f5.js"><link rel="prefetch" href="/assets/js/11.f734411c.js"><link rel="prefetch" href="/assets/js/110.add171e3.js"><link rel="prefetch" href="/assets/js/111.3958dce3.js"><link rel="prefetch" href="/assets/js/112.79f3ae1f.js"><link rel="prefetch" href="/assets/js/113.1b4dc999.js"><link rel="prefetch" href="/assets/js/114.58f12f8c.js"><link rel="prefetch" href="/assets/js/115.91720c03.js"><link rel="prefetch" href="/assets/js/116.1ab26571.js"><link rel="prefetch" href="/assets/js/117.b178112a.js"><link rel="prefetch" href="/assets/js/118.08aae9ca.js"><link rel="prefetch" href="/assets/js/119.6d52b8f5.js"><link rel="prefetch" href="/assets/js/12.7a22d280.js"><link rel="prefetch" href="/assets/js/120.895fe598.js"><link rel="prefetch" href="/assets/js/121.33c501b9.js"><link rel="prefetch" href="/assets/js/122.d7ffc7c3.js"><link rel="prefetch" href="/assets/js/123.3e4c2935.js"><link rel="prefetch" href="/assets/js/124.75c7acb0.js"><link rel="prefetch" href="/assets/js/125.32e5a9b3.js"><link rel="prefetch" href="/assets/js/126.286acbab.js"><link rel="prefetch" href="/assets/js/127.9667f64a.js"><link rel="prefetch" href="/assets/js/128.86e396a9.js"><link rel="prefetch" href="/assets/js/129.7d572d21.js"><link rel="prefetch" href="/assets/js/13.1210f388.js"><link rel="prefetch" href="/assets/js/130.b77da8e2.js"><link rel="prefetch" href="/assets/js/131.88b45384.js"><link rel="prefetch" href="/assets/js/14.309dc500.js"><link rel="prefetch" href="/assets/js/15.bbcca11b.js"><link rel="prefetch" href="/assets/js/16.45463ac8.js"><link rel="prefetch" href="/assets/js/17.57ec4d28.js"><link rel="prefetch" href="/assets/js/18.29acfc80.js"><link rel="prefetch" href="/assets/js/19.884a6044.js"><link rel="prefetch" href="/assets/js/20.e8637d30.js"><link rel="prefetch" href="/assets/js/21.b5778316.js"><link rel="prefetch" href="/assets/js/22.076ec89a.js"><link rel="prefetch" href="/assets/js/23.12bf31ad.js"><link rel="prefetch" href="/assets/js/24.3c072d88.js"><link rel="prefetch" href="/assets/js/25.e535c35c.js"><link rel="prefetch" href="/assets/js/26.7ccdf641.js"><link rel="prefetch" href="/assets/js/27.dd222958.js"><link rel="prefetch" href="/assets/js/28.71181ec8.js"><link rel="prefetch" href="/assets/js/29.886e2bd6.js"><link rel="prefetch" href="/assets/js/3.bd8c6220.js"><link rel="prefetch" href="/assets/js/30.af6af7ef.js"><link rel="prefetch" href="/assets/js/31.ef38d0ab.js"><link rel="prefetch" href="/assets/js/32.97751d72.js"><link rel="prefetch" href="/assets/js/33.50550b5d.js"><link rel="prefetch" href="/assets/js/34.fe7ad69a.js"><link rel="prefetch" href="/assets/js/35.6c62b945.js"><link rel="prefetch" href="/assets/js/36.022890b6.js"><link rel="prefetch" href="/assets/js/37.e7a4e160.js"><link rel="prefetch" href="/assets/js/38.7da743f5.js"><link rel="prefetch" href="/assets/js/39.c19bc5cc.js"><link rel="prefetch" href="/assets/js/4.a3b52ac1.js"><link rel="prefetch" href="/assets/js/40.f8054f1f.js"><link rel="prefetch" href="/assets/js/41.a7403486.js"><link rel="prefetch" href="/assets/js/42.0bd3a8cb.js"><link rel="prefetch" href="/assets/js/43.4ac5abd8.js"><link rel="prefetch" href="/assets/js/44.e983e08e.js"><link rel="prefetch" href="/assets/js/45.06544835.js"><link rel="prefetch" href="/assets/js/46.0aa289bd.js"><link rel="prefetch" href="/assets/js/47.64d1f614.js"><link rel="prefetch" href="/assets/js/48.c38c90d6.js"><link rel="prefetch" href="/assets/js/49.fb1467ca.js"><link rel="prefetch" href="/assets/js/5.2fdda47e.js"><link rel="prefetch" href="/assets/js/50.76e70c31.js"><link rel="prefetch" href="/assets/js/51.a3c09f22.js"><link rel="prefetch" href="/assets/js/52.19b9a6d1.js"><link rel="prefetch" href="/assets/js/53.583e6f94.js"><link rel="prefetch" href="/assets/js/54.6c7de1a8.js"><link rel="prefetch" href="/assets/js/55.d7822e9c.js"><link rel="prefetch" href="/assets/js/56.4058ec64.js"><link rel="prefetch" href="/assets/js/57.3fb65a9f.js"><link rel="prefetch" href="/assets/js/58.f3587e34.js"><link rel="prefetch" href="/assets/js/59.6a9368c2.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/60.4dc2164f.js"><link rel="prefetch" href="/assets/js/61.4f880e82.js"><link rel="prefetch" href="/assets/js/62.90579235.js"><link rel="prefetch" href="/assets/js/63.2f3c2e32.js"><link rel="prefetch" href="/assets/js/64.f8e6c8ce.js"><link rel="prefetch" href="/assets/js/65.57a50ed1.js"><link rel="prefetch" href="/assets/js/66.174cff98.js"><link rel="prefetch" href="/assets/js/67.d0f7f390.js"><link rel="prefetch" href="/assets/js/68.2c38c51f.js"><link rel="prefetch" href="/assets/js/69.f47a8f2a.js"><link rel="prefetch" href="/assets/js/7.c4d3cd2e.js"><link rel="prefetch" href="/assets/js/70.90638407.js"><link rel="prefetch" href="/assets/js/71.7f47619e.js"><link rel="prefetch" href="/assets/js/72.11e79d65.js"><link rel="prefetch" href="/assets/js/73.345b673a.js"><link rel="prefetch" href="/assets/js/74.dc90d6ac.js"><link rel="prefetch" href="/assets/js/75.1a1049c6.js"><link rel="prefetch" href="/assets/js/77.140ecf18.js"><link rel="prefetch" href="/assets/js/78.2901cb5b.js"><link rel="prefetch" href="/assets/js/79.16a63f0f.js"><link rel="prefetch" href="/assets/js/8.ef81a5fe.js"><link rel="prefetch" href="/assets/js/80.e01b7974.js"><link rel="prefetch" href="/assets/js/81.e9a896d7.js"><link rel="prefetch" href="/assets/js/82.65f64267.js"><link rel="prefetch" href="/assets/js/83.7dd1705c.js"><link rel="prefetch" href="/assets/js/84.26c7f970.js"><link rel="prefetch" href="/assets/js/85.ad2a8feb.js"><link rel="prefetch" href="/assets/js/86.44cd82bc.js"><link rel="prefetch" href="/assets/js/87.ae27dcc8.js"><link rel="prefetch" href="/assets/js/88.823636ba.js"><link rel="prefetch" href="/assets/js/89.2eb66620.js"><link rel="prefetch" href="/assets/js/9.33cca914.js"><link rel="prefetch" href="/assets/js/90.8e05748e.js"><link rel="prefetch" href="/assets/js/91.50e40d77.js"><link rel="prefetch" href="/assets/js/92.05ad5ccd.js"><link rel="prefetch" href="/assets/js/93.14b44337.js"><link rel="prefetch" href="/assets/js/94.70d1c8ab.js"><link rel="prefetch" href="/assets/js/95.6851a38f.js"><link rel="prefetch" href="/assets/js/96.2056aa5d.js"><link rel="prefetch" href="/assets/js/97.25205a50.js"><link rel="prefetch" href="/assets/js/98.952eaf4c.js"><link rel="prefetch" href="/assets/js/99.8981ceaf.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb8992b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ReactBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/aReactNewLearner.html" class="sidebar-link">1. react新手入门</a></li><li><a href="/React/ReactBase/bJSX.html" class="sidebar-link">2. 理解JSX</a></li><li><a href="/React/ReactBase/cStateHooks.html" class="sidebar-link">3. setState Hooks</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/zReactPhilosophy.html" class="sidebar-link">49. React 哲学</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="babel-plugin-import"><a href="#babel-plugin-import" class="header-anchor">#</a> babel-plugin-import</h1> <p>在 Babel 配置中引入该插件，可以针对 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fant-design%2Fant-design" target="_blank" rel="noopener noreferrer">antd<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fant-design%2Fant-design-mobile" target="_blank" rel="noopener noreferrer">antd-mobile<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, lodash, <a href="https://links.jianshu.com/go?to=http%3A%2F%2Fmaterial-ui.com%2F" target="_blank" rel="noopener noreferrer">material-ui<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>等库进行按需加载.</p> <hr> <h2 id="为什么需要-babel-plugin-import"><a href="#为什么需要-babel-plugin-import" class="header-anchor">#</a> 为什么需要 babel-plugin-import</h2> <ul><li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fant.design%2Fdocs%2Freact%2Fgetting-started%23Import-on-Demand" target="_blank" rel="noopener noreferrer">English Instruction<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fant.design%2Fdocs%2Freact%2Fgetting-started-cn%23%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD" target="_blank" rel="noopener noreferrer">中文说明<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="如何在项目中添加-babel-plugin-import"><a href="#如何在项目中添加-babel-plugin-import" class="header-anchor">#</a> 如何在项目中添加 babel-plugin-import</h2> <ul><li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fbabeljs.io%2Fdocs%2Fusage%2Fbabelrc%2F" target="_blank" rel="noopener noreferrer">babelrc<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fbabel%2Fbabel-loader" target="_blank" rel="noopener noreferrer">babel-loader<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="例子"><a href="#例子" class="header-anchor">#</a> 例子</h2> <h4 id="libraryname-antd"><a href="#libraryname-antd" class="header-anchor">#</a> <code>{ &quot;libraryName&quot;: &quot;antd&quot; }</code></h4> <div class="language-source-js extra-class"><pre class="language-text"><code>import { Button } from 'antd';
+ReactDOM.render(&lt;Button&gt;xxxx&lt;/Button&gt;);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _button = require('antd/lib/button');
+ReactDOM.render(&lt;_button&gt;xxxx&lt;/_button&gt;);
+</code></pre></div><h4 id="libraryname-antd-style-css"><a href="#libraryname-antd-style-css" class="header-anchor">#</a> <code>{ &quot;libraryName&quot;: &quot;antd&quot;, style: &quot;css&quot; }</code></h4> <div class="language-source-js extra-class"><pre class="language-text"><code>import { Button } from 'antd';
+ReactDOM.render(&lt;Button&gt;xxxx&lt;/Button&gt;);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _button = require('antd/lib/button');
+require('antd/lib/button/style/css');
+ReactDOM.render(&lt;_button&gt;xxxx&lt;/_button&gt;);
+</code></pre></div><h4 id="libraryname-antd-style-true"><a href="#libraryname-antd-style-true" class="header-anchor">#</a> <code>{ &quot;libraryName&quot;: &quot;antd&quot;, style: true }</code></h4> <div class="language-source-js extra-class"><pre class="language-text"><code>import { Button } from 'antd';
+ReactDOM.render(&lt;Button&gt;xxxx&lt;/Button&gt;);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _button = require('antd/lib/button');
+require('antd/lib/button/style');
+ReactDOM.render(&lt;_button&gt;xxxx&lt;/_button&gt;);
+</code></pre></div><p>备注 : 配置 <code>style: true</code> 则在项目编译阶段，可以对引入的 antd 样式文件进行编译，从而可以压缩打包尺寸；而配置<code>style: &quot;css&quot;</code>, 则直接引入经过打包后的 antd 样式文件</p> <h2 id="使用方式"><a href="#使用方式" class="header-anchor">#</a> 使用方式</h2> <div class="language-source-shell extra-class"><pre class="language-text"><code>npm install babel-plugin-import --save-dev
+</code></pre></div><p>通过 <code>.babelrc</code> 配置文件或者 babel-loader 模块编程引入.</p> <div class="language-source-js extra-class"><pre class="language-text"><code>{
+  &quot;plugins&quot;: [[&quot;import&quot;, options]]
+}
+</code></pre></div><h3 id="options"><a href="#options" class="header-anchor">#</a> options</h3> <p><code>options</code> can be object.</p> <div class="language-source-js extra-class"><pre class="language-text"><code>{
+  &quot;libraryName&quot;: &quot;antd&quot;,
+  &quot;style&quot;: true,   // or 'css'
+}
+</code></pre></div><div class="language-source-js extra-class"><pre class="language-text"><code>{
+  &quot;libraryName&quot;: &quot;lodash&quot;,
+  &quot;libraryDirectory&quot;: &quot;&quot;, //表示从库的package.json的main入口；否则默认为lib文件夹
+  &quot;camel2DashComponentName&quot;: false,  // default: true，将引入的组件名转化为&quot;-&quot;连接的文件名
+}
+</code></pre></div><div class="language-source-js extra-class"><pre class="language-text"><code>{
+  &quot;libraryName&quot;: &quot;@material-ui/core&quot;,
+  &quot;libraryDirectory&quot;: &quot;components&quot;,  // default: lib
+  &quot;camel2DashComponentName&quot;: false,  // default: true
+}
+</code></pre></div><p><s><code>options</code> can be an array.</s> It's not available in babel@7+</p> <p>For Example:</p> <div class="language-source-js extra-class"><pre class="language-text"><code>[
+  {
+    libraryName: 'antd',
+    libraryDirectory: 'lib', // default: lib
+    style: true
+  },
+  {
+    libraryName: 'antd-mobile'
+  }
+];
+</code></pre></div><p><code>Options</code> can't be an array in babel@7+, but you can add plugins with name to support multiple dependencies.</p> <p>For Example:</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token comment">// .babelrc</span>
+<span class="token string">&quot;plugins&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">[</span><span class="token string">&quot;import&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&quot;libraryName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;antd&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;libraryDirectory&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;lib&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;ant&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token string">&quot;import&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&quot;libraryName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;antd-mobile&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;libraryDirectory&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;lib&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;antd-mobile&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h4 id="style"><a href="#style" class="header-anchor">#</a> style</h4> <ul><li><code>[&quot;import&quot;, { &quot;libraryName&quot;: &quot;antd&quot; }]</code>: import js modularly</li> <li><code>[&quot;import&quot;, { &quot;libraryName&quot;: &quot;antd&quot;, &quot;style&quot;: true }]</code>: import js and css modularly (LESS/Sass source files)</li> <li><code>[&quot;import&quot;, { &quot;libraryName&quot;: &quot;antd&quot;, &quot;style&quot;: &quot;css&quot; }]</code>: import js and css modularly (css built files)</li></ul> <p>If option style is a <code>Function</code>, <code>babel-plugin-import</code> will auto import the file which filepath equal to the function return value. This is useful for the components library developers.</p> <p>e.g.</p> <ul><li><code>[&quot;import&quot;, { &quot;libraryName&quot;: &quot;antd&quot;, &quot;style&quot;: (name) =&gt;</code>${name}/style/2x<code>}]</code>: import js and css modularly &amp; css file path is <code>ComponentName/style/2x</code></li></ul> <p>If a component has no style, you can use the <code>style</code> function to return a <code>false</code> and the style will be ignored.</p> <p>e.g.</p> <div class="language-source-js extra-class"><pre class="language-text"><code>[
+  'import',
+  {
+    libraryName: 'antd',
+    style: (name: string, file: Object) =&gt; {
+      if (name === 'antd/lib/utils') {
+        return false;
+      }
+      return `${name}/style/2x`;
+    }
+  }
+];
+</code></pre></div><h4 id="customname"><a href="#customname" class="header-anchor">#</a> customName</h4> <p>使用 <code>customName</code> 来自定义导入文件路径.</p> <p>插件默认导入文件的基础路径为 lib 目录，并且默认将引入的组件名转换为按照&quot;-&quot;连接的结构:</p> <div class="language-source-ts extra-class"><pre class="language-text"><code>import { TimePicker } from &quot;antd&quot;
+↓ ↓ ↓ ↓ ↓ ↓
+var _button = require('antd/lib/time-picker');
+</code></pre></div><p>设置 <code>camel2DashComponentName</code> 为 <code>false</code>来阻止组件名称的转换:</p> <div class="language-source-ts extra-class"><pre class="language-text"><code>import { TimePicker } from &quot;antd&quot;
+↓ ↓ ↓ ↓ ↓ ↓
+var _button = require('antd/lib/TimePicker');
+</code></pre></div><p>在 Babel 配置文件中，使用 <code>customName</code> 来自定义导入组件路径:</p> <div class="language-source-js extra-class"><pre class="language-text"><code>[
+  'import',
+  {
+    libraryName: 'antd',
+    customName: (name: string) =&gt; {
+      if (name === 'TimePicker') {
+        return 'antd/lib/custom-time-picker';
+      }
+      return `antd/lib/${name}`;
+    }
+  }
+];
+</code></pre></div><p>上面编译后的结果为:</p> <div class="language-source-ts extra-class"><pre class="language-text"><code>import { TimePicker } from &quot;antd&quot;
+↓ ↓ ↓ ↓ ↓ ↓
+var _button = require('antd/lib/custom-time-picker');
+</code></pre></div><h4 id="transformtodefaultimport"><a href="#transformtodefaultimport" class="header-anchor">#</a> transformToDefaultImport</h4> <p>如果打包后的模块没有<code>default</code>导出，则设置 <code>false</code></p> <h3 id="备注"><a href="#备注" class="header-anchor">#</a> 备注</h3> <p>babel-plugin-import will not work properly if you add the library to the webpack config <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwebpack.github.io%2Fdocs%2Fcode-splitting.html%23split-app-and-vendor-code" target="_blank" rel="noopener noreferrer">vendor<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fswift.ctolib.com%2Farticle%2Fwiki%2F108814" target="_blank" rel="noopener noreferrer">https://swift.ctolib.com/article/wiki/108814<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="babel-plugin-import-custom"><a href="#babel-plugin-import-custom" class="header-anchor">#</a> babel-plugin-import-custom</h1> <p>针对iview做了额外的优化，<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fvidering%2Fbabel-plugin-import-custom%2Fblob%2Fmaster%2FREADME.md" target="_blank" rel="noopener noreferrer">https://github.com/videring/babel-plugin-import-custom/blob/master/README.md<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.cadd5264.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/76.396bf363.js" defer></script>
+  </body>
+</html>

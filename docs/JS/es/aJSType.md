@@ -16,6 +16,35 @@
 
 原因在于在这种情况下，`'1'`已经被强转成了`String`类型。
 
+> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）
+
+```js
+function test(person) {
+  person.age = 26
+  person = {
+    name: 'hzj',
+    age: 18
+  }
+  return person
+}
+const p1 = {
+  name: 'fyq',
+  age: 19
+}
+const p2 = test(p1)
+console.log(p1) // -> ?
+console.log(p2) // -> ?
+```
+
+结果:
+
+```
+p1：{name: “fyq”, age: 26}
+p2：{name: “hzj”, age: 18}
+```
+
+> 原因: 在函数传参的时候传递的是对象在堆中的内存地址值，test函数中的实参person是p1对象的内存地址，通过调用person.age = 26确实改变了p1的值，但随后person变成了另一块内存空间的地址，并且在最后将这另外一份内存空间的地址返回，赋给了p2。
+
 ### 对象类型
 
 对象类型和原始类型不同的是，原始类型存储的是值，对象类型存储的是地址（指针）。
