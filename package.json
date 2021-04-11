@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "myBlogForMynote",
   "main": "index.js",
-  "repository": "y",
+  "repository": "git@github.com:huang-1234/huang-1234.github.io.git",
   "author": "hsq",
   "license": "2021",
   "private": true,

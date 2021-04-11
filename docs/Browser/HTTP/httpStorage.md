@@ -4,11 +4,11 @@
 
 当页面第一次请求时：
 
-<img :src="$withBase('/httpStorage01.png')" alt="httpStorage01"/>
+<img :src="$withBase('/images/Browser/HTTP/httpStorage01.png')" alt="httpStorage01"/>
 
 浏览器后续请求时：
 
-<img :src="$withBase('/httpStorage02.png')" alt="httpStorage02"/>
+<img :src="$withBase('/images/Browser/HTTP/httpStorage02.png')" alt="httpStorage02"/>
 
 浏览器缓存包含两种类型，即强缓存（也叫本地缓存）和协商缓存，浏览器在第一次请求发生后，再次请求时：
 
@@ -23,7 +23,7 @@
 
 ## 强缓存相关的header字段
 
-<img :src="$withBase('/httpStorage03.png')" alt="httpStorage03"/>
+<img :src="$withBase('/images/Browser/HTTP/httpStorage03.png')" alt="httpStorage03"/>
 
 - **expires**，这是http1.0时的规范；它的值为一个绝对时间的GMT格式的时间字符串，如Mon, 10 Jun 2015 21:31:12 GMT，如果发送请求的时间在expires之前，那么本地缓存始终有效，否则就会发送请求到服务器来获取资源。
 - **cache-control：max-age=number**，这是http1.1时出现的header信息，主要是利用该字段的max-age值来进行判断，它是一个相对值；资源第一次的请求时间和Cache-Control设定的有效期，计算出一个资源过期时间，再拿这个过期时间跟当前的请求时间比较，如果请求时间在过期时间之前，就能命中缓存，否则就不行。
@@ -67,7 +67,7 @@ HTTP1.1中Etag的出现主要是为了解决几个Last-Modified比较难解决�
 
 ## 用户的行为对缓存的影响
 
-<img :src="$withBase('/httpStorage04.png')" alt="httpStorage04"/>
+<img :src="$withBase('/images/Browser/HTTP/httpStorage04.png')" alt="httpStorage04"/>
 
 ## 强缓存如何重新加载缓存缓存过的资源
 

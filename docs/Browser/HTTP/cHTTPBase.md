@@ -3,7 +3,7 @@
 先看一下最常见的 HTTP 用法：
 
 - GET表示请求访问服务器的类型，称为方法（method）。
-- /index.htm 指明了请求访问的资源对象， 也叫做请求 URI（request-URI）。
+- index.html 指明了请求访问的资源对象， 也叫做请求 URI（request-URI）。
 - HTTP/1.1，即 HTTP 的版本号，用来提示客户端使用的 HTTP 协议功能。
 
 请求报文是由请求方法、请求 URI、协议版本、可选的请求首部字段 和内容实体构成的。
