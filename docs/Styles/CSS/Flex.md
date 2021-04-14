@@ -41,14 +41,14 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 ## 三、容器的属性
 
-以下6个属性设置在容器上。
+<font color=red>以下6个属性设置在容器上。</font>
 
-> - flex-direction
-> - flex-wrap
-> - flex-flow
-> - justify-content
-> - align-items
-> - align-content
+> - flex-direction  |主轴方向，取值：row | row-reverse | column | column-reverse;
+> - flex-wrap        | 是否换行，默认不换：nowrap | wrap | wrap-reverse;
+> - flex-flow    | <flex-direction> || <flex-wrap>;  默认值为`row nowrap`
+> - justify-content  |  项目在主轴上的对齐方式:flex-start | flex-end | center | space-between | space-around;
+> - align-items    | 项目在交叉轴上如何对齐:flex-start | flex-end | center | baseline | stretch;
+> - align-content |多根轴线的对齐方式:flex-start | flex-end | center | space-between | space-around | stretch;
 
 ### 3.1 flex-direction属性
 
@@ -117,7 +117,9 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 > stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
 > ```
 
-### 3.6 align-content属性 <font color=red>// align-content: space-around;要想起作用。 必须得有flex-wrap!=nowrap</font>
+### 3.6 align-content属性 
+
+<font color=red>// align-content: space-around;要想起作用。 必须得有flex-wrap!=nowrap</font>
 
 `align-content`属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
 
@@ -138,12 +140,12 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 以下6个属性设置在项目上。
 
-> - `order`
-> - `flex-grow`
-> - `flex-shrink`
-> - `flex-basis`
-> - `flex`
-> - `align-self`
+> - `order`  |排列顺序。数值越小，排列越靠前，默认为0。
+> - `flex-grow`  |项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大
+> - `flex-shrink`  |项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+> - `flex-basis`   |<length> | auto; /* default auto */
+> - `flex`  |flex属性是flex-grow, flex-shrink和 flex-basis的简写，默认值为`0 1 auto`
+> - `align-self`  |auto | flex-start | flex-end | center | baseline | stretch;
 
 ### 4.1 order属性
 
