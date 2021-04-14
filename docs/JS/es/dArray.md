@@ -45,100 +45,59 @@ js数组对象自带的方法有如下这些，除了`toSource()`这个方法比
 改变原数组的方法：`pop(),push(),reverse(),shift(),sort(),splice(),unshift()`
 
 JavaScript的 `**Array**` 对象是用于构造数组的全局对象，数组是类似于列表的高阶对象。
-
-**创建数组**
-
-```
+```js
+//1. 创建数组
 var fruits = ['Apple', 'Banana'];
-console.log(fruits.length);
-// 2
-```
+console.log(fruits.length);		// 2
 
-**通过索引访问数组元素**
+//2. 通过索引访问数组元素
+var first = fruits[0];// Apple
+var last = fruits[fruits.length - 1];// Banana
 
-```
-var first = fruits[0];
-// Apple
-var last = fruits[fruits.length - 1];
-// Banana
-```
+//3. 遍历数组
 
-**遍历数组**
-```
 fruits.forEach(function (item, index, array) {
     console.log(item, index);
 });
 // Apple 0
 // Banana 1
-```
 
-**添加元素到数组的末尾**
+//4. 添加元素到数组的末尾
+var newLength = fruits.push('Orange');// newLength:3; fruits: ["Apple", "Banana", "Orange"]
 
-```
-var newLength = fruits.push('Orange');
-// newLength:3; fruits: ["Apple", "Banana", "Orange"]
-```
-
-**删除数组末尾的元素**
-
-```
+//5. 删除数组末尾的元素
 var last = fruits.pop(); // remove Orange (from the end)
 // last: "Orange"; fruits: ["Apple", "Banana"];
-```
 
-**删除数组最前面（头部）的元素**
-
-```
+//6. 删除数组最前面（头部）的元素
 var first = fruits.shift(); // remove Apple from the front
 // first: "Apple"; fruits: ["Banana"];
-```
 
-**添加元素到数组的头部**
-
-```
+//7. 添加元素到数组的头部
 var newLength = fruits.unshift('Strawberry') // add to the front
 // ["Strawberry", "Banana"];
-```
 
-**找出某个元素在数组中的索引**
+//8. 找出某个元素在数组中的索引
+fruits.push('Mango');// ["Strawberry", "Banana", "Mango"]
+var pos = fruits.indexOf('Banana');// 1
 
-```
-fruits.push('Mango');
-// ["Strawberry", "Banana", "Mango"]
-var pos = fruits.indexOf('Banana');
-// 1
-```
-
-**通过索引删除某个元素**
-
-```
+//9. 通过索引删除某个元素**
 var removedItem = fruits.splice(pos, 1); // this is how to remove an item
 // ["Strawberry", "Mango"]
-```
 
-**从一个索引位置删除多个元素**
-
-```
+//10. 从一个索引位置删除多个元素
 var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
-console.log(vegetables);
-// ["Cabbage", "Turnip", "Radish", "Carrot"]
+console.log(vegetables);// ["Cabbage", "Turnip", "Radish", "Carrot"]
 
 var pos = 1, n = 2;
-
-var removedItems = vegetables.splice(pos, n);
-// this is how to remove items, n defines the number of items to be removed,
+var removedItems = vegetables.splice(pos, n);// this is how to remove items, n defines the number of items to be removed,
 // from that position(pos) onward to the end of array.
 
-console.log(vegetables);
-// ["Cabbage", "Carrot"] (the original array is changed)
+console.log(vegetables);// ["Cabbage", "Carrot"] (the original array is changed)
 
-console.log(removedItems);
-// ["Turnip", "Radish"]
-```
+console.log(removedItems);// ["Turnip", "Radish"]
 
-**复制一个数组**
-
-```
+//11. 复制一个数组
 var shallowCopy = fruits.slice(); // this is how to make a copy
 // ["Strawberry", "Mango"]
 ```
@@ -172,13 +131,6 @@ new Array(arrayLength)
 
 JavaScript 数组的索引是从0开始的，第一个元素的索引为0，最后一个元素的索引等于该数组的长度减1。如果指定的索引是一个无效值，JavaScript 数组并不会报错，而是会返回 `undefined`。
 
-```js
-var arr = ['this is the first element', 'this is the second element', 'this is the last element'];
-console.log(arr[0]);              // 打印 'this is the first element'
-console.log(arr[1]);              // 打印 'this is the second element'
-console.log(arr[arr.length - 1]); // 打印 'this is the last element'
-```
-
 虽然数组元素可以看做是数组对象的属性，就像 `toString` 一样，但是下面的写法是错误的，运行时会抛出 `SyntaxError` 异常，而原因则是使用了非法的属性名：
 
 ```js
@@ -201,14 +153,10 @@ renderer['3d'].setTexture(model, 'character.png');  // √
 console.log(years['2'] != years['02']);
 ```
 
-类似地，如果对象的属性名称是保留字（最好不要这么做！），那么就只能通过字符串的形式用方括号来访问（从 firefox 40.0a2 开始也支持用点号访问了）：
+类似地，如果对象的属性名称是保留字（最好不要这么做！），那么就只能通过字符串的形式用方括号来访问（从 firefox 40.0 a 开始也支持用点号访问了）：
 
 ```js
-var promise = {
-  'var'  : 'text',
-  'array': [1, 2, 3, 4]
-};
-
+var promise = {'var'  : 'text','array': [1, 2, 3, 4]};
 console.log(promise['var']);
 ```
 
@@ -217,8 +165,7 @@ console.log(promise['var']);
 JavaScript 数组的 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 属性和其数字下标之间有着紧密的联系。数组内置的几个方法（例如 [`join`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)、[`slice`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)、[`indexOf`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) 等）都会考虑 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 的值。另外还有一些方法（例如 [`push`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)、[`splice`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) 等）还会改变 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 的值。
 
 ```js
-var fruits = [];
-fruits.push('banana', 'apple', 'peach');
+var fruits = [];fruits.push('banana', 'apple', 'peach');
 console.log(fruits.length); // 3
 ```
 
@@ -253,11 +200,10 @@ console.log(fruits.length); // 2
 
 使用正则表达式匹配字符串可以得到一个数组。这个数组中包含本次匹配的相关信息和匹配结果。[`RegExp.exec`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)、[`String.match`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match)、[`String.replace`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace) 都会返回这样的数组。看下面的例子和例子下面的表格：
 
-```
+```js
 // 匹配1个 d 后面紧跟着至少1个 b，再后面又跟着1个 d 的子串，
 // 并且需要记住子串中匹配到的 b 和最后的 d （通过正则表达式中的分组），
 // 同时在匹配时忽略大小写
-
 myRe = /d(b+)(d)/i;
 myArray = myRe.exec("cdbBdbsbz");
 ```
@@ -272,8 +218,6 @@ myArray = myRe.exec("cdbBdbsbz");
 | `[1], ...[n]` | 只读元素，正则表达式中所指定的分组所匹配到的子串，其数量由正则中的分组数量决定，无最大上限 | [1]: bB [2]: d |
 
 #### 修改器方法
-
-
 
 下面的这些方法会改变调用它们的对象自身的值：
 
@@ -316,8 +260,6 @@ myArray = myRe.exec("cdbBdbsbz");
 
 
 #### 访问方法
-
-
 
 下面的这些方法绝对不会改变调用它们的对象的值，只会返回一个新的数组或者返回一个其它的期望值。
 

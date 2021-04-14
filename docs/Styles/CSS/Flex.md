@@ -56,7 +56,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   flex-direction: row | row-reverse | column | column-reverse;
+>   	flex-direction: row | row-reverse | column | column-reverse;
 > }
 > // 
 > row（默认值）：主轴为水平方向，起点在左端。
@@ -81,7 +81,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   flex-flow: <flex-direction> || <flex-wrap>;
+>   	flex-flow: <flex-direction> || <flex-wrap>;
 > }
 > ```
 
@@ -91,7 +91,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
-> justify-content: flex-start | flex-end | center | space-between | space-around;
+> 	justify-content: flex-start | flex-end | center | space-between | space-around;
 > }
 > // 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 > flex-start（默认值）：左对齐
@@ -107,7 +107,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   align-items: flex-start | flex-end | center | baseline | stretch;
+>   	align-items: flex-start | flex-end | center | baseline | stretch;
 > }
 > // 它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
 > flex-start：交叉轴的起点对齐。
@@ -123,7 +123,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+>   	align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 > }
 > // 该属性可能取6个值。
 > flex-start：与交叉轴的起点对齐。
@@ -151,7 +151,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   order: <integer>;
+>   	order: <integer>;
 > }
 > ```
 
@@ -161,7 +161,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   flex-grow: <number>; /* default 0 */
+>   	flex-grow: <number>; /* default 0 */
 > }
 > ```
 
@@ -171,7 +171,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   flex-shrink: <number>; /* default 1 */
+>   	flex-shrink: <number>; /* default 1 */
 > }
 > //如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。
 > ```
@@ -182,7 +182,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   flex-basis: <length> | auto; /* default auto */
+>   	flex-basis: <length> | auto; /* default auto */
 > }
 > ```
 
@@ -194,7 +194,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+>   	flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
 > }
 > ```
 
@@ -208,7 +208,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   align-self: auto | flex-start | flex-end | center | baseline | stretch;
+>   	align-self: auto | flex-start | flex-end | center | baseline | stretch;
 > }
 > ```
 

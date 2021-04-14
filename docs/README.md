@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./favicon.ico
+heroImage: ./me.jpg
 heroText: 黄水清
 # tagline: 点击快速上手
 actionText: 点击开始学习 →
