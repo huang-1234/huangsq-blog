@@ -22,7 +22,7 @@
 
 1. componentWillReceiveProps
 
-   // 常用的用法是父组件的props改变了，需要在子组件中通过这个生命周期获得最新的props，然后setState组建的state
+   常用的用法是父组件的props改变了，需要在子组件中通过这个生命周期获得最新的props，然后setState组建的state
 
 2. shouldComponentUpdate // 组件是否要重新渲染，默认为真。
 
@@ -38,7 +38,7 @@
 
 ##### 4，路由（react-router）
 
-这个与vue-router差不多，大家可以看文档。
+可以看文档。
 
 react-router的中文官网 ： [中文官网](https://link.jianshu.com?t=http%3A%2F%2Freact-guide.github.io%2Freact-router-cn%2Fdocs%2FAPI.html)
 
@@ -109,7 +109,3 @@ react-router的中文官网 ： [中文官网](https://link.jianshu.com?t=http%3
 4，一个渐进的学react的demo。
 
 里面基本上涉及到了，react入门的所有涵盖的知识，他都是自己搭的，没有使用脚手架工具。里面也涵盖了webpack的一些配置，对于新手学习蛮好的。
-
-
-
-### 四、小案列（自己前段时间写的一些小demo，比较low，大家可以看看）

@@ -92,8 +92,7 @@ const element = <img src={user.avatarUrl}></img>;
 
 在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。
 
-> **警告：**
->
+
 > 因为 JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 `camelCase`（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定。
 >
 > 例如，JSX 里的 `class` 变成了 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)，而 `tabindex` 则变为 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex)。
@@ -163,4 +162,4 @@ const element = {
 
 这些对象被称为 “React 元素”。它们描述了你希望在屏幕上看到的内容。React 通过读取这些对象，然后使用它们来构建 DOM 以及保持随时更新。
 
-我们将在[下一章节](https://react.docschina.org/docs/rendering-elements.html)中探讨如何将 React 元素渲染为 DOM。
+探讨如何将 React 元素渲染为 DOM。

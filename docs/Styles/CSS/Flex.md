@@ -45,7 +45,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > - flex-direction  |主轴方向，取值：row | row-reverse | column | column-reverse;
 > - flex-wrap        | 是否换行，默认不换：nowrap | wrap | wrap-reverse;
-> - flex-flow    | <flex-direction> || <flex-wrap>;  默认值为`row nowrap`
+> - flex-flow    | flex-direction || flex-wrap;  默认值为`row nowrap`
 > - justify-content  |  项目在主轴上的对齐方式:flex-start | flex-end | center | space-between | space-around;
 > - align-items    | 项目在交叉轴上如何对齐:flex-start | flex-end | center | baseline | stretch;
 > - align-content |多根轴线的对齐方式:flex-start | flex-end | center | space-between | space-around | stretch;
@@ -81,7 +81,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box {
->   	flex-flow: <flex-direction> || <flex-wrap>;
+>   	flex-flow: flex-direction || flex-wrap;
 > }
 > ```
 
@@ -143,7 +143,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 > - `order`  |排列顺序。数值越小，排列越靠前，默认为0。
 > - `flex-grow`  |项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大
 > - `flex-shrink`  |项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
-> - `flex-basis`   |<length> | auto; /* default auto */
+> - `flex-basis`   |length | auto; /* default auto */
 > - `flex`  |flex属性是flex-grow, flex-shrink和 flex-basis的简写，默认值为`0 1 auto`
 > - `align-self`  |auto | flex-start | flex-end | center | baseline | stretch;
 
@@ -184,7 +184,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .item {
->   	flex-basis: <length> | auto; /* default auto */
+>   	flex-basis: length | auto; /* default auto */
 > }
 > ```
 

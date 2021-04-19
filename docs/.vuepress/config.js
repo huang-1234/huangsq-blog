@@ -238,11 +238,14 @@ function getBrowser() {
     {
       title: 'ReactBase',
       children: [
-        'ReactBase/aReactNewLearner',
-        'ReactBase/bJSX',
+        // 'ReactBase/aReactNewLearner',
+        // 'ReactBase/bJSX',
         'ReactBase/cStateHooks',
         'ReactBase/dRouter',
-        'ReactBase/zReactPhilosophy',
+        'ReactBase/eLifeFun',
+        // 'ReactBase/yReact-ReduxPersonal',
+        // 'ReactBase/zReactPhilosophy',
+        
       ]
     },
     {

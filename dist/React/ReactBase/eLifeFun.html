@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react的生命周期函数 | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.c2ac4239.js" as="script"><link rel="preload" href="/assets/js/2.4cb4eaec.js" as="script"><link rel="preload" href="/assets/js/91.22bdef51.js" as="script"><link rel="prefetch" href="/assets/js/10.aa6a5528.js"><link rel="prefetch" href="/assets/js/100.32bb4933.js"><link rel="prefetch" href="/assets/js/101.b59e2f32.js"><link rel="prefetch" href="/assets/js/102.4f5fc25d.js"><link rel="prefetch" href="/assets/js/103.25022d44.js"><link rel="prefetch" href="/assets/js/104.7cbe5b5f.js"><link rel="prefetch" href="/assets/js/105.bf366485.js"><link rel="prefetch" href="/assets/js/106.7269b01e.js"><link rel="prefetch" href="/assets/js/107.2d6c3a25.js"><link rel="prefetch" href="/assets/js/108.ee2c7420.js"><link rel="prefetch" href="/assets/js/109.10d10989.js"><link rel="prefetch" href="/assets/js/11.f9f6346a.js"><link rel="prefetch" href="/assets/js/110.80e7d090.js"><link rel="prefetch" href="/assets/js/111.e47b1cf6.js"><link rel="prefetch" href="/assets/js/112.d9baa87d.js"><link rel="prefetch" href="/assets/js/113.1348f627.js"><link rel="prefetch" href="/assets/js/114.07420e2f.js"><link rel="prefetch" href="/assets/js/115.8454c32c.js"><link rel="prefetch" href="/assets/js/116.cb43c9cb.js"><link rel="prefetch" href="/assets/js/117.1be822ef.js"><link rel="prefetch" href="/assets/js/118.e2146ee4.js"><link rel="prefetch" href="/assets/js/119.441a13d8.js"><link rel="prefetch" href="/assets/js/12.ce2b6a64.js"><link rel="prefetch" href="/assets/js/120.8fd43faf.js"><link rel="prefetch" href="/assets/js/121.34438220.js"><link rel="prefetch" href="/assets/js/122.5f95fc70.js"><link rel="prefetch" href="/assets/js/123.ed062bfb.js"><link rel="prefetch" href="/assets/js/124.9465d3a1.js"><link rel="prefetch" href="/assets/js/125.b798efad.js"><link rel="prefetch" href="/assets/js/126.15610fef.js"><link rel="prefetch" href="/assets/js/127.210a8a77.js"><link rel="prefetch" href="/assets/js/128.46d9a244.js"><link rel="prefetch" href="/assets/js/129.d52e4526.js"><link rel="prefetch" href="/assets/js/13.22c615d8.js"><link rel="prefetch" href="/assets/js/130.44dbca11.js"><link rel="prefetch" href="/assets/js/131.4cf007f2.js"><link rel="prefetch" href="/assets/js/132.82b4359a.js"><link rel="prefetch" href="/assets/js/133.36e4b51c.js"><link rel="prefetch" href="/assets/js/134.e125d4a2.js"><link rel="prefetch" href="/assets/js/135.2d89eb62.js"><link rel="prefetch" href="/assets/js/136.e0d92cfd.js"><link rel="prefetch" href="/assets/js/137.3ee9d5f7.js"><link rel="prefetch" href="/assets/js/138.dac17d87.js"><link rel="prefetch" href="/assets/js/139.30ed0e88.js"><link rel="prefetch" href="/assets/js/14.32a0098a.js"><link rel="prefetch" href="/assets/js/140.72156d88.js"><link rel="prefetch" href="/assets/js/141.f720247a.js"><link rel="prefetch" href="/assets/js/142.ea891d81.js"><link rel="prefetch" href="/assets/js/143.34512190.js"><link rel="prefetch" href="/assets/js/15.2d9644b7.js"><link rel="prefetch" href="/assets/js/16.76f28f36.js"><link rel="prefetch" href="/assets/js/17.3e04cfae.js"><link rel="prefetch" href="/assets/js/18.e06aa365.js"><link rel="prefetch" href="/assets/js/19.80af733a.js"><link rel="prefetch" href="/assets/js/20.1897ac24.js"><link rel="prefetch" href="/assets/js/21.94477672.js"><link rel="prefetch" href="/assets/js/22.8fd1d6d2.js"><link rel="prefetch" href="/assets/js/23.aca7b304.js"><link rel="prefetch" href="/assets/js/24.ed239fc4.js"><link rel="prefetch" href="/assets/js/25.570e9504.js"><link rel="prefetch" href="/assets/js/26.79ad4e9f.js"><link rel="prefetch" href="/assets/js/27.41e4a3bd.js"><link rel="prefetch" href="/assets/js/28.535b2bef.js"><link rel="prefetch" href="/assets/js/29.1467f698.js"><link rel="prefetch" href="/assets/js/3.e36508a1.js"><link rel="prefetch" href="/assets/js/30.3ddb14a2.js"><link rel="prefetch" href="/assets/js/31.ddeb4127.js"><link rel="prefetch" href="/assets/js/32.cdfdfa15.js"><link rel="prefetch" href="/assets/js/33.e06d34ae.js"><link rel="prefetch" href="/assets/js/34.b251ade7.js"><link rel="prefetch" href="/assets/js/35.ba08f9fc.js"><link rel="prefetch" href="/assets/js/36.836d3526.js"><link rel="prefetch" href="/assets/js/37.6137956f.js"><link rel="prefetch" href="/assets/js/38.af7cf25b.js"><link rel="prefetch" href="/assets/js/39.61d32e03.js"><link rel="prefetch" href="/assets/js/4.9401f5f2.js"><link rel="prefetch" href="/assets/js/40.d2b467e2.js"><link rel="prefetch" href="/assets/js/41.8f88507a.js"><link rel="prefetch" href="/assets/js/42.a17f2361.js"><link rel="prefetch" href="/assets/js/43.6557deec.js"><link rel="prefetch" href="/assets/js/44.438687b4.js"><link rel="prefetch" href="/assets/js/45.a0afb263.js"><link rel="prefetch" href="/assets/js/46.59fc2dd5.js"><link rel="prefetch" href="/assets/js/47.2f56c49e.js"><link rel="prefetch" href="/assets/js/48.8ff625eb.js"><link rel="prefetch" href="/assets/js/49.260bb028.js"><link rel="prefetch" href="/assets/js/5.b8fa1d9c.js"><link rel="prefetch" href="/assets/js/50.c5f72b74.js"><link rel="prefetch" href="/assets/js/51.b76a9134.js"><link rel="prefetch" href="/assets/js/52.82d59364.js"><link rel="prefetch" href="/assets/js/53.964daede.js"><link rel="prefetch" href="/assets/js/54.e51aa4f9.js"><link rel="prefetch" href="/assets/js/55.6616f962.js"><link rel="prefetch" href="/assets/js/56.2f0f8dd5.js"><link rel="prefetch" href="/assets/js/57.4ec10332.js"><link rel="prefetch" href="/assets/js/58.dd010c54.js"><link rel="prefetch" href="/assets/js/59.6df78947.js"><link rel="prefetch" href="/assets/js/6.596b8f72.js"><link rel="prefetch" href="/assets/js/60.63861a1b.js"><link rel="prefetch" href="/assets/js/61.4b4bd035.js"><link rel="prefetch" href="/assets/js/62.711852b9.js"><link rel="prefetch" href="/assets/js/63.00edf008.js"><link rel="prefetch" href="/assets/js/64.05b539dd.js"><link rel="prefetch" href="/assets/js/65.5f79a777.js"><link rel="prefetch" href="/assets/js/66.c2af1212.js"><link rel="prefetch" href="/assets/js/67.647f74fb.js"><link rel="prefetch" href="/assets/js/68.28f14df4.js"><link rel="prefetch" href="/assets/js/69.f0a5f781.js"><link rel="prefetch" href="/assets/js/7.c4d3cd2e.js"><link rel="prefetch" href="/assets/js/70.391bee21.js"><link rel="prefetch" href="/assets/js/71.89c67080.js"><link rel="prefetch" href="/assets/js/72.dce961c2.js"><link rel="prefetch" href="/assets/js/73.21051e14.js"><link rel="prefetch" href="/assets/js/74.97dd5f19.js"><link rel="prefetch" href="/assets/js/75.85618938.js"><link rel="prefetch" href="/assets/js/76.bedefcb3.js"><link rel="prefetch" href="/assets/js/77.c1470f43.js"><link rel="prefetch" href="/assets/js/78.7e4e025b.js"><link rel="prefetch" href="/assets/js/79.cb8e2ef7.js"><link rel="prefetch" href="/assets/js/8.90a8bddc.js"><link rel="prefetch" href="/assets/js/80.dca197c7.js"><link rel="prefetch" href="/assets/js/81.1d82e916.js"><link rel="prefetch" href="/assets/js/82.b88a2d45.js"><link rel="prefetch" href="/assets/js/83.194c065a.js"><link rel="prefetch" href="/assets/js/84.0689f0c6.js"><link rel="prefetch" href="/assets/js/85.659a73d5.js"><link rel="prefetch" href="/assets/js/86.51a1f7e9.js"><link rel="prefetch" href="/assets/js/87.b22f0a14.js"><link rel="prefetch" href="/assets/js/88.49dfdb84.js"><link rel="prefetch" href="/assets/js/89.3c1b2d9b.js"><link rel="prefetch" href="/assets/js/9.d5bad12f.js"><link rel="prefetch" href="/assets/js/90.e066a3a3.js"><link rel="prefetch" href="/assets/js/92.ca7e7cdf.js"><link rel="prefetch" href="/assets/js/93.3968710c.js"><link rel="prefetch" href="/assets/js/94.e4c6fbb7.js"><link rel="prefetch" href="/assets/js/95.2dfdae77.js"><link rel="prefetch" href="/assets/js/96.9458f744.js"><link rel="prefetch" href="/assets/js/97.560b7fab.js"><link rel="prefetch" href="/assets/js/98.a06cc287.js"><link rel="prefetch" href="/assets/js/99.8c508104.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ReactBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/cStateHooks.html" class="sidebar-link">3. setState Hooks</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/eLifeFun.html" aria-current="page" class="active sidebar-link">react的生命周期函数</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react的生命周期函数"><a href="#react的生命周期函数" class="header-anchor">#</a> react的生命周期函数</h1> <p>先来了解一下react的生命周期函数有哪些：</p> <p>组件将要挂载时触发的函数：componentWillMount
+组件挂载完成时触发的函数：componentDidMount
+是否要更新数据时触发的函数：shouldComponentUpdate
+将要更新数据时触发的函数：componentWillUpdate
+数据更新完成时触发的函数：componentDidUpdate
+组件将要销毁时触发的函数：componentWillUnmount
+父组件中改变了props传值时触发的函数：componentWillReceiveProps
+下面来上代码详细说明一下</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>2_react生命周期(旧)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+	<span class="token comment">&lt;!-- 准备好一个“容器” --&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>test<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>jsx部分</p> <div class="language-jsx extra-class"><pre class="language-jsx"><code>	<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 引入react核心库 <span class="token operator">--</span><span class="token operator">&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>../js/react.development.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+	<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 引入react<span class="token operator">-</span>dom，用于支持react操作<span class="token constant">DOM</span> <span class="token operator">--</span><span class="token operator">&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>../js/react-dom.development.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+	<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 引入babel，用于将jsx转为js <span class="token operator">--</span><span class="token operator">&gt;</span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>../js/babel.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/babel<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+		/* 
+				1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
+									1.	constructor()
+									2.	componentWillMount()
+									3.	render()
+									4.	componentDidMount() =====&gt; 常用
+												  一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
+				2. 更新阶段: 由组件内部this.setSate()或父组件render触发
+									1.	shouldComponentUpdate()
+									2.	componentWillUpdate()
+									3.	render() =====&gt; 必须使用的一个
+									4.	componentDidUpdate()
+				3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+									1.	componentWillUnmount()  =====&gt; 常用
+													一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
+		*/
+		//创建组件
+		class Count extends React.Component{
+
+			//构造器
+			constructor(props){console.log('Count---constructor');
+				super(props)
+				//初始化状态
+				this.state = {count:0}
+			}
+
+			//加1按钮的回调
+			add = ()=&gt;{
+				//获取原状态
+				const {count} = this.state
+				//更新状态
+				this.setState({count:count+1})
+			}
+
+			//卸载组件按钮的回调
+			death = ()=&gt;{
+				ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+			}
+
+			//强制更新按钮的回调
+			force = ()=&gt;{
+				this.forceUpdate()
+			}
+
+			//组件将要挂载的钩子
+			componentWillMount(){console.log('Count---componentWillMount');}
+
+			//组件挂载完毕的钩子
+			componentDidMount(){console.log('Count---componentDidMount');}
+
+			//组件将要卸载的钩子
+			componentWillUnmount(){console.log('Count---componentWillUnmount');}
+
+			//控制组件更新的“阀门” 必须返回一个布尔值
+			shouldComponentUpdate(){
+        console.log('Count---shouldComponentUpdate');return true
+      }
+
+			//组件将要更新的钩子
+			componentWillUpdate(){console.log('Count---componentWillUpdate');}
+
+			//组件更新完毕的钩子
+			componentDidUpdate(){console.log('Count---componentDidUpdate');}
+
+			render(){
+				console.log('Count---render');
+				const {count} = this.state
+				return(
+					&lt;div&gt;
+						&lt;h2&gt;当前求和为：{count}&lt;/h2&gt;
+						&lt;button onClick={this.add}&gt;点我+1&lt;/button&gt;
+						&lt;button onClick={this.death}&gt;卸载组件&lt;/button&gt;
+						&lt;button onClick={this.force}&gt;不更改任何状态中的数据，强制更新一下&lt;/button&gt;
+					&lt;/div&gt;
+				)
+			}
+		}
+		
+		//父组件A
+		class A extends React.Component{
+			//初始化状态
+			state = {carName:'奔驰'}
+			changeCar = ()=&gt;{this.setState({carName:'奥拓'})}
+
+			render(){
+				return(
+					&lt;div&gt;
+						&lt;div&gt;我是A组件&lt;/div&gt;
+						&lt;button onClick={this.changeCar}&gt;换车&lt;/button&gt;
+						&lt;B carName={this.state.carName}/&gt;
+					&lt;/div&gt;
+				)
+			}
+		}
+		
+		//子组件B
+		class B extends React.Component{
+			//组件将要接收新的props的钩子
+			componentWillReceiveProps(props){
+				console.log('B---componentWillReceiveProps',props);
+			}
+
+			//控制组件更新的“阀门”
+			shouldComponentUpdate(){
+				console.log('B---shouldComponentUpdate');return true
+			}
+			//组件将要更新的钩子
+			componentWillUpdate(){console.log('B---componentWillUpdate');}
+
+			//组件更新完毕的钩子
+			componentDidUpdate(){console.log('B---componentDidUpdate');}
+
+			render(){
+				console.log('B---render');
+				return(
+					&lt;div&gt;我是B组件，接收到的车是:{this.props.carName}&lt;/div&gt;
+				)
+			}
+		}
+		//渲染组件
+		ReactDOM.render(&lt;Count/&gt;,document.getElementById('test'))
+	</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>一.挂载部分
+根据官方生命周期图我们可以看到，一个组件的加载渲染，首先是defaultProps和propsTypes，（这两个是什么下一篇会单独说，这里也不是重点）
+然后就是constructor及this.state里的初始数据，所以到这里是第一步。接着就是componentWillMount 组件将要开始挂载了，这是第二步。然后组件挂载，render解析渲染，所以第三步呼之欲出，就是render数据都渲染完成，最后componentDidMount
+组件挂载完成。</p> <p>子组件代码，父组件内引入渲染即可（这里先不上代码）</p> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token keyword">import</span> React <span class="token punctuation">,</span><span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Hsq</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span><span class="token punctuation">{</span>
+	<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'01构造函数'</span><span class="token punctuation">)</span>		
+		<span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token operator">=</span><span class="token punctuation">{</span>
+			
+
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//组件将要挂载时候触发的生命周期函数</span>
+	<span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'02组件将要挂载'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//组件挂载完成时候触发的生命周期函数</span>
+	<span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'04组件将要挂载'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'03数据渲染render'</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span><span class="token punctuation">(</span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+				生命周期函数演示
+			</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+		<span class="token punctuation">)</span> 
+	<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">export</span> <span class="token keyword">default</span> Hsq
+</code></pre></div><p>二.数据更新部分
+数据更新的话第一步是shouldComponentUpdate确认是否要更新数据，当这个函数返回的是true的时候才会进行更新，并且这个函数可以声明两个参数nextProps和nextState，
+nextProps是父组件传给子组件的值，nextState是数据更新之后值，这两个值可以在这个函数中获取到。第二步当确认更新数据之后componentWillUpdate将要更新数据，第三步依旧是render，数据发生改变render重新进行了渲染。第四步是componentDidUpdate数据更新完成。</p> <p>代码的话子组件在上一部分的基础上，在this.state中定义一个初始数据，render中绑定一下这个数据，之后再增加一个按钮声明一个onClick事件去改变这个数据。这样可以看到数据更新部分的效果，我这里把第一部分的代码删掉了，看着不那么乱。</p> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token keyword">import</span> React <span class="token punctuation">,</span><span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Hsq</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span><span class="token punctuation">{</span>
+	<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token operator">=</span><span class="token punctuation">{</span>
+			msg<span class="token operator">:</span><span class="token string">'我是一个msg数据'</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//是否要更新数据，如果返回true才会更新数据</span>
+	<span class="token function">shouldComponentUpdate</span><span class="token punctuation">(</span><span class="token parameter">nextProps<span class="token punctuation">,</span>nextState</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'01是否要更新数据'</span><span class="token punctuation">)</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">)</span>		<span class="token comment">//父组件传给子组件的值，这里没有会显示空</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nextState<span class="token punctuation">)</span>		<span class="token comment">//数据更新后的值</span>
+		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>				<span class="token comment">//返回true，确认更新</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//将要更新数据的时候触发的</span>
+	<span class="token function">componentWillUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'02组件将要更新'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//更新数据时候触发的生命周期函数</span>
+	<span class="token function">componentDidUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'04组件更新完成'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//更新数据</span>
+	<span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			msg<span class="token operator">:</span><span class="token string">'我是改变后的msg数据'</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'03数据渲染render'</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span><span class="token punctuation">(</span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+				</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>msg<span class="token punctuation">}</span><span class="token plain-text">
+				</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+				</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+				</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">更新msg的数据</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+			</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+		<span class="token punctuation">)</span> 
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Hsq
+</code></pre></div><p>三.单独说一下componentWillReceiveProps，父组件中改变了props传值时触发的函数
+这个函数也就是当我们父组件给子组件传值的时候改变了props的值时触发的函数，刚才在第二部分中也说到shouldComponentUpdate这个函数可以携带两个参数，nextProps就是父组件传给子组件的值
+在父组件中定义一个初始title数据，写一个按钮声明一个onClick事件去改变这个title</p> <p>四.componentWillUnmount组件将要销毁时的函数
+在父组件中定义一个flag为true的状态值，添加一个按钮声明一个onClick事件去
+更改这个flag实现销毁组件。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/React/ReactBase/dRouter.html" class="prev">
+        4.关于Router
+      </a></span> <span class="next"><a href="/" class="router-link-active">
+        Home
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c2ac4239.js" defer></script><script src="/assets/js/2.4cb4eaec.js" defer></script><script src="/assets/js/91.22bdef51.js" defer></script>
+  </body>
+</html>
