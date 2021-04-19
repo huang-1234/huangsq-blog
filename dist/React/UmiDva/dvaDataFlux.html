@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>umi 与dva结合解析 | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端人">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.22a0efee.js" as="script"><link rel="preload" href="/assets/js/2.86688996.js" as="script"><link rel="preload" href="/assets/js/105.122725d1.js" as="script"><link rel="prefetch" href="/assets/js/10.eaaaf986.js"><link rel="prefetch" href="/assets/js/100.54fc3e42.js"><link rel="prefetch" href="/assets/js/101.7dfd74ad.js"><link rel="prefetch" href="/assets/js/102.668f26bf.js"><link rel="prefetch" href="/assets/js/103.2a798bea.js"><link rel="prefetch" href="/assets/js/104.18e75be6.js"><link rel="prefetch" href="/assets/js/106.70b5501f.js"><link rel="prefetch" href="/assets/js/107.b3386c05.js"><link rel="prefetch" href="/assets/js/108.3fca3be0.js"><link rel="prefetch" href="/assets/js/109.1a43bf45.js"><link rel="prefetch" href="/assets/js/11.27a497c4.js"><link rel="prefetch" href="/assets/js/110.c38612d0.js"><link rel="prefetch" href="/assets/js/111.987e1492.js"><link rel="prefetch" href="/assets/js/112.530f8999.js"><link rel="prefetch" href="/assets/js/113.16417e5e.js"><link rel="prefetch" href="/assets/js/114.eb7149d2.js"><link rel="prefetch" href="/assets/js/115.c49ec351.js"><link rel="prefetch" href="/assets/js/116.4d0ec4d2.js"><link rel="prefetch" href="/assets/js/117.4bc50a30.js"><link rel="prefetch" href="/assets/js/118.d5347a44.js"><link rel="prefetch" href="/assets/js/119.358cfed6.js"><link rel="prefetch" href="/assets/js/12.d221acd2.js"><link rel="prefetch" href="/assets/js/120.12fb5fb5.js"><link rel="prefetch" href="/assets/js/121.4fcd848f.js"><link rel="prefetch" href="/assets/js/122.57c210e4.js"><link rel="prefetch" href="/assets/js/123.31cc6d5b.js"><link rel="prefetch" href="/assets/js/124.19c457a6.js"><link rel="prefetch" href="/assets/js/125.075ee699.js"><link rel="prefetch" href="/assets/js/126.68e05bd5.js"><link rel="prefetch" href="/assets/js/127.bad1b8ce.js"><link rel="prefetch" href="/assets/js/128.62d8e8ed.js"><link rel="prefetch" href="/assets/js/129.2a3b4dc6.js"><link rel="prefetch" href="/assets/js/13.272fd777.js"><link rel="prefetch" href="/assets/js/130.b5951662.js"><link rel="prefetch" href="/assets/js/131.d63ef03a.js"><link rel="prefetch" href="/assets/js/132.b6d734b0.js"><link rel="prefetch" href="/assets/js/133.bda3eb34.js"><link rel="prefetch" href="/assets/js/134.8b5fee0c.js"><link rel="prefetch" href="/assets/js/135.ec49e7ac.js"><link rel="prefetch" href="/assets/js/136.7cc6b27e.js"><link rel="prefetch" href="/assets/js/137.e009d236.js"><link rel="prefetch" href="/assets/js/138.61f5de17.js"><link rel="prefetch" href="/assets/js/139.ebc87a4e.js"><link rel="prefetch" href="/assets/js/14.10767def.js"><link rel="prefetch" href="/assets/js/140.e63953c3.js"><link rel="prefetch" href="/assets/js/141.bdd2d470.js"><link rel="prefetch" href="/assets/js/142.92c5ce5f.js"><link rel="prefetch" href="/assets/js/143.427e4a69.js"><link rel="prefetch" href="/assets/js/144.bb967a59.js"><link rel="prefetch" href="/assets/js/145.ef7c1c01.js"><link rel="prefetch" href="/assets/js/146.cdc5d5db.js"><link rel="prefetch" href="/assets/js/147.ee8b567f.js"><link rel="prefetch" href="/assets/js/15.aec66385.js"><link rel="prefetch" href="/assets/js/16.aa4947bc.js"><link rel="prefetch" href="/assets/js/17.e0dd6d3c.js"><link rel="prefetch" href="/assets/js/18.f8c9f2bf.js"><link rel="prefetch" href="/assets/js/19.a6ab9b34.js"><link rel="prefetch" href="/assets/js/20.df43183e.js"><link rel="prefetch" href="/assets/js/21.c65c2cc2.js"><link rel="prefetch" href="/assets/js/22.8a15333e.js"><link rel="prefetch" href="/assets/js/23.0a0fb57f.js"><link rel="prefetch" href="/assets/js/24.e9231069.js"><link rel="prefetch" href="/assets/js/25.34e8e149.js"><link rel="prefetch" href="/assets/js/26.919df4fc.js"><link rel="prefetch" href="/assets/js/27.426203d1.js"><link rel="prefetch" href="/assets/js/28.e6719a4e.js"><link rel="prefetch" href="/assets/js/29.47ededc1.js"><link rel="prefetch" href="/assets/js/3.ee3f0d24.js"><link rel="prefetch" href="/assets/js/30.f9b64d59.js"><link rel="prefetch" href="/assets/js/31.74a0735b.js"><link rel="prefetch" href="/assets/js/32.a6c58605.js"><link rel="prefetch" href="/assets/js/33.41892708.js"><link rel="prefetch" href="/assets/js/34.3e9b8a59.js"><link rel="prefetch" href="/assets/js/35.b017b7d9.js"><link rel="prefetch" href="/assets/js/36.d77a57dd.js"><link rel="prefetch" href="/assets/js/37.c134bd64.js"><link rel="prefetch" href="/assets/js/38.49aaa281.js"><link rel="prefetch" href="/assets/js/39.0373e24f.js"><link rel="prefetch" href="/assets/js/4.a3b52ac1.js"><link rel="prefetch" href="/assets/js/40.673d2605.js"><link rel="prefetch" href="/assets/js/41.d38fcee4.js"><link rel="prefetch" href="/assets/js/42.88dea306.js"><link rel="prefetch" href="/assets/js/43.f259c428.js"><link rel="prefetch" href="/assets/js/44.3d850a7d.js"><link rel="prefetch" href="/assets/js/45.012d9ddb.js"><link rel="prefetch" href="/assets/js/46.4c51a7cb.js"><link rel="prefetch" href="/assets/js/47.787c087e.js"><link rel="prefetch" href="/assets/js/48.a5272fc1.js"><link rel="prefetch" href="/assets/js/49.fab82015.js"><link rel="prefetch" href="/assets/js/5.f7cbb63a.js"><link rel="prefetch" href="/assets/js/50.bcfbaf7a.js"><link rel="prefetch" href="/assets/js/51.427df640.js"><link rel="prefetch" href="/assets/js/52.9b5113e4.js"><link rel="prefetch" href="/assets/js/53.b7be0ea9.js"><link rel="prefetch" href="/assets/js/54.4bbd922b.js"><link rel="prefetch" href="/assets/js/55.cfd86b63.js"><link rel="prefetch" href="/assets/js/56.2a4f994b.js"><link rel="prefetch" href="/assets/js/57.36eee0b5.js"><link rel="prefetch" href="/assets/js/58.79773b4d.js"><link rel="prefetch" href="/assets/js/59.2a1c355b.js"><link rel="prefetch" href="/assets/js/6.86fad324.js"><link rel="prefetch" href="/assets/js/60.b3adefeb.js"><link rel="prefetch" href="/assets/js/61.d297357b.js"><link rel="prefetch" href="/assets/js/62.e33c52d8.js"><link rel="prefetch" href="/assets/js/63.74e90847.js"><link rel="prefetch" href="/assets/js/64.8e96062a.js"><link rel="prefetch" href="/assets/js/65.9e19c3d3.js"><link rel="prefetch" href="/assets/js/66.25853fbb.js"><link rel="prefetch" href="/assets/js/67.31c5b014.js"><link rel="prefetch" href="/assets/js/68.d3e3d461.js"><link rel="prefetch" href="/assets/js/69.13306bc0.js"><link rel="prefetch" href="/assets/js/7.c7df9964.js"><link rel="prefetch" href="/assets/js/70.5148737b.js"><link rel="prefetch" href="/assets/js/71.d1916fb6.js"><link rel="prefetch" href="/assets/js/72.a9c4d6fb.js"><link rel="prefetch" href="/assets/js/73.446c0e65.js"><link rel="prefetch" href="/assets/js/74.83dc8b94.js"><link rel="prefetch" href="/assets/js/75.1a5d7a35.js"><link rel="prefetch" href="/assets/js/76.fff48db7.js"><link rel="prefetch" href="/assets/js/77.dd7d5076.js"><link rel="prefetch" href="/assets/js/78.6259f671.js"><link rel="prefetch" href="/assets/js/79.14ca89f0.js"><link rel="prefetch" href="/assets/js/8.46866ad4.js"><link rel="prefetch" href="/assets/js/80.49929bf6.js"><link rel="prefetch" href="/assets/js/81.4ea39439.js"><link rel="prefetch" href="/assets/js/82.1bf77847.js"><link rel="prefetch" href="/assets/js/83.4135ba00.js"><link rel="prefetch" href="/assets/js/84.17e0d641.js"><link rel="prefetch" href="/assets/js/85.7b67509f.js"><link rel="prefetch" href="/assets/js/86.b24a507a.js"><link rel="prefetch" href="/assets/js/87.5a15502b.js"><link rel="prefetch" href="/assets/js/88.99cdb56a.js"><link rel="prefetch" href="/assets/js/89.a9f52494.js"><link rel="prefetch" href="/assets/js/9.cd4b8578.js"><link rel="prefetch" href="/assets/js/90.93b8f30b.js"><link rel="prefetch" href="/assets/js/91.7dba9dfb.js"><link rel="prefetch" href="/assets/js/92.2e450ba6.js"><link rel="prefetch" href="/assets/js/93.561a035d.js"><link rel="prefetch" href="/assets/js/94.3c70ca6c.js"><link rel="prefetch" href="/assets/js/95.62a12bd6.js"><link rel="prefetch" href="/assets/js/96.fa743a8d.js"><link rel="prefetch" href="/assets/js/97.5b00bed9.js"><link rel="prefetch" href="/assets/js/98.db86f26b.js"><link rel="prefetch" href="/assets/js/99.9ce9fead.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ReactBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/cStateHooks.html" class="sidebar-link">3. setState Hooks</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/eLifeFun.html" class="sidebar-link">react的生命周期函数</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="umi-与dva结合解析"><a href="#umi-与dva结合解析" class="header-anchor">#</a> umi 与dva结合解析</h1> <p>Umi.js
+封装了编译步骤，包括了很多开发时的有用工具。只要你写好 React 代码，接下来 umi 就会把它处理为生产代码。
+配置文件被约定为config/config.js。也可以使用 .umirc.js 来作为配置文件。它和 config/config.js是二选一的。 src 目录，它用来存放项目的除了配置以及单测以外的主要代码。
+约定的存放页面代码的文件夹是 pages。在配置项中添加 singular 为 true 可以让 page 变为约定的文件夹。
+在 umi 中，你可以使用约定式的路由，在 page 下面的 JS 文件都会按照文件名映射到一个路由。
+除了约定式的路由，你也可以使用配置式的路由。其中 component 是一个字符串，它是相对于page 目录的相对路径。
+当有了 routes 的配置之后 umi 就不会再执行约定式对应的路由逻辑了。
+dva.js
+DVA 是基于 redux、redux-saga 和 react-router 的轻量级前端框架及最佳实践沉淀。</p> <p>model
+软件架构的分层</p> <p>服务端</p> <p>Controller 层负责与用户直接打交道，渲染页面、提供接口等，侧重于展示型逻辑。
+Service 层负责处理业务逻辑，供 Controller 层调用。
+Data Access 层顾名思义，负责与数据源对接，进行纯粹的数据读写，供 Service 层调用。
+前端：</p> <p>Page 负责与用户直接打交道：渲染页面、接受用户的操作输入，侧重于展示型交互性逻辑。
+Model 负责处理业务逻辑，为 Page 做数据、状态的读写、变换、暂存等。
+Service 负责与 HTTP 接口对接，进行纯粹的数据读写。
+dva的model对象。</p> <div class="language-js extra-class"><pre class="language-js"><code>app<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  namespace<span class="token operator">:</span> <span class="token string">&quot;todoList&quot;</span><span class="token punctuation">,</span>
+
+  state<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  effects<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">*</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> _ <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> put<span class="token punctuation">,</span> call <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> rsp <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>queryTodoListFromServer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> todoList <span class="token operator">=</span> rsp<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+      <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">&quot;save&quot;</span><span class="token punctuation">,</span> payload<span class="token operator">:</span> todoList <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  reducers<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">save</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload<span class="token operator">:</span> todoList <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>state<span class="token punctuation">,</span> todoList<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ol><li><p>namespace：model 的命名空间，只能用字符串。一个大型应用可能包含多个 model，通过namespace区分。</p></li> <li><p>state：当前 model 状态的初始值，表示当前状态。</p></li> <li><p>reducers：用于处理同步操作，可以修改 state，由 action 触发。reducer 是一个纯函数，它接受当前的 state 及一个 action 对象。action 对象里面可以包含数据体（payload）作为入参，需要返回一个新的 state。</p></li> <li><p>effects：用于处理异步操作（例如：与服务端交互）和业务逻辑，也是由 action 触发。但是，它不可以修改 state，要通过触发 action 调用 reducer 实现对 state 的间接操作。</p></li> <li><p>action：是 reducers 及 effects 的触发器，一般是一个对象，形如{ type: ‘add’, payload: todo }，通过 type 属性可以匹配到具体某个 reducer 或者 effect，payload 属性则是数据体，用于传送给 reducer 或 effect。</p></li></ol> <blockquote><p>dva 的作用</p></blockquote> <p>通过把状态上提到 dva model 中，我们把数据逻辑从页面中抽离出来。通过 effect 优雅地处理数据生成过程中的副作用，副作用中最常见的就是异步逻辑。 dva model 中的数据可以注入给任意组件。
+另外，dva 允许把数据逻辑再拆分（「页面」常常就是分隔的标志），以 namespace 区分。当你觉得有必要时，不同的 namespace 之间的 state 是可以互相访问的。</p> <p>如果你熟悉 React 中最基本的两个概念 props 和 state，一定知道 props 和 state。
+对于一个组件来讲都是数据的来源，而 state 又可以通过 props 传递给子组件，这像是一个鸡生蛋蛋生鸡的问题：到底谁是数据的源头？答案是 state，而且是广义的state：它可以是 react 组件树中各级组件的 state，也可以是 react 组件树外部由其他 js 数据结构表示的 state，而 dva 管理的就是 react 组件树之外的 state: Redux。归根结底，props 是用来传导数据的，而 state 是数据改变的源泉。</p> <p>如果你已经对 React 开发比较熟悉，就会知道子组件的 state 可以上提 (state hoisting)，由父组件来管理：</p> <p>子组件间接回调到父组件的 setState 的方法来改变父组件的 state；
+新的 state 通过 props 的形式把再次被子组件获悉。
+而 dva 可以帮助我们把 state 上提到 所有 React 组件之上，过程是相似的：</p> <p>页面通过调用 dispatch 函数来驱动 dva model state 的改变；
+改变后的 dva model state 通过 connect 方法注入页面。
+所谓「注入」从本质上是 控制反转 的一种实现，这种思想在许多的语言框架中都有体现，最著名的莫过于基于 Java 语言的 Spring。组件不再负责管理数据，组件只是通过 connect 向 dva 声明所需数据。</p> <blockquote><p>connect</p></blockquote> <p>connect 让组件获取到两样东西：
+model 中的数据；
+驱动 model 改变的方法。
+connect 本质上只是一个 javascript 函数，通过 @ 装饰器语法使用，放置在组件定义的上方；</p> <p>connect 既然是函数，就可以接受入参，第一个入参是最常用的，它需要是一个函数，我们习惯给它命名叫做 mapStateToProps，顾名思义就是把 dva model 中的 state 通过组件的 props 注入给组件。通过实现这个函数，我们就能实现把 dva model 的 state 注入给组件。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.22a0efee.js" defer></script><script src="/assets/js/2.86688996.js" defer></script><script src="/assets/js/105.122725d1.js" defer></script>
+  </body>
+</html>

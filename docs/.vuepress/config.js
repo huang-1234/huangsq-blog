@@ -113,6 +113,11 @@ const config = {
         'es/eObject',
         'es/fRegExp',
         'es/gModules',
+        'es/gFunction',
+        'es/iEqual',
+
+        'es/kPromiseA+',
+
         'es/ProtoTypeAndproto',
 
         'es/zNewByme',
@@ -137,6 +142,18 @@ const config = {
       title: 'Node',
       children: [
         'Node/npm/npmAndYarn',
+      ]
+    },
+    {
+      title: 'V8',
+      children: [
+        '/'
+      ]
+    },
+    {
+      title: 'selfFunc',
+      children: [
+        'selfFunction/jsObjectBaseOnPrototype'
       ]
     }
   ]
