@@ -110,11 +110,15 @@ const config = {
         'es/bVarLetConst',
         'es/cString',
         'es/dArray',
+        'es/dSet',
         'es/eObject',
         'es/fRegExp',
         'es/gModules',
         'es/gFunction',
-        'es/iEqual',
+        'es/iThis',
+        'es/icall&apply&bind',
+        'es/instanceof&typeof',
+        
 
         'es/kPromiseA+',
 

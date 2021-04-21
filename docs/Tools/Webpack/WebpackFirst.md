@@ -199,6 +199,7 @@ npm install webpack@4 webpack-cli --save-dev
 **注意：`package.json`文件中不能有注释，在运行的时候请将注释删除**
 
 ### **第三步** 使用Webpack打包
+
  webpack可以在终端中使用，基本的使用方法如下：
 
 
@@ -259,8 +260,6 @@ module.exports = {
  根据上面的方式来看我们只要配置了`webpack.config.js`就可以将打包的路径命令省去，那么我们想是否可以以这种方式将`node_modules/.bin/webpack`命令省去呢？  答案是可以，只不过不是在这个文件内配置，也不用去新建文件配置。
  npm可以引导任务执行，对npm进行配置后可以在命令行中使用简单的npm start命令来替代上面略微繁琐的命令。在`package.json`中对scripts对象进行相关设置即可，设置方法如下。
 
-
-
 ```json
 {
   "name": "webpackdemo",
@@ -283,8 +282,6 @@ module.exports = {
  npm的start命令是一个特殊的脚本名称，其特殊性表现在，在命令行中使用npm start就可以执行其对于的命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用`npm run {script name}`如`npm run build`，我们在命令行中输入`npm start`，看看输出结果是什么，输出结果如下：
 
 现在只需要使用`npm start`就可以打包文件了，有没有觉得webpack也不过如此嘛，不过不要太小瞧webpack，要充分发挥其强大的功能我们还需要配置很多。
-
-
 
 ### 其他配置可以查看以下文章
 

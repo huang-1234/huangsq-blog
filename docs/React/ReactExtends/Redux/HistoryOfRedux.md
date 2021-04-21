@@ -288,7 +288,7 @@ Redux 本身是完全独立运行的库，不会基于某个库或框架、也�
 
 下面用代码演示如何在原生 js 中使用 redux，仍然是那个 todolist 示例，拿之前写的状态版进行重构。
 
-```
+```js
 <!-- todolist redux版 -->
 <script src="https://unpkg.com/redux@4.0.5/dist/redux.js"></script>
 <div id="todo-list"></div>
@@ -439,7 +439,7 @@ dan 大神在 2018 年曾经发表过一篇文章，[you might not need redux](h
 
 首先导出一个叫做 Provider 的组件，然后在 Provider 组件中注入 store。再用 Provider 把应用的根组件包裹起来。这样就可以使用 store 了。
 
-```
+```js
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -455,19 +455,16 @@ ReactDOM.render(
   </Provider>,
   rootElement
 );
-复制代码
 ```
-
 react-redux 是基于 react 中的 context 来实现的，所以这一步是必须的。
 
 需要使用 store state 的组件，使用 connect 函数将 store 和 react 的组件连接起来。
 
-```
+```js
 import { connect } from "react-redux";
 import { increment, decrement, reset } from "./actionCreators";
 
 const Counter = props => <div> {props.counter} </div>;
-
 const mapStateToProps = (state /*, ownProps*/) => {
   return {
     counter: state.counter
@@ -477,7 +474,6 @@ const mapStateToProps = (state /*, ownProps*/) => {
 const mapDispatchToProps = { increment, decrement, reset };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-复制代码
 ```
 
 如果不需要 store 的组件，在写法遵循 react 的正常写法即可，不需要变动。
@@ -506,7 +502,7 @@ useSelector 取代的是 mapStateToProps，useDispatch 取代的是 mapDispatchT
 
 同样是上面那段计数器代码，用 hooks 会这样写。
 
-```
+```js
 import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement, reset } from './actionCreators'
 
@@ -519,7 +515,6 @@ export default const Counter = () => {
         <div> {counter} </div>
     )
 }
-复制代码
 ```
 
 可以看到，使用 hooks 后，代码变得非常优雅。
@@ -540,20 +535,21 @@ hooks 已经出现 3 年，现在非常稳定，如果还认为 hooks 是新特�
 
 阅读 497更新于 2020-03-23
 
-赞收藏
-
-[分享](https://segmentfault.com/a/1190000022109701#)
-
-本作品系原创，[采用《署名-非商业性使用-禁止演绎 4.0 国际》许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-0 条评论
-
-[得票](https://segmentfault.com/a/1190000022109701#)[时间](https://segmentfault.com/a/1190000022109701#)
-
-提交评论
-
 ##### 推荐阅读
 
 [对React-redux中connect方法的理解Redux是React全家桶的重要一员，之前在知乎上也看到类似的提问：该如何通俗易懂的理解Redux? Redux是JavaScript的状态容器，Redux的概念简单明了：M1seRy_阅读 30.6k41 赞1 评论](https://segmentfault.com/a/1190000010416732?utm_source=sf-related)
 
-[【译】基于Hooks 的 Redux 速成课你对 Redux 感到困惑吗？如果使用新的 Redux Hooks，会更加简单！这里是一个关于 Redux 的速成班，将配合 React 函数组件使用：joking_zhang阅读 1.3k16 赞3 评论](https://segmentfault.com/a/1190000020747009?utm_source=sf-related)[Redux 介绍对于复杂的单页面应用，状态（state）管理非常重要。state 可能包括：服务端的响应数据、本地对响应数据的缓存、本地创建的数据（比如，表单数据）以及一些 UI 的状态信息（比如，路由、选中的 tab、是否显示下拉...ustccjw阅读 92.7k16 赞9 评论](https://segmentfault.com/a/1190000003503338?utm_source=sf-related)[关于Flux,Vuex,Redux的思考Flux是一种前端状态管理架构思想，专门解决软件的结构问题。基于Flux的设计思想，出现了一批前端状态管理框架。他们给出了一些库用于实现Flux的思想，并在Flux的基础上做了一些改进。在这些框架里，当前最热门的...flyer_dev阅读 9.3k15 赞](https://segmentfault.com/a/1190000007753542?utm_source=sf-related)[Redux原理分析Redux原理分析Redux是什么 {代码...} 一.redux的工作原理先上图（图片源于网络）首先我们找到最上面的state在react中state决定了视图（ui），state的变化就会调用React的render（）方法，从而改变视图用户通过一...BeliefRC阅读 6.9k5 赞](https://segmentfault.com/a/1190000019849834?utm_source=sf-related)[基于 Redux + Redux Persist 进行状态管理的 Flutter 应用示例好久没在 SegmentFault 写东西，唉，也不知道 是忙还是懒，以后有时间 再慢慢写起来吧，最近开始学点新东西，有的写了，个人博客跟这里同步。大胡子民工潘半仙阅读 2.5k5 赞](https://segmentfault.com/a/1190000017405058?utm_source=sf-related)[Redux简介一般来说，当需要根据角色判断使用方式、与服务器大量交互 (例如使用 WebSocket)、视图需要从多个来源获取数据，也就是说在交互复杂、多数据源时；或者从组件的角度考虑，如果需要组件的状态广播等时需要使用。darkCode阅读 7684 赞](https://segmentfault.com/a/1190000019675921?utm_source=sf-related)[React-redux的原理以及使用当一个react项目组件层级越来越深，页面越来越多的时候，数据在各个组件层级和页面之间传递的需求就会比较多，很多变量也需要做成可全局管理的。在这个时候，redux和react-redux的使用就很有必要了。它们能帮助我...RaoMeng阅读 3.4k4 赞](https://segmentfault.com/a/1190000017339953?utm_source=sf-related)
+[【译】基于Hooks 的 Redux 速成课你对 Redux 感到困惑吗？如果使用新的 Redux Hooks，会更加简单！这里是一个关于 Redux 的速成班，将配合 React 函数组件使用：joking_zhang阅读 1.3k16 赞3 评论](https://segmentfault.com/a/1190000020747009?utm_source=sf-related)
+
+[Redux 介绍对于复杂的单页面应用，状态（state）管理非常重要。state 可能包括：服务端的响应数据、本地对响应数据的缓存、本地创建的数据（比如，表单数据）以及一些 UI 的状态信息（比如，路由、选中的 tab、是否显示下拉...ustccjw阅读 92.7k16 赞9 评论](https://segmentfault.com/a/1190000003503338?utm_source=sf-related)
+
+[关于Flux,Vuex,Redux的思考Flux是一种前端状态管理架构思想，专门解决软件的结构问题。基于Flux的设计思想，出现了一批前端状态管理框架。他们给出了一些库用于实现Flux的思想，并在Flux的基础上做了一些改进。在这些框架里，当前最热门的...flyer_dev阅读 9.3k15 赞](https://segmentfault.com/a/1190000007753542?utm_source=sf-related)
+
+[Redux原理分析Redux原理分析Redux是什么 {代码...} 一.redux的工作原理先上图（图片源于网络）首先我们找到最上面的state在react中state决定了视图（ui），state的变化就会调用React的render（）方法，从而改变视图用户通过一...BeliefRC阅读 6.9k5 赞](https://segmentfault.com/a/1190000019849834?utm_source=sf-related)
+
+[基于 Redux + Redux Persist 进行状态管理的 Flutter 应用示例好久没在 SegmentFault 写东西，唉，也不知道 是忙还是懒，以后有时间 再慢慢写起来吧，最近开始学点新东西，有的写了，个人博客跟这里同步。大胡子民工潘半仙阅读 2.5k5 赞](https://segmentfault.com/a/1190000017405058?utm_source=sf-related)
+
+[Redux简介一般来说，当需要根据角色判断使用方式、与服务器大量交互 (例如使用 WebSocket)、视图需要从多个来源获取数据，也就是说在交互复杂、多数据源时；或者从组件的角度考虑，如果需要组件的状态广播等时需要使用。darkCode阅读 7684 赞](https://segmentfault.com/a/1190000019675921?utm_source=sf-related)
+
+[React-redux的原理以及使用当一个react项目组件层级越来越深，页面越来越多的时候，数据在各个组件层级和页面之间传递的需求就会比较多，很多变量也需要做成可全局管理的。在这个时候，redux和react-redux的使用就很有必要了。它们能帮助我...RaoMeng阅读 3.4k4 赞](https://segmentfault.com/a/1190000017339953?utm_source=sf-related)
+

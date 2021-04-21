@@ -1,6 +1,6 @@
-# [【React进阶系列】手写redux api](https://segmentfault.com/a/1190000016726553)
+# [【React进阶系列】redux api](https://segmentfault.com/a/1190000016726553)
 
-简介： 手写实现redux基础api
+简介： 实现redux基础api
 
 ## createStore( )和store相关方法
 
@@ -8,7 +8,7 @@
 
 **createStore(reducer, [preloadedState], enhancer)**
 
-```
+```text
 创建一个 Redux store 来以存放应用中所有的 state
 reducer (Function): 接收两个参数，当前的 state 树/要处理的 action，返回新的 state 树
 preloadedState: 初始时的 state
@@ -24,11 +24,10 @@ subscribe(listener) 添加一个变化监听器。每当 dispatch action 的时�
 replaceReducer(nextReducer) 替换 store 当前用来计算 state 的 reducer（高级不常用，不作实现）实现 Redux 热加载机制会用到
 ```
 
-------
 
 源码实现：
 
-```
+```js
 ./self-redux.js
 
 export function createStore(reducer, enhancer) {
@@ -59,7 +58,7 @@ export function createStore(reducer, enhancer) {
 
 demo:验证正确性
 
-```
+```js
 // import { createStore } from 'redux'
 // 将redux文件替换成自己实现的redux文件
    import { createStore } from './self-redux.js'
@@ -94,7 +93,7 @@ store.dispatch({ type: '加机关枪' })
 
 **api简介**
 
-```
+```js
 把一个由多个不同 reducer 函数作为 value 的 object，合并成一个最终的 reducer 函数
 实现 Redux 热加载机制会用到
 import { combineReducers } from 'redux'
@@ -112,7 +111,7 @@ export default combineReducers({
 实质就是返回一个大的function 接受state，action，然后根据key用不同的reducer
 注：combinedReducer的key跟state的key一样
 
-```
+```js
 const reducer = combineReducers({
   a: doSomethingWithA,
   b: processB,
@@ -151,17 +150,16 @@ function combindReducer(reducers) {
 }
 ```
 
-------
-
 **applyMiddleware(...middleware)**
 
-```
 使用包含自定义功能的 middleware 来扩展 Redux 是
 ...middleware (arguments): 遵循 Redux middleware API 的函数。
 每个 middleware 接受 Store 的 dispatch 和 getState 函数作为命名参数，并返回一个函数。
 该函数会被传入 被称为 next 的下一个 middleware 的 dispatch 方法，并返回一个接收 action 的新函数，这个函数可以直接调用 next(action)，或者在其他需要的时刻调用，甚至根本不去调用它。
 调用链中最后一个 middleware 会接受真实的 store 的 dispatch 方法作为 next 参数，并借此结束调用链。
 所以，middleware 的函数签名是 ({ getState, dispatch }) => next => action
+
+```jsx
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import * as reducers from './reducers'
@@ -184,7 +182,7 @@ let store = createStore(reducer, applyMiddleware(thunk))
 
 正常调用
 
-```
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 // import { createStore, applyMiddleware} from 'redux'
@@ -214,7 +212,7 @@ add(1)(2) //3
 
 applymiddleware
 
-```
+```js
 // ehancer(createStore)(reducer)
 // createStore(counter, applyMiddleware(thunk))
 // applyMiddleware(thunk)(createStore)(reducer)
@@ -277,7 +275,7 @@ export function applyMiddleware(middleware) {
 
 手写redux-thunk异步中间件实现
 
-```
+```js
 // middleware(midApi)(store.dispatch)(action)
 const thunk = ({ dispatch, getState }) => next => action => {
   // next就是store.dispatch函数
@@ -290,7 +288,7 @@ const thunk = ({ dispatch, getState }) => next => action => {
 }
 export default thunk
 
-处理异步action
+// 处理异步action
 export function addGunAsync() {
   // thunk插件作用，这里可以返回函数
   return dispatch => {
@@ -304,7 +302,7 @@ export function addGunAsync() {
 
 趁热打铁，再实现一个中间件: dispatch接受一个数组，一次处理多个action
 
-```
+```js
 export arrayThunk = ({ dispatch, getState }) => next => action => {
   if(Array.isArray(action)) {
     return action.forEach(v => dispatch(v))
@@ -313,7 +311,7 @@ export arrayThunk = ({ dispatch, getState }) => next => action => {
   return next(action)
 }
 
-这类action会被处理
+// 这类action会被处理
 export function addTimes() {
   return [{ type: ADD_GUN },{ type: ADD_GUN },{ type: ADD_GUN }]
 }
@@ -325,13 +323,12 @@ export function addTimes() {
 
 **api: bindActionCreators(actionCreators, dispatch)**
 
-```
+
 把 action creators 转成拥有同名 keys 的对象，但使用 dispatch 把每个 action creator 包围起来，这样可以直接调用它们
-```
 
 **实现：**
 
-```
+```js
  function bindActionCreator(creator, dispatch) {
    return (...args) => dispatch(creator(...args))
  }
@@ -357,9 +354,9 @@ export function addTimes() {
 
 **api: compose(...functions)**
 
-```
-从右到左来组合多个函数。
-当需要把多个 store 增强器 依次执行的时候，需要用到它
+
+> 从右到左来组合多个函数。当需要把多个 store 增强器 依次执行的时候，需要用到它。
+```js
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import DevTools from './containers/DevTools'
@@ -378,7 +375,7 @@ const store = createStore(
 compose(fn1, fn2, fn3)
 fn1(fn2(fn3))
 
-```
+```js
  export function compose(...funcs) {
    if(funcs.length == 0) {
      return arg => arg

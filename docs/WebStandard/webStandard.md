@@ -45,7 +45,7 @@ css的书写，首先要尽可能使用外部引入的方式，因为结构层�
    视觉的布局：比如单页面的，九宫格的，瀑布流布局，tab切换布局，手风琴布局等。
    页面架构：如果是这个问题，以我目前的能力，恐怕还有点困难回答这个问题给大家推荐一篇文章吧，感觉写的还不错
 
-# [深入理解Web标准（网站标准）](https://www.cnblogs.com/coco1s/p/3588716.html)
+## [深入理解Web标准（网站标准）](https://www.cnblogs.com/coco1s/p/3588716.html)
 
 我觉得一名Web前端应该好好理解Web标准到底是什么，为什么要在我们的实际实践中遵循Web标准。
 
@@ -53,7 +53,7 @@ css的书写，首先要尽可能使用外部引入的方式，因为结构层�
 
 WEB标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。对应的标准也分三方面：结构化标准语言主要包括XHTML和XML，表现标准语言主要包括CSS，行为标准主要包括对象模型（如W3C DOM）、ECMAScript等。
 
-[Web标准](http://www.w3school.com.cn/site/site_standards.asp) 。
+### [Web标准](http://www.w3school.com.cn/site/site_standards.asp) 。
 
 其他网站也有很多解释，这里不作过多赘述。我觉得我们遵循Web标准的目的不是为了标准而标准，不是因为它是这么要求的我们才去这么做。一名优秀的Web前端，应该是Write less，do more。就是用更少的代码，做更多的事。所以我觉得我们遵循Web标准的目的应该是让我们的代码效率更高更好，只有本着这个态度去理解Web标准才能体会其深入的内涵。
 

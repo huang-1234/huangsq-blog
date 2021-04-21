@@ -1,4 +1,4 @@
-# 5.1 Object
+5.1 Object
 
 ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由为 JavaScript 实现引擎的规范定义
 
@@ -98,22 +98,17 @@ Object.defineProperty(person, "name", {
 
 问器属性有 4 个特性描述它们的行为。
 
-[[Configurable]]：表示属性是否可以通过 delete 删除并重新定义，是否可以修改它的特
-
+1. [[Configurable]]：表示属性是否可以通过 delete 删除并重新定义，是否可以修改它的特
 性，以及是否可以把它改为数据属性。默认情况下，所有直接定义在对象上的属性的这个特性
-
 都是 true。 
 
-[[Enumerable]]：表示属性是否可以通过 for-in 循环返回。默认情况下，所有直接定义在对
-
+2. [[Enumerable]]：表示属性是否可以通过 for-in 循环返回。默认情况下，所有直接定义在对
 象上的属性的这个特性都是 true。 
 
-[[Get]]：获取函数，在读取属性时调用。默认值为 undefined。 
-
-[[Set]]：设置函数，在写入属性时调用。默认值为 undefined。
+3. [[Get]]：获取函数，在读取属性时调用。默认值为 undefined。 
+4. [[Set]]：设置函数，在写入属性时调用。默认值为 undefined。
 
 访问器属性是不能直接定义的，必须使用 Object.defineProperty()。下面是一个例子：
-
 //定义一个对象，包含伪私有成员 year_和公共成员 edition 
 ```js
 let book = { 
@@ -139,7 +134,7 @@ console.log(book.edition); // 2
 在这个例子中，对象 book 有两个默认属性：year_和 edition。year_中的下划线常用来表示该属性并不希望在对象方法的外部被访问。另一个属性 year 被定义为一个访问器属性，其中获取函数简单地返回 year_的值，而设置函数会做一些计算以决定正确的版本（edition）。因此，把 year 属性修改为 2018 会导致 year_变成 2018，edition 变成 2。这是访问器属性的典型使用场景，即设置一个属性值会导致一些其他变化发生。获取函数和设置函数不一定都要定义。只定义获取函数意味着属性是只读的，尝试修改属性会被忽略。在严格模式下，尝试写入只定义了获取函数的属性会抛出错误。类似地，只有一个设置函数的属性是不能读取的，非严格模式下读取会返回 undefined，严格模式下会抛出错误。在不支持 Object.defineProperty()的浏览器中没有办法修改[[Configurable]]或[[Enumerable]]。
 
 注意 在 ECMAScript 5以前，开发者会使用两个非标准的访问创建访问器属性：
-> __defineGetter__()
+> __defineGetter__()
 > __defineSetter__()。
 这两个方法最早是 Firefox 引入的，后来 Safari、Chrome 和 Opera 也实现了。
 
@@ -162,7 +157,6 @@ ES6 允许在大括号里面，直接写入变量和函数，作为对象的属�
 
 ```js
 let ms = {};
-
 function getItem (key) {
   return key in ms ? ms[key] : null;
 }
@@ -1531,7 +1525,7 @@ JavaScript中的所有对象都来自 `Object`；所有对象从[`Object.prototy
 
 下面的例子将一个空的 `Object` 对象存到 `o` 中：
 
-```
+```js
 var o = new Object();
 var o = new Object(undefined);
 var o = new Object(null);
@@ -1541,18 +1535,118 @@ var o = new Object(null);
 
 下面的例子将[`Boolean`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean) 对象存到 `o` 中：
 
-```
+```js
 // 等价于 o = new Boolean(true);
 var o = new Object(true);
 // 等价于 o = new Boolean(false);
 var o = new Object(Boolean());
 ```
 
-## [规范](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#规范)
+## Object.prototype的toString和toValue
 
-| Specification                                                | Status          | Comment                                                      |
-| :----------------------------------------------------------- | :-------------- | :----------------------------------------------------------- |
-| [ECMAScript 1st Edition (ECMA-262)](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262, 1st edition, June 1997.pdf) | Standard        | Initial definition. Implemented in JavaScript 1.0.           |
-| [ECMAScript 5.1 (ECMA-262) Object](https://www.ecma-international.org/ecma-262/5.1/#sec-15.2) | Standard        |                                                              |
-| [ECMAScript 2015 (6th Edition, ECMA-262) Object](https://www.ecma-international.org/ecma-262/6.0/#sec-object-objects) | Standard        | Added Object.assign, Object.getOwnPropertySymbols, Object.setPrototypeOf, Object.is |
-| [ECMAScript (ECMA-262) Object](https://tc39.es/ecma262/#sec-object-objects) | Living Standard | Added Object.entries and Object.values.                      |
+所有JS数据类型都拥有这两个方法，null和undefined除外。它们俩解决javascript值运算与显示的问题。
+
+　　先看一例：　
+
+```js
+ 1 var aaa = {
+ 2 
+ 3     i:10,
+ 4 
+ 5     valueOf:function () {
+ 6         return this.i + 30;
+ 7     },
+ 8 
+ 9     toString:function () {
+10         return this.valueOf() + 10;
+11     }
+12 
+13 };
+14 alert(aaa > 20); // true
+15 alert(+aaa); // 40
+16 alert(aaa); // 50
+```
+
+ 之所以有这样的结果，因为它们偷偷地调用valueOf或toString方法。但如何区分什么情况下是调用了哪个方法呢，我们可以通过另一个方法测试一下。
+
+```js
+var bbb = { 
+    i:10, 
+    toString:function () { 
+        console.log('toString'); 
+        return this.i; 
+    }, 
+    valueOf:function () { 
+        console.log('valueOf'); 
+        return this.i; 
+    } 
+}; 
+alert(bbb);// 10 toString 
+alert(+bbb); // 10 valueOf 
+alert('' + bbb); // 10 valueOf 
+alert(String(bbb)); // 10 toString 
+alert(Number(bbb)); // 10 valueOf 
+alert(bbb == '10'); // true valueOf 
+alert(bbb === '10'); // false
+```
+
+乍一看结果，大抵给人的感觉是，如果转换为字符串时调用toString方法，如果是转换为数值时则调用valueOf方法，但其中有两个很不和谐。一个是alert(''+bbb)，字符串合拼应该是调用toString方法，另一个我们暂时可以理解为===操作符不进行隐式转换，因此不调用它们。为了追究真相，我们需要更严谨的实验。
+
+```js
+var aa = {
+    i: 10,
+    toString: function() {
+        console.log('toString');
+        return this.i;
+    }
+};
+
+alert(aa);// 10 toString
+alert(+aa); // 10 toString
+alert(''+aa); // 10 toString
+alert(String(aa)); // 10 toString
+alert(Number(aa)); // 10 toString
+alert(aa == '10'); // true toString
+```
+
+再看valueOf：
+
+```js
+ 1 var bb = {
+ 2     i: 10,
+ 3     valueOf: function() {
+ 4         console.log('valueOf');
+ 5         return this.i;
+ 6     }
+ 7 };
+ 8 
+ 9 alert(bb);// [object Object]
+10 alert(+bb); // 10 valueOf
+11 alert(''+bb); // 10 valueOf
+12 alert(String(bb)); // [object Object]
+13 alert(Number(bb)); // 10 valueOf
+14 alert(bb == '10'); // true valueOf
+```
+
+发现有点不同吧？！它没有像上面toString那样统一规整。对于那个[object Object]，我估计是从Object那里继承过来的，我们再去掉它看看。
+
+```js
+ 1 var cc = {
+ 2     i: 10,
+ 3     valueOf: function() {
+ 4         console.log('valueOf');
+ 5         return this.i;
+ 6     }
+ 7 };
+ 8 
+ 9 alert(cc);// 10 valueOf
+10 alert(+cc); // 10 valueOf
+11 alert(''+cc); // 10 valueOf
+12 alert(String(cc)); // 10 valueOf
+13 alert(Number(cc)); // 10 valueOf
+14 alert(cc == '10'); // true valueOf
+```
+
+如果只重写了toString，对象转换时会无视valueOf的存在来进行转换。但是，如果只重写了valueOf方法，在要转换为字符串的时候会优先考虑valueOf方法。在不能调用toString的情况下，只能让valueOf上阵了。对于那个奇怪的字符串拼接问题，可能是出于操作符上，翻开ECMA262-5 发现都有一个getValue操作。嗯，那么谜底应该是揭开了。重写会加大它们调用的优化高，而在有操作符的情况 下，valueOf的优先级本来就比toString的高。
+
+转载于:https://www.cnblogs.com/sumobai/p/5507779.html

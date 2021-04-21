@@ -1,8 +1,8 @@
 # 9. js的原型和原型链
 
-##构造函数创建对象：
+## 构造函数创建对象
 
-```jsx
+```js
 function Person() {
 
 }
@@ -20,7 +20,7 @@ Person 就是一个构造函数，我们使用 new 创建了一个实例对象 p
 
 
 
-```jsx
+```js
 function Person() {
 
 }
@@ -35,15 +35,10 @@ console.log(person2.name) // Kevin
 
 <img :src="$withBase('/images/JS/es/ProtoType.webp')" alt='ProtoType'>
 
-image.png
-
 ## **proto**
+每一个JavaScript对象(除了null )都具有的一个属性，叫**proto**，这个属性会指向该对象的原型
 
-每一个JavaScript对象(除了 null )都具有的一个属性，叫**proto**，这个属性会指向该对象的原型
-
-
-
-```jsx
+```js
 function Person() {
 
 }
@@ -51,17 +46,13 @@ var person = new Person();
 console.log(person.__proto__ === Person.prototype); // true
 ```
 
-<img :src="$withBase('/images/JS/es/__proto__.webp')" alt='ProtoType'>
-
-image.png
+<img :src="$withBase('/images/JS/es/__proto__.webp')" alt='__proto__'>
 
 ## constructor
 
 每个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数
 
-
-
-```tsx
+```js
 function Person() {
 
 }
@@ -70,15 +61,10 @@ console.log(Person === Person.prototype.constructor); // true
 
 <img :src="$withBase('/images/JS/es/constructor.webp')" alt='ProtoType'>
 
-image.png
-
-
-
-```jsx
+```js
 function Person() {
 
 }
-
 var person = new Person();
 
 console.log(person.__proto__ == Person.prototype) // true
@@ -89,13 +75,10 @@ console.log(Object.getPrototypeOf(person) === Person.prototype) // true
 
 ###### 实例与原型
 
-
-
-```jsx
+```js
 function Person() {
 
 }
-
 Person.prototype.name = 'Kevin';
 
 var person = new Person();
@@ -112,10 +95,7 @@ console.log(person.name) // Kevin
 但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.**proto** ，也就是 Person.prototype中查找，幸运的是我们找到了 name 属性，结果为 Kevin。
 
 ## 原型与原型
-
-
-
-```jsx
+```js
 var obj = new Object();
 obj.name = 'Kevin'
 console.log(obj.name) // Kevin
@@ -123,22 +103,15 @@ console.log(obj.name) // Kevin
 
 <img :src="$withBase('/images/JS/es/Object.webp')" alt='ProtoType'>
 
-image.png
-
 ## 原型链
-
-```
+```js
 console.log(Object.prototype.__proto__ === null) // true
 ```
 
 <img :src="$withBase('/images/JS/es/null.webp')" alt='ProtoType'>
 
-image.png
-
-
-
 JavaScript 默认并不会**复制**对象的属性，相反，JavaScript 只是在两个对象之间创建一个**关联**，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，**委托**的说法反而更准确些
 
 点击<a href='https://blog.csdn.net/weixin_43352901/article/details/108089355' target=_blank>图解原型链</a>
 
-write in 2018.09.25
+other write in 2018.09.25

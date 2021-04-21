@@ -20,7 +20,10 @@ At its core, webpack is a static module bundler for modern JavaScript applicatio
 
 ## 4. 前端模块化
 
-前端模块化：
+
+
+>  前端模块化：
+
 在前面学习中，我已经用了大量的篇幅解释了为什么前端需要模块化。
 而且我也提到了目前使用前端模块化的一些方案：AMD、CMD、CommonJS、ES6。
 在ES6之前，我们要想进行模块化开发，就必须借助于其他的工具，让我们可以进行模块化开发。
@@ -29,11 +32,11 @@ At its core, webpack is a static module bundler for modern JavaScript applicatio
 而且不仅仅是JavaScript文件，我们的CSS、图片、json文件等等在webpack中都可以被当做模块来使用（在后续我们会看到）。
 这就是webpack中模块化的概念。
 
-打包如何理解呢？
-理解了webpack可以帮助我们进行模块化，并且处理模块间的各种复杂关系后，打包的概念就非常好理解了。
-就是将webpack中的各种资源模块进行打包合并成一个或多个包(Bundle)。
+>  打包如何理解呢？
+
+理解了webpack可以帮助我们进行模块化，并且处理模块间的各种复杂关系后，打包的概念就非常好理解了。就是将webpack中的各种资源模块进行打包合并成一个或多个包(Bundle)。
 并且在打包的过程中，还可以对资源进行处理，比如压缩图片，将scss转成css，将ES6语法转成ES5语法，将TypeScript转成JavaScript等等操作。
-但是打包的操作似乎gruntANDgulp也可以帮助我们完成，它们有什么不同呢？
+但是打包的操作似乎grunt和gulp也可以帮助我们完成，它们有什么不同呢？
 
 ## 5.和gruntANDgulp的对比
 

@@ -53,7 +53,7 @@ class Provider extends Component {
 
 例子：
 
-```
+```jsx
 <Provider store={store}>
     <Router history={history}>
     <Route path="/" component={App}>
@@ -76,7 +76,7 @@ connenct并不会改变它“连接”的组件，而是提供一个经过包裹
 
 mapStateToProps(state, ownProps) 方法允许我们将store中的数据作为props绑定到组件中，只要store更新了就会调用mapStateToProps方法，mapStateToProps返回的结果必须是object对象，该对象中的值将会更新到组件中，例子：
 
-```
+```js
 const mapStateToProps = (state) => {
     return ({
         count: state.counter.count
@@ -86,7 +86,7 @@ const mapStateToProps = (state) => {
 
 mapDispatchToProps(dispatch, [ownProps]) 第二个参数允许我们将action作为props绑定到组件中，mapDispatchToProps希望你返回包含对应action的object对象，例如：
 
-```
+```js
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     increase: (...args) => dispatch(actions.increase(...args)),
@@ -99,7 +99,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(yourComponent)
 
 当你想对组件的render更新进行更好的控制的时候，它也支持返回function方法，具体可以点击[#279](https://github.com/reactjs/react-redux/pull/279)查看，例子：
 
-```
+```js
 const mapDispatchToProps = {
     // increment: () => increment(1),
     increase, // import increase function from action
