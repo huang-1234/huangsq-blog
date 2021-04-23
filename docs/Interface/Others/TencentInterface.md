@@ -33,3 +33,6 @@
 11. 算法题手写深拷贝方法另外也谈了JSON.parse(JSON.stringify(copyObj))性能不是很好，最好采用循环拷贝的方法
 
 新增12.之前忘了，前端的常见攻击，比如XSS攻击 CSRF攻击和如何防范
+
+## Tencent 四面（hr）
+

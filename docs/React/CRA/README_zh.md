@@ -265,7 +265,7 @@ React-app-rewired 会导入您的 config-overrides.js 文件而不使用 “.js�
 
 #### 4) 从命令行指定config-overrides位置
 
-如果需要更改 config-overrides.js 的位置，可以将命令行选项 --config-overrides<path> 给 react-app-rewired 脚本。
+如果需要更改 config-overrides.js 的位置，可以将命令行选项 --config-overrides`path` 给 react-app-rewired 脚本。
 
 
 # 版本1.X社区维护 Rewires（检查插件仓库是否支持2.0）

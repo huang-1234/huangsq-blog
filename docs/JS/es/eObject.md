@@ -1,4 +1,4 @@
-5.1 Object
+# Object
 
 ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由为 JavaScript 实现引擎的规范定义
 
@@ -1313,7 +1313,7 @@ processContent({ url: {port: 8000} })
 
 # 5.4 ObjectOfMDN
 
-`**Object**` 构造函数创建一个对象包装器。
+`Object`构造函数创建一个对象包装器。
 
 ## [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#语法)
 

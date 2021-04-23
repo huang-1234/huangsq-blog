@@ -7,7 +7,7 @@ actionText: 点击开始学习 →
 actionLink: /JS/
 features:
 - title: 简洁至上
-  details: 记录了自己学习前端积累的大部分知识。
+  details: 记录了自己学习计算机专业积累的部分知识。
 footer: MIT Licensed | hsq © 2021-present
 ---
 

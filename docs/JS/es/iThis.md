@@ -8,7 +8,7 @@
 - 如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。
 - 如果一个函数中有this，<font color=red>这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象，</font>
 
-## [#](https://chenyilong369.github.io/JS/js/this.html#构造函数-this)构造函数 this
+## 构造函数 this
 
 ```js
 function Fn(){

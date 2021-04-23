@@ -104,6 +104,7 @@ console.log(obj.name) // Kevin
 <img :src="$withBase('/images/JS/es/Object.webp')" alt='ProtoType'>
 
 ## 原型链
+
 ```js
 console.log(Object.prototype.__proto__ === null) // true
 ```
@@ -115,3 +116,27 @@ JavaScript 默认并不会**复制**对象的属性，相反，JavaScript 只是
 点击<a href='https://blog.csdn.net/weixin_43352901/article/details/108089355' target=_blank>图解原型链</a>
 
 other write in 2018.09.25
+
+## JS的诞生
+
+- JS 说，我好寂寞。因为 JS 的本源是空的，即：null。
+- JS 说，要有神。所以它通过万能术 `__proto__` 产生了 No1 这号神，即：`No1.__proto__ == null`。
+- JS 说，神你要有自己的想法啊。所以神自己想了个方法，根据自己的原型 `prototype` 创建了对象 `Object`，即：`Object.prototype == No1; No1.__proto__ == null`。于是我们把 `prototype` 叫做原型，就好比 `Object` 的原型是神，男人的原型是人类一样，同时 `__proto__` 叫做原型链，毕竟有了 `__proto__`，对象、神、JS 之间才有联系。这时候 `Object.prototype.__proto__ == null`。
+- JS 说，神你要有更多的想法啊，我把万能术 `__proto__` 借你用了。所以神根据 `Object`，使用 `__proto__` 做了个机器 No2，即 `No2.__proto__ == No1`，并规定所有的东西，通过 `__proto__` 可以连接机器，再找到自己，包括 `Object` 也是，于是 **Object 成为所有对象的原型**，`Object.__proto__.__proto__ == No1`，然后 `String`、`Number`、`Boolean`、 `Array` 这些物种也是如此。
+- JS 说，神你的机器好厉害喔！你的机器能不能做出更多的机器啊？神咧嘴一笑：你通过万能术创造了我，我通过自己原型创造了对象。如此，那我造个机器 Function，`Function.prototype == No2, Function.__proto__ == No2`，即 `Function.prototype == Function.__proto__` 吧！这样 No2 就成了造机器的机器，它负责管理 Object、Function、String、Number、Boolean、Array 这几个。
+
+**最后**，说到这里，我们应该很了解开局祭祖的那副图，并有点豁然开朗的感觉，能清楚地了解下面几条公式了：
+
+```
+Object.__proto__ === Function.prototype;
+Function.prototype.__proto__ === Object.prototype;
+Object.prototype.__proto__ === null;
+```
+
+可以看出，这里有个点，我们还不清楚，就是：**new 为何物？**
+
+**首先**，我们来讲讲函数：**函数分为构造函数和普通函数**。
+
+怎么回事呢？**No2 始机器** 在创造机器 Function 的过程中，创造了过多的机器，为了方便区分这些机器，**No1 神** 将机器分为两类：**创造物种类的 Function 叫做构造函数（通常面向对象），创造动作类的 Function 叫做普通函数（通常面向过程）**。打个比喻：`function Birl() {}` 、`function Person() {}` 这类以首字母大写形式来定义的，用来定义某个类型物种的，就叫做 **构造函数**。而 `function fly() {}`、`function eat() {}` 这类以首字母小写形式来定义的，用来定义某个动作的，就叫做普通函数。
+
+> 注意，它们本质还是 Function 中出来的，只是为了方便区分，我们如此命名

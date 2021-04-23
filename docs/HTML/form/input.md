@@ -1,4 +1,5 @@
-# input：输入（表单输入）元素[yuanwen](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input)
+# input：输入（表单输入）元素
+[yuanwen](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input)
 
 
 
@@ -638,4 +639,5 @@ Interactive elements such as form input should provide an area large enough that
 - [Target Size and 2.5.5 | Adrian Roselli](http://adrianroselli.com/2019/06/target-size-and-2-5-5.html)
 - [Quick test: Large touch targets - The A11Y Project](https://a11yproject.com/posts/large-touch-targets/)
 
-## [Browser compatibility](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#browser_compatibility)
+## [Browser compatibility
+

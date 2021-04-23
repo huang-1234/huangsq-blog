@@ -1,10 +1,12 @@
-# Promise/A+规范
+# Promise/A+规范&实现参考
+
+## 1. Promise/A+规范
 
 翻译：
 
 Promise表示一个异步操作的最终结果。与Promise最主要的交互方法是通过将函数传入它的then方法从而获取得Promise最终的值或Promise最终最拒绝（reject）的原因。
 
-## 1. 术语
+### 1. 术语
 
 `promise`是一个包含了兼容promise规范then方法的对象或函数，
 `thenable` 是一个包含了then方法的对象或函数。
@@ -12,7 +14,7 @@ Promise表示一个异步操作的最终结果。与Promise最主要的交互方
 `exception` 是由`throw`表达式抛出来的值。
 `reason` 是一个用于描述Promise被拒绝原因的值。
 
-## 2. 要求
+### 2. 要求
 
 ### 2.1 Promise状态
 
@@ -103,14 +105,14 @@ promise.then(onFulfilled, onRejected)
    4. 如果 `then`不是一个函数，则 以`x`为值fulfill `promise`。
 4. 如果 `x` 不是对象也不是函数，则以`x`为值 fulfill `promise`。
 
-## 补充
+### 补充
 
 英文原文地址：[http://promisesaplus.com](http://promisesaplus.com/)
 若要了解文中每一条规则，则参阅其测试仓库：https://github.com/promises-aplus/promises-tests/tree/master/lib/tests
 
 [原文](https://segmentfault.com/a/1190000002452115)
 
-# Promise详解与实现（Promise/A+规范）
+## 2. Promise详解与实现（Promise/A+规范）
 
 ### 1.什么是Promise?
 
@@ -193,16 +195,18 @@ axios.get(url).then(data => {
 
 > Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
 
-### 3.Promise使用
+## 3.Promise使用
 
-#### 1.Promise 是一个构造函数， new Promise 返回一个 promise对象 接收一个excutor执行函数作为参数, excutor有两个函数类型形参resolve reject
+#### 1.Promise 是一个构造函数
+
+new Promise 返回一个 promise对象 接收一个excutor执行函数作为参数, excutor有两个函数类型形参resolve reject
 
 
 
 ```jsx
 const promise = new Promise((resolve, reject) => {
-       // 异步处理
-       // 处理结束后、调用resolve 或 reject
+  // 异步处理
+  // 处理结束后、调用resolve 或 reject
 });
 ```
 
@@ -388,7 +392,7 @@ Promise.race([
 });
 ```
 
-### 4. Promise 代码实现
+## 4. Promise 代码实现
 
 
 

@@ -21,7 +21,8 @@ let pos = str.lastIndexOf("China"); //51 表示最后面一个china
 + 两种方法，indexOf() 与 search()，是相等的。
 这两种方法是不相等的。区别在于：
   - search() 方法无法设置第二个开始位置参数。
-  - indexOf() 方法无法设置更强大的搜索值（正则表达式）。search()可以设置正则表达式进行搜索。
+  - indexOf() 方法无法设置更强大的搜索值（正则表达式）。
+  - search()可以设置正则表达式进行搜索。
 + 您将在正则表达式的章节学习到这些更强大的检索值。
 ```js
 var str = "The full 2 name 1369 of China is the People's Republic of China.";
@@ -31,15 +32,19 @@ console.log(pos);
 
 ## 提取部分字符串
 
+JavaScript 中 slice 、substr 和 substring的区别：
+
+String 对象的方法 slice()、substring() 和 substr() (不建议使用)都可返回字符串的指定部分。slice() 比 substring() 要灵活一些，因为它允许使用负数作为参数。slice() 与 substr() 有所不同，因为它用两个字符的位置来指定子串，而 substr() 则用字符位置和长度来指定子串。
+
 有三种提取部分字符串的方法：
 
 - slice(*start*, *end*)
 - substring(*start*, *end*)
 - substr(*start*, *length*)
 
-#### slice() 方法
+#### string.slice(start=0,end=string.length) 方法
 
-slice() 提取字符串的某个部分并在新字符串中返回被提取的部分。
+返回一个新的字符串。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符.
 
 该方法设置两个参数：起始索引（开始位置），终止索引（结束位置）。
 ```js
@@ -49,17 +54,15 @@ console.log(res);
 let res1 = str.slice(7, 13);
 console.log(res1); //Banana
 ```
-#### substring() 方法
+#### string.substring(start=0,end=string.length) 方法
 
-substring() 类似于 slice()。
+substring() 类似于 slice()。不同之处在于 substring() 无法接受负的索引。
 
-不同之处在于 substring() 无法接受负的索引。
-
-#### substr() 方法
+#### substr(start=0,len=string.length-start) 方法
 
 substr() 类似于 slice()。
 
-不同之处在于第二个参数规定被提取部分的*长度*。
+不同之处在于<font color=red>第二个参数规定被提取部分的长度</font>。
 
 如果省略第二个参数，则该 substr() 将裁剪字符串的剩余部分。
 
@@ -79,13 +82,13 @@ replace() 方法用另一个值替换在字符串中指定的值：
 
 | String方法            | 描述                                                         | 代码示例                                             |
 | :--------------------- | :----------------------------------------------------------- | ---------------------------------------------------- |
-| 1. charAt()           | 返回特定位置的字符。                                         | str.charAt(index=0)                                  |
+| 1. charAt(pos)        | 返回特定位置的字符。                                         | str.charAt(index=0)                                  |
 | 1. charCodeAt()       | 返回表示给定索引的字符的Unicode的值。                        |                                                      |
 | 1. codePointAt()      | 返回使用UTF-16编码的给定位置的值的非负整数。                 |                                                      |
 | 1. concat()           | 连接两个字符串文本，并返回一个新的字符串。                   |                                                      |
 | 1. includes()         | 判断一个字符串里是否包含其他字符串。                         | str.includes(searchString[, position=0]) 返回Boolean |
 | 1. endsWith()         | 判断一个字符串的是否以给定字符串结尾，结果返回布尔值。       |                                                      |
-| 1. indexOf()          | 从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回-1。 |                                                      |
+| 1. indexOf(str)  | 从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回-1。 |                                                      |
 | 1. lastIndexOf()      | 从字符串对象中返回最后一个被发现的给定值的索引值，如果没有找到则返回-1。 |                                                      |
 | 1. localeCompare()    | 返回一个数字表示是否引用字符串在排序中位于比较字符串的前面，后面，或者二者相同。 |                                                      |
 | 1. match()            | 使用正则表达式与字符串相比较。                               |                                                      |

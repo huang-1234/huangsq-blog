@@ -46,6 +46,7 @@ const config = {
           }
         ],
       },
+
       {
         text: 'AI',
         ariaLabel: 'webDesign',
@@ -112,13 +113,16 @@ const config = {
         'es/dArray',
         'es/dSet',
         'es/eObject',
+        'es/eClassExtend',
         'es/fRegExp',
         'es/gModules',
         'es/gFunction',
+        'es/itContext',
         'es/iThis',
         'es/icall&apply&bind',
         'es/instanceof&typeof',
-        
+
+        'es/jClone',
 
         'es/kPromiseA+',
 
@@ -151,7 +155,7 @@ const config = {
     {
       title: 'V8',
       children: [
-        '/'
+        'V8/V8memory'
       ]
     },
     {
