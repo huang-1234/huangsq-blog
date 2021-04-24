@@ -8,7 +8,7 @@
   "license": "2021",
   "private": true,
   "scripts": {
-    "dev": "vuepress dev docs --open",
+    "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "putCode": "bash build.sh",
     "deploy": "bash deploy.sh",

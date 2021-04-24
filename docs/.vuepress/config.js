@@ -46,7 +46,18 @@ const config = {
           }
         ],
       },
-
+      {
+        text: '后端',
+        ariaLabel: 'webDesign',
+        items: [
+          {
+            text: 'Nodejs',
+            items: [
+              {text:'NodeBase',link:'/Node/'}
+            ]
+          }
+        ]
+      },
       {
         text: 'AI',
         ariaLabel: 'webDesign',
@@ -85,6 +96,8 @@ const config = {
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
       '/Vue/': getVue(),
+      //Node
+      '/Node/':getNode(),
       //算法&&数学&&机器学习&&人工智能
       '/AlgorithmAI/': getAlgorithm(),
       // '/AlgorithmAI/Math/': getMath(),
@@ -109,12 +122,13 @@ const config = {
         // es基础
         'es/aJSType',
         'es/bVarLetConst',
-        'es/cString',
+        'es/dString',
         'es/dArray',
         'es/dSet',
         'es/eObject',
         'es/eClassExtend',
-        'es/fRegExp',
+        'es/eRegExp',
+        'es/fDate',
         'es/gModules',
         'es/gFunction',
         'es/itContext',
@@ -126,16 +140,18 @@ const config = {
 
         'es/kPromiseA+',
 
-        'es/ProtoTypeAndproto',
+        'es/prototype__proto__',
 
         'es/zNewByme',
 
-        'es/LongPromise',
+        // 'es/LongPromise',
       ]
     },
     {
       title: 'DOM',
       children: [
+        'DOM/aCommonAPI',
+        // 'DOM/Event',
         'DOM/operateDOM',
         'DOM/YouYuXi'
       ]
@@ -147,9 +163,9 @@ const config = {
       ]
     },
     {
-      title: 'Node',
+      title: 'npmYarn',
       children: [
-        'Node/npm/npmAndYarn',
+        'npmYarn/npmAndYarn',
       ]
     },
     {
@@ -301,6 +317,7 @@ function getVue() {
         'vueBase/bComputed',
         'vueBase/cStylesClass',
         'vueBase/dIfRender',
+        'vueBase/dVueLife',
         'vueBase/eListRender',
         'vueBase/fEventProcess',
         'vueBase/gFormInputBind',
@@ -319,6 +336,17 @@ function getVue() {
       children: [
         'YouYuXi/Vite2.0',
         'YouYuXi/VueAndReact'
+      ]
+    }
+  ]
+}
+//Node
+function getNode() {
+  return [
+    {
+      title: 'NodeBase',
+      children: [
+        'NodeBase/EventEmitter'
       ]
     }
   ]
