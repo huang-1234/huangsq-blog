@@ -187,6 +187,7 @@ function getHTML() {
     {
       title: 'HTMLBase',
       children: [
+        'H5new',
         'form/input',
         'form/button'
       ]
