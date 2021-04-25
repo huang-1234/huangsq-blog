@@ -3,7 +3,7 @@ const config = {
   base: '/',
   dest: 'dist',
   title: 'hsq',
-  description: '前端人',
+  description: '往前端架构、向全栈开发',
   head:[
 		['link',{rel:'icon',href:'/favicon.ico'}]
 	],
@@ -121,26 +121,29 @@ const config = {
       children: [
         // es基础
         'es/aJSType',
-        'es/bVarLetConst',
+        'es/aVarLetConst',
+        'es/bContext',
+        'es/bThis',
         'es/dString',
         'es/dArray',
         'es/dSet',
-        'es/eObject',
-        'es/eClassExtend',
+        'es/cObject',
+        'es/cClassExtend',
         'es/eRegExp',
-        'es/fDate',
+        'es/eDate',
         'es/gModules',
         'es/gFunction',
-        'es/itContext',
-        'es/iThis',
+
         'es/icall&apply&bind',
         'es/instanceof&typeof',
-
+        'es/iPrototype__proto__',
+        'es/instanceof&typeof',
+        
         'es/jClone',
 
         'es/kPromiseA+',
 
-        'es/prototype__proto__',
+        
 
         'es/zNewByme',
 
@@ -270,6 +273,12 @@ function getBrowser() {
         'HTTP/httpStorage',
 
         'HTTP/zLearnHTTP'
+      ]
+    },
+    {
+      title: '搜索引擎了解',
+      children: [
+        'PerformOptimization/SEOfirst'
       ]
     }
   ]

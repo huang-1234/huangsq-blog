@@ -1,4 +1,4 @@
-# 8. 模块化
+# 6. 模块化
 
 modules是ES6引入的最重要一个特性。 
 所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。

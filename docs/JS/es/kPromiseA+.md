@@ -1,4 +1,4 @@
-# Promise/A+规范&实现参考
+# 10. Promise/A+规范&实现参考
 
 ## 1. Promise/A+规范
 
