@@ -1,6 +1,4 @@
-# 1. react新手入门
-
- 前言：自己刚刚总结的关于react的知识点，比较简单，大家可以粗略看看。
+# 1. react入门
 
 ### 一：关于react的一些知识点
 
@@ -68,7 +66,7 @@ react-router的中文官网 ： [中文官网](https://link.jianshu.com?t=http%3
 
 如vue的vue-cli脚手架，[create-react-app](https://link.jianshu.com?t=%5Bhttps%3A%2F%2Fgithub.com%2Ffacebookincubator%2Fcreate-react-app)]([https://github.com/facebookincubator/create-react-app](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Ffacebookincubator%2Fcreate-react-app))，使用以上方法的话，与vue-cli脚手架工具类似
 
-## 二、学习react（我当时的学习路线）
+## 二、学习react
 
 1. #### 第一阶段：
 
@@ -76,7 +74,7 @@ react-router的中文官网 ： [中文官网](https://link.jianshu.com?t=http%3
 
 2. #### 第二阶段：
 
-   学习基础的react语法，如下面demo中的todolist，但是不涉及到redux（统一状态管理），这个阶段学的特别快。主要是我上面列的一些知识点（jsx，组件之前数据传递，react-router，PropTypes），最主要的就是一个模块化的概念，个人感觉学过vue的，理解模块化，上手应该是蛮快的。
+   学习基础的react语法，如写todolist，不涉及到redux（统一状态管理）。主要是jsx，组件之前数据传递，react-router，PropTypes，最主要的就是一个模块化的概念，个人感觉学过vue的，理解模块化，上手应该是蛮快的。
 
 3. #### 第三阶段：
 

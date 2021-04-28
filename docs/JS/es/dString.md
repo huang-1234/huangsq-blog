@@ -42,7 +42,7 @@ String 对象的方法 slice()、substring() 和 substr() (不建议使用)都�
 - substring(*start*, *end*)
 - substr(*start*, *length*)
 
-#### string.slice(start=0,end=string.length) 方法
+### string.slice(start=0,end=string.length) 方法
 
 返回一个新的字符串。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符.
 
@@ -54,11 +54,11 @@ console.log(res);
 let res1 = str.slice(7, 13);
 console.log(res1); //Banana
 ```
-#### string.substring(start=0,end=string.length) 方法
+### string.substring(start=0,end=string.length) 方法
 
 substring() 类似于 slice()。不同之处在于 substring() 无法接受负的索引。
 
-#### substr(start=0,len=string.length-start) 方法
+### substr(start=0,len=string.length-start) 方法
 
 substr() 类似于 slice()。
 
@@ -70,7 +70,7 @@ substr() 类似于 slice()。
 
 replace() 方法用另一个值替换在字符串中指定的值：
 
-## [从MDN系统学习String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
+# [从MDN系统学习String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 > 示例 String.prototype.charAt() 下面的都是js内置对象中String对象的方法
 

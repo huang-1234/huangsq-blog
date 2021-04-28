@@ -59,9 +59,7 @@ ReactDOM.render(
 );
 ```
 
-[**在 CodePen 上尝试**](https://react.docschina.org/redirect-to-codepen/introducing-jsx)
-
-为了便于阅读，我们会将 JSX 拆分为多行。同时，我们建议将内容包裹在括号中，虽然这样做不是强制要求的，但是这可以避免遇到[自动插入分号](http://stackoverflow.com/q/2846283)陷阱。
+建议将内容包裹在括号中，虽然这样做不是强制要求的，但是这可以避免遇到[自动插入分号](http://stackoverflow.com/q/2846283)陷阱。
 
 ### JSX 也是一个表达式
 

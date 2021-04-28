@@ -298,7 +298,7 @@ function getBrowser() {
       children: [
         // 'ReactBase/aReactNewLearner',
         // 'ReactBase/bJSX',
-        'ReactBase/cStateHooks',
+        'ReactBase/cHooks',
         'ReactBase/dRouter',
         'ReactBase/eLifeFun',
         // 'ReactBase/yReact-ReduxPersonal',
@@ -528,6 +528,8 @@ function getInterface() {
         'InfaExperience/Browser/JSMacrotasksAndGUIThreads',
 
         'InfaExperience/CSS/Important',
+
+        'InfaExperience/AchieveAPI/AchSet',
       ]
     },
     {

@@ -8,7 +8,7 @@ ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由�
 
 属性分两种：数据属性和访问器属性。
 
-## 4.1. 数据属性
+## 1.1. 数据属性
 
 数据属性包含一个保存数据值的位置。值会从这个位置读取，也会写入到这个位置。数据属性有 4
 
@@ -88,7 +88,7 @@ Object.defineProperty(person, "name", {
 ```
 因此，虽然可以对同一个属性多次调用 Object.defineProperty()，但在把 configurable 设置为 false 之后就会受限制了。在调用 Object.defineProperty()时，configurable、enumerable 和 writable 的值如果不指定，则都默认为 false。多数情况下，可能都不需要 Object.defineProperty()提供的这些强大的设置，但要理解 JavaScript 对象，就要理解这些概念。
 
-## 4.2. 访问器属性
+## 1.2. 访问器属性
 
 访问器属性不包含数据值。相反，它们包含一个获取（getter）函数和一个设置（setter）函数，不
 
@@ -138,7 +138,162 @@ console.log(book.edition); // 2
 > __defineSetter__()。
 这两个方法最早是 Firefox 引入的，后来 Safari、Chrome 和 Opera 也实现了。
 
-# 5.2 对象的扩展
+## 1.3 getOwnPropertyDescriptor()
+
+**`Object.getOwnPropertyDescriptor()`** 方法返回指定对象上一个自有属性对应的属性描述符。（自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）
+
+## 1.3 Object.freeze()
+
+**`Object.freeze()`** 方法可以**冻结**一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。`freeze()` 返回和传入的参数相同的对象。
+
+## 1.3 Object.create()
+
+**`Object.create()`**方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。 （请打开浏览器控制台以查看运行结果。）
+
+## 1.3 Object.defineProperty()
+
+`**Object.defineProperty()**` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+
+该方法允许精确地添加或修改对象的属性。通过赋值操作添加的普通属性是可枚举的，在枚举对象属性时会被枚举到（[`for...in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in) 或 [`Object.keys`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)[ ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)方法），可以改变这些属性的值，也可以[`删除`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/delete)这些属性。这个方法允许修改默认的额外选项（或配置）。默认情况下，使用 `Object.defineProperty()` 添加的属性值是不可修改（immutable）的。
+
+对象里目前存在的属性描述符有两种主要形式：*数据描述符*和*存取描述符*。*数据描述符*是一个具有值的属性，该值可以是可写的，也可以是不可写的。*存取描述符*是由 getter 函数和 setter 函数所描述的属性。一个描述符只能是这两者其中之一；不能同时是两者。
+
+这两种描述符都是对象。它们共享以下可选键值（默认值是指在使用 `Object.defineProperty()` 定义属性时的默认值）：
+
+- `configurable`
+
+  当且仅当该属性的 `configurable` 键值为 `true` 时，该属性的描述符才能够被改变，同时该属性也能从对应的对象上被删除。 **默认为** **`false`**。
+
+- `enumerable`
+
+  当且仅当该属性的 `enumerable` 键值为 `true` 时，该属性才会出现在对象的枚举属性中。 **默认为 `false`**。
+
+数据描述符还具有以下可选键值：
+
+- `value`
+
+  该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)**。
+
+- `writable`
+
+  当且仅当该属性的 `writable` 键值为 `true` 时，属性的值，也就是上面的 `value`，才能被[`赋值运算符`](https://developer.mozilla.org/zh-CN/docs/conflicting/Web/JavaScript/Reference/Operators_8d54701de06af40a7c984517cbe87b3e)改变。 **默认为 `false`。**
+
+存取描述符还具有以下可选键值：
+
+- `get`
+
+  属性的 getter 函数，如果没有 getter，则为 `undefined`。当访问该属性时，会调用此函数。执行时不传入任何参数，但是会传入 `this` 对象（由于继承关系，这里的`this`并不一定是定义该属性的对象）。该函数的返回值会被用作属性的值。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)**。
+
+- `set`
+
+  属性的 setter 函数，如果没有 setter，则为 `undefined`。当属性值被修改时，会调用此函数。该方法接受一个参数（也就是被赋予的新值），会传入赋值时的 `this` 对象。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)**。
+
+#### 描述符默认值汇总
+
+- 拥有布尔值的键 `configurable`、`enumerable` 和 `writable` 的默认值都是 `false`。
+- 属性值和函数的键 `value`、`get` 和 `set` 字段的默认值为 `undefined`。
+
+#### 描述符可拥有的键值
+
+- `configurable``enumerable``value``writable``get``set`数据描述符可以可以可以可以不可以不可以存取描述符可以可以不可以不可以可以可以
+
+如果一个描述符不具有 `value`、`writable`、`get` 和 `set` 中的任意一个键，那么它将被认为是一个数据描述符。如果一个描述符同时拥有 `value` 或 `writable` 和 `get` 或 `set` 键，则会产生一个异常。
+
+记住，这些选项不一定是自身属性，也要考虑继承来的属性。为了确认保留这些默认值，在设置之前，可能要冻结 [`Object.prototype`](https://developer.mozilla.org/zh-CN/docs/conflicting/Web/JavaScript/Reference/Global_Objects/Object)，明确指定所有的选项，或者通过 [`Object.create(null)`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create) 将 [`__proto__` (en-US)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) 属性指向 [`null`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null)。
+
+```js
+// 使用 __proto__
+var obj = {};
+var descriptor = Object.create(null); // 没有继承的属性
+// 默认没有 enumerable，没有 configurable，没有 writable
+descriptor.value = 'static';
+Object.defineProperty(obj, 'key', descriptor);
+
+// 显式
+Object.defineProperty(obj, "key", {
+  enumerable: false,
+  configurable: false,
+  writable: false,
+  value: "static"
+});
+
+// 循环使用同一对象
+function withValue(value) {
+  var d = withValue.d || (
+    withValue.d = {
+      enumerable: false,
+      writable: false,
+      configurable: false,
+      value: null
+    }
+  );
+  d.value = value;
+  return d;
+}
+// ... 并且 ...
+Object.defineProperty(obj, "key", withValue("static"));
+
+// 如果 freeze 可用, 防止后续代码添加或删除对象原型的属性
+// （value, get, set, enumerable, writable, configurable）
+(Object.freeze||Object)(Object.prototype);
+```
+
+
+
+## 1.3 Object.defineProperties()
+
+**`Object.defineProperties()`** 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
+
+参数：
+> obj
+
+在其上定义或修改属性的对象。
+> props
+
+要定义其可枚举属性或修改的属性描述符的对象。对象中存在的属性描述符主要有两种：数据描述符和访问器描述符（更多详情，请参阅[`Object.defineProperty()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)）。描述符具有以下键：
+
+- `configurable`
+
+  `true` 只有该属性描述符的类型可以被改变并且该属性可以从对应对象中删除。 **默认为 `false`**
+
+- `enumerable`
+
+  `true` 只有在枚举相应对象上的属性时该属性显现。 **默认为 `false`**
+
+- `value`
+
+  与属性关联的值。可以是任何有效的JavaScript值（数字，对象，函数等）。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined).**
+
+- `writable`
+
+  `true`只有与该属性相关联的值被[assignment operator](https://developer.mozilla.org/zh-CN/docs/conflicting/Web/JavaScript/Reference/Operators_8d54701de06af40a7c984517cbe87b3e)改变时。 **默认为 `false`**
+
+- `get`
+
+  作为该属性的 getter 函数，如果没有 getter 则为[`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)。函数返回值将被用作属性的值。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)**
+
+- `set`
+
+  作为属性的 setter 函数，如果没有 setter 则为[`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)。函数将仅接受参数赋值给该属性的新值。 **默认为 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)**
+
+```js
+var obj = {};
+Object.defineProperties(obj, {
+  'property1': {
+    value: true,
+    writable: true
+  },
+  'property2': {
+    value: 'Hello',
+    writable: false
+  }
+  // etc. etc.
+});
+```
+
+
+
+# 3.2 对象的扩展
 
 1. [属性的简洁表示法](https://es6.ruanyifeng.com/#docs/object#属性的简洁表示法)
 2. [属性名表达式](https://es6.ruanyifeng.com/#docs/object#属性名表达式)
@@ -151,7 +306,7 @@ console.log(book.edition); // 2
 
 对象（object）是 js 最重要的数据结构。ES6 对它进行了重大升级，本章介绍数据结构本身的改变，下一章介绍`Object`对象的新增方法。
 
-## 属性的简洁表示法
+## 2.1 属性的简洁表示法
 
 ES6 允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。CommonJS 模块输出一组变量，就非常合适使用简洁写法。
 
@@ -161,13 +316,9 @@ function getItem (key) {
   return key in ms ? ms[key] : null;
 }
 
-function setItem (key, value) {
-  ms[key] = value;
-}
+function setItem (key, value) {ms[key] = value;}
 
-function clear () {
-  ms = {};
-}
+function clear () {ms = {};}
 
 module.exports = { getItem, setItem, clear };
 // 等同于
@@ -183,9 +334,7 @@ module.exports = {
 ```js
 const cart = {
   _wheels: 4,
-  get wheels () {
-    return this._wheels;
-  },
+  get wheels () {return this._wheels;},
 
   set wheels (value) {
     if (value < this._wheels) {throw new Error('数值太小了！'); }
@@ -200,17 +349,14 @@ const cart = {
 
 ```js
 const obj = {
-  f() {
-    this.foo = 'bar';
-  }
+  f() {this.foo = 'bar';}
 };
-
 new obj.f() // 报错
 ```
 
 上面代码中，`f`是一个简写的对象方法，所以`obj.f`不能当作构造函数使用。
 
-## 属性名表达式
+## 2.2 属性名表达式
 
 js 定义对象的属性，有两种方法。
 
@@ -258,15 +404,10 @@ a[lastWord] // "world"
 a['last word'] // "world"
 ```
 
-表达式还可以用于定义方法名。
+表达式还可以用于<font color=red>定义方法名</font>。
 
 ```js
-let obj = {
-  ['h' + 'ello']() {
-    return 'hi';
-  }
-};
-
+let obj = { ['h' + 'ello']() { return 'hi';}};
 obj.hello() // hi
 ```
 
@@ -277,7 +418,6 @@ obj.hello() // hi
 const foo = 'bar';
 const bar = 'abc';
 const baz = { [foo] };
-
 // 正确
 const foo = 'bar';
 const baz = { [foo]: 'abc'};
@@ -286,20 +426,18 @@ const baz = { [foo]: 'abc'};
 注意，属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串`[object Object]`，这一点要特别小心。
 
 ```js
-const keyA = {a: 1};
-const keyB = {b: 2};
+const keyA = {a: 1};		const keyB = {b: 2};
 
 const myObject = {
   [keyA]: 'valueA',
   [keyB]: 'valueB'
 };
-
 myObject // Object {[object Object]: "valueB"}
 ```
 
 上面代码中，`[keyA]`和`[keyB]`得到的都是`[object Object]`，所以`[keyB]`会把`[keyA]`覆盖掉，而`myObject`最后只有一个`[object Object]`属性。
 
-## 方法的 name 属性
+## 2.3 方法的 name 属性
 
 函数的`name`属性，返回函数名。对象方法也是函数，因此也有`name`属性。
 
@@ -357,7 +495,7 @@ obj[key2].name // ""
 
 上面代码中，`key1`对应的 Symbol 值有描述，`key2`没有。
 
-## 属性的可枚举性和遍历
+## 2.4 属性的可枚举性和遍历
 
 ### 可枚举性
 
@@ -441,14 +579,12 @@ Reflect.ownKeys({ [Symbol()]:0, b:0, 10:0, 2:0, a:0 })
 
 上面代码中，`Reflect.ownKeys`方法返回一个数组，包含了参数对象的所有属性。这个数组的属性次序是这样的，首先是数值属性`2`和`10`，其次是字符串属性`b`和`a`，最后是 Symbol 属性。
 
-## super 关键字
+## 2.5 super 关键字
 
 我们知道，`this`关键字总是指向函数所在的当前对象，ES6 又新增了另一个类似的关键字`super`，指向当前对象的原型对象。
 
 ```js
-const proto = {
-  foo: 'hello'
-};
+const proto = {foo: 'hello'};
 
 const obj = {
   foo: 'world',
@@ -508,7 +644,7 @@ obj.foo() // "world"
 
 上面代码中，`super.foo`指向原型对象`proto`的`foo`方法，但是绑定的`this`却还是当前对象`obj`，因此输出的就是`world`。
 
-## 对象的扩展运算符
+## 2.6 对象的扩展运算符
 
 《数组的扩展》一章中，已经介绍过扩展运算符（`...`）。ES2018 将这个运算符[引入](https://github.com/sebmarkbage/ecmascript-rest-spread)了对象。
 
@@ -752,7 +888,7 @@ let aWithXGetter = { ...a }; // 报错
 
 上面例子中，取值函数`get`在扩展`a`对象时会自动执行，导致报错。
 
-## 链判断运算符
+## 2.7 链判断运算符
 
 编程实务中，如果读取对象内部的某个属性，往往需要判断一下该对象是否存在。比如，要读取`message.body.user.firstName`，安全的写法是写成下面这样。
 
@@ -905,7 +1041,7 @@ a?.b = c
 
 为了保证兼容以前的代码，允许`foo?.3:0`被解析成`foo ? .3 : 0`，因此规定如果`?.`后面紧跟一个十进制数字，那么`?.`不再被看成是一个完整的运算符，而会按照三元运算符进行处理，也就是说，那个小数点会归属于后面的十进制数字，形成一个小数。
 
-## Null 判断运算符
+## 2.7 Null 判断运算符
 
 读取对象属性的时候，如果某个属性的值是`null`或`undefined`，有时候需要为它们指定默认值。常见做法是通过`||`运算符指定默认值。
 
@@ -981,9 +1117,9 @@ lhs || (middle ?? rhs);
 lhs ?? (middle || rhs);
 ```
 
-# 5.3(ES6)Object.assign()
+# 3.3(ES6)Object.assign()
 
-###  基本用法
+###  3.1 基本用法
 
 `Object.assign`方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。并返回目标对象
 
@@ -1088,7 +1224,7 @@ Object.assign({ a: 'b' }, { [Symbol('c')]: 'd' })
 
 ------
 
-### 注意点
+### 3.2 注意点
 
 ### （1）浅拷贝
 
@@ -1190,7 +1326,7 @@ Object.assign(target, source)
 
 上面代码中， `source`对象的`foo`属性是一个取值函数，`Object.assign`不会复制这个取值函数，只会拿到值以后，将这个值复制过去。
 
-### 常见用途
+### 3.3 常见用途
 
 `Object.assign`方法有很多用处。
 
@@ -1315,7 +1451,7 @@ processContent({ url: {port: 8000} })
 
 `Object`构造函数创建一个对象包装器。
 
-## [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#语法)
+## 语法
 
 ```
 // 对象初始化器（Object initialiser）或对象字面量（literal）
@@ -1325,7 +1461,7 @@ processContent({ url: {port: 8000} })
 new Object([value])
 ```
 
-### [参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#参数)
+### 参数
 
 - `nameValuePair1, nameValuePair2, ... nameValuePair*N*`
 
@@ -1335,7 +1471,7 @@ new Object([value])
 
   任何值。
 
-## [描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#描述)
+## 描述
 
 在JavaScript中，几乎所有的对象都是`Object`类型的实例，它们都会从`Object.prototype`继承属性和方法。`Object` 构造函数为给定值创建一个对象包装器。`Object`构造函数，会根据给定的参数创建对象，具体有以下情况：
 
@@ -1347,7 +1483,7 @@ new Object([value])
 
 可查看 [对象初始化/字面量语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer)。
 
-## [`Object` 构造函数的属性](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#properties)
+## `Object` 构造函数的属性
 
 - `Object.length`
 
@@ -1357,7 +1493,7 @@ new Object([value])
 
   可以为所有 Object 类型的对象添加属性。
 
-## [`Object` 构造函数的方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#object_构造函数的方法)
+## `Object` 构造函数的方法
 
 - [`Object.assign()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 

@@ -1,6 +1,8 @@
 # 6. Function的前世今生
 
-## 一个小小的test,想来看下下面的代码会输出什么
+## 一个小小的test
+
+想来看下下面的代码会输出什么
 
 ```js
 function func() {
@@ -44,3 +46,25 @@ fun2:-------------------- undefined
 > 3. 总结下来也就是不带括号赋值就是返回函数本身
 > 4. 带了括号的是执行函数，并返回函数return里面的东西，没有return这是undefined
 > 5. 有return，就是返回return里面，除了’()’以外的任何js表达式
+
+## function的对象属性
+
+```js
+function sayHi() { console.log('object'); }
+
+sayHi.n = 'hsq';
+console.dir('dir:',sayHi);
+console.log('log:',sayHi);
+console.log(sayHi.name, ':', sayHi.prototype.__proto__);
+/* node 输出
+'dir:'
+log: [Function: sayHi] { n: 'hsq' }
+sayHi : [Object: null prototype] {}
+*/
+/* Browser 输出
+dir:
+function.js:5 log: ƒ sayHi() { console.log('object'); }
+function.js:6 sayHi : {constructor: ƒ, __defineGetter__: ƒ
+*/
+```
+

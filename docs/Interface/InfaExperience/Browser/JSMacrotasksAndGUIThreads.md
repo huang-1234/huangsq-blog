@@ -9,7 +9,7 @@ https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
 
 上文中将JS事件循环机制梳理了一遍，在ES5的情况是够用了，但是在ES6盛行的现在，仍然会遇到一些问题，譬如下面这题：
 
-```
+```js
 console.log('script start');
 
 setTimeout(function() {

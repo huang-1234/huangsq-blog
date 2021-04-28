@@ -1,4 +1,4 @@
-## react项目中是怎么执行setupProxy.js的？
+## CRA执行setupProxy.js的？
 
 ### 问题
 
@@ -42,7 +42,7 @@ const devServer = new WebpackDevServer(compiler, serverConfig);
 
 [参考](https://www.cnblogs.com/zhaoweikai/p/9969282.html)
 
-### 一 简介
+###  简介
 
 http-proxy-middleware用于后台将请求转发给其它服务器。
 
