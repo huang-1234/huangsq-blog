@@ -55,6 +55,12 @@ const config = {
             items: [
               {text:'NodeBase',link:'/Node/'}
             ]
+          },
+          {
+            text:'cPlus',
+            items:[
+              {text:'C++',link:'/Cplus/'}
+            ]
           }
         ]
       },
@@ -98,6 +104,8 @@ const config = {
       '/Vue/': getVue(),
       //Node
       '/Node/':getNode(),
+      // c++
+      '/Cplus/':getCplus(),
       //算法&&数学&&机器学习&&人工智能
       '/AlgorithmAI/': getAlgorithm(),
       // '/AlgorithmAI/Math/': getMath(),
@@ -356,7 +364,40 @@ function getNode() {
     {
       title: 'NodeBase',
       children: [
-        'NodeBase/EventEmitter'
+        'NodeBase/aFunction',
+        'NodeBase/aModules',
+        'NodeBase/EventEmitter',
+        'NodeBase/File',
+        'NodeBase/GlobalObject',
+        'NodeBase/utils',
+      ]
+    },
+    {
+      title:'NodeExtend',
+      children:[
+        '/'
+      ]
+    }
+  ]
+}
+//C++
+function getCplus(){
+  return [
+    {
+      title:'CplusBase',
+      children:[
+        'CplusBase/CplusVSCodeConfig',
+        'CplusBase/aRelearnCplus',
+        'CplusBase/aDataType',
+        'CplusBase/aArray',
+        'CplusBase/aPointerReference',
+        'CplusBase/bcincout',
+        // C++的类
+        'CplusBase/bString',
+        'CplusBase/bClass',
+        'CplusBase/bMath',
+        'CplusBase/bDateTime',
+        'CplusBase/CplusWeb',
       ]
     }
   ]

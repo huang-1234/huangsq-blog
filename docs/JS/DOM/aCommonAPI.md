@@ -1,4 +1,5 @@
-## 操作DOM常用API总结
+# DOM-API
+### 操作DOM常用API总结
 
 > 有待研究一番
 
@@ -142,7 +143,7 @@ parent2.id = "parent2";
 
 我们看看[这个例子](http://runjs.cn/detail/s2yelqet)
 
-```js
+```html
 <div id="parent">
     我是父元素的文本
     <br/>
@@ -151,30 +152,31 @@ parent2.id = "parent2";
     </span>
 </div>
 <button id="btnCopy">复制</button>
-
+<script defer>
 var parent = document.getElementById("parent");
 document.getElementById("btnCopy").onclick = function(){
     var parent2 = parent.cloneNode(true);
     parent2.id = "parent2";
     document.body.appendChild(parent2);
 }
+</script>
 ```
 
 这段代码很简单，主要是绑定button事件，事件内容是复制了一个parent，修改其id，然后添加到文档中。
 
 这里有几点要注意：
-
+```text
 （1）和createElement一样，cloneNode创建的节点只是游离有html文档外的节点，要调用appendChild方法才能添加到文档树中
 （2）如果复制的元素有id，则其副本同样会包含该id，由于id具有唯一性，所以在复制节点后必须要修改其id
 （3）调用接收的bool参数最好传入，如果不传入该参数，不同浏览器对其默认值的处理可能不同
-
+```
 除此之外，我们还有一个需要注意的点：如果被复制的节点绑定了事件，则副本也会跟着绑定该事件吗？
 
 这里要分情况讨论：
-
+```text
 （1）如果是通过addEventListener或者比如onclick进行绑定事件，则副本节点不会绑定该事件
 （2）如果是内联方式绑定比如
-
+```
 ```js
 <div onclick="showParent()"></div>
 ```
@@ -187,10 +189,10 @@ document.getElementById("btnCopy").onclick = function(){
 
 `createDocumentFragment`方法主要是用于添加大量节点到文档中时会使用到。假设要循环一组数据，然后创建多个节点添加到文档中，比如[示例](http://runjs.cn/detail/nu4wptvl)
 
-```js
+```html
 <ul id="list"></ul>
 <input type="button" value="添加多项" id="btnAdd" />
-
+<script defer>
 document.getElementById("btnAdd").onclick = function(){
     var list = document.getElementById("list");
     for(var i = 0;i < 100; i++){
@@ -199,6 +201,7 @@ document.getElementById("btnAdd").onclick = function(){
         list.appendChild(li);
     }
 }
+</script>
 ```
 
 这段代码将按钮绑定了一个事件，这个事件创建了100个li节点，然后依次将其添加HTML文档中。这样做有一个缺点：每次一创建一个新的元素，然后添加到文档树中，这个过程会造成浏览器的回流。所谓回流简单说就是指元素大小和位置会被重新计算，如果添加的元素太多，会造成性能问题。这个时候，就是使用`createDocumentFragment`了。
@@ -225,11 +228,11 @@ document.getElementById("btnAdd").onclick = function(){
 ### 创建型API总结
 
 创建型api主要包括`createElement`，`createTextNode`，`cloneNode`和`createDocumentFragment`四个方法，需要注意下面几点：
-
+```text
 （1）它们创建的节点只是一个孤立的节点，要通过`appendChild`添加到文档中
 （2）`cloneNode`要注意如果被复制的节点是否包含子节点以及事件绑定等问题
 （3）使用`createDocumentFragment`来解决添加大量节点时的性能问题
-
+```
 ### 页面修改型API
 
 前面我们提到创建型api，它们只是创建节点，并没有真正修改到页面内容，而是要调用appendChild来将其添加到文档树中。我在这里将这类会修改到页面内容归为一类。
@@ -248,7 +251,7 @@ child节点将会作为parent节点的最后一个子节点。
 
 `appendChild`这个方法很简单，但是还有有一点需要注意：如果被添加的节点是一个页面中存在的节点，则执行后这个节点将会添加到指定位置，其原本所在的位置将移除该节点，也就是说不会同时存在两个该节点在页面上，相当于把这个节点移动到另一个地方。我们来看[例子](http://runjs.cn/detail/kk3bodpw)
 
-```js
+```html
 <div id="child">
     要被添加的节点
 </div>
@@ -259,11 +262,12 @@ child节点将会作为parent节点的最后一个子节点。
     要移动的位置
 </div>      
 <input id="btnMove" type="button" value="移动节点" />
-
+<script>
 document.getElementById("btnMove").onclick = function(){
     var child = document.getElementById("child");
     document.getElementById("parent").appendChild(child);
 }
+</script>
 ```
 
 这段代码主要是获取页面上的child节点，然后添加到指定位置，可以看到原本的child节点被移动到parent中了。
@@ -284,7 +288,7 @@ parentNode.insertBefore(newNode,refNode);
 
 我们来看这个[例子](http://runjs.cn/detail/p2rs1tmy)
 
-```js
+```html
 <div id="parent">
     父节点
     <div id="child">                
@@ -292,7 +296,8 @@ parentNode.insertBefore(newNode,refNode);
     </div>
 </div>
 <input type="button" id="insertNode" value="插入节点" />
-
+```
+```js
 var parent = document.getElementById("parent");
 var child = document.getElementById("child");
 document.getElementById("insertNode").onclick = function(){
@@ -365,13 +370,13 @@ newChild是替换的节点，可以是新的节点，也可以是页面上的节
 
 这个接口根据元素标签名获取元素，返回一个即时的HTMLCollection类型，什么是即时的HTMLCollection类型呢？我们来看看这个[示例](http://runjs.cn/detail/13jvrs9t)
 
-```js
+```html
 <div>div1</div>
 <div>div2</div>
 
 <input type="button" value="显示数量" id="btnShowCount"/>
 <input type="button" value="新增div" id="btnAddDiv"/> 
-
+<script>
 var divList = document.getElementsByTagName("div");
 document.getElementById("btnAddDiv").onclick = function(){
     var div = document.createElement("div");
@@ -382,24 +387,25 @@ document.getElementById("btnAddDiv").onclick = function(){
 document.getElementById("btnShowCount").onclick = function(){
         alert(divList.length);
 }
+</script>
 ```
 
 这段代码中有两个按钮，一个按钮是显示HTMLCollection元素的个数，另一个按钮可以新增一个div标签到文档中。前面提到HTMLCollcetion元素是即时的表示该集合是随时变化的，也就是是文档中有几个div，它会随时进行变化，当我们新增一个div后，再访问HTMLCollection时，就会包含这个新增的div。
 
 使用`document.getElementsByTagName`这个方法有几点要注意：
 
-（1）如果要对HTMLCollection集合进行循环操作，最好将其长度缓存起来，因为每次循环都会去计算长度，暂时缓存起来可以提高效率
-（2）如果没有存在指定的标签，该接口返回的不是null，而是一个空的HTMLCollection
-（3）“*”表示所有标签
+- （1）如果要对HTMLCollection集合进行循环操作，最好将其长度缓存起来，因为每次循环都会去计算长度，暂时缓存起来可以提高效率
+- （2）如果没有存在指定的标签，该接口返回的不是null，而是一个空的HTMLCollection
+- （3）“*”表示所有标签
 
 ### document.getElementsByName
 
 getElementsByName主要是通过指定的name属性来获取元素，它返回一个即时的NodeList对象。
 使用这个接口主要要注意几点：
 
-（1）返回对象是一个即时的NodeList，它是随时变化的
-（2）在HTML元素中，并不是所有元素都有name属性，比如div是没有name属性的，但是如果强制设置div的name属性，它也是可以被查找到的
-（3）在IE中，如果id设置成某个值，然后传入`getElementsByName`的参数值和id值一样，则这个元素是会被找到的，所以最好不好设置同样的值给id和name
+- （1）返回对象是一个即时的NodeList，它是随时变化的
+- （2）在HTML元素中，并不是所有元素都有name属性，比如div是没有name属性的，但是如果强制设置div的name属性，它也是可以被查找到的
+- （3）在IE中，如果id设置成某个值，然后传入`getElementsByName`的参数值和id值一样，则这个元素是会被找到的，所以最好不好设置同样的值给id和name
 
 ### document.getElementsByClassName
 
@@ -428,7 +434,7 @@ var elements = document.getElementsByClassName("test1 test2");
 `document.querySelector`返回第一个匹配的元素，如果没有匹配的元素，则返回null。
 注意，由于返回的是第一个匹配的元素，这个api使用的深度优先搜索来获取元素。我们来看这个[例子](http://runjs.cn/detail/dl1uvbtq)：
 
-```js
+```html
 <div>
     <div>
         <span class="test">第三级的span</span>  
@@ -438,18 +444,19 @@ var elements = document.getElementsByClassName("test1 test2");
     同级的第二个div
 </div>
 <input type="button" id="btnGet" value="获取test元素" />
-
+<script>
 document.getElementById("btnGet").addEventListener("click",function(){
     var element = document.querySelector(".test");
     alert(element.textContent);
 })
+</script>
 ```
 
 这个例子很简单，就是两个class都包含“test”的元素，一个在文档树的前面，但是它在第三级，另一个在文档树的后面，但它在第一级，通过`querySelector`获取元素时，它通过深度优先搜索，拿到文档树前面的第三级的元素。
 
 `document.querySelectorAll`的不同之处在于它返回的是所有匹配的元素，而且可以匹配多个选择符，我们来看看下面这个[例子](http://runjs.cn/detail/egu0tjoj)
 
-```js
+```html
 <div class="test">
     class为test
 </div>
@@ -457,18 +464,19 @@ document.getElementById("btnGet").addEventListener("click",function(){
     id为test
 </div>
 <input id="btnShow" type="button" value="显示内容" />
-
+<script>
 document.getElementById("btnShow").addEventListener("click",function(){
     var elements = document.querySelectorAll("#test,.test");    
     for(var i = 0,length = elements.length;i<length;i++){
         alert(elements[i].textContent);
     }   
 })
+</script>
 ```
 
 这段代码通过querySelectorAll，使用id选择器和class选择器选择了两个元素，并依次输出其内容。要注意两点：
-（1）querySelectorAll也是通过深度优先搜索，搜索的元素顺序和选择器的顺序无关
-（2）返回的是一个非即时的NodeList，也就是说结果不会随着文档树的变化而变化
+- （1）querySelectorAll也是通过深度优先搜索，搜索的元素顺序和选择器的顺序无关
+- （2）返回的是一个非即时的NodeList，也就是说结果不会随着文档树的变化而变化
 
 兼容性问题：querySelector和querySelectorAll在ie8以下的浏览器不支持。
 

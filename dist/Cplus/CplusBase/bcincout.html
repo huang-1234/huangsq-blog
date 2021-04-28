@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>C++ 基本的输入输出 | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="往前端架构、向全栈开发">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.12e27bcd.js" as="script"><link rel="preload" href="/assets/js/2.31cb5988.js" as="script"><link rel="preload" href="/assets/js/54.68f24c0e.js" as="script"><link rel="prefetch" href="/assets/js/10.d7cc368c.js"><link rel="prefetch" href="/assets/js/100.aa7d3043.js"><link rel="prefetch" href="/assets/js/101.d93f238f.js"><link rel="prefetch" href="/assets/js/102.5add6b5f.js"><link rel="prefetch" href="/assets/js/103.e9c9cbe0.js"><link rel="prefetch" href="/assets/js/104.a238be94.js"><link rel="prefetch" href="/assets/js/105.3b9971f2.js"><link rel="prefetch" href="/assets/js/106.76d42754.js"><link rel="prefetch" href="/assets/js/107.ce88a751.js"><link rel="prefetch" href="/assets/js/108.16181829.js"><link rel="prefetch" href="/assets/js/109.340bb209.js"><link rel="prefetch" href="/assets/js/11.9b59ed06.js"><link rel="prefetch" href="/assets/js/110.1a3dcbcb.js"><link rel="prefetch" href="/assets/js/111.127c7c74.js"><link rel="prefetch" href="/assets/js/112.e0e6c8ba.js"><link rel="prefetch" href="/assets/js/113.e1be3260.js"><link rel="prefetch" href="/assets/js/114.ab143fc7.js"><link rel="prefetch" href="/assets/js/115.5310c3f4.js"><link rel="prefetch" href="/assets/js/116.fb5f8952.js"><link rel="prefetch" href="/assets/js/117.059cea5f.js"><link rel="prefetch" href="/assets/js/118.82b55dc0.js"><link rel="prefetch" href="/assets/js/119.f16dc681.js"><link rel="prefetch" href="/assets/js/12.9c25a267.js"><link rel="prefetch" href="/assets/js/120.4c10360d.js"><link rel="prefetch" href="/assets/js/121.5badef2b.js"><link rel="prefetch" href="/assets/js/122.ac368cc9.js"><link rel="prefetch" href="/assets/js/123.1d52cc0a.js"><link rel="prefetch" href="/assets/js/124.5449373d.js"><link rel="prefetch" href="/assets/js/125.0020093f.js"><link rel="prefetch" href="/assets/js/126.77364047.js"><link rel="prefetch" href="/assets/js/127.33b3d17a.js"><link rel="prefetch" href="/assets/js/128.efad79c9.js"><link rel="prefetch" href="/assets/js/129.8de0be43.js"><link rel="prefetch" href="/assets/js/13.fd56a1e4.js"><link rel="prefetch" href="/assets/js/130.ecd4bc21.js"><link rel="prefetch" href="/assets/js/131.842266cb.js"><link rel="prefetch" href="/assets/js/132.40ba2a86.js"><link rel="prefetch" href="/assets/js/133.38c896fc.js"><link rel="prefetch" href="/assets/js/134.af4431a9.js"><link rel="prefetch" href="/assets/js/135.ade58415.js"><link rel="prefetch" href="/assets/js/136.0340b937.js"><link rel="prefetch" href="/assets/js/137.02bce5b9.js"><link rel="prefetch" href="/assets/js/138.5078a171.js"><link rel="prefetch" href="/assets/js/139.5685118e.js"><link rel="prefetch" href="/assets/js/14.1b6cff27.js"><link rel="prefetch" href="/assets/js/140.d18c0f4b.js"><link rel="prefetch" href="/assets/js/141.abd746b4.js"><link rel="prefetch" href="/assets/js/142.20deadc0.js"><link rel="prefetch" href="/assets/js/143.1496af68.js"><link rel="prefetch" href="/assets/js/144.7019c780.js"><link rel="prefetch" href="/assets/js/145.5e4d1278.js"><link rel="prefetch" href="/assets/js/146.3534311b.js"><link rel="prefetch" href="/assets/js/147.eb8108c0.js"><link rel="prefetch" href="/assets/js/148.483aa914.js"><link rel="prefetch" href="/assets/js/149.62dff76f.js"><link rel="prefetch" href="/assets/js/15.fc7620c6.js"><link rel="prefetch" href="/assets/js/150.7e779961.js"><link rel="prefetch" href="/assets/js/151.0256e990.js"><link rel="prefetch" href="/assets/js/152.1df1e6d2.js"><link rel="prefetch" href="/assets/js/153.33c35d89.js"><link rel="prefetch" href="/assets/js/154.ea06efe9.js"><link rel="prefetch" href="/assets/js/155.43a6ca09.js"><link rel="prefetch" href="/assets/js/156.8448ed1e.js"><link rel="prefetch" href="/assets/js/157.c0d837b7.js"><link rel="prefetch" href="/assets/js/158.11a330cc.js"><link rel="prefetch" href="/assets/js/159.009b3936.js"><link rel="prefetch" href="/assets/js/16.28e34a15.js"><link rel="prefetch" href="/assets/js/160.6880606c.js"><link rel="prefetch" href="/assets/js/161.3e7f2250.js"><link rel="prefetch" href="/assets/js/162.073f6d3a.js"><link rel="prefetch" href="/assets/js/163.6736675e.js"><link rel="prefetch" href="/assets/js/164.628db1fc.js"><link rel="prefetch" href="/assets/js/165.9e4627f8.js"><link rel="prefetch" href="/assets/js/166.ba254f4d.js"><link rel="prefetch" href="/assets/js/167.8cb08dad.js"><link rel="prefetch" href="/assets/js/168.11182e43.js"><link rel="prefetch" href="/assets/js/169.350a6407.js"><link rel="prefetch" href="/assets/js/17.bfeb768a.js"><link rel="prefetch" href="/assets/js/170.e8ea527b.js"><link rel="prefetch" href="/assets/js/171.5634bb48.js"><link rel="prefetch" href="/assets/js/172.fba92838.js"><link rel="prefetch" href="/assets/js/173.1d92e4b7.js"><link rel="prefetch" href="/assets/js/174.573e4e57.js"><link rel="prefetch" href="/assets/js/175.e0b7ece9.js"><link rel="prefetch" href="/assets/js/176.c2865627.js"><link rel="prefetch" href="/assets/js/177.c6eed432.js"><link rel="prefetch" href="/assets/js/178.eb956295.js"><link rel="prefetch" href="/assets/js/179.31f7d6e8.js"><link rel="prefetch" href="/assets/js/18.0d828a9f.js"><link rel="prefetch" href="/assets/js/180.ce230194.js"><link rel="prefetch" href="/assets/js/181.5f945790.js"><link rel="prefetch" href="/assets/js/19.6ec944e9.js"><link rel="prefetch" href="/assets/js/20.eae7fe18.js"><link rel="prefetch" href="/assets/js/21.0d437e25.js"><link rel="prefetch" href="/assets/js/22.8acc79e9.js"><link rel="prefetch" href="/assets/js/23.f130aef1.js"><link rel="prefetch" href="/assets/js/24.6022dde0.js"><link rel="prefetch" href="/assets/js/25.8172d0b8.js"><link rel="prefetch" href="/assets/js/26.dff83eac.js"><link rel="prefetch" href="/assets/js/27.15122114.js"><link rel="prefetch" href="/assets/js/28.d27a7928.js"><link rel="prefetch" href="/assets/js/29.2649a6ed.js"><link rel="prefetch" href="/assets/js/3.e5830d9a.js"><link rel="prefetch" href="/assets/js/30.9c91c787.js"><link rel="prefetch" href="/assets/js/31.c8abafe9.js"><link rel="prefetch" href="/assets/js/32.b2c0e304.js"><link rel="prefetch" href="/assets/js/33.2a8f8cb4.js"><link rel="prefetch" href="/assets/js/34.561f4b4f.js"><link rel="prefetch" href="/assets/js/35.907b7322.js"><link rel="prefetch" href="/assets/js/36.0fa1e4e8.js"><link rel="prefetch" href="/assets/js/37.ca526ccb.js"><link rel="prefetch" href="/assets/js/38.3248e1f3.js"><link rel="prefetch" href="/assets/js/39.fa1624ec.js"><link rel="prefetch" href="/assets/js/4.8a1558cf.js"><link rel="prefetch" href="/assets/js/40.e9579b54.js"><link rel="prefetch" href="/assets/js/41.25d71f02.js"><link rel="prefetch" href="/assets/js/42.f3df8d0d.js"><link rel="prefetch" href="/assets/js/43.62d21a98.js"><link rel="prefetch" href="/assets/js/44.c6e36fdf.js"><link rel="prefetch" href="/assets/js/45.02d522c6.js"><link rel="prefetch" href="/assets/js/46.ad9f7128.js"><link rel="prefetch" href="/assets/js/47.79e7e4b3.js"><link rel="prefetch" href="/assets/js/48.8cb2051e.js"><link rel="prefetch" href="/assets/js/49.70f0446a.js"><link rel="prefetch" href="/assets/js/5.104fb184.js"><link rel="prefetch" href="/assets/js/50.57654028.js"><link rel="prefetch" href="/assets/js/51.24144476.js"><link rel="prefetch" href="/assets/js/52.a96d64dc.js"><link rel="prefetch" href="/assets/js/53.1b4a1741.js"><link rel="prefetch" href="/assets/js/55.0f83b319.js"><link rel="prefetch" href="/assets/js/56.34591dad.js"><link rel="prefetch" href="/assets/js/57.16ccabed.js"><link rel="prefetch" href="/assets/js/58.a70af9b0.js"><link rel="prefetch" href="/assets/js/59.8e8b206d.js"><link rel="prefetch" href="/assets/js/6.3acf7ec6.js"><link rel="prefetch" href="/assets/js/60.e6911932.js"><link rel="prefetch" href="/assets/js/61.b0e72680.js"><link rel="prefetch" href="/assets/js/62.d27c16dc.js"><link rel="prefetch" href="/assets/js/63.fa51f4a9.js"><link rel="prefetch" href="/assets/js/64.0c445dcc.js"><link rel="prefetch" href="/assets/js/65.b62c01ee.js"><link rel="prefetch" href="/assets/js/66.7997f485.js"><link rel="prefetch" href="/assets/js/67.9e96f5e6.js"><link rel="prefetch" href="/assets/js/68.f02bb1ee.js"><link rel="prefetch" href="/assets/js/69.f29f63a8.js"><link rel="prefetch" href="/assets/js/7.be292676.js"><link rel="prefetch" href="/assets/js/70.be912b56.js"><link rel="prefetch" href="/assets/js/71.f3fb8bc0.js"><link rel="prefetch" href="/assets/js/72.1893b40c.js"><link rel="prefetch" href="/assets/js/73.7192b646.js"><link rel="prefetch" href="/assets/js/74.148b9b2e.js"><link rel="prefetch" href="/assets/js/75.5197077b.js"><link rel="prefetch" href="/assets/js/76.cbe60553.js"><link rel="prefetch" href="/assets/js/77.1c3ce610.js"><link rel="prefetch" href="/assets/js/78.dad1d1ee.js"><link rel="prefetch" href="/assets/js/79.a80ed1fd.js"><link rel="prefetch" href="/assets/js/8.481ee38b.js"><link rel="prefetch" href="/assets/js/80.ecb5a011.js"><link rel="prefetch" href="/assets/js/81.5f029f43.js"><link rel="prefetch" href="/assets/js/82.41141e75.js"><link rel="prefetch" href="/assets/js/83.8e148120.js"><link rel="prefetch" href="/assets/js/84.609f43f3.js"><link rel="prefetch" href="/assets/js/85.1156d952.js"><link rel="prefetch" href="/assets/js/86.be4d9221.js"><link rel="prefetch" href="/assets/js/87.5273f0a4.js"><link rel="prefetch" href="/assets/js/88.57dda94d.js"><link rel="prefetch" href="/assets/js/89.34239dc0.js"><link rel="prefetch" href="/assets/js/9.ad5db1b0.js"><link rel="prefetch" href="/assets/js/90.1f2f99b6.js"><link rel="prefetch" href="/assets/js/91.8edc2bf8.js"><link rel="prefetch" href="/assets/js/92.f5f30ee9.js"><link rel="prefetch" href="/assets/js/93.ffbad826.js"><link rel="prefetch" href="/assets/js/94.c890466b.js"><link rel="prefetch" href="/assets/js/95.94001edc.js"><link rel="prefetch" href="/assets/js/96.c7427a4d.js"><link rel="prefetch" href="/assets/js/97.b1db6dc9.js"><link rel="prefetch" href="/assets/js/98.8452ef53.js"><link rel="prefetch" href="/assets/js/99.ebb75a6c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link router-link-active">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link router-link-active">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>CplusBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Cplus/CplusBase/CplusVSCodeConfig.html" class="sidebar-link">c++VSCode编码格式配置</a></li><li><a href="/Cplus/CplusBase/aRelearnCplus.html" class="sidebar-link">C++ 简介</a></li><li><a href="/Cplus/CplusBase/aDataType.html" class="sidebar-link">C++ 数据类型</a></li><li><a href="/Cplus/CplusBase/aArray.html" class="sidebar-link">C++ 中数组详解</a></li><li><a href="/Cplus/CplusBase/aPointerReference.html" class="sidebar-link">C++ 引用</a></li><li><a href="/Cplus/CplusBase/bcincout.html" aria-current="page" class="active sidebar-link">C++ 基本的输入输出</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Cplus/CplusBase/bcincout.html#i-o-库头文件" class="sidebar-link">I/O 库头文件</a></li><li class="sidebar-sub-header"><a href="/Cplus/CplusBase/bcincout.html#标准输出流-cout" class="sidebar-link">标准输出流（cout）</a></li></ul></li><li><a href="/Cplus/CplusBase/bString.html" class="sidebar-link">C++ 字符串</a></li><li><a href="/Cplus/CplusBase/bClass.html" class="sidebar-link">类 &amp; 对象详解</a></li><li><a href="/Cplus/CplusBase/bMath.html" class="sidebar-link">C++ 数学运算</a></li><li><a href="/Cplus/CplusBase/bDateTime.html" class="sidebar-link">日期与时间表示</a></li><li><a href="/Cplus/CplusBase/CplusWeb.html" class="sidebar-link">C++ Web 编程</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="c-基本的输入输出"><a href="#c-基本的输入输出" class="header-anchor">#</a> C++ 基本的输入输出</h1> <p>C++ 标准库提供了一组丰富的输入/输出功能，我们将在后续的章节进行介绍。本章将讨论 C++ 编程中最基本和最常见的 I/O 操作。</p> <p>C++ 的 I/O 发生在流中，流是字节序列。如果字节流是从设备（如键盘、磁盘驱动器、网络连接等）流向内存，这叫做<strong>输入操作</strong>。如果字节流是从内存流向设备（如显示屏、打印机、磁盘驱动器、网络连接等），这叫做<strong>输出操作</strong>。</p> <h2 id="i-o-库头文件"><a href="#i-o-库头文件" class="header-anchor">#</a> I/O 库头文件</h2> <p>下列的头文件在 C++ 编程中很重要。</p> <table><thead><tr><th style="text-align:left;">头文件</th> <th style="text-align:left;">函数和描述</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>&lt;iostream&gt;</code></td> <td style="text-align:left;">该文件定义了 <strong>cin、cout、cerr</strong> 和 <strong>clog</strong> 对象，分别对应于标准输入流、标准输出流、非缓冲标准错误流和缓冲标准错误流。</td></tr> <tr><td style="text-align:left;"><code>&lt;iomanip&gt;</code></td> <td style="text-align:left;">该文件通过所谓的参数化的流操纵器（比如 <strong>setw</strong> 和 <strong>setprecision</strong>），来声明对执行标准化 I/O 有用的服务。</td></tr> <tr><td style="text-align:left;"><code>&lt;fstream&gt;</code></td> <td style="text-align:left;">该文件为用户控制的文件处理声明服务。我们将在文件和流的相关章节讨论它的细节。</td></tr></tbody></table> <h2 id="标准输出流-cout"><a href="#标准输出流-cout" class="header-anchor">#</a> 标准输出流（cout）</h2> <p>预定义的对象 <strong>cout</strong> 是 <strong>iostream</strong> 类的一个实例。cout 对象&quot;连接&quot;到标准输出设备，通常是显示屏。<strong>cout</strong> 是与流插入运算符 &lt;&lt; 结合使用的，如下</p> <div class="language-c++ extra-class"><pre class="language-text"><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+  char str[] = &quot;Unable to read....&quot;;
+  cout &lt;&lt; str &lt;&lt; endl;
+  clog &lt;&lt; &quot;Error message : &quot; &lt;&lt; str &lt;&lt; endl;
+}
+</code></pre></div><p>C++ 编译器根据要输出变量的数据类型，选择合适的流插入运算符来显示值。&lt;&lt; 运算符被重载来输出内置类型（整型、浮点型、double 型、字符串和指针）的数据项。</p> <p>流插入运算符 &lt;&lt; 在一个语句中可以多次使用，如上面实例中所示，<strong>endl</strong> 用于在行末添加一个换行符。</p> <h3 id="输入输出流中的函数-模板"><a href="#输入输出流中的函数-模板" class="header-anchor">#</a> 输入输出流中的函数（模板）：</h3> <div class="language-c++ extra-class"><pre class="language-text"><code>#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+  char str[] = &quot;Unable to read....&quot;;
+  cout &lt;&lt; str &lt;&lt; endl;
+  clog &lt;&lt; &quot;Error message : &quot; &lt;&lt; str &lt;&lt; endl;
+  // string a, b, c;
+  // cin &gt;&gt; a;
+  // cin.get();
+  // cin &gt;&gt; b;
+  // cin.get();
+  // cin &gt;&gt; c;
+  cout &lt;&lt; setiosflags(ios::left |ios::showpoint);  // 设左对齐，以一般实数方式显示
+  cout.precision(5);  // 设置除小数点外有五位有效数字
+  cout &lt;&lt; 123.456789 &lt;&lt; endl;
+  cout.width(10);                    // 设置显示域宽10
+  cout.fill('*');                    // 在显示区域空白处用*填充
+  cout &lt;&lt; resetiosflags(ios::left);  // 清除状态左对齐
+  cout &lt;&lt; setiosflags(ios::right);   // 设置右对齐
+  cout &lt;&lt; 123.456789 &lt;&lt; endl;
+  cout &lt;&lt; setiosflags(ios::left | ios::fixed);  // 设左对齐，以固定小数位显示
+  cout.precision(3);  // 设置实数显示三位小数
+  cout &lt;&lt; 999.123456 &lt;&lt; endl;
+  cout &lt;&lt; resetiosflags(ios::left | ios::fixed);  //清除状态左对齐和定点格式
+  cout &lt;&lt; setiosflags(ios::left |
+                      ios::scientific);  //设置左对齐，以科学技术法显示
+  cout.precision(3);                     //设置保留三位小数
+  cout &lt;&lt; 123.45678 &lt;&lt; endl;
+  return 0;
+}
+// 运行程序
+Unable to read....
+Error message : Unable to read....
+123.46
+****123.46
+999.123
+1.235e+002
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Cplus/CplusBase/aPointerReference.html" class="prev">
+        C++ 引用
+      </a></span> <span class="next"><a href="/Cplus/CplusBase/bString.html">
+        C++ 字符串
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.12e27bcd.js" defer></script><script src="/assets/js/2.31cb5988.js" defer></script><script src="/assets/js/54.68f24c0e.js" defer></script>
+  </body>
+</html>

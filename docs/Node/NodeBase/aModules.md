@@ -4,11 +4,9 @@
 
 也许你已经注意到，我们已经在代码中使用了模块了。像这样：
 
-```
+```js
 var http = require("http");
-
 ...
-
 http.createServer(...);
 ```
 
@@ -20,7 +18,7 @@ Node.js 的 require 方法中的文件查找策略如下：
 
 由于 Node.js 中存在 4 类模块（原生模块和3种文件模块），尽管 require 方法极其简单，但是内部的加载却是十分复杂的，其加载优先级也各自不同。如下图所示：
 
-![img](aModules.assets/nodejs-require.jpg)
+![img](/images/Node/aModules.assets/nodejs-require.jpg)
 
 ### 从文件模块缓存中加载
 

@@ -125,69 +125,13 @@ HTML wrapper methods
 
 下面的方法被限制使用，因为只对可用的HTML标签和属性提供部分支持。
 
-```html
-1. anchor()
-
-<a name="name"> (hypertext target)
-
-1. big() 
-<big>
-
-1. blink() 
-<blink>
-
-1. bold() 
-
-<b>
-
-1. fixed() 
-
-<tt>
-
-1. fontcolor() 
-
-<font color="color">
-
-1. fontsize() 
-
-<font size="size">
-
-1. italics() 
-
-<i>
-
-1. link()
-
-<a href="url"> (link to URL)
-
-1. small() 
-
-<small>
-
-1. strike() 
-
-<strike>
-
-1. sub() 
-
-<sub>
-
-1. sup() 
-
-<sup>
-```
-示例 
-
 将其他值转换成字符串
 
 使用 String() 方法将其它对象转化为字符串可以被认为是一种更加安全的做法，虽然该方法底层使用的也是 toString() 方法，但是针对 null/undefined/symbols，String() 方法会有特殊的处理：
 ```js
 var outputStrings = [];
-
 for (let i = 0, n = inputValues.length; i < n; ++i) {
-
  outputStrings.push(String(inputValues[i]));
-
 }
 ```
 

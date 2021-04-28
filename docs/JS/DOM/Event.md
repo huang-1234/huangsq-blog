@@ -39,7 +39,7 @@
 
 
 
-```go
+```js
 target.addEventListener(type, listener[, options]);
 target.addEventListener(type, listener[, useCapture]);
 target.addEventListener(type, listener[, useCapture, wantsUntrusted  ]);  // Gecko/Mozilla only
@@ -49,7 +49,7 @@ target.addEventListener(type, listener[, useCapture, wantsUntrusted  ]);  // Gec
 
 - `listener`: 当所监听的事件类型触发时的回调. 会接收到一个事件通知对象.
 
-- ```
+- ```js
   options
   ```
 
@@ -73,7 +73,7 @@ target.addEventListener(type, listener[, useCapture, wantsUntrusted  ]);  // Gec
 
 
 
-```xml
+```html
 <div onclick="console.log('click')"></div>
 ```
 
@@ -81,7 +81,7 @@ target.addEventListener(type, listener[, useCapture, wantsUntrusted  ]);  // Gec
 
 
 
-```bash
+```js
 element.onclick = function // 只会在冒泡阶段生效
 ```
 
@@ -98,11 +98,11 @@ element.onclick = function // 只会在冒泡阶段生效
 
 
 
-```jsx
+```html
 <div id="parent">
     <div id="child" onclick="console.log('html')"/>
 </div>
-
+<script>
 const child = document.getElementById('child') 
 
 child.onclick = function () { console.log('DOM0A') } // 覆盖了 HTML 的方式
@@ -110,13 +110,14 @@ child.onclick = function () { console.log('DOM0B') } // 覆盖了上一条 DOM0A
 
 child.addEventLisnter('click', function () { console.log('lisnterA') })
 child.addEventLisnter('click', function () { console.log('lisnterB') }) // 不会覆盖
+</script>
 ```
 
 三种方式对应的如何移除:
 
 
 
-```csharp
+```js
 child.setAttributer('onclick', false)
 child.onclick = null
 child.removeEventLisnter('设置相同的参数')
@@ -130,7 +131,7 @@ child.removeEventLisnter('设置相同的参数')
 
 
 
-```xml
+```html
 <html onclick="console.log('html')">
 
 <head>
@@ -391,14 +392,14 @@ child.removeEventLisnter('设置相同的参数')
 
 ### [存储事件](https://developer.mozilla.org/zh-CN/docs/Web/Events#存储事件)
 
-```
+```js
 change (en-US)` (see [Non-standard events](https://developer.mozilla.org/zh-CN/docs/Web/Events#non-standard_events))
 `storage (en-US)
 ```
 
 ### [更新事件](https://developer.mozilla.org/zh-CN/docs/Web/Events#更新事件)
 
-```
+```js
 checking`
 `downloading`
 `error (en-US)`
@@ -409,7 +410,7 @@ checking`
 
 ### [值变化事件](https://developer.mozilla.org/zh-CN/docs/Web/Events#值变化事件)
 
-```
+```js
 broadcast`
 `CheckboxStateChange`
 `hashchange (en-US)`
@@ -421,7 +422,7 @@ broadcast`
 
 ### [未分类的事件](https://developer.mozilla.org/zh-CN/docs/Web/Events#未分类的事件)
 
-```
+```js
 invalid (en-US)`
 `message (en-US)`
 `message (en-US)`
@@ -451,7 +452,7 @@ invalid (en-US)`
 
 ### SVG 事件
 
-```
+```js
 SVGAbort (en-US)`
 `SVGError (en-US)`
 `SVGLoad (en-US)`
@@ -463,7 +464,7 @@ SVGAbort (en-US)`
 
 ### 数据库事件
 
-```
+```js
 abort (en-US)`
 `blocked (en-US)`
 `complete (en-US)`
@@ -475,31 +476,31 @@ abort (en-US)`
 
 ### 脚本事件
 
-```
-afterscriptexecute (en-US)`
-`beforescriptexecute (en-US)
+```js
+`afterscriptexecute (en-US)`
+`beforescriptexecute (en-US)`
 ```
 
 ### 菜单事件
 
-```
+```js
 DOMMenuItemActive`
-`DOMMenuItemInactive
+`DOMMenuItemInactive`
 ```
 
 ### 窗口事件
 
-```
+```js
 close
 ```
 
 ### 弹出事件
 
-```
+```js
 popuphidden`
 `popuphiding`
 `popupshowing`
-`popupshown
+`popupshown`
 ```
 
 ### Tab 事件
@@ -512,17 +513,17 @@ visibilitychange (en-US)
 
 ### 电池事件
 
-```
-chargingchange`
+```js
+`chargingchange`
 `chargingtimechange`
 `dischargingtimechange`
-`levelchange
+`levelchange`
 ```
 
 ### 呼叫事件
 
-```
-alerting`
+```js
+`alerting`
 `busy`
 `callschanged`
 `cfstatechange`
@@ -536,43 +537,43 @@ alerting`
 `incoming`
 `resuming`
 `statechange (en-US)`
-`voicechange
+`voicechange`
 ```
 
 ### 传感器事件
 
-```
-compassneedscalibration`
+```js
+`compassneedscalibration`
 `devicemotion (en-US)`
 `deviceorientation (en-US)`
-`orientationchange (en-US)
+`orientationchange (en-US)`
 ```
 
 ### 智能卡事件
 
-```
-icccardlockerror`
+```js
+`icccardlockerror`
 `iccinfochange`
 `smartcard-insert`
 `smartcard-remove`
 `stkcommand`
 `stksessionend`
-`cardstatechange
+`cardstatechange`
 ```
 
 ### 短信和USSD事件
 
-```
-delivered`
+```js
+`delivered`
 `received`
 `sent`
-`ussdreceived
+`ussdreceived`
 ```
 
 ### 帧事件
 
-```
-mozbrowserclose`
+```js
+`mozbrowserclose`
 `mozbrowsercontextmenu`
 `mozbrowsererror`
 `mozbrowsericonchange`
@@ -582,13 +583,13 @@ mozbrowserclose`
 `mozbrowseropenwindow`
 `mozbrowsersecuritychange`
 `mozbrowsershowmodalprompt`
-`mozbrowsertitlechange
+`mozbrowsertitlechange`
 ```
 
 ### DOM变异事件
 
-```
-DOMAttributeNameChanged (en-US)`
+```js
+`DOMAttributeNameChanged (en-US)`
 `DOMAttrModified (en-US)`
 `DOMCharacterDataModified (en-US)`
 `DOMContentLoaded (en-US)`
@@ -602,17 +603,17 @@ DOMAttributeNameChanged (en-US)`
 
 ### 触摸事件
 
-```
-touchcancel (en-US)`
+```js
+`touchcancel (en-US)`
 `touchend (en-US)`
 `touchmove (en-US)`
-`touchstart (en-US)
+`touchstart (en-US)`
 ```
 
 ### 指针事件
 
-```
-pointerover`
+```js
+`pointerover`
 `pointerenter`
 `pointerdown`
 `pointermove`
@@ -621,7 +622,7 @@ pointerover`
 `pointerout`
 `pointerleave`
 `gotpointercapture`
-`lostpointercapture
+`lostpointercapture`
 ```
 
 - [`Event`](https://developer.mozilla.org/zh-CN/docs/Web/API/Event)
