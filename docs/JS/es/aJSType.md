@@ -255,7 +255,7 @@ Symbol.for() 可以在全局访问 symbol。
 
 NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 
-##  js中\==和===区别
+##  js中`==`和`===`区别
 
 ### 简单概要
 
@@ -274,14 +274,14 @@ NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 
 　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：
 
-　　　　1）如果一个是null，一个是undefined，那么相等
+　　　　a）如果一个是null，一个是undefined，那么相等
 
-　　　　2）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较
+　　　　b）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较
 ```
 
 > 三等号===:
 
-```text
+```js
 　　（1）如果类型不同，就一定不相等
 
 　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值是否是NaN，只能使用isNaN( ) 来判断）
@@ -363,7 +363,7 @@ console.log(typeof(test.testObjectNumber));    // object
 
 ### 四 instanceof
 
-```
+```js
 /**
  * @name instanceof示例1
  * @description 检测字符串类型
@@ -403,7 +403,7 @@ console.log(newObject instanceof Object); // true
 
 ### 五 constructor
 
-```
+```js
 /**
  * @name constructor示例
  * @description constructor 检测对象类型
@@ -444,7 +444,7 @@ const undefin = undefined;
 
 Object.prototype.toString.call()
 
-```
+```js
 /**
  * @name toString示例
  * @description toString 检测对象类型

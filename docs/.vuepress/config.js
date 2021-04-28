@@ -143,7 +143,6 @@ const config = {
         'es/gFunction',
 
         'es/icall&apply&bind',
-        'es/instanceof&typeof',
         'es/iPrototype__proto__',
         'es/instanceof&typeof',
         

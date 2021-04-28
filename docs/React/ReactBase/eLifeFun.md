@@ -26,7 +26,7 @@
 ```
 
 jsx部分
-```jsx
+```html
 	<!-- 引入react核心库 -->
 	<script type="text/javascript" src="../js/react.development.js"></script>
 	<!-- 引入react-dom，用于支持react操作DOM -->
@@ -36,20 +36,20 @@ jsx部分
 
 	<script type="text/babel">
 		/* 
-				1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
-									1.	constructor()
-									2.	componentWillMount()
-									3.	render()
-									4.	componentDidMount() =====> 常用
-												  一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
-				2. 更新阶段: 由组件内部this.setSate()或父组件render触发
-									1.	shouldComponentUpdate()
-									2.	componentWillUpdate()
-									3.	render() =====> 必须使用的一个
-									4.	componentDidUpdate()
-				3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
-									1.	componentWillUnmount()  =====> 常用
-													一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
+    1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
+      1.	constructor()
+      2.	componentWillMount()
+      3.	render()
+      4.	componentDidMount() =====> 常用
+              一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
+    2. 更新阶段: 由组件内部this.setSate()或父组件render触发
+      1.	shouldComponentUpdate()
+      2.	componentWillUpdate()
+      3.	render() =====> 必须使用的一个
+      4.	componentDidUpdate()
+    3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+      1.	componentWillUnmount()  =====> 常用
+        一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
 		*/
 		//创建组件
 		class Count extends React.Component{
