@@ -11,3 +11,4 @@
 - `render`与`commit`阶段统称为`work`，即`React`在工作中。相对应的，如果任务正在`Scheduler`内调度，就不属于`work`。
 
 在`架构篇`我们会分别讲解`Reconciler`和`Renderer`的工作流程，所以章节名分别为`render阶段`和`commit阶段`。
+

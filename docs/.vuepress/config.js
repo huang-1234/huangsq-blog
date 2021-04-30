@@ -197,7 +197,7 @@ function getHTML() {
     {
       title: 'HTMLBase',
       children: [
-        'H5new',
+        'H5/H5new',
         'form/input',
         'form/button'
       ]
@@ -210,6 +210,11 @@ function getHTML() {
     {
       title: '样式基础',
       children: [
+        'cssBase/cssFirst',
+        'cssBase/hidden',
+        'cssBase/media',
+        'cssBase/litterEx',
+        'cssBase/AboutBFC',
         // CSS基础
         'CSS/aBox',
         'CSS/cStyleCompute',
@@ -302,14 +307,16 @@ function getBrowser() {
         'ReactBase/dRouter',
         'ReactBase/eLifeFun',
         // 'ReactBase/yReact-ReduxPersonal',
-        // 'ReactBase/zReactPhilosophy',
         
       ]
     },
     {
-      title: 'React进阶',
+      title: 'ReactExtends',
       children: [
-        '/'
+        'ReactExtends/Fiber/Fiber',
+        'ReactExtends/Fiber/Architecture',
+        'ReactExtends/Fiber/RenderStage',
+        'ReactExtends/Fiber/CommitStage',
       ]
     }
   ]

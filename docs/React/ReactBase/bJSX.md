@@ -1,44 +1,28 @@
-# 2. 理解JSX
+# jsx简介
 
-考虑如下变量声明：
-
-```
+```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-这个有趣的标签语法既不是字符串也不是 HTML。
+**它被称为 JSX，是一个 JavaScript 的语法扩展**
 
-它被称为 JSX，是一个 JavaScript 的语法扩展。我们建议在 React 中配合使用 JSX，JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式。JSX 可能会使人联想到模版语言，但它具有 JavaScript 的全部功能。
+## 1.**在 JSX 中嵌入表达式** 
 
-JSX 可以生成 React “元素”。我们将在[下一章节](https://react.docschina.org/docs/rendering-elements.html)中探讨如何将这些元素渲染为 DOM。下面我们看下学习 JSX 所需的基础知识。
+```js
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
 
-### 为什么使用 JSX？
-
-React 认为渲染逻辑本质上与其他 UI 逻辑内在耦合，比如，在 UI 中需要绑定处理事件、在某些时刻状态发生变化时需要通知到 UI，以及需要在 UI 中展示准备好的数据。
-
-React 并没有采用将*标记与逻辑进行分离到不同文件*这种人为地分离方式，而是通过将二者共同存放在称之为“组件”的松散耦合单元之中，来实现[*关注点分离*](https://en.wikipedia.org/wiki/Separation_of_concerns)。我们将在[后面章节](https://react.docschina.org/docs/components-and-props.html)中深入学习组件。如果你还没有适应在 JS 中使用标记语言，这个[会议讨论](https://www.youtube.com/watch?v=x7cQ3mrcKaY)应该可以说服你。
-
-React [不强制要求](https://react.docschina.org/docs/react-without-jsx.html)使用 JSX，但是大多数人发现，在 JavaScript 代码中将 JSX 和 UI 放在一起时，会在视觉上有辅助作用。它还可以使 React 显示更多有用的错误和警告消息。
-
-搞清楚这个问题后，我们就开始学习 JSX 吧！
-
-### 在 JSX 中嵌入表达式
-
-在下面的例子中，我们声明了一个名为 `name` 的变量，然后在 JSX 中使用它，并将它包裹在大括号中：
-
-```
-const name = 'Josh Perez';const element = <h1>Hello, {name}</h1>;
 ReactDOM.render(
   element,
   document.getElementById('root')
 );
 ```
 
-在 JSX 语法中，你可以在大括号内放置任何有效的 [JavaScript 表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions)。例如，`2 + 2`，`user.firstName` 或 `formatName(user)` 都是有效的 JavaScript 表达式。
+在 JSX 语法中，你可以在大括号内放置任何有效的 `JavaScript 表达式`
 
 在下面的示例中，我们将调用 JavaScript 函数 `formatName(user)` 的结果，并将结果嵌入到 `<h1>` 元素中。
 
-```
+```js
 function formatName(user) {
   return user.firstName + ' ' + user.lastName;
 }
@@ -50,7 +34,8 @@ const user = {
 
 const element = (
   <h1>
-    Hello, {formatName(user)}!  </h1>
+    Hello, {formatName(user)}!
+  </h1>
 );
 
 ReactDOM.render(
@@ -59,53 +44,17 @@ ReactDOM.render(
 );
 ```
 
-建议将内容包裹在括号中，虽然这样做不是强制要求的，但是这可以避免遇到[自动插入分号](http://stackoverflow.com/q/2846283)陷阱。
-
-### JSX 也是一个表达式
-
-在编译之后，JSX 表达式会被转为普通 JavaScript 函数调用，并且对其取值后得到 JavaScript 对象。
-
-也就是说，你可以在 `if` 语句和 `for` 循环的代码块中使用 JSX，将 JSX 赋值给变量，把 JSX 当作参数传入，以及从函数中返回 JSX：
-
-```
-function getGreeting(user) {
-  if (user) {
-    return <h1>Hello, {formatName(user)}!</h1>;  }
-  return <h1>Hello, Stranger.</h1>;}
-```
-
-### JSX 特定属性
-
-你可以通过使用引号，来将属性值指定为字符串字面量：
-
-```
-const element = <div tabIndex="0"></div>;
-```
-
-也可以使用大括号，来在属性值中插入一个 JavaScript 表达式：
-
-```
-const element = <img src={user.avatarUrl}></img>;
-```
-
-在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。
-
-
-> 因为 JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 `camelCase`（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定。
->
-> 例如，JSX 里的 `class` 变成了 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)，而 `tabindex` 则变为 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex)。
-
-### 使用 JSX 指定子元素
+ ## 2. **使用 JSX 指定子元素** 
 
 假如一个标签里面没有内容，你可以使用 `/>` 来闭合标签，就像 XML 语法一样：
 
-```
+```js
 const element = <img src={user.avatarUrl} />;
 ```
 
 JSX 标签里能够包含很多子元素:
 
-```
+```js
 const element = (
   <div>
     <h1>Hello!</h1>
@@ -114,50 +63,206 @@ const element = (
 );
 ```
 
-### JSX 防止注入攻击
+## 3.**JSX 特定属性** 
 
-你可以安全地在 JSX 当中插入用户输入内容：
+你可以通过使用引号，来将属性值指定为字符串字面量：
 
-```
-const title = response.potentiallyMaliciousInput;
-// 直接使用是安全的：
-const element = <h1>{title}</h1>;
+```js
+const element = <div tabIndex="0"></div>;
 ```
 
-React DOM 在渲染所有输入内容之前，默认会进行[转义](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html)。它可以确保在你的应用中，永远不会注入那些并非自己明确编写的内容。所有的内容在渲染之前都被转换成了字符串。这样可以有效地防止 [XSS（cross-site-scripting, 跨站脚本）](https://en.wikipedia.org/wiki/Cross-site_scripting)攻击。
+也可以使用大括号，来在属性值中插入一个 JavaScript 表达式：
 
-### JSX 表示对象
-
-Babel 会把 JSX 转译成一个名为 `React.createElement()` 函数调用。
-
-以下两种示例代码完全等效：
-
-```
-const element = (
-  <h1 className="greeting">
-    Hello, world!
-  </h1>
-);
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, world!'
-);
+```js
+const element = <img src={user.avatarUrl}></img>;
 ```
 
-`React.createElement()` 会预先执行一些检查，以帮助你编写无错代码，但实际上它创建了一个这样的对象：
+在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。
 
-```
-// 注意：这是简化过的结构
-const element = {
-  type: 'h1',
-  props: {
-    className: 'greeting',
-    children: 'Hello, world!'
+> 因为 JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 `camelCase`（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定。
+>
+> 例如，JSX 里的 `class` 变成了 [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)，而 `tabindex` 则变为 [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex)。
+
+## 4.JSX的转成html原理
+
+根据上面的定义，JSX是JS的扩展，那么JSX是怎么在JS中生效的呢？
+
+### Babel
+
+通过官网的介绍，我们可以知道
+
+> JSX 会被编译成 React.createElement(), React.createElement()将返回一个叫做"ReactElement"的对象
+
+那么，什么是Babel呢
+
+> Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中
+
+可以看出Babel也有能力将 JSX 语法转化为 JS
+
+它可以把所有的 JSX 转化为 React.createElement()调用
+
+### createElement 源码
+
+```js
+export function createElement(type, config, children) {
+  // propName 变量用于储存后面需要用到的元素属性
+  let propName; 
+  // props 变量用于储存元素属性的键值对集合
+  const props = {}; 
+  // key、ref、self、source 均为 React 元素的属性，此处不必深究
+  let key = null;
+  let ref = null; 
+  let self = null; 
+  let source = null; 
+  // config 对象中存储的是元素的属性
+  if (config != null) { 
+    // 进来之后做的第一件事，是依次对 ref、key、self 和 source 属性赋值
+    if (hasValidRef(config)) {
+      ref = config.ref;
+    }
+    // 此处将 key 值字符串化
+    if (hasValidKey(config)) {
+      key = '' + config.key; 
+    }
+    self = config.__self === undefined ? null : config.__self;
+    source = config.__source === undefined ? null : config.__source;
+    // 接着就是要把 config 里面的属性都一个一个挪到 props 这个之前声明好的对象里面
+    for (propName in config) {
+      // 筛选出可以提进 props 对象里的属性
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        props[propName] = config[propName]; 
+      }
+    }
   }
+  // childrenLength 指的是当前元素的子元素的个数，减去的 2 是 type 和 config 两个参数占用的长度
+  const childrenLength = arguments.length - 2; 
+  // 如果抛去type和config，就只剩下一个参数，一般意味着文本节点出现了
+  if (childrenLength === 1) { 
+    // 直接把这个参数的值赋给props.children
+    props.children = children; 
+    // 处理嵌套多个子元素的情况
+  } else if (childrenLength > 1) { 
+    // 声明一个子元素数组
+    const childArray = Array(childrenLength); 
+    // 把子元素推进数组
+    for (let i = 0; i < childrenLength; i++) { 
+      childArray[i] = arguments[i + 2];
+    }
+    // 最后把这个数组赋值给props.children
+    props.children = childArray; 
+  } 
+  // 处理 defaultProps
+  if (type && type.defaultProps) {
+    const defaultProps = type.defaultProps;
+    for (propName in defaultProps) { 
+      if (props[propName] === undefined) {
+        props[propName] = defaultProps[propName];
+      }
+    }
+  }
+  // 最后返回一个调用ReactElement执行方法，并传入刚才处理过的参数
+  return ReactElement(
+    type
+    key
+    ref,
+    self,
+    source,
+    ReactCurrentOwner.current,
+    props,
+  );
+}
+```
+
+首先可以看到函数最开始有三个入参
+
+```js
+export function createElement(type, config, children) 
+```
+
+- type:  用于标识节点的类型。它可以是类似“h1”“div”这样的标准 HTML 标签字符串，也可以是 React 组件类型或 React fragment 类型。
+- config:  以对象形式传入，组件所有的属性都会以键值对的形式存储在 config 对象中。
+- children:  以对象形式传入，它记录的是组件标签之间嵌套的内容，也就是所谓的“子节点”“子元素”。
+
+下面是个实例
+
+```js
+React.createElement("ul", {
+  // 传入属性键值对
+  className: "list"
+   // 从第三个入参开始往后，传入的参数都是 children
+}, React.createElement("li", {
+  key: "1"
+}, "1"), React.createElement("li", {
+  key: "2"
+}, "2"));
+```
+
+这个调用对应的 DOM 结构如下：
+
+```html
+<ul className="list">
+  <li key="1">1</li>
+  <li key="2">2</li>
+</ul>
+```
+
+然后我们大体上拆解一下 createElement 函数
+
+<img :src="$withBase('/images/React/ReactBase/JSX01.png')" alt="JSX01"/>
+
+可以看出 createElement 函数执行的都是一些格式化数据的操作。
+
+可以理解为，createElement 只是一个开发者和 ReactElement调用之间的一个 “转化器”，一个数据处理层，他只是对参数进行预期化格式化，以便用于 ReactElement调用。
+
+那么继续来看看 ReactElement 的源码吧
+
+### ReactElement 源码
+
+```js
+const ReactElement = function(type, key, ref, self, source, owner, props) {
+  const element = {
+    // REACT_ELEMENT_TYPE是一个常量，用来标识该对象是一个ReactElement
+    $$typeof: REACT_ELEMENT_TYPE,
+    // 内置属性赋值
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+    // 记录创造该元素的组件
+    _owner: owner,
+  };
+  // 
+  if (__DEV__) {
+    // 这里是一些针对 __DEV__ 环境下的处理
+  }
+  return element;
 };
 ```
 
-这些对象被称为 “React 元素”。它们描述了你希望在屏幕上看到的内容。React 通过读取这些对象，然后使用它们来构建 DOM 以及保持随时更新。
+可以看到，ReactElement只不过是对传进来的属性进行了一次封装，而这个封装出来的对象，其实就是"虚拟 DOM"。
 
-探讨如何将 React 元素渲染为 DOM。
+既然是“虚拟DOM”，也就是说离真实 DOM 还有一点距离，这点距离可以用 ReactDOM.render 来完成
+
+```js
+ReactDOM.render(
+    // 需要渲染的元素（ReactElement）
+    element, 
+    // 元素挂载的目标容器（一个真实DOM）
+    container,
+    // 回调函数，可选参数，可以用来处理渲染结束后的逻辑
+    [callback]
+)
+```
+
+看到上面的第二个参数，第二个参数是一个真实DOM，这个真实DOM充当“容器”的角色，react最终会渲染到这个容器中去。
+
+```js
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+
+例如上面的例子，它的容器是要真实存在的真实DOM
+
+```html
+<div id="root"></div>
+```

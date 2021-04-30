@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从 Cookie 到 Web Storage | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="往前端架构、向全栈开发">
+    
+    <link rel="preload" href="/assets/css/0.styles.72e5b289.css" as="style"><link rel="preload" href="/assets/js/app.4edc4a72.js" as="script"><link rel="preload" href="/assets/js/2.31cb5988.js" as="script"><link rel="preload" href="/assets/js/41.4c93d1d0.js" as="script"><link rel="prefetch" href="/assets/js/10.d7cc368c.js"><link rel="prefetch" href="/assets/js/100.9c40bfeb.js"><link rel="prefetch" href="/assets/js/101.4c34f662.js"><link rel="prefetch" href="/assets/js/102.2c05ab7b.js"><link rel="prefetch" href="/assets/js/103.cc9e788c.js"><link rel="prefetch" href="/assets/js/104.14eb14fa.js"><link rel="prefetch" href="/assets/js/105.aef71f44.js"><link rel="prefetch" href="/assets/js/106.d550bafe.js"><link rel="prefetch" href="/assets/js/107.3e838b61.js"><link rel="prefetch" href="/assets/js/108.2569a475.js"><link rel="prefetch" href="/assets/js/109.be40c628.js"><link rel="prefetch" href="/assets/js/11.164a5e11.js"><link rel="prefetch" href="/assets/js/110.46276b7e.js"><link rel="prefetch" href="/assets/js/111.d77834e0.js"><link rel="prefetch" href="/assets/js/112.e119b47d.js"><link rel="prefetch" href="/assets/js/113.c01fa081.js"><link rel="prefetch" href="/assets/js/114.2ad81886.js"><link rel="prefetch" href="/assets/js/115.64ac028d.js"><link rel="prefetch" href="/assets/js/116.445ae925.js"><link rel="prefetch" href="/assets/js/117.bf3bb4f0.js"><link rel="prefetch" href="/assets/js/118.d1d96a88.js"><link rel="prefetch" href="/assets/js/119.65fe4aaf.js"><link rel="prefetch" href="/assets/js/12.9c25a267.js"><link rel="prefetch" href="/assets/js/120.c8779013.js"><link rel="prefetch" href="/assets/js/121.e11704ce.js"><link rel="prefetch" href="/assets/js/122.5978f4ff.js"><link rel="prefetch" href="/assets/js/123.de2295b8.js"><link rel="prefetch" href="/assets/js/124.6cbbfaa1.js"><link rel="prefetch" href="/assets/js/125.9e843e63.js"><link rel="prefetch" href="/assets/js/126.52855c42.js"><link rel="prefetch" href="/assets/js/127.fd844c0c.js"><link rel="prefetch" href="/assets/js/128.6cbfc535.js"><link rel="prefetch" href="/assets/js/129.a691b1c0.js"><link rel="prefetch" href="/assets/js/13.70f7d6f8.js"><link rel="prefetch" href="/assets/js/130.e105ea34.js"><link rel="prefetch" href="/assets/js/131.8903d5e6.js"><link rel="prefetch" href="/assets/js/132.013ee723.js"><link rel="prefetch" href="/assets/js/133.59fc14ad.js"><link rel="prefetch" href="/assets/js/134.083ebd09.js"><link rel="prefetch" href="/assets/js/135.e778ee6a.js"><link rel="prefetch" href="/assets/js/136.1d575883.js"><link rel="prefetch" href="/assets/js/137.afdcb5c4.js"><link rel="prefetch" href="/assets/js/138.7cd8e7a3.js"><link rel="prefetch" href="/assets/js/139.0fa55386.js"><link rel="prefetch" href="/assets/js/14.05e61a18.js"><link rel="prefetch" href="/assets/js/140.ac6f3163.js"><link rel="prefetch" href="/assets/js/141.1c70169c.js"><link rel="prefetch" href="/assets/js/142.dd559efd.js"><link rel="prefetch" href="/assets/js/143.6e4b4dd8.js"><link rel="prefetch" href="/assets/js/144.b5679ecb.js"><link rel="prefetch" href="/assets/js/145.3ff89948.js"><link rel="prefetch" href="/assets/js/146.cc2bb549.js"><link rel="prefetch" href="/assets/js/147.1aed210e.js"><link rel="prefetch" href="/assets/js/148.d80aec5e.js"><link rel="prefetch" href="/assets/js/149.45d7517f.js"><link rel="prefetch" href="/assets/js/15.c88cc025.js"><link rel="prefetch" href="/assets/js/150.d2d4b12b.js"><link rel="prefetch" href="/assets/js/151.affeb9eb.js"><link rel="prefetch" href="/assets/js/152.488ea454.js"><link rel="prefetch" href="/assets/js/153.bfd96fdf.js"><link rel="prefetch" href="/assets/js/154.d750cda9.js"><link rel="prefetch" href="/assets/js/155.8a83de9d.js"><link rel="prefetch" href="/assets/js/156.6da48600.js"><link rel="prefetch" href="/assets/js/157.264bdbc5.js"><link rel="prefetch" href="/assets/js/158.c2bd094f.js"><link rel="prefetch" href="/assets/js/159.1fa1e7be.js"><link rel="prefetch" href="/assets/js/16.8fd0f306.js"><link rel="prefetch" href="/assets/js/160.a1963290.js"><link rel="prefetch" href="/assets/js/161.eb9bd533.js"><link rel="prefetch" href="/assets/js/162.5feceacc.js"><link rel="prefetch" href="/assets/js/163.c914efe8.js"><link rel="prefetch" href="/assets/js/164.7c98dd92.js"><link rel="prefetch" href="/assets/js/165.c252147e.js"><link rel="prefetch" href="/assets/js/166.2186f5d4.js"><link rel="prefetch" href="/assets/js/167.ce852eff.js"><link rel="prefetch" href="/assets/js/168.39b91a8b.js"><link rel="prefetch" href="/assets/js/169.928c2834.js"><link rel="prefetch" href="/assets/js/17.c354eb16.js"><link rel="prefetch" href="/assets/js/170.62056a11.js"><link rel="prefetch" href="/assets/js/171.89af4a36.js"><link rel="prefetch" href="/assets/js/172.38070f35.js"><link rel="prefetch" href="/assets/js/173.52d31481.js"><link rel="prefetch" href="/assets/js/174.1fcec5cb.js"><link rel="prefetch" href="/assets/js/175.e9fba42b.js"><link rel="prefetch" href="/assets/js/176.c5985c00.js"><link rel="prefetch" href="/assets/js/177.502a57d2.js"><link rel="prefetch" href="/assets/js/178.c45ed4bd.js"><link rel="prefetch" href="/assets/js/179.3d6366ae.js"><link rel="prefetch" href="/assets/js/18.c8d0f7d6.js"><link rel="prefetch" href="/assets/js/180.9d0fcc9b.js"><link rel="prefetch" href="/assets/js/181.7e535ec1.js"><link rel="prefetch" href="/assets/js/182.ee113bf0.js"><link rel="prefetch" href="/assets/js/183.bba621e2.js"><link rel="prefetch" href="/assets/js/184.7c5af581.js"><link rel="prefetch" href="/assets/js/185.9e0ffa39.js"><link rel="prefetch" href="/assets/js/186.fce23bfa.js"><link rel="prefetch" href="/assets/js/187.5a266e91.js"><link rel="prefetch" href="/assets/js/188.ca6600a5.js"><link rel="prefetch" href="/assets/js/189.16a82d01.js"><link rel="prefetch" href="/assets/js/19.a4ec841f.js"><link rel="prefetch" href="/assets/js/190.a09a1e95.js"><link rel="prefetch" href="/assets/js/191.90187660.js"><link rel="prefetch" href="/assets/js/192.0cd36791.js"><link rel="prefetch" href="/assets/js/193.1f008a30.js"><link rel="prefetch" href="/assets/js/194.1278d649.js"><link rel="prefetch" href="/assets/js/195.d4cad71b.js"><link rel="prefetch" href="/assets/js/196.f19e2821.js"><link rel="prefetch" href="/assets/js/197.73c3042e.js"><link rel="prefetch" href="/assets/js/198.7bdb23f5.js"><link rel="prefetch" href="/assets/js/199.206be7aa.js"><link rel="prefetch" href="/assets/js/20.bce5c7b8.js"><link rel="prefetch" href="/assets/js/21.391d0a71.js"><link rel="prefetch" href="/assets/js/22.504d193b.js"><link rel="prefetch" href="/assets/js/23.f13ff493.js"><link rel="prefetch" href="/assets/js/24.6022dde0.js"><link rel="prefetch" href="/assets/js/25.2ba53f90.js"><link rel="prefetch" href="/assets/js/26.a8a83508.js"><link rel="prefetch" href="/assets/js/27.04edbbbc.js"><link rel="prefetch" href="/assets/js/28.8ce19d17.js"><link rel="prefetch" href="/assets/js/29.13267133.js"><link rel="prefetch" href="/assets/js/3.e5830d9a.js"><link rel="prefetch" href="/assets/js/30.436be71f.js"><link rel="prefetch" href="/assets/js/31.efd5210e.js"><link rel="prefetch" href="/assets/js/32.e8015d43.js"><link rel="prefetch" href="/assets/js/33.4eacfe32.js"><link rel="prefetch" href="/assets/js/34.e3841dfb.js"><link rel="prefetch" href="/assets/js/35.1d786742.js"><link rel="prefetch" href="/assets/js/36.12225931.js"><link rel="prefetch" href="/assets/js/37.a3df462e.js"><link rel="prefetch" href="/assets/js/38.3248e1f3.js"><link rel="prefetch" href="/assets/js/39.a34c1b01.js"><link rel="prefetch" href="/assets/js/4.8f4cfe30.js"><link rel="prefetch" href="/assets/js/40.ea833219.js"><link rel="prefetch" href="/assets/js/42.2a2762cb.js"><link rel="prefetch" href="/assets/js/43.f601e8e2.js"><link rel="prefetch" href="/assets/js/44.75659ff2.js"><link rel="prefetch" href="/assets/js/45.fd3a2c26.js"><link rel="prefetch" href="/assets/js/46.d08e878d.js"><link rel="prefetch" href="/assets/js/47.e4ce98bb.js"><link rel="prefetch" href="/assets/js/48.0d00279b.js"><link rel="prefetch" href="/assets/js/49.6d3fa2f0.js"><link rel="prefetch" href="/assets/js/5.104fb184.js"><link rel="prefetch" href="/assets/js/50.2a26a6bb.js"><link rel="prefetch" href="/assets/js/51.a5b38936.js"><link rel="prefetch" href="/assets/js/52.b8e5be3a.js"><link rel="prefetch" href="/assets/js/53.4837bda7.js"><link rel="prefetch" href="/assets/js/54.21198d0b.js"><link rel="prefetch" href="/assets/js/55.518fecbf.js"><link rel="prefetch" href="/assets/js/56.450d7e1b.js"><link rel="prefetch" href="/assets/js/57.874cc74e.js"><link rel="prefetch" href="/assets/js/58.43b32c1e.js"><link rel="prefetch" href="/assets/js/59.019b1a10.js"><link rel="prefetch" href="/assets/js/6.3acf7ec6.js"><link rel="prefetch" href="/assets/js/60.d806d3d4.js"><link rel="prefetch" href="/assets/js/61.e7446e8e.js"><link rel="prefetch" href="/assets/js/62.5e9e1f4a.js"><link rel="prefetch" href="/assets/js/63.aaa03827.js"><link rel="prefetch" href="/assets/js/64.4c6262e5.js"><link rel="prefetch" href="/assets/js/65.e8f0bc98.js"><link rel="prefetch" href="/assets/js/66.5b1b76f4.js"><link rel="prefetch" href="/assets/js/67.f4bca788.js"><link rel="prefetch" href="/assets/js/68.07da9495.js"><link rel="prefetch" href="/assets/js/69.0ee06651.js"><link rel="prefetch" href="/assets/js/7.be292676.js"><link rel="prefetch" href="/assets/js/70.3a5f9843.js"><link rel="prefetch" href="/assets/js/71.53c85652.js"><link rel="prefetch" href="/assets/js/72.97fc3dd0.js"><link rel="prefetch" href="/assets/js/73.a43e7233.js"><link rel="prefetch" href="/assets/js/74.43ffcd55.js"><link rel="prefetch" href="/assets/js/75.d4883a5e.js"><link rel="prefetch" href="/assets/js/76.e9b24418.js"><link rel="prefetch" href="/assets/js/77.56d4c1bc.js"><link rel="prefetch" href="/assets/js/78.25e88c9f.js"><link rel="prefetch" href="/assets/js/79.854c1fb5.js"><link rel="prefetch" href="/assets/js/8.481ee38b.js"><link rel="prefetch" href="/assets/js/80.fb33fc5d.js"><link rel="prefetch" href="/assets/js/81.872b5f65.js"><link rel="prefetch" href="/assets/js/82.9f3553f1.js"><link rel="prefetch" href="/assets/js/83.50e6b8b9.js"><link rel="prefetch" href="/assets/js/84.98c3a3c4.js"><link rel="prefetch" href="/assets/js/85.050e1a18.js"><link rel="prefetch" href="/assets/js/86.6cd96415.js"><link rel="prefetch" href="/assets/js/87.5db6669e.js"><link rel="prefetch" href="/assets/js/88.bf50e3b5.js"><link rel="prefetch" href="/assets/js/89.86f811fa.js"><link rel="prefetch" href="/assets/js/9.05b132cc.js"><link rel="prefetch" href="/assets/js/90.615ae7b7.js"><link rel="prefetch" href="/assets/js/91.71241a7d.js"><link rel="prefetch" href="/assets/js/92.a12bed48.js"><link rel="prefetch" href="/assets/js/93.702bb920.js"><link rel="prefetch" href="/assets/js/94.96741c22.js"><link rel="prefetch" href="/assets/js/95.9c7cf123.js"><link rel="prefetch" href="/assets/js/96.f043ced9.js"><link rel="prefetch" href="/assets/js/97.2be3785a.js"><link rel="prefetch" href="/assets/js/98.d12b0e39.js"><link rel="prefetch" href="/assets/js/99.14d80030.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.72e5b289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link router-link-active">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/Browser/" class="nav-link router-link-active">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>浏览器原理</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Browser/ajsEventLoop.html" class="sidebar-link">JS事件循环(Event Loop)</a></li><li><a href="/Browser/bRenderEngine.html" class="sidebar-link">渲染引擎</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>搜索引擎了解</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="从-cookie-到-web-storage"><a href="#从-cookie-到-web-storage" class="header-anchor">#</a> 从 Cookie 到 Web Storage</h1> <h2 id="_1-从-cookie-说起"><a href="#_1-从-cookie-说起" class="header-anchor">#</a> 1：从 Cookie 说起</h2> <p>Cookie 的本职工作并非本地存储，而是“维持状态”。</p> <p>在 Web 开发的早期，人们亟需解决的一个问题就是状态管理的问题：HTTP 协议是一个无状态协议，服务器接收客户端的请求，返回一个响应，故事到此就结束了，服务器并没有记录下关于客户端的任何信息。那么下次请求的时候，如何让服务器知道“我是我”呢？</p> <p>在这样的背景下，Cookie 应运而生。</p> <p>Cookie 说白了就是一个存储在浏览器里的一个小小的文本文件，它附着在 HTTP 请求上，在浏览器和服务器之间“飞来飞去”。它可以携带用户信息，当服务器检查 Cookie 的时候，便可以获取到客户端的状态。</p> <p><strong>Cookie 以键值对的形式存在</strong>。</p> <h3 id="cookie的性能劣势"><a href="#cookie的性能劣势" class="header-anchor">#</a> Cookie的性能劣势</h3> <p>Cookie 不够大</p> <p>大家知道，Cookie 是有体积上限的，它最大只能有 4KB。当 Cookie 超过 4KB 时，它将面临被裁切的命运。这样看来，Cookie 只能用来存取少量的信息。</p> <p>过量的 Cookie 会带来巨大的性能浪费</p> <p><strong>Cookie 是紧跟域名的</strong>。我们通过响应头里的 Set-Cookie 指定要存储的 Cookie 值。默认情况下，domain 被设置为设置 Cookie 页面的主机名，我们也可以手动设置 domain 的值：</p> <div class="language-http extra-class"><pre class="language-http"><code><span class="token header-name keyword">Set-Cookie:</span> name=xiuyan; domain=xiuyan.me
+</code></pre></div><p><strong>同一个域名下的所有请求，都会携带 Cookie</strong>。大家试想，如果我们此刻仅仅是请求一张图片或者一个 CSS 文件，我们也要携带一个 Cookie 跑来跑去（关键是 Cookie 里存储的信息我现在并不需要），这是一件多么劳民伤财的事情。Cookie 虽然小，请求却可以有很多，随着请求的叠加，这样的不必要的 Cookie 带来的开销将是无法想象的。</p> <p>随着前端应用复杂度的提高，Cookie 也渐渐演化为了一个“存储多面手”——它不仅仅被用于维持状态，还被塞入了一些乱七八糟的其它信息，被迫承担起了本地存储的“重任”。在没有更好的本地存储解决方案的年代里，Cookie 小小的身体里承载了 4KB 内存所不能承受的压力。</p> <p>为了弥补 Cookie 的局限性，让“专业的人做专业的事情”，Web Storage 出现了。</p> <h2 id="_2-web-storage"><a href="#_2-web-storage" class="header-anchor">#</a> 2：Web Storage</h2> <p>Web Storage 是 HTML5 专门为浏览器存储而提供的数据存储机制。它又分为 Local Storage 与 Session Storage。这两组概念非常相近，我们不妨先理解它们之间的区别，再对它们的共性进行研究。</p> <h3 id="local-storage-与-session-storage-的区别"><a href="#local-storage-与-session-storage-的区别" class="header-anchor">#</a> Local Storage 与 Session Storage 的区别</h3> <p>两者的区别在于<strong>生命周期</strong>与<strong>作用域</strong>的不同。</p> <ul><li>生命周期：Local Storage 是持久化的本地存储，存储在其中的数据是永远不会过期的，使其消失的唯一办法是手动删除；而 Session Storage 是临时性的本地存储，它是会话级别的存储，当会话结束（页面被关闭）时，存储内容也随之被释放。</li> <li>作用域：Local Storage、Session Storage 和 Cookie 都遵循同源策略。但 Session Storage 特别的一点在于，即便是相同域名下的两个页面，只要它们<strong>不在同一个浏览器窗口中</strong>打开，那么它们的 Session Storage 内容便无法共享。</li></ul> <h3 id="web-storage-的特性"><a href="#web-storage-的特性" class="header-anchor">#</a> Web Storage 的特性</h3> <ul><li>存储容量大： Web Storage 根据浏览器的不同，存储容量可以达到 5-10M 之间。</li> <li>仅位于浏览器端，不与服务端发生通信。</li></ul> <h3 id="web-storage-核心-api-使用示例"><a href="#web-storage-核心-api-使用示例" class="header-anchor">#</a> Web Storage 核心 API 使用示例</h3> <p>Web Storage 保存的数据内容和 Cookie 一样，是文本内容，以键值对的形式存在。Local Storage 与 Session Storage 在 API 方面无异，这里我们以 localStorage 为例：</p> <ul><li>存储数据：setItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.setItem('user_name', 'xiuyan')
+</code></pre></div><ul><li>读取数据： getItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.getItem('user_name')
+</code></pre></div><ul><li>删除某一键名对应的数据： removeItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.removeItem('user_name')
+</code></pre></div><ul><li>清空数据记录：clear()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.clear()
+</code></pre></div><h3 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h3> <p>Local Storage</p> <p>Local Storage 在存储方面没有什么特别的限制，理论上 Cookie 无法胜任的、可以用简单的键值对来存取的数据存储任务，都可以交给 Local Storage 来做。</p> <p>这里给大家举个例子，考虑到 Local Storage 的特点之一是<strong>持久</strong>，有时我们更倾向于用它来存储一些内容稳定的资源。比如图片内容丰富的电商网站会用它来存储 Base64 格式的图片字符串：</p> <p>有的网站还会用它存储一些不经常更新的 CSS、JS 等静态资源。</p> <p>Session Storage</p> <p>Session Storage 更适合用来存储生命周期和它同步的<strong>会话级别</strong>的信息。这些信息只适用于当前会话，当你开启新的会话时，它也需要相应的更新或释放。比如微博的 Session Storage 就主要是存储你本次会话的浏览足迹：</p> <p>lasturl 对应的就是你上一次访问的 URL 地址，这个地址是即时的。当你切换 URL 时，它随之更新，当你关闭页面时，留着它也确实没有什么意义了，干脆释放吧。这样的数据用 Session Storage 来处理再合适不过。</p> <p>这样看来，Web Storage 确实也够强大了。那么 Web Storage 是否能 hold 住所有的存储场景呢？</p> <p>答案是否定的。大家也看到了，Web Storage 是一个从定义到使用都非常简单的东西。它使用键值对的形式进行存储，这种模式有点类似于对象，却甚至连对象都不是——它只能存储字符串，要想得到对象，我们还需要先对字符串进行一轮解析。</p> <p>说到底，Web Storage 是对 Cookie 的拓展，它只能用于存储少量的简单数据。当遇到大规模的、结构复杂的数据时，Web Storage 也爱莫能助了。这时候我们就要清楚我们的终极大 boss——IndexedDB！</p> <h2 id="_3-indexeddb"><a href="#_3-indexeddb" class="header-anchor">#</a> 3：IndexedDB</h2> <p>IndexedDB 是一个<strong>运行在浏览器上的非关系型数据库</strong>。既然是数据库了，那就不是 5M、10M 这样小打小闹级别了。理论上来说，IndexedDB 是没有存储上限的（一般来说不会小于 250M）。它不仅可以存储字符串，还可以存储二进制数据。</p> <p>IndexedDB 从推出之日起，其优质教程就层出不绝，我们今天不再着重讲解它的详细操作。接下来，我们遵循 MDN 推荐的操作模式，通过一个基本的 IndexedDB 使用流程，旨在对 IndexedDB 形成一个感性的认知：</p> <ol><li>打开/创建一个 IndexedDB 数据库（当该数据库不存在时，open 方法会直接创建一个名为 xiaoceDB 新数据库）。</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 后面的回调中，我们可以通过event.target.result拿到数据库实例</span>
+<span class="token keyword">let</span> db
+<span class="token comment">// 参数1位数据库名，参数2为版本号</span>
+<span class="token keyword">const</span> request <span class="token operator">=</span> window<span class="token punctuation">.</span>indexedDB<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">&quot;xiaoceDB&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">// 使用IndexedDB失败时的监听函数</span>
+request<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'无法使用IndexedDB'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 成功</span>
+request<span class="token punctuation">.</span><span class="token function-variable function">onsuccess</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 此处就可以获取到db实例</span>
+  db <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>result
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;你打开了IndexedDB&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol><li>创建一个 object store（object store 对标到数据库中的“表”单位）。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// onupgradeneeded事件会在初始化数据库/版本发生更新时被调用，我们在它的监听函数中创建object store
+
+
+
+request.onupgradeneeded = function(event){
+
+
+
+  let objectStore
+
+
+
+  // 如果同名表未被创建过，则新建test表
+
+
+
+  if (!db.objectStoreNames.contains('test')) {
+
+
+
+    objectStore = db.createObjectStore('test', { keyPath: 'id' })
+
+
+
+  }
+
+
+
+}  
+</code></pre></div><ol><li>构建一个事务来执行一些数据库操作，像增加或提取数据等。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>  // 创建事务，指定表格名称和读写权限
+
+
+
+  const transaction = db.transaction([&quot;test&quot;],&quot;readwrite&quot;)
+
+
+
+  // 拿到Object Store对象
+
+
+
+  const objectStore = transaction.objectStore(&quot;test&quot;)
+
+
+
+  // 向表格写入数据
+
+
+
+  objectStore.add({id: 1, name: 'xiuyan'})
+</code></pre></div><ol><li>通过监听正确类型的事件以等待操作完成。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>  // 操作成功时的监听函数
+
+
+
+  transaction.oncomplete = function(event) {
+
+
+
+    console.log(&quot;操作成功&quot;)
+
+
+
+  }
+
+
+
+  // 操作失败时的监听函数
+
+
+
+  transaction.onerror = function(event) {
+
+
+
+    console.log(&quot;这里有一个Error&quot;)
+
+
+
+  }
+
+
+
+  
+</code></pre></div><h3 id="indexeddb-的应用场景"><a href="#indexeddb-的应用场景" class="header-anchor">#</a> IndexedDB 的应用场景</h3> <p>通过上面的示例大家可以看出，在 IndexedDB 中，我们可以创建多个数据库，一个数据库中创建多张表，一张表中存储多条数据——这足以 hold 住复杂的结构性数据。IndexedDB 可以看做是 LocalStorage 的一个升级，当数据的复杂度和规模上升到了 LocalStorage 无法解决的程度，我们毫无疑问可以请出 IndexedDB 来帮忙。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>浏览器缓存/存储技术的出现和发展，为我们的前端应用带来了无限的转机。近年来基于缓存/存储技术的第三方库层出不绝，此外还衍生出了 <a href="https://link.juejin.im/?target=https%3A%2F%2Flavas.baidu.com%2Fpwa" target="_blank" rel="noopener noreferrer">PWA<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 这样优秀的 Web 应用模型。可以说，现代前端应用，尤其是移动端应用，之所以可以发展到在体验上叫板 Native 的地步，主要就是仰仗缓存/存储立下的汗马功劳。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4edc4a72.js" defer></script><script src="/assets/js/2.31cb5988.js" defer></script><script src="/assets/js/41.4c93d1d0.js" defer></script>
+  </body>
+</html>

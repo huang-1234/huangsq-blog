@@ -159,8 +159,6 @@ jsx部分
 	</script>
 ```
 
-
-
 一.挂载部分
 根据官方生命周期图我们可以看到，一个组件的加载渲染，首先是defaultProps和propsTypes，（这两个是什么下一篇会单独说，这里也不是重点）
 然后就是constructor及this.state里的初始数据，所以到这里是第一步。接着就是componentWillMount 组件将要开始挂载了，这是第二步。然后组件挂载，render解析渲染，所以第三步呼之欲出，就是render数据都渲染完成，最后componentDidMount

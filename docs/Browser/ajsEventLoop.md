@@ -1,4 +1,4 @@
-# [JS事件循环（Event Loop）](https://www.cnblogs.com/formercoding/p/12906640.html)
+# JS事件循环(Event Loop)
 
 ### 概念
 
@@ -24,7 +24,7 @@ JS 单线程指的是 javascript 引擎（如V8）在同一时刻只能处理一
 
 #### 执行环境
 
-关于执行环境可以参考我之前的博客[浅谈JS执行环境及作用域](https://www.cnblogs.com/formercoding/p/5881304.html)。
+关于执行环境可以参考
 
 执行环境是 JS 代码语句执行的环境，包括全局执行环境和函数执行环境。
 
