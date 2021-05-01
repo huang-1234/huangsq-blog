@@ -192,7 +192,7 @@ const config = {
     {
       title: 'selfFunc',
       children: [
-        'selfFunction/jsObjectBaseOnPrototype'
+        // 'selfFunction/jsObjectBaseOnPrototype'
       ]
     }
   ]
