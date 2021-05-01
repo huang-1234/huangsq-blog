@@ -160,10 +160,15 @@ const config = {
     {
       title: 'DOM',
       children: [
-        'DOM/aCommonAPI',
-        // 'DOM/Event',
+        // DOM的四大对象,明天搞完他
+        'DOM/Document',
+        'DOM/Element',
+        'DOM/Attribute',
+        'DOM/Event',
+        // 总结
+        'DOM/zCommonAPI',
         'DOM/operateDOM',
-        'DOM/YouYuXi'
+        'DOM/YouYuXi',
       ]
     },
     {
