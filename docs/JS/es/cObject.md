@@ -1,4 +1,4 @@
-# 3. Object
+# 3. Object 重要
 
 ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由为 JavaScript 实现引擎的规范定义
 
@@ -150,7 +150,7 @@ console.log(book.edition); // 2
 
 **`Object.create()`**方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。 （请打开浏览器控制台以查看运行结果。）
 
-## 1.3 Object.defineProperty()
+## 1.3 defineProperty()
 
 `**Object.defineProperty()**` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
 
@@ -240,7 +240,7 @@ Object.defineProperty(obj, "key", withValue("static"));
 
 
 
-## 1.3 Object.defineProperties()
+## 1.3 defineProperties()
 
 **`Object.defineProperties()`** 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
 
@@ -293,7 +293,7 @@ Object.defineProperties(obj, {
 
 
 
-# 3.2 对象的扩展
+# 3.2 对象的扩展(es6)
 
 1. [属性的简洁表示法](https://es6.ruanyifeng.com/#docs/object#属性的简洁表示法)
 2. [属性名表达式](https://es6.ruanyifeng.com/#docs/object#属性名表达式)
@@ -393,12 +393,10 @@ let obj = {
 
 ```js
 let lastWord = 'last word';
-
 const a = {
   'first word': 'hello',
   [lastWord]: 'world'
 };
-
 a['first word'] // "hello"
 a[lastWord] // "world"
 a['last word'] // "world"
@@ -427,7 +425,6 @@ const baz = { [foo]: 'abc'};
 
 ```js
 const keyA = {a: 1};		const keyB = {b: 2};
-
 const myObject = {
   [keyA]: 'valueA',
   [keyB]: 'valueB'
@@ -495,7 +492,7 @@ obj[key2].name // ""
 
 上面代码中，`key1`对应的 Symbol 值有描述，`key2`没有。
 
-## 2.4 属性的可枚举性和遍历
+## 2.4 属性可枚举和遍历
 
 ### 可枚举性
 

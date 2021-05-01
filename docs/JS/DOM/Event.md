@@ -90,11 +90,214 @@ HTML 4.0 的新特性之一是能够使 HTML 事件触发浏览器中的行为�
 
 # Event的具体属性
 
+## Event属性的学习积累
+
+在[DOM事件深入浅出（一）](https://segmentfault.com/a/1190000007082623)中，我主要给大家讲解了不同DOM级别下的事件处理程序，同时介绍了事件冒泡和捕获的触发原理和方法。本文将继续介绍DOM事件中的知识点，主要侧重于DOM事件中Event对象的属性和方法。
+
+那么什么是DOM事件中Event对象呢？事件对象（event object）指的是与特定事件相关且包含该事件详细信息的对象。我们可以通过传递给事件处理程序的参数获取事件触发后所产生的一系列方法和属性。
+
+## Event对象
+
+Event对象其实是一个事件处理程序的参数，当调用事件时，我们只需要将其传入事件函数就可以获取。代码如下：
+
+```
+function getEvent(event) {
+    event = event || window.event;
+}
+```
+
+上面的事件函数传入了一个名叫Event的参数作为事件对象，同时做了浏览器兼容处理。在IE8及以前本版之中，通过设置属性注册事件处理程序时，调用的时候并未传递事件对象，需要通过全局对象window.event来获取。所以上述代码中我们利用 || 来做判断，如果event对象存在则使用event，不存在则使用window.event。
+
+Event对象包含了几个方法和多个属性，通过这些方法和属性我们可以获取事件的详细信息并进行相关处理。
+
+## Event对象方法
+
+Event对象主要有以下两个方法，用于处理事件的传播（冒泡、捕获）和事件的取消。
+
+### 1.stopPropagation
+
+stopPropagation方法主要用于阻止事件的进一步传播，比如阻止事件继续向上层冒泡。
+
+```
+function getEvent(event) {
+    event.stopPropagation();
+}
+
+child.addEventListener('click', getEvent, false);
+```
+
+如果你需要兼容IE8及以下版本浏览器，则需要利用**cancelBubble**来代替stopPropagation，因为低版本IE不支持stopPropagation方法。
+
+```
+function getEvent(event) {
+    event = event || window.event;
+        
+    if (event.stopPropagation) {
+        event.stopPropagation();
+    } else {
+        event.cancelBubble = true;
+    }
+}
+```
+
+cancelBubble是IE事件对象的一个属性，设置这个属性为true能阻止事件进一步传播。
+
+### 2.preventDefault
+
+preventDefault方法用于取消事件的默认操作，比如a链接的跳转行为和表单自动提交行为就可以用preventDefault方法来取消。代码如下：
+
+```
+<a id="go" href="https://www.baidu.com/">禁止跳转</a>
+var go = document.getElementById('go');
+
+function goFn(event) {
+    event.preventDefault();
+
+    console.log('我没有跳转！');
+}
+
+go.addEventListener('click', goFn, false);
+```
+
+通过preventDefault，我们成功阻止了a链接的跳转行为。不过，在IE9之前的浏览器中需要设置returnValue属性为false来实现。如下：
+
+```
+function goFn(event) {
+    event = event || window.event;
+    
+    if (event.preventDefault) {
+        event.preventDefault();
+    } else {
+        event.returnValue = false;
+    }
+    
+    console.log('我没有跳转！');
+}
+```
+
+除了以上Event对象的两个主要方法，当前DOM事件规范草案在Event对象上还定义了另一个方法，命名为stopImmediatePropagation。
+
+### 3.stopImmediatePropagation
+
+和stopPropagation相比，stopImmediatePropagation同样可以阻止事件的传播，不同点在于其还可以把这个元素绑定的同类型事件也阻止了。如：
+
+```
+var go = document.getElementById('go');
+
+function goFn(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation(); // 阻止事件冒泡并阻止同类型事件
+    
+    console.log('我没有跳转！');
+}
+
+function goFn2(event) {
+    console.log('我是同类型事件！');
+}
+
+go.addEventListener('click', goFn, false);
+go.addEventListener('click', goFn2, false);
+```
+
+我们在a链接上继续加了一个点击事件，如果我们在goFn方法中添加了stopImmediatePropagation方法，那么goFn2方法将不会被执行，同时也不会将点击事件冒泡至上层。
+
+需要注意的是，stopImmediatePropagation目前一部分浏览器尚不支持，但是像jQuery这样的库封装了跨平台的stopImmediatePropagation方法。
+
+## Event对象属性
+
+与Event对象的方法相比，因Event对象的属性相对较多，文本无法一一讲解，所以主要介绍实际项目中常用的Event对象属性。
+
+### 1.type属性
+
+通过type我们可以获取事件发生的类型，比如点击事件我们获取的是'click'字符串。
+
+```
+var go = document.getElementById('go');
+
+function goFn(event) {
+    console.log(event.type); // 输出'click'
+}
+
+go.addEventListener('click', goFn, false);
+```
+
+### 2.target属性
+
+target属性主要用于获取事件的目标对象，比如我们点击a标签获取的是a标签的html对象。
+
+```
+var go = document.getElementById('go');
+
+function goFn(event) {
+    var target = event.target;
+    
+    console.log(target === go) // 返回true
+}
+
+go.addEventListener('click', goFn, false);
+```
+
+在IE8及之前版本，我们需要使用srcElement而非target。兼容方案如下：
+
+```
+function goFn(event) {
+    var event = event || window.event,    
+        target = event.target || event.srcElement;
+    
+    console.log(target === go) // 返回true
+}
+```
+
+### 3. 鼠标事件属性
+
+在用鼠标触发事件时，主要的事件属性包含鼠标的位置和按键的状态，比如：clientX和clientY指定了鼠标在窗口坐标中的位置，button和which指定了按下的鼠标键是哪个。
+
+```
+function moveFn(event) {
+    console.log(event.screenX) // 获取鼠标基于屏幕的X轴坐标
+    console.log(event.screenY) // 获取鼠标基于屏幕的Y轴坐标
+    console.log(event.clientX) // 获取鼠标基于浏览器窗口的X轴坐标
+    console.log(event.clientY) // 获取鼠标基于浏览器窗口的Y轴坐标
+    console.log(event.pageX) // 获取鼠标基于文档的X轴坐标
+    console.log(event.pageY) // 获取鼠标基于文档的Y轴坐标
+}
+
+function clickFn(event) {
+    console.log(event.button) // 获取鼠标按下的键。非IE浏览器中0为鼠标左键，1为鼠标中键，2为鼠标右键
+    console.log(event.which) // 获取指定事件上哪个键盘键或鼠标按钮被按下
+}
+
+document.addEventListener('mouseover', moveFn, false);
+document.addEventListener('click', clickFn, false);
+```
+
+### 4.键盘事件属性
+
+在用键盘触发事件时，主要的事件属性包含键盘的按键keyCode和是否按下特殊键，比如：keyCode指定了按下键的键码值，ctrlKey指定是否按下了ctrl键。
+
+```
+function keyFn(event) {
+    console.log(event.keyCode); // 获取按下键的键码值
+    console.log(event.ctrlKey); // 获取是否按下了ctrl键
+    console.log(event.shiftKey); // 获取是否按下了shift键
+    console.log(event.altKey); // 获取是否按下了alt键
+    console.log(event.metaKey); // 获取是否按下了meta键
+}
+
+document.addEventListener('keyup', keyFn, false);
+```
+
+类似的事件属性还有表单事件属性和window事件属性等，这里不再做详细介绍。有兴趣的同学可以查阅相关资料。
+
+## 总结
+
+本文主要讲解了DOM事件中Event对象的常用属性和方法，同时也介绍了其在IE中的兼容性问题及解决方案。然而关于DOM事件的知识点远不止这些，希望仅此能够帮助初识DOM的开发者。
+
+备注：文本参考自《Javascript权威指南》一书及慕课网教程《DOM事件揭秘》。
+
 ## target 事件属性
 
 ### 1、event阻止默认行为的方法为，如a标签：
-
-
 
 ```jsx
 $("a").click(function(event){
@@ -159,3 +362,4 @@ domElement.onclick = function( e ){
   </body>
 </html>
 ```
+
