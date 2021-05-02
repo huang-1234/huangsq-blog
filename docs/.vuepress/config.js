@@ -202,9 +202,17 @@ function getHTML() {
     {
       title: 'HTMLBase',
       children: [
+        'HTMLbase/form/input',
+        'HTMLbase/form/button'
+      ]
+    },
+    {
+      title: 'H5',
+      children: [
+        'H5/H5introduction',
         'H5/H5new',
-        'form/input',
-        'form/button'
+        'H5/ReactiveMobile',
+        'H5/drag',
       ]
     }
   ]

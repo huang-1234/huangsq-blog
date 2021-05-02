@@ -5,12 +5,14 @@
 > if you want to know the Webpages how to layout,please
 <a href='/Styles/CSS/aBox'>Click CSS</a>
 
-<span class="bottom-bar-item"><a href="javascript:void(0)" onclick="goBottom()">回到底部↓</a></span>
+<span class="bottom-bar-item">
+<a href="javascript:void(0)" onclick="goBottom()">回到底部↓</a>
+</span>
 
 <script>
-    function goBottom() {
-        window.scrollTo(0, document.documentElement.scrollHeight-document.documentElement.clientHeight);
-    }
+  function goBottom() {
+    window.scrollTo(0, document.documentElement.scrollHeight-document.documentElement.clientHeight);
+  }
 </script>
 ## JavaScript 的前世今生
 
@@ -33,9 +35,7 @@ JavaScript 因为互联网而生，紧跟着浏览器的出现而问世。回顾
 
 1992年底，美国国家超级电脑应用中心（NCSA）开始开发一个独立的浏览器，叫做 Mosaic。这是人类历史上第一个浏览器，从此网页可以在图形界面的窗口浏览。
 
-1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。所以网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
-
-1994年10月，NCSA 的一个主要程序员 Marc Andreessen 联合风险投资家 Jim Clark，成立了 Mosaic 通信公司（Mosaic Communications），不久后改名为 Netscape。这家公司的方向，就是在 Mosaic 的基础上，开发面向普通用户的新一代的浏览器 Netscape Navigator。
+1994年10月，NCSA 的一个主要程序员 Marc Andreessen 联合风险投资家 Jim Clark，成立了 Mosaic 通信公司（Mosaic Communications），不久后改名为 Netscape。这家公司的方向，就是在 Mosaic 的基础上，开发面向普通用户的新一代的浏览器 Netscape Navigator。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。所以网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
 
 1994年12月，Navigator 发布了1.0版，市场份额一举超过90%。
 
@@ -278,4 +278,51 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 - Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
 - resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](
 
-<span class="bottom-bar-item" style="position: relative,right:20px"><a href="#">回顶部↑</a></span>
+<span class="bottom-bar-item" style="position: fixed;right:20px">
+<a href="#">回顶部↑</a>
+</span>
+
+<!-- <div>
+<style>
+      #box1 {
+        height: 600vh;
+        width: 50%;
+        background-color: rgb(159, 179, 123);
+        display: block;
+      }
+      #box1 #gotoTop {
+        height: 1.5rem;
+        width: fit-content;
+        background-color: rgb(180, 180, 206);
+        border-radius: 0.3rem;
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+      }
+    </style>
+    <template>
+    <div id="box1">
+      <button id="gotoTop" data-v-49f63007 title="回到顶部" onclick="gotoWhere(0,0)" style="display: none;">
+        <i>回到顶部</i>
+      </button>
+    </div>
+    <template>
+    <script>
+      function gotoWhere(x, y) {
+        window.scrollTo(x, y)
+      }
+      function watchScroll(top) {
+        return function () {
+          let wp = document.body.scrollTop || document.documentElement.scrollTop;
+          let gotoTop = document.getElementById('gotoTop');
+          if (wp > top) {
+            gotoTop.style.display = null;
+          } else {
+            gotoTop.style.display = 'none';
+          }
+        }
+      }
+      window.onscroll = watchScroll(580)
+    </script>
+    <template>
+</div> -->
