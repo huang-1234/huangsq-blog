@@ -30,14 +30,14 @@ document.body.appendChild(oTag)
 ```
 ## body-主体子对象
 ```js
-document.body          //指定文档主体的开始和结束等价于<body></body>
+document.body          //指定文档主体的开始和结束等价于`<body></body>`
 document.body.bgColor      //设置或获取对象后面的背景颜色
 document.body.link       //未点击过的链接颜色
 document.body.alink       //激活链接(焦点在此链接上)的颜色
 document.body.vlink       //已点击过的链接颜色
 document.body.text       //文本色
-document.body.innerText     //设置<body>...</body>之间的文本
-document.body.innerHTML     //设置<body>...</body>之间的HTML代码
+document.body.innerText     //设置`<body>...</body>`之间的文本
+document.body.innerHTML     //设置`<body>...</body>`之间的HTML代码
 document.body.topMargin     //页面上边距
 document.body.leftMargin    //页面左边距
 document.body.rightMargin    //页面右边距
@@ -120,10 +120,10 @@ location 是个对象，比如本页的document.location和window.location，它
 
 文档子节点包括以下类型：
 
-- doctype 文档类型，如 <!doctype html>。
-- html 元素，如 <html>。
-- 处理指令，如 <?xml-stylesheet type="text/xsl" href="xsl.xsl"?>。
-- 注释，如 <!--注释-->
+- doctype 文档类型，如 `<!doctype html>`。
+- html 元素，如 `<html>`。
+- 处理指令，如 `<?xml-stylesheet type="text/xsl" href="xsl.xsl"?>`。
+- 注释，如 `<!--注释-->`
 
 
 访问方法说明如下：
@@ -149,8 +149,8 @@ location 是个对象，比如本页的document.location和window.location，它
 
 document 包含一组集合对象，使用它们可以快速访问文档内元素，简单说明如下：
 
-- document.anchors：返回所有设置 name 属性的 <a> 标签。
-- document.links：返回所有设置 href 属性的 <a> 标签。
+- document.anchors：返回所有设置 name 属性的 a 标签。
+- document.links：返回所有设置 href 属性的 a 标签。
 - document.forms：返回所有 form 对象。
 - document.images：返回所有 image 对象。
 - document.applets：返回所有 applet 对象。

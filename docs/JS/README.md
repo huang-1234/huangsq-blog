@@ -269,5 +269,5 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 - resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](
 
 <button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
-  <a href="#">回顶部↑</a>
+  <a href="#" style="text-decoration:none;">回顶部↑</a>
 </button>
