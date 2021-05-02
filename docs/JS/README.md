@@ -1,11 +1,12 @@
-# 进阶js
-
+# JS的前世今生
 
 <a href='/JS/es/aJSType'>learn JS</a>
 
-
 <a href='/Styles/CSS/aBox'>learn CSS</a>
-## JavaScript 的前世今生
+
+<a href ='/HTML/'>learn  HTML</a>
+
+## JavaScript
 
 JS之父简介
 JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
@@ -17,7 +18,7 @@ JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司�
 - 很容易创业
 - 可以干到50岁以上
 
-1. JS的诞生
+### 1. JS的诞生
 
 JavaScript 因为互联网而生，紧跟着浏览器的出现而问世。回顾它的历史，就要从浏览器的历史讲起。
 
@@ -47,9 +48,8 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 
 由于设计时间太短，语言的一些细节考虑得不够严谨，导致后来很长一段时间，Javascript写出来的程序混乱不堪。
 
-2. JS的设计思路
+### 2. JS的设计思路
 
-   
 
 - 基本语法：借鉴 C 语言和 Java 语言。
 - 数据结构：借鉴Java语言的数据类型和内存管理，包括将值分成原始值和对象两大类。
@@ -61,10 +61,10 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 
 所以，Javascript语言实际上是两种语言风格的混合产物----（简化的）函数式编程+（简化的）面向对象编程。这是由Brendan Eich（函数式编程）与网景公司（面向对象编程）共同决定的。
 
-3. JS的命名
+### 3. JS的命名
 mocha => livescript => javascript, 一开始浏览器是同时支持java和javascript， 后来js胜了。
 
-4. 浏览器大战
+### 4. 浏览器大战
 1996年微软发布ie3，支持jscript（微软实现的js），浏览器大战开始，每家浏览器的脚本都不太一样，1996年11月，网景向ECMA提交语言标准，由于版权的问题，js的语言标准不叫Javascript， 而叫做ECMAScript，简称ES
 
 网景之死
@@ -88,13 +88,13 @@ IE6有很多令人蛋疼的bug，比如下面这个代码运行在IE6，会让�
  <input />
 </table>
 ```
-5. Chrome的横空出世
+### 5. Chrome的横空出世
 
 IE6的巨大成功且没有市场竞争对手让微软觉得再花费精力不值得，所以解散了IE6团队，但Firefox的出现让微软重组IE团队，但不是以前的IE6团队同一组人，所以IE7，8一直问题不断。
 
 谷歌觉的这是一个机会，于是雇佣了一些firefox和ie的开发者，经过数年研发，在2008年推出了Chrome浏览器，发布当年拿下全球1%的份额，11年全球份额超过firefox，2016年，占全球市场份额的62%。
 
-6. 移动市场的兴起
+### 6. 移动市场的兴起
 
 2010年iphone4发布，安卓智能手机同时兴起，2011年微软和诺基亚联合推出win系统的智能手机，但后来诺基亚退出手机舞台，移动端再无IE，前端开发者欣喜若狂，2016年，淘宝天猫宣布不支持IE6，7，同年年底，宣布不支持IE8，移动市场的兴起，让前端程序员彻底摆脱IE十年的恐怖支配，从此前端开始快速发展。
 
@@ -109,7 +109,7 @@ ES是纸上标准，js是浏览器实现，纸上标准往往落后于浏览器�
 Javascript的兴起
 杀手级应用Gmail的兴起，2004年，谷歌发布Gmail在线网页，当时人们以为只能用网页来浏览文字和图片，Gmail的发布让用户和开发者眼前一亮，2005年，Jesse将谷歌用到的技术命名为AJAX，从此，前端技术正式出现，在此之前，网页开发都是由后端程序员和设计师完成，2006年，js前端库JQuery发布，大放异彩，直到IE不行了，JQuery才热度降低，至今还有很多人使用。
 
-7. 中国的前端
+### 7. 中国的前端
 直至2010年左右，中国才慢慢有了前端这个概念，中国前端的来源一部分来自于自学的后端程序员，他们把java的思想代入js，面向对象成了js的主流思想，一部分来自于设计师，他们自学HTML和css，并独创了重构工程师的岗位，现已没落。
 
 Javascript的爆发
@@ -231,7 +231,7 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 
 2012年，微软发布 TypeScript 语言。该语言被设计成 JavaScript 的超集，这意味着所有 JavaScript 程序，都可以不经修改地在 TypeScript 中运行。同时，TypeScript 添加了很多新的语法特性，主要目的是为了开发大型程序，然后还可以被编译成 JavaScript 运行。
 
-2012年，Mozilla 基金会提出 [asm.js](http://asmjs.org/) 规格。asm.js 是 JavaScript 的一个子集，所有符合 asm.js 的程序都可以在浏览器中运行，它的特殊之处在于语法有严格限定，可以被快速编译成性能良好的机器码。这样做的目的，是为了给其他语言提供一个编译规范，使其可以被编译成高效的 JavaScript 代码。同时，Mozilla 基金会还发起了 [Emscripten](https://github.com/kripken/emscripten/wiki) 项目，目标就是提供一个跨语言的编译器，能够将 LLVM 的位代码（bitcode）转为 JavaScript 代码，在浏览器中运行。因为大部分 LLVM 位代码都是从 C / C++ 语言生成的，这意味着 C / C++ 将可以在浏览器中运行。此外，Mozilla 旗下还有 [LLJS](http://mbebenita.github.io/LLJS/) （将 JavaScript 转为 C 代码）项目和 [River Trail](https://github.com/RiverTrail/RiverTrail/wiki) （一个用于多核心处理器的 ECMAScript 扩展）项目。目前，可以被编译成 JavaScript 的[语言列表](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)，共有将近40种语言。
+2012年，Mozilla 基金会提出 [asm.js](http://asmjs.org/) 规格。asm.js 是 JavaScript 的一个子集，所有符合 asm.js 的程序都可以在浏览器中运行，它的特殊之处在于语法有严格限定，可以被快速编译成性能良好的机器码。这样做的目的，是为了给其他语言提供一个编译规范，使其可以被编译成高效的 JavaScript 代码。同时，Mozilla 基金会还发起了 [Emscripten](https://github.com/kripken/emscripten/wiki) 项目，<font color=red>目标就是提供一个跨语言的编译器，能够将 LLVM 的位代码（bitcode）转为 JavaScript 代码，在浏览器中运行。因为大部分 LLVM 位代码都是从 C / C++ 语言生成的，这意味着 C / C++ 将可以在浏览器中运行</font>。此外，Mozilla 旗下还有 [LLJS](http://mbebenita.github.io/LLJS/) （将 JavaScript 转为 C 代码）项目和 [River Trail](https://github.com/RiverTrail/RiverTrail/wiki) （一个用于多核心处理器的 ECMAScript 扩展）项目。目前，可以被编译成 JavaScript 的[语言列表](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)，共有将近40种语言。
 
 2013年，Mozilla 基金会发布手机操作系统 Firefox OS，该操作系统的整个用户界面都使用 JavaScript。
 
@@ -271,3 +271,4 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 <button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
   <a href="#" style="text-decoration:none;">回顶部↑</a>
 </button>
+
