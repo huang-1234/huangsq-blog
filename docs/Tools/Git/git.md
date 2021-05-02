@@ -14,17 +14,17 @@
 [成为Git专家](https://www.progit.cn/)
 ## 上传项目到git的操作流程
 
-### 　　1.本地安装Git
+### 1.本地安装Git
 
 　　 这个步骤网上教程很多
 
 　　 可参考：https://jingyan.baidu.com/article/9f7e7ec0b17cac6f2815548d.html
 
-### 　　2.进入你想上传的项目文件夹下，然后右键点击
+### 2.进入你想上传的项目文件夹下，然后右键点击
 
 　　 Git Bash Here
 
-### 　　3.配置你的用户名及邮箱
+### 3.配置你的用户名及邮箱
 
 　　$ git config --global user.name "xxx"
 

@@ -503,6 +503,7 @@ function getTools() {
     {
       title: 'Git',
       children: [
+        'Git/gitCommand',
         'Git/git',
         'Git/gitCmCmd',
         'Git/error'

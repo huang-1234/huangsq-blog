@@ -6,7 +6,9 @@ Event 对象代表事件的状态，比如事件在其中发生的元素、键�
 
 事件通常与函数结合使用，函数不会在事件发生前被执行！
 
-## 事件句柄　(Event Handlers)
+以下总结引用自w3school
+
+## 事件句柄(Event Handlers)
 
 HTML 4.0 的新特性之一是能够使 HTML 事件触发浏览器中的行为，比如当用户点击某个 HTML 元素时启动一段 JavaScript。下面是一个属性列表，可将之插入 HTML 标签以定义事件的行为。
 
@@ -34,7 +36,7 @@ HTML 4.0 的新特性之一是能够使 HTML 事件触发浏览器中的行为�
 | [onsubmit](https://www.w3school.com.cn/jsref/event_onsubmit.asp) | 确认按钮被点击。                     |
 | [onunload](https://www.w3school.com.cn/jsref/event_onunload.asp) | 用户退出页面。                       |
 
-## 鼠标 / 键盘属性
+## 鼠标/键盘属性
 
 | 属性                                                         | 描述                                         |
 | :----------------------------------------------------------- | :------------------------------------------- |
@@ -363,3 +365,190 @@ domElement.onclick = function( e ){
 </html>
 ```
 
+# JS事件类型（键盘，鼠标，焦点）
+
+- 键盘事件
+- 鼠标事件
+- 焦点事件
+
+## 键盘事件
+
+| 事件      | 发生时机     |
+| --------- | ------------ |
+| onkeydown | 键盘按键按下 |
+| keypress  | 键盘按键按住 |
+| keyup     | 键盘按键松开 |
+
+**监听某个按键事件**
+
+
+
+```jsx
+document.onkeydown = function(event) {
+    // 键盘按下时触发
+    console.log('key down');
+};
+
+document.onkeypress = function(event) {
+    // 键盘按住时触发
+    console.log('key press');
+};
+
+document.onkeyup = function (event) {
+    // 键盘弹起时触发
+    console.log('key up');
+};
+```
+
+**event参数**
+ 该参数为 `KeyboardEvent` 事件对象，其中包含按键相关的一些属性。
+
+- `type`：事件类型
+- `key`：表示按下的键盘内容是什么即键值，按下字母 'p' 时，值为'p'
+- `code`：表示键盘代码，按下字母 'p' 时，值为 'KeyP'
+- `keyCode`：整数，表示键码，每个键都有唯一的键码，字母 'p' 的键码为80
+- `altKey`：布尔值，表示此时的 alt 键是否也按下
+- `ctrKey`：布尔值，表示此时的 ctr 键是否也按下
+- `shiftKey`：布尔值，表示此时的 shift 键是否也按下
+- `metaKey`：布尔值，windows 平台表示 Window 键是否同时按下，mac表示Command键是否同时按下
+- `repeat`: 布尔值，如果一个键一直被按着，则其值为true，表示重复
+
+可以通过检查这些属性来判断用户按下的是什么键，以及是否 ctrl 和 alt 等键是否同时按下:
+
+
+
+```jsx
+document.onkeydown = function(event) {
+    // 键盘按下是触发
+    console.log('key down: ' + event.key);
+    if (event.altKey) {
+        console.log('alt is active');
+    }
+    if (event.shiftKey) {
+        console.log('shift is active');
+    }
+};
+```
+
+## 鼠标事件
+
+| 事件        | 发生时机                                       |
+| ----------- | ---------------------------------------------- |
+| onclick     | 鼠标单击对象时触发的事件                       |
+| ondblclick  | 鼠标双击对象时触发的事件                       |
+| onmousedown | 鼠标按钮被按下时触发的事件                     |
+| onmousemove | 鼠标被移动时触发的事件                         |
+| onmouseout  | 鼠标离开监听该事件的元素或子元素时触发的事件   |
+| onmouseover | 鼠标移动到监听该事件的元素或子元素时触发的事件 |
+| onmouseup   | 鼠标按键被松开时触发的事件                     |
+
+**示例：**
+
+```html
+<script type="text/javascript">
+    function appendText(str) {
+        document.body.innerHTML += str + "<br/>";
+     }
+     document.onmousedown = function() {
+         appendText("onmousedown");
+         appendText("button = " + event.button);
+         appendText("(x,y) = " + event.x + "," + event.y);
+    }
+    document.onmouseup = function() {
+        appendText("onmouseup");
+    }
+    document.onclick = function() {
+        appendText("onclick");
+    }
+    document.ondblclick = function() {
+        appendText("ondblclick");
+    }
+    document.oncontextmenu = function() {
+        appendText("oncontextmenu");
+    }
+    document.onmouseover = function() {
+        appendText("onmouseover");
+    }
+    document.onmouseout = function() {
+        appendText("onmouseout");
+    }
+    document.onmousemove = function() {
+        appendText("mousemove");
+    }
+</script>
+```
+
+触发时的参数为 MouseEvent 对象类型，<font color=red>MouseEvent对象中包含下面比较有用的属性</font>：
+
+- `type`: 事件类型，如 `mosemove` 或者`mousedown`
+- `button`：整型，触发鼠标事件时按下的按钮编号
+- `buttons`：整型，触发鼠标事件时弹起来的按钮编号
+- `clientX`：鼠标指针在 DOM 内容区的X坐标
+- `clientY`：鼠标指针在 DOM 内容区的Y坐标
+- `offsetX`：鼠标指针相对父节点填充边缘的X坐标
+- `offsetY`: 鼠标指针相对父节点填充边缘的Y坐标
+- `screenX`: 鼠标指针在全局屏幕的X坐标
+- `screenY`: 鼠标指针在全局屏幕的Y坐标
+- `pageX`: 鼠标指针在整个DOM内容（包括分页）的X坐标
+- `pageY`: 鼠标指针在整个DOM内容（包括分页）的Y坐标
+- `altKey`: 布尔值，表示此时的alt键是否也按下
+- `ctrKey`: 布尔值，表示此时的alt键是否也按下
+- `shiftKey`: 布尔值，表示此时的shift键是否也按下
+- `metaKey`: 布尔值，windows平台表示Window键是否同时按下，mac表示Command键是否同时按下
+
+**示例：**点击鼠标右键，弹出div
+
+
+
+```jsx
+document.oncontextmenu = function(){
+    return false
+};     //禁止鼠标右键菜单显示
+
+var res = document.getElementById('box');      //找到id为box的div
+document.body.onmouseup = function(e){     //在body里点击触发事件
+    if(e.button===2){       //如果button=1（鼠标左键），button=2（鼠标右键），button=0（鼠标中间键）
+        console.log(e);     //将传进去的参数打印出来
+        console.log(e.offsetY);     //打印出鼠标点击的Y轴坐标
+        console.log(e.offsetX);     //打印出鼠标点击的X轴坐标
+        res.style.top = e.offsetY+'px';     //鼠标点击时给div定位Y轴
+        res.style.left = e.offsetX+'px';    //鼠标点击时给div定位X轴
+        res.style.display = 'block';        //显示div盒子
+        }else{
+            res.style.display = 'none';         //否则不显示div盒子
+        }
+    } 
+```
+
+## 焦点事件
+
+不是所有元素都有焦点事件，只有可交互性的元素才有，比如表单元素，a标签。页面中只能有一个元素有焦点，一个聚焦，另一个就失焦，默认在document。
+
+
+
+```html
+<form>
+    <input type="text" name="txt1" id="txt" />
+    <input type="button" name="btn" value="点击" />
+</form>
+```
+
+
+
+```js
+form.txt1.focus();    // 让元素获得焦点，该方法不会触发onfocus（）事件。
+form.txt1.onfocus=function(){
+    console.log(1);
+}  //  元素获得焦点时会触发该事件
+form.txt1.onblur=function(){
+    console.log(2);
+}　　//元素失去焦点时触发该事件
+form.btn.onclick=function(){
+    form.txt1.select(); 
+}  //选中输入框中的所有文字
+form.btn.onclick=function(){ 
+    form.txt1.setSelectionRange(2,5) ; 
+    form.txt1.focus(); 
+} // setSelectionRange需要配合着focus()使用才看得到效果，其中setSelectionRange的结束位置不包含
+//在内，setSelectionRange（start，end）包含两个参数，一个是start：起始位置；一个是end：结束位置。
+```

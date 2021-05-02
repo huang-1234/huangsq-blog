@@ -46,7 +46,7 @@ accept-language: zh-CN,zh // 期望页面的优先语言是中文
 
 服务器接收到浏览器发送过来的请求头信息之后，会根据请求头的信息来准备响应数据。不过有时候会有一些意外情况发生，比如浏览器请求的压缩类型是 gzip，但是服务器不支持 gzip，只支持 br 压缩，那么它会通过响应头中的 content-encoding 字段告诉浏览器最终的压缩类型，也就是说最终浏览器需要根据响应头的信息来处理数据。
 
-```cpp
+```http
 content-encoding: br // 服务器采用了 br 的压缩方法
 content-type: text/html; charset=UTF-8 // 服务器返回的是 html 文件，并且该文件的编码类型是 UTF-8。
 ```
