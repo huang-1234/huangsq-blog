@@ -531,7 +531,7 @@ function getTools() {
 function getEchart() {
   return [
     {
-      title: '百度数据可视化Echart',
+      title: '百度Echart',
       children: [
         'aDataV'
       ]

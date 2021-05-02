@@ -1,26 +1,16 @@
 # 进阶js
 
-<a href='/JS/es/aJSType'>学习JS</a>
 
-> if you want to know the Webpages how to layout,please
-<a href='/Styles/CSS/aBox'>Click CSS</a>
+<a href='/JS/es/aJSType'>learn JS</a>
 
-<span class="bottom-bar-item">
-<a href="javascript:void(0)" onclick="goBottom()">回到底部↓</a>
-</span>
 
-<script>
-  function goBottom() {
-    window.scrollTo(0, document.documentElement.scrollHeight-document.documentElement.clientHeight);
-  }
-</script>
+<a href='/Styles/CSS/aBox'>learn CSS</a>
 ## JavaScript 的前世今生
 
 JS之父简介
 JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
 
-牛逼的程序员（自勉）
-> 由js之父可以总结牛逼的程序员有以下特点：
+> 由js之父可以总结以下特点：
 
 - 从来不会只学一门语言
 - 不怕失业，总能找到其他事情做
@@ -278,51 +268,6 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 - Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
 - resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](
 
-<span class="bottom-bar-item" style="position: fixed;right:20px">
-<a href="#">回顶部↑</a>
-</span>
-
-<!-- <div>
-<style>
-      #box1 {
-        height: 600vh;
-        width: 50%;
-        background-color: rgb(159, 179, 123);
-        display: block;
-      }
-      #box1 #gotoTop {
-        height: 1.5rem;
-        width: fit-content;
-        background-color: rgb(180, 180, 206);
-        border-radius: 0.3rem;
-        position: fixed;
-        right: 2rem;
-        bottom: 2rem;
-      }
-    </style>
-    <template>
-    <div id="box1">
-      <button id="gotoTop" data-v-49f63007 title="回到顶部" onclick="gotoWhere(0,0)" style="display: none;">
-        <i>回到顶部</i>
-      </button>
-    </div>
-    <template>
-    <script>
-      function gotoWhere(x, y) {
-        window.scrollTo(x, y)
-      }
-      function watchScroll(top) {
-        return function () {
-          let wp = document.body.scrollTop || document.documentElement.scrollTop;
-          let gotoTop = document.getElementById('gotoTop');
-          if (wp > top) {
-            gotoTop.style.display = null;
-          } else {
-            gotoTop.style.display = 'none';
-          }
-        }
-      }
-      window.onscroll = watchScroll(580)
-    </script>
-    <template>
-</div> -->
+<button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
+  <a href="#">回顶部↑</a>
+</button>

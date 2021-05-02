@@ -43,20 +43,22 @@
 ```html
 // 格式： 当前时间：2020年3月17-0时54分14秒
 <script>
-            var t = null;
-            t = setTimeout(time, 1000); //开始运行
-            function time() {
-                clearTimeout(t);//清除定时器
-                dt = new Date();
-                var y = dt.getFullYear();
-                var mt = dt.getMonth() + 1;
-                var day = dt.getDate();
-                var h = dt.getHours();//获取时
-                var m = dt.getMinutes();//获取分
-                var s = dt.getSeconds();//获取秒
-                document.querySelector(".showTime").innerHTML = '当前时间：' + y + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
-                t = setTimeout(time, 1000); //设定定时器，循环运行     
-            }
+  let t = null;
+  t = setTimeout(time, 1000); //开始运行
+  function time() {
+      clearTimeout(t);//清除定时器
+      dt = new Date();
+      let y = dt.getFullYear();
+      let mt = dt.getMonth() + 1;
+      let day = dt.getDate();
+      let h = dt.getHours();//获取时
+      let m = dt.getMinutes();//获取分
+      let s = dt.getSeconds();//获取秒
+      let TinnerHTML = `当前时间：${y}年 ${mt}月 ${day} - ${h}时 ${m}分`;
+      document.querySelector('.showTime').innerHTML = TinnerHTML;
+      // document.querySelector(".showTime").innerHTML = '当前时间：' + y + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
+      t = setTimeout(time, 1000); //设定定时器，循环运行
+  }
  </script>
 ```
 
@@ -224,26 +226,26 @@ css样式：
 4. 旋转2  map3  大小为 566px  要加背景图片 因为要缩放100%    定位到中央 旋转动画 注意是逆时针 
 
 ```html
- <div class="no">
-                <div class="no-hd">
-                    <ul>
-                        <li>125811</li>
-                        <li>104563</li>
-                    </ul>
-                </div>
-                <div class="no-bd">
-                    <ul>
-                        <li>前端需求人数</li>
-                        <li>市场供应人数</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="map">
-                <div class="chart"></div>
-                <div class="map1"></div>
-                <div class="map2"></div>
-                <div class="map3"></div>
-            </div>
+<div class="no">
+  <div class="no-hd">
+    <ul>
+      <li>125811</li>
+      <li>104563</li>
+    </ul>
+  </div>
+  <div class="no-bd">
+    <ul>
+      <li>前端需求人数</li>
+      <li>市场供应人数</li>
+    </ul>
+  </div>
+</div>
+<div class="map">
+  <div class="chart"></div>
+  <div class="map1"></div>
+  <div class="map2"></div>
+  <div class="map3"></div>
+</div>
 ```
 
 
@@ -421,13 +423,13 @@ css样式：
 3.  初始化echarts实例对象
 
 ```js
-var myChart = echarts.init(document.getElementById('main'));
+let myChart = echarts.init(document.getElementById('main'));
 ```
 
 4. 指定配置项和数据(option)
 
 ```js
-var option = {
+let option = {
     xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -791,7 +793,7 @@ label: {
 
 ```javascript
 // 声明颜色数组
-var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
+let myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
 // 2. 给 itemStyle  里面的color 属性设置一个 返回值函数
   itemStyle: {
           normal: {
@@ -885,11 +887,11 @@ data:[702, 350, 610, 793, 664],
 ~~~javascript
 // 柱状图2
 (function() {
-  var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
+  let myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
   // 1. 实例化对象
-  var myChart = echarts.init(document.querySelector(".bar2 .chart"));
+  let myChart = echarts.init(document.querySelector(".bar2 .chart"));
   // 2. 指定配置和数据
-  var option = {
+  let option = {
     grid: {
       top: "10%",
       left: "22%",
@@ -1116,7 +1118,7 @@ xAxis: {
 以下是后台送过来数据（ajax请求过来的）
 
 ~~~javascript
- var yearData = [
+ let yearData = [
       {
         year: '2020',  // 年份
         data: [  // 两个数组是因为有两条线
@@ -1144,7 +1146,7 @@ xAxis: {
 ~~~javascript
 // 折线图1模块制作
 (function() {
-  var yearData = [
+  let yearData = [
     {
       year: "2020", // 年份
       data: [
@@ -1163,9 +1165,9 @@ xAxis: {
     }
   ];
   // 1. 实例化对象
-  var myChart = echarts.init(document.querySelector(".line .chart"));
+  let myChart = echarts.init(document.querySelector(".line .chart"));
   // 2.指定配置
-  var option = {
+  let option = {
     // 通过这个color修改两条线的颜色
     color: ["#00f2f1", "#ed3f35"],
     tooltip: {
@@ -1264,7 +1266,7 @@ xAxis: {
     // console.log($(this).index());
     // 点击 a 之后 根据当前a的索引号 找到对应的 yearData的相关对象
     // console.log(yearData[$(this).index()]);
-    var obj = yearData[$(this).index()];
+    let obj = yearData[$(this).index()];
     option.series[0].data = obj.data[0];
     option.series[1].data = obj.data[1];
     // 需要重新渲染
