@@ -1,14 +1,15 @@
 # RenderProcess(BrowserCore)
 
-if you wan to see browser how to send the http request and get response
+<font color=green>浏览器内核渲染原理，事件机制，性能优化，与服务器交互，搜索引擎,安全机制</font>
 
+if you wan to see browser how to send the http request and get response
 <a href='./HTTP/aHTTPLife' target=_blank>Click to learn the http</a>
 
 <a href='https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview' target=_blank>learn http from MDN</a>
 
 #  渲染引擎
 
-## 1.浅谈浏览器内核：渲染引擎、JS引擎
+## 1.浏览器内核：渲染引擎、JS引擎
 
 ### 浏览器内核是什么？
 
@@ -93,7 +94,7 @@ CSS文档描述一个页面的表现，浏览器通过 CSS 解析器将 CSS 解�
 
 将回流重绘生成的图层逐张合并并显示在屏幕上。上述几个步骤并不是一次性顺序完成的，若DOM或CSSOM被修改，上述过程会被重复执行。实际上，CSS和JS往往会多次修改DOM或CSSOM，简单来说就是用户的交互操作引发了网页的重渲染。
 
-## 3. 浏览器渲染过程解析——从URL到页面显示
+## 3. 渲染过程—从URL到页面显示
 
 写了一段时间的前端页面了，对于浏览器中页面的渲染流程和原理还有点一知半解，所以就花时间去学习了解了下浏览器的渲染原理，这边对自己的理解总结一下，如有错误请指正。
 
@@ -122,7 +123,7 @@ CSS文档描述一个页面的表现，浏览器通过 CSS 解析器将 CSS 解�
    注意：上述这个过程是理论上是逐步完成的，但是实际实现中为了更好的用户体验，渲染引擎为了尽可能早的将内容呈现到屏幕上，会在构建DOM树的同时去解析CSS构建CSS树，并且还会去生成Rendering Tree。解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容，这样就可以更快的显示出页面，其中解析后面的内容涉及到布局和样式的改变引起的reflow过程和repaint，我们后面在详细说明。
    接下来我们一步步详细说明：
 
-## 3.3 HTML解析与DOM树构建
+## 3.3 H解析与DOM树构建
 
 HTML解析这方面没啥好说的，大致流程是浏览器使用词法分析器和解析器将HTML内容解析成为语法树，也就是DOM树，DOM 树的构建过程是一个深度遍历过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 

@@ -187,10 +187,9 @@ deepClone(obj);//报错: RangeError: Maximum call stack size exceeded
 
 想了很多办法，包括利用树来表示对象进行递归，还有就是利用WeakMap进行标记，每一个copy的属性都要加入到map中，当遇到已经在map里的key-value，说明已经copy过一次了，不用copy，直接返回value即可。这样就解决了循环引用导致的重复copy的问题。、
 
-## 改良后的deepClone如下
+## 改良deepClone
 
 ```js
-
 //myDeepClone,为了防止RangeError: Maximum call stack size exceeded;add a WeakMap
 const deepClone = (target, map = new WeakMap()) => {
   // console.log(arguments);
@@ -352,9 +351,8 @@ function cloneForce(x) {
   // =============
   const uniqueList = []; // 用来去重
   // =============
-
   let root = {};
-
+  
   // 循环数组
   const loopList = [
     {
@@ -363,7 +361,6 @@ function cloneForce(x) {
       data: x,
     }
   ];
-
   while (loopList.length) {
     // 深度优先
     const node = loopList.pop();

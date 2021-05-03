@@ -1,9 +1,10 @@
 # 了解浏览器模型
-
+ 了解浏览器架构模型和计算机网络底层原理和浏览器工作原理
 ## 浏览器模型
-<a href='./BrowserArch/BrowserArchFirst'>初步了解浏览器多进程架构</a>
 
+<a href='./BrowserArch/BrowserArchFirst'>初步了解浏览器多进程架构</a>
 
 ## 浏览器多进程多线程
 
 <a href='./BrowserArch/BrowserMultiProcessMultiThread'>初步了解浏览器多进程多线程</a>
+

@@ -1,6 +1,8 @@
 ## HTTP协议学习（一）request 和response 解析
 
-当今web程序的开发技术真是百家争鸣，ASP.NET, PHP, JSP，Perl, AJAX 等等。 无论Web技术在未来如何发展，理解Web程序之间通信的基本协议相当重要, 因为它让我们理解了Web应用程序的内部工作. 本文将对HTTP协议进行详细的实例讲解，内容较多，希望大家耐心看。也希望对大家的开发工作或者测试工作有所帮助。使用Fiddler工具非常方便地捕获HTTP Request和HTTP Response.
+当今web程序的开发技术真是百家争鸣，ASP.NET, PHP, JSP，Perl, AJAX 等等。 无论Web技术在未来如何发展，理解Web程序之间通信的基本协议相当重要, 因为它让我们理解了Web应用程序的内部工作. 本文搬运和总结了对HTTP协议进行详细的实例讲解，内容较多。
+
+另外使用Fiddler工具非常方便地捕获HTTP Request和HTTP Response.
 
 阅读目录
 
@@ -20,8 +22,6 @@
 
 协议是指计算机通信网络中两台计算机之间进行通信所必须共同遵守的规定或规则，超文本传输协议(HTTP)是一种通信协议，它允许将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器
 
- 
-
 目前我们使用的是HTTP/1.1 版本
 
 ## Web服务器，浏览器,代理服务器
@@ -36,8 +36,6 @@
 
  
 
- 
-
 我们的Request 有可能是经过了代理服务器，最后才到达Web服务器的。
 
 过程如下图所示
@@ -48,13 +46,11 @@
 
 代理服务器就是网络信息的中转站，有什么功能呢？
 
-\1. 提高访问速度， 大多数的代理服务器都有缓存功能。
+1. 提高访问速度， 大多数的代理服务器都有缓存功能。
 
-\2. 突破限制， 也就是FQ了
+2. 突破限制， 也就是FQ了
 
-\3. 隐藏身份。
-
- 
+3. 隐藏身份。 
 
 [note : 使用代理服务器无法保证账号安全， 输入的账号和密码可能会保存在代理服务器上]
 
@@ -108,15 +104,15 @@ http协议是无状态的，同一个客户端的这次请求和上次请求是�
 
 ## 打开一个网页需要浏览器发送很多次Request
 
-\1. 当你在浏览器输入URL http://www.cnblogs.com 的时候，浏览器发送一个Request去获取 http://www.cnblogs.com 的html. 服务器把Response发送回给浏览器.
+1. 当你在浏览器输入URL http://www.cnblogs.com 的时候，浏览器发送一个Request去获取 http://www.cnblogs.com 的html. 服务器把Response发送回给浏览器.
 
-\2. 浏览器分析Response中的 HTML，发现其中引用了很多其他文件，比如图片，CSS文件，JS文件。
+2. 浏览器分析Response中的 HTML，发现其中引用了很多其他文件，比如图片，CSS文件，JS文件。
 
  [通过fiddler等抓包工具可以看到，请求资源文件往往是在访问html之后]
 
-\3. 浏览器会自动再次发送Request去获取图片，CSS文件，或者JS文件。
+3. 浏览器会自动再次发送Request去获取图片，CSS文件，或者JS文件。
 
-\4. 等所有的文件都下载成功后。 网页就被显示出来了。
+4. 等所有的文件都下载成功后。 网页就被显示出来了。
 
  
 
@@ -165,13 +161,13 @@ Http协议定义了很多与服务器交互的方法，最基本的有4种，分
 
 我们看看GET和POST的区别
 
-\1. GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&相连，如EditPosts.aspx?name=test1&id=123456. POST方法是把提交的数据放在HTTP包的Body中.
+1. GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&相连，如EditPosts.aspx?name=test1&id=123456. POST方法是把提交的数据放在HTTP包的Body中.
 
-\2. GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.
+2. GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.
 
-\3. GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。
+3. GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。
 
-\4. GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.
+4. GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.
 
  
 
@@ -375,15 +371,13 @@ Content-Length
 
 例如： Content-Length: 38
 
- 
+
 
 Content-Type
 
 作用：
 
-例如：Content-Type: application/x-www-form-urlencoded
-
- 
+例如：Content-Type: application/x-www-form-urlencoded 
 
 ## Miscellaneous 头域
 
@@ -578,3 +572,4 @@ HTTP是一个无状态的面向连接的协议，无状态不代表HTTP不能保
 从HTTP/1.1起，默认都开启了Keep-Alive，保持连接特性，简单地说，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接
 
  Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间
+

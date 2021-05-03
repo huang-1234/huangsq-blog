@@ -28,8 +28,8 @@ const config = {
           {
             text: 'Browser',
             items: [
-              {text:'BrModel(MP)',link:'/BrowserModel/'},
-              {text:'RenderPr(MT)',link:'/Browser/'}
+              {text:'BrModel(MP)',link:'/Browser/'},
+              {text:'RenderPr(MT)',link:'/BrowserModel/'}
             ]
           },
           {
@@ -97,8 +97,8 @@ const config = {
       '/JS/': getJS(),
       '/HTML/': getHTML(),
       '/Styles/': getStyles(),
+      '/Browser/': getBrowserCore(),
       '/BrowserModel/': getBrowserModel(),
-      '/Browser/':getBrowser(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
       '/Vue/': getVue(),
@@ -263,26 +263,20 @@ function getHTML() {
     }
   ]
 }
-// 浏览器模型和渲染方面的问题
-function getBrowserModel() {
+// 浏览器内核渲染原理，事件机制，性能优化，与服务器交互，搜索引擎
+function getBrowserCore() {
   return [
     {
-      title: '浏览器架构',
+      title:'Render原理',
       children: [
-        'BrowserArch/BrowserArchFirst',
-        'BrowserArch/BrowserMultiProcessMultiThread'
-        
+        'Render/bRenderEngine',
+        'Render/Principle',
       ]
-    }
-  ]
-}
-function getBrowser() {
-  return [
+    },
     {
-      title:'浏览器原理',
+      title: 'Event机制',
       children: [
-        'ajsEventLoop',
-        'bRenderEngine'
+        'Event/ajsEventLoop',
       ]
     },
     {
@@ -297,13 +291,52 @@ function getBrowser() {
 
         'HTTP/httpStorage',
 
-        'HTTP/zLearnHTTP'
+        'HTTP/zLearnHTTP',
       ]
     },
     {
-      title: '搜索引擎了解',
+      title: 'BGetData',
       children: [
-        'PerformOptimization/SEOfirst'
+        'getData/XHR',
+        'getData/Fetch',
+      ]
+    },
+    {
+      title: 'Secure机制',
+      children: [
+        'Security/Achieve-Cross-domain',
+        'Security/bCSRF',
+      ]
+    },
+    {
+      title: 'Browser存储',
+      children: [
+        'Storage/CookieToWebStorage',
+      ]
+    },
+    {
+      title: '性能和优化',
+      children: [
+        'PerformOptimization/DebounceThrottle',
+        'PerformOptimization/SEOfirst',
+      ]
+    },
+  ]
+}
+// 了解浏览器架构模型和计算机网络底层原理和浏览器工作原理
+function getBrowserModel() {
+  return [
+    {
+      title: '了解架构',
+      children: [
+        'BrowserArch/BrowserArchFirst',
+        'BrowserArch/BrowserMultiProcessMultiThread',
+      ]
+    },
+    {
+      title: '计网',
+      children: [
+        'netWork/TCPdiffUDP'
       ]
     }
   ]
@@ -330,16 +363,6 @@ function getBrowser() {
         'ReactExtends/Fiber/Architecture',
         'ReactExtends/Fiber/RenderStage',
         'ReactExtends/Fiber/CommitStage',
-      ]
-    }
-  ]
-}
-function getReactExtends() {
-  return [
-    {
-      text: 'React扩展',
-      children: [
-        
       ]
     }
   ]
