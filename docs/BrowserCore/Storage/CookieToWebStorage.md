@@ -8,7 +8,7 @@
 | 数据存储大小 |                     4K                     |            5M            |       5M       |           无限           |
 | 与服务端通信 | 每次都会携带在 header 中，对于请求性能影响 |          不参与          |     不参与     |          不参与          |
 
-对于 `cookie` 来说，我们还需要注意安全性。
+对于 `cookie` 来说，由于其是在http携带的用户登录的凭证，我们还需要保证它安全性：不被窃取，不被冒用
 
 下面便是cookie的字段
 
@@ -129,25 +129,25 @@ Web Storage 保存的数据内容和 Cookie 一样，是文本内容，以键值
 
 - 存储数据：setItem()
 
-```
+```js
 localStorage.setItem('user_name', 'xiuyan')
 ```
 
 - 读取数据： getItem()
 
-```
+```js
 localStorage.getItem('user_name')
 ```
 
 - 删除某一键名对应的数据： removeItem()
 
-```
+```js
 localStorage.removeItem('user_name')
 ```
 
 - 清空数据记录：clear()
 
-```
+```js
 localStorage.clear()
 ```
 
@@ -200,100 +200,39 @@ request.onsuccess = function (event) {
 
 1. 创建一个 object store（object store 对标到数据库中的“表”单位）。
 
-```
+```js
 // onupgradeneeded事件会在初始化数据库/版本发生更新时被调用，我们在它的监听函数中创建object store
-
-
-
 request.onupgradeneeded = function(event){
-
-
-
   let objectStore
-
-
-
   // 如果同名表未被创建过，则新建test表
-
-
-
   if (!db.objectStoreNames.contains('test')) {
-
-
-
     objectStore = db.createObjectStore('test', { keyPath: 'id' })
-
-
-
   }
-
-
-
-}  
+}
 ```
 
 1. 构建一个事务来执行一些数据库操作，像增加或提取数据等。
 
-```
+```js
   // 创建事务，指定表格名称和读写权限
-
-
-
   const transaction = db.transaction(["test"],"readwrite")
-
-
-
   // 拿到Object Store对象
-
-
-
   const objectStore = transaction.objectStore("test")
-
-
-
   // 向表格写入数据
-
-
-
   objectStore.add({id: 1, name: 'xiuyan'})
 ```
 
 1. 通过监听正确类型的事件以等待操作完成。
 
-```
+```js
   // 操作成功时的监听函数
-
-
-
   transaction.oncomplete = function(event) {
-
-
-
     console.log("操作成功")
-
-
-
   }
-
-
-
   // 操作失败时的监听函数
-
-
-
   transaction.onerror = function(event) {
-
-
-
     console.log("这里有一个Error")
-
-
-
   }
-
-
-
-  
 ```
 
 ### IndexedDB 的应用场景
@@ -302,4 +241,4 @@ request.onupgradeneeded = function(event){
 
 ## 小结
 
-浏览器缓存/存储技术的出现和发展，为我们的前端应用带来了无限的转机。近年来基于缓存/存储技术的第三方库层出不绝，此外还衍生出了 [PWA](https://link.juejin.im/?target=https%3A%2F%2Flavas.baidu.com%2Fpwa) 这样优秀的 Web 应用模型。可以说，现代前端应用，尤其是移动端应用，之所以可以发展到在体验上叫板 Native 的地步，主要就是仰仗缓存/存储立下的汗马功劳。
+浏览器缓存/存储技术的出现和发展，为我们的前端应用带来了无限的转机。近年来基于缓存/存储技术的第三方库层出不绝，此外还衍生出了 PWA这样优秀的 Web 应用模型。可以说，现代前端应用，尤其是移动端应用，之所以可以发展到在体验上叫板 Native 的地步，主要就是仰仗缓存/存储立下的汗马功劳。
