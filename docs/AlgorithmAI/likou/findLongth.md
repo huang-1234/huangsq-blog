@@ -7,7 +7,7 @@
 连续递增的子序列 可以由两个下标 l 和 r（l < r）确定，如果对于每个 l <= i < r，都有 nums[i] < nums[i + 1] ，那么子序列 [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] 就是连续递增子序列。
 
 来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence
+[链接](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence)
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 
@@ -51,7 +51,7 @@ var findLengthOfLCIS = function(numArr) {
 
 执行结果：
 
-```text
+```cpp
 执行结果：
 通过
 显示详情
@@ -95,7 +95,7 @@ var findLengthOfLCIS = function(numArr) {
 
 结果显示：
 
-```js
+```cpp
 执行结果：
 通过
 显示详情
@@ -117,7 +117,7 @@ var findLengthOfLCIS = function(nums, l = 1, r = 1) {
     return nums.length ? (nums.reduce((p, v) => (v > p ? r = Math.max(r, ++l) : l = 1, v)), r) : 0
 };
 ```
-当我看到优化以后时间还是这么长的时候，我有点失望了，但是当我看到我的代码一点特性也没有，完全可以使用c++来写，但是当时看到c++要写类，比较麻烦，于是我决定使用c语言来写
+当我看到优化以后时间还是这么长的时候，我有点失望了，但是当我看到我的代码一点特性也没有，完全可以使用c++或者c来写。于是我决定使用c语言来写
 
 源码展示：
 
@@ -148,7 +148,7 @@ int findLengthOfLCIS(int* nums, int numsSize){
 
 结果如下：
 
-```text
+```cpp
 执行结果：
 通过
 显示详情
@@ -186,7 +186,7 @@ int findLengthOfLCIS(int* nums, int numsSize){
 
 C++实现：
 
-```c++
+```cpp
 // longge解答最长递增子序列
 #include <cstdio>
 #include <algorithm>

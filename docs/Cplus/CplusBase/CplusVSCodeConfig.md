@@ -9,7 +9,7 @@
 
 其中launch.json配置文件代码如下：
 
-```c++
+```cpp
 {
  // 使用 IntelliSense 了解相关属性。 
  // 悬停以查看现有属性的描述。
@@ -43,7 +43,7 @@
 
 tasks.json配置文件代码如下：
 
-```c++
+```cpp
 {
   "version": "2.0.0",
   "tasks": [

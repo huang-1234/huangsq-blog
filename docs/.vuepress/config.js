@@ -28,7 +28,7 @@ const config = {
           {
             text: 'Browser',
             items: [
-              {text:'BrModel(MP)',link:'/Browser/'},
+              {text:'BrModel(MP)',link:'/BrowserCore/'},
               {text:'RenderPr(MT)',link:'/BrowserModel/'}
             ]
           },
@@ -97,7 +97,7 @@ const config = {
       '/JS/': getJS(),
       '/HTML/': getHTML(),
       '/Styles/': getStyles(),
-      '/Browser/': getBrowserCore(),
+      '/BrowserCore/': getBrowserCore(),
       '/BrowserModel/': getBrowserModel(),
       '/React/': getReact(),
       // '/ReactExtends/':getReactExtends(),
@@ -228,15 +228,21 @@ function getHTML() {
         'cssBase/media',
         'cssBase/litterEx',
         'cssBase/AboutBFC',
+
+      ]
+    },
+    {
+      title: 'CSS布局',
+      children: [
         // CSS基础
-        'CSS/aBox',
-        'CSS/cStyleCompute',
-        'CSS/dLayout',
-        'CSS/Position',
-        'CSS/Flex',
-        'CSS/Grid',
-      
-        'CSS/zCSSsyntax',
+        'cssLayout/aBox',
+        'cssLayout/cStyleCompute',
+        'cssLayout/dLayout',
+        'cssLayout/Position',
+        'cssLayout/Flex',
+        'cssLayout/Grid',
+
+        'cssLayout/zCSSsyntax',
       ]
     },
     {
@@ -263,7 +269,7 @@ function getHTML() {
     }
   ]
 }
-// 浏览器内核渲染原理，事件机制，性能优化，与服务器交互，搜索引擎
+// BrowserCore主讲：浏览器内核渲染原理，事件机制，安全机制，性能优化，与服务器交互，搜索引擎
 function getBrowserCore() {
   return [
     {
