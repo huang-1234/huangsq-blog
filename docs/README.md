@@ -1,9 +1,9 @@
 ---
 home: true
-heroImage: ./me.jpg
+heroImage: ./favicon.ico
 heroText: 黄水清
 # tagline: 点击快速上手
-actionText: 点击开始学习 →
+actionText: 点击开始学习→
 actionLink: /JS/
 features:
 - title: 简洁至上

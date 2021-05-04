@@ -311,7 +311,7 @@ function getBrowserCore() {
       title: 'Secure机制',
       children: [
         'Security/Achieve-Cross-domain',
-        'Security/bCSRF',
+        'Security/meituanCSRF',
       ]
     },
     {
@@ -412,12 +412,9 @@ function getNode() {
     {
       title: 'NodeBase',
       children: [
-        'NodeBase/aFunction',
-        'NodeBase/aModules',
-        'NodeBase/EventEmitter',
-        'NodeBase/File',
+        'NodeBase/node-first',
         'NodeBase/GlobalObject',
-        'NodeBase/utils',
+        'NodeBase/Buffer',
       ]
     },
     {
