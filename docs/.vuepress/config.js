@@ -342,7 +342,8 @@ function getBrowserModel() {
     {
       title: '计网',
       children: [
-        'netWork/TCPdiffUDP'
+        'netWork/TCPdiffUDP',
+        'netWork/uniCode'
       ]
     }
   ]

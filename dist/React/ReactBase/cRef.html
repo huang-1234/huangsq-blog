@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>引用组件实例Ref | hsq</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="往前端架构、向全栈开发">
+    
+    <link rel="preload" href="/assets/css/0.styles.df3667a8.css" as="style"><link rel="preload" href="/assets/js/app.6325fc3d.js" as="script"><link rel="preload" href="/assets/js/2.a16df25d.js" as="script"><link rel="preload" href="/assets/js/158.e28f6bbe.js" as="script"><link rel="prefetch" href="/assets/js/10.6d573d38.js"><link rel="prefetch" href="/assets/js/100.e3af59dd.js"><link rel="prefetch" href="/assets/js/101.7bd101c1.js"><link rel="prefetch" href="/assets/js/102.50089da7.js"><link rel="prefetch" href="/assets/js/103.ff46b846.js"><link rel="prefetch" href="/assets/js/104.28c7fc81.js"><link rel="prefetch" href="/assets/js/105.4e2737f2.js"><link rel="prefetch" href="/assets/js/106.d9482c7b.js"><link rel="prefetch" href="/assets/js/107.5bdee912.js"><link rel="prefetch" href="/assets/js/108.83074cb4.js"><link rel="prefetch" href="/assets/js/109.41c3857b.js"><link rel="prefetch" href="/assets/js/11.c6fdbf00.js"><link rel="prefetch" href="/assets/js/110.b1d8a82f.js"><link rel="prefetch" href="/assets/js/111.f3ced89a.js"><link rel="prefetch" href="/assets/js/112.45b676b8.js"><link rel="prefetch" href="/assets/js/113.f02a5452.js"><link rel="prefetch" href="/assets/js/114.6f5c7bb7.js"><link rel="prefetch" href="/assets/js/115.8af3c1c5.js"><link rel="prefetch" href="/assets/js/116.bbc9992a.js"><link rel="prefetch" href="/assets/js/117.73a4065a.js"><link rel="prefetch" href="/assets/js/118.25fd63ba.js"><link rel="prefetch" href="/assets/js/119.2e76931d.js"><link rel="prefetch" href="/assets/js/12.dcedbfac.js"><link rel="prefetch" href="/assets/js/120.a76eef62.js"><link rel="prefetch" href="/assets/js/121.1166f058.js"><link rel="prefetch" href="/assets/js/122.6d3ae021.js"><link rel="prefetch" href="/assets/js/123.69a3851a.js"><link rel="prefetch" href="/assets/js/124.7894cc16.js"><link rel="prefetch" href="/assets/js/125.29dfb5fb.js"><link rel="prefetch" href="/assets/js/126.b8c368db.js"><link rel="prefetch" href="/assets/js/127.bebfd568.js"><link rel="prefetch" href="/assets/js/128.a7bb204e.js"><link rel="prefetch" href="/assets/js/129.7a48492c.js"><link rel="prefetch" href="/assets/js/13.af7de8ed.js"><link rel="prefetch" href="/assets/js/130.c0b25d60.js"><link rel="prefetch" href="/assets/js/131.a4bc8cf8.js"><link rel="prefetch" href="/assets/js/132.3415d7f4.js"><link rel="prefetch" href="/assets/js/133.d844b76a.js"><link rel="prefetch" href="/assets/js/134.45fe09e4.js"><link rel="prefetch" href="/assets/js/135.f4b0879d.js"><link rel="prefetch" href="/assets/js/136.ec4f66f0.js"><link rel="prefetch" href="/assets/js/137.a4798095.js"><link rel="prefetch" href="/assets/js/138.26adf6fa.js"><link rel="prefetch" href="/assets/js/139.329e3849.js"><link rel="prefetch" href="/assets/js/14.5a1b65ab.js"><link rel="prefetch" href="/assets/js/140.cc21ce27.js"><link rel="prefetch" href="/assets/js/141.969e5108.js"><link rel="prefetch" href="/assets/js/142.c0e8d5f8.js"><link rel="prefetch" href="/assets/js/143.2af437ce.js"><link rel="prefetch" href="/assets/js/144.bff11095.js"><link rel="prefetch" href="/assets/js/145.45ba1fe5.js"><link rel="prefetch" href="/assets/js/146.2ad83282.js"><link rel="prefetch" href="/assets/js/147.2f10a1c5.js"><link rel="prefetch" href="/assets/js/148.f677178f.js"><link rel="prefetch" href="/assets/js/149.d9f404dd.js"><link rel="prefetch" href="/assets/js/15.e597a560.js"><link rel="prefetch" href="/assets/js/150.dc3e7a34.js"><link rel="prefetch" href="/assets/js/151.f9c1d009.js"><link rel="prefetch" href="/assets/js/152.900ddb71.js"><link rel="prefetch" href="/assets/js/153.1daa52e0.js"><link rel="prefetch" href="/assets/js/154.3bf67123.js"><link rel="prefetch" href="/assets/js/155.b6d311e7.js"><link rel="prefetch" href="/assets/js/156.da24991b.js"><link rel="prefetch" href="/assets/js/157.d4ad71d7.js"><link rel="prefetch" href="/assets/js/159.515795c0.js"><link rel="prefetch" href="/assets/js/16.83a460b7.js"><link rel="prefetch" href="/assets/js/160.72105b0b.js"><link rel="prefetch" href="/assets/js/161.bed845fe.js"><link rel="prefetch" href="/assets/js/162.8cd3dfc9.js"><link rel="prefetch" href="/assets/js/163.8c8ff1ba.js"><link rel="prefetch" href="/assets/js/164.2ebbf445.js"><link rel="prefetch" href="/assets/js/165.fcf8e0f6.js"><link rel="prefetch" href="/assets/js/166.d7a3c00e.js"><link rel="prefetch" href="/assets/js/167.2961f2e7.js"><link rel="prefetch" href="/assets/js/168.9cae14bb.js"><link rel="prefetch" href="/assets/js/169.5a789c87.js"><link rel="prefetch" href="/assets/js/17.7b61a5f5.js"><link rel="prefetch" href="/assets/js/170.0531b332.js"><link rel="prefetch" href="/assets/js/171.be5822ea.js"><link rel="prefetch" href="/assets/js/172.9fdc5e3c.js"><link rel="prefetch" href="/assets/js/173.17c2da09.js"><link rel="prefetch" href="/assets/js/174.4d86746e.js"><link rel="prefetch" href="/assets/js/175.b7c359f9.js"><link rel="prefetch" href="/assets/js/176.1e2879d4.js"><link rel="prefetch" href="/assets/js/177.e8cf02b8.js"><link rel="prefetch" href="/assets/js/178.1f72b9e3.js"><link rel="prefetch" href="/assets/js/179.22072b93.js"><link rel="prefetch" href="/assets/js/18.50ea5637.js"><link rel="prefetch" href="/assets/js/180.e3dba996.js"><link rel="prefetch" href="/assets/js/181.a4220e69.js"><link rel="prefetch" href="/assets/js/182.da5f1185.js"><link rel="prefetch" href="/assets/js/183.f61f925f.js"><link rel="prefetch" href="/assets/js/184.8638fa8d.js"><link rel="prefetch" href="/assets/js/185.aa820b88.js"><link rel="prefetch" href="/assets/js/186.d9302642.js"><link rel="prefetch" href="/assets/js/187.6811d01e.js"><link rel="prefetch" href="/assets/js/188.11c8dbfd.js"><link rel="prefetch" href="/assets/js/189.413becc9.js"><link rel="prefetch" href="/assets/js/19.a059a8af.js"><link rel="prefetch" href="/assets/js/190.15e767bb.js"><link rel="prefetch" href="/assets/js/191.a2244506.js"><link rel="prefetch" href="/assets/js/192.4ff7c0a9.js"><link rel="prefetch" href="/assets/js/193.73b076d5.js"><link rel="prefetch" href="/assets/js/194.2b627728.js"><link rel="prefetch" href="/assets/js/195.0718b851.js"><link rel="prefetch" href="/assets/js/196.41963b84.js"><link rel="prefetch" href="/assets/js/197.8b1c0d72.js"><link rel="prefetch" href="/assets/js/198.b157b113.js"><link rel="prefetch" href="/assets/js/199.5699cf91.js"><link rel="prefetch" href="/assets/js/20.2c0eadce.js"><link rel="prefetch" href="/assets/js/200.c37b2877.js"><link rel="prefetch" href="/assets/js/201.b1396863.js"><link rel="prefetch" href="/assets/js/202.de2a2216.js"><link rel="prefetch" href="/assets/js/203.d21413f3.js"><link rel="prefetch" href="/assets/js/204.ab591f3d.js"><link rel="prefetch" href="/assets/js/205.1721d2e7.js"><link rel="prefetch" href="/assets/js/206.cec34a94.js"><link rel="prefetch" href="/assets/js/207.f98eccc8.js"><link rel="prefetch" href="/assets/js/208.750457bb.js"><link rel="prefetch" href="/assets/js/209.ffbad106.js"><link rel="prefetch" href="/assets/js/21.57db11ba.js"><link rel="prefetch" href="/assets/js/210.6ba2fd04.js"><link rel="prefetch" href="/assets/js/211.93c3bd07.js"><link rel="prefetch" href="/assets/js/212.660edbfe.js"><link rel="prefetch" href="/assets/js/213.ccda6c56.js"><link rel="prefetch" href="/assets/js/214.5246c320.js"><link rel="prefetch" href="/assets/js/215.fc2d417b.js"><link rel="prefetch" href="/assets/js/216.17c4a0f8.js"><link rel="prefetch" href="/assets/js/217.8f339525.js"><link rel="prefetch" href="/assets/js/218.4f3ec289.js"><link rel="prefetch" href="/assets/js/219.73e97b36.js"><link rel="prefetch" href="/assets/js/22.9489486e.js"><link rel="prefetch" href="/assets/js/220.e791f9ef.js"><link rel="prefetch" href="/assets/js/221.dfacbe10.js"><link rel="prefetch" href="/assets/js/222.b585e458.js"><link rel="prefetch" href="/assets/js/223.e660f9fc.js"><link rel="prefetch" href="/assets/js/224.9de9ab5b.js"><link rel="prefetch" href="/assets/js/225.d207d5f4.js"><link rel="prefetch" href="/assets/js/226.be868f96.js"><link rel="prefetch" href="/assets/js/227.a398d7a3.js"><link rel="prefetch" href="/assets/js/228.f1248f0f.js"><link rel="prefetch" href="/assets/js/229.779d55e5.js"><link rel="prefetch" href="/assets/js/23.907f4e1a.js"><link rel="prefetch" href="/assets/js/230.2b2cea92.js"><link rel="prefetch" href="/assets/js/231.4a2874e0.js"><link rel="prefetch" href="/assets/js/232.3f3b4075.js"><link rel="prefetch" href="/assets/js/233.65bcf9f2.js"><link rel="prefetch" href="/assets/js/234.bcc0ca2f.js"><link rel="prefetch" href="/assets/js/235.eaaf03db.js"><link rel="prefetch" href="/assets/js/24.e9c53883.js"><link rel="prefetch" href="/assets/js/25.53090258.js"><link rel="prefetch" href="/assets/js/26.24e35d1f.js"><link rel="prefetch" href="/assets/js/27.71f63426.js"><link rel="prefetch" href="/assets/js/28.522fe261.js"><link rel="prefetch" href="/assets/js/29.16c8ab53.js"><link rel="prefetch" href="/assets/js/3.b7884058.js"><link rel="prefetch" href="/assets/js/30.570b6a68.js"><link rel="prefetch" href="/assets/js/31.44e06db6.js"><link rel="prefetch" href="/assets/js/32.dd285204.js"><link rel="prefetch" href="/assets/js/33.14fcab54.js"><link rel="prefetch" href="/assets/js/34.985b4ba0.js"><link rel="prefetch" href="/assets/js/35.d44ed1ef.js"><link rel="prefetch" href="/assets/js/36.8d71b274.js"><link rel="prefetch" href="/assets/js/37.0f6e8b3d.js"><link rel="prefetch" href="/assets/js/38.df32a475.js"><link rel="prefetch" href="/assets/js/39.ccf55e09.js"><link rel="prefetch" href="/assets/js/4.7a161499.js"><link rel="prefetch" href="/assets/js/40.ecf414e0.js"><link rel="prefetch" href="/assets/js/41.23667a69.js"><link rel="prefetch" href="/assets/js/42.1851b886.js"><link rel="prefetch" href="/assets/js/43.5914145c.js"><link rel="prefetch" href="/assets/js/44.732855a6.js"><link rel="prefetch" href="/assets/js/45.57aafbf3.js"><link rel="prefetch" href="/assets/js/46.6ae855af.js"><link rel="prefetch" href="/assets/js/47.e221452c.js"><link rel="prefetch" href="/assets/js/48.40c183ba.js"><link rel="prefetch" href="/assets/js/49.a1d4e127.js"><link rel="prefetch" href="/assets/js/5.c8a42296.js"><link rel="prefetch" href="/assets/js/50.8a074b54.js"><link rel="prefetch" href="/assets/js/51.7c502a3f.js"><link rel="prefetch" href="/assets/js/52.e12731e3.js"><link rel="prefetch" href="/assets/js/53.5024433e.js"><link rel="prefetch" href="/assets/js/54.f841b960.js"><link rel="prefetch" href="/assets/js/55.2a7c1997.js"><link rel="prefetch" href="/assets/js/56.b5222bba.js"><link rel="prefetch" href="/assets/js/57.e10abc21.js"><link rel="prefetch" href="/assets/js/58.89e801c2.js"><link rel="prefetch" href="/assets/js/59.88f007a2.js"><link rel="prefetch" href="/assets/js/6.2e732ce5.js"><link rel="prefetch" href="/assets/js/60.e8e937ac.js"><link rel="prefetch" href="/assets/js/61.0b981a46.js"><link rel="prefetch" href="/assets/js/62.281811ab.js"><link rel="prefetch" href="/assets/js/63.9d6bd893.js"><link rel="prefetch" href="/assets/js/64.f923720f.js"><link rel="prefetch" href="/assets/js/65.203e861d.js"><link rel="prefetch" href="/assets/js/66.7be81b1f.js"><link rel="prefetch" href="/assets/js/67.a7a50799.js"><link rel="prefetch" href="/assets/js/68.31312bfb.js"><link rel="prefetch" href="/assets/js/69.910084e3.js"><link rel="prefetch" href="/assets/js/7.46d81b50.js"><link rel="prefetch" href="/assets/js/70.3a701c77.js"><link rel="prefetch" href="/assets/js/71.30f11d74.js"><link rel="prefetch" href="/assets/js/72.6fe3967a.js"><link rel="prefetch" href="/assets/js/73.594e1230.js"><link rel="prefetch" href="/assets/js/74.684f4bf5.js"><link rel="prefetch" href="/assets/js/75.566435dc.js"><link rel="prefetch" href="/assets/js/76.02f52bcd.js"><link rel="prefetch" href="/assets/js/77.c53aecea.js"><link rel="prefetch" href="/assets/js/78.63ceb1cf.js"><link rel="prefetch" href="/assets/js/79.7d3372fb.js"><link rel="prefetch" href="/assets/js/8.4c7ec10b.js"><link rel="prefetch" href="/assets/js/80.982ab3f9.js"><link rel="prefetch" href="/assets/js/81.f9653620.js"><link rel="prefetch" href="/assets/js/82.3e0dee5b.js"><link rel="prefetch" href="/assets/js/83.7d40c3a0.js"><link rel="prefetch" href="/assets/js/84.fee24385.js"><link rel="prefetch" href="/assets/js/85.29e2c142.js"><link rel="prefetch" href="/assets/js/86.0a5b736f.js"><link rel="prefetch" href="/assets/js/87.22b45021.js"><link rel="prefetch" href="/assets/js/88.d328b31d.js"><link rel="prefetch" href="/assets/js/89.a0672ba0.js"><link rel="prefetch" href="/assets/js/9.cfcf16e0.js"><link rel="prefetch" href="/assets/js/90.01078556.js"><link rel="prefetch" href="/assets/js/91.753ec234.js"><link rel="prefetch" href="/assets/js/92.cc5a08a8.js"><link rel="prefetch" href="/assets/js/93.c2423730.js"><link rel="prefetch" href="/assets/js/94.96a15500.js"><link rel="prefetch" href="/assets/js/95.49adf2d4.js"><link rel="prefetch" href="/assets/js/96.69c63126.js"><link rel="prefetch" href="/assets/js/97.613ade77.js"><link rel="prefetch" href="/assets/js/98.96118155.js"><link rel="prefetch" href="/assets/js/99.5765ce78.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.df3667a8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hsq</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link">
+  Styles
+</a></li><li class="dropdown-item"><h4>
+          Browser
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link">
+  BrModel(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link">
+  RenderPr(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>
+          React
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link router-link-active">
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link">
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Nodejs
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link">
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>
+          cPlus
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link">
+  C++
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">AI</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">AI</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/AlgorithmAI/" class="nav-link">
+  AI
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link">
+  项目
+</a></li><li class="dropdown-item"><h4>
+          项目工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link">
+  Git&amp;webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="webDesign" class="dropdown-title"><span class="title">Works</span> <span class="arrow down"></span></button> <button type="button" aria-label="webDesign" class="mobile-dropdown-title"><span class="title">Works</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Interface/" class="nav-link">
+  面经
+</a></li></ul></div></div> <a href="https://github.com/huang-1234" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ReactBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/React/ReactBase/cHooks.html" class="sidebar-link">3. Hooks概要学习</a></li><li><a href="/React/ReactBase/dRouter.html" class="sidebar-link">4.关于Router</a></li><li><a href="/React/ReactBase/eLifeFun.html" class="sidebar-link">react的生命周期函数</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ReactExtends</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="引用组件实例ref"><a href="#引用组件实例ref" class="header-anchor">#</a> 引用组件实例Ref</h1> <p>众所周知，React 通过声明式的渲染机制把复杂的 DOM 操作抽象成为简单的 state 与 props 操作，一时圈粉无数，一夜间将前端工程师从面条式的 DOM 操作中拯救出来。尽管我们一再强调在 React 开发中尽量避免 DOM 操作，但在一些场景中仍然无法避免。当然 React 并没有把路堵死，它提供了 ref 用于访问在 render 方法中创建的 DOM 元素或者是 React 组件实例。</p> <h2 id="ref-的三驾马车"><a href="#ref-的三驾马车" class="header-anchor">#</a> <strong>ref 的三驾马车</strong></h2> <p>在 React v16.3 之前，ref 通过字符串（string ref）或者回调函数（callback ref）的形式进行获取，在 v16.3 中，经 <a href="https://link.zhihu.com/?target=https%3A//github.com/reactjs/rfcs/blob/master/text/0017-new-create-ref.md" target="_blank" rel="noopener noreferrer">0017-new-create-ref<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 提案引入了新的 React.createRef API。</p> <p>注意：本文以下代码示例以及源码均基于或来源于 React v16.3.2 release 版本。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// string ref</span>
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>myRef<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token string">&quot;myRef&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// callback ref</span>
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>myRef<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">ele</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>myRef <span class="token operator">=</span> ele<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// React.createRef</span>
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>myRef <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>myRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>myRef<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="string-ref-之殇"><a href="#string-ref-之殇" class="header-anchor">#</a> <strong>string ref 之殇</strong></h2> <p>在 React.createRef 出现之前，string ref 就已被诟病已久，React 官方文档直接提出 string ref 将会在未来版本被移出，建议用户使用 callback ref 来代替，为何需要这么做呢？主要原因集中于以下几点：</p> <ul><li>当 ref 定义为 string 时，需要 React 追踪当前正在渲染的组件，在 reconciliation 阶段，React Element 创建和更新的过程中，ref 会被封装为一个闭包函数，等待 commit 阶段被执行，这会对 React 的性能产生一些影响。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">coerceRef</span><span class="token punctuation">(</span>
+  <span class="token parameter">returnFiber<span class="token operator">:</span> Fiber<span class="token punctuation">,</span>
+  current<span class="token operator">:</span> Fiber <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  element<span class="token operator">:</span> ReactElement<span class="token punctuation">,</span></span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+  <span class="token keyword">const</span> stringRef <span class="token operator">=</span> <span class="token string">''</span> <span class="token operator">+</span> element<span class="token punctuation">.</span>ref<span class="token punctuation">;</span>
+  <span class="token comment">// 从 fiber 中得到实例</span>
+  <span class="token keyword">let</span> inst <span class="token operator">=</span> ownerFiber<span class="token punctuation">.</span>stateNode<span class="token punctuation">;</span>
+  
+  <span class="token comment">// ref 闭包函数</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">ref</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> refs <span class="token operator">=</span> inst<span class="token punctuation">.</span>refs <span class="token operator">===</span> emptyObject <span class="token operator">?</span> <span class="token punctuation">(</span>inst<span class="token punctuation">.</span>refs <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">:</span> inst<span class="token punctuation">.</span>refs<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">delete</span> refs<span class="token punctuation">[</span>stringRef<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      refs<span class="token punctuation">[</span>stringRef<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  ref<span class="token punctuation">.</span>_stringRef <span class="token operator">=</span> stringRef<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> ref<span class="token punctuation">;</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>当使用 render callback 模式时，使用 string ref 会造成 ref 挂载位置产生歧义。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">renderRow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// string ref 会挂载在 DataTable this 上</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'input-'</span> <span class="token operator">+</span> index<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// callback ref 会挂载在 MyComponent this 上</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>input ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">input</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token string">'input-'</span> <span class="token operator">+</span> index<span class="token punctuation">]</span> <span class="token operator">=</span> input<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ 
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>DataTable data<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>data<span class="token punctuation">}</span> renderRow<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderRow<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>string ref 无法被组合，例如一个第三方库的父组件已经给子组件传递了 ref，那么我们就无法再在子组件上添加 ref 了，而 callback ref 可完美解决此问题。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** string ref **/</span>
+<span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 可获取到 this.refs.childRef</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> children <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">cloneElement</span><span class="token punctuation">(</span>children<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      ref<span class="token operator">:</span> <span class="token string">'childRef'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// this.refs.child 无法获取到</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Child ref<span class="token operator">=</span><span class="token string">&quot;child&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Parent<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/** callback ref **/</span>
+<span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 可以获取到 child ref</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>childRef<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> children <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">cloneElement</span><span class="token punctuation">(</span>children<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token function-variable function">ref</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">child</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>childRef <span class="token operator">=</span> child<span class="token punctuation">;</span>
+        children<span class="token punctuation">.</span>ref <span class="token operator">&amp;&amp;</span> children<span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 可以获取到 child ref</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>Child ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">child</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>child <span class="token operator">=</span> child<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Parent<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>在根组件上使用无法生效。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App ref<span class="token operator">=</span><span class="token string">&quot;app&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre></div><ul><li>对于静态类型较不友好，当使用 string ref 时，必须显式声明 refs 的类型，无法完成自动推导。</li> <li>编译器无法将 string ref 与其 refs 上对应的属性进行混淆，而使用 callback ref，可被混淆。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** string ref，无法混淆 */</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>myRef
+<span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">&quot;myRef&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token comment">/** callback ref, 可以混淆 */</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>myRef
+<span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>myRef <span class="token operator">=</span> dom<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>r
+<span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>r <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="createref-vs-callback-ref"><a href="#createref-vs-callback-ref" class="header-anchor">#</a> <strong>createRef vs callback ref</strong></h2> <p>对比新的 createRef 与 callback ref，并没有压倒性的优势，只是希望成为一个便捷的特性，在性能上会会有微小的优势，callback ref 采用了组件 render 过程中在闭包函数中分配 ref 的模式，而 createRef 则采用了 object ref。</p> <p>createRef 显得更加直观，类似于 string ref，避免了 callback ref 的一些理解问题，对于 callback ref 我们通常会使用内联函数的形式，那么每次渲染都会重新创建，由于 react 会清理旧的 ref 然后设置新的（见下图，commitDetachRef -&gt; commitAttachRef），因此更新期间会调用两次，第一次为 null，如果在 callback 中带有业务逻辑的话，可能会出错，当然可以通过将 callback 定义成类成员函数并进行绑定的方式避免。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      a<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 输出 3 次</span>
+        <span class="token comment">// &lt;div data-reactroot&gt;&lt;/div&gt;</span>
+        <span class="token comment">// null</span>
+        <span class="token comment">// &lt;div data-reactroot&gt;&lt;/div&gt;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>refCallback <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">refCallback</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      a<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">refCallback</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 只输出 1 次</span>
+    <span class="token comment">// &lt;div data-reactroot&gt;&lt;/div&gt;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>refCallback<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>不过不得不承认，createRef 在能力上仍逊色于 callback ref，例如上一节提到的组合问题，createRef 也是无能为力的。在 React v16.3 中，string ref/callback ref 与 createRef 的处理略有差别，让我们来看一下 ref 整个构建流程。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// markRef 前会进行新旧 ref 的引用比较</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>current<span class="token punctuation">.</span>ref <span class="token operator">!==</span> workInProgress<span class="token punctuation">.</span>ref<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">markRef</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// effectTag 基于位操作，其中有 ref 的变更标志位</span>
+<span class="token keyword">function</span> <span class="token function">markRef</span><span class="token punctuation">(</span><span class="token parameter">workInProgress<span class="token operator">:</span> Fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  workInProgress<span class="token punctuation">.</span>effectTag <span class="token operator">|=</span> Ref<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+  
+<span class="token comment">// effectTag 与 Ref 的 &amp; 操作表示当前 fiber 有 ref 变更</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>effectTag <span class="token operator">&amp;</span> Ref<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">commitAttachRef</span><span class="token punctuation">(</span>nextEffect<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">commitAttachRef</span><span class="token punctuation">(</span><span class="token parameter">finishedWork<span class="token operator">:</span> Fiber</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> ref <span class="token operator">=</span> finishedWork<span class="token punctuation">.</span>ref<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ref <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> instance <span class="token operator">=</span> finishedWork<span class="token punctuation">.</span>stateNode<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> instanceToUse<span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>finishedWork<span class="token punctuation">.</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 当前 Host 环境为 DOM 环境，HostComponent 即为 DOM 元素，需要借助实例获取原生 DOM 元素</span>
+      <span class="token keyword">case</span> HostComponent<span class="token operator">:</span>
+        instanceToUse <span class="token operator">=</span> <span class="token function">getPublicInstance</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token comment">// 对于 ClassComponent 等而言，直接返回实例即可</span>
+      <span class="token keyword">default</span><span class="token operator">:</span>
+        instanceToUse <span class="token operator">=</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// string ref 与 callback 都会去执行 ref 闭包函数</span>
+    <span class="token comment">// createRef 会直接挂在 object ref 的 current 上</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> ref <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">ref</span><span class="token punctuation">(</span>instanceToUse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      ref<span class="token punctuation">.</span>current <span class="token operator">=</span> instanceToUse<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以上会涉及 react fiber 的一些概念与细节，比如：fiber 对象含义，fiber tree 构建更新过程，effectTag 的含义与收集过程等等，如果读者对上述细节不熟悉，可暂时跳过此段内容，不影响对于 ref 的掌握与理解。</p> <h2 id="穿云箭-react-forwardref"><a href="#穿云箭-react-forwardref" class="header-anchor">#</a> <strong>穿云箭 React.forwardRef</strong></h2> <p>除了 createRef 以外，React16 还另外提供了一个关于 ref 的 API React.forwardRef，主要用于穿过父元素直接获取子元素的 ref。在提到 forwardRef 的使用场景之前，我们先来回顾一下，HOC（higher-order component）在 ref 使用上的问题，HOC 的 ref 是无法通过 props 进行传递的，因此无法直接获取被包裹组件（WrappedComponent），需要进行中转。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">HOCProps</span><span class="token punctuation">(</span><span class="token parameter">WrappedComponent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span> <span class="token class-name">HOCComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>setWrappedInstance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setWrappedInstance</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token function">getWrappedInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>wrappedInstance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 实现 ref 的访问</span>
+    <span class="token function">setWrappedInstance</span><span class="token punctuation">(</span><span class="token parameter">ref</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>wrappedInstance <span class="token operator">=</span> ref<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">&lt;</span>WrappedComponent ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>setWrappedInstance<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> HOCComponent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token function">HOCProps</span><span class="token punctuation">(</span>Wrap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">&lt;</span>App ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 只能获取到 HOCComponent</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 通过中转后可以获取到 WrappedComponent</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dom<span class="token punctuation">.</span><span class="token function">getWrappedInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>在拥有 forwardRef 之后，就不需要再通过 getWrappedInstance 了，利用 forwardRef 能直接穿透 HOCComponent 获取到 WrappedComponent。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">HOCProps</span><span class="token punctuation">(</span><span class="token parameter">WrappedComponent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span> <span class="token class-name">HOCComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> forwardedRef<span class="token punctuation">,</span> <span class="token operator">...</span>rest <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token operator">&lt;</span>WrappedComponent ref<span class="token operator">=</span><span class="token punctuation">{</span>forwardedRef<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>HOCComponent forwardedRef<span class="token operator">=</span><span class="token punctuation">{</span>ref<span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span>  <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token function">HOCProps</span><span class="token punctuation">(</span>Wrap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">&lt;</span>App ref<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">dom</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 可以直接获取 WrappedComponent</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dom<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>React.forwardRef 的原理其实非常简单，forwardRef 会生成 react 内部一种较为特殊的 Component。当进行创建更新操作时，会将 forwardRef 组件上的 props 与 ref 直接传递给提前注入的 render 函数，来生成 children。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> nextChildren <span class="token operator">=</span> <span class="token function">render</span><span class="token punctuation">(</span>workInProgress<span class="token punctuation">.</span>pendingProps<span class="token punctuation">,</span> workInProgress<span class="token punctuation">.</span>ref<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>React refs 到此就全部介绍完了，在 React16 新版本中，新引入了 React.createRef 与 React.forwardRef 两个 API，有计划移除老的 string ref，使 ref 的使用更加便捷与明确。如果你的应用已经升级到 React16.3+ 版本，那就放心大胆使用 React.createRef 吧，如果暂时没有的话，建议使用 callback ref 来代替 string ref。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6325fc3d.js" defer></script><script src="/assets/js/2.a16df25d.js" defer></script><script src="/assets/js/158.e28f6bbe.js" defer></script>
+  </body>
+</html>

@@ -22,8 +22,10 @@ git add .
 git commit -m 'update Browser'
 
 # 如果发布到 https://<USERNAME>.github.io
-git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
-git push -f git@github.com:huang-1234/huang-1234.github.io.git master
+# git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
+
+# git push -f git@github.com:huang-1234/huang-1234.github.io.git master
+git push
 
 cd -
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
