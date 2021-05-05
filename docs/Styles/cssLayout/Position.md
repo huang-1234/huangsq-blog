@@ -1,6 +1,6 @@
 # position定位
 
-##  position属性的五个值：
+##  position属性五个值：
 
 - static
 - relative

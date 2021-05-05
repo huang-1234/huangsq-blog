@@ -1,4 +1,4 @@
-# 3. 布局方式
+# 3. Flex布局方式
 
 ## 布局
 
@@ -15,18 +15,18 @@
 
 网络中大部分都是采用的**浮动布局**、**定位布局**和**弹性布局**。（后面会专门介绍弹性布局）
 
-### 清除浮动
+## 清除浮动
 
 在各种经典布局方式中，可能会结合`浮动布局`相关属性。使用`float`会使节点脱流导致父节点高度坍塌，若不对父节点显式声明高度则很有必要给父节点清除浮动。定义以下`clearfix`用于清除浮动，给父节点添加即可。值得注意，`clearfix`已占用`::after`，所以使用`clearfix`的父节点就不能再声明`::after`了，可改用`::before`。
 
 ```css
 .clearfix::after {
-    display: block;
-    visibility: hidden;
-    clear: both;
-    height: 0;
-    font-size: 0;
-    content: "";
+ display: block;
+ visibility: hidden;
+ clear: both;
+ height: 0;
+ font-size: 0;
+ content: "";
 }
 ```
 
@@ -163,143 +163,9 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
  - `space-around`：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
 
-   ### 3.5 align-items属性
-
-   `align-items`属性定义项目在交叉轴上如何对齐。
-
-    ```css
-    .box {
-    align-items: flex-start | flex-end | center | baseline | stretch;
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071011.png')" alt="mixureSecure">
-
-   它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
-
-    - `flex-start`：交叉轴的起点对齐。
-    - `flex-end`：交叉轴的终点对齐。
-    - `center`：交叉轴的中点对齐。
-    - `baseline`: 项目的第一行文字的基线对齐。
-    - `stretch`（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
-
-   ### 3.6 align-content属性
-
-   `align-content`属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
-
-    ```css
-    .box {
-    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071012.png')" alt="mixureSecure">
-
-   该属性可能取6个值。
-
-    - `flex-start`：与交叉轴的起点对齐。
-    - `flex-end`：与交叉轴的终点对齐。
-    - `center`：与交叉轴的中点对齐。
-    - `space-between`：与交叉轴两端对齐，轴线之间的间隔平均分布。
-    - `space-around`：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-    - `stretch`（默认值）：轴线占满整个交叉轴。
-
-   ## 四、项目的属性
-
-   以下6个属性设置在项目上。
-
-    - `order`
-    - `flex-grow`
-    - `flex-shrink`
-    - `flex-basis`
-    - `flex`
-    - `align-self`
-
-   ### 4.1 order属性
-
-   `order`属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
-
-    ```css
-    .item {
-    order: <integer;
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071013.png')" alt="mixureSecure">
-
-   ### 4.2 flex-grow属性
-
-   `flex-grow`属性定义项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大。
-
-    ```css
-    .item {
-    flex-grow: <number; /* default 0 */
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071014.png')" alt="mixureSecure">
-
-   如果所有项目的`flex-grow`属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的`flex-grow`属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
-
-   ### 4.3 flex-shrink属性
-
-   `flex-shrink`属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
-
-    ```css
-    .item {
-    flex-shrink: <number; /* default 1 */
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071015.jpg')" alt="mixureSecure">
-
-   如果所有项目的`flex-shrink`属性都为1，当空间不足时，都将等比例缩小。如果一个项目的`flex-shrink`属性为0，其他项目都为1，则空间不足时，前者不缩小。
-
-   负值对该属性无效。
-
-   ### 4.4 flex-basis属性
-
-   `flex-basis`属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为`auto`，即项目的本来大小。
-
-    ```css
-    .item {
-    flex-basis: <length | auto; /* default auto */
-    }
-    ```
-
-   它可以设为跟`width`或`height`属性一样的值（比如350px），则项目将占据固定空间。
-
-   ### 4.5 flex属性
-
-   `flex`属性是`flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为`0 1 auto`。后两个属性可选。
-
-    ```css
-    .item {
-    flex: none | [ <'flex-grow' <'flex-shrink'? || <'flex-basis' ]
-    }
-    ```
-
-   该属性有两个快捷值：`auto` (`1 1 auto`) 和 none (`0 0 auto`)。
-
-   建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
-
-   ### 4.6 align-self属性
-
-   `align-self`属性允许单个项目有与其他项目不一样的对齐方式，可覆盖`align-items`属性。默认值为`auto`，表示继承父元素的`align-items`属性，如果没有父元素，则等同于`stretch`。
-
-    ```css
-    .item {
-    align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    }
-    ```
-
-   <img :src="$withBase('/images/CSS/Layout.assets/bg2015071016.png')" alt="mixureSecure">
-
-   该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
 
 
-
-### 3.5 align-items属性
+## 3.5 align-items属性
 
 `align-items`属性定义项目在交叉轴上如何对齐。
 
@@ -357,30 +223,30 @@ css：
   align-items: center;
   /* 6.align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
   align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-   */
+*/
 
   .litterBox {
-    width: 150px;
-    height: 50px;
-    background-color: pink;
-    flex-shrink: 0;
-    border: 1px solid;
+ width: 150px;
+ height: 50px;
+ background-color: pink;
+ flex-shrink: 0;
+ border: 1px solid;
   }
 
   #box1 {
-    background-color: aqua;
+ background-color: aqua;
   }
 
   #box2 {
-    background-color: brown;
+ background-color: brown;
   }
 
   #box3 {
-    background-color: blue;
+ background-color: blue;
   }
 
   #box4 {
-    background-color: chartreuse;
+ background-color: chartreuse;
   }
 }
 ```
@@ -389,7 +255,7 @@ css：
 
 <img :src="$withBase('/images/CSS/Layout.assets/image-20210309195655398.png')" alt="mixureSecure">
 
-### 3.6 align-content属性
+## 3.6 align-content属性
 
 `align-content`属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
 
@@ -421,7 +287,7 @@ css：
  - `flex`
  - `align-self`
 
-### 4.1 order属性
+## 4.1 order属性
 
 `order`属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
 
@@ -433,7 +299,7 @@ css：
 
 <img :src="$withBase('/images/CSS/Layout.assets/bg2015071013.png')" alt="mixureSecure">
 
-### 4.2 flex-grow属性
+## 4.2 flex-grow属性
 
 `flex-grow`属性定义项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大。
 
@@ -447,7 +313,7 @@ css：
 
 如果所有项目的`flex-grow`属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的`flex-grow`属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 
-### 4.3 flex-shrink属性
+## 4.3 flex-shrink属性
 
 `flex-shrink`属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
 
@@ -463,7 +329,7 @@ css：
 
 负值对该属性无效。
 
-### 4.4 flex-basis属性
+## 4.4 flex-basis属性
 
 `flex-basis`属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为`auto`，即项目的本来大小。
 
@@ -475,7 +341,7 @@ css：
 
 它可以设为跟`width`或`height`属性一样的值（比如350px），则项目将占据固定空间。
 
-### 4.5 flex属性
+## 4.5 flex属性
 
 `flex`属性是`flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为`0 1 auto`。后两个属性可选。
 
@@ -489,7 +355,7 @@ css：
 
 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
 
-### 4.6 align-self属性
+## 4.6 align-self属性
 
 `align-self`属性允许单个项目有与其他项目不一样的对齐方式，可覆盖`align-items`属性。默认值为`auto`，表示继承父元素的`align-items`属性，如果没有父元素，则等同于`stretch`。
 
@@ -503,9 +369,9 @@ css：
 
 该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
 
-## 1.常用的布局
+# 常用的布局
 
-### 一、空间居中布局
+## 一、空间居中布局
 
 空间居中布局指的是，不管容器的大小，项目总是占据中心点。
 
@@ -515,8 +381,8 @@ css代码：
 
 ```css
 .container {
-    display: grid;
-    place-items: center;
+ display: grid;
+ place-items: center;
 } 
 12345
 ```
@@ -545,7 +411,7 @@ place-items: <align-items <justify-items
 
 <img :src="$withBase('/images/CSS/Layout.assets/bg2020080705.jpg')" alt="mixureSecure">
 
-### 二、并列式布局
+## 二、并列式布局
 
 并列式布局就是多个项目并列。
 
@@ -596,7 +462,7 @@ place-items: <align-items <justify-items
 
 <img :src="$withBase('/images/CSS/Layout.assets/bg2020080709.jpg')" alt="mixureSecure">
 
-### 三、两栏式布局
+## 三、两栏式布局
 
 两栏式布局就是一个边栏，一个主栏。
 
@@ -617,7 +483,7 @@ place-items: <align-items <justify-items
 
 上面代码中，`grid-template-columns`指定页面分成两列。第一列的宽度是`minmax(150px, 25%)`，即最小宽度为`150px`，最大宽度为总宽度的25%；第二列为`1fr`，即所有剩余宽度。
 
-### 四、三明治布局
+## 四、三明治布局
 
 三明治布局指的是，页面在垂直方向上，分成三部分：页眉、内容区、页脚。
 
@@ -634,10 +500,10 @@ html代码如下：
       header
     </header
     <div class="admin"
-    </div
-    <footer class="footer"
-      footer
-    </footer
+ </div
+ <footer class="footer"
+footer
+ </footer
   </div
 ```
 
@@ -669,34 +535,34 @@ CSS 代码如下（[CodePen 示例](https://codepen.io/una/pen/bGVXPWB)）。
 
 上面代码写在容器上面，指定采用 Grid 布局。核心代码是`grid-template-rows`那一行，指定垂直高度怎么划分，这里是从上到下分成三部分。第一部分（页眉）和第三部分（页脚）的高度都为`auto`，即本来的内容高度；第二部分（内容区）的高度为`1fr`，即剩余的所有高度，这可以保证页脚始终在容器的底部.
 
-### 五、圣杯布局
+## 五、圣杯布局
 
 圣杯布局html部分：
 
 ```html
  <div class="container"
-    <!-- header --
-    <header class="header"
-      header
-    </header
-    <!-- content --
-    <main class="admin"
+ <!-- header --
+ <header class="header"
+header
+ </header
+ <!-- content --
+ <main class="admin"
 
-      <div class="leftSiderbar"
-        leftSiderbar
-      </div
-      <div class="content"
-        content
-      </div
-      <div class="rightSiderbar"
-        rightSiderbar
-      </div
-      
-    </main
-    <!-- footer --
-    <footer class="footer"
-      footer
-    </footer
+<div class="leftSiderbar"
+  leftSiderbar
+</div
+<div class="content"
+  content
+</div
+<div class="rightSiderbar"
+  rightSiderbar
+</div
+
+ </main
+ <!-- footer --
+ <footer class="footer"
+footer
+ </footer
   </div
 ```
 
@@ -712,45 +578,45 @@ CSS 代码如下（[CodePen 示例](https://codepen.io/una/pen/bGVXPWB)）。
   grid-template-rows: auto 1fr auto;
 
   .header {
-    height: 10vh;
-    background-color: pink;
-    text-align: center;
+ height: 10vh;
+ background-color: pink;
+ text-align: center;
   }
 
   .admin {
-    background-color: #fff;
-    height: 560px;
-    width: 90vw;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    text-align: center;
-    // justify-content: center;
-    // 中间的admin部分实现垂直方向居中对齐。这是我测试时解决的问题
-    margin-left: auto;
-    margin-right: auto;
+ background-color: #fff;
+ height: 560px;
+ width: 90vw;
+ display: grid;
+ grid-template-columns: auto 1fr auto;
+ text-align: center;
+ // justify-content: center;
+ // 中间的admin部分实现垂直方向居中对齐。这是我测试时解决的问题
+ margin-left: auto;
+ margin-right: auto;
 
-    // width: 100vw;
-    .leftSiderbar {
-      // 右边的导航栏宽度固定为90px
-      width: 90px;
-      background-color: aqua;
-    }
+ // width: 100vw;
+ .leftSiderbar {
+// 右边的导航栏宽度固定为90px
+width: 90px;
+background-color: aqua;
+ }
 
-    .content {
-      background-color: #ccc;
-      padding: 30px;
-    }
+ .content {
+background-color: #ccc;
+padding: 30px;
+ }
 
-    .rightSiderbar {
-      width: 90px;
-      background-color: red;
-    }
+ .rightSiderbar {
+width: 90px;
+background-color: red;
+ }
   }
 
   .footer {
-    height: 10vh;
-    background-color: rgb(112, 42, 204);
-    text-align: center;
+ height: 10vh;
+ background-color: rgb(112, 42, 204);
+ text-align: center;
   }
 }
 ```

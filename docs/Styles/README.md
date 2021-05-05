@@ -246,3 +246,19 @@ CSS 模块和标准化进程
 A Look Back at the History of CSS
 
 CSS: It was twenty years ago today — an interview with Hkon Wium Lie
+
+<button id="top-btn-html" class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
+  <a href="" style="text-decoration:none;">回顶部↑</a>
+</button>
+<script>
+  function gotoTop(){
+    window.scrollTo({
+      top:100,
+      top:100,
+      behavior:'smooth'
+    });
+  }
+  const btn = document.getElementById('top-btn-html);
+  btn.addEventListener('click', gotoTop);
+  
+</script>

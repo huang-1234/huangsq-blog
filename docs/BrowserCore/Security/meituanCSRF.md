@@ -253,7 +253,7 @@ GET https://example.com/addComment?comment=XXX&dest=orderId
 
 CSRF Token的防护策略分为三个步骤：
 
-下面来服务器的一段输出
+下面来服务器的一段输出immutable 
 
 ```js
 getRequestTest:== {

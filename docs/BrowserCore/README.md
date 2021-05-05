@@ -273,3 +273,11 @@ HTML页面加载和解析流程
 
 2. 如果看英文有困难的可以看看下面的翻译版本——[浏览器工作原理简介。](https://www.cnblogs.com/zhuanzhuruyi/p/6496276.html)
 
+<style>
+  .bottom-bar-item{
+    border-radius:50%;
+  }
+</style>
+<button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
+  <a href="#" style="text-decoration:none;">回顶部↑</a>
+</button>
