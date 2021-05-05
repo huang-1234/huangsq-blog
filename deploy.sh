@@ -25,6 +25,7 @@ git commit -m 'update Browser'
 # git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
 
 # git push -f git@github.com:huang-1234/huang-1234.github.io.git master
+git pull
 git push
 
 cd -
