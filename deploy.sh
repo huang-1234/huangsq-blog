@@ -9,6 +9,10 @@ npm run build
 git init
 git add .
 git commit -m 'update source'
+
+git remote -v
+git pull
+
 git push -f https://github.com/huang-1234/MyvuePressBlog.git main
 
 # 进入生成的文件夹
@@ -23,6 +27,10 @@ git commit -m 'update source'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
+
+git remote -v
+
+git pull
 
 git push -f git@github.com:huang-1234/huang-1234.github.io.git master
 # git pull
