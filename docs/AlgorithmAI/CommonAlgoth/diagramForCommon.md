@@ -46,6 +46,16 @@
 
 [wangDoc](https://github.com/wangdoc/javascript-tutorial)
 
+[WebSocket]([WebSocket - Web API 教程 - 网道 (wangdoc.com)](https://wangdoc.com/webapi/websocket.html))
+
+[Set 和 Map 数据结构 - ECMAScript 6入门 (ruanyifeng.com)](https://es6.ruanyifeng.com/#docs/set-map)
+
+[【JS 进阶】你真的掌握变量和类型了吗 (juejin.cn)](https://juejin.cn/post/6844903854882947080)
+
+[如何写出一个惊艳面试官的深拷贝? (juejin.cn)](https://juejin.cn/post/6844903929705136141)
+
+[JSON 简介 | 菜鸟教程 (runoob.com)](https://www.runoob.com/json/json-intro.html)
+
 ## CSS
 
 [玩转CSS的艺术之美](https://juejin.cn/book/6850413616484040711)
@@ -56,7 +66,27 @@
 
 [React演示]([react-hooks-demo-1 - CodeSandbox](https://codesandbox.io/s/v0nqm309q3?file=/src/index.js))
 
-# [关于React-redux的Provider, connect的解析](https://segmentfault.com/a/1190000017994290)
+ [关于React-redux的Provider, connect的解析](https://segmentfault.com/a/1190000017994290)
 
 
-
+
+## 前端面试
+
+[「前端面试题系列4」](https://segmentfault.com/a/1190000017957307)
+
+[牛客网前端题库60道详解]([前端刷题 —— 牛客网前端题库60道详解(二)_狐七大人的博客-CSDN博客](https://blog.csdn.net/weixin_40664145/article/details/115672522))
+
+[(建议精读)HTTP灵魂之问，巩固你的 HTTP 知识体系 (juejin.cn)](https://juejin.cn/post/6844904100035821575#heading-18)
+
+[(1.6w字)浏览器灵魂之问，请问你能接得住几个？ (juejin.cn)](https://juejin.cn/post/6844904021308735502)
+
+# 后端
+
+[Node.js v14.16.1 文档]([cluster | Node.js API 文档](http://nodejs.cn/api/cluster.html))
+
+[egg]([运行环境 - 为企业级框架和应用而生 (eggjs.org)](https://eggjs.org/zh-cn/basics/env.html))
+
+## 别人博客
+
+[颜海镜](https://yanhaijing.com/)
+
