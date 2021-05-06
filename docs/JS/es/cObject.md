@@ -1,4 +1,4 @@
-# 3. Object 重要
+# 3. Object Imp
 
 ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由为 JavaScript 实现引擎的规范定义
 

@@ -2,8 +2,9 @@
 const config = {
   base: '/',
   dest: 'dist',
-  title: 'hsq',
-  description: '往前端架构、向全栈开发',
+  title: 'FShsq',
+  // description: '往前端架构、向全栈开发',
+  description: 'From FE Arch、To Full Stack',
   head:[
 		['link',{rel:'icon',href:'/favicon.ico'}]
 	],
@@ -19,7 +20,7 @@ const config = {
     repoLabel: 'GitHub',
     nav: [
       {
-        text: '前端',
+        text: 'FE',
         ariaLabel: 'webDesign',
         items: [
           { text: 'JS', link: '/JS/' },
@@ -28,8 +29,8 @@ const config = {
           {
             text: 'Browser',
             items: [
-              {text:'BrModel(MP)',link:'/BrowserCore/'},
-              {text:'RenderPr(MT)',link:'/BrowserModel/'}
+              {text:'BrCore(MP)',link:'/BrowserCore/'},
+              {text:'BrModel(MT)',link:'/BrowserModel/'}
             ]
           },
           {
@@ -47,7 +48,7 @@ const config = {
         ],
       },
       {
-        text: '后端',
+        text: 'BE',
         ariaLabel: 'webDesign',
         items: [
           {
@@ -72,12 +73,12 @@ const config = {
         ]
       },
       {
-        text: '项目',
+        text: 'Project',
         ariaLabel: 'webDesign',
         items: [
-          { text: '项目', link: '/Project/' },
+          { text: 'Project', link: '/Project/' },
           {
-            text: '项目工具',
+            text: 'toolsForProject',
             items: [
               {text:'Git&webpack',link:'/Tools/'}
             ]
@@ -88,7 +89,7 @@ const config = {
         text: 'Works',
         ariaLabel: 'webDesign',
         items: [
-          {text: '面经',link:'/Interface/'}
+          {text: 'interfaceEx',link:'/Interface/'}
         ]
       }
     ],
@@ -125,34 +126,45 @@ const config = {
  function getJS() {
   return [
     {
-      title: 'JS',
+      title: 'ES',
       children: [
         // es基础
         'es/aJSType',
-        'es/aVarLetConst',
+        'es/aScope.md',
         'es/bContext',
         'es/bThis',
-        'es/dString',
-        'es/dArray',
-        'es/dSet',
+        // es对象
         'es/cObject',
         'es/cClassExtend',
-        'es/eRegExp',
-        'es/eDate',
+        'es/cString',
+        'es/cArray',
+        
+        //es内置对象
+        'es/dRegExp',
+        'es/dDate',
+        'es/dMath',
+
+        //es新增数据结构
+        'es/es6Struct',
+        'es/eSet',
+        
+        //JSON
+
+        //
         'es/gModules',
         'es/gFunction',
 
+        // 原型链相关
         'es/icall&apply&bind',
-        'es/iPrototype__proto__',
+        'es/iprototype',
         'es/instanceof&typeof',
+        'es/iNewByme',
         
-        'es/jClone',
-
-        'es/kPromiseA+',
+        // 手写相关
+        'es/xClone',
+        'es/xPromiseA+',
 
         
-
-        'es/zNewByme',
 
         // 'es/LongPromise',
       ]
@@ -178,9 +190,9 @@ const config = {
       ]
     },
     {
-      title: 'npmYarn',
+      title: 'package',
       children: [
-        'npmYarn/npmAndYarn',
+        'package/npmAndYarn',
       ]
     },
     {
@@ -221,7 +233,7 @@ function getHTML() {
  function getStyles() {
   return [
     {
-      title: '样式基础',
+      title: 'StylesBase',
       children: [
         'cssBase/cssFirst',
         'cssBase/hidden',
@@ -232,7 +244,7 @@ function getHTML() {
       ]
     },
     {
-      title: 'CSS布局',
+      title: 'cssLayout',
       children: [
         // CSS基础
         'cssLayout/aBox',
@@ -261,7 +273,7 @@ function getHTML() {
       ]
     },
     {
-      title: 'CSS动画特效',
+      title: 'cssAnimation',
       children: [
         // CSS特效
         'cssCartoon/rotate',
@@ -273,7 +285,7 @@ function getHTML() {
 function getBrowserCore() {
   return [
     {
-      title:'Render原理',
+      title:'RenderPrinciple',
       children: [
         'Render/bRenderEngine',
         'Render/Principle',
@@ -333,14 +345,14 @@ function getBrowserCore() {
 function getBrowserModel() {
   return [
     {
-      title: '了解架构',
+      title: 'understandArch',
       children: [
         'BrowserArch/BrowserArchFirst',
         'BrowserArch/BrowserMultiProcessMultiThread',
       ]
     },
     {
-      title: '计网',
+      title: 'netComputer',
       children: [
         'netWork/TCPdiffUDP',
         'netWork/uniCode'
@@ -458,7 +470,7 @@ function getAlgorithm() {
       ]
     },
     {
-      title: '数学基础',
+      title: 'MathBase',
       children: [
         'Math/aCalculus', // 微积分
         'Math/bLinearAlgebra', // 线性代数
@@ -466,7 +478,7 @@ function getAlgorithm() {
       ]
     },
     {
-      title: '机器学习',
+      title: 'MachineLearning',
       children: [
         // 'Test/test1/test1'
       ]
@@ -512,7 +524,7 @@ function getMachineLearning() {
  function getProject() {
   return [
     {
-      title: '创新创业项目',
+      title: 'underTaking',
       children: [
         // 'Innovative/Second-handBooks',
         // 'Innovative/xinqiu'
@@ -558,7 +570,7 @@ function getTools() {
 function getEchart() {
   return [
     {
-      title: '百度Echart',
+      title: 'Echart',
       children: [
         'aDataV'
       ]
@@ -570,7 +582,7 @@ function getEchart() {
 function getInterface() {
   return [
     {
-      title: '面试基础重点',
+      title: 'KnowInFace',
       children: [
         'InfaExperience/Browser/BrowserWebkitHowToRender',
         'InfaExperience/Browser/JSMacrotasksAndGUIThreads',
@@ -581,14 +593,14 @@ function getInterface() {
       ]
     },
     {
-      title: '别人面试的经历',
+      title: 'otherInterface',
       children: [
-        'Others/Baidu',
-        'Others/ByteDance'
+        // 'Others/Baidu',
+        // 'Others/ByteDance'
       ]
     },
     {
-      title: '前端知识架构',
+      title: 'feOfKnowArch',
       children: [
         'FrontEknowledgeArch/learnFront'
       ]

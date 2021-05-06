@@ -17,16 +17,6 @@
 
 CSS（层叠样式表）用于设置和布置网页 - 例如，更改内容的字体，颜色，大小和间距，将其拆分为多个列，或添加动画和其他装饰功能。这个模块为你掌握CSS的过程提供了一个温和的开端，包括它如何工作的基础知识，语法是什么样的，以及如何开始使用它来为HTML添加样式。
 
-## 先决条件
-
-在开始本单元之前，您应该：
-
-1. 基本熟悉使用计算机，并被动地使用Web（即查看它，消费内容）。
-2. 基本工作环境的设置详见[安装基本软件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Installing_basic_software)，并了解如何创建和管理文件，详见[处理文件](https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/Dealing_with_files)。
-3. 熟悉 [HTML概述](https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML) 章节中提到的基本HTML知识.
-
-**注意**： 如果你工作在一个无权创建自己文件的电脑/平板/其他设备上，你需要在一个在线编程工具上试验 （大多数）代码示例，如 [JSBin](http://jsbin.com/) 或者 [Thimble](https://thimble.mozilla.org/) 等。
-
 CSS首页带你们回顾一下CSS简史和四次布局技术的跃迁。
 
 ## 1.CSS简史
@@ -229,7 +219,7 @@ IE6 Hacks和解决方案（图片来自飘零雾雨 CSS 参考手册）
 
 我一般写完一个项目后，自己先在所有浏览器跑一遍 CSS 的兼容性测试，直到所有浏览器没有大问题才能进行项目提测发布。也正是有这样的严谨的工作态度，使我在工作中也在不断进步。有时候，回过头想想有过这样的经历也是一种技术财富的积累。
 
-**结语**
+## 结语
 
 CSS 经历了 20 多年的发展，从 PC 端到移动端，在前端工程化不断进步的今天，随着CSS的规范不断的完善升级，前端业务复杂度越来越高，带来的工程也越来越庞大，我们前端开发者对 CSS 工程化的方案也不断地探索。
 

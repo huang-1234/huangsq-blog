@@ -1,4 +1,4 @@
-# 6. Function的前世今生
+# 6. Function
 
 ## 一个小小的test
 

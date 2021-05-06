@@ -85,8 +85,9 @@ var StringDecoder = string_decoder.StringDecoder;
 var decoder = new StringDecoder([encoding]);    //encoding表示可设置字符集编码格式
 ```
 
-  （4）会用JSON.stringify()方法可以将Buffer对象缓存区中的内容转换为一个字符串，使用JSON.parse()方法可以将字符串转换为数组。
-   （5）使用Buffer对象的copy()方法可以将一个Buffer对象缓存区中的内容复制到另一个Buffer实例对象的缓存区中。程序示例：
+（4）会用JSON.stringify()方法可以将Buffer对象缓存区中的内容转换为一个字符串，使用JSON.parse()方法可以将字符串转换为数组。
+
+（5）使用Buffer对象的copy()方法可以将一个Buffer对象缓存区中的内容复制到另一个Buffer实例对象的缓存区中。程序示例：
 
 
 

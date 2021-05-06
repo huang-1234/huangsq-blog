@@ -1,4 +1,4 @@
-# From the url to Front
+# 前端知识总结Full
 
 ## 1.前言
 
@@ -10,7 +10,7 @@
 
 关于这道题目的吐槽暂且不提（这是一道被提到无数次的题，得到不少人的赞同，也被很多人反感），本文的目的是如何借助这道题梳理自己的前端知识体系！
 
-窃认为，每一个前端人员，如果要往更高阶发展，必然会将自己的知识体系梳理一遍，没有牢固的知识体系，无法往更高处走！
+我认为，每一个前端人员，如果要往更高阶发展，必然会将自己的知识体系梳理一遍，没有牢固的知识体系，无法往更高处走！
 
 **展现形式：**本文并不是将所有的知识点列一遍，而是偏向于`分析+梳理`
 
@@ -21,8 +21,6 @@
 **本文是个人阶段性梳理知识体系的成果**，然后加以修缮后发布成文章，因此并不确保适用于所有人员，但是，个人认为本文还是有一定参考价值的
 
 另外，如有不同见解，可以一起讨论
-
-**———-超长文预警，需要花费大量时间。———-**
 
 本文适合有一定经验的前端人员，**新手请规避**。
 
@@ -227,7 +225,7 @@ http://fex.baidu.com/blog/2014/05/what-happen/
 
 知识体系中，最重要的是骨架，脉络。有了骨架后，才方便填充细节。所以，先梳理下主干流程：
 
-```
+```cpp
 1. 从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）
 
 2. 开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）
@@ -336,7 +334,7 @@ tcp将http长报文划分为短报文，通过三次握手与服务端建立连�
 
 **三次握手的步骤：（抽象派）**
 
-```
+```cpp
 客户端：hello，你是server么？
 服务端：hello，我是server，你是client么
 客户端：yes，我是client
@@ -348,7 +346,7 @@ tcp将http长报文划分为短报文，通过三次握手与服务端建立连�
 
 **四次挥手的步骤：（抽象派）**
 
-```
+```cpp
 主动方：我已经关闭了向你那边的主动通道了，只能被动接收了
 被动方：收到通道关闭的信息
 被动方：那我也告诉你，我这边向你的主动通道也关闭了
@@ -390,7 +388,7 @@ get会产生一个tcp数据包，post两个
 
 五层因特网协议栈其实就是：
 
-```
+```cpp
 1.应用层(dns,http) DNS解析成IP并发送http请求
 
 2.传输层(tcp,udp) 建立tcp连接（三次握手）
@@ -406,7 +404,7 @@ get会产生一个tcp数据包，post两个
 
 OSI七层框架：`物理层`、`数据链路层`、`网络层`、`传输层`、`会话层`、`表示层`、`应用层`
 
-```
+```cpp
 表示层：主要处理两个通信系统中交换信息的表示方式，包括数据格式交换，数据加密与解密，数据压缩与终端类型转换等
 
 会话层：它具体管理不同用户和进程之间的对话，如控制登陆和注销过程
@@ -458,7 +456,7 @@ OSI七层框架：`物理层`、`数据链路层`、`网络层`、`传输层`、
 
 这也是开发人员见过的最多的信息，包括如下：
 
-```
+```cpp
 Request Url: 请求的web服务器地址
 
 Request Method: 请求方式
@@ -473,7 +471,7 @@ Remote Address: 请求的远程服务器地址（会转为IP）
 
 其中，Method的话一般分为两批次：
 
-```
+```cpp
 HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。
 以及几种Additional Request Methods：PUT、DELETE、LINK、UNLINK
 
@@ -486,7 +484,7 @@ HTTP1.1定义了八种请求方法：GET、POST、HEAD、OPTIONS, PUT, DELETE, T
 
 这里面最常用到的就是状态码，很多时候都是通过状态码来判断，如（列举几个最常见的）：
 
-```
+```cpp
 200——表明该请求被成功地完成，所请求的资源发送回客户端
 304——自从上次请求后，请求的网页未修改过，请客户端使用本地缓存
 400——客户端请求有错（譬如可以是安全模块拦截）
@@ -500,7 +498,7 @@ HTTP1.1定义了八种请求方法：GET、POST、HEAD、OPTIONS, PUT, DELETE, T
 
 再列举下大致不同范围状态的意义
 
-```
+```cpp
 1xx——指示信息，表示请求已接收，继续处理
 2xx——成功，表示请求已被成功接收、理解、接受
 3xx——重定向，要完成请求必须进行更进一步的操作
@@ -518,7 +516,7 @@ HTTP1.1定义了八种请求方法：GET、POST、HEAD、OPTIONS, PUT, DELETE, T
 
 常用的请求头部（部分）：
 
-```
+```http
 Accept: 接收类型，表示浏览器支持的MIME类型
 （对标服务端返回的Content-Type）
 Accept-Encoding：浏览器支持的压缩类型,如gzip等,超出类型不能接收
@@ -538,7 +536,7 @@ User-Agent：用户客户端的一些必要信息，如UA头部等
 
 常用的响应头部（部分）：
 
-```
+```http
 Access-Control-Allow-Headers: 服务器端允许的请求Headers
 Access-Control-Allow-Methods: 服务器端允许的请求方法
 Access-Control-Allow-Origin: 服务器端允许的请求Origin头部（譬如为*）
@@ -584,7 +582,7 @@ CRLF（Carriage-Return Line-Feed），意思是回车换行，一般作为分隔
 
 一般来说（分隔符类别）：
 
-```
+```http
 CRLF->Windows-style
 LF->Unix Style
 CR->Mac Style
@@ -600,7 +598,7 @@ cookie是浏览器的一种本地存储方式，一般用来帮助客户端和�
 
 场景如下（简述）：
 
-```
+```http
 在登陆页面，用户登陆了
 
 此时，服务端会生成一个session，session中有对于用户的信息（如用户名、密码等）
@@ -620,7 +618,7 @@ cookie是浏览器的一种本地存储方式，一般用来帮助客户端和�
 
 譬如以下场景：
 
-```
+```http
 客户端在域名A下有cookie（这个可以是登陆时由服务端写入的）
 
 然后在域名A下有一个页面，页面中有很多依赖的静态资源（都是域名A的，譬如有20个静态资源）
@@ -699,7 +697,7 @@ https就是安全版本的http，譬如一些支付等操作基本都是基于ht
 
 一般来说，主要关注的就是SSL/TLS的握手流程，如下（简述）：
 
-```
+```cpp
 1. 浏览器请求建立SSL链接，并向服务端发送一个随机数–Client random和客户端支持的加密方法，比如RSA加密，此时是明文传输。 
 
 2. 服务端从中选出一组加密算法与Hash算法，回复一个随机数–Server random，并将自己的身份信息以证书的形式发回给浏览器
@@ -759,7 +757,7 @@ https就是安全版本的http，譬如一些支付等操作基本都是基于ht
 
 先看下这几个头部：
 
-```
+```http
 If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、Pragma/Expires
 ```
 
@@ -767,7 +765,7 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 属于强缓存控制的：
 
-```
+```http
 （http1.1）Cache-Control/Max-Age
 （http1.0）Pragma/Expires
 ```
@@ -776,7 +774,7 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 属于协商缓存控制的：
 
-```
+```http
 （http1.1）If-None-Match/E-tag
 （http1.0）If-Modified-Since/Last-Modified
 ```
@@ -785,7 +783,7 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 再提一点，其实HTML页面中也有一个meta标签可以控制缓存方案-`Pragma`
 
-```
+```http
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 ```
 
@@ -855,7 +853,7 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 浏览器内核拿到内容后，渲染步骤大致可以分为以下几步：
 
-```
+```http
 1. 解析HTML，构建DOM树
 
 2. 解析CSS，生成CSS规则树
@@ -883,13 +881,13 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 解析HTML到构建出DOM当然过程可以简述如下：
 
-```
+```http
 Bytes → characters → tokens → nodes → DOM
 ```
 
 譬如假设有这样一个HTML页面：（以下部分的内容出自参考来源，修改了下格式）
 
-```
+```html
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -909,7 +907,7 @@ Bytes → characters → tokens → nodes → DOM
 
 列举其中的一些重点过程：
 
-```
+```http
 1. Conversion转换：浏览器将获得的HTML内容（Bytes）基于他的编码转换为单个字符
 
 2. Tokenizing分词：浏览器按照HTML规范标准将这些字符转换为不同的标记token。每个token都有自己独特的含义以及规则集
@@ -928,13 +926,13 @@ Bytes → characters → tokens → nodes → DOM
 
 同理，CSS规则树的生成也是类似。简述为：
 
-```
+```http
 Bytes → characters → tokens → nodes → CSSOM
 ```
 
 譬如`style.css`内容如下：
 
-```
+```css
 body { font-size: 16px }
 p { font-weight: bold }
 span { color: red }
@@ -966,7 +964,7 @@ img { float: right }
 
 图中重要的四个步骤就是：
 
-```
+```http
 1. 计算CSS样式
 
 2. 构建渲染树
@@ -987,7 +985,7 @@ img { float: right }
 
 **什么会引起回流？**
 
-```
+```http
 1.页面渲染初始化
 
 2.DOM结构改变，比如删除了某个节点
@@ -1019,7 +1017,7 @@ img { float: right }
 
 再来看一个示例：
 
-```
+```js
 var s = document.body.style;
 
 s.padding = "2px"; // 回流+重绘
@@ -1116,7 +1114,7 @@ JS脚本资源的处理有几个特点：
 
 关键字：
 
-```
+```http
 包含块（Containing Block）
 控制框（Controlling Box）
 BFC（Block Formatting Context）
@@ -1154,7 +1152,7 @@ IFC（Inline Formatting Context）
 
 关于**匿名块框**的生成，示例：
 
-```
+```http
 <DIV>
 Some text
 <P>More text
@@ -1174,7 +1172,7 @@ Some text
 
 关于**匿名行内框**的生成，示例：
 
-```
+```html
 <P>Some <EM>emphasized</EM> text</P>
 ```
 
@@ -1200,7 +1198,7 @@ FC（格式上下文）？
 
 FC即格式上下文，它定义框内部的元素渲染规则，比较抽象，譬如
 
-```
+```http
 FC像是一个大箱子，里面装有很多元素
 
 箱子可以隔开里面的元素和外面的元素（所以外部并不会影响FC内部的渲染）
@@ -1214,7 +1212,7 @@ FC像是一个大箱子，里面装有很多元素
 
 **BFC规则：**
 
-```
+```http
 在块格式化上下文中
 
 每一个元素左外边与包含块的左边相接触（对于从右到左的格式化，右外边接触右边）
@@ -1250,7 +1248,7 @@ IFC即行内框产生的格式上下文
 
 **IFC规则**
 
-```
+```http
 在行内格式化上下文中
 
 框一个接一个地水平排列，起点是包含块的顶部。
@@ -1268,7 +1266,7 @@ IFC即行内框产生的格式上下文
 
 行框的规则：
 
-```
+```http
 如果几个行内框在水平方向无法放入一个行框内，它们可以分配在两个或多个垂直堆叠的行框中（即行内框的分割）
 
 行框在堆叠时没有垂直方向上的分割且永不重叠
@@ -1280,7 +1278,7 @@ IFC即行内框产生的格式上下文
 
 **结合补充下IFC规则：**
 
-```
+```http
 浮动元素可能会处于包含块边缘和行框边缘之间
 
 尽管在相同的行内格式化上下文中的行框通常拥有相同的宽度（包含块的宽度），它们可能会因浮动元素缩短了可用宽度，而在宽度上发生变化
@@ -1332,7 +1330,7 @@ http://bbs.csdn.net/topics/340204423
 
 引擎对JS的处理过程可以简述如下：
 
-```
+```cpp
 1. 读取代码，进行词法分析（Lexical analysis），然后将代码分解成词元（token）
 
 2. 对词元进行语法分析（parsing），然后将代码整理成语法树（syntax tree）

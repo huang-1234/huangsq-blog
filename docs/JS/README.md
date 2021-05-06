@@ -1,4 +1,4 @@
-# JS的前世今生
+# The life of JS
 
 <style>
   a {

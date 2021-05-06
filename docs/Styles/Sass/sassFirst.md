@@ -1,4 +1,6 @@
-# one. SASS用法指南
+# one.Sass
+
+初次系统Sass学习来自阮一峰的博客
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 

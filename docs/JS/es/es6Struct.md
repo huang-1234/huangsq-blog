@@ -1,4 +1,4 @@
-# ES6新Symbol，Set，Map
+# 5.ES6 Symbol,Set,Map
 
 ## 新数据类型 Symbol
 

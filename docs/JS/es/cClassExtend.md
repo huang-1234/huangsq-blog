@@ -1,2 +1,2 @@
-# 3. JS模拟类的创建和继承
+# 3.simul Class and inherit
 

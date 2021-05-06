@@ -1,4 +1,4 @@
-#  1. JS类型
+#  1. esType
 
 ## 原始类型
 
@@ -359,7 +359,7 @@ console.log(typeof(test.testObjectNumber));    // object
 
 即通过 `typeof` 进行数据类型判断会有一定的问题。
 
-> 详细研究可以看 **jsliang** 的学习文档[《判断数据类型 - typeof》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/表达式和运算符/判断数据类型/判断数据类型-typeof.md)
+
 
 ### 四 instanceof
 
@@ -399,7 +399,7 @@ console.log(newObject instanceof Object); // true
 
 其实 `instanceof` 主要用于检测构造函数的 `prototype` 属性是否出现在某个实例对象的原型链上，这块知识点到时候我们可以进一步进行学习探索。（一件值得期待的事）
 
-> 详细研究可以看 **jsliang** 的学习文档[《判断数据类型 - instanceof》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/表达式和运算符/判断数据类型/判断数据类型-instanceof.md)
+
 
 ### 五 constructor
 
@@ -436,7 +436,6 @@ const undefin = undefined;
 
 但是很遗憾的表示，当你使用 `null.constructor` 或者 `undefined.constructor` 它会毫不留情的给你报：`Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5`，所以我们也不能强行使用 `constructor` 来做深拷贝时候的判断数据类型。
 
-> 详细研究可以看 **jsliang** 的学习文档[《判断数据类型 - constructor》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/表达式和运算符/判断数据类型/判断数据类型-constructor.md)
 
 
 
@@ -454,7 +453,7 @@ const toString = Object.prototype.toString;
 console.log(toString.call(new Date));     // [object Date]
 console.log(toString.call(new String));   // [object String]
 console.log(toString.call(Math));         // [object Math]
-console.log(toString.call('jsliang'));    // [object String]
+console.log(toString.call('feHuang'));    // [object String]
 console.log(toString.call(123));          // [object Number]
 console.log(toString.call([]));           // [object Array]
 console.log(toString.call({}));           // [object Object]
@@ -468,7 +467,7 @@ console.log(toString.call(null));         // [object Null]
 
 在检测数据类型方面，你不管检测 `Object.prototype.toString.call('aaa')`、`Object.prototype.toString.call(null)` 亦或者 `Object.prototype.toString.call(undefined)` 都能得到你要的类型格式：`[object String]`、`[object Null]`、`[object Undefined]`。
 
-> 详细研究可以看 **jsliang** 的学习文档[《判断数据类型 - toString》](https://github.com/LiangJunrong/document-library/blob/master/JavaScript-library/JavaScript/表达式和运算符/判断数据类型/判断数据类型-toString.md)
+
 
 #3# 七 总结
 

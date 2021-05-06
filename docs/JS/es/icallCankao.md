@@ -1,4 +1,4 @@
-### 实现call
+### Ach call
 
 ```js
 // 找茬2：我们默认定义context.say = this  fn如果已经被占用 嘎嘎 sb了。 不怕 搞定它
