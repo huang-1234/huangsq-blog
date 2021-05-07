@@ -109,6 +109,14 @@ promise.then(onFulfilled, onRejected)
 
 ### 补充
 
+ * Promise 实现 遵循promise/A+规范
+
+ * Promise/A+规范译文:
+
+ * https://malcolmyu.github.io/2015/06/12/Promises-A-Plus/#note-4
+
+    
+
 英文原文地址：[http://promisesaplus.com](http://promisesaplus.com/)
 若要了解文中每一条规则，则参阅其测试仓库：
 
@@ -401,11 +409,6 @@ Promise.race([
 
 
 ```jsx
-/**
- * Promise 实现 遵循promise/A+规范
- * Promise/A+规范译文:
- * https://malcolmyu.github.io/2015/06/12/Promises-A-Plus/#note-4
- */
 
 // promise 三个状态
 const PENDING = "pending";

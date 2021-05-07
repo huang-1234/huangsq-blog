@@ -1,4 +1,4 @@
-# The life of JS
+# 0. The life of JS
 
 <style>
   a {

@@ -172,7 +172,7 @@ console.log('o1:', o1.course.major.math, 'o2:', o2.course.major.math);
 
 **for in可以遍历所有可枚举属性以及原型上的属性**
 
-```
+```js
 var createObj = function(){
     this.name = "大表哥";
 }
@@ -187,7 +187,7 @@ for(var p in obj1){
 
 输出结果
 
-```
+```js
 key: name
 value: 大表哥
 key: age
@@ -196,7 +196,7 @@ value: 10
 
 **hasOwnProperty()不会从原型上寻找属性**
 
-```
+```js
 var resName = obj1.hasOwnProperty("name");
 console.log("name",resName);
 
@@ -206,7 +206,7 @@ console.log("age",resAge);
 
 输出结果
 
-```node
+```js
 name true
 age false
 ```

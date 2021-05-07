@@ -50,7 +50,7 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 
 
 
-```dart
+```js
 // 这里会抛出错误，因为oldValue未定义
 var newValue = oldValue;
 
@@ -66,7 +66,7 @@ var newValue = window.oldValue;
 
 
 
-```jsx
+```js
 var leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screenX;
 var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screenY;
 ```
@@ -91,7 +91,7 @@ var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 
 
-```jsx
+```js
     var pageWidth = window.innerWidth;
     var pageHeight = window.innerHeight;
 
@@ -120,7 +120,7 @@ var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 
 
-```xml
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,7 +161,7 @@ var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 如果为window.open()传递了第二个参数，而且该参数是已有窗口或框架的名称，那么就会在具有该名称的窗口或框架中加载第一个参数指定的URL。
 
-```dart
+```js
 window.open("http://www.wrox.com/","topFrame");
 // 等同于：<a href="http://www.wrox.com" target="topFrame"></a>
 ```
@@ -204,7 +204,7 @@ window.open()方法会返回一个指向新窗口的引用。引用的对象与�
 
 
 
-```dart
+```js
 var wroxWin = window.open("http://www.wrox.com/","wroxWindow","height=400,width=400,top=10,left=10,resizable=yes");
 
 // 调整大小
@@ -239,7 +239,7 @@ JavaScript是单线程语言，但它允许通过设置超时值和间歇时间�
 
 
 
-```jsx
+```js
 // 不建议传递字符串！
 setTimeout("alert('hello world!')",1000);
 

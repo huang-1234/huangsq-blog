@@ -2,13 +2,143 @@
 
 ## instanceof
 
+在 JavaScript 中，判断一个变量的类型常常会用 typeof 运算符，
+在使用 typeof 运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象，
+它都返回 “object”。这就需要用到instanceof来检测某个对象是不是另一个对象的实例。
+
+另外，更重的一点是 instanceof 可以在继承关系中用来判断一个实例是否属于它的父类型。
+
+**简单用法**
+
+```js
+function Fn () {}
+const fn = new Fn()
+fn instanceof Fn
+// true
+```
+
+**实现如下：**
+
+```js
+// left instanceof right
+function _instanceof(left, right) {
+  // 构造函数原型
+  const prototype = right.prototype
+  // 实列对象属性，指向其构造函数原型
+  left = left.__proto__
+  // 查实原型链
+  while (true) {
+    // 如果为null，说明原型链已经查找到最顶层了，真接返回false
+    if (left === null) {
+      return false
+    }
+    // 查找到原型
+    if (prototype === left){
+      return true
+    }
+    // 继续向上查找
+    left = left.__proto__
+  }
+}
+```
+
+上面代码只实现了基础功能，而非全部，看下面代码
+
+```js
+const str = "abc"
+
+str instanceof String // false
+_instanceof(str, String) // true
+```
+
+为什么？根据`ECMAScript7`规范
+
+```js
+O instanceof C
+```
+
+> 重复地获取对象O的原型对象，然后比较该原型对象和`C`的`prototype`属性是否相等，直到相等返回`true`，或者O变为`null`，也就是遍历完整个原型链，返回`false`。
+
+对C的规定
+
+1. 如果`C`的数据类型不是对象，抛出一个类型错误的异常；
+2. 如果`C`不能被调用，抛出一个类型错误的异常；
+3. 如果`C`不能被调用，返回`false`；
+
+对O的规定
+
+1. 如果`O`的类型不是对象，返回`false`；
+
+另外：如果`C`是一个`bind`函数，那么会重新在`C`绑定的目标函数上执行 O instanceof C 操作。
+
+## 另外
+
+来看这么一个问题
+
+```js
+var str = new String("hello world");
+console.log(str instanceof String);//true
+console.log(String instanceof Function);//true
+console.log(str instanceof Function);//false
+```
+
+第三次输出为什么会返回false呢
+
+1、每一个js对象都有一个proto属性 (标准表示[[prototype]])，proto是普通对象的隐式属性，在实例化的时候，会指向prototype所指的对象;对象是没有prototype属性的，prototype则是属于构造函数的属性，即
+
+```js
+console.log(str.__proto__ === String.prototype); //true
+```
+
+2、通过proto属性的串联构建了一个对象的原型访问链，起点为一个具体的对象，终点在Object.prototype，即
+
+```js
+console.log( Object.prototype.__proto__ === null ); //true
+```
+
+**指向关系**
+
+```js
+//表达式一的指向
+console.log(str.__proto__ === String.prototype);//true
+console.log(str instanceof String); //true
+
+//表达式二的指向
+console.log(String.__proto__ === Function.prototype);//true
+console.log(String instanceof Function);//true
+
+//表达式三的指向
+console.log(str.__proto__ === String.prototype);//true
+console.log(str.__proto__.__proto__ === String.prototype.__proto__);//true
+console.log(str.__proto__.__proto__ === Object.prototype);//true
+console.log(str.__proto__.__proto__.__proto__ === null);//true
+console.log(str instanceof Object);//true
+console.log(str instanceof Function);//false
+```
+
+str的原型链上没有Function.prototype，所以返回false
+
+`instanceof` 这个运算符的名字没起好，带有很强的误导性。仅从字面理解，它好像是检查一个对象是否为某个类型的实例对象，然而 `a instanceof b` 真正的语义是检查 b.prototype 是否在 a 的原型链上，仅此而已。
+
+str 的原型链：
+
+```js
+ str ---> String.prototype ---> Object.prototype
+```
+
+String 的原型链：
+
+```js
+String ---> Function.prototype ---> Object.prototype
+```
 
 
 
+Function.protype 不在 str 的原型链上，所以 str instanceof Function 返回 false
 
-## typeof
+# typeof
 
-## typeof 的定义 
+## typeof 的定义
 
 > typeof操作符返回一个字符串，表示未经计算的操作数的类型。
 
