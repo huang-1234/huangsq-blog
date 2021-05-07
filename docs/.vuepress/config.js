@@ -5,14 +5,51 @@ const config = {
   title: 'FShsq',
   // description: '往前端架构、向全栈开发',
   description: 'From FE Arch、To Full Stack',
-  head:[
-		['link',{rel:'icon',href:'/favicon.ico'}]
-	],
+  theme: 'reco',
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    //引用脚本与样式
+    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" }],
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+    // 引入鼠标点击脚本
+    // ["script", {
+    //   "language": "javascript",
+    //   "type": "text/javascript",
+    //   "src": "/js/MouseClickEffect.js"
+    // }],
+  ],
   themeConfig: {
+    //为reco新增加
+    subSidebar: 'auto',
+    authorAvatar: '/me.jpg',
+    logo: '/me.jpg',
+    noFoundPageByTencent: false,
+    /*     // 博客配置
+        blogConfig: {
+          category: {
+            location: 6,     // 在导航栏菜单中所占的位置，默认2
+            text: 'Category' // 默认文案 “分类”
+          },
+          tag: {
+            location: 6,     // 在导航栏菜单中所占的位置，默认3
+            text: 'Tag'      // 默认文案 “标签”
+          },
+          socialLinks: [     // 信息栏展示社交信息
+            { icon: 'reco-github', link: 'https://github.com/huang-1234' },
+            { icon: 'reco-npm', link: 'https://www.npmjs.com' }
+          ]
+        }, */
+    // 密钥
+    // keyPage: {
+    //   keys: ['32位的 md5 加密密文'], // 1.3.0 版本后需要设置为密文
+    //   color: '#42b983', // 登录页动画球的颜色
+    //   lineColor: '#42b983' // 登录页动画线的颜色
+    // },
     // 当前 locale 的 algolia docsearch 选项
+    // 原始的config
     editLinks: false,
     docsDir: 'docs',
-    lastUpdated: 'Last Updated',
+    // lastUpdated: 'Last Updated',
     smoothScroll: true,
     //GitHub仓库，请正确填写
     repo: 'https://github.com/huang-1234',
@@ -29,8 +66,8 @@ const config = {
           {
             text: 'Browser',
             items: [
-              {text:'BrCore(MP)',link:'/BrowserCore/'},
-              {text:'BrModel(MT)',link:'/BrowserModel/'}
+              { text: 'BrCore(MP)', link: '/BrowserCore/' },
+              { text: 'BrModel(MT)', link: '/BrowserModel/' }
             ]
           },
           {
@@ -42,7 +79,7 @@ const config = {
           {
             text: 'Vue',
             items: [
-              {text:'VueBase',link:'/Vue/'}
+              { text: 'VueBase', link: '/Vue/' }
             ]
           }
         ],
@@ -54,13 +91,13 @@ const config = {
           {
             text: 'Nodejs',
             items: [
-              {text:'NodeBase',link:'/Node/'}
+              { text: 'NodeBase', link: '/Node/' }
             ]
           },
           {
-            text:'cPlus',
-            items:[
-              {text:'C++',link:'/Cplus/'}
+            text: 'cPlus',
+            items: [
+              { text: 'C++', link: '/Cplus/' }
             ]
           }
         ]
@@ -73,23 +110,23 @@ const config = {
         ]
       },
       {
-        text: 'Project',
+        text: 'Proj',
         ariaLabel: 'webDesign',
         items: [
           { text: 'Project', link: '/Project/' },
           {
             text: 'toolsForProject',
             items: [
-              {text:'Git&webpack',link:'/Tools/'}
+              { text: 'Git&webpack', link: '/Tools/' }
             ]
           }
         ]
       },
       {
-        text: 'Works',
+        text: 'W',
         ariaLabel: 'webDesign',
         items: [
-          {text: 'interfaceEx',link:'/Interface/'}
+          { text: 'interfaceEx', link: '/Interface/' }
         ]
       }
     ],
@@ -104,26 +141,26 @@ const config = {
       // '/ReactExtends/':getReactExtends(),
       '/Vue/': getVue(),
       //Node
-      '/Node/':getNode(),
+      '/Node/': getNode(),
       // c++
-      '/Cplus/':getCplus(),
+      '/Cplus/': getCplus(),
       //算法&&数学&&机器学习&&人工智能
       '/AlgorithmAI/': getAlgorithm(),
       // '/AlgorithmAI/Math/': getMath(),
       // '/AlgorithmAI/MachineLearning/':getMachineLearning(),
       // 项目方面
       '/Project/': getProject(),
-      '/Echart/':getEchart(),
+      '/Echart/': getEchart(),
       '/Tools/': getTools(),
       // 工作和面试经历
-      '/Interface/':getInterface(),
+      '/Interface/': getInterface(),
     }
   }
 }
 
 //一些函数
 //返回JS的笔记标题
- function getJS() {
+function getJS() {
   return [
     {
       title: 'ES',
@@ -138,7 +175,7 @@ const config = {
         'es/cClassExtend',
         'es/cString',
         'es/cArray',
-        
+
         //es内置对象
         'es/dRegExp',
         'es/dDate',
@@ -147,7 +184,7 @@ const config = {
         //es新增数据结构
         'es/es6Struct',
         'es/eSet',
-        
+
         //JSON
 
         //
@@ -159,12 +196,12 @@ const config = {
         'es/iprototype',
         'es/instanceof&typeof',
         'es/iNewByme',
-        
+
         // 手写相关
         'es/xClone',
         'es/xPromiseA+',
 
-        
+
 
         // 'es/LongPromise',
       ]
@@ -186,7 +223,7 @@ const config = {
     {
       title: 'BOM',
       children: [
-        
+
       ]
     },
     {
@@ -230,7 +267,7 @@ function getHTML() {
   ]
 }
 // CSS学习的笔记
- function getStyles() {
+function getStyles() {
   return [
     {
       title: 'StylesBase',
@@ -285,7 +322,7 @@ function getHTML() {
 function getBrowserCore() {
   return [
     {
-      title:'RenderPrinciple',
+      title: 'RenderPrinciple',
       children: [
         'Render/bRenderEngine',
         'Render/Principle',
@@ -361,7 +398,7 @@ function getBrowserModel() {
   ]
 }
 //React基础和扩展
- function getReact() {
+function getReact() {
   return [
     {
       title: 'ReactBase',
@@ -372,7 +409,7 @@ function getBrowserModel() {
         'ReactBase/dRouter',
         'ReactBase/eLifeFun',
         // 'ReactBase/yReact-ReduxPersonal',
-        
+
       ]
     },
     {
@@ -431,19 +468,19 @@ function getNode() {
       ]
     },
     {
-      title:'NodeExtend',
-      children:[
+      title: 'NodeExtend',
+      children: [
         '/'
       ]
     }
   ]
 }
 //C++
-function getCplus(){
+function getCplus() {
   return [
     {
-      title:'CplusBase',
-      children:[
+      title: 'CplusBase',
+      children: [
         'CplusBase/CplusVSCodeConfig',
         'CplusBase/aRelearnCplus',
         'CplusBase/aDataType',
@@ -492,8 +529,8 @@ function getAlgorithm() {
     },
     {
       title: 'AI',
-      children:[
-        
+      children: [
+
       ]
     }
   ]
@@ -515,13 +552,13 @@ function getMachineLearning() {
     {
       text: '机器学习',
       children: [
-        
+
       ]
     }
   ]
 }
 //各种项目方面，以及目前前端写项目需要用到的集成框架和工具
- function getProject() {
+function getProject() {
   return [
     {
       title: 'underTaking',
@@ -608,7 +645,7 @@ function getInterface() {
     {
       title: 'me',
       children: [
-        
+
       ]
     }
   ]

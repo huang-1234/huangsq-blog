@@ -168,9 +168,52 @@ o2.course.major.math.push('JSxue')
 console.log('o1:', o1.course.major.math, 'o2:', o2.course.major.math);
 ```
 
+## 遍历对象改用for in
+
+**for in可以遍历所有可枚举属性以及原型上的属性**
+
+```
+var createObj = function(){
+    this.name = "大表哥";
+}
+var obj1 = new createObj();
+createObj.prototype.age = 10;
+
+for(var p in obj1){
+    console.log('key:',p);
+    console.log('value:',obj1[p]);
+}
+```
+
+输出结果
+
+```
+key: name
+value: 大表哥
+key: age
+value: 10
+```
+
+**hasOwnProperty()不会从原型上寻找属性**
+
+```
+var resName = obj1.hasOwnProperty("name");
+console.log("name",resName);
+
+var resAge = obj1.hasOwnProperty("age");
+console.log("age",resAge);
+```
+
+输出结果
+
+```node
+name true
+age false
+```
+
 该深拷贝可以拷贝一般的对象，而且嵌套的层级不能太深
 
-一个特例：
+一个特例：循环引用。
 
 ```js
 let obj = { 

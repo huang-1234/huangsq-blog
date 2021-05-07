@@ -98,9 +98,4 @@ var time2 = new Date().Format('yyyy-MM-dd HH:mm:ss');
   </script>
 ```
 
-> 方法三：有点乱
-
-```js
-
-```
 

@@ -40,13 +40,24 @@ JavaScript引擎是一个专门处理JavaScript脚本的虚拟机，一般会附
 -  V8（Chrome）
    谷歌公司开发的V8浏览器基于C++，在运行JavaScript之前，相比其它的JavaScript的引擎转换成字节码或解释执行，V8将其编译成原生机器码（IA- 32, x86- 64, ARM, or MIPS CPUs），并且使用了如内联缓存（inline caching）等方法来提高性能。有了这些功能，JavaScript程序在V8引擎下的运行速度媲美二进制程序。
    NodeJS其实就是封装了V8。
--  Chakra （IE）
--  Chakra 中文译名为查克拉（火影乱入）。虽然新版的IE（IE9及之后的版本）以及Edge使用的是Chakra，但老版的IE仍然使用的是Jscript。
+   
+- Chakra （IE）
+
+- Chakra 中文译名为查克拉（火影乱入）。虽然新版的IE（IE9及之后的版本）以及Edge使用的是Chakra，但老版的IE仍然使用的是Jscript。
+
 -  Nitro（SquirrelFish）（Safari）
    2008年6月2日，WebKit开发团队声明了SquirrelFish，一个能极大地提升Safari解释脚本速度的JavaScript引擎。
--  SquirrelFish是基于寄存器、直接线程的高级字节码引擎。
--  Carakan（Opera）
--  Mozilla（firefox）
+   
+- SquirrelFish是基于寄存器、直接线程的高级字节码引擎。
+
+- Carakan（Opera）
+
+- Mozilla（firefox）
+
+- Nashorn - 作为OpenJDK的一部分开源，使用Oracle Java语言和工具编写
+
+-  JerryScript - 用于物联网的轻量级引擎。
+
    **总结**
 
 一个典型的浏览器有一个渲染引擎和一个独立的JavaScript引擎。这样JavaScript引擎能够被更方便的测试、重新生成或者在另一些项目中使用。例如Carakan被用在Presto中，Nitro被用在WebKit中，SpiderMonkey被用在Gecko中，KJS被用在KHTML中，Rhino默认不包含任何布局引擎。但还有其他组合，例如V8与WebKit被用于Chrome浏览器中。JavaScript引擎能为程序员提供部分操作浏览器的功能（网络、DOM、外部事件、HTML5视频、canvas和存储）。

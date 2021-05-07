@@ -1,5 +1,11 @@
 # 资料地址
 
+## MyBlog
+
+[vuepress-theme-reco](https://vuepress-theme-reco.recoluan.com/)
+
+## 其他
+
 [算法图示地址](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
 
 [推排序](https://www.cnblogs.com/lanhaicode/p/10546257.html)
@@ -40,7 +46,9 @@
 
 [JSON 简介 | 菜鸟教程 (runoob.com)](https://www.runoob.com/json/json-intro.html)
 
-### JSAPI
+[UI Events](https://www.w3.org/TR/DOM-Level-3-Events/#ui-events-overview)
+
+### jsAPI
 
 [深拷贝的终极探索](https://segmentfault.com/a/1190000016672263)
 
@@ -65,6 +73,12 @@
 [React演示]([react-hooks-demo-1 - CodeSandbox](https://codesandbox.io/s/v0nqm309q3?file=/src/index.js))
 
  [关于React-redux的Provider, connect的解析](https://segmentfault.com/a/1190000017994290)
+
+[React useEffect的陷阱](https://zhuanlan.zhihu.com/p/84697185)
+
+### Babel
+
+[深入浅出 Babel 上篇](https://juejin.cn/post/6844903956905197576)
 
 ## Node
 
@@ -113,4 +127,18 @@
 [React揭秘](https://react.iamkasong.com/)
 
 [木易杨前端进阶](https://www.muyiy.cn/)
+
+ [Dart——基础](https://www.cnblogs.com/codexlx/p/13843328.html)
+
+[vuepress-theme-reco](https://vuepress-theme-reco.recoluan.com/)
+
+[vueTheme](https://lovelijunyi.gitee.io/posts/6b66.html)
+
+[音乐link外网](http://music.xf1433.com/)
+
+[vuepress-plugin-music-bar](https://www.npmjs.com/package/vuepress-plugin-music-bar)
+
+## 其他资源
+
+[ConpressPicture](https://www.gaitubao.com/)
 

@@ -6,12 +6,12 @@ set -e
 # 生成静态文件
 npm run build
 
-git init
+# git init
 git add .
 git commit -m 'update source'
 
 git remote -v
-git pull
+# git pull
 
 git push -f https://github.com/huang-1234/MyvuePressBlog.git main
 
@@ -21,7 +21,7 @@ cd dist
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
-git init
+# git init
 git add .
 git commit -m 'update source'
 
@@ -30,7 +30,7 @@ git commit -m 'update source'
 
 git remote -v
 
-git pull
+# git pull
 
 git push -f git@github.com:huang-1234/huang-1234.github.io.git master
 # git pull
