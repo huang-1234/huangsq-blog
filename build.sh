@@ -9,8 +9,8 @@ npm run build
 # nav into the build out dir
 
 # git
-git init
+# git init
 git add .
-git commit -m 'commitVuepress update Algorithm'
+git commit -m 'change theme'
 # git remote add origin https://github.com/huang-1234/MyvuePressBlog.git
 git push -f origin main

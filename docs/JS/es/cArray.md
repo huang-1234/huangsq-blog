@@ -31,12 +31,16 @@ js数组对象自带的方法有如下这些，除了`toSource()`这个方法比
 
 我们将这些方法分有返回值(上述描述中红色字体返回值的类型)的和没有返回值的
 
+```js
 返回值为数组的：`concat(),reverse(),sort(),toLocaleString(),map(),filter()`
 返回值为字符串的：`join(),toString()`
 返回值为数组元素的：`pop(),shift(),slice(),splice()`
 返回值为数组长度的：`push(),unshift()`
 返回值为对象的：`valueOf()`
 返回值为布尔值的：`some(),every()`
+```
+
+
 
 ## 从是否改变原数组的角度
 
@@ -102,10 +106,9 @@ var shallowCopy = fruits.slice(); // this is how to make a copy
 // ["Strawberry", "Mango"]
 ```
 
+> 语法
 
-### [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#语法)
-
-```
+```js
 [element0, element1, ..., elementN]
 new Array(element0, element1[, ...[, elementN]])
 new Array(arrayLength)
@@ -121,14 +124,13 @@ new Array(arrayLength)
 
   一个范围在 0 到 232-1 之间的整数，此时将返回一个 `length` 的值等于 `arrayLength` 的数组对象（言外之意就是该数组此时并没有包含任何实际的元素，不能理所当然地认为它包含 `arrayLength` 个值为 `undefined` 的元素）。如果传入的参数不是有效值，则会抛出 [`RangeError`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RangeError) 异常。
 
-## [描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#描述)
+## 描述
 
 数组是一种类列表对象，它的原型中提供了遍历和修改元素的相关操作。JavaScript 数组的长度和元素类型都是非固定的。<font color=red>因为数组的长度可随时改变，并且其数据在内存中也可以不连续</font>，所以 JavaScript 数组不一定是密集型的，这取决于它的使用方式。一般来说，数组的这些特性会给使用带来方便，但如果这些特性不适用于你的特定使用场景的话，可以考虑使用类型数组 [`TypedArray`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)。
 
 只能用整数作为数组元素的索引，而不能用字符串。后者称为[关联数组](https://en.wikipedia.org/wiki/Associative_array)。使用非整数并通过[方括号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties)或[点号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors)来访问或设置数组元素时，所操作的并不是数组列表中的元素，而是数组对象的[属性集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#Properties)上的变量。数组对象的属性和数组元素列表是分开存储的，并且数组的遍历和修改操作也不能作用于这些命名属性。
 
-## [访问数组元素](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#访问数组元素)
-
+## 访问数组元素
 JavaScript 数组的索引是从0开始的，第一个元素的索引为0，最后一个元素的索引等于该数组的长度减1。如果指定的索引是一个无效值，JavaScript 数组并不会报错，而是会返回 `undefined`。
 
 虽然数组元素可以看做是数组对象的属性，就像 `toString` 一样，但是下面的写法是错误的，运行时会抛出 `SyntaxError` 异常，而原因则是使用了非法的属性名：
@@ -160,7 +162,7 @@ var promise = {'var'  : 'text','array': [1, 2, 3, 4]};
 console.log(promise['var']);
 ```
 
-## [length 和数字下标之间的关系](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#length_和数字下标之间的关系)
+## length 和数字下标之间的关系
 
 JavaScript 数组的 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 属性和其数字下标之间有着紧密的联系。数组内置的几个方法（例如 [`join`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)、[`slice`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)、[`indexOf`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) 等）都会考虑 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 的值。另外还有一些方法（例如 [`push`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)、[`splice`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) 等）还会改变 [`length`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length) 的值。
 
@@ -205,7 +207,7 @@ console.log(fruits.length); // 2
 // 并且需要记住子串中匹配到的 b 和最后的 d （通过正则表达式中的分组），
 // 同时在匹配时忽略大小写
 myRe = /d(b+)(d)/i;
-myArray = myRe.exec("cdbBdbsbz");
+myArray = myRe.exec("Shuiqing");
 ```
 
 该正则匹配返回的数组包含以下属性和元素：
@@ -299,7 +301,7 @@ myArray = myRe.exec("cdbBdbsbz");
 
   返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
   
-  ## 迭代方法
+## 迭代方法
 
 在下面的众多遍历方法中，有很多方法都需要指定一个回调函数作为参数。在每一个数组元素都分别执行完回调函数之前，数组的length属性会被缓存在某个地方，所以，如果你在回调函数中为当前数组添加了新的元素，那么那些新添加的元素是不会被遍历到的。此外，如果在回调函数中对当前数组进行了其它修改，比如改变某个元素的值或者删掉某个元素，那么随后的遍历操作可能会受到未预期的影响。总之，不要尝试在遍历过程中对原数组进行任何修改，虽然规范对这样的操作进行了详细的定义，但为了可读性和可维护性，请不要这样做。
 

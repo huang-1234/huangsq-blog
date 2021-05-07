@@ -16,10 +16,10 @@
 
 ```js
 function Fn(){
-    this.user = "jschen";
+    this.user = "AndyHuang";
 }
 var a = new Fn();
-console.log(a.user); //jschen
+console.log(a.user); //AndyHuang
 ```
 
 首先，必须搞清楚在JS里面，函数的几种调用方式:
@@ -37,7 +37,7 @@ console.log(a.user); //jschen
 
    ```js
    function SayName(){
-     name:'h',
+     name:'andy',
      this.name:'sq',
      console.log('this:',this,'this.name:',this.name);
      console.log('name:',name)
@@ -58,18 +58,18 @@ console.log(a.user); //jschen
 
 ```js
 // 2. 作为方法调用
-var name = "XL";
+var name = "shuiqing";
 var person = {
-  name: "xl",
+  name: "shuiqing",
   showName: function () {
     console.log(this.name);
   }
 }
-person.showName();  //输出  xl
+person.showName();  //输出  shuiqing
 //这里是person对象调用showName方法，很显然this关键字是指向person对象的，所以会输出name
 
 var showNameA = person.showName;
-showNameA();    //输出  XL
+showNameA();    //输出  shuiqing
 //这里将person.showName方法赋给showNameA变量，此时showNameA变量相当于window对象的一个属性，
 //因此showNameA()执行的时候相当于window.showNameA(), 
 //即window对象调用showNameA这个方法，所以this关键字指向window
@@ -79,17 +79,17 @@ showNameA();    //输出  XL
 
 ```js
 let personA = {
-  name: "xl",
+  name: "shuiqing",
   showName: function () {
     console.log(this.name);
   }
 }
 let personB = {
-  name: "XL",
+  name: "SHUIQING",
   sayName: personA.showName
 }
 
-personB.sayName();  //输出 XL
+personB.sayName();  //输出 SHUIQING
 //虽然showName方法是在personA这个对象中定义，但是调用的时候却是在personB这个对象中调用，因此this对象指向
 ```
 
@@ -99,12 +99,12 @@ personB.sayName();  //输出 XL
 function Person(name) {
   this.name = name;
 }
-var personA = Person("xl");
+var personA = Person("shuiqing");
 console.log(personA.name); // 输出  undefined
-console.log(window.name);//输出  xl
-//上面代码没有进行new操作，相当于window对象调用Person("xl")方法，那么this指向window对象，并进行赋值操作window.name="xl".
-var personB = new Person("xl");
-console.log(personB.name);// 输出 xl
+console.log(window.name);//输出  shuiqing
+//上面代码没有进行new操作，相当于window对象调用Person("shuiqing")方法，那么this指向window对象，并进行赋值操作window.name="shuiqing".
+var personB = new Person("shuiqing");
+console.log(personB.name);// 输出 shuiqing
 ```
 
 4. new操作符：
@@ -117,7 +117,7 @@ let p = new Person('hsq',18,'male')
 console.log('name:',p.name) // name:hsq
 // 这说明构造函数中的this指向由他创建的实例对象
 //另外
-let name = 'h'
+let name = 'shuiqing'
 function sayName() {
   //'use strict' 
   let name = 'hsq';

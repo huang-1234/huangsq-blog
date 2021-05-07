@@ -223,20 +223,25 @@ http://fex.baidu.com/blog/2014/05/what-happen/
 
 回到这道题上，如何回答呢？先梳理一个骨架
 
+
+
 知识体系中，最重要的是骨架，脉络。有了骨架后，才方便填充细节。所以，先梳理下主干流程：
 
-```cpp
+```js
 1. 从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）
 
 2. 开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）
 
 3. 从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）
 
-4. 后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）
+4. 后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，
+  可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）
 
 5. 单独拎出来的缓存问题，http的缓存（这部分包括http缓存头部，etag，catch-control等）
 
-6. 浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、合并成render树，然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和domcontentloaded等）
+6. 浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、
+  合并成render树，然后layout、painting渲染、复合图层的合成、
+  GPU绘制、外链资源的处理、loaded和domcontentloaded等）
 
 7. CSS的可视化格式模型（元素的渲染规则，如包含块，控制框，BFC，IFC等概念）
 
@@ -334,7 +339,7 @@ tcp将http长报文划分为短报文，通过三次握手与服务端建立连�
 
 **三次握手的步骤：（抽象派）**
 
-```cpp
+```js
 客户端：hello，你是server么？
 服务端：hello，我是server，你是client么
 客户端：yes，我是client
@@ -346,7 +351,7 @@ tcp将http长报文划分为短报文，通过三次握手与服务端建立连�
 
 **四次挥手的步骤：（抽象派）**
 
-```cpp
+```js
 主动方：我已经关闭了向你那边的主动通道了，只能被动接收了
 被动方：收到通道关闭的信息
 被动方：那我也告诉你，我这边向你的主动通道也关闭了
@@ -388,7 +393,7 @@ get会产生一个tcp数据包，post两个
 
 五层因特网协议栈其实就是：
 
-```cpp
+```js
 1.应用层(dns,http) DNS解析成IP并发送http请求
 
 2.传输层(tcp,udp) 建立tcp连接（三次握手）
@@ -404,7 +409,7 @@ get会产生一个tcp数据包，post两个
 
 OSI七层框架：`物理层`、`数据链路层`、`网络层`、`传输层`、`会话层`、`表示层`、`应用层`
 
-```cpp
+```js
 表示层：主要处理两个通信系统中交换信息的表示方式，包括数据格式交换，数据加密与解密，数据压缩与终端类型转换等
 
 会话层：它具体管理不同用户和进程之间的对话，如控制登陆和注销过程
@@ -456,7 +461,7 @@ OSI七层框架：`物理层`、`数据链路层`、`网络层`、`传输层`、
 
 这也是开发人员见过的最多的信息，包括如下：
 
-```cpp
+```http
 Request Url: 请求的web服务器地址
 
 Request Method: 请求方式
@@ -471,7 +476,7 @@ Remote Address: 请求的远程服务器地址（会转为IP）
 
 其中，Method的话一般分为两批次：
 
-```cpp
+```http
 HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。
 以及几种Additional Request Methods：PUT、DELETE、LINK、UNLINK
 
@@ -484,7 +489,7 @@ HTTP1.1定义了八种请求方法：GET、POST、HEAD、OPTIONS, PUT, DELETE, T
 
 这里面最常用到的就是状态码，很多时候都是通过状态码来判断，如（列举几个最常见的）：
 
-```cpp
+```http
 200——表明该请求被成功地完成，所请求的资源发送回客户端
 304——自从上次请求后，请求的网页未修改过，请客户端使用本地缓存
 400——客户端请求有错（譬如可以是安全模块拦截）
@@ -498,7 +503,7 @@ HTTP1.1定义了八种请求方法：GET、POST、HEAD、OPTIONS, PUT, DELETE, T
 
 再列举下大致不同范围状态的意义
 
-```cpp
+```http
 1xx——指示信息，表示请求已接收，继续处理
 2xx——成功，表示请求已被成功接收、理解、接受
 3xx——重定向，要完成请求必须进行更进一步的操作
@@ -697,7 +702,7 @@ https就是安全版本的http，譬如一些支付等操作基本都是基于ht
 
 一般来说，主要关注的就是SSL/TLS的握手流程，如下（简述）：
 
-```cpp
+```js
 1. 浏览器请求建立SSL链接，并向服务端发送一个随机数–Client random和客户端支持的加密方法，比如RSA加密，此时是明文传输。 
 
 2. 服务端从中选出一组加密算法与Hash算法，回复一个随机数–Server random，并将自己的身份信息以证书的形式发回给浏览器
@@ -1114,7 +1119,7 @@ JS脚本资源的处理有几个特点：
 
 关键字：
 
-```http
+```css
 包含块（Containing Block）
 控制框（Controlling Box）
 BFC（Block Formatting Context）
@@ -1153,10 +1158,10 @@ IFC（Inline Formatting Context）
 关于**匿名块框**的生成，示例：
 
 ```http
-<DIV>
+<div>
 Some text
-<P>More text
-</DIV>
+<p>More text
+</div>
 ```
 
 `div`生成了一个块框，包含了另一个块框`p`以及文本内容`Some text`，此时`Some text`文本会被强制加到一个匿名的块框里面，被`div`生成的块框包含（其实这个就是`IFC`中提到的行框，包含这些行内框的这一行匿名块形成的框，行框和行内框不同）
@@ -1330,7 +1335,7 @@ http://bbs.csdn.net/topics/340204423
 
 引擎对JS的处理过程可以简述如下：
 
-```cpp
+```js
 1. 读取代码，进行词法分析（Lexical analysis），然后将代码分解成词元（token）
 
 2. 对词元进行语法分析（parsing），然后将代码整理成语法树（syntax tree）
@@ -1362,7 +1367,7 @@ http://bbs.csdn.net/topics/340204423
 
 JS执行是需要分号的，但为什么以下语句却可以正常运行呢？
 
-```
+```js
 console.log('a')
 console.log('b')
 ```
@@ -1377,7 +1382,7 @@ console.log('b')
 
 于是，上述的代码就变成了
 
-```
+```js
 console.log('a');
 console.log('b');
 ```
@@ -1386,7 +1391,7 @@ console.log('b');
 
 当然了，这里有一个经典的例子：
 
-```
+```js
 function b() {
     return
     {
@@ -1397,7 +1402,7 @@ function b() {
 
 由于分号补全机制，所以它变成了：
 
-```
+```js
 function b() {
     return;
     {
@@ -1414,7 +1419,7 @@ function b() {
 
 譬如：
 
-```
+```js
 a = 1;
 b();
 function b() {
@@ -1425,7 +1430,7 @@ var a;
 
 经过变量提升后，就变成：
 
-```
+```js
 function b() {
     console.log('b');
 }
@@ -1492,7 +1497,7 @@ AO（`activation object`)，当函数被调用者激活，AO就被创建了
 
 譬如流程简述：
 
-```
+```js
 在函数上下文中，查找一个变量foo
 
 如果函数的VO中找到了，就直接使用
@@ -1520,7 +1525,7 @@ AO（`activation object`)，当函数被调用者激活，AO就被创建了
 
 所以经典的例子：
 
-```
+```js
 var baz = 200;
 var bar = {
     baz: 100,

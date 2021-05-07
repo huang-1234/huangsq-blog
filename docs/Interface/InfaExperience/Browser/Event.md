@@ -1066,9 +1066,9 @@ window.onerror = function(message, source, lineno, colno, error) { ... }
 window.addEventListener('error', function(event) { ... })
 ```
 
-[window.error详情](https://link.zhihu.com/?target=https%3A//developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onerror);
-
 参考文献：
+
+[window.error详情](https://link.zhihu.com/?target=https%3A//developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onerror);
 
 [javascript 事件流和事件委托](https://link.zhihu.com/?target=https%3A//juejin.cn/post/6854573221983813645);
 
