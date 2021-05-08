@@ -14,7 +14,7 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 
 ```html
   <script defer>
-    var a = 15;
+    let a = 15;
     window.b = 20;
     console.log(window.a,window.b) // 15 20
     delete window.a;
@@ -23,11 +23,11 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
   </script>
 ```
 
-可以看到var a虽然也是window的属性，但是通过delete删不掉，这是为什么呢？加上两句代码
+可以看到let a虽然也是window的属性，但是通过delete删不掉，这是为什么呢？加上两句代码
 
 ```html
 <script defer>
-  var a = 15;
+  let a = 15;
   window.b = 20;
   console.log(window.a,window.b) // 15 20
   // delete window.a;
@@ -40,11 +40,11 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 </script>
 ```
 
-我们可以看到通过var a = 15将a作为window的属性，其configurable=false，意思就是不可配置
+我们可以看到通过let a = 15将a作为window的属性，其configurable=false，意思就是不可配置
 
 而通过window.b=20;将b作为window的属性，则相反，可配置
 
-使用var语句添加的window属性有一个名为[[Configurable]]的特性。这个特性的值被设置为false，因此这样定义的属性不可以通过delete操作符删除。
+使用let语句添加的window属性有一个名为[[Configurable]]的特性。这个特性的值被设置为false，因此这样定义的属性不可以通过delete操作符删除。
 
 尝试访问未声明的变量会抛出错误，但是通过查询window对象，可以知道某个可能未声明的变量是否存在。
 
@@ -52,11 +52,11 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 
 ```js
 // 这里会抛出错误，因为oldValue未定义
-var newValue = oldValue;
+let newValue = oldValue;
 
 // 这里不会抛出错误，因为这是一次属性查询
 // newValue的值是undefined
-var newValue = window.oldValue;
+let newValue = window.oldValue;
 ```
 
 ## 窗口位置
@@ -67,8 +67,8 @@ var newValue = window.oldValue;
 
 
 ```js
-var leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screenX;
-var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screenY;
+let leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screenX;
+let topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screenY;
 ```
 
 首先确定screenLeft和screenTop是否存在，是则取得这两个属性值，不存在则使用另外的screenX和screenY。
@@ -92,8 +92,8 @@ var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 
 ```js
-    var pageWidth = window.innerWidth;
-    var pageHeight = window.innerHeight;
+    let pageWidth = window.innerWidth;
+    let pageHeight = window.innerHeight;
 
     if (typeof pageWidth != "number") {
         if (document.compatMode == "CSS1compat") {
@@ -133,11 +133,11 @@ var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
     <input type="button" value="resizeBy()">
 </body>
 <script>
-    var btn = document.getElementsByTagName("input")[0];
-    var btn2 = document.getElementsByTagName("input")[1];
-    var btn3 = document.getElementsByTagName("input")[2];
+    let btn = document.getElementsByTagName("input")[0];
+    let btn2 = document.getElementsByTagName("input")[1];
+    let btn3 = document.getElementsByTagName("input")[2];
 
-    var z;
+    let z;
 
     btn.onclick = function () {
         z = window.open("", "", "width=100,height=100");
@@ -205,7 +205,7 @@ window.open()方法会返回一个指向新窗口的引用。引用的对象与�
 
 
 ```js
-var wroxWin = window.open("http://www.wrox.com/","wroxWindow","height=400,width=400,top=10,left=10,resizable=yes");
+let wroxWin = window.open("http://www.wrox.com/","wroxWindow","height=400,width=400,top=10,left=10,resizable=yes");
 
 // 调整大小
 wroxWin.resizeTo(500,500);
@@ -281,7 +281,7 @@ if (confirm("Are you sure?")) {
  如果用户单击了cancel按钮或没有单击OK按钮而是通过其他方式关闭对话框，则该方法返回null。
 
 ```csharp
-var result = prompt("What is your name?","");
+let result = prompt("What is your name?","");
 if (result !== null) {
     alert("Welcome, "+result);
 }

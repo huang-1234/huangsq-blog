@@ -91,7 +91,7 @@ function getJS() {
     {
       title: 'BOM',
       children: [
-
+        
       ]
     },
     {
@@ -130,6 +130,7 @@ function getHTML() {
         'H5/H5new',
         'H5/ReactiveMobile',
         'H5/drag',
+        'H5/H5semantization',
       ]
     }
   ]

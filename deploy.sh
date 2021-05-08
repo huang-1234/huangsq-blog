@@ -8,7 +8,7 @@ npm run build
 
 # git init
 git add .
-git commit -m 'update source'
+git commit -m 'update English'
 
 git remote -v
 # git pull
@@ -21,9 +21,9 @@ cd dist
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
-# git init
+git init
 git add .
-git commit -m 'update source'
+git commit -m 'update English'
 
 # 如果发布到 https://<USERNAME>.github.io
 git remote add origin git@github.com:huang-1234/huang-1234.github.io.git

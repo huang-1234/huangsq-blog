@@ -1,4 +1,4 @@
-# HTML5新增内容和部分详解
+# HTML5新增内容
 
 [概要学习H5](https://www.w3school.com.cn/html/html5_new_elements.asp)
 

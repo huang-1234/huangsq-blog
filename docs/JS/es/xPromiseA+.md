@@ -137,13 +137,13 @@ https://github.com/promises-aplus/promises-tests/tree/master/lib/tests
 - 发布/订阅
 - Promise对象
 
-#### 这里就拿回调函数说说
+###  这里就拿回调函数说说
 
 1.对于回调函数 我们用Jquery的ajax获取数据时 都是以回调函数方式获取的数据
 
 
 
-```tsx
+```js
 $.get(url, (data) => {
     console.log(data)
 )
@@ -153,7 +153,7 @@ $.get(url, (data) => {
 
 
 
-```tsx
+```js
 $.get(url, data1 => {
     console.log(data1)
     $.get(data1.url, data2 => {
@@ -169,13 +169,13 @@ $.get(url, data1 => {
 - 回调函数基本都是匿名函数，bug 追踪困难。
 - 回调函数是被第三方库代码（如上例中的 ajax ）而非自己的业务代码所调用的，造成了 IoC 控制反转。
 
-#### Promise 处理多个相互关联的异步请求
+###  Promise 处理多个相互关联的异步请求
 
 1.而我们Promise 可以更直观的方式 来解决 "回调地狱"
 
 
 
-```tsx
+```js
 const request = url => { 
     return new Promise((resolve, reject) => {
         $.get(url, data => {
@@ -198,7 +198,7 @@ request(url).then(data1 => {
 
 
 
-```jsx
+```js
 import axios from 'axios';
 axios.get(url).then(data => {
    console.log(data)
@@ -209,20 +209,20 @@ axios.get(url).then(data => {
 
 ## 3.Promise使用
 
-#### 1.Promise 是一个构造函数
+###  1.Promise 是一个构造函数
 
 new Promise 返回一个 promise对象 接收一个excutor执行函数作为参数, excutor有两个函数类型形参resolve reject
 
 
 
-```jsx
+```js
 const promise = new Promise((resolve, reject) => {
   // 异步处理
   // 处理结束后、调用resolve 或 reject
 });
 ```
 
-#### 2.promise相当于一个状态机
+###  2.promise相当于一个状态机
 
 promise的三种状态
 
@@ -236,13 +236,13 @@ promise的三种状态
 
 > 注意promsie状态 只能由 pending => fulfilled/rejected, 一旦修改就不能再变
 
-#### 3.promise对象方法
+###  3.promise对象方法
 
 1.then方法注册 当resolve(成功)/reject(失败)的回调函数
 
 
 
-```cpp
+```js
 // onFulfilled 是用来接收promise成功的值
 // onRejected 是用来接收promise失败的原因
 promise.then(onFulfilled, onRejected);
@@ -254,7 +254,7 @@ promise.then(onFulfilled, onRejected);
 
 
 
-```tsx
+```js
 const promise = new Promise((resolve, reject) => {
    resolve('fulfilled'); // 状态由 pending => fulfilled
 });
@@ -269,7 +269,7 @@ promise.then(result => { // onFulfilled
 
 
 
-```tsx
+```js
 const promise = new Promise((resolve, reject) => {
    reject('rejected'); // 状态由 pending => rejected
 });
@@ -300,37 +300,37 @@ promise.then(onFulfilled)
        .catch(onRrejected);   
 ```
 
-#### 4.promise chain
+###  4.promise chain
 
 > promise.then方法每次调用 都返回一个新的promise对象 所以可以链式写法
 
 
 
-```jsx
+```js
 function taskA() {
-    console.log("Task A");
+  console.log("Task A");
 }
 function taskB() {
-    console.log("Task B");
+  console.log("Task B");
 }
 function onRejected(error) {
-    console.log("Catch Error: A or B", error);
+  console.log("Catch Error: A or B", error);
 }
 
 var promise = Promise.resolve();
 promise
-    .then(taskA)
-    .then(taskB)
-    .catch(onRejected) // 捕获前面then方法中的异常
+  .then(taskA)
+  .then(taskB)
+  .catch(onRejected) // 捕获前面then方法中的异常
 ```
 
-#### 5.Promise的静态方法
+###  5.Promise的静态方法
 
 1.Promise.resolve 返回一个fulfilled状态的promise对象
 
 
 
-```jsx
+```js
 Promise.resolve('hello').then(function(value){
     console.log(value);
 });
@@ -346,7 +346,7 @@ const promise = new Promise(resolve => {
 
 
 
-```jsx
+```js
 Promise.reject(24);
 new Promise((resolve, reject) => {
    reject(24);
@@ -359,23 +359,23 @@ new Promise((resolve, reject) => {
 
 
 
-```tsx
+```js
 const p1 = new Promise((resolve, reject) => {
-    resolve(1);
+  resolve(1);
 });
 
 const p2 = new Promise((resolve, reject) => {
-    resolve(2);
+  resolve(2);
 });
 
 const p3 = new Promise((resolve, reject) => {
-    reject(3);
+  reject(3);
 });
 
 Promise.all([p1, p2, p3]).then(data => { 
-    console.log(data); // [1, 2, 3] 结果顺序和promise实例数组顺序是一致的
+  console.log(data); // [1, 2, 3] 结果顺序和promise实例数组顺序是一致的
 }, err => {
-    console.log(err);
+  console.log(err);
 });
 ```
 
@@ -385,22 +385,22 @@ Promise.all([p1, p2, p3]).then(data => {
 
 
 
-```jsx
+```js
 function timerPromisefy(delay) {
-    return new Promise(function (resolve, reject) {
-        setTimeout(function () {
-            resolve(delay);
-        }, delay);
-    });
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        resolve(delay);
+    }, delay);
+  });
 }
 var startDate = Date.now();
 
 Promise.race([
-    timerPromisefy(10),
-    timerPromisefy(20),
-    timerPromisefy(30)
+  timerPromisefy(10),
+  timerPromisefy(20),
+  timerPromisefy(30)
 ]).then(function (values) {
-    console.log(values); // 10
+  console.log(values); // 10
 });
 ```
 
@@ -408,7 +408,7 @@ Promise.race([
 
 
 
-```jsx
+```js
 
 // promise 三个状态
 const PENDING = "pending";
@@ -543,8 +543,11 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
 
   // then里面的FULFILLED/REJECTED状态时 为什么要加setTimeout ?
   // 原因:
-  // 其一 2.2.4规范 要确保 onFulfilled 和 onRejected 方法异步执行(且应该在 then 方法被调用的那一轮事件循环之后的新执行栈中执行) 所以要在resolve里加上setTimeout
-  // 其二 2.2.6规范 对于一个promise，它的then方法可以调用多次.（当在其他程序中多次调用同一个promise的then时 由于之前状态已经为FULFILLED/REJECTED状态，则会走的下面逻辑),所以要确保为FULFILLED/REJECTED状态后 也要异步执行onFulfilled/onRejected
+  // 其一 2.2.4规范 要确保 onFulfilled 和 onRejected 方法异步执行(且应该在 then 方法被调用的那一轮
+//事件循环之后的新执行栈中执行) 所以要在resolve里加上setTimeout
+  // 其二 2.2.6规范 对于一个promise，它的then方法可以调用多次.（当在其他程序中多次调用同一个promise
+//的then时 由于之前状态已经为FULFILLED/REJECTED状态，则会走的下面逻辑),所以要确保为
+//FULFILLED/REJECTED状态后 也要异步执行onFulfilled/onRejected
 
   // 其二 2.2.6规范 也是resolve函数里加setTimeout的原因
   // 总之都是 让then方法异步执行 也就是确保onFulfilled/onRejected异步执行
@@ -553,7 +556,8 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   // p1.then((value) => { // 此时p1.status 由pedding状态 => fulfilled状态
   //     console.log(value); // resolve
   //     // console.log(p1.status); // fulfilled
-  //     p1.then(value => { // 再次p1.then 这时已经为fulfilled状态 走的是fulfilled状态判断里的逻辑 所以我们也要确保判断里面onFuilled异步执行
+  //    p1.then(value => {// 再次p1.then 这时已经为fulfilled状态 走的是fulfilled状态判断里的逻辑 
+  //所以我们也要确保判断里面onFuilled异步执行
   //         console.log(value); // 'resolve'
   //     });
   //     console.log('当前执行栈中同步代码');
@@ -566,7 +570,8 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
       setTimeout(() => {
         try {
           let x = onFulfilled(that.value);
-          resolvePromise(newPromise, x, resolve, reject); // 新的promise resolve 上一个onFulfilled的返回值
+          // 新的promise resolve 上一个onFulfilled的返回值
+          resolvePromise(newPromise, x, resolve, reject); 
         } catch (e) {
           reject(e); // 捕获前面onFulfilled中抛出的异常 then(onFulfilled, onRejected);
         }
@@ -643,7 +648,8 @@ function gen(length, resolve) {
  * Promise.race
  * 参数: 接收 promise对象组成的数组作为参数
  * 返回值: 返回一个Promise实例
- * 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理(取决于哪一个更快)
+ * 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，
+ 就会继续进行后面的处理(取决于哪一个更快)
  */
 Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
@@ -709,14 +715,6 @@ promises-aplus-tests Promise.js
 ```
 
 ### 6. 相关知识参考资料
-
-[ES6-promise](https://link.jianshu.com?t=http%3A%2F%2Fes6.ruanyifeng.com%2F%23docs%2Fpromise)
- [Promises/A+规范-英文](https://link.jianshu.com?t=https%3A%2F%2Fpromisesaplus.com%2F)
- [Promises/A+规范-翻译1](https://link.jianshu.com?t=https%3A%2F%2Fsegmentfault.com%2Fa%2F1190000002452115)
- [Promises/A+规范-翻译-推荐](https://link.jianshu.com?t=https%3A%2F%2Fmalcolmyu.github.io%2F2015%2F06%2F12%2FPromises-A-Plus%2F%23note-4)
- [JS执行栈](https://link.jianshu.com?t=https%3A%2F%2Fwww.cnblogs.com%2Fmqliutie%2Fp%2F4422247.html)
- [Javascript异步编程的4种方法](https://link.jianshu.com?t=http%3A%2F%2Fwww.ruanyifeng.com%2Fblog%2F2012%2F12%2Fasynchronous%EF%BC%BFjavascript.html)
-
-
-链接：https://www.jianshu.com/p/459a856c476f
-来源：简书
+<details>
+  <a href="./zesLink">promise</a>
+</details>
