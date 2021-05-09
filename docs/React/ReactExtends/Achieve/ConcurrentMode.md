@@ -72,7 +72,7 @@ React 使用一种启发式方法决定更新的“紧急性”，并且允许�
 - [采用 Concurrent 模式](https://zh-hans.reactjs.org/docs/concurrent-mode-adoption.html) 解释了如何在你的项目中尝试 Concurrent 模式。
 - [Concurrent 模式的 API 索引](https://zh-hans.reactjs.org/docs/concurrent-mode-reference.html) 记录了在实验性版本中可用的新 API。
 
-在[新的React架构](https://react.iamkasong.com/preparation/newConstructure.html#react16架构)一节我们介绍了`Scheduler`，他包含两个功能：
+在[新的React架构]()一节我们介绍了`Scheduler`，他包含两个功能：
 
 1. 时间切片
 2. 优先级调度

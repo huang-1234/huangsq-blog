@@ -2,6 +2,26 @@
 
 ## Hooks 的由来
 
+> 先看看React官网怎么说：
+
+### 在组件之间复用状态逻辑很难
+
+React 没有提供将可复用性行为“附加”到组件的途径（例如，把组件连接到 store）。如果你使用过 React 一段时间，你也许会熟悉一些解决此类问题的方案，比如 [render props](https://zh-hans.reactjs.org/docs/render-props.html) 和 [高阶组件](https://zh-hans.reactjs.org/docs/higher-order-components.html)。但是这类方案需要重新组织你的组件结构，这可能会很麻烦，使你的代码难以理解。如果你在 React DevTools 中观察过 React 应用，你会发现由 providers，consumers，高阶组件，render props 等其他抽象层组成的组件会形成“嵌套地狱”。尽管我们可以[在 DevTools 过滤掉它们](https://github.com/facebook/react-devtools/pull/503)，但这说明了一个更深层次的问题：React 需要为共享状态逻辑提供更好的原生途径。
+
+你可以使用 Hook 从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。**Hook 使你在无需修改组件结构的情况下复用状态逻辑。** 这使得在组件间或社区内共享 Hook 变得更便捷。
+
+具体将在[自定义 Hook](https://zh-hans.reactjs.org/docs/hooks-custom.html) 中对此展开更多讨论。
+
+### 复杂组件变得难以理解
+
+我们经常维护一些组件，组件起初很简单，但是逐渐会被状态逻辑和副作用充斥。每个生命周期常常包含一些不相关的逻辑。例如，组件常常在 `componentDidMount` 和 `componentDidUpdate` 中获取数据。但是，同一个 `componentDidMount` 中可能也包含很多其它的逻辑，如设置事件监听，而之后需在 `componentWillUnmount` 中清除。相互关联且需要对照修改的代码被进行了拆分，而完全不相关的代码却在同一个方法中组合在一起。如此很容易产生 bug，并且导致逻辑不一致。
+
+在多数情况下，不可能将组件拆分为更小的粒度，因为状态逻辑无处不在。这也给测试带来了一定挑战。同时，这也是很多人将 React 与状态管理库结合使用的原因之一。但是，这往往会引入了很多抽象概念，需要你在不同的文件之间来回切换，使得复用变得更加困难。
+
+为了解决这个问题，**Hook 将组件中相互关联的部分拆分成更小的函数（比如设置订阅或请求数据）**，而并非强制按照生命周期划分。你还可以使用 reducer 来管理组件的内部状态，使其更加可预测。
+
+## 解决问题而出现
+
 `Hooks`的出现是为了解决 React 长久以来存在的一些问题：
 
 - 带组件状态的逻辑很难重用
@@ -173,9 +193,9 @@ JS 中的`this`关键字让不少人吃过苦头，它的取值与其它面向�
 
 ### 注意
 
-	在应用开发中一般不用context, 一般都它的封装react插件
-
-
+```js
+在应用开发中一般不用context, 一般都它的封装react插件
+```
 
 <hr/>
 
@@ -552,13 +572,13 @@ const usePerson = (name) => {
 const [loading, setLoading] = useState(true)
 const [person, setPerson] = useState({})
 
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(()=> {
-      setLoading(false)
+useEffect(() => {
+  setLoading(true)
+  setTimeout(()=> {
+    setLoading(false)
       setPerson({name})
-    },2000)
-  },[name])
+  },2000)
+},[name])
   return [loading,person]
 }
 

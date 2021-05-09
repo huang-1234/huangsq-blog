@@ -24,6 +24,8 @@
 
 # 数据结构和算法
 
+[算法综合](http://47.98.159.95/leetcode-js/btree/traverse.html)
+
 # 前端
 
 ## JS
@@ -181,6 +183,10 @@
 [三次贝塞尔曲线](http://www.loveqiao.com/dom/tool/cubic-bezier.html)
 
 [znote](https://zpj80231.gitee.io/znote/)
+
+[算法综合](http://47.98.159.95/leetcode-js/btree/traverse.html)
+
+[overRected](https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/)
 
 ## 其他资源
 
