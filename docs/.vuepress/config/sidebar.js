@@ -8,10 +8,12 @@ const sidebar = {
   '/React/': getReact(),
   // '/ReactExtends/':getReactExtends(),
   '/Vue/': getVue(),
-  //Node
+  //以Node为代表的后端
   '/Node/': getNode(),
   // c++
   '/Cplus/': getCplus(),
+
+
   //算法&&数学&&机器学习&&人工智能
   '/AlgorithmAI/': getAlgorithm(),
   // '/AlgorithmAI/Math/': getMath(),
@@ -20,6 +22,7 @@ const sidebar = {
   '/Project/': getProject(),
   '/Echart/': getEchart(),
   '/Tools/': getTools(),
+  '/OtherOlogy/':getOtherOlogy(),
   // 工作和面试经历
   '/Interface/': getInterface(),
 }
@@ -482,6 +485,20 @@ function getEchart() {
       title: 'Echart',
       children: [
         'aDataV'
+      ]
+    }
+  ]
+}
+//other-ology
+function getOtherOlogy() {
+  return [
+    {
+      title: 'eng-words',
+      children: [
+        'english/yangliang',
+        'english/shiwan-word-etymology',
+        // 'english/',
+        // 'english/',
       ]
     }
   ]

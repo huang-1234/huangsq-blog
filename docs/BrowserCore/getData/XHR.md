@@ -2,7 +2,7 @@
 
 ## 前言
 
-想要了解ajax，那就想要了解xhr(浏览器的原生API)
+想要了解ajax，那就先要了解xhr(浏览器的原生API，后面还有一个原生API-Fetch)
 
 虽然可以像前面的例子一样发送同步请求，但多数情况下最好使用异步请求，这样可以不阻塞
 JavaScript 代码继续执行。XHR 对象有一个 readyState 属性，表示当前处在请求/响应过程的哪个阶段。
@@ -20,24 +20,41 @@ JavaScript 代码继续执行。XHR 对象有一个 readyState 属性，表示�
 
 每次 readyState 从一个值变成另一个值，都会触发 readystatechange 事件。可以借此机会检
 查 readyState 的值。一般来说，我们唯一关心的 readyState 值是 4，表示数据已就绪。为保证跨浏
-览器兼容，onreadystatechange 事件处理程序应该在调用 open()之前赋值。来看下面的例子：
+览器兼容，onreadystatechange 事件处理程序应该在调用 open()之前赋值。下面是一个发送get请求的例子：
 
-```js
-let xhr = new XMLHttpRequest(); 
-
-xhr.onreadystatechange = function() { 
- if (xhr.readyState == 4) { 
- if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) { 
- alert(xhr.responseText); 
- } else { 
- alert("Request was unsuccessful: " + xhr.status); 
- } 
- } 
-}; 
-
-xhr.open("get", "example.txt", true); 
-
-xhr.send(null); 
+```html
+<script>
+  const xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = function () {
+      switch (xhr.readyState) {
+        case 0:
+          console.log(0, '未初始化....');
+          break;
+        case 1:
+          console.log(1, '请求参数已准备，尚未发送请求...');
+          break;
+        case 2:
+          console.log(2, '已经发送请求,尚未接收响应');
+          break;
+        case 3:
+          console.log(3, '正在接受部分响应.....');
+          document.body.innerHTML = xhr.responseText;
+          break;
+        case 4:
+          console.log(4, '响应全部接受完毕');
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            document.write(xhr.responseText);
+          } else {
+            document.write('error:' + xhr.status);
+          }
+          break;
+      }
+    }
+    const url1 = `https://huang-1234.github.io/BrowserCore/Render/bRenderEngine.html`;
+    const url2 = '/products/getProduct?id=1';
+    xhr.open('get', url1);
+    xhr.send(null);
+</script>
 ```
 
 以上代码使用 DOM Level 0 风格为 XHR 对象添加了事件处理程序，因为并不是所有浏览器都支持
@@ -107,6 +124,62 @@ Ajax技术的核心是`XMLHttpRequest`对象，XHR为向服务器发送请求和
 6. `setRequestHeader()`：向一个打开但未发送的请求设置或添加一个 HTTP 请求。
 
 标红的属性和方法都是比较常用的，偷个懒，具体的属性和方法的介绍去 [w3school](http://www.w3school.com.cn/xmldom/dom_http.asp) 看下了哈，
+
+### XMLHttpRequest的属性和方法
+
+```js
+DONE: 4
+HEADERS_RECEIVED: 2
+LOADING: 3
+OPENED: 1
+UNSENT: 0
+abort: ƒ abort()
+getAllResponseHeaders: ƒ getAllResponseHeaders()
+getResponseHeader: ƒ getResponseHeader()
+onabort: null
+onerror: null
+onload: null
+onloadend: null
+onloadstart: null
+onprogress: null
+onreadystatechange: ƒ ()
+ontimeout: null
+open: ƒ open()
+overrideMimeType: ƒ overrideMimeType()
+readyState: 4
+response: "<!DOCTYPE html>\n<html lang=\"en-US\">\n  <head>\
+responseText: "<!DOCTYPE html>\n<html lang=\"en-US\">\n  <head>\
+responseType: ""
+responseURL: "https://huang-1234.github.io/BrowserCore/Render/bRenderEngine.html"
+responseXML: null
+send: ƒ send()
+setRequestHeader: ƒ setRequestHeader()
+status: 200
+statusText: ""
+timeout: 0
+upload: XMLHttpRequestUpload
+withCredentials: false
+constructor: ƒ XMLHttpRequest()
+Symbol(Symbol.toStringTag): "XMLHttpRequest"
+get onreadystatechange: ƒ onreadystatechange()
+set onreadystatechange: ƒ onreadystatechange()
+get readyState: ƒ readyState()
+get response: ƒ response()
+get responseText: ƒ responseText()
+get responseType: ƒ responseType()
+set responseType: ƒ responseType()
+get responseURL: ƒ responseURL()
+get responseXML: ƒ responseXML()
+get status: ƒ status()
+get statusText: ƒ statusText()
+get timeout: ƒ timeout()
+set timeout: ƒ timeout()
+get upload: ƒ upload()
+get withCredentials: ƒ withCredentials()
+set withCredentials: ƒ withCredentials()
+```
+
+
 
 属性和方法都要熟悉掌握才能很好的掌握后面的内容。
 

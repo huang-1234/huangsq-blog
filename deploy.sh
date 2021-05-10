@@ -4,7 +4,7 @@
 set -e
 
 # 生成静态文件
-npm run build
+yarn run build
 
 # git init
 git add .

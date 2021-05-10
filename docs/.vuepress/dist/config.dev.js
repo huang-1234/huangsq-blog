@@ -66,7 +66,7 @@ var config = {
       }, {
         text: 'cPlus',
         items: [{
-          text: 'C++',
+          text: 'Cplus',
           link: '/Cplus/'
         }]
       }]

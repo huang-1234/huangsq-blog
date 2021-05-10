@@ -41,7 +41,7 @@ const nav = [
       {
         text: 'cPlus',
         items: [
-          { text: 'C++', link: '/Cplus/' }
+          { text: 'cPlus', link: '/Cplus/' }
         ]
       }
     ]
@@ -63,7 +63,14 @@ const nav = [
         items: [
           { text: 'Git&webpack', link: '/Tools/' }
         ]
+      },
+      {
+        text: 'other-ology',
+        items: [
+          { text: 'English', link:'/OtherOlogy/'}
+        ]
       }
+
     ]
   },
   {

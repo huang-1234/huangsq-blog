@@ -6,7 +6,6 @@
 
 The limits of your language are limits of your world
 
-首先讲一个人，这个是我在网易有道词典认识的一个人：杨亮
 
 [the important of learning Endlish](https://www.bilibili.com/video/BV1C54y1e7J6/?spm_id_from=autoNext)
 
