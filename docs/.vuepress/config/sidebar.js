@@ -232,6 +232,7 @@ function getBrowserCore() {
       title: 'Secure机制',
       children: [
         'Security/Achieve-Cross-domain',
+        'Security/jsonp',
         'Security/meituanCSRF',
       ]
     },

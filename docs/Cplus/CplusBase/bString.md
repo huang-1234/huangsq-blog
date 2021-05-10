@@ -24,7 +24,7 @@ C++ 中有大量的函数用来操作以 null 结尾的字符串:
 
 ## `<cstring>`字符串函数
 
-```c++
+```cpp
 #include <iostream>
 // #include <string>
 #include <cstring>
@@ -60,7 +60,7 @@ C++ 标准库提供了 **string** 类类型，支持上述所有的操作，另�
 
 ## String类的方法
 
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -92,7 +92,7 @@ int main() {
 
 当上面的代码被编译和执行时，它会产生下列结果：
 
-```c++
+```cpp
 str3 : runoob
 str1 + str2 : runoobgoogle
 str3.size() :  12

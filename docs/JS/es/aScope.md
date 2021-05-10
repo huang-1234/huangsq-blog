@@ -84,3 +84,67 @@ f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在
 
 由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
 闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
+
+## 测试案例
+
+> node环境
+
+```js
+var a = 9;
+b = 8;
+console.log(global.a, global.b);
+// node环境下输出  undefined 8
+```
+
+> Browser
+
+```js
+var a = 9;
+b = 8;
+// console.log(global.a, global.b);
+console.log(window.a, window.b);
+// 输出 9 8
+```
+
+是不是感觉很奇特
+
+a都挂在window对象上了，那为啥node这一点没有模仿，也就是var a 是没有将a挂载到global对象的
+
+>  下面我们来看下这两个属性的描述
+
+```js
+var a = 9;
+b = 8;
+// console.log(global.a, global.b);
+// console.log(window.a, window.b);
+
+console.log(Object.getOwnPropertyDescriptor(global, 'a'));
+console.log(Object.getOwnPropertyDescriptor(global, 'b'));
+```
+
+输出
+
+```js
+undefined
+{ value: 8, writable: true, enumerable: true, configurable: true }
+```
+
+> 浏览器端
+
+```js
+var a = 9;
+b = 8;
+// console.log(global.a, global.b);
+// console.log(window.a, window.b);
+
+// console.log(Object.getOwnPropertyDescriptor(global, 'a'));
+// console.log(Object.getOwnPropertyDescriptor(global, 'b'));
+
+console.log(Object.getOwnPropertyDescriptor(window, 'a'));
+console.log(Object.getOwnPropertyDescriptor(window, 'b'));
+// 输出
+// {value: 9, writable: true, enumerable: true, configurable: false}
+// {value: 8, writable: true, enumerable: true, configurable: true}
+```
+
+已经很明显了吧：var a不可配置，b可配置
