@@ -24,19 +24,19 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 只要同时满足以下两大条件，就属于简单请求。
 
-> （1) 请求方法是以下三种方法之一：
+（1) 请求方法是以下三种方法之一：
 >
-> - HEAD
-> - GET
-> - POST
+- HEAD
+- GET
+- POST
 >
-> （2）HTTP的头信息不超出以下几种字段：
+（2）HTTP的头信息不超出以下几种字段：
 >
-> - Accept
-> - Accept-Language
-> - Content-Language
-> - Last-Event-ID
-> - Content-Type：只限于三个值`application/x-www-form-urlencoded`、`multipart/form-data`、`text/plain`
+- Accept
+- Accept-Language
+- Content-Language
+- Last-Event-ID
+- Content-Type：只限于三个值`application/x-www-form-urlencoded`、`multipart/form-data`、`text/plain`
 
 这是为了兼容表单（form），因为历史上表单一直可以发出跨域请求。AJAX 的跨域设计就是，只要表单可以发，AJAX 就可以直接发。
 
@@ -52,14 +52,14 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 下面是一个例子，浏览器发现这次跨源AJAX请求是简单请求，就自动在头信息之中，添加一个`Origin`字段。
 
-> ```http
-> GET /cors HTTP/1.1
-> Origin: http://api.bob.com
-> Host: api.alice.com
-> Accept-Language: en-US
-> Connection: keep-alive
-> User-Agent: Mozilla/5.0...
-> ```
+```http
+GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+```
 
 上面的头信息中，`Origin`字段用来说明，本次请求来自哪个源（协议 + 域名 + 端口）。服务器根据这个值，决定是否同意这次请求。
 
@@ -67,12 +67,12 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 如果`Origin`指定的域名在许可范围内，服务器返回的响应，会多出几个头信息字段。
 
-> ```http
-> Access-Control-Allow-Origin: http://api.bob.com
-> Access-Control-Allow-Credentials: true
-> Access-Control-Expose-Headers: FooBar
-> Content-Type: text/html; charset=utf-8
-> ```
+```http
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+Content-Type: text/html; charset=utf-8
+```
 
 上面的头信息之中，有三个与CORS请求相关的字段，都以`Access-Control-`开头。
 
@@ -92,24 +92,24 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 上面说到，CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定`Access-Control-Allow-Credentials`字段。
 
-> ```http
-> Access-Control-Allow-Credentials: true
-> ```
+```http
+Access-Control-Allow-Credentials: true
+```
 
 另一方面，开发者必须在AJAX请求中打开`withCredentials`属性。
 
-> ```javascript
-> var xhr = new XMLHttpRequest();
-> xhr.withCredentials = true;
-> ```
+```javascript
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+```
 
 否则，即使服务器同意发送Cookie，浏览器也不会发送。或者，服务器要求设置Cookie，浏览器也不会处理。
 
 但是，如果省略`withCredentials`设置，有的浏览器还是会一起发送Cookie。这时，可以显式关闭`withCredentials`。
 
-> ```javascript
-> xhr.withCredentials = false;
-> ```
+```javascript
+xhr.withCredentials = false;
+```
 
 需要注意的是，如果要发送Cookie，`Access-Control-Allow-Origin`就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的`document.cookie`也无法读取服务器域名下的Cookie。
 
@@ -125,28 +125,28 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 下面是一段浏览器的JavaScript脚本。
 
-> ```javascript
-> var url = 'http://api.alice.com/cors';
-> var xhr = new XMLHttpRequest();
-> xhr.open('PUT', url, true);
-> xhr.setRequestHeader('X-Custom-Header', 'value');
-> xhr.send();
-> ```
+```javascript
+var url = 'http://api.alice.com/cors';
+var xhr = new XMLHttpRequest();
+xhr.open('PUT', url, true);
+xhr.setRequestHeader('X-Custom-Header', 'value');
+xhr.send();
+```
 
 上面代码中，HTTP请求的方法是`PUT`，并且发送一个自定义头信息`X-Custom-Header`。
 
 浏览器发现，这是一个非简单请求，就自动发出一个"预检"请求，要求服务器确认可以这样请求。下面是这个"预检"请求的HTTP头信息。
 
-> ```http
-> OPTIONS /cors HTTP/1.1
-> Origin: http://api.bob.com
-> Access-Control-Request-Method: PUT
-> Access-Control-Request-Headers: X-Custom-Header
-> Host: api.alice.com
-> Accept-Language: en-US
-> Connection: keep-alive
-> User-Agent: Mozilla/5.0...
-> ```
+```http
+OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+```
 
 "预检"请求用的请求方法是`OPTIONS`，表示这个请求是用来询问的。头信息里面，关键字段是`Origin`，表示请求来自哪个源。
 
@@ -164,42 +164,42 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 服务器收到"预检"请求以后，检查了`Origin`、`Access-Control-Request-Method`和`Access-Control-Request-Headers`字段以后，确认允许跨源请求，就可以做出回应。
 
-> ```http
-> HTTP/1.1 200 OK
-> Date: Mon, 01 Dec 2008 01:15:39 GMT
-> Server: Apache/2.0.61 (Unix)
-> Access-Control-Allow-Origin: http://api.bob.com
-> Access-Control-Allow-Methods: GET, POST, PUT
-> Access-Control-Allow-Headers: X-Custom-Header
-> Content-Type: text/html; charset=utf-8
-> Content-Encoding: gzip
-> Content-Length: 0
-> Keep-Alive: timeout=2, max=100
-> Connection: Keep-Alive
-> Content-Type: text/plain
-> ```
+```http
+HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Content-Type: text/html; charset=utf-8
+Content-Encoding: gzip
+Content-Length: 0
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/plain
+```
 
 上面的HTTP回应中，关键的是`Access-Control-Allow-Origin`字段，表示`http://api.bob.com`可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。
 
-> ```http
-> Access-Control-Allow-Origin: *
-> ```
+```http
+Access-Control-Allow-Origin: *
+```
 
 如果服务器否定了"预检"请求，会返回一个正常的HTTP回应，但是没有任何CORS相关的头信息字段。这时，浏览器就会认定，服务器不同意预检请求，因此触发一个错误，被`XMLHttpRequest`对象的`onerror`回调函数捕获。控制台会打印出如下的报错信息。
 
-> ```bash
-> XMLHttpRequest cannot load http://api.alice.com.
-> Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
-> ```
+```bash
+XMLHttpRequest cannot load http://api.alice.com.
+Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
+```
 
 服务器回应的其他CORS相关字段如下。
 
-> ```http
-> Access-Control-Allow-Methods: GET, POST, PUT
-> Access-Control-Allow-Headers: X-Custom-Header
-> Access-Control-Allow-Credentials: true
-> Access-Control-Max-Age: 1728000
-> ```
+```http
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1728000
+```
 
 **（1）Access-Control-Allow-Methods**
 
@@ -223,24 +223,24 @@ CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持�
 
 下面是"预检"请求之后，浏览器的正常CORS请求。
 
-> ```http
-> PUT /cors HTTP/1.1
-> Origin: http://api.bob.com
-> Host: api.alice.com
-> X-Custom-Header: value
-> Accept-Language: en-US
-> Connection: keep-alive
-> User-Agent: Mozilla/5.0...
-> ```
+```http
+PUT /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+X-Custom-Header: value
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+```
 
 上面头信息的`Origin`字段是浏览器自动添加的。
 
 下面是服务器正常的回应。
 
-> ```http
-> Access-Control-Allow-Origin: http://api.bob.com
-> Content-Type: text/html; charset=utf-8
-> ```
+```http
+Access-Control-Allow-Origin: http://api.bob.com
+Content-Type: text/html; charset=utf-8
+```
 
 上面头信息中，`Access-Control-Allow-Origin`字段是每次回应都必定包含的。
 

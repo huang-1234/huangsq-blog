@@ -6,7 +6,7 @@ js对象的属性中可直接用、可访问到的属性分为数据属性和访
 
 ## 数据属性（实际存储属性值的属性）的四大特性：
 
-```
+```js
 {    
     value: 属性值,    
     writable: true/false,  //控制是否可修改    
@@ -17,7 +17,7 @@ js对象的属性中可直接用、可访问到的属性分为数据属性和访
 
 ## 访问器属性（不实际存储数据，专门提供对其它数据/变量的保护）的四大特性：
 
-```
+```js
 {
     get:function(){return this.隐藏属性;},
     set:function(val){
@@ -34,7 +34,7 @@ js对象的属性中可直接用、可访问到的属性分为数据属性和访
 
 返回的是所有能够通过对象访问的、可枚举的属性，既包括存在于实例中的属性，也包括存在于原型中的实例,不能保证属性按对象原来的顺序输出。（可枚举-自身-原型）
 
-```
+```js
 var obj = {a:1, b:2, c:3};
     
 for (var prop in obj) {
@@ -50,7 +50,7 @@ for (var prop in obj) {
 
 用于获取对象自身所有的可枚举的属性值，但不包括原型中的属性，然后返回一个由属性名组成的数组。注意它同for..in一样不能保证属性按对象原来的顺序输出。（可枚举-自身）
 
-```
+```js
 // 数组
 var arr = ['a', 'b', 'c'];
 console.log(Object.keys(arr)); // console: ['0', '1', '2']
@@ -77,7 +77,7 @@ console.log(Object.keys(myObj)); // console: ['foo']
 
 如果你想获取一个对象的所有属性，甚至包括不可枚举的，则可用该方法。其返回对象的所有自身属性的属性名组成的数组，但不会获取原型链上的属性。（可枚举&不可枚举-自身）
 
-```
+```js
 //获取不可枚举属性
 var my_obj = Object.create({}, {
   getFoo: {
@@ -92,7 +92,7 @@ console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"]
 
 下面的例子演示了该方法不会获取到原型链上的属性：
 
-```
+```js
 function ParentClass() {}
 ParentClass.prototype.inheritedMethod = function() {};
 
@@ -116,7 +116,7 @@ console.log(
 es6新增方法，主要来遍历可迭代的对象（包括Array, Map, Set, arguments等），它主要用来获取对象value值，而for..in主要获取对象key值。
 另外：可以由break, continue, throw 或return终止。在这些情况下，迭代器关闭。
 
-```
+```js
 let iterable = [10, 20, 30];
 for (let value of iterable) {
     value += 1;
@@ -129,7 +129,7 @@ for (let value of iterable) {
 
 与for..in循环之间的区别：
 
-```
+```js
 Object.prototype.objCustom = function() {}; 
 Array.prototype.arrCustom = function() {};
 
@@ -159,7 +159,7 @@ for (let i of iterable) {
 
 需求：将如下两个从后台不同端口获取的json对象数组整合处理成如下注释部分的json对象
 
-```
+```js
 var goodsSpecJSON = [{
                 "SpecA": "颜色"
             }, {
@@ -307,7 +307,7 @@ var goodsSpecList = [{
 
 实现：主要利用Object.keys方法获取对象的key,value值，配上forEach循环实现最终想要的结果。
 
-```
+```js
 var keys = {};
 var sku_list = [];
 //原数据转换小写
