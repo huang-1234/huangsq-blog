@@ -26,6 +26,7 @@ At its core, webpack is a static module bundler for modern JavaScript applicatio
 
 在前面学习中，我已经用了大量的篇幅解释了为什么前端需要模块化。
 而且我也提到了目前使用前端模块化的一些方案：AMD、CMD、CommonJS、ES6。
+
 在ES6之前，我们要想进行模块化开发，就必须借助于其他的工具，让我们可以进行模块化开发。
 并且在通过模块化开发完成了项目后，还需要处理模块间的各种依赖，并且将其进行整合打包。
 而webpack其中一个核心就是让我们可能进行模块化开发，并且会帮助我们处理模块间的依赖关系。
@@ -43,13 +44,18 @@ At its core, webpack is a static module bundler for modern JavaScript applicatio
 gruntANDgulp的核心是Task
 我们可以配置一系列的task，并且定义task要处理的事务（例如ES6、ts转化，图片压缩，scss转成css）
 之后让gruntANDgulp来依次执行这些task，而且让整个流程自动化。
+
 所以gruntANDgulp也被称为前端自动化任务管理工具。
+
 我们来看一个gulp的task
+
 下面的task就是将src下面的所有js文件转成ES5的语法。
 并且最终输出到dist文件夹中。
+
 什么时候用gruntANDgulp呢？
 如果你的工程模块依赖非常简单，甚至是没有用到模块化的概念。
 只需要进行简单的合并、压缩，就使用gruntANDgulp即可。
+
 但是如果整个项目使用了模块化管理，而且相互依赖非常强，我们就可以使用更加强大的webpack了。
 所以，gruntANDgulp和webpack有什么不同呢？
 gruntANDgulp更加强调的是前端流程的自动化，模块化不是它的核心。
@@ -159,12 +165,16 @@ npm run build
 
 13.2 webpack用来做什么呢？
 在我们之前的实例中，我们主要是用webpack来处理我们写的js代码，并且webpack会自动处理js之间相关的依赖。
-但是，在开发中我们不仅仅有基本的js代码处理，我们也需要加载css、图片，也包括一些高级的将ES6转成ES5代码，将TypeScript转成ES5代码，将scss、less转成css，将.jsx、.vue文件转成js文件等等。
-对于webpack本身的能力来说，对于这些转化是不支持的。
-那怎么办呢？给webpack扩展对应的loader就可以啦。
+但是，在开发中我们不仅仅有基本的js代码处理，我们也需要加载css、图片，也包括一些高级的将ES6转成ES5代码，
+
+将TypeScript转成ES5代码，将scss、less转成css，将.jsx、.vue文件转成js文件等等。对于webpack本身的能力来说，对于这些转化是不支持的。那怎么办呢？给webpack扩展对应的loader就可以啦。
+
 loader使用过程：
-步骤一：通过npm安装需要使用的loader
-步骤二：在webpack.config.js中的modules关键字下进行配置
+
+> 步骤一：通过npm安装需要使用的loader
+
+> 步骤二：在webpack.config.js中的modules关键字下进行配置
+
 大部分loader我们都可以在webpack的官网中找到，并且学习对应的用法。
 
 ## 14. css文件处理-添加css-loader
@@ -198,8 +208,13 @@ webpack也不可能找到它，因为我们只有一个入口，webpack会从入
 
 我们来安装style-loader
 
-注意：style-loader需要放在css-loader的前面。
-疑惑：不对吧？按照我们的逻辑，在处理css文件过程中，应该是css-loader先加载css文件，再由style-loader来进行进一步的处理，为什么会将style-loader放在前面呢？
+> 注意：
+
+style-loader需要放在css-loader的前面。
+
+> 疑惑：
+
+不对吧？按照我们的逻辑，在处理css文件过程中，应该是css-loader先加载css文件，再由style-loader来进行进一步的处理，为什么会将style-loader放在前面呢？
 答案：这次因为webpack在读取使用的loader的过程中，是按照从右向左的顺序读取的。
 目前，webpack.config.js的配置如下：
 
