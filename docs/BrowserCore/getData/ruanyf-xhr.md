@@ -1,4 +1,4 @@
-# XMLHttpRequest Level 2 使用指南
+# XMLHttpRequest Level 2 使用指南 Full
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 

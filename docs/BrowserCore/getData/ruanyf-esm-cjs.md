@@ -1,4 +1,4 @@
-# Node.js 如何处理 ES6 模块
+# Node 如何处理 ES6 模块 Full
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 

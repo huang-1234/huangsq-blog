@@ -1,4 +1,4 @@
-# 使用pm2部署Nodejs
+# 使用pm2部署Nodejs Full
 
 [pm2](https://pm2.keymetrics.io/)
 
@@ -72,7 +72,7 @@ case $ACTION in
 之前nodejs安装，是去官方网站上下载安装包然后安装的，在使用pm2的过程中，了解到，***nvm\***利器，可以方便切换nodejs版本，推荐用这个方法安装node。
 删除之前安装的node，查询全局安装的模块然后删除
 
-```
+```shell
 npm list -g --depth 0
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
@@ -80,13 +80,13 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 
 执行curl过程中报错curl: (35) SSL connect error，执行
 
-```
+```shell
 yum update nss
 ```
 
 最后执行
 
-```
+```shell
 source ~/.bashrc
 nvm--version             //查看nvm是否安装成功
 nvm install stable       //安装最新稳定版本
@@ -102,13 +102,13 @@ nvm install stable       //安装最新稳定版本
 
 全局安装
 
-```
+```shell
 npm install pm2 -g
 ```
 
 安装成功后可直接启动
 
-```
+```shell
 pm2 start bin/www
 ```
 
@@ -130,13 +130,13 @@ pm2 start bin/www
 
 全局安装 `pm2` 
 
-```
+```shell
 $ npm install pm2 -g
 ```
 
 更新
 
-```
+```shell
 $ pm2 update
 ```
 
@@ -144,7 +144,7 @@ $ pm2 update
 
 以前启动 `Wolverine` 是利用package.json的 `scripts` 来实现的，只需要执行 `npm run start` 就可以启动，配置如下：
 
-```
+```shell
 "scripts": {
     "start": "node ./bin/www",
     "debug": "node debug ./bin/www"
@@ -156,7 +156,7 @@ $ pm2 update
 
 在 `Wolverine` 的根目录，我创建了一个 `processes.json` 配置文件，配置文件内容如下，注释写的也很清楚了
 
-```
+```shell
 {
   "apps" : [{
     "name" : "Wolverine",  //名称
@@ -179,13 +179,13 @@ $ pm2 update
 
 随后，我在package.json中增加了一条
 
-```
+```shell
 "pm2": "pm2 start processes.json"
 ```
 
 在启动就直接输入如下命令就好：
 
-```
+```shell
 $ npm run pm2
 ```
 
@@ -197,7 +197,7 @@ $ npm run pm2
 
 打开命令行，在任何路径下，输入
 
-```
+```bash
 $ pm2 list
 ```
 

@@ -1,4 +1,4 @@
-# Fetch API 教程
+# Fetch API 教程 Full
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 

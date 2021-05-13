@@ -1,4 +1,4 @@
-# V8编译和执行JS代码
+# V8编译和执行JS代码 Full
 
 - chrome浏览器的引擎
 - Nodejs的运行时环境

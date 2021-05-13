@@ -1,4 +1,4 @@
-# JavaScript 标准内置对象
+# JavaScript 标准内置对象 Full
 
 本章介绍和说明了 JavaScript 中所有的标准内置对象、以及它们的方法和属性。
 

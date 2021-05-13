@@ -1,4 +1,4 @@
-# [利用Object.keys遍历(forEach/map)对象数组，合并](https://segmentfault.com/a/1190000014497376)
+# [利用Object.keys遍历(forEach/map)对象数组，合并](https://segmentfault.com/a/1190000014497376) Full
 
 js中几种遍历对象的方法，包括for..of、for..in、Object.keys、Object.getOwnProperty,它们在使用场景方面各有不同。
 

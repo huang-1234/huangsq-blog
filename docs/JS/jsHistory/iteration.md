@@ -1,4 +1,4 @@
-# Object.keys()、Object.values()、Object.entries() 对象属性的遍历
+# Object.keys()、Object.values()、Object.entries() 对象属性的遍历 Full
 
 在之前的文章中,我们提到过三个遍历对象属性的原生 API ——Object.keys(),Object.values(),Object.entries().
 

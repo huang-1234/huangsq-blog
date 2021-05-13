@@ -1,3 +1,4 @@
+# npm-question Full
 执行num run build:prod 报错，但是npm run dev没问题
 
 二、解决

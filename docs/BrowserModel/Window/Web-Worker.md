@@ -1,4 +1,4 @@
-# Web Worker 使用教程
+# Web Worker 使用教程 Full
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 

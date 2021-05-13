@@ -1,4 +1,4 @@
-# [深刻理解JavaScript基于原型的面向对象](https://www.cnblogs.com/935415150wang/p/7355379.html)
+# [深刻理解JavaScript基于原型的面向对象](https://www.cnblogs.com/935415150wang/p/7355379.html) Full
 
 ## 主题一、原型
 

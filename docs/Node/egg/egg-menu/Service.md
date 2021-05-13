@@ -14,7 +14,7 @@
 
 - Service 文件必须放在 `app/service` 目录，可以支持多级目录，访问的时候可以通过目录名级联访问。
 
-  ```
+  ```js
   app/service/biz/user.js => ctx.service.biz.user
   app/service/sync_user.js => ctx.service.syncUser
   app/service/HackerNews.js => ctx.service.hackerNews

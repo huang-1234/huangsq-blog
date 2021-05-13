@@ -1,4 +1,4 @@
-# Object.create()
+# Object.create()Full
 
 1. 语法：
     Object.create(proto, [propertiesObject])

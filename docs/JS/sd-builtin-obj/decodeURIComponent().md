@@ -1,4 +1,4 @@
-# decodeURIComponent()
+# decodeURIComponent() Full
 
 使用 decodeURIComponent() 对编码后的 URI 进行解码：
 

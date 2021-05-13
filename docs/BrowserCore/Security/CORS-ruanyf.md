@@ -1,4 +1,4 @@
-# 跨域资源共享 CORS 详解
+# 跨域资源共享 CORS 详解 Full
 
 作者： [阮一峰](http://www.ruanyifeng.com/)
 
