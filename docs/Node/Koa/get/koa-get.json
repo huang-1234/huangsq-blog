@@ -1,0 +1,55 @@
+{
+    "ctx": {
+        "request": {
+            "method": "GET",
+            "url": "/article?author=hsq&id=452&classify=16",
+            "header": {
+                "host": "127.0.0.1:3000",
+                "connection": "keep-alive",
+                "cache-control": "max-age=0",
+                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\", \"Google Chrome\";v=\"90\"",
+                "sec-ch-ua-mobile": "?0",
+                "upgrade-insecure-requests": "1",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                "sec-fetch-site": "none",
+                "sec-fetch-mode": "navigate",
+                "sec-fetch-user": "?1",
+                "sec-fetch-dest": "document",
+                "accept-encoding": "gzip, deflate, br",
+                "accept-language": "zh-CN,zh;q=0.9",
+                "cookie": "csrfToken=9C9OrFSH2CsNzRNLu_d9XnWQ"
+            }
+        },
+        "response": {
+            "status": 200,
+            "message": "OK",
+            "header": {
+                "content-type": "application/json; charset=utf-8"
+            }
+        },
+        "app": {
+            "subdomainOffset": 2,
+            "proxy": false,
+            "env": "development"
+        },
+        "originalUrl": "/article?author=hsq&id=452&classify=16",
+        "req": "<original node req>",
+        "res": "<original node res>",
+        "socket": "<original node socket>"
+    },
+    "url": "/article?author=hsq&id=452&classify=16",
+    "req_query": {
+        "author": "hsq",
+        "id": "452",
+        "classify": "16"
+    },
+    "req_querystring": "author=hsq&id=452&classify=16",
+    "message": "下面是ctx:",
+    "ctx_query": {
+        "author": "hsq",
+        "id": "452",
+        "classify": "16"
+    },
+    "ctx_querystring": "author=hsq&id=452&classify=16"
+}
