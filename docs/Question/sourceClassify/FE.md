@@ -36,6 +36,10 @@
 
 [如何写出一个惊艳面试官的深拷贝? (juejin.cn)](https://juejin.cn/post/6844903929705136141)
 
+## TypeScript
+
+[TS学习](https://jspang.com/detailed?id=63)
+
 ## CSS
 
 [玩转CSS的艺术之美](https://juejin.cn/book/6850413616484040711)
@@ -57,6 +61,10 @@
 ### Babel
 
 [深入浅出 Babel 上篇](https://juejin.cn/post/6844903956905197576)
+
+## Nextjs
+
+[nextjs中文网](https://www.nextjs.cn/docs/basic-features/data-fetching#getstaticpaths-static-generation)
 
 
 
