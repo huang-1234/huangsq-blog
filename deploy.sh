@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update jsonp'
+git commit -m 'update egg'
 
 git remote -v
 # git pull
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update jsonp'
+git commit -m 'update egg'
 
 # 如果发布到 https://<USERNAME>.github.io
 git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
