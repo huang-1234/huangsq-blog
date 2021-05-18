@@ -59,6 +59,10 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 
 由于设计时间太短，语言的一些细节考虑得不够严谨，导致后来很长一段时间，Javascript写出来的程序混乱不堪。
 
+> 看了这么多来听首歌吧
+
+<iframe src="https://www.bilibili.com/video/BV1tW411S7Cu?t=23" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" style="box-sizing: border-box; height: 34rem; border: 1px solid rgb(204, 204, 204); border-radius: 8px;"></iframe>
+
 ### 2. JS的设计思路
 
 
