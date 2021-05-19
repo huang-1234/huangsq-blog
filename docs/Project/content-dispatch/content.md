@@ -96,7 +96,7 @@ sensitive: bool
 
 
 
-```javascript
+```js
 // Create reference instance
 var myMarked = require('marked');
 
@@ -125,10 +125,10 @@ console.log(myMarked('I am using __markdown__.'));
 
 
 
-```javascript
+```js
 highlight: function(code) {
     return require('highlight.js').highlightAuto(code).value;
 }
 ```
 
-code 参数是<code>中的初始内容， 该函数返回的是经highlight `处理` （给特定内容添加上class）后的内容。
+code 参数是`<code>`中的初始内容， 该函数返回的是经highlight `处理` （给特定内容添加上class）后的内容。

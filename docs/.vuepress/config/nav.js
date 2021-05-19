@@ -46,13 +46,7 @@ const nav = [
       }
     ]
   },
-  {
-    text: 'AI',
-    ariaLabel: 'webDesign',
-    items: [
-      { text: 'AI', link: '/AlgorithmAI/' }
-    ]
-  },
+
   {
     text: 'Proj',
     ariaLabel: 'webDesign',
@@ -69,17 +63,24 @@ const nav = [
         items: [
           { text: 'English', link:'/OtherOlogy/'}
         ]
-      }
-
+      },
+      {
+        text: 'W',
+        ariaLabel: 'webDesign',
+        items: [
+          { text: 'interfaceEx', link: '/Interface/' }
+        ]
+      },
+      {
+        text: 'AI',
+        ariaLabel: 'webDesign',
+        items: [
+          { text: 'AI', link: '/AlgorithmAI/' }
+        ]
+      },
     ]
   },
-  {
-    text: 'W',
-    ariaLabel: 'webDesign',
-    items: [
-      { text: 'interfaceEx', link: '/Interface/' }
-    ]
-  }
+
 ];
 
 // 

@@ -8,7 +8,7 @@
 
 假如再次修改 README 文件后暂存，然后编辑 `CONTRIBUTING.md` 文件后先不暂存， 运行 `status` 命令将会看到：
 
-```console
+```bash
 $ git status
 On branch master
 Changes to be committed:
@@ -25,7 +25,7 @@ Changes not staged for commit:
 
 要查看尚未暂存的文件更新了哪些部分，不加参数直接输入 `git diff`：
 
-```console
+```bash
 $ git diff
 diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
 index 8ebb991..643e24f 100644
@@ -49,7 +49,7 @@ index 8ebb991..643e24f 100644
 
 若要查看已暂存的将要添加到下次提交里的内容，可以用 `git diff --cached` 命令。（Git 1.6.1 及更高版本还允许使用 `git diff --staged`，效果是相同的，但更好记些。）
 
-```console
+```bash
 $ git diff --staged
 diff --git a/README b/README
 new file mode 100644
@@ -66,7 +66,7 @@ index 0000000..03902a1
 
 尽管使用暂存区域的方式可以精心准备要提交的细节，但有时候这么做略显繁琐。 Git 提供了一个跳过使用暂存区域的方式， 只要在提交的时候，给 `git commit` 加上 `-a` 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 `git add` 步骤：
 
-```console
+```bash
 $ git status
 On branch master
 Changes not staged for commit:
@@ -89,7 +89,7 @@ $ git commit -a -m 'added new benchmarks'
 
 如果只是简单地从工作目录中手工删除文件，运行 `git status` 时就会在 “Changes not staged for commit” 部分（也就是 *未暂存清单*）看到：
 
-```console
+```bash
 $ rm PROJECTS.md
 $ git status
 On branch master
@@ -105,7 +105,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 然后再运行 `git rm` 记录此次移除文件的操作：
 
-```console
+```bash
 $ git rm PROJECTS.md
 rm 'PROJECTS.md'
 $ git status
@@ -120,19 +120,19 @@ Changes to be committed:
 
 另外一种情况是，我们想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪。 当你忘记添加 `.gitignore` 文件，不小心把一个很大的日志文件或一堆 `.a` 这样的编译生成文件添加到暂存区时，这一做法尤其有用。 为达到这一目的，使用 `--cached` 选项：
 
-```console
+```bash
 $ git rm --cached README
 ```
 
 `git rm` 命令后面可以列出文件或者目录的名字，也可以使用 `glob` 模式。 比方说：
 
-```console
+```bash
 $ git rm log/\*.log
 ```
 
 注意到星号 `*` 之前的反斜杠 `\`， 因为 Git 有它自己的文件模式扩展匹配方式，所以我们不用 shell 来帮忙展开。 此命令删除 `log/` 目录下扩展名为 `.log` 的所有文件。 类似的比如：
 
-```console
+```bash
 $ git rm \*~
 ```
 
@@ -144,13 +144,13 @@ $ git rm \*~
 
 既然如此，当你看到 Git 的 `mv` 命令时一定会困惑不已。 要在 Git 中对文件改名，可以这么做：
 
-```console
+```bash
 $ git mv file_from file_to
 ```
 
 它会恰如预期般正常工作。 实际上，即便此时查看状态信息，也会明白无误地看到关于重命名操作的说明：
 
-```console
+```bash
 $ git mv README.md README
 $ git status
 On branch master
@@ -162,7 +162,7 @@ Changes to be committed:
 
 其实，运行 `git mv` 就相当于运行了下面三条命令：
 
-```console
+```bash
 $ mv README.md README
 $ git rm README.md
 $ git add README
@@ -176,13 +176,13 @@ $ git add README
 
 接下来的例子会用我专门用于演示的 simplegit 项目， 运行下面的命令获取该项目源代码：
 
-```console
+```bash
 git clone https://github.com/schacon/simplegit-progit
 ```
 
 然后在此项目中运行 git log，应该会看到下面的输出：
 
-```console
+```bash
 $ git log
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -209,7 +209,7 @@ Date:   Sat Mar 15 10:31:28 2008 -0700
 
 一个常用的选项是 `-p`，用来显示每次提交的内容差异。 你也可以加上 `-2` 来仅显示最近两次提交：
 
-```console
+```bash
 $ git log -p -2
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -255,7 +255,7 @@ index a0a60ae..47c6340 100644
 
 该选项除了显示基本信息之外，还附带了每次 commit 的变化。 当进行代码审查，或者快速浏览某个搭档提交的 commit 所带来的变化的时候，这个参数就非常有用了。 你也可以为 `git log` 附带一系列的总结性选项。 比如说，如果你想看到每次提交的简略的统计信息，你可以使用 `--stat` 选项：
 
-```console
+```bash
 $ git log --stat
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -291,7 +291,7 @@ Date:   Sat Mar 15 10:31:28 2008 -0700
 
 另外一个常用的选项是 `--pretty`。 这个选项可以指定使用不同于默认格式的方式展示提交历史。 这个选项有一些内建的子选项供你使用。 比如用 `oneline` 将每个提交放在一行显示，查看的提交数很大时非常有用。 另外还有 `short`，`full` 和 `fuller` 可以用，展示的信息或多或少有些不同，请自己动手实践一下看看效果如何。
 
-```console
+```bash
 $ git log --pretty=oneline
 ca82a6dff817ec66f44342007202690a93763949 changed the version number
 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test
@@ -300,7 +300,7 @@ a11bef06a3f659402fe7563abf99ad00de2209e6 first commit
 
 但最有意思的是 format，可以定制要显示的记录格式。 这样的输出对后期提取分析格外有用 — 因为你知道输出的格式不会随着 Git 的更新而发生改变：
 
-```console
+```bash
 $ git log --pretty=format:"%h - %an, %ar : %s"
 ca82a6d - Scott Chacon, 6 years ago : changed the version number
 085bb3b - Scott Chacon, 6 years ago : removed unnecessary test
@@ -335,7 +335,7 @@ a11bef0 - Scott Chacon, 6 years ago : first commit
 
 有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 `--amend` 选项的提交命令尝试重新提交：
 
-```console
+```bash
 $ git commit --amend
 ```
 
@@ -345,7 +345,7 @@ $ git commit --amend
 
 例如，你提交后发现忘记了暂存某些需要的修改，可以像下面这样操作：
 
-```console
+```bash
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
@@ -357,7 +357,7 @@ $ git commit --amend
 
 接下来的两个小节演示如何操作暂存区域与工作目录中已修改的文件。 这些命令在修改文件状态的同时，也会提示如何撤消操作。 例如，你已经修改了两个文件并且想要将它们作为两次独立的修改提交，但是却意外地输入了 `git add *` 暂存了它们两个。 如何只取消暂存两个中的一个呢？ `git status` 命令提示了你：
 
-```console
+```bash
 $ git add *
 $ git status
 On branch master
@@ -370,7 +370,7 @@ Changes to be committed:
 
 在 “Changes to be committed” 文字正下方，提示使用 `git reset HEAD <file>...` 来取消暂存。 所以，我们可以这样来取消暂存 `CONTRIBUTING.md` 文件：
 
-```console
+```bash
 $ git reset HEAD CONTRIBUTING.md
 Unstaged changes after reset:
 M	CONTRIBUTING.md
@@ -400,7 +400,7 @@ Changes not staged for commit:
 
 如果你并不想保留对 `CONTRIBUTING.md` 文件的修改怎么办？ 你该如何方便地撤消修改 - 将它还原成上次提交时的样子（或者刚克隆完的样子，或者刚把它放入工作目录时的样子）？ 幸运的是，`git status` 也告诉了你应该如何做。 在最后一个例子中，未暂存区域是这样：
 
-```console
+```bash
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
@@ -410,7 +410,7 @@ Changes not staged for commit:
 
 它非常清楚地告诉了你如何撤消之前所做的修改。 让我们来按照提示执行：
 
-```console
+```bash
 $ git checkout -- CONTRIBUTING.md
 $ git status
 On branch master
@@ -434,7 +434,7 @@ Changes to be committed:
 
 如果想查看你已经配置的远程仓库服务器，可以运行 `git remote` 命令。 它会列出你指定的每一个远程服务器的简写。 如果你已经克隆了自己的仓库，那么至少应该能看到 origin - 这是 Git 给你克隆的仓库服务器的默认名字：
 
-```console
+```bash
 $ git clone https://github.com/schacon/ticgit
 Cloning into 'ticgit'...
 remote: Reusing existing pack: 1857, done.
@@ -449,7 +449,7 @@ origin
 
 你也可以指定选项 `-v`，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。
 
-```console
+```bash
 $ git remote -v
 origin	https://github.com/schacon/ticgit (fetch)
 origin	https://github.com/schacon/ticgit (push)
@@ -457,7 +457,7 @@ origin	https://github.com/schacon/ticgit (push)
 
 如果你的远程仓库不止一个，该命令会将它们全部列出。 例如，与几个协作者合作的，拥有多个远程仓库的仓库看起来像下面这样：
 
-```console
+```bash
 $ cd grit
 $ git remote -v
 bakkdoor  https://github.com/bakkdoor/grit (fetch)
@@ -480,7 +480,7 @@ origin    git@github.com:mojombo/grit.git (push)
 
 我在之前的章节中已经提到并展示了如何添加远程仓库的示例，不过这里将告诉你如何明确地做到这一点。 运行 `git remote add <shortname> <url>` 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写：
 
-```console
+```bash
 $ git remote
 origin
 $ git remote add pb https://github.com/paulboone/ticgit
@@ -493,7 +493,7 @@ pb	https://github.com/paulboone/ticgit (push)
 
 现在你可以在命令行中使用字符串 `pb` 来代替整个 URL。 例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 `git fetch pb`：
 
-```console
+```bash
 $ git fetch pb
 remote: Counting objects: 43, done.
 remote: Compressing objects: 100% (36/36), done.
@@ -510,7 +510,7 @@ From https://github.com/paulboone/ticgit
 
 就如刚才所见，从远程仓库中获得数据，可以执行：
 
-```console
+```bash
 $ git fetch [remote-name]
 ```
 
@@ -524,7 +524,7 @@ $ git fetch [remote-name]
 
 当你想分享你的项目时，必须将其推送到上游。 这个命令很简单：`git push [remote-name] [branch-name]`。 当你想要将 master 分支推送到 `origin` 服务器时（再次说明，克隆时通常会自动帮你设置好那两个名字），那么运行这个命令就可以将你所做的备份到服务器：
 
-```console
+```bash
 $ git push origin master
 ```
 
@@ -534,7 +534,7 @@ $ git push origin master
 
 如果想要查看某一个远程仓库的更多信息，可以使用 `git remote show [remote-name]` 命令。 如果想以一个特定的缩写名运行这个命令，例如 `origin`，会得到像下面类似的信息：
 
-```console
+```bash
 $ git remote show origin
 * remote origin
   Fetch URL: https://github.com/schacon/ticgit
@@ -553,7 +553,7 @@ $ git remote show origin
 
 这是一个经常遇到的简单例子。 如果你是 Git 的重度使用者，那么还可以通过 `git remote show` 看到更多的信息。
 
-```console
+```bash
 $ git remote show origin
 * remote origin
   URL: https://github.com/my-org/complex-project
@@ -582,7 +582,7 @@ $ git remote show origin
 
 如果想要重命名引用的名字可以运行 `git remote rename` 去修改一个远程仓库的简写名。 例如，想要将 `pb` 重命名为 `paul`，可以用 `git remote rename` 这样做：
 
-```console
+```bash
 $ git remote rename pb paul
 $ git remote
 origin
@@ -593,7 +593,7 @@ paul
 
 如果因为一些原因想要移除一个远程仓库 - 你已经从服务器上搬走了或不再想使用某一个特定的镜像了，又或者某一个贡献者不再贡献了 - 可以使用 `git remote rm` ：
 
-```console
+```bash
 $ git remote rm paul
 $ git remote
 origin
@@ -605,7 +605,7 @@ origin
 
 Git 并不会在你输入部分命令时自动推断出你想要的命令。 如果不想每次都输入完整的 Git 命令，可以通过 `git config` 文件来轻松地为每一个命令设置一个别名。 这里有一些例子你可以试试：
 
-```console
+```bash
 $ git config --global alias.co checkout
 $ git config --global alias.br branch
 $ git config --global alias.ci commit
@@ -616,26 +616,26 @@ $ git config --global alias.st status
 
 在创建你认为应该存在的命令时这个技术会很有用。 例如，为了解决取消暂存文件的易用性问题，可以向 Git 中添加你自己的取消暂存别名：
 
-```console
+```bash
 $ git config --global alias.unstage 'reset HEAD --'
 ```
 
 这会使下面的两个命令等价：
 
-```console
+```bash
 $ git unstage fileA
 $ git reset HEAD -- fileA
 ```
 
 这样看起来更清楚一些。 通常也会添加一个 `last` 命令，像这样：
 
-```console
+```bash
 $ git config --global alias.last 'log -1 HEAD'
 ```
 
 这样，可以轻松地看到最后一次提交：
 
-```console
+```bash
 $ git last
 commit 66938dae3329c7aebe598c2246a8e6af90d04646
 Author: Josh Goebel <dreamer3@example.com>
@@ -648,7 +648,7 @@ Date:   Tue Aug 26 19:48:51 2008 +0800
 
 可以看出，Git 只是简单地将别名替换为对应的命令。 然而，你可能想要执行外部命令，而不是一个 Git 子命令。 如果是那样的话，可以在命令前面加入 `!` 符号。 如果你自己要写一些与 Git 仓库协作的工具的话，那会很有用。 我们现在演示将 `git visual` 定义为 `gitk` 的别名：
 
-```console
+```bash
 $ git config --global alias.visual '!gitk'
 ```
 

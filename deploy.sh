@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update egg'
+git commit -m 'update thme'
 
 git remote -v
 # git pull
@@ -21,20 +21,23 @@ cd dist
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
-# git init
+git init
 git add .
-git commit -m 'update egg'
+git commit -m 'update theme'
 
 # 如果发布到 https://<USERNAME>.github.io
-git pull
+# git pull
+
 git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
 
 git remote -v
 
-git pull
-git push origin master
+# git pull
+# git push origin master
 
-git push -f git@github.com:huang-1234/huang-1234.github.io.git master
+git push -f origin master
+
+# git push -f git@github.com:huang-1234/huang-1234.github.io.git master
 # git pull
 # git push
 

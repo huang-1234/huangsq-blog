@@ -302,16 +302,16 @@ function getVue() {
     {
       title: 'VueBase',
       children: [
-        'vueBase/aTemplate',
-        'vueBase/bComputed',
-        'vueBase/cStylesClass',
-        'vueBase/dIfRender',
+        // 'vueBase/aTemplate',
+        // 'vueBase/bComputed',
+        // 'vueBase/cStylesClass',
+        // 'vueBase/dIfRender',
         'vueBase/dVueLife',
-        'vueBase/eListRender',
-        'vueBase/fEventProcess',
-        'vueBase/gFormInputBind',
-        'vueBase/hComponent',
-        'vueBase/iSlot',
+        // 'vueBase/eListRender',
+        // 'vueBase/fEventProcess',
+        // 'vueBase/gFormInputBind',
+        // 'vueBase/hComponent',
+        // 'vueBase/iSlot',
       ]
     },
     {

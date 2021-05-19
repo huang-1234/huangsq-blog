@@ -34,3 +34,5 @@
 
 [老卫Blog](https://waylau.com/books/)
 
+[讲git](https://colstuwjx.github.io/2020/11/git%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%E5%92%8C%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB/)
+

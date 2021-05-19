@@ -1,6 +1,8 @@
 ## 2. `this`
 
-**本文主要解释在JS里面this关键字的指向问题(在浏览器环境下)。**
+JS里面this关键字的指向问题(在浏览器环境下)。
+
+> 下面引自MDN对this的一段介绍
 
 与其他语言相比，**函数的 [this]([this - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)) 关键字**在 JavaScript 中的表现略有不同，此外，在[严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)和非严格模式之间也会有一些差别。
 
