@@ -32,7 +32,7 @@ git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
 
 git remote -v
 
-# git pull
+git pull
 # git push origin master
 
 git push -f origin master

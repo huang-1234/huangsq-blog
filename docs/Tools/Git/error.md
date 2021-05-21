@@ -40,3 +40,31 @@ Git 的 “master” 分支并不是一个特殊分支。 它就跟其它分支�
 - 第一种如上图中的提示：`git push --set-upstream origin master`。其中的origin是你在clone远程代码时，git为你创建的指向这个远程代码库的标签，它指向repository。为了能清楚了解你要指向的repository，可以用命令git remote -v进行查看。master是你远程的branch，可以用`git branch -a`查看所有分支，远程分支是红色的部分。然后确定好这两个值后，将值换掉即可。
 - 另一种方法是：`git push -u origin master`。同样根据自己的需要，替换origin和master。
   两个命令的区别是第一条命令是要保证你的远程分支存在，如果不存在，也就无法进行关联。而第二条指令即使远程没有你要关联的分支，它也会自动创建一个出来，以实现关联。
+
+## 210520
+
+说明：-u 在服务器仓库应该是一个空仓库时使用。
+
+二、分析原因 之所以没有成功的将本地代码推动到服务器上，是因为服务器的仓库不是一个空仓库，那么正确的上传顺序就应该是这样的。
+
+- 返回服务器的代码（git pull）；
+- 使用 git rebase origin master 进行合并；
+- 合并过程中，如果本地代码和服务器代码有冲突会有提醒；
+- 使用 git diff 可以查看冲突，手动解决冲突后使用 git add ‘修改的文件名’ 将修改添加到暂缓区；
+- 使用 git rebase --continue 继续合并；
+- 最后使用 git push 更新到服务器。
+
+三、解决方法
+
+1. 先进行合并
+
+```bash
+$ git pull rebase origin master
+```
+
+1. 进行推送
+
+```bash
+$ git push origin master   
+这个时候应该就没问题！
+```
