@@ -25,8 +25,8 @@ let pos = str.lastIndexOf("China"); //51 表示最后面一个china
   - search()可以设置正则表达式进行搜索。
 + 您将在正则表达式的章节学习到这些更强大的检索值。
 ```js
-var str = "The full 2 name 1369 of China is the People's Republic of China.";
-var pos = str.search(/[0-9]/);  //9
+const str = "The full 2 name 1369 of China is the People's Republic of China.";
+const pos = str.search(/[0-9]/);  //9
 console.log(pos);
 ```
 
@@ -48,8 +48,8 @@ String 对象的方法 slice()、substring() 和 substr() (不建议使用)都�
 
 该方法设置两个参数：起始索引（开始位置），终止索引（结束位置）。
 ```js
-var str = "Apple, Banana, Mango";
-var res = str.slice(7); //Banana, Mango (从索引7开始到字符串的最后边提取，返回提取后的字符串)
+const str = "Apple, Banana, Mango";
+const res = str.slice(7); //Banana, Mango (从索引7开始到字符串的最后边提取，返回提取后的字符串)
 console.log(res);
 let res1 = str.slice(7, 13);
 console.log(res1); //Banana
@@ -69,6 +69,31 @@ substr() 类似于 slice()。
 ## 替换字符串内容
 
 replace() 方法用另一个值替换在字符串中指定的值：
+
+
+
+## js字符与ASCII码互转的方法
+
+大写字母A-Z对应的ASCII码值是65-90
+小写字母a-z对应的ASCII码值是97-122
+
+
+
+```js
+// 将字母转为ascii嘛的方法：
+const str = "A";
+str.charCodeAt();  // 65
+
+const str1 = 'a';
+str1.charCodeAt();  // 97
+
+// 将ascii码转为对应字母的方法：
+const num = 97;
+String.fromCharCode(num);  // 'a'
+
+const num1 = 100;
+String.fromCharCode(num1);  // 'd'
+```
 
 # [从MDN系统学习String](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String)
 
@@ -129,10 +154,9 @@ HTML wrapper methods
 
 使用 String() 方法将其它对象转化为字符串可以被认为是一种更加安全的做法，虽然该方法底层使用的也是 toString() 方法，但是针对 null/undefined/symbols，String() 方法会有特殊的处理：
 ```js
-var outputStrings = [];
+const outputStrings = [];
 for (let i = 0, n = inputValues.length; i < n; ++i) {
  outputStrings.push(String(inputValues[i]));
 }
 ```
-
 

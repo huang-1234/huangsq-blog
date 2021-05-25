@@ -2,7 +2,7 @@
 
 ## CRA需要安装的包
 
-```shell
+```s
 ├─ @babel/helper-explode-assignable-expression@7.13.0
 ├─ @babel/helper-get-function-arity@7.12.13
 ├─ @babel/helper-hoist-variables@7.13.16

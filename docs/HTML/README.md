@@ -381,6 +381,7 @@ HTML 代码可以包含注释，浏览器会自动忽略注释。注释以`<!--`
 <button id="top-btn-html" class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
   <a href="" style="text-decoration:none;">回顶部↑</a>
 </button>
+
 <script>
   function gotoTop(){
     winddow.scrollTo({
@@ -389,7 +390,7 @@ HTML 代码可以包含注释，浏览器会自动忽略注释。注释以`<!--`
       behavior:'smooth'
     });
   }
-  const btn = document.getElementById('top-btn-html);
+  const btn = document.getElementById('top-btn-html');
   btn.addEventListener('click', gotoTop);
-  
+
 </script>

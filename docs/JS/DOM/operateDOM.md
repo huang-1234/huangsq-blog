@@ -1,65 +1,106 @@
-# 操作DOM的众说纷纭
+# 操作DOM
 
-### 0. 网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？
+### 为什么说 DOM 操作耗时
 
-> 网上都说操作真实dom怎么怎么慢，但是下面这个链接案例中原生的方式却是最快的
+要解释 DOM 操作带来的性能问题，我们不得不提一下**浏览器的工作机制**。
 
-[http://chrisharrington.github.io/demos/performance/](https://link.zhihu.com/?target=http%3A//chrisharrington.github.io/demos/performance/)
-我在本地也写了个例子循环2000个随机数组，点击按钮重新生成随机数组渲染页面，也是自己用的js 操作dom 比用react 和angular 都要快，这个是怎么回事。测试方式不对，页面元素太少了，还是哪里问题，请帮忙解答下，谢谢。
+### 线程切换
 
-作者：尤雨溪
-链接：https://www.zhihu.com/question/31809713/answer/53544875
-来源：知乎尤雨溪回答该问题于2016年
+如果你对浏览器结构有一定了解，就会知道浏览器包含渲染引擎（也称浏览器内核）和 JavaScript 引擎，它们都是单线程运行。单线程的优势是开发方便，避免多线程下的死锁、竞争等问题，劣势是失去了并发能力。
 
-> 这里面有好几个方面的问题。
+浏览器为了避免两个引擎同时修改页面而造成渲染结果不一致的情况，增加了另外一个机制，这两个引擎具有互斥性，也就是说在某个时刻只有一个引擎在运行，另一个引擎会被阻塞。操作系统在进行线程切换的时候需要保存上一个线程执行时的状态信息并读取下一个线程的状态信息，俗称**上下文切换**。而这个操作相对而言是比较耗时的。
 
-### 1. 原生 DOM 操作 vs. 通过框架封装操作。
+每次 DOM 操作就会引发线程的上下文切换——从 JavaScript 引擎切换到渲染引擎执行对应操作，然后再切换回 JavaScript 引擎继续执行，这就带来了**性能损耗**。单次切换消耗的时间是非常少的，但是如果频繁地大量切换，那么就会产生性能问题。
 
-这是一个性能 vs. 可维护性的取舍。框架的意义在于为你掩盖底层的 DOM 操作，让你用更声明式的方式来描述你的目的，从而让你的代码更容易维护。没有任何框架可以比纯手动的优化 DOM 操作更快，因为框架的 DOM 操作层需要应对任何上层 API 可能产生的操作，它的实现必须是普适的。针对任何一个 benchmark，我都可以写出比任何框架更快的手动优化，但是那有什么意义呢？在构建一个实际应用的时候，你难道为每一个地方都去做手动优化吗？出于可维护性的考虑，这显然不可能。框架给你的保证是，你在不需要手动优化的情况下，我依然可以给你提供过得去的性能。
+比如下面的测试代码，循环读取一百万次 DOM 中的 body 元素的耗时是读取 JSON 对象耗时的 10 倍。
 
-### 2. 对 React 的 Virtual DOM 的误解。
+```html
+<script>
+  // 测试次数：一百万次
+  const times = 1000000
+  // 缓存body元素
+  console.time('object')
 
-React 从来没有说过 “React 比原生操作 DOM 快”。React 的基本思维模式是每次有变动就整个重新渲染整个应用。如果没有 Virtual DOM，简单来想就是直接重置 innerHTML。很多人都没有意识到，在一个大型列表所有数据都变了的情况下，重置 innerHTML 其实是一个还算合理的操作... 真正的问题是在 “全部重新渲染” 的思维模式下，即使只有一行数据变了，它也需要重置整个 innerHTML，这时候显然就有大量的浪费。
+  let body = document.body
 
-> 我们可以比较一下 innerHTML vs. Virtual DOM 的重绘性能消耗：
+  // 循环赋值对象作为对照参考
+  for (let i = 0;i < times;i++) {
+    let tmp = body
+  }
+  console.timeEnd('object')// object: 3.2197265625 ms
+  console.time('dom')
+  // 循环读取body元素引发线程切换
+  for (let i = 0;i < times;i++) {
+    let tmp = document.body
+  }
+  console.timeEnd('dom')// dom: 33.347900390625 ms
+</script>
+```
 
-> -innerHTML:  render html string O(template size) + 重新创建所有 DOM 元素 O(DOM size)
-> Virtual DOM: render Virtual DOM + diff O(template size) + 必要的 DOM 更新 O(DOM change)
 
-Virtual DOM render + diff 显然比渲染 html 字符串要慢，但是！它依然是纯 js 层面的计算，比起后面的 DOM 操作来说，依然便宜了太多。可以看到，innerHTML 的总计算量不管是 js 计算还是 DOM 操作都是和整个界面的大小相关，但 Virtual DOM 的计算量里面，只有 js 计算和界面大小相关，DOM 操作是和数据的变动量相关的。前面说了，和 DOM 操作比起来，js 计算是极其便宜的。这才是为什么要有 Virtual DOM：它保证了 1）不管你的数据变化多少，每次重绘的性能都可以接受；2) 你依然可以用类似 innerHTML 的思路去写你的应用。
 
-### 3. MVVM vs. Virtual DOM
+### 重新渲染
 
-相比起 React，其他 MVVM 系框架比如 Angular, Knockout 以及 Vue、Avalon 采用的都是数据绑定：通过 Directive/Binding 对象，观察数据变化并保留对实际 DOM 元素的引用，当有数据变化时进行对应的操作。MVVM 的变化检查是数据层面的，而 React 的检查是 DOM 结构层面的。MVVM 的性能也根据变动检测的实现原理有所不同：Angular 的脏检查使得任何变动都有固定的 O(watcher count) 的代价；Knockout/Vue/Avalon 都采用了依赖收集，在 js 和 DOM 层面都是 O(change)：
+另一个更加耗时的因素是元素及样式变化引起的再次渲染，在渲染过程中最耗时的两个步骤为**重排**（Reflow）与**重绘**（Repaint）。
 
-> 脏检查：scope digest O(watcher count) + 必要 DOM 更新 O(DOM change)
-> 
-> 依赖收集：重新收集依赖 O(data change) + 必要 DOM 更新 O(DOM change)
+浏览器在渲染页面时会将 HTML 和 CSS 分别解析成 DOM 树和 CSSOM 树，然后合并进行排布，再绘制成我们可见的页面。如果在操作 DOM 时涉及到元素、样式的修改，就会引起渲染引擎重新计算样式生成 CSSOM 树，同时还有可能触发对元素的重新排布（简称“重排”）和重新绘制（简称“重绘”）。
 
-可以看到，Angular 最不效率的地方在于任何小变动都有的和 watcher 数量相关的性能代价。但是！当所有数据都变了的时候，Angular 其实并不吃亏。依赖收集在初始化和数据变化的时候都需要重新收集依赖，这个代价在小量更新的时候几乎可以忽略，但在数据量庞大的时候也会产生一定的消耗。
+> 可能会影响到其他元素排布的操作就会引起重排，继而引发重绘，比如：
 
-MVVM 渲染列表的时候，由于每一行都有自己的数据作用域，所以通常都是每一行有一个对应的 ViewModel 实例，或者是一个稍微轻量一些的利用原型继承的 "scope" 对象，但也有一定的代价。所以，MVVM 列表渲染的初始化几乎一定比 React 慢，因为创建 ViewModel / scope 实例比起 Virtual DOM 来说要昂贵很多。这里所有 MVVM 实现的一个共同问题就是在列表渲染的数据源变动时，尤其是当数据是全新的对象时，如何有效地复用已经创建的 ViewModel 实例和 DOM 元素。假如没有任何复用方面的优化，由于数据是 “全新” 的，MVVM 实际上需要销毁之前的所有实例，重新创建所有实例，最后再进行一次渲染！这就是为什么题目里链接的 angular/knockout 实现都相对比较慢。相比之下，React 的变动检查由于是 DOM 结构层面的，即使是全新的数据，只要最后渲染结果没变，那么就不需要做无用功。
+- 修改元素边距、大小
+- 添加、删除元素
+- 改变窗口大小
 
-Angular 和 Vue 都提供了列表重绘的优化机制，也就是 “提示” 框架如何有效地复用实例和 DOM 元素。比如数据库里的同一个对象，在两次前端 API 调用里面会成为不同的对象，但是它们依然有一样的 uid。这时候你就可以提示 track by uid 来让 Angular 知道，这两个对象其实是同一份数据。那么原来这份数据对应的实例和 DOM 元素都可以复用，只需要更新变动了的部分。或者，你也可以直接 track by $index 来进行 “原地复用”：直接根据在数组里的位置进行复用。在题目给出的例子里，如果 angular 实现加上 track by $index 的话，后续重绘是不会比 React 慢多少的。甚至在 dbmonster 测试中，Angular 和 Vue 用了 track by $index 以后都比 React 快: [dbmon](https://link.zhihu.com/?target=http%3A//vuejs.github.io/js-repaint-perfs/) (注意 Angular 默认版本无优化，优化过的在下面）
+> 与之相反的操作则只会引起重绘，比如：
 
-> 顺道说一句，React 渲染列表的时候也需要提供 key 这个特殊 prop，本质上和 track-by 是一回事。
+- 设置背景图片
+- 修改字体颜色
+- 改变 visibility 属性值
 
-### 4. 性能比较也要看场合
+如果想了解更多关于重绘和重排的样式属性，可以参看这个网址：https://csstriggers.com/。
 
-在比较性能的时候，要分清楚初始渲染、小量数据更新、大量数据更新这些不同的场合。Virtual DOM、脏检查 MVVM、数据收集 MVVM 在不同场合各有不同的表现和不同的优化需求。Virtual DOM 为了提升小量数据更新时的性能，也需要针对性的优化，比如 shouldComponentUpdate 或是 immutable data。
+下面是两段验证代码，我们通过 Chrome 提供的性能分析工具来对渲染耗时进行分析。
 
-> 初始渲染：Virtual DOM > 脏检查 >= 依赖收集
+第一段代码，通过修改 div 元素的边距来触发重排，渲染耗时（粗略地认为渲染耗时为紫色 Rendering 事件和绿色 Painting 事件耗时之和）3045 毫秒。
 
-> 小量数据更新：依赖收集 >> Virtual DOM + 优化 > 脏检查（无法优化） > Virtual DOM 无优化
+#### 在循环外操作元素
 
-> 大量数据更新：脏检查 + 优化 >= 依赖收集 + 优化 > Virtual DOM（无法/无需优化）>> MVVM 无优化
+比如下面两段测试代码对比了读取 1000 次 JSON 对象以及访问 1000 次 body 元素的耗时差异，相差一个数量级。
 
-不要天真地以为 Virtual DOM 就是快，diff 不是免费的，batching 么 MVVM 也能做，而且最终 patch 的时候还不是要用原生 API。在我看来 Virtual DOM 真正的价值从来都不是性能，而是它 1) 为函数式的 UI 编程方式打开了大门；2) 可以渲染到 DOM 以外的 backend，比如 ReactNative。
+```js
+const times = 10000;
+console.time('switch')
+for (let i = 0; i < times; i++) {
+  document.body === 1 ? console.log(1) : void 0;
+}
+console.timeEnd('switch') // 1.873046875ms
+var body = JSON.stringify(document.body)
+console.time('batch')
+for (let i = 0; i < times; i++) {
+  body === 1 ? console.log(1) : void 0;
+}
+console.timeEnd('batch') // 0.846923828125ms
 
-### 5. 总结(尤雨溪)
+```
 
-以上这些比较，更多的是对于框架开发研究者提供一些参考。主流的框架 + 合理的优化，足以应对绝大部分应用的性能需求。如果是对性能有极致需求的特殊情况，其实应该牺牲一些可维护性采取手动优化：比如 Atom 编辑器在文件渲染的实现上放弃了 React 而采用了自己实现的 tile-based rendering；又比如在移动端需要 DOM-pooling 的虚拟滚动，不需要考虑顺序变化，可以绕过框架的内置实现自己搞一个。
+### 批量操作元素
 
-[编辑于 2016-02-08](http://www.zhihu.com/question/31809713/answer/53544875)
+比如说要创建 1 万个 div 元素，在循环中直接创建再添加到父元素上耗时会非常多。如果采用字符串拼接的形式，先将 1 万个 div 元素的 html 字符串拼接成一个完整字符串，然后赋值给 body 元素的 innerHTML 属性就可以明显减少耗时。
 
-<span class="bottom-bar-item" style="position: relative,right:20px"><a href="#">回顶部↑</a></span>
+```js
+const times = 1000;
+console.time('createElement')
+for (let i = 0;i < times;i++) {
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+}
+console.timeEnd('createElement')// 10000次：54.964111328125ms 1000次：createElement: 1.3271484375 ms
+console.time('innerHTML')
+let html = ''
+for (let i = 0;i < times;i++) {
+  html += '<div></div>'
+}
+document.body.innerHTML += html // 10000次：31.919921875ms 1000次：innerHTML: 2.67236328125 ms
+console.timeEnd('innerHTML')
+```
+

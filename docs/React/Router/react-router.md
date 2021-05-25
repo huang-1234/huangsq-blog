@@ -109,7 +109,8 @@ export { Switch, Route, Router, Redirect } from 'react-router'
 
 #### react-router3.x与react-router-dom区别
 
-react-router3.x版本下路由采用集中式配置，UI组件和路由是分开的。react-router4.x版本下路由路由采用分散式配置，路由嵌套在UI组件当中，更加契合组件化思想（组件中的路由也应该包含在组件之中）。
+react-router3.x版本下路由采用集中式配置，UI组件和路由是分开的。react-router4.x版本下路由路由采用分散式配置，
+路由嵌套在UI组件当中，更加契合组件化思想（组件中的路由也应该包含在组件之中）。
 
 ### 3、在react-router3.x是如下配置路由：
 
