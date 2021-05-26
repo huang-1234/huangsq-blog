@@ -75,3 +75,63 @@ tasks.json配置文件代码如下：
 注3：若要链接多个源文件，则解开tasks.json配置文件中“args”部分代码即可（示例链接printf.c文件），有更简便的方法不需要枚举所有c源文件，自行百度尝试。
 注4：配置完成后保存.vscode文件，复制到其他工程的根目录下可省略下一次的重新配置。
 注5：每次更改完配置文件后要及时保存，否则不更新配置信息。
+
+```json
+// VSCode支持ESLint自动格式化
+{
+	"editor.lineNumbers": "on", //开启行数提示
+	"editor.quickSuggestions": {
+		//开启自动显示建议
+		"other": true,
+		"comments": true,
+		"strings": true
+    },
+    //使用制表符缩进
+	"prettier.useTabs": true, 
+	"editor.tabSize": 2, //制表符符号eslint
+	"editor.formatOnSave": true, //每次保存自动格式化
+	"prettier.semi": true, //去掉代码结尾的分号
+	"prettier.singleQuote": true, //使用单引号替代双引号
+	"prettier.trailingComma": "none", //去除对象最末尾元素跟随的逗号
+	"javascript.format.insertSpaceBeforeFunctionParenthesis": true, //让函数(名)和后面的括号之间加个空格
+	"vetur.format.defaultFormatter.html": "js-beautify-html", //格式化.vue中html
+	"vetur.format.defaultFormatter.js": "vscode-typescript", //让vue中的js按编辑器自带的ts格式进行格式化
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"eslint.run": "onSave",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"prettier.printWidth": 200, //指定代码长度，超出换行
+	"prettier.requireConfig": true, //需要prettier.requireConfig格式化
+	"prettier.useEditorConfig": false,
+	// "eslint.validate": [
+	//   //开启对.vue文件中错误的检查
+	//   "javascript",
+	//   "javascriptreact",
+	//   {
+	//     "language": "html",
+	//     "autoFix": true
+	//   },
+	//   {
+	//     "language": "vue",
+	//     "autoFix": true
+	//   }
+	// ],
+	"terminal.integrated.rendererType": "dom",
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"editor.detectIndentation": false,
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+  "window.zoomLevel": 1
+}
+
+```
+

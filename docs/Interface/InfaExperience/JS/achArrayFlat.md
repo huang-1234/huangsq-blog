@@ -1,11 +1,11 @@
 # 数组扁平化
 
-## Array.prototype.flat()
+### Array.prototype.flat()
 
 `flat()` 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
 
 ```js
-var newArray = arr.flat([depth])
+let newArray = arr.flat([depth])
 ```
 
 > 参数
@@ -18,12 +18,12 @@ var newArray = arr.flat([depth])
 
 
 
-## 替代方案
+### 替代方案
 
 ### 使用 `reduce` 与 `concat`
 
 ```js
-var arr = [1, 2, [3, 4]];
+let arr = [1, 2, [3, 4]];
 
 // 展开一层数组
 arr.flat();
@@ -39,7 +39,7 @@ const flattened = arr => [].concat(...arr);
 
 ```js
 // 使用 reduce、concat 和递归展开无限多层嵌套的数组
-var arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
+let arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
 
 function flatDeep(arr, d = 1) {
    return d > 0 ? arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatDeep(val, d - 1) : val), [])
@@ -97,7 +97,7 @@ const forFlat = (arr = [], depth = 1) => {
 // 无递归数组扁平化，使用堆栈
 // 注意：深度的控制比较低效，因为需要检查每一个值的深度
 // 也可能在 shift / unshift 上进行 w/o 反转，但是末端的数组 OPs 更快
-var arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
+let arr1 = [1,2,3,[1,2,3,4, [2,3,4]]];
 function flatten(input) {
   const stack = [...input];
   const res = [];
@@ -117,7 +117,7 @@ function flatten(input) {
 flatten(arr1);// [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
 // 递归版本的反嵌套
 function flatten(array) {
-  var flattend = [];
+  let flattend = [];
   (function flat(array) {
     array.forEach(function(el) {
       if (Array.isArray(el)) flat(el);
@@ -141,7 +141,7 @@ function* flatten(array) {
     }
 }
 
-var arr = [1, 2, [3, 4, [5, 6]]];
+let arr = [1, 2, [3, 4, [5, 6]]];
 const flattened = [...flatten(arr)];
 // [1, 2, 3, 4, 5, 6]
 ```

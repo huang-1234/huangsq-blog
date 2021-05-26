@@ -43,6 +43,12 @@ const nav = [
         items: [
           { text: 'cPlus', link: '/Cplus/' }
         ]
+      },
+      {
+        text: 'Go',
+        items: [
+          {text:'Go',link:'/Go/'}
+        ]
       }
     ]
   },

@@ -12,6 +12,8 @@ const sidebar = {
   '/Node/': getNode(),
   // c++
   '/Cplus/': getCplus(),
+  // Go
+  '/Go/': getGo(),
 
 
   //算法&&数学&&机器学习&&人工智能
@@ -352,13 +354,16 @@ function getNode() {
 function getCplus() {
   return [
     {
+      title: 'cLanguage',
+      children: [
+        'cLanguage/c_stdlib',
+      ]
+    },
+    {
       title: 'CplusBase',
       children: [
         'CplusBase/CplusVSCodeConfig',
         'CplusBase/aRelearnCplus',
-        'CplusBase/aDataType',
-        'CplusBase/aArray',
-        'CplusBase/aPointerReference',
         'CplusBase/bcincout',
         // C++的类
         'CplusBase/bString',
@@ -370,6 +375,19 @@ function getCplus() {
     }
   ]
 }
+// Go语言
+function getGo() {
+  return [
+    {
+      title: 'GoBase',
+      children: [
+        'goBase/basic',
+      ]
+    }
+  ]
+}
+
+//====================================================================
 //算法&&AI&&机器学习&&数学
 function getAlgorithm() {
   return [

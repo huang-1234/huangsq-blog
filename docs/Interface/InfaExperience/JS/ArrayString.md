@@ -1,4 +1,4 @@
-# JavaScript面试考点之数组和字符串的常用方法
+# JS面试-数组和字符串的常用方法Full
 
 ### 1、JavaScript数组的常用方法
 
