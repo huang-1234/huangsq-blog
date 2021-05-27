@@ -7,6 +7,7 @@ const nav = [
       { text: 'JS', link: '/JS/' },
       { text: 'HTML', link: '/HTML/' },
       { text: 'Styles', link: '/Styles/' },
+      { text: 'TS', link: '/TS/' },
       {
         text: 'Browser',
         items: [

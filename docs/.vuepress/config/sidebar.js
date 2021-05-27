@@ -3,6 +3,8 @@ const sidebar = {
   '/JS/': getJS(),
   '/HTML/': getHTML(),
   '/Styles/': getStyles(),
+  '/TS/':getTS(),
+
   '/BrowserCore/': getBrowserCore(),
   '/BrowserModel/': getBrowserModel(),
   '/React/': getReact(),
@@ -188,6 +190,25 @@ function getStyles() {
       children: [
         // CSS特效
         'cssCartoon/rotate',
+      ]
+    }
+  ]
+}
+
+function getTS() {
+  return [
+    {
+      title: 'tsBase',
+      children: [
+        'tsBase/basic',
+        'tsBase/tuple',
+        'tsBase/tsconfig',
+      ]
+    },
+    {
+      title: 'tsComponents',
+      children: [
+        'tsCom/ts_react_components',
       ]
     }
   ]
@@ -382,6 +403,7 @@ function getGo() {
       title: 'GoBase',
       children: [
         'goBase/basic',
+        'goBase/var',
       ]
     }
   ]

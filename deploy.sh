@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update thme'
+git commit -m 'update go'
 
 git remote -v
 # git pull
@@ -23,12 +23,12 @@ cd dist
 
 git init
 git add .
-git commit -m 'update theme'
+git commit -m 'update go'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull
 
-git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
+git remote add master git@github.com:huang-1234/huang-1234.github.io.git
 
 git remote -v
 

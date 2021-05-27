@@ -97,3 +97,191 @@ func main() {   x:=100   a,s:=1, "abc"}
 微软的 VC 编译器会将未初始化的栈空间以 16 进制的 0xCC 填充，而未初始化的堆空间使用 0xCD 填充，而 0xCCCC 和 0xCDCD 在中文的 GB2312 编码中刚好对应“烫”和“屯”字。
 
 因此，如果一个字符串没有结束符`\0`，直接输出的内存数据转换为字符串就刚好对应“烫烫烫”和“屯屯屯”。
+
+## 定义字符串
+
+可以使用双引号`""`来定义字符串，字符串中可以使用转义字符来实现换行、缩进等效果，常用的转义字符包括：
+
+- \n：换行符
+- \r：回车符
+- \t：tab 键
+- \u 或 \U：Unicode 字符
+- \\\：反斜杠自身
+
+```go
+func main() {
+    name,str := "hsq" ,"黄水清";
+    fmt.Println(name,str); //hsq 黄水清
+		namelen,strlen := len(name),len(str)
+    fmt.Println(namelen,strlen); //3 9
+}
+```
+
+定义字符串不能使用单引号`‘’`,编译通不过
+
+另外我们发现英文字符长度为`1`,而中文一个字符的字符长度为`3`
+
+一般的比较运算符（==、!=、<、<=、>=、>）是通过在内存中按字节比较来实现字符串比较的，因此比较的结果是字符串自然编码的顺序。字符串所占的字节长度可以通过函数 len() 来获取，例如 len(str)。
+
+字符串的内容（纯字节）可以通过标准索引法来获取，在方括号`[ ]`内写入索引，索引从 0 开始计数：
+
+- 字符串 str 的第 1 个字节：str[0]
+- 第 i 个字节：str[i - 1]
+- 最后 1 个字节：str[len(str)-1]
+
+
+需要注意的是，这种转换方案只对纯 ASCII 码的字符串有效。
+
+> 注意：获取字符串中某个字节的地址属于非法行为，例如 &str[i]。		
+
+## 字符串拼接符“+”
+
+两个字符串 s1 和 s2 可以通过 s := s1 + s2 拼接在一起。将 s2 追加到 s1 尾部并生成一个新的字符串 s。
+
+```go
+func main() {
+    name,str := "hsq" ,"Beginning  " +
+"second part ";
+    fmt.Println(name,str); //hsq Beginning  second part 
+		namelen,strlen := len(name),len(str)
+    fmt.Println(namelen,strlen); //3 23
+}
+```
+
+## 字符类型（byte和rune）
+
+字符串中的每一个元素叫做“字符”，在遍历或者单个获取字符串元素时可以获得字符。
+
+Go语言的字符有以下两种：
+
+- 一种是 uint8 类型，或者叫 byte 型，代表了 ASCII 码的一个字符。
+- 另一种是 rune 类型，代表一个 UTF-8 字符，当需要处理中文、日文或者其他复合字符时，则需要用到 rune 类型。rune 类型等价于 int32 类型。
+
+
+byte 类型是 uint8 的别名，对于只占用 1 个字节的传统 ASCII 编码的字符来说，完全没有问题，例如 var ch byte = 'A'，字符使用单引号括起来。
+
+> 比如：
+
+```go
+func main()  {
+	var cbyte byte = 'a';
+	var crune rune = 'a';
+	fmt.Println(cbyte,crune)
+	
+	var ch int = '\u0041';
+	var ch2 int = '\u03B2';
+	var ch3 int = '\U00101234';
+	fmt.Printf("%d - %d - %d\n", ch, ch2, ch3); // integer
+	fmt.Printf("%c - %c - %c\n", ch, ch2, ch3); // character
+	fmt.Printf("%X - %X - %X\n", ch, ch2, ch3); // UTF-8 bytes
+	fmt.Printf("%U - %U - %U\n", ch, ch2, ch3);   // UTF-8 code point
+	fmt.Printf("=============================================================\n");
+
+	count := 128;
+	for i := 32; i < count; i++ {
+		if 1==(i-31)%5 {
+			fmt.Printf("\n");
+		}
+		fmt.Printf("c:<%c> it's %d  ",i,i);
+	}
+}
+```
+
+> 输出：
+
+```bash
+$ go run "g:\Study\Code\Web\NodeJS\learnFrontTest\Go\goBase\lib\type.go"
+97 97
+65 - 946 - 1053236
+A - β - 􁈴
+41 - 3B2 - 101234
+U+0041 - U+03B2 - U+101234
+=============================================================
+c:< > it's 32  c:<!> it's 33  c:<"> it's 34  c:<#> it's 35  c:<$> it's 36
+c:<%> it's 37  c:<&> it's 38  c:<'> it's 39  c:<(> it's 40  c:<)> it's 41
+c:<*> it's 42  c:<+> it's 43  c:<,> it's 44  c:<-> it's 45  c:<.> it's 46
+c:</> it's 47  c:<0> it's 48  c:<1> it's 49  c:<2> it's 50  c:<3> it's 51
+c:<4> it's 52  c:<5> it's 53  c:<6> it's 54  c:<7> it's 55  c:<8> it's 56
+c:<9> it's 57  c:<:> it's 58  c:<;> it's 59  c:<<> it's 60  c:<=> it's 61
+c:<>> it's 62  c:<?> it's 63  c:<@> it's 64  c:<A> it's 65  c:<B> it's 66
+c:<C> it's 67  c:<D> it's 68  c:<E> it's 69  c:<F> it's 70  c:<G> it's 71
+c:<H> it's 72  c:<I> it's 73  c:<J> it's 74  c:<K> it's 75  c:<L> it's 76
+c:<M> it's 77  c:<N> it's 78  c:<O> it's 79  c:<P> it's 80  c:<Q> it's 81
+c:<R> it's 82  c:<S> it's 83  c:<T> it's 84  c:<U> it's 85  c:<V> it's 86
+c:<W> it's 87  c:<X> it's 88  c:<Y> it's 89  c:<Z> it's 90  c:<[> it's 91
+c:<\> it's 92  c:<]> it's 93  c:<^> it's 94  c:<_> it's 95  c:<`> it's 96
+c:<a> it's 97  c:<b> it's 98  c:<c> it's 99  c:<d> it's 100  c:<e> it's 101
+c:<f> it's 102  c:<g> it's 103  c:<h> it's 104  c:<i> it's 105  c:<j> it's 106
+c:<k> it's 107  c:<l> it's 108  c:<m> it's 109  c:<n> it's 110  c:<o> it's 111
+c:<p> it's 112  c:<q> it's 113  c:<r> it's 114  c:<s> it's 115  c:<t> it's 116
+c:<u> it's 117  c:<v> it's 118  c:<w> it's 119  c:<x> it's 120  c:<y> it's 121
+c:<z> it's 122  c:<{> it's 123  c:<|> it's 124  c:<}> it's 125  c:<~> it's 126
+c:<> it's 127
+```
+
+格式化说明符`%c`用于表示字符，当和字符配合使用时，`%v`或`%d`会输出用于表示该字符的整数，`%U`输出格式为 U+hhhh 的字符串。
+
+Unicode 包中内置了一些用于测试字符的函数，这些函数的返回值都是一个布尔值，如下所示（其中 ch 代表字符）：
+
+- 判断是否为字母：unicode.IsLetter(ch)
+- 判断是否为数字：unicode.IsDigit(ch)
+- 判断是否为空白符号：unicode.IsSpace(ch)
+
+## UTF-8 和 Unicode 有何区别？
+
+Unicode 与 ASCII 类似，都是一种字符集。
+
+字符集为每个字符分配一个唯一的 ID，我们使用到的所有字符在 Unicode 字符集中都有一个唯一的 ID，例如上面例子中的 a 在 Unicode 与 ASCII 中的编码都是 97。汉字“你”在 Unicode 中的编码为 20320，在不同国家的字符集中，字符所对应的 ID 也会不同。而无论任何情况下，Unicode 中的字符的 ID 都是不会变化的。
+
+UTF-8 是编码规则，将 Unicode 中字符的 ID 以某种方式进行编码，UTF-8 的是一种变长编码规则，从 1 到 4 个字节不等。编码规则如下：
+
+- 0xxxxxx 表示文字符号 0～127，兼容 ASCII 字符集。
+- 从 128 到 0x10ffff 表示其他字符。
+
+
+根据这个规则，拉丁文语系的字符编码一般情况下每个字符占用一个字节，而中文每个字符占用 3 个字节。
+
+
+
+> 不同类型之前的变量是不能隐式转换的
+
+
+
+
+
+## 自定义类型
+
+> 使用关键字type即可实现，除此之外，还拥有类型检查的功能
+
+```go
+func createStruct(){
+	type (
+		user struct{ 
+			name string
+			age int8
+			place string
+			// next user
+		}
+		event func(string) bool
+	)
+
+	var p2 = user{"hsq",18,"changsha"};
+	fmt.Println("输出这个人的个人信息--：", p2);
+	var fn1 event = func(s string) bool{
+		println("输出函数fn1的params s--:",s);
+		return ""!=s;
+	}
+	fn_result := fn1("hsq");
+	println("fn_result--:", fn_result)
+}
+
+func main(){
+	createStruct()
+	/* $ go run "g:\Study\Code\Web\NodeJS\learnFrontTest\Go\goBase\refer\myselfType.go"
+	输出这个人的个人信息--： {hsq 18 changsha}
+	输出函数fn1的params s--: hsq
+	fn_result--: true
+	*/
+}
+```
+
