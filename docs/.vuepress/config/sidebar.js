@@ -378,6 +378,8 @@ function getCplus() {
       title: 'cLanguage',
       children: [
         'cLanguage/c_stdlib',
+        'cLanguage/c_func',
+        'cLanguage/c_tranchar',
       ]
     },
     {
@@ -402,8 +404,10 @@ function getGo() {
     {
       title: 'GoBase',
       children: [
-        'goBase/basic',
-        'goBase/var',
+        'goBase/1basic',
+        'goBase/2var',
+        'goBase/3vassel',
+        'goBase/4func',
       ]
     }
   ]

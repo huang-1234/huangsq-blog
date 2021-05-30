@@ -46,12 +46,6 @@ obj.print() //setTimeout: window
 
 无论是直接引用、通过对象方法调用还是函数引用都很容易理解，有时候，我们会遇到两个this的情况，如下，一个是setTimeout调用环境中的this，一个是延迟执行函数中的this，这个时候需要注意区别，我们可以理解为，setTimeout中的第一个参数就是一个单纯的函数的引用而已，它的指向跟我们一般的函数调用时一样取决于被调用时所处的环境。
 
-
-
-
-
-
-
 ```
 let obj = {
       say : function () {
@@ -63,8 +57,6 @@ let obj = {
 }; 
 obj.print() //setTimeout: window
 ```
-
-
 
 我们换种写法让上面代码中setTimeout调用环境中的this指向window，此时函数执行就不会有什么效果了：
 
@@ -82,12 +74,6 @@ func()
 ```
 
 下面再看：
-
-
-
-
-
-
 
 ```
 var a = 1;
@@ -163,12 +149,6 @@ test() //hhhh
 
 现在看看结合es6的箭头函数时this指向是怎么样的，大家都知道，由于箭头函数不绑定this， 它会捕获其所在（即定义的位置）上下文的this值， 作为自己的this值，在setTimeout中情况亦是如此。
 
-
-
-
-
-
-
 ```
 let obj = {
     name :  "jay",
@@ -186,12 +166,6 @@ obj.print() //jay
 ### 如何改变setTimeout的this指向
 
 前面的讨论其实已经有两种答案了，即利用中间变量引用外面的this和应用箭头函数
-
-
-
-
-
-
 
 ```
 方法一
@@ -214,15 +188,7 @@ let obj = {
 }; 
 ```
 
-
-
 还有一种方法是应用bind方法：
-
-
-
-
-
-
 
 ```
 方法三
@@ -247,12 +213,6 @@ obj.print(); //jay
 
 1.setTimeout(function,milliseconds,param1,param2,...); param1,param2,...是可选项，用于给function提供额外的参数，但是注意，该特性在IE9及之前的IE不能使用！！
 
-
-
-
-
-
-
 ```
 function say(name) {
    console.log(name)
@@ -260,15 +220,7 @@ function say(name) {
 etTimeout(say,0,'jay')
 ```
 
-
-
 2.字符串形式传参：
-
-
-
-
-
-
 
 ```
 function say(a,b) {

@@ -92,8 +92,11 @@
 
 [GitHut](https://githut.info/)
 
+## IDE
 
+[PyChart密钥](http://vrg123.com/)
 
 ## MyBlog
 
 [vuepress-theme-reco](https://vuepress-theme-reco.recoluan.com/)
+

@@ -280,3 +280,53 @@ let myAction = require(‘xxxxx‘);
 小红|女|79
 小陆|男|92
 ```
+# export报错SyntaxError: Unexpected token export
+情景重现
+a.js
+```js
+export let test = function () {
+  console.log('1');
+}
+```
+b.js
+```js
+let a= require ('./a');
+a.test();
+```
+运行node b，即出现如下报错：
+```js
+export default {
+^^^^^^
+
+SyntaxError: Unexpected token export
+```
+解决方法
+a.js改为如下：
+```js
+exports.test = function () {
+  console.log('1');
+}
+```
+根本原因
+Node和浏览器端所支持的模块规范不同。
+
+条目	Node	浏览器
+模块规范	CommonJS	ES6
+导出	* modules.exports; exports	export; export default
+引入	require	import；require
+
+1. 关于exports和module.exports
+在一个node执行一个文件时，会给这个文件内生成一个 exports和module对象， 
+而module有一个exports属性。
+exports = module.exports = {};
+2. 关于 export 和export default
+export与export default均可用于导出常量、函数、文件、模块等
+在一个文件或模块中，export、import可以有多个，export default仅有一个
+通过export方式导出，在导入时要加{ }，export default则不需要
+export能直接导出变量表达式，export default不行。
+参考文章：
+
+exports、module.exports和export、export default到底是咋回事，
+CommonJS规范，http://javascript.ruanyifeng.com/nodejs/module.html
+ES6 Module 的语法，http://es6.ruanyifeng.com/#docs/module
+

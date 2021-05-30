@@ -51,7 +51,7 @@ highlight: function(code) {
 }
 ```
 
-code 参数是<code>中的初始内容， 该函数返回的是经highlight `处理` （给特定内容添加上class）后的内容。
+code 参数是`<code>`中的初始内容， 该函数返回的是经highlight `处理` （给特定内容添加上class）后的内容。
 
 ## 四、react 使用
 

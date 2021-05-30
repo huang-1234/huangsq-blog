@@ -10,7 +10,7 @@ yarn run build
 git add .
 git commit -m 'update go'
 
-git remote -v
+# git remote -v
 # git pull
 
 git push -f https://github.com/huang-1234/MyvuePressBlog.git main
@@ -28,9 +28,9 @@ git commit -m 'update go'
 # 如果发布到 https://<USERNAME>.github.io
 # git pull
 
-git remote add master git@github.com:huang-1234/huang-1234.github.io.git
+git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
 
-git remote -v
+# git remote -v
 
 # git pull
 # git push origin master
