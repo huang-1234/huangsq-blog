@@ -57,7 +57,7 @@ npm cache verify：验证清理的有效性
 
 当我们执行 `yarn` 命令或者添加依赖包命令后，Yarn 都会在项目根目录下自动生成一个 `yarn.lock` 文件。在使用 Yarn 安装、升级、删除依赖项目时，会自动更新到 `yarn.lock` 文件中。一般我们不会去手动编辑这个文件，因为很容易破坏这个文件。
 
-##### 示例：
+### 示例：
 
 例如我们安装了一些依赖包，那么 `yarn.lock` 文件内容类似所示格式：
 
@@ -84,3 +84,46 @@ create-ecdh@^4.0.0:
 可以明显看到 `yarn.lock` 文件中的信息比 `package.json` 文件中详细了很多。
 
 在实际项目中，`yarn.lock` 文件也很有用处，我们可以将 `yarn.lock` 提交到版本库中，其他成员就可以通过 `yarn install `获取所有依赖包，这个可以保证大家安装的依赖是完全一致的，避免产生 `bug`。
+
+## 修改Yarn的全局安装和缓存位置
+
+在CMD命令行中执行
+
+
+
+```bash
+#1.改变 yarn 全局安装位置
+yarn config  set global-folder "你的磁盘路径"
+#2.然后你会在你的用户目录找到 `.yarnrc` 的文件，打开它，找到 `global-folder` ，改为 `--global-folder`
+#这里是我的路径
+yarn config  set global-folder "F:\JS_SoftWare\yarn\yarn_cache"
+```
+
+
+
+```bash
+#2. 改变 yarn 缓存位置
+yarn config set cache-folder "你的磁盘路径"
+#这里是我的路径
+yarn config set cache-folder "F:\JS_SoftWare\yarn\yarn_global"
+```
+
+在我们使用 全局安装 包的时候，会在 “D:\Software\yarn\global” 下 生成 `node_modules\.bin` 目录
+
+我们需要将 `D:\Software\yarn\global\node_modules\.bin` 整个目录 添加到系统环境变量中去，否则通过yarn 添加的全局包 在cmd 中是找不到的。
+
+检查当前yarn 的 bin的 位置
+
+
+
+```bash
+yarn global bin
+```
+
+检查当前 yarn 的 全局安装位置
+
+
+
+```bash
+yarn global dir
+```

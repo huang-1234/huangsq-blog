@@ -22,7 +22,7 @@
 
 **兄弟元素**
 
-```
+```html
 <div style="border:1px solid black; width: 100px;">
     <div style="margin: 10px; height: 50px; background-color: blue;"></div>
     <div style="margin: 5px; height: 20px; background-color: blue;"></div>

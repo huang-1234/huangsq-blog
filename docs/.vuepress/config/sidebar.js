@@ -180,8 +180,8 @@ function getStyles() {
       title: 'Sass',
       children: [
         // sass的使用入门
-        'Sass/sassFirst',
-        'Sass/install-node-sass',
+        'Sass/sass_first_ruanyf',
+        'Sass/install_node_sass',
         'Sass/zSassLess',
       ]
     },
@@ -420,7 +420,8 @@ function getAlgorithm() {
     {
       title: 'Algorithm',
       children: [
-        'likou/findLongth'
+        'likou/findLongth',
+        'likou/double_pointer',
       ]
     },
     {
@@ -440,8 +441,12 @@ function getAlgorithm() {
     {
       title: 'Python',
       children: [
-        'Python/numpy/Numpy_methods',
-        'Python/numpy/numpyMachine'
+        'Python/lib/eveny_lib',
+        'Python/lib/numpy/numpy_methods',
+        'Python/lib/numpy/numpyMachine',
+
+        'Python/py_package/pip',
+        'Python/py_package/conda.config',
       ]
     },
     {
@@ -452,28 +457,8 @@ function getAlgorithm() {
     }
   ]
 }
-function getMath() {
-  return [
-    {
-      text: '微积分',
-      children: [
-        'aCalculus', // 微积分
-        'bLinearAlgebra', // 线性代数
-        'cProbabilityTheory', // 概率论
-      ]
-    }
-  ]
-}
-function getMachineLearning() {
-  return [
-    {
-      text: '机器学习',
-      children: [
 
-      ]
-    }
-  ]
-}
+
 //各种项目方面，以及目前前端写项目需要用到的集成框架和工具
 function getProject() {
   return [

@@ -1,4 +1,4 @@
-# CSS学习中
+# CSS 学习中
 
 <a href='./Styles/CSS/aBox'>首先我们来了解下基础盒模型</a>
 
@@ -13,13 +13,14 @@
 <a href = '/Node/'>learn Node</a>
 
 <a href = '/Tools/Webpack/'>learn Webpack</a>
-## 学习CSS 第一步
+
+##  第一步
 
 CSS（层叠样式表）用于设置和布置网页 - 例如，更改内容的字体，颜色，大小和间距，将其拆分为多个列，或添加动画和其他装饰功能。这个模块为你掌握CSS的过程提供了一个温和的开端，包括它如何工作的基础知识，语法是什么样的，以及如何开始使用它来为HTML添加样式。
 
 CSS首页带你们回顾一下CSS简史和四次布局技术的跃迁。
 
-## 1.CSS简史
+## 1.CSS 简史
 
 为什么我们需要回顾一下CSS简史呢？
 
@@ -95,7 +96,7 @@ CSS其实就做了两件事：
 
 接下来我们就说说CSS布局简史。
 
-## 2.CSS布局简史
+## 2.CSS 布局简史
 
 初代table布局
 
@@ -250,5 +251,5 @@ CSS: It was twenty years ago today — an interview with Hkon Wium Lie
   }
   const btn = document.getElementById('top-btn-html);
   btn.addEventListener('click', gotoTop);
-  
+
 </script>

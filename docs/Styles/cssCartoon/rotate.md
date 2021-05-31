@@ -32,7 +32,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  /* 定义这个装图片盒子的大小                                                                                                                                                       */
+  /* 定义这个装图片盒子的大小 */
   width: 200px;
   height: 200px;
   transform: translate(-50%,-50%); 
