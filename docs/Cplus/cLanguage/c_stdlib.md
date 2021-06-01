@@ -1,8 +1,11 @@
 # c语言标准库
 
 C语言函数手册也称为C标准库。C标准库由在15个头文件中声明的函数、类型定义和宏组成，每个头文件都代表了一定范围的编程功能。有人说，C标准库可以分为 3 组，如何正确并熟练的使用它们，可以相应的可区分出 3 个层次的程序员：
+
 合格程序员：<stdio.h>、<ctype.h>、<stdlib.h>、<string.h>
+
 熟练程序员：<assert.h>、<limits.h>、<stddef.h>、<time.h>
+
 优秀程序员：<float.h>、<math.h>、<error.h>、<locale.h>、<setjmp.h>、<signal.h>、<stdarg.h>
 
 [stdio.h](http://c.biancheng.net/cpp/u/stdio_h/)

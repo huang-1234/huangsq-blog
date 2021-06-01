@@ -98,7 +98,11 @@ function getJS() {
     {
       title: 'BOM',
       children: [
-        
+        'BOM/BOM',
+        'BOM/window',
+        'BOM/history',
+        'BOM/location',
+        'BOM/attribute',
       ]
     },
     {
