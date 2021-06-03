@@ -108,9 +108,12 @@ module_name是需要安装的模块名称
 
 ```
 npm i module_name 　　　　　　　　     # 安装模块到项目目录下
-npm i module_name -g 　　　　　　      # -g 的意思是将模块安装到全局，具体安装到磁盘哪个位置，要看 npm config prefix 的位置
-npm i module_name -S(-save) 　　　 　# 运行时依赖--save 的意思是将模块安装到项目目录下，并在package.json文件的dependencies（运行依赖）节点写入依赖
-npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将模块安装到项目目录下，并在package.json文件的devDependencies（开发依赖）节点写入依赖
+npm i module_name -g 　　　　　　      # -g 的意思是将模块安装到全局，
+# 具体安装到磁盘哪个位置，要看 npm config prefix 的位置
+npm i module_name -S(-save) 　　　 　# 运行时依赖--save 的意思是将模块安装到项目目录下，
+并在package.json文件的dependencies（运行依赖）节点写入依赖
+npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将模块安装到项目目录下，
+并在package.json文件的devDependencies（开发依赖）节点写入依赖
 ```
 
 具体说明如下：
@@ -132,7 +135,8 @@ npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将
 会把moudule_name包安装到node_modules目录中
 **会在package.json的dependencies属性下添加moudule_name**
 运行 npm i 初始化项目时，会自动安装moudule_name到node_modules目录中
-之后运行npm i --production或者注明NODE_ENV变量值为production时，会自动安装moudule_name到node_modules目录中，即是在线上环境运行时会将包安装
+之后运行npm i --production或者注明NODE_ENV变量值为production时，
+会自动安装moudule_name到node_modules目录中，即是在线上环境运行时会将包安装
 
 `npm i ` `module_name ` `–D`
 
@@ -142,7 +146,9 @@ npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将
 之后运行npm i –production或者注明NODE_ENV变量值为production时，不会自动安装moudule_name到node_modules目录中
 
 **使用原则:**
-devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。这些模块在我们的项目部署后是不需要的，所以我们可以使用-D的形式安装。像 emoudule_namepress 这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用-S的形式安装。
+devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。
+这些模块在我们的项目部署后是不需要的，所以我们可以使用-D的形式安装。像 emoudule_namepress 
+这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用-S的形式安装。
 
 **总结为一句话：运行时需要用到的包使用–S，否则使用–D。**
 ```
@@ -162,7 +168,8 @@ electron安装
 第二步
 设置环境变量：
 1、“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量”
-2、在【系统变量】下新建【NODE_PATH】，输入【X:\xxx\nodejs\node_global\node_modules】，将【用户变量】下的【Path】修改为【X:\xxx\nodejs\node_global】
+2、在【系统变量】下新建【NODE_PATH】，输入【X:\xxx\nodejs\node_global\node_modules】，
+将【用户变量】下的【Path】修改为【X:\xxx\nodejs\node_global】
 3、手动更改“C:\Users\Administrator.npmrc”文件
 prefix=X:\XX\nodejs\node_global
 cache=X:\XX\nodejs\node_cache
@@ -194,9 +201,11 @@ eggjs安装
 再初始化| npm init egg --type=simple
 
 electron安装
-此时可以手动下载平台包：https://npm.taobao.org/mirrors/electron/，里面有electron所以版本和平台的二进制包。如在windows平台10.1.4版本，则下载在10.1.4目录下electron-v10.1.4-win32-x64.zip。
+此时可以手动下载平台包：https://npm.taobao.org/mirrors/electron/，里面有electron所以版本和平台的二进制包。
+如在windows平台10.1.4版本，则下载在10.1.4目录下electron-v10.1.4-win32-x64.zip。
 
-下载完成之后，将其解压到node_modules/electron下的dist文件夹（需要手动创建），然后在node_modules/electron建立一个path.txt文件。在windows平台下，path.txt文件的内容是electron.exe，编辑保存后，即可在当前工程下引用electron了。
+下载完成之后，将其解压到node_modules/electron下的dist文件夹（需要手动创建），然后在node_modules/electron
+建立一个path.txt文件。在windows平台下，path.txt文件的内容是electron.exe，编辑保存后，即可在当前工程下引用electron了。
 1
 常用包
 包命	备注
