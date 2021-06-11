@@ -218,3 +218,54 @@ git checkout -f test        //强制切换至 test 分支，丢弃当前分支�
 
  　　git 学习记录—— git 中的仓库、文件状态、修改和提交操作等
 
+## 使用场景
+
+### 创建新的远程分支
+
+```bash
+13770@HSQ MINGW64 /g/Study/Code/Web/DataVisualization/covid_19 (ch1)
+$ git push ch1 ch1:ch1
+fatal: 'ch1' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+13770@HSQ MINGW64 /g/Study/Code/Web/DataVisualization/covid_19 (ch1)
+$ git push origin ch1:ch1
+Enumerating objects: 29, done.
+Counting objects: 100% (29/29), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (15/15), 7.71 KiB | 3.85 MiB/s, done.
+Total 15 (delta 12), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (12/12), completed with 12 local objects.
+remote: 
+remote: Create a pull request for 'ch1' on GitHub by visiting:
+remote:      https://github.com/huang-1234/covid_19/pull/new/ch1
+remote:
+To github.com:huang-1234/covid_19.git
+ * [new branch]      ch1 -> ch1
+```
+
+[some link for learning git](https://git-scm.com/docs/git-push/en)
+
+把新建的本地分支push到远程服务器，远程分支与本地分支同名（当然可以随意起名）：
+
+```
+$ git push origin localbranch:localbranch
+```
+
+使用`git branch -a`查看所有分支，会看到`remotes/origin/localbranch`这个远程分支，说明新建远程分支成功。
+
+删除远程分支
+ 我比较喜欢的简单方式，推送一个空分支到远程分支，其实就相当于删除远程分支：
+
+`$ git push origin :localbranch`
+ 也可以使用：
+
+`$ git push origin --delete localbranch`
+ 这两种方式都可以删除指定的远程分支
+
+git使用文档 - git创建远程分支
+ https://www.showdoc.cc/xuliulei?page_id=1565517113560223

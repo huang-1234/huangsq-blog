@@ -5,7 +5,7 @@ const { nav } = require('./config/nav');
 const config = {
   base: '/',
   dest: 'dist',
-  title: 'FShsq',
+  title: 'H先森',
   // description: '往前端架构、向全栈开发',
   description: 'From FE Arch、To Full Stack',
   theme: 'reco',

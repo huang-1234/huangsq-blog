@@ -8,13 +8,13 @@ heroImageStyle: {
   borderRadius: '50%',
   boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
 }
-heroText: 水清
+heroText: H先森
 # tagline: 点击快速上手
 actionText: Begin To learn→
 actionLink: /JS/#javascript
 features:
 - title: 简洁至上
-  details: 记录了自己计算机专业学习积累的部分知识。
+  details: 将简单的东西变复杂很简单，将复杂的东西变简单很复杂。
 - title: 追求信仰
   details: 终身学习法。操千曲而后晓声、观千剑而后识器
 footer: MIT Licensed | hsq © 2021-present

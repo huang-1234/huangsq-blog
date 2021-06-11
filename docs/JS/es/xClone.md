@@ -104,13 +104,13 @@ const shallowClone = (arr) => {
 }
 
 const arr2 = shallowClone(arr1);
-arr2[2].push('LiangJunrong');
+arr2[2].push('CoderArtist');
 arr2[3] = 5;
 
 console.log(arr1);
-// [ 1, 2, [ 'PonyHuang', 'hsq', 'LiangJunrong' ], 4 ]
+// [ 1, 2, [ 'PonyHuang', 'hsq', 'CoderArtist' ], 4 ]
 console.log(arr2);
-// [ 1, 2, [ 'PonyHuang', 'hsq', 'LiangJunrong' ], 5 ]
+// [ 1, 2, [ 'PonyHuang', 'hsq', 'CoderArtist' ], 5 ]
 ```
 
 
