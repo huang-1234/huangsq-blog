@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>learn webpack | H先森</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="From FE Arch、To Full Stack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1a00f748.css" as="style"><link rel="preload" href="/assets/js/app.a713ee30.js" as="script"><link rel="preload" href="/assets/js/3.8d283ff8.js" as="script"><link rel="preload" href="/assets/js/1.6b3d9ed4.js" as="script"><link rel="preload" href="/assets/js/371.e2c94860.js" as="script"><link rel="prefetch" href="/assets/js/10.380d1310.js"><link rel="prefetch" href="/assets/js/100.c720e65e.js"><link rel="prefetch" href="/assets/js/101.8eed8d0c.js"><link rel="prefetch" href="/assets/js/102.c18a029c.js"><link rel="prefetch" href="/assets/js/103.799b4d4e.js"><link rel="prefetch" href="/assets/js/104.57e20453.js"><link rel="prefetch" href="/assets/js/105.51f281ec.js"><link rel="prefetch" href="/assets/js/106.aa5cac8e.js"><link rel="prefetch" href="/assets/js/107.5b0b4253.js"><link rel="prefetch" href="/assets/js/108.f9c872a1.js"><link rel="prefetch" href="/assets/js/109.a2ffe8c4.js"><link rel="prefetch" href="/assets/js/11.9ec56053.js"><link rel="prefetch" href="/assets/js/110.9ebd6fe3.js"><link rel="prefetch" href="/assets/js/111.63d6dbc7.js"><link rel="prefetch" href="/assets/js/112.2e1a4411.js"><link rel="prefetch" href="/assets/js/113.3b83a006.js"><link rel="prefetch" href="/assets/js/114.0cd6f80c.js"><link rel="prefetch" href="/assets/js/115.33f9835f.js"><link rel="prefetch" href="/assets/js/116.347ed4bd.js"><link rel="prefetch" href="/assets/js/117.1c20407b.js"><link rel="prefetch" href="/assets/js/118.5ada9130.js"><link rel="prefetch" href="/assets/js/119.dba222d6.js"><link rel="prefetch" href="/assets/js/12.0948c94f.js"><link rel="prefetch" href="/assets/js/120.2f7d12e4.js"><link rel="prefetch" href="/assets/js/121.7ee0e4ac.js"><link rel="prefetch" href="/assets/js/122.94b5ab4b.js"><link rel="prefetch" href="/assets/js/123.70f1d330.js"><link rel="prefetch" href="/assets/js/124.1b536ad0.js"><link rel="prefetch" href="/assets/js/125.bd4bb5fb.js"><link rel="prefetch" href="/assets/js/126.1bb6a6fb.js"><link rel="prefetch" href="/assets/js/127.1125f313.js"><link rel="prefetch" href="/assets/js/128.287c18ae.js"><link rel="prefetch" href="/assets/js/129.0e5c5085.js"><link rel="prefetch" href="/assets/js/13.b7a004f1.js"><link rel="prefetch" href="/assets/js/130.2c71eb50.js"><link rel="prefetch" href="/assets/js/131.b8db6566.js"><link rel="prefetch" href="/assets/js/132.3c057f51.js"><link rel="prefetch" href="/assets/js/133.0fd28469.js"><link rel="prefetch" href="/assets/js/134.39b48f3b.js"><link rel="prefetch" href="/assets/js/135.686779c9.js"><link rel="prefetch" href="/assets/js/136.2624d452.js"><link rel="prefetch" href="/assets/js/137.9a12cf47.js"><link rel="prefetch" href="/assets/js/138.1dcc3d2a.js"><link rel="prefetch" href="/assets/js/139.1a9598d8.js"><link rel="prefetch" href="/assets/js/14.8d0f01cb.js"><link rel="prefetch" href="/assets/js/140.b76a65d2.js"><link rel="prefetch" href="/assets/js/141.189c5ed6.js"><link rel="prefetch" href="/assets/js/142.8bfeed0b.js"><link rel="prefetch" href="/assets/js/143.29c19765.js"><link rel="prefetch" href="/assets/js/144.9c045c6c.js"><link rel="prefetch" href="/assets/js/145.91a576df.js"><link rel="prefetch" href="/assets/js/146.fec4d3cd.js"><link rel="prefetch" href="/assets/js/147.31be5e12.js"><link rel="prefetch" href="/assets/js/148.58ddc72c.js"><link rel="prefetch" href="/assets/js/149.339408d5.js"><link rel="prefetch" href="/assets/js/15.d376075a.js"><link rel="prefetch" href="/assets/js/150.5e33ff52.js"><link rel="prefetch" href="/assets/js/151.e3108d7e.js"><link rel="prefetch" href="/assets/js/152.c82eca68.js"><link rel="prefetch" href="/assets/js/153.3c69b9bd.js"><link rel="prefetch" href="/assets/js/154.b4c071ea.js"><link rel="prefetch" href="/assets/js/155.5389cf85.js"><link rel="prefetch" href="/assets/js/156.01aca174.js"><link rel="prefetch" href="/assets/js/157.1d7d98cc.js"><link rel="prefetch" href="/assets/js/158.ed81ac8d.js"><link rel="prefetch" href="/assets/js/159.f13f5d64.js"><link rel="prefetch" href="/assets/js/16.0203c884.js"><link rel="prefetch" href="/assets/js/160.bb3656d2.js"><link rel="prefetch" href="/assets/js/161.0dfa3f28.js"><link rel="prefetch" href="/assets/js/162.f31b0496.js"><link rel="prefetch" href="/assets/js/163.30d34760.js"><link rel="prefetch" href="/assets/js/164.84086632.js"><link rel="prefetch" href="/assets/js/165.6e1851b1.js"><link rel="prefetch" href="/assets/js/166.bd666059.js"><link rel="prefetch" href="/assets/js/167.993ebd79.js"><link rel="prefetch" href="/assets/js/168.405800f2.js"><link rel="prefetch" href="/assets/js/169.2251b5ca.js"><link rel="prefetch" href="/assets/js/17.c744ae25.js"><link rel="prefetch" href="/assets/js/170.57231015.js"><link rel="prefetch" href="/assets/js/171.0f1d3dcc.js"><link rel="prefetch" href="/assets/js/172.93a49501.js"><link rel="prefetch" href="/assets/js/173.784a72de.js"><link rel="prefetch" href="/assets/js/174.c7d8f895.js"><link rel="prefetch" href="/assets/js/175.caa8d17c.js"><link rel="prefetch" href="/assets/js/176.baa0c3d1.js"><link rel="prefetch" href="/assets/js/177.d2d01a3d.js"><link rel="prefetch" href="/assets/js/178.a0ea8a78.js"><link rel="prefetch" href="/assets/js/179.03ac5260.js"><link rel="prefetch" href="/assets/js/18.0f8010c4.js"><link rel="prefetch" href="/assets/js/180.ec8769e1.js"><link rel="prefetch" href="/assets/js/181.dfdf015a.js"><link rel="prefetch" href="/assets/js/182.389026b2.js"><link rel="prefetch" href="/assets/js/183.bf8a3c49.js"><link rel="prefetch" href="/assets/js/184.c6740c8a.js"><link rel="prefetch" href="/assets/js/185.5fb78673.js"><link rel="prefetch" href="/assets/js/186.46d6ed91.js"><link rel="prefetch" href="/assets/js/187.178a5d59.js"><link rel="prefetch" href="/assets/js/188.d5af2007.js"><link rel="prefetch" href="/assets/js/189.76d3c7eb.js"><link rel="prefetch" href="/assets/js/19.e5aae0df.js"><link rel="prefetch" href="/assets/js/190.c8e77587.js"><link rel="prefetch" href="/assets/js/191.3ff9cf8f.js"><link rel="prefetch" href="/assets/js/192.f2a03f48.js"><link rel="prefetch" href="/assets/js/193.1ec1ea63.js"><link rel="prefetch" href="/assets/js/194.ea46092a.js"><link rel="prefetch" href="/assets/js/195.eaad552e.js"><link rel="prefetch" href="/assets/js/196.34d6cb06.js"><link rel="prefetch" href="/assets/js/197.f0499247.js"><link rel="prefetch" href="/assets/js/198.5a7a7c5a.js"><link rel="prefetch" href="/assets/js/199.bf3659e6.js"><link rel="prefetch" href="/assets/js/20.fd0559f1.js"><link rel="prefetch" href="/assets/js/200.9e6b4ffd.js"><link rel="prefetch" href="/assets/js/201.fe935279.js"><link rel="prefetch" href="/assets/js/202.62d3fa83.js"><link rel="prefetch" href="/assets/js/203.99196060.js"><link rel="prefetch" href="/assets/js/204.ee57e797.js"><link rel="prefetch" href="/assets/js/205.5929940f.js"><link rel="prefetch" href="/assets/js/206.3539756a.js"><link rel="prefetch" href="/assets/js/207.7aba6825.js"><link rel="prefetch" href="/assets/js/208.399e86fa.js"><link rel="prefetch" href="/assets/js/209.e966c6f9.js"><link rel="prefetch" href="/assets/js/21.67a54c54.js"><link rel="prefetch" href="/assets/js/210.df3f22fe.js"><link rel="prefetch" href="/assets/js/211.d1b8b0b5.js"><link rel="prefetch" href="/assets/js/212.f794ea96.js"><link rel="prefetch" href="/assets/js/213.b39ba89d.js"><link rel="prefetch" href="/assets/js/214.2acff6a3.js"><link rel="prefetch" href="/assets/js/215.d0758034.js"><link rel="prefetch" href="/assets/js/216.2e401ba5.js"><link rel="prefetch" href="/assets/js/217.3191ccf3.js"><link rel="prefetch" href="/assets/js/218.7a16c9f5.js"><link rel="prefetch" href="/assets/js/219.1cc08ff9.js"><link rel="prefetch" href="/assets/js/22.f1ea2e63.js"><link rel="prefetch" href="/assets/js/220.3398d6aa.js"><link rel="prefetch" href="/assets/js/221.8161fcf5.js"><link rel="prefetch" href="/assets/js/222.edeb27f3.js"><link rel="prefetch" href="/assets/js/223.64eea5b2.js"><link rel="prefetch" href="/assets/js/224.b0976510.js"><link rel="prefetch" href="/assets/js/225.4686abae.js"><link rel="prefetch" href="/assets/js/226.fa98cd34.js"><link rel="prefetch" href="/assets/js/227.be2dec7e.js"><link rel="prefetch" href="/assets/js/228.16123a62.js"><link rel="prefetch" href="/assets/js/229.dea84cb1.js"><link rel="prefetch" href="/assets/js/23.e78ff6c9.js"><link rel="prefetch" href="/assets/js/230.5ca7533c.js"><link rel="prefetch" href="/assets/js/231.18f1c409.js"><link rel="prefetch" href="/assets/js/232.a486fac3.js"><link rel="prefetch" href="/assets/js/233.c01de756.js"><link rel="prefetch" href="/assets/js/234.a624e089.js"><link rel="prefetch" href="/assets/js/235.f71e6eea.js"><link rel="prefetch" href="/assets/js/236.213fd1b7.js"><link rel="prefetch" href="/assets/js/237.5c2dd120.js"><link rel="prefetch" href="/assets/js/238.99d804bd.js"><link rel="prefetch" href="/assets/js/239.21cd1c8a.js"><link rel="prefetch" href="/assets/js/24.9e90fc9e.js"><link rel="prefetch" href="/assets/js/240.91931597.js"><link rel="prefetch" href="/assets/js/241.0f659c4d.js"><link rel="prefetch" href="/assets/js/242.c20e048d.js"><link rel="prefetch" href="/assets/js/243.004878b9.js"><link rel="prefetch" href="/assets/js/244.092db24d.js"><link rel="prefetch" href="/assets/js/245.1b4263e9.js"><link rel="prefetch" href="/assets/js/246.9ed8e7f0.js"><link rel="prefetch" href="/assets/js/247.ae6c15ea.js"><link rel="prefetch" href="/assets/js/248.89b90535.js"><link rel="prefetch" href="/assets/js/249.954d65a1.js"><link rel="prefetch" href="/assets/js/25.aa790609.js"><link rel="prefetch" href="/assets/js/250.2c70f3aa.js"><link rel="prefetch" href="/assets/js/251.09327517.js"><link rel="prefetch" href="/assets/js/252.373a9cc3.js"><link rel="prefetch" href="/assets/js/253.d4dd19f2.js"><link rel="prefetch" href="/assets/js/254.77be9951.js"><link rel="prefetch" href="/assets/js/255.4d2ee31e.js"><link rel="prefetch" href="/assets/js/256.6b93868d.js"><link rel="prefetch" href="/assets/js/257.7584cdcb.js"><link rel="prefetch" href="/assets/js/258.ae22574a.js"><link rel="prefetch" href="/assets/js/259.03238acf.js"><link rel="prefetch" href="/assets/js/26.aed06395.js"><link rel="prefetch" href="/assets/js/260.d84c45bc.js"><link rel="prefetch" href="/assets/js/261.5bb9e3c5.js"><link rel="prefetch" href="/assets/js/262.be04f540.js"><link rel="prefetch" href="/assets/js/263.bd4b5276.js"><link rel="prefetch" href="/assets/js/264.3903dcf0.js"><link rel="prefetch" href="/assets/js/265.ec0dcf7b.js"><link rel="prefetch" href="/assets/js/266.73c999f8.js"><link rel="prefetch" href="/assets/js/267.6c49d317.js"><link rel="prefetch" href="/assets/js/268.c84b138e.js"><link rel="prefetch" href="/assets/js/269.93b898d9.js"><link rel="prefetch" href="/assets/js/27.b2c1a566.js"><link rel="prefetch" href="/assets/js/270.075843b8.js"><link rel="prefetch" href="/assets/js/271.f3350a41.js"><link rel="prefetch" href="/assets/js/272.610a85e8.js"><link rel="prefetch" href="/assets/js/273.2e81836c.js"><link rel="prefetch" href="/assets/js/274.18394364.js"><link rel="prefetch" href="/assets/js/275.210c154e.js"><link rel="prefetch" href="/assets/js/276.58b637d0.js"><link rel="prefetch" href="/assets/js/277.0309c3c6.js"><link rel="prefetch" href="/assets/js/278.784f7891.js"><link rel="prefetch" href="/assets/js/279.c9f3f165.js"><link rel="prefetch" href="/assets/js/28.fa138415.js"><link rel="prefetch" href="/assets/js/280.e7f777cf.js"><link rel="prefetch" href="/assets/js/281.f6d6a146.js"><link rel="prefetch" href="/assets/js/282.fe6368be.js"><link rel="prefetch" href="/assets/js/283.669233d5.js"><link rel="prefetch" href="/assets/js/284.5163038b.js"><link rel="prefetch" href="/assets/js/285.b6e942e0.js"><link rel="prefetch" href="/assets/js/286.c137511e.js"><link rel="prefetch" href="/assets/js/287.1cc95425.js"><link rel="prefetch" href="/assets/js/288.91ba490b.js"><link rel="prefetch" href="/assets/js/289.e8fbc447.js"><link rel="prefetch" href="/assets/js/29.d4eebab5.js"><link rel="prefetch" href="/assets/js/290.982f620e.js"><link rel="prefetch" href="/assets/js/291.b8ae7190.js"><link rel="prefetch" href="/assets/js/292.24a97ef3.js"><link rel="prefetch" href="/assets/js/293.4eeeff74.js"><link rel="prefetch" href="/assets/js/294.c57bb864.js"><link rel="prefetch" href="/assets/js/295.730260df.js"><link rel="prefetch" href="/assets/js/296.675aef2c.js"><link rel="prefetch" href="/assets/js/297.94e5486f.js"><link rel="prefetch" href="/assets/js/298.9d949097.js"><link rel="prefetch" href="/assets/js/299.cfa54969.js"><link rel="prefetch" href="/assets/js/30.f481fb30.js"><link rel="prefetch" href="/assets/js/300.c6564a7f.js"><link rel="prefetch" href="/assets/js/301.c8fa816e.js"><link rel="prefetch" href="/assets/js/302.42fa9ac8.js"><link rel="prefetch" href="/assets/js/303.1579bf90.js"><link rel="prefetch" href="/assets/js/304.aaeaeb07.js"><link rel="prefetch" href="/assets/js/305.48804e5e.js"><link rel="prefetch" href="/assets/js/306.47629160.js"><link rel="prefetch" href="/assets/js/307.b50d088a.js"><link rel="prefetch" href="/assets/js/308.04f2b892.js"><link rel="prefetch" href="/assets/js/309.5c67959b.js"><link rel="prefetch" href="/assets/js/31.2e254435.js"><link rel="prefetch" href="/assets/js/310.d46d794a.js"><link rel="prefetch" href="/assets/js/311.be6c28de.js"><link rel="prefetch" href="/assets/js/312.523884dd.js"><link rel="prefetch" href="/assets/js/313.f39033b3.js"><link rel="prefetch" href="/assets/js/314.f7da0506.js"><link rel="prefetch" href="/assets/js/315.4866a415.js"><link rel="prefetch" href="/assets/js/316.c3e78663.js"><link rel="prefetch" href="/assets/js/317.8ead1688.js"><link rel="prefetch" href="/assets/js/318.96a90c5e.js"><link rel="prefetch" href="/assets/js/319.3607ef4c.js"><link rel="prefetch" href="/assets/js/32.7504131d.js"><link rel="prefetch" href="/assets/js/320.ddb577ad.js"><link rel="prefetch" href="/assets/js/321.4ed1bddd.js"><link rel="prefetch" href="/assets/js/322.5340e1de.js"><link rel="prefetch" href="/assets/js/323.4e7951da.js"><link rel="prefetch" href="/assets/js/324.f0132bfb.js"><link rel="prefetch" href="/assets/js/325.1a89a794.js"><link rel="prefetch" href="/assets/js/326.85d8f0f1.js"><link rel="prefetch" href="/assets/js/327.f78d56aa.js"><link rel="prefetch" href="/assets/js/328.6e01e5b0.js"><link rel="prefetch" href="/assets/js/329.b35ffa23.js"><link rel="prefetch" href="/assets/js/33.c01cd853.js"><link rel="prefetch" href="/assets/js/330.e03b70c8.js"><link rel="prefetch" href="/assets/js/331.d0d7ed4c.js"><link rel="prefetch" href="/assets/js/332.2db95ddc.js"><link rel="prefetch" href="/assets/js/333.2629ec18.js"><link rel="prefetch" href="/assets/js/334.d8932933.js"><link rel="prefetch" href="/assets/js/335.3fd62f0e.js"><link rel="prefetch" href="/assets/js/336.68c67f20.js"><link rel="prefetch" href="/assets/js/337.6dd17483.js"><link rel="prefetch" href="/assets/js/338.7312545a.js"><link rel="prefetch" href="/assets/js/339.c5865478.js"><link rel="prefetch" href="/assets/js/34.910e63df.js"><link rel="prefetch" href="/assets/js/340.ff526484.js"><link rel="prefetch" href="/assets/js/341.f4809488.js"><link rel="prefetch" href="/assets/js/342.54ec1e39.js"><link rel="prefetch" href="/assets/js/343.d81a0ab7.js"><link rel="prefetch" href="/assets/js/344.8485e60d.js"><link rel="prefetch" href="/assets/js/345.0126a838.js"><link rel="prefetch" href="/assets/js/346.57eeec0b.js"><link rel="prefetch" href="/assets/js/347.38e75356.js"><link rel="prefetch" href="/assets/js/348.6885feac.js"><link rel="prefetch" href="/assets/js/349.3c5ea64c.js"><link rel="prefetch" href="/assets/js/35.964ec336.js"><link rel="prefetch" href="/assets/js/350.8ece3c15.js"><link rel="prefetch" href="/assets/js/351.e312c490.js"><link rel="prefetch" href="/assets/js/352.4cbf891d.js"><link rel="prefetch" href="/assets/js/353.8db19505.js"><link rel="prefetch" href="/assets/js/354.0f77f46c.js"><link rel="prefetch" href="/assets/js/355.3ac72859.js"><link rel="prefetch" href="/assets/js/356.d08b37ec.js"><link rel="prefetch" href="/assets/js/357.941e75a5.js"><link rel="prefetch" href="/assets/js/358.ffb8d711.js"><link rel="prefetch" href="/assets/js/359.07cee8c7.js"><link rel="prefetch" href="/assets/js/36.c4b0dcaf.js"><link rel="prefetch" href="/assets/js/360.463eac25.js"><link rel="prefetch" href="/assets/js/361.9f977a96.js"><link rel="prefetch" href="/assets/js/362.10187e18.js"><link rel="prefetch" href="/assets/js/363.2eb88659.js"><link rel="prefetch" href="/assets/js/364.56a1ea19.js"><link rel="prefetch" href="/assets/js/365.023bc542.js"><link rel="prefetch" href="/assets/js/366.f71bb97b.js"><link rel="prefetch" href="/assets/js/367.d61ec46f.js"><link rel="prefetch" href="/assets/js/368.626096f1.js"><link rel="prefetch" href="/assets/js/369.22287c4d.js"><link rel="prefetch" href="/assets/js/37.14c68df8.js"><link rel="prefetch" href="/assets/js/370.3a4abd4e.js"><link rel="prefetch" href="/assets/js/372.50fbbb70.js"><link rel="prefetch" href="/assets/js/373.8ba2d8ce.js"><link rel="prefetch" href="/assets/js/374.b6ff151d.js"><link rel="prefetch" href="/assets/js/375.0c8e55d5.js"><link rel="prefetch" href="/assets/js/376.eb8e280a.js"><link rel="prefetch" href="/assets/js/377.a0465974.js"><link rel="prefetch" href="/assets/js/378.c5da9a31.js"><link rel="prefetch" href="/assets/js/379.e621fe29.js"><link rel="prefetch" href="/assets/js/38.e32dda0e.js"><link rel="prefetch" href="/assets/js/380.d82fd8d3.js"><link rel="prefetch" href="/assets/js/381.0de3ba27.js"><link rel="prefetch" href="/assets/js/382.20c72c09.js"><link rel="prefetch" href="/assets/js/383.cf67901e.js"><link rel="prefetch" href="/assets/js/384.23947671.js"><link rel="prefetch" href="/assets/js/385.a7167150.js"><link rel="prefetch" href="/assets/js/386.87ab0c6c.js"><link rel="prefetch" href="/assets/js/387.248bdfc9.js"><link rel="prefetch" href="/assets/js/388.7aff32d4.js"><link rel="prefetch" href="/assets/js/389.119733a2.js"><link rel="prefetch" href="/assets/js/39.1d03c5a2.js"><link rel="prefetch" href="/assets/js/390.fd739b07.js"><link rel="prefetch" href="/assets/js/391.6bb4d858.js"><link rel="prefetch" href="/assets/js/392.c20f6f37.js"><link rel="prefetch" href="/assets/js/393.9f28c6b7.js"><link rel="prefetch" href="/assets/js/394.984351ab.js"><link rel="prefetch" href="/assets/js/395.b6a24a4f.js"><link rel="prefetch" href="/assets/js/396.3b978da4.js"><link rel="prefetch" href="/assets/js/397.8c619ac4.js"><link rel="prefetch" href="/assets/js/398.b543845e.js"><link rel="prefetch" href="/assets/js/399.5d3415d5.js"><link rel="prefetch" href="/assets/js/4.cf2a843a.js"><link rel="prefetch" href="/assets/js/40.c8e744c8.js"><link rel="prefetch" href="/assets/js/400.d78930f4.js"><link rel="prefetch" href="/assets/js/401.a44763a1.js"><link rel="prefetch" href="/assets/js/402.935fe43f.js"><link rel="prefetch" href="/assets/js/403.083abb49.js"><link rel="prefetch" href="/assets/js/41.778451d4.js"><link rel="prefetch" href="/assets/js/42.d6035d31.js"><link rel="prefetch" href="/assets/js/43.4cfb7a96.js"><link rel="prefetch" href="/assets/js/44.6c9f5f4e.js"><link rel="prefetch" href="/assets/js/45.153683be.js"><link rel="prefetch" href="/assets/js/46.cc0748dd.js"><link rel="prefetch" href="/assets/js/47.18ce6a2a.js"><link rel="prefetch" href="/assets/js/48.2d5248d4.js"><link rel="prefetch" href="/assets/js/49.993267dd.js"><link rel="prefetch" href="/assets/js/5.526fba2e.js"><link rel="prefetch" href="/assets/js/50.89273771.js"><link rel="prefetch" href="/assets/js/51.0148aacc.js"><link rel="prefetch" href="/assets/js/52.eaaef16a.js"><link rel="prefetch" href="/assets/js/53.4e2ab54e.js"><link rel="prefetch" href="/assets/js/54.df64d567.js"><link rel="prefetch" href="/assets/js/55.ee15dcb6.js"><link rel="prefetch" href="/assets/js/56.09c0ece7.js"><link rel="prefetch" href="/assets/js/57.bf0b7dc1.js"><link rel="prefetch" href="/assets/js/58.13b4baac.js"><link rel="prefetch" href="/assets/js/59.98a31a2c.js"><link rel="prefetch" href="/assets/js/6.65856878.js"><link rel="prefetch" href="/assets/js/60.da532aa1.js"><link rel="prefetch" href="/assets/js/61.bc84799a.js"><link rel="prefetch" href="/assets/js/62.0a747cd8.js"><link rel="prefetch" href="/assets/js/63.cdd4863b.js"><link rel="prefetch" href="/assets/js/64.426c6b71.js"><link rel="prefetch" href="/assets/js/65.b0dd0aac.js"><link rel="prefetch" href="/assets/js/66.7038bff1.js"><link rel="prefetch" href="/assets/js/67.3e28518f.js"><link rel="prefetch" href="/assets/js/68.76f963c6.js"><link rel="prefetch" href="/assets/js/69.df18bbfb.js"><link rel="prefetch" href="/assets/js/7.69874113.js"><link rel="prefetch" href="/assets/js/70.e0990c41.js"><link rel="prefetch" href="/assets/js/71.3894e4a6.js"><link rel="prefetch" href="/assets/js/72.bb3bbba6.js"><link rel="prefetch" href="/assets/js/73.3d83a0e6.js"><link rel="prefetch" href="/assets/js/74.08bc823e.js"><link rel="prefetch" href="/assets/js/75.226d26f8.js"><link rel="prefetch" href="/assets/js/76.e774717c.js"><link rel="prefetch" href="/assets/js/77.91a185d0.js"><link rel="prefetch" href="/assets/js/78.320e2085.js"><link rel="prefetch" href="/assets/js/79.fe2857b2.js"><link rel="prefetch" href="/assets/js/8.4e203fa6.js"><link rel="prefetch" href="/assets/js/80.6b670444.js"><link rel="prefetch" href="/assets/js/81.49e83414.js"><link rel="prefetch" href="/assets/js/82.594dc63e.js"><link rel="prefetch" href="/assets/js/83.8f9855d0.js"><link rel="prefetch" href="/assets/js/84.4097ee3b.js"><link rel="prefetch" href="/assets/js/85.be1f5ab8.js"><link rel="prefetch" href="/assets/js/86.421dcd9f.js"><link rel="prefetch" href="/assets/js/87.37af167b.js"><link rel="prefetch" href="/assets/js/88.d7a074cd.js"><link rel="prefetch" href="/assets/js/89.c7074681.js"><link rel="prefetch" href="/assets/js/9.88a6729e.js"><link rel="prefetch" href="/assets/js/90.6ab98b7b.js"><link rel="prefetch" href="/assets/js/91.e315227d.js"><link rel="prefetch" href="/assets/js/92.48465482.js"><link rel="prefetch" href="/assets/js/93.6a2fdde2.js"><link rel="prefetch" href="/assets/js/94.e33e91c3.js"><link rel="prefetch" href="/assets/js/95.cf87ed8a.js"><link rel="prefetch" href="/assets/js/96.1eb17b6b.js"><link rel="prefetch" href="/assets/js/97.6a1225c4.js"><link rel="prefetch" href="/assets/js/98.2aeae234.js"><link rel="prefetch" href="/assets/js/99.8b306c15.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1a00f748.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>H先森</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>From FE Arch、To Full Stack</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/me.jpg" alt="H先森" class="logo"> <span class="site-name">H先森</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link router-link-active"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/me.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <!----> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>371</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>0</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link router-link-active"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Git</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Webpack</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Tools/Webpack/WebpackFirst.html" class="sidebar-link">Webpack打包</a></li><li><a href="/Tools/Webpack/learnWebpack.html" aria-current="page" class="active sidebar-link">learn webpack</a></li><li><a href="/Tools/Webpack/webpack-loader/url-loader.html" class="sidebar-link">url-loader</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc></h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">learn webpack</h1> <div data-v-1ff7123e><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="learn-webpack"><a href="#learn-webpack" class="header-anchor">#</a> learn webpack</h1> <h2 id="_2-认识webpack"><a href="#_2-认识webpack" class="header-anchor">#</a> 2.认识webpack</h2> <blockquote><p>webpack的安装
+webpack的起步
+webpack的配置
+loader的使用
+webpack中配置Vue
+plugin的使用
+搭建本地服务器</p></blockquote> <h2 id="_3-什么是webpack"><a href="#_3-什么是webpack" class="header-anchor">#</a> 3. 什么是webpack？</h2> <p>这个webpack还真不是一两句话可以说清楚的。
+我们先看看官方的解释：
+At its core, webpack is a static module bundler for modern JavaScript applications.
+从本质上来讲，webpack是一个现代的JavaScript应用的静态模块打包工具。
+但是它是什么呢？用概念解释概念，还是不清晰。
+我们从两个点来解释上面这句话：模块 和 打包</p> <h2 id="_4-前端模块化"><a href="#_4-前端模块化" class="header-anchor">#</a> 4. 前端模块化</h2> <blockquote><p>前端模块化：</p></blockquote> <p>在前面学习中，我已经用了大量的篇幅解释了为什么前端需要模块化。
+而且我也提到了目前使用前端模块化的一些方案：AMD、CMD、CommonJS、ES6。</p> <p>在ES6之前，我们要想进行模块化开发，就必须借助于其他的工具，让我们可以进行模块化开发。
+并且在通过模块化开发完成了项目后，还需要处理模块间的各种依赖，并且将其进行整合打包。
+而webpack其中一个核心就是让我们可能进行模块化开发，并且会帮助我们处理模块间的依赖关系。
+而且不仅仅是JavaScript文件，我们的CSS、图片、json文件等等在webpack中都可以被当做模块来使用（在后续我们会看到）。
+这就是webpack中模块化的概念。</p> <blockquote><p>打包如何理解呢？</p></blockquote> <p>理解了webpack可以帮助我们进行模块化，并且处理模块间的各种复杂关系后，打包的概念就非常好理解了。就是将webpack中的各种资源模块进行打包合并成一个或多个包(Bundle)。
+并且在打包的过程中，还可以对资源进行处理，比如压缩图片，将scss转成css，将ES6语法转成ES5语法，将TypeScript转成JavaScript等等操作。
+但是打包的操作似乎grunt和gulp也可以帮助我们完成，它们有什么不同呢？</p> <h2 id="_5-和gruntandgulp的对比"><a href="#_5-和gruntandgulp的对比" class="header-anchor">#</a> 5.和gruntANDgulp的对比</h2> <p>gruntANDgulp的核心是Task
+我们可以配置一系列的task，并且定义task要处理的事务（例如ES6、ts转化，图片压缩，scss转成css）
+之后让gruntANDgulp来依次执行这些task，而且让整个流程自动化。</p> <p>所以gruntANDgulp也被称为前端自动化任务管理工具。</p> <p>我们来看一个gulp的task</p> <p>下面的task就是将src下面的所有js文件转成ES5的语法。
+并且最终输出到dist文件夹中。</p> <p>什么时候用gruntANDgulp呢？
+如果你的工程模块依赖非常简单，甚至是没有用到模块化的概念。
+只需要进行简单的合并、压缩，就使用gruntANDgulp即可。</p> <p>但是如果整个项目使用了模块化管理，而且相互依赖非常强，我们就可以使用更加强大的webpack了。
+所以，gruntANDgulp和webpack有什么不同呢？
+gruntANDgulp更加强调的是前端流程的自动化，模块化不是它的核心。
+webpack更加强调模块化开发管理，而文件压缩合并、预处理等功能，是他附带的功能。</p> <h2 id="_6-webpack安装"><a href="#_6-webpack安装" class="header-anchor">#</a> 6. webpack安装</h2> <p>安装webpack首先需要安装Node.js，Node.js自带了软件包管理工具npm
+查看自己的node版本：</p> <div class="language-cmd extra-class"><pre class="language-text"><code>node -v
+</code></pre></div><p>全局安装webpack(这里我先指定版本号3.6.0，因为vue cli2依赖该版本)</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install webpack@<span class="token number">3.6</span><span class="token number">.0</span> <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><p>局部安装webpack（后续才需要）
+--save-dev`是开发时依赖，项目打包后不需要继续使用的。</p> <p>为什么全局安装后，还需要局部安装呢？
+在终端直接执行webpack命令，使用的全局安装的webpack
+当在package.json中定义了scripts时，其中包含了webpack命令，那么使用的是局部webpack</p> <h2 id="_7-准备工作"><a href="#_7-准备工作" class="header-anchor">#</a> 7. 准备工作</h2> <p>我们创建如下文件和文件夹：
+文件和文件夹解析：
+dist文件夹：用于存放之后打包的文件
+src文件夹：用于存放我们写的源文件
+main.js：项目的入口文件。具体内容查看下面详情。
+mathUtils.js：定义了一些数学工具函数，可以在其他地方引用，并且使用。具体内容查看下面的详情。
+index.html：浏览器打开展示的首页html
+package.json：通过npm init生成的，npm包管理的文件（暂时没有用上，后面才会用上）
+mathUtils.js文件中的代码：
+main.js文件中的代码：</p> <h2 id="_8-js文件的打包"><a href="#_8-js文件的打包" class="header-anchor">#</a> 8.js文件的打包</h2> <p>现在的js文件中使用了模块化的方式进行开发，他们可以直接使用吗？不可以。
+因为如果直接在index.html引入这两个js文件，浏览器并不识别其中的模块化代码。
+另外，在真实项目中当有许多这样的js文件时，我们一个个引用非常麻烦，并且后期非常不方便对它们进行管理。
+我们应该怎么做呢？使用webpack工具，对多个js文件进行打包。
+我们知道，webpack就是一个模块化的打包工具，所以它支持我们代码中写模块化，可以对模块化的代码进行处理。（如何处理的，待会儿在原理中，我会讲解）
+另外，如果在处理完所有模块之间的关系后，将多个js打包到一个js文件中，引入时就变得非常方便了。
+OK，如何打包呢？使用webpack的指令即可</p> <p>打包后会在dist文件下，生成一个bundle.js文件
+文件内容有些复杂，这里暂时先不看，后续再进行分析。
+bundle.js文件，是webpack处理了项目直接文件依赖后生成的一个js文件，我们只需要将这个js文件在index.html中引入即可</p> <h2 id="_9-配置webpack"><a href="#_9-配置webpack" class="header-anchor">#</a> 9. 配置webpack</h2> <p>我们考虑一下，如果每次使用webpack的命令都需要写上入口和出口作为参数，就非常麻烦，有没有一种方法可以将这两个参数写到配置中，在运行时，直接读取呢？
+当然可以，就是创建一个webpack.config.js文件</p> <h3 id="_11-局部安装webpack"><a href="#_11-局部安装webpack" class="header-anchor">#</a> 11. 局部安装webpack</h3> <p>目前，我们使用的webpack是全局的webpack，如果我们想使用局部来打包呢？
+因为一个项目往往依赖特定的webpack版本，全局的版本可能很这个项目的webpack版本不一致，导出打包出现问题。
+所以通常一个项目，都有自己局部的webpack。
+第一步，项目中需要安装自己局部的webpack
+这里我们让局部安装webpack3.6.0
+Vue CLI3中已经升级到webpack4，但是它将配置文件隐藏了起来，所以查看起来不是很方便。</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install webpack@<span class="token number">3.6</span><span class="token number">.0</span> <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><p>第二步，通过node_modulesAND.binANDwebpack启动webpack打包</p> <h3 id="_12-package-json中定义启动"><a href="#_12-package-json中定义启动" class="header-anchor">#</a> 12. package.json中定义启动</h3> <p>但是，每次执行都敲这么一长串有没有觉得不方便呢？
+OK，我们可以在package.json的scripts中定义自己的执行脚本。
+package.json中的scripts的脚本在执行时，会按照一定的顺序寻找命令对应的位置。
+首先，会寻找本地的node_modulesAND.bin路径中对应的命令。
+如果没有找到，会去全局的环境变量中寻找。
+如何执行我们的build指令呢？</p> <p>在package.json里面加上</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>然后运行shell命令</p> <div class="language-js extra-class"><pre class="language-js"><code>npm run build
+</code></pre></div><blockquote><p>为了能让webpack打包除了js以外iade文件，比如css，less，jsx，.png等资源，就需要为webpack加上相应的loader</p></blockquote> <h2 id="_13-什么是loader"><a href="#_13-什么是loader" class="header-anchor">#</a> 13. 什么是loader？</h2> <p>13.1 loader是webpack中一个非常核心的概念。</p> <p>13.2 webpack用来做什么呢？
+在我们之前的实例中，我们主要是用webpack来处理我们写的js代码，并且webpack会自动处理js之间相关的依赖。
+但是，在开发中我们不仅仅有基本的js代码处理，我们也需要加载css、图片，也包括一些高级的将ES6转成ES5代码，</p> <p>将TypeScript转成ES5代码，将scss、less转成css，将.jsx、.vue文件转成js文件等等。对于webpack本身的能力来说，对于这些转化是不支持的。那怎么办呢？给webpack扩展对应的loader就可以啦。</p> <p>loader使用过程：</p> <blockquote><p>步骤一：通过npm安装需要使用的loader</p></blockquote> <blockquote><p>步骤二：在webpack.config.js中的modules关键字下进行配置</p></blockquote> <p>大部分loader我们都可以在webpack的官网中找到，并且学习对应的用法。</p> <h2 id="_14-css文件处理-添加css-loader"><a href="#_14-css文件处理-添加css-loader" class="header-anchor">#</a> 14. css文件处理-添加css-loader</h2> <p>项目开发过程中，我们必然需要添加很多的样式，而样式我们往往写到一个单独的文件中。
+在src目录中，创建一个css文件，其中创建一个normal.css文件。
+我们也可以重新组织文件的目录结构，将零散的js文件放在一个js文件夹中。
+normal.css中的代码非常简单，就是将body设置为red
+但是，这个时候normal.css中的样式会生效吗？
+当然不会，因为我们压根就没有引用它。
+webpack也不可能找到它，因为我们只有一个入口，webpack会从入口开始查找其他依赖的文件。</p> <p>在入口文件中引用：</p> <h3 id="_15-css文件处理-打包报错信息"><a href="#_15-css文件处理-打包报错信息" class="header-anchor">#</a> 15. css文件处理 – 打包报错信息</h3> <p>这个错误告诉我们：加载normal.css文件必须有对应的loader。</p> <h3 id="_16-css文件处理-css-loader"><a href="#_16-css文件处理-css-loader" class="header-anchor">#</a> 16. css文件处理 – css-loader</h3> <p>在webpack的官方中，我们可以找到如下关于样式的loader使用方法：
+按照官方配置webpack.config.js文件
+注意：配置中有一个style-loader，我们并不知道它是什么，所以可以暂时不进行配置。</p> <p>重新打包项目：
+但是，运行index.html，你会发现样式并没有生效。
+原因是css-loader只负责加载css文件，但是并不负责将css具体样式嵌入到文档中。
+这个时候，我们还需要一个style-loader帮助我们处理。</p> <h3 id="_17-css文件处理-style-loader"><a href="#_17-css文件处理-style-loader" class="header-anchor">#</a> 17. css文件处理 – style-loader</h3> <p>我们来安装style-loader</p> <blockquote><p>注意：</p></blockquote> <p>style-loader需要放在css-loader的前面。</p> <blockquote><p>疑惑：</p></blockquote> <p>不对吧？按照我们的逻辑，在处理css文件过程中，应该是css-loader先加载css文件，再由style-loader来进行进一步的处理，为什么会将style-loader放在前面呢？
+答案：这次因为webpack在读取使用的loader的过程中，是按照从右向左的顺序读取的。
+目前，webpack.config.js的配置如下：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token operator">:</span><span class="token punctuation">{</span>
+  rules<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      test<span class="token operator">:</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.css$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+      <span class="token comment">// css-loader只是加载css文件，style-loader才是真正的将css加入到DOM中</span>
+      use<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_18-less文件处理-准备工作-less-loader"><a href="#_18-less文件处理-准备工作-less-loader" class="header-anchor">#</a> 18. less文件处理 – 准备工作-less-loader</h3> <p>如果我们希望在项目中使用less、scss、stylus来写样式，webpack是否可以帮助我们处理呢？
+我们这里以less为例，其他也是一样的。
+我们还是先创建一个less文件，依然放在css文件夹中</p> <blockquote><p>继续在官方中查找，我们会找到less-loader相关的使用说明
+首先，还是需要安装对应的loader
+注意：我们这里还安装了less，因为webpack会使用less对less文件进行编译</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code>npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev less<span class="token operator">-</span>loader less
+</code></pre></div><p>其次，修改对应的配置文件
+添加一个rules选项，用于处理.less文件</p> <div class="language-js extra-class"><pre class="language-js"><code>      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.less$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;style-loader&quot;</span><span class="token punctuation">,</span> <span class="token comment">// creates style nodes from JS strings</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;css-loader&quot;</span> <span class="token comment">// translates CSS into CommonJS</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;less-loader&quot;</span><span class="token punctuation">,</span> <span class="token comment">// compiles Less to CSS</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h2 id="_20-图片文件处理-资源准备阶段"><a href="#_20-图片文件处理-资源准备阶段" class="header-anchor">#</a> 20. 图片文件处理,资源准备阶段</h2> <p>首先，我们在项目中加入两张图片：
+一张较小的图片test01.jpg(小于8kb)，一张较大的图片test02.jpeg(大于8kb)
+待会儿我们会针对这两张图片进行不同的处理
+我们先考虑在css样式中引用图片的情况，所以我更改了normal.css中的样式：</p> <p>如果我们现在直接打包，会出现如下问题</p> <h3 id="_21-图片文件处理-url-loader"><a href="#_21-图片文件处理-url-loader" class="header-anchor">#</a> 21. 图片文件处理,url-loader</h3> <p>图片处理，我们使用url-loader来处理，依然先安装url-loader</p> <p>修改webpack.config.js配置文件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  test<span class="token operator">:</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|jpg|gif|jpeg)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+  use<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      loader<span class="token operator">:</span><span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+      options<span class="token operator">:</span><span class="token punctuation">{</span>
+        limit<span class="token operator">:</span><span class="token number">8192</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>再次打包，运行index.html，就会发现我们的背景图片选出了出来。
+而仔细观察，你会发现背景图是通过base64显示出来的
+OK，这也是limit属性的作用，当图片小于8kb时，对图片进行base64编码</p> <h3 id="_22-图片文件处理-file-loader"><a href="#_22-图片文件处理-file-loader" class="header-anchor">#</a> 22. 图片文件处理,file-loader</h3> <p>那么问题来了，如果大于8kb呢？我们将background的图片改成test02.jpg
+这次因为大于8kb的图片，会通过file-loader进行处理，但是我们的项目中并没有file-loader</p> <p>所以，我们需要安装file-loader</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev file<span class="token operator">-</span>loader
+</code></pre></div><p>再次打包，就会发现dist文件夹下多了一个图片文件</p> <p>我们发现webpack自动帮助我们生成一个非常长的名字
+这是一个32位hash值，目的是防止名字重复
+但是，真实开发中，我们可能对打包的图片名字有一定的要求
+比如，将所有的图片放在一个文件夹中，跟上图片原来的名称，同时也要防止重复
+配置：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token operator">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    publicPath<span class="token operator">:</span> <span class="token string">'dist/'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">{</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.css$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token comment">// css-loader只负责将css文件进行加载</span>
+        <span class="token comment">// style-loader负责将样式添加到DOM中</span>
+        <span class="token comment">// 使用多个loader时, 是从右向左</span>
+        use<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token string">'style-loader'</span><span class="token punctuation">,</span> <span class="token string">'css-loader'</span> <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.less$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;style-loader&quot;</span><span class="token punctuation">,</span> <span class="token comment">// creates style nodes from JS strings</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;css-loader&quot;</span> <span class="token comment">// translates CSS into CommonJS</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">&quot;less-loader&quot;</span><span class="token punctuation">,</span> <span class="token comment">// compiles Less to CSS</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|jpg|gif|jpeg)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+            options<span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token comment">// 当加载的图片, 小于limit时, 会将图片编译成base64字符串形式.</span>
+              <span class="token comment">// 当加载的图片, 大于limit时, 需要使用file-loader模块进行加载.</span>
+              limit<span class="token operator">:</span> <span class="token number">13000</span><span class="token punctuation">,</span>
+              <span class="token comment">// 创建一个img文件夹，然后选择图片的名字.哈希值的八位.extension</span>
+              name<span class="token operator">:</span> <span class="token string">'img/[name].[hash:8].[ext]'</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.js$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token comment">// exclude: 排除</span>
+        <span class="token comment">// include: 包含</span>
+        exclude<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(node_modules|bower_components)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">{</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>所以，我们可以在options中添加上如下选项：
+img：文件要打包到的文件夹
+name：获取图片原来的名字，放在该位置
+hash:8：为了防止图片名称冲突，依然使用hash，但是我们只保留8位
+ext：使用图片原来的扩展名
+但是，我们发现图片并没有显示出来，这是因为图片使用的路径不正确
+默认情况下，webpack会将生成的路径直接返回给使用者
+但是，我们整个程序是打包在dist文件夹下的，所以这里我们需要在路径下再添加一个dist/</p> <h2 id="_24-es6语法处理"><a href="#_24-es6语法处理" class="header-anchor">#</a> 24. ES6语法处理</h2> <p>如果你仔细阅读webpack打包的js文件，发现写的ES6语法并没有转成ES5，那么就意味着可能一些对ES6还不支持的浏览器没有办法很好的运行我们的代码。
+在前面我们说过，如果希望将ES6的语法转成ES5，那么就需要使用babel。
+而在webpack中，我们直接使用babel对应的loader就可以了。</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev babel<span class="token operator">-</span>loader@<span class="token number">7</span> babel<span class="token operator">-</span>core babel<span class="token operator">-</span>parset<span class="token operator">-</span>es2015
+</code></pre></div><p>配置webpack.config.js文件</p> <div class="language-js extra-class"><pre class="language-js"><code>      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.js$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        <span class="token comment">// exclude: 排除</span>
+        <span class="token comment">// include: 包含</span>
+        exclude<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(node_modules|bower_components)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">{</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>重新打包，查看bundle.js文件，发现其中的内容变成了ES5的语法</p> <h2 id="_25-引入vuejs"><a href="#_25-引入vuejs" class="header-anchor">#</a> 25. 引入Vuejs</h2> <p>后续项目中，我们会使用Vuejs进行开发，而且会以特殊的文件来组织vue的组件。
+所以，下面我们来学习一下如何在我们的webpack环境中集成Vuejs
+现在，我们希望在项目中使用Vuejs，那么必然需要对其有依赖，所以需要先进行安装
+注：因为我们后续是在实际项目中也会使用vue的，所以并不是开发时依赖</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install vue <span class="token operator">--</span>save
+</code></pre></div><p>那么，接下来就可以按照我们之前学习的方式来使用Vue了</p> <h3 id="_26-项目打包"><a href="#_26-项目打包" class="header-anchor">#</a> 26. 项目打包</h3> <p>修改完成后，重新打包，运行程序：
+打包过程没有任何错误(因为只是多打包了一个vue的js文件而已)
+但是运行程序，没有出现想要的效果，而且浏览器中有报错</p> <p>这个错误说的是我们使用的是runtime-only版本的Vue，什么意思呢？
+这里我只说解决方案：Vue不同版本构建，后续我具体讲解runtime-only和runtime-compiler的区别。
+所以我们修改webpack的配置，添加如下内容即可</p> <h3 id="_27-el和template区别-一"><a href="#_27-el和template区别-一" class="header-anchor">#</a> 27. el和template区别（一）</h3> <blockquote><p>正常运行之后，我们来考虑另外一个问题：</p></blockquote> <ol><li><p>如果我们希望将data中的数据显示在界面中，就必须是修改index.html</p></li> <li><p>如果我们后面自定义了组件，也必须修改index.html来使用组件</p></li> <li><p>但是html模板在之后的开发中，我并不希望手动的来频繁修改，是否可以做到呢？</p></li></ol> <blockquote><p>定义template属性：</p></blockquote> <ol start="4"><li><p>在前面的Vue实例中，我们定义了el属性，用于和index.html中的#app进行绑定，让Vue实例之后可以管理它其中的内容</p></li> <li><p>这里，我们可以将div元素中的内容删掉，只保留一个基本的id为div的元素
+但是如果我依然希望在其中显示的内容，应该怎么处理呢？</p></li> <li><p>我们可以再定义一个template属性，代码如下：</p> <div class="language-vue extra-class"><pre class="language-vue"><code>new Vue({
+	el:'#app',
+	template:`<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    {{message}}
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>`,
+	data:{
+		message:'shuiqing'
+	}
+})
+</code></pre></div></li></ol> <p>重新打包，运行程序，显示一样的结果和HTML代码结构
+那么，el和template模板的关系是什么呢？
+在我们之前的学习中，我们知道el用于指定Vue要管理的DOM，可以帮助解析其中的指令、事件监听等等。
+而如果Vue实例中同时指定了template，那么template模板的内容会替换掉挂载的对应el的模板。
+这样做有什么好处呢？
+这样做之后我们就不需要在以后的开发中再次操作index.html，只需要在template中写入对应的标签即可
+但是，书写template模块非常麻烦怎么办呢？
+没有关系，稍后我们会将template模板中的内容进行抽离。
+会分成三部分书写：template、script、style，结构变得非常清晰。</p> <h3 id="_29-vue组件化开发引入"><a href="#_29-vue组件化开发引入" class="header-anchor">#</a> 29. Vue组件化开发引入</h3> <p>在学习组件化开发的时候，我说过以后的Vue开发过程中，我们都会采用组件化开发的思想。
+那么，在当前项目中，如果我也想采用组件化的形式进行开发，应该怎么做呢？
+查看下面的代码：	
+当然，我们也可以将下面的代码抽取到一个js文件中，并且导出。</p> <h3 id="_30-vue文件封装处理"><a href="#_30-vue文件封装处理" class="header-anchor">#</a> 30. .vue文件封装处理</h3> <p>但是一个组件以一个js对象的形式进行组织和使用的时候是非常不方便的
+一方面编写template模块非常的麻烦
+另外一方面如果有样式的话，我们写在哪里比较合适呢？
+现在，我们以一种全新的方式来组织一个vue的组件
+但是，这个时候这个文件可以被正确的加载吗？
+必然不可以，这种特殊的文件以及特殊的格式，必须有人帮助我们处理。
+谁来处理呢？vue-loader以及vue-template-compiler。
+安装vue-loader和vue-template-compiler</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install vue<span class="token operator">-</span>loader vue<span class="token operator">-</span>template<span class="token operator">-</span>compiler <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><p>修改webpack.config.js的配置文件：</p> <h2 id="_31-认识plugin"><a href="#_31-认识plugin" class="header-anchor">#</a> 31. 认识plugin</h2> <p>plugin是什么？
+plugin是插件的意思，通常是用于对某个现有的架构进行扩展。
+webpack中的插件，就是对webpack现有功能的各种扩展，比如打包优化，文件压缩等等。
+loader和plugin区别
+loader主要用于转换某些类型的模块，它是一个转换器。
+plugin是插件，它是对webpack本身的扩展，是一个扩展器。
+plugin的使用过程：
+步骤一：通过npm安装需要使用的plugins(某些webpack已经内置的插件不需要安装)
+步骤二：在webpack.config.js中的plugins中配置插件。
+下面，我们就来看看可以通过哪些插件对现有的webpack打包过程进行扩容，让我们的webpack变得更加好用。</p> <h3 id="添加版权的plugin"><a href="#添加版权的plugin" class="header-anchor">#</a> 添加版权的plugin</h3> <p>我们先来使用一个最简单的插件，为打包的文件添加版权声明
+该插件名字叫BannerPlugin，属于webpack自带的插件。
+按照下面的方式来修改webpack.config.js的文件：</p> <p>重新打包程序：查看bundle.js文件的头部，看到如下信息</p> <h3 id="打包html的plugin"><a href="#打包html的plugin" class="header-anchor">#</a> 打包html的plugin</h3> <p>目前，我们的index.html文件是存放在项目的根目录下的。
+我们知道，在真实发布项目时，发布的是dist文件夹中的内容，但是dist文件夹中如果没有index.html文件，那么打包的js等文件也就没有意义了。
+所以，我们需要将index.html文件打包到dist文件夹中，这个时候就可以使用HtmlWebpackPlugin插件
+HtmlWebpackPlugin插件可以为我们做这些事情：
+自动生成一个index.html文件(可以指定模板来生成)
+将打包的js文件，自动通过script标签插入到body中
+安装HtmlWebpackPlugin插件</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install html<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><p>使用插件，修改webpack.config.js文件中plugins部分的内容如下：
+这里的template表示根据什么模板来生成index.html
+另外，我们需要删除之前在output中添加的publicPath属性
+否则插入的script标签中的src可能会有问题</p> <blockquote><p>update the webpack.config.js</p></blockquote> <p>写下面的插件前需要下载并引入下面的插件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>  <span class="token comment">//webpack本身</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>  <span class="token comment">// 该插件我们用得到地方是将index.html也打包到dist文件夹下</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>BannerPlugin</span><span class="token punctuation">(</span><span class="token string">'版权归shuiqing所有'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      template<span class="token operator">:</span> <span class="token string">'index.html'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="compress-js-code"><a href="#compress-js-code" class="header-anchor">#</a> compress js code</h3> <p>在项目发布之前，我们必然需要对js等文件进行压缩处理
+这里，我们就对打包的js文件进行压缩
+我们使用一个第三方的插件uglifyjs-webpack-plugin，并且版本号指定1.1.1，和CLI2保持一致</p> <p>修改webpack.config.js文件，使用插件：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> UglifyjsWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uglifyjs-webpack-plugin'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>BannerPlugin</span><span class="token punctuation">(</span><span class="token string">'最终版权归aaa所有'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  <span class="token comment">// 这个插件是将index.html打包到dist文件夹下,可以深入了解下</span>
+      template<span class="token operator">:</span> <span class="token string">'index.html'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">UglifyjsWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// the plugin is used to compress the js scode</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>查看打包后的bunlde.js文件，是已经被压缩过了。</p> <h2 id="_35-搭建本地服务器"><a href="#_35-搭建本地服务器" class="header-anchor">#</a> 35. 搭建本地服务器</h2> <p>webpack提供了一个可选的本地开发服务器，这个本地服务器基于node.js搭建，内部使用express框架，可以实现我们想要的让浏览器自动刷新显示我们修改后的结果。
+不过它是一个单独的模块，在webpack中使用之前需要先安装它</p> <div class="language-js extra-class"><pre class="language-js"><code>npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server@<span class="token number">2.9</span><span class="token number">.1</span>
+</code></pre></div><p>devserver也是作为webpack中的一个选项，选项本身可以设置如下属性：
+contentBase：为哪一个文件夹提供本地服务，默认是根文件夹，我们这里要填写./dist
+port：端口号
+inline：页面实时刷新
+historyApiFallback：在SPA页面中，依赖HTML5的history模式
+webpack.config.js文件配置修改如下：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">{</span><span class="token operator">...</span>other config<span class="token punctuation">}</span>
+	devServer<span class="token operator">:</span> <span class="token punctuation">{</span>
+    contentBase<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+    inline<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">// 页面实时刷新</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们可以再配置另外一个scripts：</p> <blockquote><p>--open参数表示直接打开浏览器</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;open&quot;</span><span class="token operator">:</span><span class="token string">&quot;下面的脚本加上--open以后表示运行后可以自动打开默认的浏览器&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack-dev-server --open&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/Tools/Webpack/WebpackFirst.html" class="prev">
+            Webpack打包
+          </a></span> <span class="next"><a href="/Tools/Webpack/webpack-loader/url-loader.html">
+            url-loader
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_2-认识webpack" class="sidebar-link reco-side-_2-认识webpack" data-v-70334359>2.认识webpack</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_3-什么是webpack" class="sidebar-link reco-side-_3-什么是webpack" data-v-70334359>3. 什么是webpack？</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_4-前端模块化" class="sidebar-link reco-side-_4-前端模块化" data-v-70334359>4. 前端模块化</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_5-和gruntandgulp的对比" class="sidebar-link reco-side-_5-和gruntandgulp的对比" data-v-70334359>5.和gruntANDgulp的对比</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_6-webpack安装" class="sidebar-link reco-side-_6-webpack安装" data-v-70334359>6. webpack安装</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_7-准备工作" class="sidebar-link reco-side-_7-准备工作" data-v-70334359>7. 准备工作</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_8-js文件的打包" class="sidebar-link reco-side-_8-js文件的打包" data-v-70334359>8.js文件的打包</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_9-配置webpack" class="sidebar-link reco-side-_9-配置webpack" data-v-70334359>9. 配置webpack</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_11-局部安装webpack" class="sidebar-link reco-side-_11-局部安装webpack" data-v-70334359>11. 局部安装webpack</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_12-package-json中定义启动" class="sidebar-link reco-side-_12-package-json中定义启动" data-v-70334359>12. package.json中定义启动</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_13-什么是loader" class="sidebar-link reco-side-_13-什么是loader" data-v-70334359>13. 什么是loader？</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_14-css文件处理-添加css-loader" class="sidebar-link reco-side-_14-css文件处理-添加css-loader" data-v-70334359>14. css文件处理-添加css-loader</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_15-css文件处理-打包报错信息" class="sidebar-link reco-side-_15-css文件处理-打包报错信息" data-v-70334359>15. css文件处理 – 打包报错信息</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_16-css文件处理-css-loader" class="sidebar-link reco-side-_16-css文件处理-css-loader" data-v-70334359>16. css文件处理 – css-loader</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_17-css文件处理-style-loader" class="sidebar-link reco-side-_17-css文件处理-style-loader" data-v-70334359>17. css文件处理 – style-loader</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_18-less文件处理-准备工作-less-loader" class="sidebar-link reco-side-_18-less文件处理-准备工作-less-loader" data-v-70334359>18. less文件处理 – 准备工作-less-loader</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_20-图片文件处理-资源准备阶段" class="sidebar-link reco-side-_20-图片文件处理-资源准备阶段" data-v-70334359>20. 图片文件处理,资源准备阶段</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_21-图片文件处理-url-loader" class="sidebar-link reco-side-_21-图片文件处理-url-loader" data-v-70334359>21. 图片文件处理,url-loader</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_22-图片文件处理-file-loader" class="sidebar-link reco-side-_22-图片文件处理-file-loader" data-v-70334359>22. 图片文件处理,file-loader</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_24-es6语法处理" class="sidebar-link reco-side-_24-es6语法处理" data-v-70334359>24. ES6语法处理</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_25-引入vuejs" class="sidebar-link reco-side-_25-引入vuejs" data-v-70334359>25. 引入Vuejs</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_26-项目打包" class="sidebar-link reco-side-_26-项目打包" data-v-70334359>26. 项目打包</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_27-el和template区别-一" class="sidebar-link reco-side-_27-el和template区别-一" data-v-70334359>27. el和template区别（一）</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_29-vue组件化开发引入" class="sidebar-link reco-side-_29-vue组件化开发引入" data-v-70334359>29. Vue组件化开发引入</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_30-vue文件封装处理" class="sidebar-link reco-side-_30-vue文件封装处理" data-v-70334359>30. .vue文件封装处理</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_31-认识plugin" class="sidebar-link reco-side-_31-认识plugin" data-v-70334359>31. 认识plugin</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#添加版权的plugin" class="sidebar-link reco-side-添加版权的plugin" data-v-70334359>添加版权的plugin</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#打包html的plugin" class="sidebar-link reco-side-打包html的plugin" data-v-70334359>打包html的plugin</a></li><li class="level-3" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#compress-js-code" class="sidebar-link reco-side-compress-js-code" data-v-70334359>compress js code</a></li><li class="level-2" data-v-70334359><a href="/Tools/Webpack/learnWebpack.html#_35-搭建本地服务器" class="sidebar-link reco-side-_35-搭建本地服务器" data-v-70334359>35. 搭建本地服务器</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.a713ee30.js" defer></script><script src="/assets/js/3.8d283ff8.js" defer></script><script src="/assets/js/1.6b3d9ed4.js" defer></script><script src="/assets/js/371.e2c94860.js" defer></script>
+  </body>
+</html>

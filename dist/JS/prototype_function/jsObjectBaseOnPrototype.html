@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深刻理解JavaScript基于原型的面向对象 Full | H先森</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="From FE Arch、To Full Stack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1a00f748.css" as="style"><link rel="preload" href="/assets/js/app.a713ee30.js" as="script"><link rel="preload" href="/assets/js/3.8d283ff8.js" as="script"><link rel="preload" href="/assets/js/1.6b3d9ed4.js" as="script"><link rel="preload" href="/assets/js/201.fe935279.js" as="script"><link rel="prefetch" href="/assets/js/10.380d1310.js"><link rel="prefetch" href="/assets/js/100.c720e65e.js"><link rel="prefetch" href="/assets/js/101.8eed8d0c.js"><link rel="prefetch" href="/assets/js/102.c18a029c.js"><link rel="prefetch" href="/assets/js/103.799b4d4e.js"><link rel="prefetch" href="/assets/js/104.57e20453.js"><link rel="prefetch" href="/assets/js/105.51f281ec.js"><link rel="prefetch" href="/assets/js/106.aa5cac8e.js"><link rel="prefetch" href="/assets/js/107.5b0b4253.js"><link rel="prefetch" href="/assets/js/108.f9c872a1.js"><link rel="prefetch" href="/assets/js/109.a2ffe8c4.js"><link rel="prefetch" href="/assets/js/11.9ec56053.js"><link rel="prefetch" href="/assets/js/110.9ebd6fe3.js"><link rel="prefetch" href="/assets/js/111.63d6dbc7.js"><link rel="prefetch" href="/assets/js/112.2e1a4411.js"><link rel="prefetch" href="/assets/js/113.3b83a006.js"><link rel="prefetch" href="/assets/js/114.0cd6f80c.js"><link rel="prefetch" href="/assets/js/115.33f9835f.js"><link rel="prefetch" href="/assets/js/116.347ed4bd.js"><link rel="prefetch" href="/assets/js/117.1c20407b.js"><link rel="prefetch" href="/assets/js/118.5ada9130.js"><link rel="prefetch" href="/assets/js/119.dba222d6.js"><link rel="prefetch" href="/assets/js/12.0948c94f.js"><link rel="prefetch" href="/assets/js/120.2f7d12e4.js"><link rel="prefetch" href="/assets/js/121.7ee0e4ac.js"><link rel="prefetch" href="/assets/js/122.94b5ab4b.js"><link rel="prefetch" href="/assets/js/123.70f1d330.js"><link rel="prefetch" href="/assets/js/124.1b536ad0.js"><link rel="prefetch" href="/assets/js/125.bd4bb5fb.js"><link rel="prefetch" href="/assets/js/126.1bb6a6fb.js"><link rel="prefetch" href="/assets/js/127.1125f313.js"><link rel="prefetch" href="/assets/js/128.287c18ae.js"><link rel="prefetch" href="/assets/js/129.0e5c5085.js"><link rel="prefetch" href="/assets/js/13.b7a004f1.js"><link rel="prefetch" href="/assets/js/130.2c71eb50.js"><link rel="prefetch" href="/assets/js/131.b8db6566.js"><link rel="prefetch" href="/assets/js/132.3c057f51.js"><link rel="prefetch" href="/assets/js/133.0fd28469.js"><link rel="prefetch" href="/assets/js/134.39b48f3b.js"><link rel="prefetch" href="/assets/js/135.686779c9.js"><link rel="prefetch" href="/assets/js/136.2624d452.js"><link rel="prefetch" href="/assets/js/137.9a12cf47.js"><link rel="prefetch" href="/assets/js/138.1dcc3d2a.js"><link rel="prefetch" href="/assets/js/139.1a9598d8.js"><link rel="prefetch" href="/assets/js/14.8d0f01cb.js"><link rel="prefetch" href="/assets/js/140.b76a65d2.js"><link rel="prefetch" href="/assets/js/141.189c5ed6.js"><link rel="prefetch" href="/assets/js/142.8bfeed0b.js"><link rel="prefetch" href="/assets/js/143.29c19765.js"><link rel="prefetch" href="/assets/js/144.9c045c6c.js"><link rel="prefetch" href="/assets/js/145.91a576df.js"><link rel="prefetch" href="/assets/js/146.fec4d3cd.js"><link rel="prefetch" href="/assets/js/147.31be5e12.js"><link rel="prefetch" href="/assets/js/148.58ddc72c.js"><link rel="prefetch" href="/assets/js/149.339408d5.js"><link rel="prefetch" href="/assets/js/15.d376075a.js"><link rel="prefetch" href="/assets/js/150.5e33ff52.js"><link rel="prefetch" href="/assets/js/151.e3108d7e.js"><link rel="prefetch" href="/assets/js/152.c82eca68.js"><link rel="prefetch" href="/assets/js/153.3c69b9bd.js"><link rel="prefetch" href="/assets/js/154.b4c071ea.js"><link rel="prefetch" href="/assets/js/155.5389cf85.js"><link rel="prefetch" href="/assets/js/156.01aca174.js"><link rel="prefetch" href="/assets/js/157.1d7d98cc.js"><link rel="prefetch" href="/assets/js/158.ed81ac8d.js"><link rel="prefetch" href="/assets/js/159.f13f5d64.js"><link rel="prefetch" href="/assets/js/16.0203c884.js"><link rel="prefetch" href="/assets/js/160.bb3656d2.js"><link rel="prefetch" href="/assets/js/161.0dfa3f28.js"><link rel="prefetch" href="/assets/js/162.f31b0496.js"><link rel="prefetch" href="/assets/js/163.30d34760.js"><link rel="prefetch" href="/assets/js/164.84086632.js"><link rel="prefetch" href="/assets/js/165.6e1851b1.js"><link rel="prefetch" href="/assets/js/166.bd666059.js"><link rel="prefetch" href="/assets/js/167.993ebd79.js"><link rel="prefetch" href="/assets/js/168.405800f2.js"><link rel="prefetch" href="/assets/js/169.2251b5ca.js"><link rel="prefetch" href="/assets/js/17.c744ae25.js"><link rel="prefetch" href="/assets/js/170.57231015.js"><link rel="prefetch" href="/assets/js/171.0f1d3dcc.js"><link rel="prefetch" href="/assets/js/172.93a49501.js"><link rel="prefetch" href="/assets/js/173.784a72de.js"><link rel="prefetch" href="/assets/js/174.c7d8f895.js"><link rel="prefetch" href="/assets/js/175.caa8d17c.js"><link rel="prefetch" href="/assets/js/176.baa0c3d1.js"><link rel="prefetch" href="/assets/js/177.d2d01a3d.js"><link rel="prefetch" href="/assets/js/178.a0ea8a78.js"><link rel="prefetch" href="/assets/js/179.03ac5260.js"><link rel="prefetch" href="/assets/js/18.0f8010c4.js"><link rel="prefetch" href="/assets/js/180.ec8769e1.js"><link rel="prefetch" href="/assets/js/181.dfdf015a.js"><link rel="prefetch" href="/assets/js/182.389026b2.js"><link rel="prefetch" href="/assets/js/183.bf8a3c49.js"><link rel="prefetch" href="/assets/js/184.c6740c8a.js"><link rel="prefetch" href="/assets/js/185.5fb78673.js"><link rel="prefetch" href="/assets/js/186.46d6ed91.js"><link rel="prefetch" href="/assets/js/187.178a5d59.js"><link rel="prefetch" href="/assets/js/188.d5af2007.js"><link rel="prefetch" href="/assets/js/189.76d3c7eb.js"><link rel="prefetch" href="/assets/js/19.e5aae0df.js"><link rel="prefetch" href="/assets/js/190.c8e77587.js"><link rel="prefetch" href="/assets/js/191.3ff9cf8f.js"><link rel="prefetch" href="/assets/js/192.f2a03f48.js"><link rel="prefetch" href="/assets/js/193.1ec1ea63.js"><link rel="prefetch" href="/assets/js/194.ea46092a.js"><link rel="prefetch" href="/assets/js/195.eaad552e.js"><link rel="prefetch" href="/assets/js/196.34d6cb06.js"><link rel="prefetch" href="/assets/js/197.f0499247.js"><link rel="prefetch" href="/assets/js/198.5a7a7c5a.js"><link rel="prefetch" href="/assets/js/199.bf3659e6.js"><link rel="prefetch" href="/assets/js/20.fd0559f1.js"><link rel="prefetch" href="/assets/js/200.9e6b4ffd.js"><link rel="prefetch" href="/assets/js/202.62d3fa83.js"><link rel="prefetch" href="/assets/js/203.99196060.js"><link rel="prefetch" href="/assets/js/204.ee57e797.js"><link rel="prefetch" href="/assets/js/205.5929940f.js"><link rel="prefetch" href="/assets/js/206.3539756a.js"><link rel="prefetch" href="/assets/js/207.7aba6825.js"><link rel="prefetch" href="/assets/js/208.399e86fa.js"><link rel="prefetch" href="/assets/js/209.e966c6f9.js"><link rel="prefetch" href="/assets/js/21.67a54c54.js"><link rel="prefetch" href="/assets/js/210.df3f22fe.js"><link rel="prefetch" href="/assets/js/211.d1b8b0b5.js"><link rel="prefetch" href="/assets/js/212.f794ea96.js"><link rel="prefetch" href="/assets/js/213.b39ba89d.js"><link rel="prefetch" href="/assets/js/214.2acff6a3.js"><link rel="prefetch" href="/assets/js/215.d0758034.js"><link rel="prefetch" href="/assets/js/216.2e401ba5.js"><link rel="prefetch" href="/assets/js/217.3191ccf3.js"><link rel="prefetch" href="/assets/js/218.7a16c9f5.js"><link rel="prefetch" href="/assets/js/219.1cc08ff9.js"><link rel="prefetch" href="/assets/js/22.f1ea2e63.js"><link rel="prefetch" href="/assets/js/220.3398d6aa.js"><link rel="prefetch" href="/assets/js/221.8161fcf5.js"><link rel="prefetch" href="/assets/js/222.edeb27f3.js"><link rel="prefetch" href="/assets/js/223.64eea5b2.js"><link rel="prefetch" href="/assets/js/224.b0976510.js"><link rel="prefetch" href="/assets/js/225.4686abae.js"><link rel="prefetch" href="/assets/js/226.fa98cd34.js"><link rel="prefetch" href="/assets/js/227.be2dec7e.js"><link rel="prefetch" href="/assets/js/228.16123a62.js"><link rel="prefetch" href="/assets/js/229.dea84cb1.js"><link rel="prefetch" href="/assets/js/23.e78ff6c9.js"><link rel="prefetch" href="/assets/js/230.5ca7533c.js"><link rel="prefetch" href="/assets/js/231.18f1c409.js"><link rel="prefetch" href="/assets/js/232.a486fac3.js"><link rel="prefetch" href="/assets/js/233.c01de756.js"><link rel="prefetch" href="/assets/js/234.a624e089.js"><link rel="prefetch" href="/assets/js/235.f71e6eea.js"><link rel="prefetch" href="/assets/js/236.213fd1b7.js"><link rel="prefetch" href="/assets/js/237.5c2dd120.js"><link rel="prefetch" href="/assets/js/238.99d804bd.js"><link rel="prefetch" href="/assets/js/239.21cd1c8a.js"><link rel="prefetch" href="/assets/js/24.9e90fc9e.js"><link rel="prefetch" href="/assets/js/240.91931597.js"><link rel="prefetch" href="/assets/js/241.0f659c4d.js"><link rel="prefetch" href="/assets/js/242.c20e048d.js"><link rel="prefetch" href="/assets/js/243.004878b9.js"><link rel="prefetch" href="/assets/js/244.092db24d.js"><link rel="prefetch" href="/assets/js/245.1b4263e9.js"><link rel="prefetch" href="/assets/js/246.9ed8e7f0.js"><link rel="prefetch" href="/assets/js/247.ae6c15ea.js"><link rel="prefetch" href="/assets/js/248.89b90535.js"><link rel="prefetch" href="/assets/js/249.954d65a1.js"><link rel="prefetch" href="/assets/js/25.aa790609.js"><link rel="prefetch" href="/assets/js/250.2c70f3aa.js"><link rel="prefetch" href="/assets/js/251.09327517.js"><link rel="prefetch" href="/assets/js/252.373a9cc3.js"><link rel="prefetch" href="/assets/js/253.d4dd19f2.js"><link rel="prefetch" href="/assets/js/254.77be9951.js"><link rel="prefetch" href="/assets/js/255.4d2ee31e.js"><link rel="prefetch" href="/assets/js/256.6b93868d.js"><link rel="prefetch" href="/assets/js/257.7584cdcb.js"><link rel="prefetch" href="/assets/js/258.ae22574a.js"><link rel="prefetch" href="/assets/js/259.03238acf.js"><link rel="prefetch" href="/assets/js/26.aed06395.js"><link rel="prefetch" href="/assets/js/260.d84c45bc.js"><link rel="prefetch" href="/assets/js/261.5bb9e3c5.js"><link rel="prefetch" href="/assets/js/262.be04f540.js"><link rel="prefetch" href="/assets/js/263.bd4b5276.js"><link rel="prefetch" href="/assets/js/264.3903dcf0.js"><link rel="prefetch" href="/assets/js/265.ec0dcf7b.js"><link rel="prefetch" href="/assets/js/266.73c999f8.js"><link rel="prefetch" href="/assets/js/267.6c49d317.js"><link rel="prefetch" href="/assets/js/268.c84b138e.js"><link rel="prefetch" href="/assets/js/269.93b898d9.js"><link rel="prefetch" href="/assets/js/27.b2c1a566.js"><link rel="prefetch" href="/assets/js/270.075843b8.js"><link rel="prefetch" href="/assets/js/271.f3350a41.js"><link rel="prefetch" href="/assets/js/272.610a85e8.js"><link rel="prefetch" href="/assets/js/273.2e81836c.js"><link rel="prefetch" href="/assets/js/274.18394364.js"><link rel="prefetch" href="/assets/js/275.210c154e.js"><link rel="prefetch" href="/assets/js/276.58b637d0.js"><link rel="prefetch" href="/assets/js/277.0309c3c6.js"><link rel="prefetch" href="/assets/js/278.784f7891.js"><link rel="prefetch" href="/assets/js/279.c9f3f165.js"><link rel="prefetch" href="/assets/js/28.fa138415.js"><link rel="prefetch" href="/assets/js/280.e7f777cf.js"><link rel="prefetch" href="/assets/js/281.f6d6a146.js"><link rel="prefetch" href="/assets/js/282.fe6368be.js"><link rel="prefetch" href="/assets/js/283.669233d5.js"><link rel="prefetch" href="/assets/js/284.5163038b.js"><link rel="prefetch" href="/assets/js/285.b6e942e0.js"><link rel="prefetch" href="/assets/js/286.c137511e.js"><link rel="prefetch" href="/assets/js/287.1cc95425.js"><link rel="prefetch" href="/assets/js/288.91ba490b.js"><link rel="prefetch" href="/assets/js/289.e8fbc447.js"><link rel="prefetch" href="/assets/js/29.d4eebab5.js"><link rel="prefetch" href="/assets/js/290.982f620e.js"><link rel="prefetch" href="/assets/js/291.b8ae7190.js"><link rel="prefetch" href="/assets/js/292.24a97ef3.js"><link rel="prefetch" href="/assets/js/293.4eeeff74.js"><link rel="prefetch" href="/assets/js/294.c57bb864.js"><link rel="prefetch" href="/assets/js/295.730260df.js"><link rel="prefetch" href="/assets/js/296.675aef2c.js"><link rel="prefetch" href="/assets/js/297.94e5486f.js"><link rel="prefetch" href="/assets/js/298.9d949097.js"><link rel="prefetch" href="/assets/js/299.cfa54969.js"><link rel="prefetch" href="/assets/js/30.f481fb30.js"><link rel="prefetch" href="/assets/js/300.c6564a7f.js"><link rel="prefetch" href="/assets/js/301.c8fa816e.js"><link rel="prefetch" href="/assets/js/302.42fa9ac8.js"><link rel="prefetch" href="/assets/js/303.1579bf90.js"><link rel="prefetch" href="/assets/js/304.aaeaeb07.js"><link rel="prefetch" href="/assets/js/305.48804e5e.js"><link rel="prefetch" href="/assets/js/306.47629160.js"><link rel="prefetch" href="/assets/js/307.b50d088a.js"><link rel="prefetch" href="/assets/js/308.04f2b892.js"><link rel="prefetch" href="/assets/js/309.5c67959b.js"><link rel="prefetch" href="/assets/js/31.2e254435.js"><link rel="prefetch" href="/assets/js/310.d46d794a.js"><link rel="prefetch" href="/assets/js/311.be6c28de.js"><link rel="prefetch" href="/assets/js/312.523884dd.js"><link rel="prefetch" href="/assets/js/313.f39033b3.js"><link rel="prefetch" href="/assets/js/314.f7da0506.js"><link rel="prefetch" href="/assets/js/315.4866a415.js"><link rel="prefetch" href="/assets/js/316.c3e78663.js"><link rel="prefetch" href="/assets/js/317.8ead1688.js"><link rel="prefetch" href="/assets/js/318.96a90c5e.js"><link rel="prefetch" href="/assets/js/319.3607ef4c.js"><link rel="prefetch" href="/assets/js/32.7504131d.js"><link rel="prefetch" href="/assets/js/320.ddb577ad.js"><link rel="prefetch" href="/assets/js/321.4ed1bddd.js"><link rel="prefetch" href="/assets/js/322.5340e1de.js"><link rel="prefetch" href="/assets/js/323.4e7951da.js"><link rel="prefetch" href="/assets/js/324.f0132bfb.js"><link rel="prefetch" href="/assets/js/325.1a89a794.js"><link rel="prefetch" href="/assets/js/326.85d8f0f1.js"><link rel="prefetch" href="/assets/js/327.f78d56aa.js"><link rel="prefetch" href="/assets/js/328.6e01e5b0.js"><link rel="prefetch" href="/assets/js/329.b35ffa23.js"><link rel="prefetch" href="/assets/js/33.c01cd853.js"><link rel="prefetch" href="/assets/js/330.e03b70c8.js"><link rel="prefetch" href="/assets/js/331.d0d7ed4c.js"><link rel="prefetch" href="/assets/js/332.2db95ddc.js"><link rel="prefetch" href="/assets/js/333.2629ec18.js"><link rel="prefetch" href="/assets/js/334.d8932933.js"><link rel="prefetch" href="/assets/js/335.3fd62f0e.js"><link rel="prefetch" href="/assets/js/336.68c67f20.js"><link rel="prefetch" href="/assets/js/337.6dd17483.js"><link rel="prefetch" href="/assets/js/338.7312545a.js"><link rel="prefetch" href="/assets/js/339.c5865478.js"><link rel="prefetch" href="/assets/js/34.910e63df.js"><link rel="prefetch" href="/assets/js/340.ff526484.js"><link rel="prefetch" href="/assets/js/341.f4809488.js"><link rel="prefetch" href="/assets/js/342.54ec1e39.js"><link rel="prefetch" href="/assets/js/343.d81a0ab7.js"><link rel="prefetch" href="/assets/js/344.8485e60d.js"><link rel="prefetch" href="/assets/js/345.0126a838.js"><link rel="prefetch" href="/assets/js/346.57eeec0b.js"><link rel="prefetch" href="/assets/js/347.38e75356.js"><link rel="prefetch" href="/assets/js/348.6885feac.js"><link rel="prefetch" href="/assets/js/349.3c5ea64c.js"><link rel="prefetch" href="/assets/js/35.964ec336.js"><link rel="prefetch" href="/assets/js/350.8ece3c15.js"><link rel="prefetch" href="/assets/js/351.e312c490.js"><link rel="prefetch" href="/assets/js/352.4cbf891d.js"><link rel="prefetch" href="/assets/js/353.8db19505.js"><link rel="prefetch" href="/assets/js/354.0f77f46c.js"><link rel="prefetch" href="/assets/js/355.3ac72859.js"><link rel="prefetch" href="/assets/js/356.d08b37ec.js"><link rel="prefetch" href="/assets/js/357.941e75a5.js"><link rel="prefetch" href="/assets/js/358.ffb8d711.js"><link rel="prefetch" href="/assets/js/359.07cee8c7.js"><link rel="prefetch" href="/assets/js/36.c4b0dcaf.js"><link rel="prefetch" href="/assets/js/360.463eac25.js"><link rel="prefetch" href="/assets/js/361.9f977a96.js"><link rel="prefetch" href="/assets/js/362.10187e18.js"><link rel="prefetch" href="/assets/js/363.2eb88659.js"><link rel="prefetch" href="/assets/js/364.56a1ea19.js"><link rel="prefetch" href="/assets/js/365.023bc542.js"><link rel="prefetch" href="/assets/js/366.f71bb97b.js"><link rel="prefetch" href="/assets/js/367.d61ec46f.js"><link rel="prefetch" href="/assets/js/368.626096f1.js"><link rel="prefetch" href="/assets/js/369.22287c4d.js"><link rel="prefetch" href="/assets/js/37.14c68df8.js"><link rel="prefetch" href="/assets/js/370.3a4abd4e.js"><link rel="prefetch" href="/assets/js/371.e2c94860.js"><link rel="prefetch" href="/assets/js/372.50fbbb70.js"><link rel="prefetch" href="/assets/js/373.8ba2d8ce.js"><link rel="prefetch" href="/assets/js/374.b6ff151d.js"><link rel="prefetch" href="/assets/js/375.0c8e55d5.js"><link rel="prefetch" href="/assets/js/376.eb8e280a.js"><link rel="prefetch" href="/assets/js/377.a0465974.js"><link rel="prefetch" href="/assets/js/378.c5da9a31.js"><link rel="prefetch" href="/assets/js/379.e621fe29.js"><link rel="prefetch" href="/assets/js/38.e32dda0e.js"><link rel="prefetch" href="/assets/js/380.d82fd8d3.js"><link rel="prefetch" href="/assets/js/381.0de3ba27.js"><link rel="prefetch" href="/assets/js/382.20c72c09.js"><link rel="prefetch" href="/assets/js/383.cf67901e.js"><link rel="prefetch" href="/assets/js/384.23947671.js"><link rel="prefetch" href="/assets/js/385.a7167150.js"><link rel="prefetch" href="/assets/js/386.87ab0c6c.js"><link rel="prefetch" href="/assets/js/387.248bdfc9.js"><link rel="prefetch" href="/assets/js/388.7aff32d4.js"><link rel="prefetch" href="/assets/js/389.119733a2.js"><link rel="prefetch" href="/assets/js/39.1d03c5a2.js"><link rel="prefetch" href="/assets/js/390.fd739b07.js"><link rel="prefetch" href="/assets/js/391.6bb4d858.js"><link rel="prefetch" href="/assets/js/392.c20f6f37.js"><link rel="prefetch" href="/assets/js/393.9f28c6b7.js"><link rel="prefetch" href="/assets/js/394.984351ab.js"><link rel="prefetch" href="/assets/js/395.b6a24a4f.js"><link rel="prefetch" href="/assets/js/396.3b978da4.js"><link rel="prefetch" href="/assets/js/397.8c619ac4.js"><link rel="prefetch" href="/assets/js/398.b543845e.js"><link rel="prefetch" href="/assets/js/399.5d3415d5.js"><link rel="prefetch" href="/assets/js/4.cf2a843a.js"><link rel="prefetch" href="/assets/js/40.c8e744c8.js"><link rel="prefetch" href="/assets/js/400.d78930f4.js"><link rel="prefetch" href="/assets/js/401.a44763a1.js"><link rel="prefetch" href="/assets/js/402.935fe43f.js"><link rel="prefetch" href="/assets/js/403.083abb49.js"><link rel="prefetch" href="/assets/js/41.778451d4.js"><link rel="prefetch" href="/assets/js/42.d6035d31.js"><link rel="prefetch" href="/assets/js/43.4cfb7a96.js"><link rel="prefetch" href="/assets/js/44.6c9f5f4e.js"><link rel="prefetch" href="/assets/js/45.153683be.js"><link rel="prefetch" href="/assets/js/46.cc0748dd.js"><link rel="prefetch" href="/assets/js/47.18ce6a2a.js"><link rel="prefetch" href="/assets/js/48.2d5248d4.js"><link rel="prefetch" href="/assets/js/49.993267dd.js"><link rel="prefetch" href="/assets/js/5.526fba2e.js"><link rel="prefetch" href="/assets/js/50.89273771.js"><link rel="prefetch" href="/assets/js/51.0148aacc.js"><link rel="prefetch" href="/assets/js/52.eaaef16a.js"><link rel="prefetch" href="/assets/js/53.4e2ab54e.js"><link rel="prefetch" href="/assets/js/54.df64d567.js"><link rel="prefetch" href="/assets/js/55.ee15dcb6.js"><link rel="prefetch" href="/assets/js/56.09c0ece7.js"><link rel="prefetch" href="/assets/js/57.bf0b7dc1.js"><link rel="prefetch" href="/assets/js/58.13b4baac.js"><link rel="prefetch" href="/assets/js/59.98a31a2c.js"><link rel="prefetch" href="/assets/js/6.65856878.js"><link rel="prefetch" href="/assets/js/60.da532aa1.js"><link rel="prefetch" href="/assets/js/61.bc84799a.js"><link rel="prefetch" href="/assets/js/62.0a747cd8.js"><link rel="prefetch" href="/assets/js/63.cdd4863b.js"><link rel="prefetch" href="/assets/js/64.426c6b71.js"><link rel="prefetch" href="/assets/js/65.b0dd0aac.js"><link rel="prefetch" href="/assets/js/66.7038bff1.js"><link rel="prefetch" href="/assets/js/67.3e28518f.js"><link rel="prefetch" href="/assets/js/68.76f963c6.js"><link rel="prefetch" href="/assets/js/69.df18bbfb.js"><link rel="prefetch" href="/assets/js/7.69874113.js"><link rel="prefetch" href="/assets/js/70.e0990c41.js"><link rel="prefetch" href="/assets/js/71.3894e4a6.js"><link rel="prefetch" href="/assets/js/72.bb3bbba6.js"><link rel="prefetch" href="/assets/js/73.3d83a0e6.js"><link rel="prefetch" href="/assets/js/74.08bc823e.js"><link rel="prefetch" href="/assets/js/75.226d26f8.js"><link rel="prefetch" href="/assets/js/76.e774717c.js"><link rel="prefetch" href="/assets/js/77.91a185d0.js"><link rel="prefetch" href="/assets/js/78.320e2085.js"><link rel="prefetch" href="/assets/js/79.fe2857b2.js"><link rel="prefetch" href="/assets/js/8.4e203fa6.js"><link rel="prefetch" href="/assets/js/80.6b670444.js"><link rel="prefetch" href="/assets/js/81.49e83414.js"><link rel="prefetch" href="/assets/js/82.594dc63e.js"><link rel="prefetch" href="/assets/js/83.8f9855d0.js"><link rel="prefetch" href="/assets/js/84.4097ee3b.js"><link rel="prefetch" href="/assets/js/85.be1f5ab8.js"><link rel="prefetch" href="/assets/js/86.421dcd9f.js"><link rel="prefetch" href="/assets/js/87.37af167b.js"><link rel="prefetch" href="/assets/js/88.d7a074cd.js"><link rel="prefetch" href="/assets/js/89.c7074681.js"><link rel="prefetch" href="/assets/js/9.88a6729e.js"><link rel="prefetch" href="/assets/js/90.6ab98b7b.js"><link rel="prefetch" href="/assets/js/91.e315227d.js"><link rel="prefetch" href="/assets/js/92.48465482.js"><link rel="prefetch" href="/assets/js/93.6a2fdde2.js"><link rel="prefetch" href="/assets/js/94.e33e91c3.js"><link rel="prefetch" href="/assets/js/95.cf87ed8a.js"><link rel="prefetch" href="/assets/js/96.1eb17b6b.js"><link rel="prefetch" href="/assets/js/97.6a1225c4.js"><link rel="prefetch" href="/assets/js/98.2aeae234.js"><link rel="prefetch" href="/assets/js/99.8b306c15.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1a00f748.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>H先森</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>From FE Arch、To Full Stack</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/me.jpg" alt="H先森" class="logo"> <span class="site-name">H先森</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/me.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <!----> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>371</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>0</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ES</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/JS/es/aJSType.html" class="sidebar-link">1. esType</a></li><li><a href="/JS/es/aScope.html" class="sidebar-link">1. scope&amp;&amp;closure</a></li><li><a href="/JS/es/bContext.html" class="sidebar-link">2. esContext&amp;Stack</a></li><li><a href="/JS/es/bThis.html" class="sidebar-link">2. this</a></li><li><a href="/JS/es/cObject.html" class="sidebar-link">3. Object Imp</a></li><li><a href="/JS/es/cClassExtend.html" class="sidebar-link">3.simul Class and inherit</a></li><li><a href="/JS/es/cString.html" class="sidebar-link">4. Strings</a></li><li><a href="/JS/es/cArray.html" class="sidebar-link">4. Array</a></li><li><a href="/JS/es/dRegExp.html" class="sidebar-link">4. RegExp</a></li><li><a href="/JS/es/dDate.html" class="sidebar-link">4.Date</a></li><li><a href="/JS/es/dMath.html" class="sidebar-link">4.Math</a></li><li><a href="/JS/es/es6Struct.html" class="sidebar-link">5.ES6 Symbol,Set,Map</a></li><li><a href="/JS/es/eSet.html" class="sidebar-link">5. Set</a></li><li><a href="/JS/es/gModules.html" class="sidebar-link">6.modules</a></li><li><a href="/JS/es/gFunction.html" class="sidebar-link">6. Function</a></li><li><a href="/JS/es/icall&amp;apply&amp;bind.html" class="sidebar-link">9. icall&amp;apply&amp;bind</a></li><li><a href="/JS/es/iprototype.html" class="sidebar-link">9. prototypeAND_proto_</a></li><li><a href="/JS/es/instanceof&amp;typeof.html" class="sidebar-link">instanceof&amp;typeof</a></li><li><a href="/JS/es/iNewByme.html" class="sidebar-link">new operation</a></li><li><a href="/JS/es/xClone.html" class="sidebar-link">Clone</a></li><li><a href="/JS/es/xPromiseA+.html" class="sidebar-link">10. Promise/A+&amp;Ach</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>DOM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>BOM</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>package</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>V8</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>selfFunc</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc></h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">深刻理解JavaScript基于原型的面向对象 Full</h1> <div data-v-1ff7123e><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="深刻理解javascript基于原型的面向对象-full"><a href="#深刻理解javascript基于原型的面向对象-full" class="header-anchor">#</a> <a href="https://www.cnblogs.com/935415150wang/p/7355379.html" target="_blank" rel="noopener noreferrer">深刻理解JavaScript基于原型的面向对象<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> Full</h1> <h2 id="主题一、原型"><a href="#主题一、原型" class="header-anchor">#</a> 主题一、原型</h2> <p><strong>一、基于原型的语言的特点</strong></p> <p>1 只有对象,没有类;对象继承对象,而不是类继承类。</p> <p>2  “原型对象”是基于原型语言的核心概念。原型对象是新对象的模板，它将自身的属性共享给新对象。一个对象不但可以享有自己创建时和运行时定义的属性，而且可以享有原型对象的属性。</p> <p>3 除了语言原生的顶级对象，每一个对象都有自己的原型对象，所有对象构成一个树状的层级系统。root节点的顶层对象是一个语言原生的对象，其他所有对象都直接或间接继承它的属性。</p> <p>显然，基于原型的语言比基于类的语言简单得多，<strong>我们只需要知道&quot;用对象去创建对象&quot;，就可以在原型的世界里大行其道了！</strong></p> <p><strong>二、基于原型的语言中对象的创建</strong></p> <p>创建有两个步骤</p> <p><strong>1. 使用&quot;原型对象&quot;作为&quot;模板&quot;生成新对象</strong></p> <p>这个步骤是必要的，这是每个对象出生的唯一方式。以原型为模板创建对象，这也是&quot;原型&quot;(prototype)的原意。</p> <p><strong>2. 初始化内部属性</strong></p> <p>这一步骤不是必要的。通俗点说，就是，对&quot;复制品&quot;不满意，我们可以&quot;再加工&quot;，使之获得不同于&quot;模板&quot;的&quot;个性&quot;。</p> <p>这两个步骤很自然，也很好理解，比使用类构造对象从概念上简单得多了。对于习惯了java基于类的面向对象的语言的程序员, 这种&quot;新颖&quot;的生成对象的方式一定会让他们感到好奇。</p> <p><strong>三、原型，为复用代码而生</strong></p> <p>使用原型，能复用代码，节省内存空间</p> <p>举个例子，存在旧对象oldObject，它有一个属性name，值是’Andy’, 和一个名为getName()的方法，如果以该对象为原型创建一个新对象，</p> <div class="language- extra-class"><pre class="language-text"><code>newObject = create(oldObject);  
+</code></pre></div><p>那么新对象newObject同样具有属性name，值也是’Andy’，也有一个方法getName()。值得注意的是，<strong>newObject并不是在内存中克隆了oldObject，它只是引用了oldObject的属性,</strong> 导致实际的效果好像&quot;复制&quot;了newObject一样。</p> <p>newObject = create(oldObject);创建的对象newObject只有一个属性，这个属性的值是原型对象的地址(或者引用)，如下图所示。</p> <p><img src="/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/__proto__.png" alt="img"></p> <p>当对象访问属性的时候，如果在内部找不到，那么会在原型对象中查找到属性；如果原型对象中仍然找不到属性，原型对象会查找自身的原型对象，如此循环下去，直至找到属性或者到达顶级对象。对象查找属性的过程所经过的对象构成一条链条，称之为原型链。<strong>newObject,oldObject和topObject就构成一条原型链。</strong></p> <p>下面列出newObject的3种的查找属性情况</p> <p>newObject查找name，</p> <p>1 内部找不到，到原型对象中查找</p> <p>2 oldObject中查找到了name，成功返回；</p> <p>newObject查找toString</p> <p>1 内部找不到,到原型对象中查找</p> <p>2 oldObject中查找不到toString,到原型对象中查找</p> <p>3 topObject中查找到了toString，成功返回；</p> <p>newObject查找valueOf</p> <p>1 内部找不到,到原型对象中查找</p> <p>2 oldObject中查找不到valueOf,到原型对象中查找</p> <p>3 topObject中还是找不到，而且topObject是顶层对象，所以返回错误或者空值。</p> <p>**对象会通过原型链动态地查找属性，对象的所拥有的属性并不是静态的。**如果原型链上的一个对象发生的改变，那么这个改变也会马上会反应到在原型链中处于该对象下方的所有对象。</p> <p><strong>三、继承</strong></p> <p>如果以oldObject为原型创建了newObject，那么可以说newObject继承了oldObject。</p> <p>在java中 通过语句class Cat extends Animal定义Cat类继承Animal类，Cat类产生的实例对象便拥有了Animal类中定义的属性。类似地，在基于原型的语言中， 通过cat = create(animal)创建以animal对象为模板的cat对象，cat对象便拥有了animal对象中的属性，因此可以说cat对象继承了anmial对象。</p> <p><strong>四、小结</strong></p> <p>原型的本质就是对象引用原型对象的属性，实现代码复用。</p> <p>基于原型的语言是以原型对象为模板创建对象newObject = create(oldObject)。</p> <p>主题二、深刻理解JavaScript基于原型的面向对象</p> <p><strong>一、饱受争议的javascript</strong></p> <p>javascript本质上是基于原型的语言，但是却引入了基于类的语言的new关键字和constructor模式，导致javascript饱受争议。</p> <p>javascript的作者Brendan Eich 1994年研发这门语言的时候，C++语言是最流行的语言，java1.0即将发布，面向对象编程势不可挡，于是他认为，引入new关键字可以使习惯C++/java程序员更容易接受和使用javascript。</p> <p>实际上，事实证明引入new是个错误的决定。</p> <p>C++/java程序员看到new一个 function的时候，他们会认为js通过function创建对象，function相当于类，接着他们会尝试在js挖掘类似java/C++面向类的编程特性，结果他们发现function没有extends，反而有个很奇怪的prototype对象，于是他们开始咒骂，js的面向对象太糟糕了。确实，new的引入让他们以为js的面向对象与java/C++类似，实际上并不是，如果不是以原型本质去理解js的面向对象，注定要遭受挫折，new，prototype，__proto__才是javascript实现原型的具体手段。</p> <p>另一方面，理解原型的程序员，也表示不高兴，因为居然要使用new function的语法来间接实现原型继承，三行代码才做到最基本的原型继承,下面是实现对象newObject继承对象oldObject的代码，</p> <div class="language- extra-class"><pre class="language-text"><code>function F(){};  
+F.prototype = oldObject;  
+var newObject = new F();  
+</code></pre></div><p>这太繁琐了。基于原型语言理论上应该存在一个函数create(prototypeObject)，功能是基于原型对象产生新对象，例如，</p> <p>var newObject = create(oldObject);</p> <p>看到这样的代码，人们就会自然很清晰地联想到，newObject是以oldObject模板构造出来的。</p> <p><strong>js是世界上最容易被误解的语言，原因主要有两个:</strong></p> <ol><li><p>作为基于原型的语言中，却连最基本的一个通过原型产生对象的函数create(prototypeObject)也没有，让人不知道js根本上是以对象创建对象。应该添加该函数，现在Chrome和IE9的Object对象就有这个create函数。</p></li> <li><p>使用new func形式创建对象，让人误会js是以类似java类的构造函数创建对象，实际上，构造函数根本上在创建对象上起到次要的作用，甚至不需要，重要的只有函数的属性prototype引用的原型对象，新对象以此为模板生成，生成之后才调用函数做初始化的操作，而初始化操作不是必要的。当初应该废弃new 操作符，把new func分解为两步操作，</p></li></ol> <p>var newObject = create(func.prototype);</p> <p>func.call(newObject);</p> <p>这样程序员才好理解。如果想把这两个步骤合二为一，应该使用new以外的关键字。</p> <p>到这里，我们务必要牢牢印入脑海的是，<strong>js的面向对象是基于原型的面向对象，对象创建的方式根本上只有一种，就是以原型对象为模板创建对象</strong>，newObject = create(oldObject)。new function不是通过函数创建对象，只是刻意模仿java的表象。</p> <p>js在面向对象上遭遇的争议，完全是因为商业因素导致作者失去了自己的立场。就像现在什么产品都加个云一样，如果那时候不加个new关键字来标榜自己面向对象，产生&quot;js其实类似c++/java&quot;的烟幕，可能根本没有人去关注javascript。更令人啼笑皆非的是，原本称作LiveScript的javascript，因为 后期和SUN合作，并且为了沾上当时被SUN炒得火热的Java的光，发布的时候居然改名成Javascript。</p> <p><strong>二、从原型本质，站在语言设计者角度，理解constructor模式</strong></p> <p>假想我们是当时设计javascript继承机制的Brendan Eich，我们会怎么设计js的面向对象呢？</p> <p>现在javascript开发到这样的阶段</p> <ol><li><p>拥有基本类型，分支和循环，基本的数学运算,</p></li> <li><p>所有数据都是对象</p></li> <li><p>拥有类似C语言的function</p></li> <li><p>可以用var obj = {}语句生成一个空对象，然后使用obj.xxx或obj[xxx]设置对象属性</p></li> <li><p>没有继承，没有this关键字，没有new</p></li></ol> <p>我们任务是，实现javascript的面向对象，最好能达到类似java的创建对象和继承效果。更具体一点，我们要扩充js语言，实现类似下面的java代码。</p> <div class="language- extra-class"><pre class="language-text"><code>class Empolyee{  
+    String name;  
+    public Employee(String name){  
+        this.name = name;  
+    }  
+    public getName(){  
+        return this.name;  
+    }  
+}  
+class Coder extends Employee {  
+    String language;  
+    public Coder(name,language){  
+        super(name);  
+        this.language = language;  
+    }  
+    public getLanguage(){  
+        return this.language;  
+    }  
+}  
+</code></pre></div><p><strong>1 实现创建对象</strong></p> <p>现有的对象都是基本类型，怎么创建用户自定义的对象呢？</p> <p>(解释：</p> <p>var i = 1;</p> <p>这里的i是解释器帮忙封装的Number对象，虽然看起来跟C的int没区别，但实际上可以i.toString()。</p> <p>)</p> <p>java使用构造函数来产生对象，我们尝试把java的Empolyee的构造函数代码拷贝下来，看看可不可以模仿</p> <div class="language- extra-class"><pre class="language-text"><code>function Empolyee(name){  
+    this.name = name;  
+}  
+</code></pre></div><p>我们只要生成一个空对象obj，再把函数里面的this换成obj，执行函数，就可以生成自定义对象啦！我们把Employee这样用来创建对象的函数称作构造函数。</p> <ol><li><p>首先我们用原生的方式为function添加方法call和apply，实现把把函数里面的this替换成obj。call,apply在Lisp语言中已经有实现，很好参考和实现。</p></li> <li><p>然后实现生成实例</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Empolyee(name){  
+    this.name = name;  
+}  
+var employee = {};  
+Employee.call(employee,'Jack');  
+</code></pre></div><ol start="3"><li>到这里，以类似java方式产生对象基本完成了，但是这个employee对象没有方法</li></ol> <p>我们的function是第一类对象，可以运行时创建，可以当做变量赋值，所以没有问题</p> <div class="language- extra-class"><pre class="language-text"><code>function Empolyee(name){  
+    this.name = name;  
+    this.getName = function(){return this.name};  
+}  
+</code></pre></div><p><strong>2 实现继承</strong></p> <p>创建对象成功了，接着考虑实现继承。现在我们所有数据都是对象，没有类，有两种方案摆在我们的面前</p> <p>a.类继承</p> <p>b.原型继承</p> <p><strong>2.a实现类继承</strong></p> <p>a方案是首选方案，因为跟java相似的话，JS更容易被接受</p> <p>先粘贴Java构造函数的代码</p> <div class="language- extra-class"><pre class="language-text"><code>function Coder extends Employee(name,language){  
+    super(name);  
+    this.language = language;  
+}  
+</code></pre></div><ol><li><p>把extends后面的函数自动记录下来,放到function对象的parentFunc变量</p></li> <li><p>如果第一行是super()，替换成var parent = newInstance(Coder.parentFunc,XXX),这样内部保留一个名为parent父对象;</p></li> <li><p>把this替换为obj,super替换换成parent</p></li> <li><p>&quot;.&quot;和&quot;[]&quot;重新定义，需要支持在对象内部parent对象查找属性。</p></li></ol> <p>这四步都属于比较大的改动，只要认真想一想都觉得不是太容易。</p> <p>更重要的是，即使把这4步实现了，不但语言变得太复杂了，而且产生的对象根本享受不了继承带来的好处——内存中的代码复用，因为这样产生的每个对象都有&quot;父类(函数)&quot;的代码而不是仅有一份。这时候该注意到java中使用类的意义了，java类的代码在内存只有一份，然后每个对象执行方法都是引用类的代码，所有子类对象调用父类方法的时候，执行的代码都是同一份父类的方法代码。但是JS没有类，属性和方法都是存在对象之中，根本没有办法做到java那样通过类把代码共享给所有对象！</p> <p>a方案宣告失败</p> <p><strong>2.b 实现原型继承</strong></p> <p>看b方案。我们现在的js语言，一切都是对象，显然非常适合使用基于原型的继承方式，就看具体如何实现了。</p> <p>我们新建一个topObject来代表顶层对象,那么创建employee对象的时候，应该在employee对象内部设置一个属性引用topObject;同理,创建coder对象的时候,应该在coder对象内部设置一个属性引用employee对象,我们把这个引用原型对象的属性命名约定为&quot;<strong>proto</strong>&quot;。更进一步，为了构建一个对象的过程更自然，构建时候应该先在新对象中设置引用原型对象的属性，以表示先用模板制作出一个和模板一致的对象，然后再才执行构造函数初始化这个新对象自身的属性，以添加个性化的东西。具体实现代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var topObject = {  
+    __version__ : 1.0;  
+};  
+  
+function Empolyee(name){  
+    this.name = name;  
+    this.getName = function(){return this.name};  
+}  
+var employee = {};  
+employee.__proto__ = topObject;  
+Employee.call(employee,'Jack');  
+  
+function Coder(name,language){  
+    this.name = name;  
+    this.language = this.language;  
+    this.getLanguage = function(){return this.language};  
+}  
+  
+var coder = {};  
+coder.__proto__ = employee;  
+Coder.call(coder,'Coder Jack','Java');  
+</code></pre></div><p>当然我们还要做的工作就是在javascript解释器中增加对__proto__的支持，当一个对象访问一个自身没有的属性的时候，就通过__proto__属性查找原型链上是否存在该属性。</p> <p><strong>优化1. 函数封装</strong></p> <p>这一切看起来并不是那么美好，我们创建一个employee对象需要3行代码，我们需要这么一个函数封装这3行代码</p> <p>function newInstance(prototype,constructor,arg1,arg2,....);</p> <p>//第一个参数是原型对象，第二个是构造函数，后面的是构造函数的参数</p> <p>可以这么实现</p> <div class="language- extra-class"><pre class="language-text"><code>function sliceArguments(argumentsObj,n){  
+    var args = [];  
+    for(var i=0;i&lt;argumentsObj.length;i++){  
+        if(i&gt;=n){  
+            args.push(argumentsObj[i]);  
+        }  
+    }  
+}  
+function newInstance(prototype,constructor){  
+    var obj = {};  
+    obj.__proto__ = prototype;  
+    constructor.apply(obj,sliceArguments(arguments,2));  
+}  
+var employee = newInstance(topObject,Employee,'Jack');  
+var coder = newInstance(employee,Coder,'Coder Jack','Java');  
+</code></pre></div><p><strong>优化2. 缩减参数</strong></p> <p>仔细一看，function newInstance的参数可以更少,我们可以把原型对象prototype作为属性放在constructor，那样我们的函数就可以只有一个参数了。属性名就约定为prototype吧。</p> <p>2.1 我们修改解释器，把topObject写入语言作为原生的顶级对象；再修改function的源代码，让每一个新建的function都默认具有属性prototype = topObject</p> <p>2.2 优化后的代码如下</p> <div class="language- extra-class"><pre class="language-text"><code>function newInstance(constructor){  
+    var obj = {};  
+    obj.__proto__ = constructor.prototype;  
+    constructor.apply(obj,sliceArguments(arguments,1));  
+    return obj;  
+}  
+function Employee(name){  
+    this.name = name;  
+    this.getName = function(){return this.name};  
+}  
+var employee = newInstance(Empolyee,'Jack');  
+var employee2 = newInstance(Empolyee,'Jack2');  
+var employee3 = newInstance(Empolyee,'Jack3');  
+function Coder(name,language){  
+    this.name = name;  
+    this.language = language;  
+    this.getLanguage = function(){return this.language};  
+}  
+Coder.prototype = newInstance(Empolyee,'');  
+  
+var coder = newInstance(Coder,'Coder Jack','Java');  
+var coder2 = newInstance(Coder,'Coder Lee','C#');  
+var coder3 = newInstance(Coder,'Coder Liu','C++');  
+var coder4 = newInstance(Coder,'Coder Liu','JavaScript');  
+</code></pre></div><p>到达这一步，可以发现,我们的最终实现和Breandan Eich非常类似，在期待尽量模仿java创建对象的前提下，Brendan Eich 当时的设计是合乎情理的，是良好的。他相对于我们方案的唯一不同就是他使用了new关键字，而我们使用了newInstance函数。</p> <p>尽管new关键字容易让人误解，但是背后优美的原型思想，决定了时至今日，javascript依然是浏览器编程语言的龙头大哥，甚至发展到node.js服务端编程。</p> <p><strong>三、从javascript的原型本质，理解javascript的构造器模式</strong></p> <p>在&quot;从原型本质，站在语言设计者角度，理解constructor模式&quot;一节中我们站在设计者角度粗略重现了js的设计过程。现在我们换个角色，不是语言设计者，而是熟悉原型概念并且知道js是基于原型的语言的程序员，去理解js的使用(new关键字+函数)的创建对象方式。</p> <p><strong>1. 理解new func()</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function Employee(name){  
+    this.name = name;  
+    this.getName = function(){return this.name};  
+}  
+var employee = new Employee('Jack');  
+</code></pre></div><p>分析上面代码。</p> <p>javascript引入new关键字是为了模仿java创建对象的方式，通过语句var employee = new Employee('Jack') 就生成了一个employee对象。</p> <p>我们知道，基于原型的语言生成一个步骤有两步，第一步是使用&quot;原型对象&quot;作为&quot;模板&quot;生成新对象，第二步是初始化新对象的内部属性。</p> <p>我们敢肯定地推断，javascript中的new Employee('Jack');必然做了这两件事情，那么</p> <p>1 &quot;原型对象&quot;在哪里?</p> <p>2 怎么做到&quot;初始化新对象的内部属性&quot;?</p> <p>答案是，Employee.prototype就是我们要找的&quot;原型对象&quot;，通过&quot;以新对象代替this,执行Employee函数&quot;做到了&quot;初始化新对象的内部属性&quot;。</p> <p>使用new+function的方式创建对象，其实就是应用我们设计的函数newInstance时的思想</p> <div class="language- extra-class"><pre class="language-text"><code>function newInstance(constructor){  
+        var obj = {};  
+        obj.__proto__ = constructor.prototype;  
+        constructor.call(obj,sliceArguments(arguments,1));  
+        return obj;  
+}  
+</code></pre></div><p>javascript把生成一个对象所需的两个元素——&quot;原型对象&quot;和&quot;初始化&quot;都集中在构造函数，以简化创建对象的过程，其实是个良好的设计。唯一的缺点是new关键字容易让人误会。</p> <p><strong>2. 简单罗列javascript构造器模式的特点</strong></p> <p><strong>1) javascript的顶层对象是Object.prototype</strong></p> <p><strong>2) 所有对象有一个__proto__属性。</strong>__proto__指向自己的&quot;原型对象&quot;，搜索属性的原型链以__proto__为基础。</p> <p>**3) 每个函数都会默认关联一个原型对象。**javascript每创建一个函数的时候，都同时创建一个原型对象，赋值到函数的prototype属性，用作使用new  生成实例对象的默认原型对象。该默认原型对象的内容是</p> <div class="language- extra-class"><pre class="language-text"><code>{  
+    __proto__:Object.prototype,  
+    constructor: 指向函数本身  
+}  
+</code></pre></div><p>__proto__指向Object.prototype的目的是为了使生成的实例对象继承顶层对象Object.prototype;</p> <p>而constructor指向函数本身的目的是为了使生成的实例对象newObject可以直接通过newObject.constructor访问到构造函数，同时构造函数和原型对象可以互相访问也是个良好的设计。但是，实际上，constructor并没有什么用，所以大家可以不理会这个属性，这仅仅是一个优化的设计。</p> <p>构造函数，原型对象，实例对象的<strong>三角关系图</strong>如下</p> <p><img src="/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/protoType__proto__.png" alt="img"></p> <ol start="4"><li>**可以修改或替换构造函数都会默认关联的原型对象。**需要注意的的是，不少资料说，如果是使用自定义的对象替换了构造函数f默认关联的原型对象，最好添加一行代码</li></ol> <div class="language- extra-class"><pre class="language-text"><code>f.prototype.constructor=f  
+</code></pre></div><p>以确保维护正确的三角关系。</p> <p>例如</p> <div class="language- extra-class"><pre class="language-text"><code>function Employee(){};  
+function Coder(){};  
+Coder.prototype = new Employee();  
+Coder.prototype.constructor = Coder;  
+var coder = new Coder();  
+</code></pre></div><p>但是经过我的测试，即使不写上一行Coder.prototype.constructor = Coder;，以下测试都表现正确</p> <div class="language- extra-class"><pre class="language-text"><code>coder instanceOf Coder//true  
+Coder.prototype.isPrototypeOf(coder)//true  
+</code></pre></div><p>​          也就是说<strong>原型对象的construtctor属性根本不影响继承，它只是普通的一个附加属性，没有任何特殊作用，我们可以完全无视这个属性。</strong></p> <p>不写上一行Coder.prototype.constructor = Coder;，唯一会引起的错误只有，coder.constructor的结果是Employee,而不是Coder。实</p> <p>际上我们并不会关心coder.constructor，我们关心的只是是继承，所以即使不写上一行Coder.prototype.constructor = Coder;也没有关系。</p> <ol start="5"><li>以下代码几乎涵盖了上面所讨论的特点，建议读者在chrome中运行该代码以加深对构造器模式的理解</li></ol> <p>5.a.代码</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;  
+    function Employee(name){  
+        this.name = name;  
+        //this.getName = function(){return this.name};方法代码应该放到原型对象之中，而不是初始化函数中，这样每个employee对象都共享同一个方法代码  
+    }  
+    Employee.prototype.getName = function(){return this.name};  
+    var employee = new Employee('Jack');  
+    console.log(&quot;employee.getName(): &quot; + employee.getName());//Jack  
+    var employee2 = new Employee('Jack2');  
+    console.log(&quot;employee2.getName(): &quot; + employee2.getName());//Jack2    
+    function Coder(name,language){  
+        this.name = name;  
+        this.language = language;  
+        //this.getLanguage = function(){return this.language}; 方法代码应该放到原型对象之中，而不是初始化函数中，这样才能实现代码共享  
+    }  
+    Coder.prototype = new Employee('');  
+    Coder.prototype.constructor = Coder;//这一句话其实也可以不写，不影响继承  
+    Coder.prototype.getLanguage = function(){return this.language};  
+  
+    var coder = new Coder('Coder Jack','Java');  
+    console.log(&quot;coder.getName(): &quot; + coder.getName());//Coder Jack  
+    console.log(&quot;coder.getLanguage(): &quot;+coder.getLanguage());//Java  
+    var coder2 = new Coder('Coder Lee','C#');  
+    console.log(&quot;coder2.getName(): &quot; + coder2.getName());//Coder Lee  
+    console.log(&quot;coder2.getLanguage(): &quot; + coder2.getLanguage());//C#  
+    var coder3 = new Coder('Coder Liu','C++');  
+    console.log(&quot;coder3.getLanguage(): &quot; + coder3.getName());//Coder Liu  
+    console.log(&quot;coder3.getLanguage()&quot; + coder3.getLanguage());//C++  
+      
+    console.log(&quot;employee.constructor: &quot; + employee.constructor);  
+    console.log(&quot;employee.constructor.prototype === Employee.prototype: &quot; + (employee.constructor.prototype === Employee.prototype));  
+    console.log(&quot;employee.constructor.prototype.constructor === Employee: &quot; + (employee.constructor.prototype.constructor === Employee));  
+    console.log(&quot;employee instanceof Object: &quot;  + (employee instanceof Object));  
+    console.log(&quot;employee instanceof Function: &quot;  + (employee instanceof Function));  
+    console.log(&quot;employee instanceof Employee: &quot;  + (employee instanceof Employee ));  
+    console.log(&quot;Employee.prototype.isPrototypeOf(employee): &quot;  + (Employee.prototype.isPrototypeOf(employee)));  
+    console.log(&quot;Function.prototype.isPrototypeOf(employee): &quot;  + (Function.prototype.isPrototypeOf(employee)));  
+    console.log(&quot;Object.prototype.isPrototypeOf(employee): &quot;  + (Object.prototype.isPrototypeOf(employee)));  
+    console.log(&quot;coder.constructor: &quot; + coder.constructor);  
+    console.log(&quot;coder instanceof Object: &quot;  + (coder instanceof Object));  
+    console.log(&quot;coder instanceof Function: &quot;  + (coder instanceof Function));  
+    console.log(&quot;coder instanceof Employee: &quot;  + (coder instanceof Employee ));  
+    console.log(&quot;coder instanceof Coder: &quot;  + (coder instanceof Coder ));  
+    console.log(&quot;Employee.prototype.isPrototypeOf(coder): &quot;  + (Employee.prototype.isPrototypeOf(coder)));  
+    console.log(&quot;Coder.prototype.isPrototypeOf(coder): &quot;  + (Coder.prototype.isPrototypeOf(coder)));  
+    console.log(&quot;Function.prototype.isPrototypeOf(coder): &quot;  + (Function.prototype.isPrototypeOf(coder)));  
+    console.log(&quot;Object.prototype.isPrototypeOf(coder): &quot;  + (Object.prototype.isPrototypeOf(coder)));  
+  &lt;/script&gt;  
+</code></pre></div><p><strong>5.b.对象继承体系结构图</strong></p> <p>下图是上面5.a代码的对象整体结构图(图片较大,可以下载到本地缩小来看)</p> <p><strong>从整体上看，这像极了java的类继承体系结构，实际上这就是js的对象继承体系结构。</strong></p> <p>里面的对象有三种角色，紫色的是构造函数，黄色的是原型对象，绿色的是实例对象，当然不能严格区分这些角色，例如匿名的Employee实例对象充当了Coder的原型对象。</p> <p>紫色的构造函数和原型对象之间有一个双向箭头，这个双向箭头的意思，构造函数有一个prototype属性指向原型对象，而原型队形也有一个constructor属性指向构造函数，它们之间有着互相引用的关系。</p> <p>单线箭头，表示的是对象继承关系。</p> <p><img src="/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/extend.png" alt="img"></p> <p>从这个图，我们可以直观地看到</p> <ol><li><p>所有对象都有自己的原型对象。所有构造函数的原型对象都是Function.prototype,Object.prototype是最顶层的对象。我们可以在Function.prototype上增加方法，那么在原型链下方的函数，就可获得这些方法，同理我们可以在Object.prototype上增加方法,那么js所有对象都拥有了这个方法。</p></li> <li><p>通过原型继承，所有对象构成了一个完整的系统</p></li> <li><p>我相信你能够发现更多有趣的的东西.如果你觉得这篇文章不值得一看，那么请至少看看这张图片，结合这张图片重新思考下js原型的理念，应该能给你一些有益的回报。</p></li></ol> <p><strong>6. 构造器模式的best practice</strong></p> <ol><li><p>方法最好放在原型对象中，让每个实例对象都共享同一个方法。如果方法放在构造函数中，那么每个对象都有自己独立的一份方法代码，浪费内存。</p></li> <li><p>字段变量(fields,variables)最好放在构造函数中，让每个实例对象都具有一份自己的字段。除非要在所有子类中共享，实现类似静态变量的效果，才把字段放在原型中。</p></li> <li><p>继承层次不宜过深，原型链查找会耗费时间。</p></li></ol> <p>例如，</p> <p>上面第5)点中的代码片段中，</p> <p>1)Employee和Coder的方法都放在了原型中</p> <p>2)Coder产生的实例对象虽然继承自匿名employee对象(new Employee(''))，拥有name属性，但是为了每个Coder产生的实例对象都拥有属于自己的一份name属性，我们选择在构造函数中重复定义name属性，覆盖匿名employee对象的name属性。</p> <p><strong>四、模拟基于类的面向对象</strong></p> <p><strong>1. 该不该模拟类</strong></p> <p>javascript是基于原型的语言，具有强大的表达能力，足可以模拟基于类的面向对象。相信大家也看过不少模拟类的js代码，这里不打算罗列。</p> <p>但是，js毕竟是原型继承的语言，应该要按照原型继承的思维去表达面向对象，而不是用类的思维，这样才能表现出js的真正的威力。</p> <p>如果要模拟的话，模拟一些最基本的操作就可以，不要尝试深入模拟基于类的语言的复杂特性，否则会犯下跟Brendan Eich同样的错误。模拟的出发点是方便程序员能够更容易地使用js面向对象，但是理解了构造器模式和原型链的前提下，没有模拟的必要，只需要封装一些常用的操作就OK了。</p> <p>js的对象没有类型，根本不需要像java的对象那样需要关心自己的类继承体系以检查类型转换是否正确，所以模仿类继承没有意义。在js中只需要关心对象的内容，关心对象能否继承其他对象的属性就足够了。</p> <p>我就曾经是一个被误导的程序员。看别人写的面向对象教程，以为js需要我们开发一些函数，才能使用面向对象。我用过prototype.js 的Class.create，那时候我的感觉很不爽，我抱怨js为什么连最基本的class都没有。</p> <p>如果让我写一篇文章，介绍js的面向对象，我会先教会读者领会这个函数，</p> <div class="language- extra-class"><pre class="language-text"><code>if (typeof Object.create !== 'function') {  
+    Object.create = function (o) {  
+        function F() {}  
+        F.prototype = o;  
+        return new F();  
+    };  
+}  
+var newObject = Object.create(oldObject);  
+</code></pre></div><p>我要让读者知道，js是基于原型的语言，它用只能以对象为模板创建对象，它用对象继承对象。它没有类，也不需要类，一切都是对象。在这之后再介绍如何模拟class就无所谓了，因为理解了javascript的原型本质之后，就会知道模拟类的实质是还是调用原型的特性，也就不会过分期待js能够像java一样操作类和对象，而且能够发现原型的面向对象能够带来传统面向对象语言无法比拟强大特性。</p> <p><strong>2. 欣赏Crockford对类的模拟</strong></p> <p>拜读了Crockford的一些文章和他写的JavaScript:The Good Parts，觉得他写的一些对js的简单封装很有意思，也很实用。</p> <p>下面是我对他封装js面向对象的理解和总结,希望对读者有用。</p> <p>创建对象的方法根本上只有一种方式：以原型对象为模板创建对象，但是在形式上可以多种多样。</p> <p>在JS中，从形式上，除去字面量方式创建对象之外，有三种常单创建对象的形式(or you can call it a &quot;pattern&quot;,anyway)</p> <p><strong>1) 使用构造函数创建对象(constructor pattern)</strong></p> <p>Crockford通过函数Function.prototype.method和Function.prototype.inherits方法&quot;美化&quot;了传统构造模式创建对象的代码。</p> <p>值得注意的是，method方法和inherits方法的封装把prototype从代码中除去，掩盖了原型本质，需要程序理解构造器模式的前提下才可使用。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE HTML&gt;  
+&lt;HTML&gt;  
+&lt;HEAD&gt;  
+&lt;TITLE&gt;使用构造器模式(new + prototype)实现继承&lt;/TITLE&gt;  
+&lt;/HEAD&gt;  
+  
+&lt;BODY&gt;  
+&lt;script&gt;  
+    /** 
+     * 以原型对象为模板创建出新对象 
+     * 这个函数已经被Chrome和IE9采用，所以需要有个判断这个函数是否已经存在，Crockford的影响力可见一斑 
+     */  
+    if (!Object.create) {  
+        Object.create = function(oldObject) {  
+            function F() {  
+            }  
+            ;  
+            F.prototype = oldObject;  
+            return new F();  
+        }  
+    }  
+    /** 
+     * 在构造函数的原型对象上添加方法 
+     * 非常推荐这个函数，因为这个函数能够培养出在原型对象中定义方法的良好习惯 
+     */  
+    Function.prototype.method = function(name, func) {  
+        if (!this.prototype[name]) {  
+            this.prototype[name] = func;  
+            return this;  
+        }  
+    };  
+    /** 
+     * 使构造函数“继承”其他构造函数 
+     * 实际上是将构造函数的原型对象替换为另外构造函数产生的对象 
+     *  
+     */  
+    Function.method('inherits', function(F) {  
+        this.prototype = new F();  
+        return this;  
+    });  
+  
+    /***************************************** 
+     *使用链式代码清晰紧凑地定义构造函数 
+     *****************************************/  
+    var Employee = function(name) {  
+        this.name = name;  
+    }.method('getName', function() {  
+        return this.name;  
+    });  
+  
+    //由于method和inherits函数都返回this，所以可以非常舒服地将构造函数写成链式代码  
+    var employee = new Employee(&quot;jack&quot;);  
+    alert(employee.getName());  
+  
+    //由于method和inherits函数都返回this，所以可以非常舒服地将构造函数写成链式代码  
+    var Coder = function(name, language) {  
+        this.name = name;  
+        this.language = language;  
+    }.inherits(Employee).method('getLanguage', function() {  
+        return this.language;  
+    }).method('getIntroduction', function() {  
+        return this.name + &quot; is skilled in &quot; + this.language;  
+    });  
+  
+    var coder = new Coder('Jack', 'Java');  
+    alert(coder.getIntroduction());  
+    alert(coder.getName());  
+&lt;/script&gt;  
+&lt;/BODY&gt;  
+&lt;/HTML&gt;  
+</code></pre></div><p><strong>增强1.模拟私有变量。</strong></p> <p>上面构造函数所产生的对象只有public成员，没有private成员，可以通过闭包实现私有成员</p> <div class="language- extra-class"><pre class="language-text"><code>/***************************************** 
+ * 模拟私有变量 
+ *****************************************/  
+var Employee = function(name) {  
+    //私有变量  
+    var name = name;  
+    this.getName = function() {  
+        return name  
+    };  
+};  
+var employee = new Employee('Jack');  
+alert(employee.name);//undefined  
+alert(employee.getName());//Jack  
+</code></pre></div><p>私有成员带来的代价是，访问私有变量的方法不能放置在原型对象中被共享，导致每个生成的对象在内存都独立拥有一份访问私有变量方法的代码。</p> <p><strong>增前2. 模拟super.method.</strong></p> <p>构造函数coder能不能模仿出java中类似super.method的效果呢？答案是可以的，最简单的实现是在对象内部创建一个副对象的副本。缺点是增加了内存的消耗。</p> <div class="language- extra-class"><pre class="language-text"><code>/****************** 
+ *模拟super.method() 
+ ******************/  
+var Coder = function(name, language) {  
+    var _super = new Employee('');  
+    this.name = name;  
+    this.language = language;  
+    this.getName = function() {  
+        return &quot;my name is :&quot; + _super.getName.call(this, name);  
+    };  
+}.inherits(Employee).method('getLanguage', function() {  
+    return this.language;  
+}).method('getIntroduction', function() {  
+    return this.name + &quot; is skilled in &quot; + this.language;  
+});  
+  
+var coder = new Coder('Jack', 'Java');  
+alert(coder.getIntroduction());  
+alert(coder.getName());//my name is Jack  
+</code></pre></div><p><strong>2) 使用原型创建对象(prototypal pattern)</strong></p> <p>这种创建方式直白地显示了原型语言创建对象的特点</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE HTML&gt;  
+&lt;HTML&gt;  
+&lt;HEAD&gt;  
+&lt;TITLE&gt;使用Object.create实现继承&lt;/TITLE&gt;  
+&lt;/HEAD&gt;  
+  
+&lt;BODY&gt;  
+&lt;script&gt;  
+    /** 
+     * 以原型对象为模板创建出新对象 
+     */  
+    if (!Object.create) {  
+        Object.create = function(oldObject) {  
+            function F() {  
+            }  
+            ;  
+            F.prototype = oldObject;  
+            return new F();  
+        }  
+    }  
+  
+    /***************************************** 
+     * 使用原型对象创建对象，创建之后再对象初始化， 
+     * 这种创建方式直白地显示了原型语言创建对象的特点 
+     *****************************************/  
+  
+    var employee = {  
+        name : 'Jack',  
+        getName : function() {  
+            return this.name;  
+        }  
+    };  
+  
+    var coder = Object.create(employee);  
+    coder.name = 'Jackson';  
+    coder.language = 'Java';  
+    coder.getIntroduction = function() {  
+        return this.name + &quot; is skilled in &quot; + this.language;  
+    }  
+    alert(coder.getName());  
+    alert(coder.getIntroduction());  
+&lt;/script&gt;  
+&lt;/BODY&gt;  
+&lt;/HTML&gt;  
+</code></pre></div><p><strong>3) 使用函数创建对象并返回(functional pattern)</strong></p> <p>这种方式很简单，在函数内部先新建一个对象 var object = ｛｝,然后为这个对象设置属性，最后返回这个对象</p> <p>优点：<strong>a.最简单最容易理解，甚至不需要理解js的原型特性，应该作为最优先考虑的对象创建方式;</strong></p> <p>b.生成对象可以有私有属性</p> <p>c.具有类似java中super.method()的访问&quot;父对象&quot;方法的能力</p> <p>缺点：同一函数生成的多个对象不能在内存中共享代码。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE HTML&gt;  
+&lt;HTML&gt;  
+&lt;HEAD&gt;  
+&lt;TITLE&gt;使用function实现继承&lt;/TITLE&gt;  
+&lt;/HEAD&gt;  
+  
+&lt;BODY&gt;  
+&lt;script&gt;  
+    /** 
+     * 以原型对象为模板创建出新对象 
+     * 这个函数已经被Chrome和IE9采用，所以需要有个判断这个函数是否已经存在，Crockford的影响力可见一斑 
+     */  
+    if (!Object.create) {  
+        Object.create = function(oldObject) {  
+            function F() {  
+            }  
+            ;  
+            F.prototype = oldObject;  
+            return new F();  
+        }  
+    }  
+    /** 
+     * 在构造函数的原型对象上添加方法 
+     * 非常推荐这个函数，因为这个函数能够培养出在原型对象中定义方法的良好习惯 
+     */  
+    Function.prototype.method = function(name, func) {  
+        if (!this.prototype[name]) {  
+            this.prototype[name] = func;  
+            return this;  
+        }  
+    };  
+    /** 
+     * 使构造函数“继承”其他构造函数 
+     * 实际上是将构造函数的原型对象替换为另外构造函数产生的对象 
+     *  
+     */  
+    Function.method('inherits', function(F) {  
+        this.prototype = new F();  
+        return this;  
+    });  
+  
+    /***************************************** 
+     * 使用函数创建对象 
+     * 1 使用函数的闭包实现私有属性 
+     * 2 子对象可以调用父对象的方法 
+     *****************************************/  
+    function employee(name) {  
+        var object = {};  
+        //name属性是私有变量  
+        var name = name;  
+  
+        var getName = function() {  
+            return name;  
+        }  
+        //getName对外公开  
+        object.getName = getName;  
+        return object;  
+    }  
+  
+    function coder(name, language) {  
+        var object = employee(name);  
+        var superGetName = object.getName;  
+        var language = language;  
+        var getLanguage = function() {  
+            return language;  
+        };  
+        //调用父对象的方法  
+        var getName = function() {  
+            return &quot;my name is &quot; + superGetName();  
+        };  
+  
+        object.getName = getName;  
+        return object;  
+    }  
+    var e1 = employee('Jack');  
+    alert(e1.name);//undefined  
+    alert(e1.getName());//Jack  
+  
+    var c1 = coder('Jackson', 'Java');  
+    alert(c1.getName());//My name is Jackson  
+&lt;/script&gt;  
+&lt;/BODY&gt;  
+&lt;/HTML&gt;  
+</code></pre></div><p>推荐一些极好的关于JS面向对象的文章（每一篇都严重推荐，尤其是crockford和他的《JavaScript: The Good Parts》)</p> <p>crockford大师</p> <p>http://javascript.crockford.com/javascript.html</p> <p>http://javascript.crockford.com/prototypal.html</p> <p>http://javascript.crockford.com/inheritance.html</p> <p>http://www.crockford.com/javascript/private.html</p> <p>MDN</p> <p>https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Details_of_the_Object_Model</p> <p>微软杂志</p> <p>http://msdn.microsoft.com/zh-cn/magazine/cc163419.aspx#S4</p> <p>MSDN</p> <p>http://msdn.microsoft.com/en-us/library/dd282900(v=vs.85).aspx</p> <p>http://msdn.microsoft.com/en-us/library/dd229916(v=vs.85)</p> <p>阮一峰</p> <p>http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html</p> <p>http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html?20120830102326#comment-last</p> <p>http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</p> <p>http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html</p> <p>others</p> <p>http://bonsaiden.github.com/JavaScript-Garden/zh/</p> <p>怕丢了所以全复制个来</p> <p>原文在http://lazy2009.iteye.com/blog/1675059</p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/JS/prototype_function/jsObjectBaseOnPrototype.html#主题一、原型" class="sidebar-link reco-side-主题一、原型" data-v-70334359>主题一、原型</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.a713ee30.js" defer></script><script src="/assets/js/3.8d283ff8.js" defer></script><script src="/assets/js/1.6b3d9ed4.js" defer></script><script src="/assets/js/201.fe935279.js" defer></script>
+  </body>
+</html>

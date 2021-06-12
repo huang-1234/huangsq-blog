@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mysql语句大全 | H先森</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="From FE Arch、To Full Stack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.1a00f748.css" as="style"><link rel="preload" href="/assets/js/app.a713ee30.js" as="script"><link rel="preload" href="/assets/js/3.8d283ff8.js" as="script"><link rel="preload" href="/assets/js/1.6b3d9ed4.js" as="script"><link rel="preload" href="/assets/js/214.2acff6a3.js" as="script"><link rel="prefetch" href="/assets/js/10.380d1310.js"><link rel="prefetch" href="/assets/js/100.c720e65e.js"><link rel="prefetch" href="/assets/js/101.8eed8d0c.js"><link rel="prefetch" href="/assets/js/102.c18a029c.js"><link rel="prefetch" href="/assets/js/103.799b4d4e.js"><link rel="prefetch" href="/assets/js/104.57e20453.js"><link rel="prefetch" href="/assets/js/105.51f281ec.js"><link rel="prefetch" href="/assets/js/106.aa5cac8e.js"><link rel="prefetch" href="/assets/js/107.5b0b4253.js"><link rel="prefetch" href="/assets/js/108.f9c872a1.js"><link rel="prefetch" href="/assets/js/109.a2ffe8c4.js"><link rel="prefetch" href="/assets/js/11.9ec56053.js"><link rel="prefetch" href="/assets/js/110.9ebd6fe3.js"><link rel="prefetch" href="/assets/js/111.63d6dbc7.js"><link rel="prefetch" href="/assets/js/112.2e1a4411.js"><link rel="prefetch" href="/assets/js/113.3b83a006.js"><link rel="prefetch" href="/assets/js/114.0cd6f80c.js"><link rel="prefetch" href="/assets/js/115.33f9835f.js"><link rel="prefetch" href="/assets/js/116.347ed4bd.js"><link rel="prefetch" href="/assets/js/117.1c20407b.js"><link rel="prefetch" href="/assets/js/118.5ada9130.js"><link rel="prefetch" href="/assets/js/119.dba222d6.js"><link rel="prefetch" href="/assets/js/12.0948c94f.js"><link rel="prefetch" href="/assets/js/120.2f7d12e4.js"><link rel="prefetch" href="/assets/js/121.7ee0e4ac.js"><link rel="prefetch" href="/assets/js/122.94b5ab4b.js"><link rel="prefetch" href="/assets/js/123.70f1d330.js"><link rel="prefetch" href="/assets/js/124.1b536ad0.js"><link rel="prefetch" href="/assets/js/125.bd4bb5fb.js"><link rel="prefetch" href="/assets/js/126.1bb6a6fb.js"><link rel="prefetch" href="/assets/js/127.1125f313.js"><link rel="prefetch" href="/assets/js/128.287c18ae.js"><link rel="prefetch" href="/assets/js/129.0e5c5085.js"><link rel="prefetch" href="/assets/js/13.b7a004f1.js"><link rel="prefetch" href="/assets/js/130.2c71eb50.js"><link rel="prefetch" href="/assets/js/131.b8db6566.js"><link rel="prefetch" href="/assets/js/132.3c057f51.js"><link rel="prefetch" href="/assets/js/133.0fd28469.js"><link rel="prefetch" href="/assets/js/134.39b48f3b.js"><link rel="prefetch" href="/assets/js/135.686779c9.js"><link rel="prefetch" href="/assets/js/136.2624d452.js"><link rel="prefetch" href="/assets/js/137.9a12cf47.js"><link rel="prefetch" href="/assets/js/138.1dcc3d2a.js"><link rel="prefetch" href="/assets/js/139.1a9598d8.js"><link rel="prefetch" href="/assets/js/14.8d0f01cb.js"><link rel="prefetch" href="/assets/js/140.b76a65d2.js"><link rel="prefetch" href="/assets/js/141.189c5ed6.js"><link rel="prefetch" href="/assets/js/142.8bfeed0b.js"><link rel="prefetch" href="/assets/js/143.29c19765.js"><link rel="prefetch" href="/assets/js/144.9c045c6c.js"><link rel="prefetch" href="/assets/js/145.91a576df.js"><link rel="prefetch" href="/assets/js/146.fec4d3cd.js"><link rel="prefetch" href="/assets/js/147.31be5e12.js"><link rel="prefetch" href="/assets/js/148.58ddc72c.js"><link rel="prefetch" href="/assets/js/149.339408d5.js"><link rel="prefetch" href="/assets/js/15.d376075a.js"><link rel="prefetch" href="/assets/js/150.5e33ff52.js"><link rel="prefetch" href="/assets/js/151.e3108d7e.js"><link rel="prefetch" href="/assets/js/152.c82eca68.js"><link rel="prefetch" href="/assets/js/153.3c69b9bd.js"><link rel="prefetch" href="/assets/js/154.b4c071ea.js"><link rel="prefetch" href="/assets/js/155.5389cf85.js"><link rel="prefetch" href="/assets/js/156.01aca174.js"><link rel="prefetch" href="/assets/js/157.1d7d98cc.js"><link rel="prefetch" href="/assets/js/158.ed81ac8d.js"><link rel="prefetch" href="/assets/js/159.f13f5d64.js"><link rel="prefetch" href="/assets/js/16.0203c884.js"><link rel="prefetch" href="/assets/js/160.bb3656d2.js"><link rel="prefetch" href="/assets/js/161.0dfa3f28.js"><link rel="prefetch" href="/assets/js/162.f31b0496.js"><link rel="prefetch" href="/assets/js/163.30d34760.js"><link rel="prefetch" href="/assets/js/164.84086632.js"><link rel="prefetch" href="/assets/js/165.6e1851b1.js"><link rel="prefetch" href="/assets/js/166.bd666059.js"><link rel="prefetch" href="/assets/js/167.993ebd79.js"><link rel="prefetch" href="/assets/js/168.405800f2.js"><link rel="prefetch" href="/assets/js/169.2251b5ca.js"><link rel="prefetch" href="/assets/js/17.c744ae25.js"><link rel="prefetch" href="/assets/js/170.57231015.js"><link rel="prefetch" href="/assets/js/171.0f1d3dcc.js"><link rel="prefetch" href="/assets/js/172.93a49501.js"><link rel="prefetch" href="/assets/js/173.784a72de.js"><link rel="prefetch" href="/assets/js/174.c7d8f895.js"><link rel="prefetch" href="/assets/js/175.caa8d17c.js"><link rel="prefetch" href="/assets/js/176.baa0c3d1.js"><link rel="prefetch" href="/assets/js/177.d2d01a3d.js"><link rel="prefetch" href="/assets/js/178.a0ea8a78.js"><link rel="prefetch" href="/assets/js/179.03ac5260.js"><link rel="prefetch" href="/assets/js/18.0f8010c4.js"><link rel="prefetch" href="/assets/js/180.ec8769e1.js"><link rel="prefetch" href="/assets/js/181.dfdf015a.js"><link rel="prefetch" href="/assets/js/182.389026b2.js"><link rel="prefetch" href="/assets/js/183.bf8a3c49.js"><link rel="prefetch" href="/assets/js/184.c6740c8a.js"><link rel="prefetch" href="/assets/js/185.5fb78673.js"><link rel="prefetch" href="/assets/js/186.46d6ed91.js"><link rel="prefetch" href="/assets/js/187.178a5d59.js"><link rel="prefetch" href="/assets/js/188.d5af2007.js"><link rel="prefetch" href="/assets/js/189.76d3c7eb.js"><link rel="prefetch" href="/assets/js/19.e5aae0df.js"><link rel="prefetch" href="/assets/js/190.c8e77587.js"><link rel="prefetch" href="/assets/js/191.3ff9cf8f.js"><link rel="prefetch" href="/assets/js/192.f2a03f48.js"><link rel="prefetch" href="/assets/js/193.1ec1ea63.js"><link rel="prefetch" href="/assets/js/194.ea46092a.js"><link rel="prefetch" href="/assets/js/195.eaad552e.js"><link rel="prefetch" href="/assets/js/196.34d6cb06.js"><link rel="prefetch" href="/assets/js/197.f0499247.js"><link rel="prefetch" href="/assets/js/198.5a7a7c5a.js"><link rel="prefetch" href="/assets/js/199.bf3659e6.js"><link rel="prefetch" href="/assets/js/20.fd0559f1.js"><link rel="prefetch" href="/assets/js/200.9e6b4ffd.js"><link rel="prefetch" href="/assets/js/201.fe935279.js"><link rel="prefetch" href="/assets/js/202.62d3fa83.js"><link rel="prefetch" href="/assets/js/203.99196060.js"><link rel="prefetch" href="/assets/js/204.ee57e797.js"><link rel="prefetch" href="/assets/js/205.5929940f.js"><link rel="prefetch" href="/assets/js/206.3539756a.js"><link rel="prefetch" href="/assets/js/207.7aba6825.js"><link rel="prefetch" href="/assets/js/208.399e86fa.js"><link rel="prefetch" href="/assets/js/209.e966c6f9.js"><link rel="prefetch" href="/assets/js/21.67a54c54.js"><link rel="prefetch" href="/assets/js/210.df3f22fe.js"><link rel="prefetch" href="/assets/js/211.d1b8b0b5.js"><link rel="prefetch" href="/assets/js/212.f794ea96.js"><link rel="prefetch" href="/assets/js/213.b39ba89d.js"><link rel="prefetch" href="/assets/js/215.d0758034.js"><link rel="prefetch" href="/assets/js/216.2e401ba5.js"><link rel="prefetch" href="/assets/js/217.3191ccf3.js"><link rel="prefetch" href="/assets/js/218.7a16c9f5.js"><link rel="prefetch" href="/assets/js/219.1cc08ff9.js"><link rel="prefetch" href="/assets/js/22.f1ea2e63.js"><link rel="prefetch" href="/assets/js/220.3398d6aa.js"><link rel="prefetch" href="/assets/js/221.8161fcf5.js"><link rel="prefetch" href="/assets/js/222.edeb27f3.js"><link rel="prefetch" href="/assets/js/223.64eea5b2.js"><link rel="prefetch" href="/assets/js/224.b0976510.js"><link rel="prefetch" href="/assets/js/225.4686abae.js"><link rel="prefetch" href="/assets/js/226.fa98cd34.js"><link rel="prefetch" href="/assets/js/227.be2dec7e.js"><link rel="prefetch" href="/assets/js/228.16123a62.js"><link rel="prefetch" href="/assets/js/229.dea84cb1.js"><link rel="prefetch" href="/assets/js/23.e78ff6c9.js"><link rel="prefetch" href="/assets/js/230.5ca7533c.js"><link rel="prefetch" href="/assets/js/231.18f1c409.js"><link rel="prefetch" href="/assets/js/232.a486fac3.js"><link rel="prefetch" href="/assets/js/233.c01de756.js"><link rel="prefetch" href="/assets/js/234.a624e089.js"><link rel="prefetch" href="/assets/js/235.f71e6eea.js"><link rel="prefetch" href="/assets/js/236.213fd1b7.js"><link rel="prefetch" href="/assets/js/237.5c2dd120.js"><link rel="prefetch" href="/assets/js/238.99d804bd.js"><link rel="prefetch" href="/assets/js/239.21cd1c8a.js"><link rel="prefetch" href="/assets/js/24.9e90fc9e.js"><link rel="prefetch" href="/assets/js/240.91931597.js"><link rel="prefetch" href="/assets/js/241.0f659c4d.js"><link rel="prefetch" href="/assets/js/242.c20e048d.js"><link rel="prefetch" href="/assets/js/243.004878b9.js"><link rel="prefetch" href="/assets/js/244.092db24d.js"><link rel="prefetch" href="/assets/js/245.1b4263e9.js"><link rel="prefetch" href="/assets/js/246.9ed8e7f0.js"><link rel="prefetch" href="/assets/js/247.ae6c15ea.js"><link rel="prefetch" href="/assets/js/248.89b90535.js"><link rel="prefetch" href="/assets/js/249.954d65a1.js"><link rel="prefetch" href="/assets/js/25.aa790609.js"><link rel="prefetch" href="/assets/js/250.2c70f3aa.js"><link rel="prefetch" href="/assets/js/251.09327517.js"><link rel="prefetch" href="/assets/js/252.373a9cc3.js"><link rel="prefetch" href="/assets/js/253.d4dd19f2.js"><link rel="prefetch" href="/assets/js/254.77be9951.js"><link rel="prefetch" href="/assets/js/255.4d2ee31e.js"><link rel="prefetch" href="/assets/js/256.6b93868d.js"><link rel="prefetch" href="/assets/js/257.7584cdcb.js"><link rel="prefetch" href="/assets/js/258.ae22574a.js"><link rel="prefetch" href="/assets/js/259.03238acf.js"><link rel="prefetch" href="/assets/js/26.aed06395.js"><link rel="prefetch" href="/assets/js/260.d84c45bc.js"><link rel="prefetch" href="/assets/js/261.5bb9e3c5.js"><link rel="prefetch" href="/assets/js/262.be04f540.js"><link rel="prefetch" href="/assets/js/263.bd4b5276.js"><link rel="prefetch" href="/assets/js/264.3903dcf0.js"><link rel="prefetch" href="/assets/js/265.ec0dcf7b.js"><link rel="prefetch" href="/assets/js/266.73c999f8.js"><link rel="prefetch" href="/assets/js/267.6c49d317.js"><link rel="prefetch" href="/assets/js/268.c84b138e.js"><link rel="prefetch" href="/assets/js/269.93b898d9.js"><link rel="prefetch" href="/assets/js/27.b2c1a566.js"><link rel="prefetch" href="/assets/js/270.075843b8.js"><link rel="prefetch" href="/assets/js/271.f3350a41.js"><link rel="prefetch" href="/assets/js/272.610a85e8.js"><link rel="prefetch" href="/assets/js/273.2e81836c.js"><link rel="prefetch" href="/assets/js/274.18394364.js"><link rel="prefetch" href="/assets/js/275.210c154e.js"><link rel="prefetch" href="/assets/js/276.58b637d0.js"><link rel="prefetch" href="/assets/js/277.0309c3c6.js"><link rel="prefetch" href="/assets/js/278.784f7891.js"><link rel="prefetch" href="/assets/js/279.c9f3f165.js"><link rel="prefetch" href="/assets/js/28.fa138415.js"><link rel="prefetch" href="/assets/js/280.e7f777cf.js"><link rel="prefetch" href="/assets/js/281.f6d6a146.js"><link rel="prefetch" href="/assets/js/282.fe6368be.js"><link rel="prefetch" href="/assets/js/283.669233d5.js"><link rel="prefetch" href="/assets/js/284.5163038b.js"><link rel="prefetch" href="/assets/js/285.b6e942e0.js"><link rel="prefetch" href="/assets/js/286.c137511e.js"><link rel="prefetch" href="/assets/js/287.1cc95425.js"><link rel="prefetch" href="/assets/js/288.91ba490b.js"><link rel="prefetch" href="/assets/js/289.e8fbc447.js"><link rel="prefetch" href="/assets/js/29.d4eebab5.js"><link rel="prefetch" href="/assets/js/290.982f620e.js"><link rel="prefetch" href="/assets/js/291.b8ae7190.js"><link rel="prefetch" href="/assets/js/292.24a97ef3.js"><link rel="prefetch" href="/assets/js/293.4eeeff74.js"><link rel="prefetch" href="/assets/js/294.c57bb864.js"><link rel="prefetch" href="/assets/js/295.730260df.js"><link rel="prefetch" href="/assets/js/296.675aef2c.js"><link rel="prefetch" href="/assets/js/297.94e5486f.js"><link rel="prefetch" href="/assets/js/298.9d949097.js"><link rel="prefetch" href="/assets/js/299.cfa54969.js"><link rel="prefetch" href="/assets/js/30.f481fb30.js"><link rel="prefetch" href="/assets/js/300.c6564a7f.js"><link rel="prefetch" href="/assets/js/301.c8fa816e.js"><link rel="prefetch" href="/assets/js/302.42fa9ac8.js"><link rel="prefetch" href="/assets/js/303.1579bf90.js"><link rel="prefetch" href="/assets/js/304.aaeaeb07.js"><link rel="prefetch" href="/assets/js/305.48804e5e.js"><link rel="prefetch" href="/assets/js/306.47629160.js"><link rel="prefetch" href="/assets/js/307.b50d088a.js"><link rel="prefetch" href="/assets/js/308.04f2b892.js"><link rel="prefetch" href="/assets/js/309.5c67959b.js"><link rel="prefetch" href="/assets/js/31.2e254435.js"><link rel="prefetch" href="/assets/js/310.d46d794a.js"><link rel="prefetch" href="/assets/js/311.be6c28de.js"><link rel="prefetch" href="/assets/js/312.523884dd.js"><link rel="prefetch" href="/assets/js/313.f39033b3.js"><link rel="prefetch" href="/assets/js/314.f7da0506.js"><link rel="prefetch" href="/assets/js/315.4866a415.js"><link rel="prefetch" href="/assets/js/316.c3e78663.js"><link rel="prefetch" href="/assets/js/317.8ead1688.js"><link rel="prefetch" href="/assets/js/318.96a90c5e.js"><link rel="prefetch" href="/assets/js/319.3607ef4c.js"><link rel="prefetch" href="/assets/js/32.7504131d.js"><link rel="prefetch" href="/assets/js/320.ddb577ad.js"><link rel="prefetch" href="/assets/js/321.4ed1bddd.js"><link rel="prefetch" href="/assets/js/322.5340e1de.js"><link rel="prefetch" href="/assets/js/323.4e7951da.js"><link rel="prefetch" href="/assets/js/324.f0132bfb.js"><link rel="prefetch" href="/assets/js/325.1a89a794.js"><link rel="prefetch" href="/assets/js/326.85d8f0f1.js"><link rel="prefetch" href="/assets/js/327.f78d56aa.js"><link rel="prefetch" href="/assets/js/328.6e01e5b0.js"><link rel="prefetch" href="/assets/js/329.b35ffa23.js"><link rel="prefetch" href="/assets/js/33.c01cd853.js"><link rel="prefetch" href="/assets/js/330.e03b70c8.js"><link rel="prefetch" href="/assets/js/331.d0d7ed4c.js"><link rel="prefetch" href="/assets/js/332.2db95ddc.js"><link rel="prefetch" href="/assets/js/333.2629ec18.js"><link rel="prefetch" href="/assets/js/334.d8932933.js"><link rel="prefetch" href="/assets/js/335.3fd62f0e.js"><link rel="prefetch" href="/assets/js/336.68c67f20.js"><link rel="prefetch" href="/assets/js/337.6dd17483.js"><link rel="prefetch" href="/assets/js/338.7312545a.js"><link rel="prefetch" href="/assets/js/339.c5865478.js"><link rel="prefetch" href="/assets/js/34.910e63df.js"><link rel="prefetch" href="/assets/js/340.ff526484.js"><link rel="prefetch" href="/assets/js/341.f4809488.js"><link rel="prefetch" href="/assets/js/342.54ec1e39.js"><link rel="prefetch" href="/assets/js/343.d81a0ab7.js"><link rel="prefetch" href="/assets/js/344.8485e60d.js"><link rel="prefetch" href="/assets/js/345.0126a838.js"><link rel="prefetch" href="/assets/js/346.57eeec0b.js"><link rel="prefetch" href="/assets/js/347.38e75356.js"><link rel="prefetch" href="/assets/js/348.6885feac.js"><link rel="prefetch" href="/assets/js/349.3c5ea64c.js"><link rel="prefetch" href="/assets/js/35.964ec336.js"><link rel="prefetch" href="/assets/js/350.8ece3c15.js"><link rel="prefetch" href="/assets/js/351.e312c490.js"><link rel="prefetch" href="/assets/js/352.4cbf891d.js"><link rel="prefetch" href="/assets/js/353.8db19505.js"><link rel="prefetch" href="/assets/js/354.0f77f46c.js"><link rel="prefetch" href="/assets/js/355.3ac72859.js"><link rel="prefetch" href="/assets/js/356.d08b37ec.js"><link rel="prefetch" href="/assets/js/357.941e75a5.js"><link rel="prefetch" href="/assets/js/358.ffb8d711.js"><link rel="prefetch" href="/assets/js/359.07cee8c7.js"><link rel="prefetch" href="/assets/js/36.c4b0dcaf.js"><link rel="prefetch" href="/assets/js/360.463eac25.js"><link rel="prefetch" href="/assets/js/361.9f977a96.js"><link rel="prefetch" href="/assets/js/362.10187e18.js"><link rel="prefetch" href="/assets/js/363.2eb88659.js"><link rel="prefetch" href="/assets/js/364.56a1ea19.js"><link rel="prefetch" href="/assets/js/365.023bc542.js"><link rel="prefetch" href="/assets/js/366.f71bb97b.js"><link rel="prefetch" href="/assets/js/367.d61ec46f.js"><link rel="prefetch" href="/assets/js/368.626096f1.js"><link rel="prefetch" href="/assets/js/369.22287c4d.js"><link rel="prefetch" href="/assets/js/37.14c68df8.js"><link rel="prefetch" href="/assets/js/370.3a4abd4e.js"><link rel="prefetch" href="/assets/js/371.e2c94860.js"><link rel="prefetch" href="/assets/js/372.50fbbb70.js"><link rel="prefetch" href="/assets/js/373.8ba2d8ce.js"><link rel="prefetch" href="/assets/js/374.b6ff151d.js"><link rel="prefetch" href="/assets/js/375.0c8e55d5.js"><link rel="prefetch" href="/assets/js/376.eb8e280a.js"><link rel="prefetch" href="/assets/js/377.a0465974.js"><link rel="prefetch" href="/assets/js/378.c5da9a31.js"><link rel="prefetch" href="/assets/js/379.e621fe29.js"><link rel="prefetch" href="/assets/js/38.e32dda0e.js"><link rel="prefetch" href="/assets/js/380.d82fd8d3.js"><link rel="prefetch" href="/assets/js/381.0de3ba27.js"><link rel="prefetch" href="/assets/js/382.20c72c09.js"><link rel="prefetch" href="/assets/js/383.cf67901e.js"><link rel="prefetch" href="/assets/js/384.23947671.js"><link rel="prefetch" href="/assets/js/385.a7167150.js"><link rel="prefetch" href="/assets/js/386.87ab0c6c.js"><link rel="prefetch" href="/assets/js/387.248bdfc9.js"><link rel="prefetch" href="/assets/js/388.7aff32d4.js"><link rel="prefetch" href="/assets/js/389.119733a2.js"><link rel="prefetch" href="/assets/js/39.1d03c5a2.js"><link rel="prefetch" href="/assets/js/390.fd739b07.js"><link rel="prefetch" href="/assets/js/391.6bb4d858.js"><link rel="prefetch" href="/assets/js/392.c20f6f37.js"><link rel="prefetch" href="/assets/js/393.9f28c6b7.js"><link rel="prefetch" href="/assets/js/394.984351ab.js"><link rel="prefetch" href="/assets/js/395.b6a24a4f.js"><link rel="prefetch" href="/assets/js/396.3b978da4.js"><link rel="prefetch" href="/assets/js/397.8c619ac4.js"><link rel="prefetch" href="/assets/js/398.b543845e.js"><link rel="prefetch" href="/assets/js/399.5d3415d5.js"><link rel="prefetch" href="/assets/js/4.cf2a843a.js"><link rel="prefetch" href="/assets/js/40.c8e744c8.js"><link rel="prefetch" href="/assets/js/400.d78930f4.js"><link rel="prefetch" href="/assets/js/401.a44763a1.js"><link rel="prefetch" href="/assets/js/402.935fe43f.js"><link rel="prefetch" href="/assets/js/403.083abb49.js"><link rel="prefetch" href="/assets/js/41.778451d4.js"><link rel="prefetch" href="/assets/js/42.d6035d31.js"><link rel="prefetch" href="/assets/js/43.4cfb7a96.js"><link rel="prefetch" href="/assets/js/44.6c9f5f4e.js"><link rel="prefetch" href="/assets/js/45.153683be.js"><link rel="prefetch" href="/assets/js/46.cc0748dd.js"><link rel="prefetch" href="/assets/js/47.18ce6a2a.js"><link rel="prefetch" href="/assets/js/48.2d5248d4.js"><link rel="prefetch" href="/assets/js/49.993267dd.js"><link rel="prefetch" href="/assets/js/5.526fba2e.js"><link rel="prefetch" href="/assets/js/50.89273771.js"><link rel="prefetch" href="/assets/js/51.0148aacc.js"><link rel="prefetch" href="/assets/js/52.eaaef16a.js"><link rel="prefetch" href="/assets/js/53.4e2ab54e.js"><link rel="prefetch" href="/assets/js/54.df64d567.js"><link rel="prefetch" href="/assets/js/55.ee15dcb6.js"><link rel="prefetch" href="/assets/js/56.09c0ece7.js"><link rel="prefetch" href="/assets/js/57.bf0b7dc1.js"><link rel="prefetch" href="/assets/js/58.13b4baac.js"><link rel="prefetch" href="/assets/js/59.98a31a2c.js"><link rel="prefetch" href="/assets/js/6.65856878.js"><link rel="prefetch" href="/assets/js/60.da532aa1.js"><link rel="prefetch" href="/assets/js/61.bc84799a.js"><link rel="prefetch" href="/assets/js/62.0a747cd8.js"><link rel="prefetch" href="/assets/js/63.cdd4863b.js"><link rel="prefetch" href="/assets/js/64.426c6b71.js"><link rel="prefetch" href="/assets/js/65.b0dd0aac.js"><link rel="prefetch" href="/assets/js/66.7038bff1.js"><link rel="prefetch" href="/assets/js/67.3e28518f.js"><link rel="prefetch" href="/assets/js/68.76f963c6.js"><link rel="prefetch" href="/assets/js/69.df18bbfb.js"><link rel="prefetch" href="/assets/js/7.69874113.js"><link rel="prefetch" href="/assets/js/70.e0990c41.js"><link rel="prefetch" href="/assets/js/71.3894e4a6.js"><link rel="prefetch" href="/assets/js/72.bb3bbba6.js"><link rel="prefetch" href="/assets/js/73.3d83a0e6.js"><link rel="prefetch" href="/assets/js/74.08bc823e.js"><link rel="prefetch" href="/assets/js/75.226d26f8.js"><link rel="prefetch" href="/assets/js/76.e774717c.js"><link rel="prefetch" href="/assets/js/77.91a185d0.js"><link rel="prefetch" href="/assets/js/78.320e2085.js"><link rel="prefetch" href="/assets/js/79.fe2857b2.js"><link rel="prefetch" href="/assets/js/8.4e203fa6.js"><link rel="prefetch" href="/assets/js/80.6b670444.js"><link rel="prefetch" href="/assets/js/81.49e83414.js"><link rel="prefetch" href="/assets/js/82.594dc63e.js"><link rel="prefetch" href="/assets/js/83.8f9855d0.js"><link rel="prefetch" href="/assets/js/84.4097ee3b.js"><link rel="prefetch" href="/assets/js/85.be1f5ab8.js"><link rel="prefetch" href="/assets/js/86.421dcd9f.js"><link rel="prefetch" href="/assets/js/87.37af167b.js"><link rel="prefetch" href="/assets/js/88.d7a074cd.js"><link rel="prefetch" href="/assets/js/89.c7074681.js"><link rel="prefetch" href="/assets/js/9.88a6729e.js"><link rel="prefetch" href="/assets/js/90.6ab98b7b.js"><link rel="prefetch" href="/assets/js/91.e315227d.js"><link rel="prefetch" href="/assets/js/92.48465482.js"><link rel="prefetch" href="/assets/js/93.6a2fdde2.js"><link rel="prefetch" href="/assets/js/94.e33e91c3.js"><link rel="prefetch" href="/assets/js/95.cf87ed8a.js"><link rel="prefetch" href="/assets/js/96.1eb17b6b.js"><link rel="prefetch" href="/assets/js/97.6a1225c4.js"><link rel="prefetch" href="/assets/js/98.2aeae234.js"><link rel="prefetch" href="/assets/js/99.8b306c15.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.1a00f748.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>H先森</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>From FE Arch、To Full Stack</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/me.jpg" alt="H先森" class="logo"> <span class="site-name">H先森</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link router-link-active"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/me.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <!----> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>371</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>0</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Node/" class="nav-link router-link-active"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>NodeBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Node/NodeBase/node-first.html" class="sidebar-link">初步学习Node</a></li><li><a href="/Node/NodeBase/GlobalObject.html" class="sidebar-link">全局对象</a></li><li><a href="/Node/NodeBase/Buffer.html" class="sidebar-link">使用Buffer类处理二进制数据</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>NodeExtend</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc></h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">mysql语句大全</h1> <div data-v-1ff7123e><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="mysql语句大全"><a href="#mysql语句大全" class="header-anchor">#</a> mysql语句大全</h1> <div class="language- extra-class"><pre class="language-text"><code>#登录数据库
+mysql -hlocalhost -uroot -p;
+#修改密码
+mysqladmin -uroot -pold password new;
+
+
+#显示数据库
+show databases;
+#显示数据表
+show tables;
+#选择数据库
+use examples;
+#创建数据库并设置编码utf-8 多语言
+create database `examples` default character set utf8 collate utf8_general_ci;
+#删除数据库
+drop database examples;
+#创建表
+create table test(
+    id int(10) unsigned zerofill not null auto_increment,
+    email varchar(40) not null,
+    ip varchar(15) not null,
+    state int(10) not null default '-1',
+    primary key (id)
+)engine=InnoDB;
+#显示表结构
+describe 
+#删除表
+drop table test；
+#重命名表
+alter table test_old rename test_new;
+#添加列
+alter table test add cn int(4) not null;
+#修改列
+alter table test change id id1 varchar(10) not null;
+#删除列 
+alter table test drop cn;
+#创建索引
+alter table test add index (cn,id);
+#删除索引
+alter table test drop index cn
+#插入数据
+insert into test (id,email,ip,state) values(2,'qq@qq.com','127.0.0.1','0');
+#删除数据 
+delete from test where id = 1;
+#修改数据
+update test set id='1',email='q@qq.com' where id=1;
+#查数据
+select * from test;  #取所有数据
+select * from test limit 0,2;  #取前两条数据 
+select * from test email like '%qq%' #查含有qq字符 _表示一个 %表示多个
+select * from test order by id asc;#降序desc
+select * from test id not in('2','3');#id不含2,3或者去掉not表示含有
+select * from test timer between 1 and 10;#数据在1,10之间
+
+#---------------------------表连接知识------------------------------
+#等值连接又叫内链接 inner join 只返回两个表中连接字段相等的行
+select * from A inner join B on A.id = B.id; #写法1
+select * from A,B where A.id = B.id; #写法2
+select a.id,a.title from A a inner join B b on a.id=b.id and a.id=1;#写法3 表的临时名称
+select a.id as ID,a.title as 标题 from A inner join B on A.id=B.id;#添加as字句
+
+#左连接又叫外连接 left join 返回左表中所有记录和右表中连接字段相等的记录
+select * from A left join B on A.id = B.id;
+
+select * from A left join (B,C,D) on (B.i1=A.i1 and C.i2=A.i2 and D.i3 = A.i3);#复杂连接
+
+#右连接又叫外连接 right join 返回右表中所有记录和左表中连接字段相等的记录
+select * from A right join B on A.id = B.id;
+
+#完整外部链接 full join 返回左右表中所有数据
+select * from A full join B on A.id = B.id;
+
+#交叉连接 没有where字句 返回卡迪尔积
+select * from A cross join B;
+-------------------------表连接结束------------------------------------------------------------
+-----------------索引创建------------------------------------------------
+show index from A #查看索引
+alter table A add primary key(id) #主键索引
+alter table A add unique(name) #唯一索引
+alter table A add index name(name) #普通索引
+alter table A add fulltext(name) #全文索引
+alter table A add index name(id,name) #多列索引
+
+#常用函数
+abs(-1)#绝对值
+pi()#pi值
+sqrt(2)#平方根
+mod(-5,3)#取余-2
+ceil(10.6)#进位+1 结果11 ceil(10.0)结果10
+floor(10.6)#取整 10
+round(2.5)#四舍五入到整数 结果3
+round(2.5,2)#保留两位小数 结果2.50
+truncate(2.5234,3)#取小数后3位不四舍五入 2.523
+sign(-2);#符号函数 返回-1 0还是0 正数返回1
+pow(2,3),exp(2);#2的3次幂 或e的2次幂
+log(2),log10(2);#求对数
+radians(180),degrees(0.618);#角度弧度转换
+sin(0.5),asin(0.5)#正弦和反正弦 类似cos acos tan atan
+length('hi')#计算字符长度
+concat('1',1,'hi')#合并字符串
+insert('12345',1,0,'7890');#从开头第1个字符开始到0个结束，替换成后边字符串，0表示在最前边插入
+ucase('a'),lcase('A')#转成大写和小写
+left('abcd',2),right('abcd',2);#返回前两个字符和后两个字符
+ltrim('  0  '),rtrim(' 0 '),trim('  0  ')#删除空格
+replace('1234567890','345678','0');#替换输出12090
+substring('12345',1,2)#取字符 输出12 1是位置 2是长度
+instr('1234','234');#取得234位置是2
+reverse('1234');#反序输出4321
+current()#返回日期
+curtime()#返回时间
+now()#返回日期时间
+month(now())#当前月份 monthname 英文月份
+dayname(now())#星期英文 dayofweek()1是星期天 weekday()1是星期二
+week(now())#本年第多少周
+dayofyear(now()),dayofmonth(now())#今天是本年第多少天 今天是本月第多少天
+year(now()),month(now()),day(now()),hour(now()),minute(now()),second(now())#返回年月日 时分秒
+time_to_sec(now()),sec_to_time(3600*8);#转换时间为秒和还原
+version()#mysql版本
+database()#当前连接的数据库 没有为null
+user()#获取用户名
+md5('a')#加密字符串
+ascii('a')#ascii值97
+bin(100),hex(100),oct(100)#返回二进制 十六进制 八进制
+conv(10001,2,8);#各种进制相互转换
+rand()#生成0到1之间随机数
+sleep(0.02)#暂停秒数
+---------------------------------
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>---------------------------------
+</code></pre></div><h1 id="mysql-date-format-函数"><a href="#mysql-date-format-函数" class="header-anchor">#</a> MySQL DATE_FORMAT() 函数</h1> <p><a href="http://www.w3school.com.cn/sql/sql_dates.asp" target="_blank" rel="noopener noreferrer">MySQL Date 函数<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="定义和用法"><a href="#定义和用法" class="header-anchor">#</a> 定义和用法</h2> <p>DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。</p> <h3 id="语法"><a href="#语法" class="header-anchor">#</a> 语法</h3> <div class="language- extra-class"><pre class="language-text"><code>DATE_FORMAT(date,format)
+</code></pre></div><p>参数是合法的日期。 规定日期/时间的输出格式。</p> <p>可以使用的格式有：</p> <p>格式 描述</p> <table><thead><tr><th></th> <th></th></tr></thead> <tbody><tr><td>%a</td> <td>缩写星期名</td></tr> <tr><td>%b</td> <td>缩写月名</td></tr> <tr><td>%c</td> <td>月，数值</td></tr> <tr><td>%D</td> <td>带有英文前缀的月中的天</td></tr> <tr><td>%d</td> <td>月的天，数值(00-31)</td></tr> <tr><td>%e</td> <td>月的天，数值(0-31)</td></tr> <tr><td>%f</td> <td>微秒</td></tr> <tr><td>%H</td> <td>小时 (00-23)</td></tr> <tr><td>%h</td> <td>小时 (01-12)</td></tr> <tr><td>%I</td> <td>小时 (01-12)</td></tr> <tr><td>%i</td> <td>分钟，数值(00-59)</td></tr> <tr><td>%j</td> <td>年的天 (001-366)</td></tr> <tr><td>%k</td> <td>小时 (0-23)</td></tr> <tr><td>%l</td> <td>小时 (1-12)</td></tr> <tr><td>%M</td> <td>月名</td></tr> <tr><td>%m</td> <td>月，数值(00-12)</td></tr> <tr><td>%p</td> <td>AM 或 PM</td></tr> <tr><td>%r</td> <td>时间，12-小时（hh:mm:ss AM 或 PM）</td></tr> <tr><td>%S</td> <td>秒(00-59)</td></tr> <tr><td>%s</td> <td>秒(00-59)</td></tr> <tr><td>%T</td> <td>时间, 24-小时 (hh:mm:ss)</td></tr> <tr><td>%U</td> <td>周 (00-53) 星期日是一周的第一天</td></tr> <tr><td>%u</td> <td>周 (00-53) 星期一是一周的第一天</td></tr> <tr><td>%V</td> <td>周 (01-53) 星期日是一周的第一天，与 %X 使用</td></tr> <tr><td>%v</td> <td>周 (01-53) 星期一是一周的第一天，与 %x 使用</td></tr> <tr><td>%W</td> <td>星期名</td></tr> <tr><td>%w</td> <td>周的天 （0=星期日, 6=星期六）</td></tr> <tr><td>%X</td> <td>年，其中的星期日是周的第一天，4 位，与 %V 使用</td></tr> <tr><td>%x</td> <td>年，其中的星期一是周的第一天，4 位，与 %v 使用</td></tr> <tr><td>%Y</td> <td>年，4 位</td></tr> <tr><td>%y</td> <td>年，2 位</td></tr></tbody></table> <h2 id="实例"><a href="#实例" class="header-anchor">#</a> 实例</h2> <p>下面的脚本使用 DATE_FORMAT() 函数来显示不同的格式。我们使用 NOW() 来获得当前的日期/时间：</p> <div class="language- extra-class"><pre class="language-text"><code>DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')
+DATE_FORMAT(NOW(),'%m-%d-%Y')
+DATE_FORMAT(NOW(),'%d %b %y')
+DATE_FORMAT(NOW(),'%d %b %Y %T:%f')
+</code></pre></div><p>结果类似：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">Dec</span> <span class="token number">29</span> <span class="token number">2008</span> <span class="token number">11</span>:<span class="token number">45</span> PM
+<span class="token number">12</span><span class="token operator">-</span><span class="token number">29</span><span class="token operator">-</span><span class="token number">2008</span>
+<span class="token number">29</span> <span class="token keyword">Dec</span> <span class="token number">08</span>
+<span class="token number">29</span> <span class="token keyword">Dec</span> <span class="token number">2008</span> <span class="token number">16</span>:<span class="token number">25</span>:<span class="token number">46.635</span>
+<span class="token comment">--------------------</span>
+数据库优化
+<span class="token number">1.</span>开启缓存，尽量使用php函数而不是mysql
+<span class="token number">2.</span> <span class="token keyword">explain</span> <span class="token keyword">select</span> 语句可以知道性能
+<span class="token number">3.</span>一行数据使用 <span class="token keyword">limit</span> <span class="token number">1</span>；
+<span class="token number">4.</span>为搜索字段重建索引 比如关键字 标签
+<span class="token number">5.</span>表连接<span class="token keyword">join</span>保证字段类型相同并且有其索引
+<span class="token number">6.</span>随机查询使用php $r <span class="token operator">=</span> mysql_query<span class="token punctuation">(</span><span class="token string">&quot;SELECT count(*) FROM user&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    $d <span class="token operator">=</span> mysql_fetch_row<span class="token punctuation">(</span>$r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    $rand <span class="token operator">=</span> mt_rand<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>$d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    $r <span class="token operator">=</span> mysql_query<span class="token punctuation">(</span><span class="token string">&quot;SELECT username FROM user LIMIT $rand, 1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token number">7.</span>避免使用<span class="token keyword">select</span> <span class="token operator">*</span> 应该使用具体字段
+<span class="token number">8.</span>每张表都是用id主键，并且是<span class="token keyword">unsigned</span> <span class="token keyword">int</span>
+<span class="token number">9.</span>对于取值有限而固定使用<span class="token keyword">enum</span>类型，如性别 国家 名族 部门 状态
+<span class="token number">10.</span>尽可能使用<span class="token operator">not</span> <span class="token boolean">null</span> ip存储使用<span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>使用ip 转化函数ip2long<span class="token punctuation">(</span><span class="token punctuation">)</span>相互long2ip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">11.</span><span class="token keyword">delete</span>和<span class="token keyword">insert</span>语句会锁表，所以可以采用分拆语句操作
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>{操作语句<span class="token punctuation">;</span>usleep<span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>}
+<span class="token number">12.</span>选择正确的存储引擎；MyISAM适合大量查询 写操作多用<span class="token keyword">InnoDB</span>支持事务
+
+<span class="token comment">#存储过程</span>
+<span class="token comment">#存储程序</span>
+<span class="token keyword">delimiter</span> <span class="token comment">#定义存储程序</span>
+<span class="token keyword">create</span> <span class="token keyword">procedure</span> getversion<span class="token punctuation">(</span><span class="token keyword">out</span> params <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#params是传出参数 in传进 out传出 inout传回</span>
+<span class="token keyword">begin</span>
+<span class="token keyword">select</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">into</span> params<span class="token punctuation">;</span> <span class="token comment">#版本信息赋值params</span>
+<span class="token keyword">end</span>
+<span class="token keyword">call</span> getversion<span class="token punctuation">(</span><span class="token variable">@a</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">#调用存储过程</span>
+<span class="token keyword">select</span> <span class="token variable">@a</span><span class="token punctuation">;</span>
+<span class="token keyword">delimiter</span> <span class="token comment">#定义存储函数</span>
+<span class="token keyword">create</span> <span class="token keyword">function</span> display<span class="token punctuation">(</span>w <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">begin</span>
+<span class="token keyword">return</span> concat<span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">,</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+<span class="token keyword">select</span> display<span class="token punctuation">(</span><span class="token string">'world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">drop</span> <span class="token keyword">procedure</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> spName<span class="token punctuation">;</span> <span class="token comment">#删除一个存储过程</span>
+<span class="token keyword">alter</span> <span class="token keyword">function</span> spName <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">#修改一个存储过程</span>
+<span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">procedure</span> spName<span class="token punctuation">;</span><span class="token comment">#显示存储过程信息</span>
+<span class="token keyword">declare</span> varName <span class="token keyword">type</span> <span class="token keyword">default</span> <span class="token keyword">value</span><span class="token punctuation">;</span><span class="token comment">#声明局部变量</span>
+<span class="token comment">#if语句</span>
+<span class="token keyword">if</span> 条件 <span class="token keyword">then</span> 语句
+<span class="token keyword">elseif</span> 条件 <span class="token keyword">then</span> 语句
+<span class="token keyword">else</span> 语句
+<span class="token keyword">end</span> <span class="token keyword">if</span>
+<span class="token comment">#case语句</span>
+<span class="token keyword">case</span> 条件
+<span class="token keyword">when</span> 条件 <span class="token keyword">then</span> 语句
+<span class="token keyword">when</span> 条件 <span class="token keyword">then</span> 语句
+<span class="token keyword">else</span> 语句
+<span class="token keyword">end</span> <span class="token keyword">case</span>
+<span class="token comment">#loop语句</span>
+fn:<span class="token keyword">loop</span>
+语句
+<span class="token keyword">end</span> <span class="token keyword">loop</span> fn<span class="token punctuation">;</span>
+<span class="token keyword">leave</span> fn <span class="token comment">#退出循环</span>
+<span class="token comment">#while语句</span>
+fn：<span class="token keyword">while</span> 条件 <span class="token keyword">do</span>
+语句
+<span class="token keyword">end</span> <span class="token keyword">while</span> fn
+
+
+<span class="token comment">#mysql使用帮助资料</span>
+? contents<span class="token punctuation">;</span> <span class="token comment">#列出帮助类型</span>
+? <span class="token keyword">data</span> <span class="token keyword">types</span><span class="token punctuation">;</span><span class="token comment">#列出数据类型</span>
+？ <span class="token keyword">int</span><span class="token punctuation">;</span><span class="token comment">#列出具体类型</span>
+? <span class="token keyword">show</span><span class="token punctuation">;</span><span class="token comment">#show语句</span>
+? <span class="token keyword">create</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span class="token comment">#</span>
+<span class="token comment">#常见表的比较</span>
+                    Myisam   <span class="token keyword">BDB</span>    Memory    <span class="token keyword">InnoDB</span>    Archive
+存储限制        <span class="token keyword">no</span>           <span class="token keyword">no</span>      yes                <span class="token number">64</span>T        <span class="token keyword">no</span>
+事物安全                      支持                         支持                         
+锁机制         表锁           页锁    表锁             行锁          行锁
+全文索引       支持
+外键支持                                                        支持
+myisam  frm存储表定义 MYD存储数据 MYI存储索引
+<span class="token keyword">InnoDB</span> 用于事务处理
+<span class="token keyword">char</span> 和 <span class="token keyword">varchar</span>保存和索引都不相同
+浮点数<span class="token keyword">float</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> 定点数<span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+长度一定下，浮点数表示更大数据范围，缺点是引起精度丢失，货币等使用定点数存储
+        索引适合于<span class="token keyword">where</span>字句或者连接字句列
+        对于唯一值使用唯一索引
+
+添加新用户 <span class="token keyword">grant</span> <span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">insert</span><span class="token punctuation">,</span><span class="token keyword">update</span><span class="token punctuation">,</span><span class="token keyword">delete</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> Yoby<span class="token variable">@localhost</span> identified <span class="token keyword">by</span> <span class="token string">'mysql'</span><span class="token punctuation">;</span> 
+<span class="token comment">#           *.* 数据库名.表名，限制登录某一个数据库 test.*                           localhost是本地主机 网络可以使用 '%'代替所有主机        'mysql'是密码 Yoby是用户名  所有权限可以用 all代替</span>
+查看用户权限 <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+移除权限  <span class="token keyword">revoke</span> <span class="token keyword">all</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> root<span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> id 分组
+<span class="token keyword">having</span> 限制字句
+select1 <span class="token keyword">union</span> select2 联合查询有重复去掉保留一行
+select2 <span class="token keyword">union</span> <span class="token keyword">all</span> select2 所有行合并到结果集中去
+<span class="token comment">--------------------------------------------------------------------</span>
+修改MYSQL参数
+<span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'%Func%'</span><span class="token punctuation">;</span>
+<span class="token keyword">set</span> <span class="token keyword">global</span> log_bin_trust_function_creators<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'%Func%'</span><span class="token punctuation">;</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/Node/MySQL/MySQLBase/commom-sql.html#定义和用法" class="sidebar-link reco-side-定义和用法" data-v-70334359>定义和用法</a></li><li class="level-3" data-v-70334359><a href="/Node/MySQL/MySQLBase/commom-sql.html#语法" class="sidebar-link reco-side-语法" data-v-70334359>语法</a></li><li class="level-2" data-v-70334359><a href="/Node/MySQL/MySQLBase/commom-sql.html#实例" class="sidebar-link reco-side-实例" data-v-70334359>实例</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.a713ee30.js" defer></script><script src="/assets/js/3.8d283ff8.js" defer></script><script src="/assets/js/1.6b3d9ed4.js" defer></script><script src="/assets/js/214.2acff6a3.js" defer></script>
+  </body>
+</html>

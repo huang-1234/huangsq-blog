@@ -131,6 +131,7 @@ new Array(arrayLength)
 只能用整数作为数组元素的索引，而不能用字符串。后者称为[关联数组](https://en.wikipedia.org/wiki/Associative_array)。使用非整数并通过[方括号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#Objects_and_properties)或[点号](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors)来访问或设置数组元素时，所操作的并不是数组列表中的元素，而是数组对象的[属性集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#Properties)上的变量。数组对象的属性和数组元素列表是分开存储的，并且数组的遍历和修改操作也不能作用于这些命名属性。
 
 ## 访问数组元素
+
 JavaScript 数组的索引是从0开始的，第一个元素的索引为0，最后一个元素的索引等于该数组的长度减1。如果指定的索引是一个无效值，JavaScript 数组并不会报错，而是会返回 `undefined`。
 
 虽然数组元素可以看做是数组对象的属性，就像 `toString` 一样，但是下面的写法是错误的，运行时会抛出 `SyntaxError` 异常，而原因则是使用了非法的属性名：
@@ -161,6 +162,12 @@ console.log(years['2'] != years['02']);
 var promise = {'var'  : 'text','array': [1, 2, 3, 4]};
 console.log(promise['var']);
 ```
+
+## 遍历数组
+
+
+
+![JS几种数组遍历方式以及性能分析对比2](cArray.assets/6e424f8bfc9fad4e4c044d38351a0f3c1603445364296)
 
 ## length 和数字下标之间的关系
 
