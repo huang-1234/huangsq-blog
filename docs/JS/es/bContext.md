@@ -91,11 +91,8 @@ let foo = {
   console.log(this);
   }
 }
-
 foo.baz();   // 'this' 引用 'foo', 因为 'baz' 被 对象 'foo' 调用
-
 let bar = foo.baz;
-
 bar();       // 'this' 指向全局 window 对象，因为没有指定引用对象
 ```
 
