@@ -2,7 +2,7 @@
 
 ## 原始类型
 
-在 JS 中，存在着 7 种原始类型：
+在 es6 中，存在着 7 种原始类型：
 
 - `Boolean`
 - `Null`
@@ -14,11 +14,13 @@
 
 原始类型存储的是值，没有函数可以调用。
 
-那么有个问题，为什么`'1'.toString()`是正确的呢？
+那么有个问题，为什么`1..toString()`是正确的？而`1.toString()`却不行了呢？
 
-原因在于在这种情况下，`'1'`已经被强转成了`String`类型。
+原因在于数字1后面接的第一个点`.`,编译器是直接当成数字的一部分，而`1.`后面再接上一个点`.`才会被当成数字在调用方法，而这也只是数字的隐藏类`Number`在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。
 
-> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）
+> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的``Object.prototype.toString.call(target).slice(8,-1)`
+>
+> tartget是需要被检测的对象，后面再加一个slice(8,-1)是为了去掉前面的[object ]
 
 ```js
 function test(person) {
@@ -437,9 +439,6 @@ const undefin = undefined;
 
 但是很遗憾的表示，当你使用 `null.constructor` 或者 `undefined.constructor` 它会毫不留情的给你报：`Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5`，所以我们也不能强行使用 `constructor` 来做深拷贝时候的判断数据类型。
 
-
-
-
 ### 六Object.toString.call()
 
 Object.prototype.toString.call()
@@ -478,36 +477,33 @@ console.log(toString.call(null));         // [object Null]
 
 当然，写到这里，虽然我们的文章看起来可能简洁短小点，但是感觉讲出了这四种方法在判断数据类型上的优缺点。
 
-同时，如果小伙伴有跟着链接走起，你会发现可以涉及更多的知识点，例如：
-
 - `apply()`
 - `bind()`
 - `call()`
 - `apply()、bind() 以及 call() 的区别`
-- 
 
-<span class="bottom-bar-item" style="right:20px"><a href="#">回顶部↑</a></span>
+  
 
 # Object.prototype.toString方法的原理
 
-在JavaScript中,想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法.
+在JavaScript中，想要判断某个对象值属于哪种内置类型，最靠谱的做法就是通过Object.prototype.toString方法.
 
 ```js
 var arr = [];
 console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 ```
 
-本文要讲的就是,toString方法是如何做到这一点的,原理是什么.
+本文要讲的就是，toString方法是如何做到这一点的，原理是什么.
 
 ### ECMAScript 3
 
-在[ES3](http://bclary.com/2004/11/07/)中,Object.prototype.toString方法的规范如下:
+在[ES3](http://bclary.com/2004/11/07/)中，Object.prototype.toString方法的规范如下:
 
 > - 15.2.4.2 Object.prototype.toString()
 >
->   在**`toString`**方法被调用时,会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object ",`** 第一步的操作结果Result(1), 以及 **`"]"`**`连接后的新字符串.`3. 返回第二步的操作结果Result(2).
+>   在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`**`连接后的新字符串.`3. 返回第二步的操作结果Result(2).
 
-[[Class]]是一个内部属性,所有的对象(原生对象和宿主对象)都拥有该属性.在规范中,[[Class]]是这么定义的
+[[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性.在规范中，[[Class]]是这么定义的
 
 | 内部属性  | 描述                             |
 | --------- | -------------------------------- |
@@ -515,35 +511,35 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 
 然后给了一段解释:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是任意值,甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型.需要注意的是,除了通过**`Object.prototype.toString`**方法之外,本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型.需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-也就是说,把Object.prototype.toString方法返回的字符串,去掉前面固定的**`"[object "`**和后面固定的**"]",**就是内部属性[[class]]的值,也就达到了判断对象类型的目的.jQuery中的工具方法$.type(),就是干这个的.
+也就是说，把Object.prototype.toString方法返回的字符串，去掉前面固定的**`"[object "`**和后面固定的**"]"，**就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery中的工具方法$.type()，就是干这个的.
 
-在ES3中,规范文档并没有总结出[[class]]内部属性一共有几种,不过我们可以自己统计一下,原生对象的[[class]]内部属性的值一共有10种.分别是:`"Array"`, `"Boolean"`, `"Date"`, `"Error"`, `"Function"`, `"Math"`, `"Number"`, `"Object"`, `"RegExp"`, `"String".`
+在ES3中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有10种.分别是:`"Array"`， `"Boolean"`， `"Date"`， `"Error"`， `"Function"`， `"Math"`， `"Number"`， `"Object"`， `"RegExp"`， `"String".`
 
 ### ECMAScript 5
 
-在[ES5.1](http://ecma-international.org/ecma-262/5.1)中,除了规范写的更详细一些以外,Object.prototype.toString方法和[[class]]内部属性的定义上也有一些变化,Object.prototype.toString方法的规范如下:
+在[ES5.1](http://ecma-international.org/ecma-262/5.1)中，除了规范写的更详细一些以外，Object.prototype.toString方法和[[class]]内部属性的定义上也有一些变化，Object.prototype.toString方法的规范如下:
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
-> 在**`toString`**方法被调用时,会执行下面的操作步骤:
+> 在**`toString`**方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**,则返回`"[object Undefined]"`.
-> 2. 如果**this**的值为**null**,则返回`"[object Null]"`.
+> 1. 如果**this**的值为**undefined**，则返回`"[object Undefined]"`.
+> 2. 如果**this**的值为**null**，则返回`"[object Null]"`.
 > 3. 让*O*成为调用ToObject(**this)**的结果.
 > 4. 让*class*成为*O*的内部属性[[Class]]的值.
-> 5. 返回三个字符串**`"[object ",`** *class*, 以及 **`"]"`**`连接后的新字符串```.
+> 5. 返回三个字符串**`"[object "，`** *class*， 以及 **`"]"`**`连接后的新字符串```.
 
-可以看出,比ES3多了1,2,3步.第1,2步属于新规则,比较特殊,因为"`Undefined"`和"`Null"`并不属于[[class]]属性的值,需要注意的是,这里和严格模式无关(大部分函数在严格模式下,this的值才会保持undefined或null,非严格模式下会自动成为全局对象).第3步并不算是新规则,因为在ES3的引擎中,也都会在这一步将三种原始值类型转换成对应的包装对象,只是规范中没写出来.ES5中,[[Class]]属性的解释更加详细:
+可以看出，比ES3多了1，2，3步.第1，2步属于新规则，比较特殊，因为"`Undefined"`和"`Null"`并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this的值才会保持undefined或null，非严格模式下会自动成为全局对象).第3步并不算是新规则，因为在ES3的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来.ES5中，[[Class]]属性的解释更加详细:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是除了"Arguments", "Array", "Boolean", "Date", "Error", "Function", "JSON", "Math", "Number", "Object", "RegExp", "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的.需要注意的是,除了通过**`Object.prototype.toString`**方法之外,本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的.需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-和ES3对比一下,第一个差别就是[[class]]内部属性的值多了两种,成了12种,一种是arguments对象的[[class]]成了"Arguments",而不是以前的"Object",还有就是多个了全局对象JSON,它的[[class]]值为"JSON".第二个差别就是,宿主对象的[[class]]内部属性的值,不能和这12种值冲突,不过在支持ES3的浏览器中,貌似也没有发现哪些宿主对象故意使用那10个值.
+和ES3对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了12种，一种是arguments对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象JSON，它的[[class]]值为"JSON".第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这12种值冲突，不过在支持ES3的浏览器中，貌似也没有发现哪些宿主对象故意使用那10个值.
 
 ### ECMAScript 6
 
-[ES6](http://people.mozilla.org/~jorendorff/es6-draft.html)目前还只是工作草案,但能够肯定的是,**[[class]]内部属性没有了**,取而代之的是另外一个内部属性[[NativeBrand]].[[NativeBrand]]属性是这么定义的:
+[ES6](http://people.mozilla.org/~jorendorff/es6-draft.html)目前还只是工作草案，但能够肯定的是，**[[class]]内部属性没有了**，取而代之的是另外一个内部属性[[NativeBrand]].[[NativeBrand]]属性是这么定义的:
 
 > | 内部属性        | 属性值                     | 描述                                                         |
 > | --------------- | -------------------------- | ------------------------------------------------------------ |
@@ -551,7 +547,7 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 
  [[NativeBrand]]属性的解释:
 
-> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个:NativeFunction, NativeArray, StringWrapper, BooleanWrapper, NumberWrapper, NativeMath, NativeDate, NativeRegExp, NativeError, NativeJSON, NativeArguments, NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的ECMAScript原生对象.只有在表10中明确指出的对象类型才有[[NativeBrand]]内部属性.
+> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个:NativeFunction， NativeArray， StringWrapper， BooleanWrapper， NumberWrapper， NativeMath， NativeDate， NativeRegExp， NativeError， NativeJSON， NativeArguments， NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的ECMAScript原生对象.只有在表10中明确指出的对象类型才有[[NativeBrand]]内部属性.
 >
 > 表10 — [[NativeBrand]]内部属性的值
 >
@@ -570,26 +566,26 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 > | NativeArguments   | Arguments objects    |
 > | NativePrivateName | Private Name objects |
 
-可见,和[[class]]不同的是,并不是每个对象都拥有[[NativeBrand]].同时,Object.prototype.toString方法的规范也改成了下面这样:
+可见，和[[class]]不同的是，并不是每个对象都拥有[[NativeBrand]].同时，Object.prototype.toString方法的规范也改成了下面这样:
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
-> 在**`toString`**方法被调用时,会执行下面的操作步骤:
+> 在**`toString`**方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**,则返回`"[object Undefined]"`.
-> 2. ``如果**this**的值为**null**,则返回`"[object Null]"`.
+> 1. 如果**this**的值为**undefined**，则返回`"[object Undefined]"`.
+> 2. ``如果**this**的值为**null**，则返回`"[object Null]"`.
 > 3. 让*O*成为调用ToObject(**this)**的结果.
-> 4. 如果*O*有[[NativeBrand]]内部属性,让*tag*成为表29中对应的值.
+> 4. 如果*O*有[[NativeBrand]]内部属性，让*tag*成为表29中对应的值.
 > 5. 否则
->    1. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果,参数为@@toStringTag.
->    2. 如果*hasTag*为**false**,则让*tag*为`"Object"`.
->    3. 否则,
->       1. 让*tag*成为调用*O*的[[Get]]内部方法后的结果,参数为@@toStringTag.
->       2. 如果*tag*是一个abrupt completion,则让*tag*成为NormalCompletion(`"???"`).
+>    1. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
+>    2. 如果*hasTag*为**false**，则让*tag*为`"Object"`.
+>    3. 否则，
+>       1. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
+>       2. 如果*tag*是一个abrupt completion，则让*tag*成为NormalCompletion(`"???"`).
 >       3. 让*tag*成为*tag*.[[value]].
->       4. 如果Type(*tag*)不是字符串,则让*tag成为*`"???"`.
->       5. 如果*tag*的值为`"Arguments"`, `"Array"`, `"Boolean"`, `"Date"`, `"Error"`, `"Function"`, `"JSON"`, `"Math"`, `"Number"`, `"Object"`, `"RegExp"`,`或者"String"中的任一个,则让`*tag*成为字符串`"~"和`*tag*当前的值连接后的结果.
-> 6. 返回三个字符串"[object ", tag, and "]"`连接后的新字符串```.
+>       4. 如果Type(*tag*)不是字符串，则让*tag成为*`"???"`.
+>       5. 如果*tag*的值为`"Arguments"`， `"Array"`， `"Boolean"`， `"Date"`， `"Error"`， `"Function"`， `"JSON"`， `"Math"`， `"Number"`， `"Object"`， `"RegExp"`，`或者"String"中的任一个，则让`*tag*成为字符串`"~"和`*tag*当前的值连接后的结果.
+> 6. 返回三个字符串"[object "， tag， and "]"`连接后的新字符串```.
 >
 > 表29 — [[NativeBrand]] 标志值
 >
@@ -609,9 +605,9 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 >
 >  
 
-可以看到,在规范上有了很大的变化,不过对于普通用户来说,貌似感觉不到.
+可以看到，在规范上有了很大的变化，不过对于普通用户来说，貌似感觉不到.
 
-也许你发现了,ES6里的新类型Map,Set等,都没有在表29中.它们在执行toString方法的时候返回的是什么?
+也许你发现了，ES6里的新类型Map，Set等，都没有在表29中.它们在执行toString方法的时候返回的是什么?
 
 ```
 console.log(Object.prototype.toString.call(Map()))   //"[object Map]"
@@ -625,7 +621,7 @@ console.log(Object.prototype.toString.call(Set()))   //"[object Set]"
 >
 > @@toStringTag 属性的初始值为字符串**"Map"**.
 
-由于ES6的规范还在制定中,各种相关规定都有可能改变,所以如果想了解更多细节.看看下面这两个链接,现在只需要知道的是:[[class]]没了,使用了更复杂的机制.
+由于ES6的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节.看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
 
 http://stackoverflow.com/questions/13151643/access-nativebrand-class-in-es6-ecmascript-6
 

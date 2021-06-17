@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update deeplearn'
+git commit -m 'update js/es/type'
 
 # git remote -v
 # git pull
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update deeplearn'
+git commit -m 'update js/es/type'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull

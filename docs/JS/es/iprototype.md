@@ -7,8 +7,8 @@ function Person() {
 
 }
 var person = new Person();
-person.name = 'Kevin';
-console.log(person.name) // Kevin
+person.name = 'huangsq';
+console.log(person.name) // huangsq
 ```
 
 Person 就是一个构造函数，我们使用 new 创建了一个实例对象 person
@@ -26,11 +26,11 @@ function Person() {
 }
 // 虽然写在注释里，但是你要注意：
 // prototype是函数才会有的属性
-Person.prototype.name = 'Kevin';
+Person.prototype.name = 'huangsq';
 var person1 = new Person();
 var person2 = new Person();
-console.log(person1.name) // Kevin
-console.log(person2.name) // Kevin
+console.log(person1.name) // huangsq
+console.log(person2.name) // huangsq
 ```
 
 <img :src="$withBase('/images/JS/es/ProtoType.webp')" alt='ProtoType'>
@@ -79,7 +79,7 @@ console.log(Object.getPrototypeOf(person) === Person.prototype) // true
 function Person() {
 
 }
-Person.prototype.name = 'Kevin';
+Person.prototype.name = 'huangsq';
 
 var person = new Person();
 
@@ -87,18 +87,18 @@ person.name = 'Daisy';
 console.log(person.name) // Daisy
 
 delete person.name;
-console.log(person.name) // Kevin
+console.log(person.name) // huangsq
 ```
 
 在这个例子中，我们给实例对象 person 添加了 name 属性，当我们打印 person.name 的时候，结果自然为 Daisy。
 
-但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.**proto** ，也就是 Person.prototype中查找，幸运的是我们找到了 name 属性，结果为 Kevin。
+但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.**proto** ，也就是 Person.prototype中查找，幸运的是我们找到了 name 属性，结果为 huangsq。
 
 ## 原型与原型
 ```js
 var obj = new Object();
-obj.name = 'Kevin'
-console.log(obj.name) // Kevin
+obj.name = 'huangsq'
+console.log(obj.name) // huangsq
 ```
 
 <img :src="$withBase('/images/JS/es/Object.webp')" alt='ProtoType'>

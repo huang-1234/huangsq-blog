@@ -43,7 +43,7 @@ ReactDOM.render(<App/>, rootEl);
 
 在每16.6ms时间内，需要完成如下工作：
 
-```text
+```js
 JS脚本执行 -----  样式布局 ----- 样式绘制
 ```
 

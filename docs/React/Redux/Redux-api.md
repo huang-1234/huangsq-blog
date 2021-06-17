@@ -8,7 +8,7 @@
 
 **createStore(reducer, [preloadedState], enhancer)**
 
-```text
+```js
 创建一个 Redux store 来以存放应用中所有的 state
 reducer (Function): 接收两个参数，当前的 state 树/要处理的 action，返回新的 state 树
 preloadedState: 初始时的 state

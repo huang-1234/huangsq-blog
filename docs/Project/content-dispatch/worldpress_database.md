@@ -6,7 +6,7 @@
 
  
 
-```
+```js
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
 
 > 文章评论信息表。
 
- 
 
 comment_ID – 每个评论的唯一ID号，是一个bigint(20)值。带有附加属性auto_increment。
 

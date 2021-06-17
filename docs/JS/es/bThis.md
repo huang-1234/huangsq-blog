@@ -37,19 +37,18 @@ console.log(a.user); //AndyHuang
 
 1. 普通函数
 
-   ```js
-   function SayName(){
-     name:'andy',
-     this.name:'sq',
-     console.log('this:',this,'this.name:',this.name);
-     console.log('name:',name)
-   }
-   SayName();
-   //this: Window this.name: sq
-   //Type.js:23 name: sq
-   ```
+```js
+function SayName(){
+  name:'andy',
+  this.name:'sq',
+  console.log('this:',this,'this.name:',this.name);
+  console.log('name:',name)
+}
+SayName();
+//this: Window this.name: sq
+//Type.js:23 name: sq
+```
 
-   
 
 在这段代码中`SayName()`函数作为普通函数调用，实际上`SayName`是作为全局对象`window`的一个方法来进行调用的,即`window.person()`;
 所以这个地方是`window`对象调用了`person`方法,那么`person`函数当中的`this`即指`window`,同时`window`还拥有了另外一个属性`name`,值为`sq`.

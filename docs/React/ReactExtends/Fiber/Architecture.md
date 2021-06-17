@@ -12,7 +12,7 @@
 
 除去配置文件和隐藏文件夹，根目录的文件夹包括三个：
 
-```text
+```js
 根目录
 ├── fixtures        # 包含一些给贡献者准备的小型 React 测试项目
 ├── packages        # 包含元数据（比如 package.json）和 React 仓库中所有 package 的源码（子目录 src）
@@ -55,7 +55,7 @@ export let REACT_FRAGMENT_TYPE = 0xeacb;
 
 如下几个文件夹为对应的**Renderer**
 
-```text
+```js
 - react-art
 - react-dom                 # 注意这同时是DOM和SSR（服务端渲染）的入口
 - react-native-renderer
@@ -67,7 +67,7 @@ export let REACT_FRAGMENT_TYPE = 0xeacb;
 
 `React`将自己流程中的一部分抽离出来，形成可以独立使用的包，由于他们是试验性质的，所以不被建议在生产环境使用。包括如下文件夹：
 
-```text
+```js
 - react-server        # 创建自定义SSR流
 - react-client        # 创建自定义的流
 - react-fetch         # 用于数据请求
@@ -79,7 +79,7 @@ export let REACT_FRAGMENT_TYPE = 0xeacb;
 
 `React`将一些辅助功能形成单独的包。包括如下文件夹：
 
-```text
+```js
 - react-is       # 用于测试组件是否是某类型
 - react-client   # 创建自定义的流
 - react-fetch    # 用于数据请求
