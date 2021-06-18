@@ -273,29 +273,24 @@ NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 > 双等号==： 
 
 ```js
-　　（1）如果两个值类型相同，再进行三个等号(===)的比较
-
-　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：
-
-　　　　a）如果一个是null，一个是undefined，那么相等
-
-　　　　b）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较
+（1）如果两个值类型相同，再进行三个等号(===)的比较
+（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：
+   a）如果一个是null，一个是undefined，那么相等
+   b）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较
 ```
 
 > 三等号===:
 
 ```js
-　　（1）如果类型不同，就一定不相等
+（1）如果类型不同，就一定不相等
 
-　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值是否是NaN，只能使用isNaN( ) 来判断）
+（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。
+（判断一个值是否是NaN，只能使用isNaN( ) 来判断）
 
-　　（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。
-
-　　（4）如果两个值都是true，或是false，那么相等
-
-　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等
-
-　　（6）如果两个值都是null，或是undefined，那么相等.
+（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。
+（4）如果两个值都是true，或是false，那么相等
+（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等
+（6）如果两个值都是null，或是undefined，那么相等.
 ```
 
 # 判断数据类型
@@ -427,10 +422,12 @@ const bool = true;
 console.log(bool.constructor === Boolean); // true
 
 const nul = null;
-// console.log(nul.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
+// console.log(nul.constructor); 
+// 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 
 const undefin = undefined;
-// console.log(undefin.constructor); // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
+// console.log(undefin.constructor); 
+// 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 ```
 
 `constructor` 和前面的 `typeof`、`instanceof` 不同，`typeof` 和 `instanceof` 是属于 **表达式和运算符** 分类下的，而 `constructor` 是直接关系到内置对象 `Object` 下。
@@ -499,9 +496,9 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 
 在[ES3](http://bclary.com/2004/11/07/)中，Object.prototype.toString方法的规范如下:
 
-> - 15.2.4.2 Object.prototype.toString()
+> 15.2.4.2 Object.prototype.toString()
 >
->   在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`**`连接后的新字符串.`3. 返回第二步的操作结果Result(2).
+> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`**`连接后的新字符串.`3. 返回第二步的操作结果Result(2).
 
 [[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性.在规范中，[[Class]]是这么定义的
 

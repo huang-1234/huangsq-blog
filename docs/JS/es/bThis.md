@@ -127,8 +127,10 @@ function sayName() {
 }
 sayName();
 //在node（严格）环境下输出：name：undefined
-//在浏览器环境输出： name：hsq。另外在sayName()调用的前面加window与不加都一样，这说明在全局调用的函数，其实都是调用window对象的属性.也就是this指向window
-// 另外如果加上’use strict‘这句话，即使在浏览器环境下，this也不指向window，而是指向undefined。因为没有对象调用这个方法。
+//在浏览器环境输出： name：hsq。另外在sayName()调用的前面加window与不加都一样，
+这说明在全局调用的函数，其实都是调用window对象的属性.也就是this指向window
+// 另外如果加上’use strict‘这句话，即使在浏览器环境下，this也不指向window，
+而是指向undefined。因为没有对象调用这个方法。
 ```
 
 ## `this` 与 `return`

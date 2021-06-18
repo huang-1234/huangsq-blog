@@ -75,7 +75,7 @@ console.log('Inside Global Execution Context');
 ExecutionContext = {
   ThisBinding = <this value>,
   LexicalEnvironment = { ... },
-  VariableEnvironment = { ... },
+  letiableEnvironment = { ... },
 }
 ```
 
@@ -156,17 +156,17 @@ FunctionExectionContext = {
 
 如上所述，变量环境也是一个词法环境，所以它有着上面定义的词法环境的所有属性。
 
-在 ES6 中，**词法环境**组件和**变量环境**的一个不同就是前者被用来存储函数声明和变量（`let` 和 `const`）绑定，而后者只用来存储 `var` 变量绑定。
+在 ES6 中，**词法环境**组件和**变量环境**的一个不同就是前者被用来存储函数声明和变量（`let` 和 `const`）绑定，而后者只用来存储 `let` 变量绑定。
 
 我们看点样例代码来理解上面的概念：
 
 ```js
 let a = 20;
 const b = 30;
-var c;
+let c;
 
 function multiply(e, f) {
- var g = 20;
+ let g = 20;
  return e * f * g;
 }
 
@@ -191,7 +191,7 @@ GlobalExectionContext = {
     outer: <null>
   },
 
-  VariableEnvironment: {
+  letiableEnvironment: {
     EnvironmentRecord: {
       Type: "Object",
       // 在这里绑定标识符
@@ -213,7 +213,7 @@ FunctionExectionContext = {
     outer: <GlobalLexicalEnvironment>
   },
 
-VariableEnvironment: {
+letiableEnvironment: {
     EnvironmentRecord: {
       Type: "Declarative",
       // 在这里绑定标识符
@@ -226,11 +226,11 @@ VariableEnvironment: {
 
 **注意** — 只有遇到调用函数 `multiply` 时，函数执行上下文才会被创建。
 
-可能你已经注意到 `let` 和 `const` 定义的变量并没有关联任何值，但 `var` 定义的变量被设成了 `undefined`。
+可能你已经注意到 `let` 和 `const` 定义的变量并没有关联任何值，但 `let` 定义的变量被设成了 `undefined`。
 
-这是因为在创建阶段时，引擎检查代码找出变量和函数声明，虽然函数声明完全存储在环境中，但是变量最初设置为 `undefined`（`var` 情况下），或者未初始化（`let` 和 `const` 情况下）。
+这是因为在创建阶段时，引擎检查代码找出变量和函数声明，虽然函数声明完全存储在环境中，但是变量最初设置为 `undefined`（`let` 情况下），或者未初始化（`let` 和 `const` 情况下）。
 
-这就是为什么你可以在声明之前访问 `var` 定义的变量（虽然是 `undefined`），但是在声明之前访问 `let` 和 `const` 的变量会得到一个引用错误。
+这就是为什么你可以在声明之前访问 `let` 定义的变量（虽然是 `undefined`），但是在声明之前访问 `let` 和 `const` 的变量会得到一个引用错误。
 
 这就是我们说的变量声明提升。
 
