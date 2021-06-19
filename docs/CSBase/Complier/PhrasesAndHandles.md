@@ -35,11 +35,11 @@ T ⇒ T*F
 
 **画出语法树为：**
 
-![img](PhrasesAndHandles.assets/1483449-20190621214719278-2019466211.png)
+![img](/images/CSBase/Complier/PhrasesAndHandles.assets/syntaxTree.png)
 
 **该语法树的 5 个子树及 5 个短语为：**
 
-![img](PhrasesAndHandles.assets/1483449-20190621214726660-1595534738.png)
+![img](/images/CSBase/Complier/PhrasesAndHandles.assets/fiveChildrenTree.png)
 
 **求直接短语方法：** 该句型的语法树有两颗直接子树（最左边的两颗子树），由这两颗直接子树的叶子结点组成的符号串（或者说只包含两层的子树叶子结点对应的），就是句型的两个直接短语，直接短语 P 和 T*F。
 
@@ -77,7 +77,7 @@ T ⇒ TF*
 
 **画出语法树：**
 
-![img](PhrasesAndHandles.assets/1483449-20190621214738620-1071719259.png)
+![img](/images/CSBase/Complier/PhrasesAndHandles.assets/tree3.png)
 
 **最终结果：**
 

@@ -234,7 +234,7 @@ LR 分析法根据当前分析栈中的符号串和向右顺序查看输入串�
 
 因为 β 表示由谁哪个非终结符推导的，这里就是上面状态【S→.L=R, #】这个非终结符 L 的后面的剩余串是 =R，a 表示它上一个状态中的向前搜索符，就是 #，拼接起来就是 =R#。
 
-![img](LR.assets/LR1Automata.png)
+![img](/images/CSBase/Complier/LR.assets/LR1Automata.png)
 
 （图片来源：中国大学慕课 -《编译原理》哈尔滨工业大学 陈老师）
 
@@ -251,7 +251,7 @@ LR 分析法根据当前分析栈中的符号串和向右顺序查看输入串�
 - 有了 .R，应该继续去找 R 为左部的产生式，因为有 R→L，所以 .S 和 .L 是两个等价的状态。
 - **注意：** 在找 R 的展望终结符时，**展望** 是通过展望后面的内容，所以展望对应的终结符，应该 **属于该非终结符的 FOLLOW 集（确切的说，属于 FOLLOW 集中的具体哪个个终结符，应该根据产生式的推导过程确定，通过语法树来分析，是最直观的方法）**
 
-![img](LR.assets/syntaxTree.png)
+![img](/images/CSBase/Complier/LR.assets/syntaxTree.png)
 （图片来源：中国大学慕课 -《编译原理》哈尔滨工业大学 陈老师）
 
 可以看出来 R 的展望应该有两种情况，一个是 =，一种是 #
@@ -264,7 +264,7 @@ LR 分析法根据当前分析栈中的符号串和向右顺序查看输入串�
 
 根据自动机即可构造 LL(1) 分析表：
 
-![img](LR.assets/analysisTable.png)
+![img](/images/CSBase/Complier/LR.assets/analysisTable.png)
 （图片来源：中国大学慕课 -《编译原理》哈尔滨工业大学 陈老师）
 
 **LL(1) 分析表解释补充：**

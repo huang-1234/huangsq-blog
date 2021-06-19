@@ -5,21 +5,6 @@
 [了解一下整个浏览器技术和互联网的发展史](http://www.evolutionoftheweb.com/?hl=zh-cn)
 
 
-
-
-
-<style>
-  a {
-    text-decoration:none;
-  }
-  a:hover{
-    color:red;
-  }
-  a:active{
-    color:#ceffff;
-  }
-</style>
-
 <a href='/JS/es/aJSType'>learn JS</a>
 
 <a href='/Styles/'>learn CSS</a>

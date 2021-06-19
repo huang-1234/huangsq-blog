@@ -119,7 +119,7 @@
 
 **定义：**
 
-![img](syntaxAlex.assets/FIRSTVTandLASTVT.png)
+![img](/images/CSBase/Complier/syntaxAlex.assets/FIRSTVTandLASTVT.png)
 
 **定义解释：**
 

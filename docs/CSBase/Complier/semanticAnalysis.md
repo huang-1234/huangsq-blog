@@ -182,7 +182,7 @@ DAG 图（Directed Acylic Graph）无环路有向图
 
 对于下面给出的求最大公因子的程序，可以根据基本块的构造规则与其划分基本块
 
-![img](semanticAnalysis.assets/1483449-20190623162307971-777419437.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162307971-777419437.png)
 
 **基本块构造步骤：**
 
@@ -225,17 +225,17 @@ n0 ：首结点。
 - ① 基本块 j 在程序的位置紧跟在i后，且 i 的出口语句不是无条件转移或停语句
 - ② i 的出口是 goto(S) 或 if goto(S)，而 (S) 是 j 的入口语句
 
-![img](semanticAnalysis.assets/1483449-20190623162326237-100769702.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162326237-100769702.png)
 
 ##### 构造程序控制流图
 
 对程序基本块：
 
-![img](semanticAnalysis.assets/1483449-20190623162307971-777419437.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162307971-777419437.png)
 
 构造以下程序控制流图：
 
-![img](semanticAnalysis.assets/1483449-20190623162226499-393249664.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162226499-393249664.png)
 
 #### （四）基本块的 DAG 表示
 
@@ -257,7 +257,7 @@ DAG Directed Acyclic Graph 无环路有向图
 
 按其四元式对应结点的后继个数分成四种类型：0型、1型、2型、3型
 
-![img](semanticAnalysis.assets/1483449-20190623162214686-48646760.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162214686-48646760.png)
 
 #### （五）DAG 图构造例题
 
@@ -283,7 +283,7 @@ DAG Directed Acyclic Graph 无环路有向图
 
 画图的步骤就是：根据基本块，一部一部组装
 
-![img](semanticAnalysis.assets/1483449-20190623162154304-133699150.png)
+![img](/images/CSBase/Complier/semanticAnalysis.assets/1483449-20190623162154304-133699150.png)
 
 **（2）假定只有 R，H 在基本块出口是活跃的，试写出优化后的 4 元式序列
 （只需要还原活跃变量）**

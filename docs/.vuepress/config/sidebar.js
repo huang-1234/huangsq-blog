@@ -29,6 +29,8 @@ const sidebar = {
   '/OtherOlogy/':getOtherOlogy(),
   // 工作和面试经历
   '/Interface/': getInterface(),
+  // 计算机基础
+  '/CSBase/':getCSBase(),
 }
 module.exports = {
   sidebar: sidebar,
@@ -569,6 +571,20 @@ function getInterface() {
       title: 'me',
       children: [
 
+      ]
+    }
+  ]
+}
+// 计算机基础
+function getCSBase() {
+  return [
+    {
+      title:'csBase',
+      children: [
+        'Complier/PhrasesAndHandles',
+        'Complier/semanticAnalysis',
+        'Complier/syntaxAlex',
+        'Complier/LR',
       ]
     }
   ]
