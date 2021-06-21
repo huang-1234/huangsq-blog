@@ -39,11 +39,6 @@ second.onchange = function() {
 **Note**: `postMessage()` 一次只能发送一个对象。如上所示，如果你想传递多个值，可以使用数组。
 
 
-
-
-
-
-
 ## sendmessage和postmessage的区别
 
 1、POSTMESSAGE(非阻塞)与SENDMESSAGE(阻塞)
@@ -64,7 +59,6 @@ SendMessage发送消息后，等待消息处理函数处理完后才返回。
 
 SendMessage的返回值是LRESULT,返回的是消息处理函数后的返回值。
 
- 
 
 区别3：同步和异步问题
 

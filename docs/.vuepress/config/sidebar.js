@@ -4,17 +4,20 @@ const sidebar = {
   '/HTML/': getHTML(),
   '/Styles/': getStyles(),
   '/TS/':getTS(),
-
+  // 浏览器
   '/BrowserCore/': getBrowserCore(),
   '/BrowserModel/': getBrowserModel(),
+  // Web
+  '/WebAPI/':getWebAPI(),
+  // '/WebStandard/': getWebStandard(),
+  // 前端三大框架和js库
+  '/JQuery/':getJQuery(),
+  '/Angular/':getAngular(),
   '/React/': getReact(),
-  // '/ReactExtends/':getReactExtends(),
   '/Vue/': getVue(),
   //以Node为代表的后端
   '/Node/': getNode(),
-  // c++
   '/Cplus/': getCplus(),
-  // Go
   '/Go/': getGo(),
 
 
@@ -295,6 +298,48 @@ function getBrowserModel() {
       children: [
         'netWork/TCPdiffUDP',
         'netWork/uniCode'
+      ]
+    }
+  ]
+}
+function getWebAPI() {
+  return [
+    {
+      title: 'WebAPI',
+      children: [
+        'Node/Node',
+        'Worker/postMessage',
+      ]
+    }
+  ]
+}
+// function getWebStandard() {
+//   return [
+//     {
+//       title: 'getWebStandard',
+//       children: [
+
+//       ]
+//     }
+//   ]
+// }
+
+function getJQuery() {
+  return [
+    {
+      titie: 'JQueryBase',
+      children: [
+        
+      ]
+    }
+  ]
+}
+function getAngular() {
+  return [
+    {
+      title: 'AngularBase',
+      children: [
+        
       ]
     }
   ]

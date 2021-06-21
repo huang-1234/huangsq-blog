@@ -16,6 +16,25 @@ const nav = [
         ]
       },
       {
+        text: 'Web',
+        items: [
+          { text: 'WebAPI', link: '/WebAPI/' },
+          { text: 'WebStandard', link: '/WebStandard/' }
+        ]
+      },
+      {
+        text: 'JQuery',
+        items: [
+          { text: 'JQueryBase', link: '/JQuery/' },
+        ]
+      },
+      {
+        text: 'Angular',
+        items: [
+          { text: 'AngularBase', link: '/Angular/' },
+        ]
+      },
+      {
         text: 'React',
         items: [
           { text: 'ReactBase', link: '/React/' },
