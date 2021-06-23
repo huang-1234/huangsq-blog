@@ -360,14 +360,23 @@ function getReact() {
       ]
     },
     {
-      title: 'ReactExtends',
+      title: 'react-api',
+      children: [
+        'reactApi/react.Component',
+        'reactApi/aboutHooks',
+        'reactApi/useHooks',
+        'reactApi/tool',
+      ]
+    },
+    {
+      title: 'reactExtends',
       children: [
         'ReactExtends/Fiber/Fiber',
         'ReactExtends/Fiber/Architecture',
         'ReactExtends/Fiber/RenderStage',
         'ReactExtends/Fiber/CommitStage',
       ]
-    }
+    },
   ]
 }
 // Vue基础和扩展

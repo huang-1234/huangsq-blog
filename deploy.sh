@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update complier'
+git commit -m 'update hooks and react-life'
 
 # git remote -v
 # git pull
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update complier'
+git commit -m 'update hooks and react-life'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull

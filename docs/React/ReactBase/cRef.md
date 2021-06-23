@@ -1,4 +1,4 @@
-# 引用组件实例Ref
+# 引用组件实例 Ref
 
 众所周知，React 通过声明式的渲染机制把复杂的 DOM 操作抽象成为简单的 state 与 props 操作，一时圈粉无数，一夜间将前端工程师从面条式的 DOM 操作中拯救出来。尽管我们一再强调在 React 开发中尽量避免 DOM 操作，但在一些场景中仍然无法避免。当然 React 并没有把路堵死，它提供了 ref 用于访问在 render 方法中创建的 DOM 元素或者是 React 组件实例。
 
@@ -8,7 +8,7 @@
 
 注意：本文以下代码示例以及源码均基于或来源于 React v16.3.2 release 版本。
 
-```js
+```jsx
 // string ref
 class MyComponent extends React.Component {
   componentDidMount() {
@@ -25,9 +25,13 @@ class MyComponent extends React.Component {
     this.myRef.focus();
   }
   render() {
-    return <input ref={(ele) => {
-      this.myRef = ele;
-    }} />;
+    return (
+      <input
+        ref={(ele) => {
+          this.myRef = ele;
+        }}
+      />
+    );
   }
 }
 
@@ -52,7 +56,7 @@ class MyComponent extends React.Component {
 
 - 当 ref 定义为 string 时，需要 React 追踪当前正在渲染的组件，在 reconciliation 阶段，React Element 创建和更新的过程中，ref 会被封装为一个闭包函数，等待 commit 阶段被执行，这会对 React 的性能产生一些影响。
 
-```js
+```jsx
 function coerceRef(
   returnFiber: Fiber,
   current: Fiber | null,
@@ -62,7 +66,7 @@ function coerceRef(
   const stringRef = '' + element.ref;
   // 从 fiber 中得到实例
   let inst = ownerFiber.stateNode;
-  
+
   // ref 闭包函数
   const ref = function(value) {
     const refs = inst.refs === emptyObject ? (inst.refs = {}) : inst.refs;
@@ -80,25 +84,25 @@ function coerceRef(
 
 - 当使用 render callback 模式时，使用 string ref 会造成 ref 挂载位置产生歧义。
 
-```js
+```jsx
 class MyComponent extends Component {
   renderRow = (index) => {
     // string ref 会挂载在 DataTable this 上
-    return <input ref={'input-' + index} />;
+    return <input ref={"input-" + index} />;
 
     // callback ref 会挂载在 MyComponent this 上
-    return <input ref={input => this['input-' + index] = input} />;
-  }
- 
+    return <input ref={(input) => (this["input-" + index] = input)} />;
+  };
+
   render() {
-    return <DataTable data={this.props.data} renderRow={this.renderRow} />
+    return <DataTable data={this.props.data} renderRow={this.renderRow} />;
   }
 }
 ```
 
 - string ref 无法被组合，例如一个第三方库的父组件已经给子组件传递了 ref，那么我们就无法再在子组件上添加 ref 了，而 callback ref 可完美解决此问题。
 
-```js
+```jsx
 /** string ref **/
 class Parent extends React.Component {
   componentDidMount() {
@@ -108,7 +112,7 @@ class Parent extends React.Component {
   render() {
     const { children } = this.props;
     return React.cloneElement(children, {
-      ref: 'childRef',
+      ref: "childRef",
     });
   }
 }
@@ -139,7 +143,7 @@ class Parent extends React.Component {
       ref: (child) => {
         this.childRef = child;
         children.ref && children.ref(child);
-      }
+      },
     });
   }
 }
@@ -152,9 +156,11 @@ class App extends React.Component {
   render() {
     return (
       <Parent>
-        <Child ref={(child) => {
-          this.child = child;
-        }} />
+        <Child
+          ref={(child) => {
+            this.child = child;
+          }}
+        />
       </Parent>
     );
   }
@@ -163,14 +169,14 @@ class App extends React.Component {
 
 - 在根组件上使用无法生效。
 
-```js
-ReactDOM.render(<App ref="app" />, document.getElementById('main')); 
+```jsx
+ReactDOM.render(<App ref="app" />, document.getElementById("main"));
 ```
 
 - 对于静态类型较不友好，当使用 string ref 时，必须显式声明 refs 的类型，无法完成自动推导。
 - 编译器无法将 string ref 与其 refs 上对应的属性进行混淆，而使用 callback ref，可被混淆。
 
-```js
+```jsx
 /** string ref，无法混淆 */
 this.refs.myRef
 <div ref="myRef"></div>
@@ -189,27 +195,29 @@ this.r
 
 createRef 显得更加直观，类似于 string ref，避免了 callback ref 的一些理解问题，对于 callback ref 我们通常会使用内联函数的形式，那么每次渲染都会重新创建，由于 react 会清理旧的 ref 然后设置新的（见下图，commitDetachRef -> commitAttachRef），因此更新期间会调用两次，第一次为 null，如果在 callback 中带有业务逻辑的话，可能会出错，当然可以通过将 callback 定义成类成员函数并进行绑定的方式避免。
 
-```js
+```jsx
 class App extends React.Component {
   state = {
     a: 1,
   };
-  
+
   componentDidMount() {
     this.setState({
       a: 2,
     });
   }
-  
+
   render() {
     return (
-      <div ref={(dom) => {
-        // 输出 3 次
-        // <div data-reactroot></div>
-        // null
-        // <div data-reactroot></div>
-        console.log(dom);
-      }}></div>
+      <div
+        ref={(dom) => {
+          // 输出 3 次
+          // <div data-reactroot></div>
+          // null
+          // <div data-reactroot></div>
+          console.log(dom);
+        }}
+      ></div>
     );
   }
 }
@@ -223,7 +231,7 @@ class App extends React.Component {
     super(props);
     this.refCallback = this.refCallback.bind(this);
   }
-  
+
   componentDidMount() {
     this.setState({
       a: 2,
@@ -235,18 +243,16 @@ class App extends React.Component {
     // <div data-reactroot></div>
     console.log(dom);
   }
-  
+
   render() {
-    return (
-      <div ref={this.refCallback}></div>
-    );
+    return <div ref={this.refCallback}></div>;
   }
 }
 ```
 
 不过不得不承认，createRef 在能力上仍逊色于 callback ref，例如上一节提到的组合问题，createRef 也是无能为力的。在 React v16.3 中，string ref/callback ref 与 createRef 的处理略有差别，让我们来看一下 ref 整个构建流程。
 
-```js
+```jsx
 // markRef 前会进行新旧 ref 的引用比较
 if (current.ref !== workInProgress.ref) {
   markRef(workInProgress);
@@ -256,7 +262,7 @@ if (current.ref !== workInProgress.ref) {
 function markRef(workInProgress: Fiber) {
   workInProgress.effectTag |= Ref;
 }
-  
+
 // effectTag 与 Ref 的 & 操作表示当前 fiber 有 ref 变更
 if (effectTag & Ref) {
   commitAttachRef(nextEffect);
@@ -278,7 +284,7 @@ function commitAttachRef(finishedWork: Fiber) {
     }
     // string ref 与 callback 都会去执行 ref 闭包函数
     // createRef 会直接挂在 object ref 的 current 上
-    if (typeof ref === 'function') {
+    if (typeof ref === "function") {
       ref(instanceToUse);
     } else {
       ref.current = instanceToUse;
@@ -293,14 +299,14 @@ function commitAttachRef(finishedWork: Fiber) {
 
 除了 createRef 以外，React16 还另外提供了一个关于 ref 的 API React.forwardRef，主要用于穿过父元素直接获取子元素的 ref。在提到 forwardRef 的使用场景之前，我们先来回顾一下，HOC（higher-order component）在 ref 使用上的问题，HOC 的 ref 是无法通过 props 进行传递的，因此无法直接获取被包裹组件（WrappedComponent），需要进行中转。
 
-```js
+```jsx
 function HOCProps(WrappedComponent) {
   class HOCComponent extends React.Component {
     constructor(props) {
       super(props);
       this.setWrappedInstance = this.setWrappedInstance.bind(this);
     }
-    
+
     getWrappedInstance() {
       return this.wrappedInstance;
     }
@@ -309,7 +315,7 @@ function HOCProps(WrappedComponent) {
     setWrappedInstance(ref) {
       this.wrappedInstance = ref;
     }
-    
+
     render() {
       return <WrappedComponent ref={this.setWrappedInstance} {...this.props} />;
     }
@@ -320,17 +326,19 @@ function HOCProps(WrappedComponent) {
 
 const App = HOCProps(Wrap);
 
-<App ref={(dom) => {
-  // 只能获取到 HOCComponent
-  console.log(dom);
-  // 通过中转后可以获取到 WrappedComponent
-  console.log(dom.getWrappedInstance());
-}} />
+<App
+  ref={(dom) => {
+    // 只能获取到 HOCComponent
+    console.log(dom);
+    // 通过中转后可以获取到 WrappedComponent
+    console.log(dom.getWrappedInstance());
+  }}
+/>;
 ```
 
 在拥有 forwardRef 之后，就不需要再通过 getWrappedInstance 了，利用 forwardRef 能直接穿透 HOCComponent 获取到 WrappedComponent。
 
-```js
+```jsx
 function HOCProps(WrappedComponent) {
   class HOCComponent extends React.Component {
     render() {
@@ -340,21 +348,23 @@ function HOCProps(WrappedComponent) {
   }
 
   return React.forwardRef((props, ref) => {
-    return <HOCComponent forwardedRef={ref} {...props}  />;
+    return <HOCComponent forwardedRef={ref} {...props} />;
   });
 }
 
 const App = HOCProps(Wrap);
 
-<App ref={(dom) => {
-  // 可以直接获取 WrappedComponent
-  console.log(dom);
-}} />
+<App
+  ref={(dom) => {
+    // 可以直接获取 WrappedComponent
+    console.log(dom);
+  }}
+/>;
 ```
 
 React.forwardRef 的原理其实非常简单，forwardRef 会生成 react 内部一种较为特殊的 Component。当进行创建更新操作时，会将 forwardRef 组件上的 props 与 ref 直接传递给提前注入的 render 函数，来生成 children。
 
-```js
+```jsx
 const nextChildren = render(workInProgress.pendingProps, workInProgress.ref);
 ```
 
