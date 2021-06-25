@@ -635,10 +635,10 @@ function getCSBase() {
     {
       title:'csBase',
       children: [
-        'Complier/PhrasesAndHandles',
-        'Complier/semanticAnalysis',
-        'Complier/syntaxAlex',
-        'Complier/LR',
+        'complier/PhrasesAndHandles',
+        'complier/semanticAnalysis',
+        'complier/syntaxAlex',
+        'complier/LR',
       ]
     }
   ]

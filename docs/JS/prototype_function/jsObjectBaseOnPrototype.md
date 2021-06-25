@@ -2,7 +2,7 @@
 
 ## 主题一、原型
 
-**一、基于原型的语言的特点**
+### 一、基于原型的语言的特点**
 
 1 只有对象,没有类;对象继承对象,而不是类继承类。
 
@@ -12,23 +12,21 @@
 
 显然，基于原型的语言比基于类的语言简单得多，**我们只需要知道"用对象去创建对象"，就可以在原型的世界里大行其道了！**
 
-**二、基于原型的语言中对象的创建**
-
- 
+### 二、基于原型的语言中对象的创建
 
 创建有两个步骤
 
-**1. 使用"原型对象"作为"模板"生成新对象**
+1. > 使用"原型对象"作为"模板"生成新对象
 
 这个步骤是必要的，这是每个对象出生的唯一方式。以原型为模板创建对象，这也是"原型"(prototype)的原意。
 
-**2. 初始化内部属性**
+2. > 初始化内部属性
 
 这一步骤不是必要的。通俗点说，就是，对"复制品"不满意，我们可以"再加工"，使之获得不同于"模板"的"个性"。
 
-这两个步骤很自然，也很好理解，比使用类构造对象从概念上简单得多了。对于习惯了java基于类的面向对象的语言的程序员, 这种"新颖"的生成对象的方式一定会让他们感到好奇。
+这两个步骤很自然，也很好理解，比使用类构造对象从概念上简单得多了。对于习惯了java基于类的面向对象的语言的程序员, 这种"新颖"的生成对象的方式一定会让他们感到好奇
 
-**三、原型，为复用代码而生**
+### 三、原型，为复用代码而生**
 
 使用原型，能复用代码，节省内存空间 
 
@@ -40,29 +38,21 @@ newObject = create(oldObject);
 
 那么新对象newObject同样具有属性name，值也是’Andy’，也有一个方法getName()。值得注意的是，**newObject并不是在内存中克隆了oldObject，它只是引用了oldObject的属性,** 导致实际的效果好像"复制"了newObject一样。
 
- 
-
  newObject = create(oldObject);创建的对象newObject只有一个属性，这个属性的值是原型对象的地址(或者引用)，如下图所示。
 
-![img](/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/__proto__.png)
+![img](./jsObjectBaseOnPrototype.assets/__proto__.png)
 
 当对象访问属性的时候，如果在内部找不到，那么会在原型对象中查找到属性；如果原型对象中仍然找不到属性，原型对象会查找自身的原型对象，如此循环下去，直至找到属性或者到达顶级对象。对象查找属性的过程所经过的对象构成一条链条，称之为原型链。**newObject,oldObject和topObject就构成一条原型链。**
 
- 
-
 下面列出newObject的3种的查找属性情况
 
- 
-
-newObject查找name，
+> newObject查找name，
 
 1 内部找不到，到原型对象中查找
 
 2 oldObject中查找到了name，成功返回；
 
- 
-
-newObject查找toString
+> newObject查找toString
 
 1 内部找不到,到原型对象中查找
 
@@ -70,9 +60,7 @@ newObject查找toString
 
 3 topObject中查找到了toString，成功返回；
 
- 
-
-newObject查找valueOf
+> newObject查找valueOf
 
 1 内部找不到,到原型对象中查找
 
@@ -80,15 +68,9 @@ newObject查找valueOf
 
 3 topObject中还是找不到，而且topObject是顶层对象，所以返回错误或者空值。
 
- 
-
 **对象会通过原型链动态地查找属性，对象的所拥有的属性并不是静态的。**如果原型链上的一个对象发生的改变，那么这个改变也会马上会反应到在原型链中处于该对象下方的所有对象。
 
- 
-
- 
-
-**三、继承**
+### 四、继承
 
 如果以oldObject为原型创建了newObject，那么可以说newObject继承了oldObject。
 
@@ -96,7 +78,7 @@ newObject查找valueOf
 
  
 
-**四、小结**
+### 小结
 
 原型的本质就是对象引用原型对象的属性，实现代码复用。
 
@@ -106,25 +88,17 @@ newObject查找valueOf
 
  
 
- 
+## 主题二、深刻理解JavaScript基于原型的面向对象
 
-主题二、深刻理解JavaScript基于原型的面向对象
-
- 
-
-**一、饱受争议的javascript**
-
- 
+### 一、饱受争议的javascript**
 
 javascript本质上是基于原型的语言，但是却引入了基于类的语言的new关键字和constructor模式，导致javascript饱受争议。
-
- 
 
 javascript的作者Brendan Eich 1994年研发这门语言的时候，C++语言是最流行的语言，java1.0即将发布，面向对象编程势不可挡，于是他认为，引入new关键字可以使习惯C++/java程序员更容易接受和使用javascript。
 
  
 
-实际上，事实证明引入new是个错误的决定。
+> 实际上，事实证明引入new是个错误的决定。
 
  
 
@@ -134,7 +108,7 @@ C++/java程序员看到new一个 function的时候，他们会认为js通过func
 
 另一方面，理解原型的程序员，也表示不高兴，因为居然要使用new function的语法来间接实现原型继承，三行代码才做到最基本的原型继承,下面是实现对象newObject继承对象oldObject的代码，
 
-```
+```js
 function F(){};  
 F.prototype = oldObject;  
 var newObject = new F();  
@@ -146,9 +120,11 @@ var newObject = create(oldObject);
 
 看到这样的代码，人们就会自然很清晰地联想到，newObject是以oldObject模板构造出来的。
 
- 
 
-**js是世界上最容易被误解的语言，原因主要有两个:**
+
+### js是世界上最容易被误解的语言
+
+原因主要有两个:
 
  
 
@@ -174,7 +150,7 @@ js在面向对象上遭遇的争议，完全是因为商业因素导致作者失
 
  
 
-**二、从原型本质，站在语言设计者角度，理解constructor模式**
+### 二、从原型本质，站在语言设计者角度，理解constructor模式
 
 假想我们是当时设计javascript继承机制的Brendan Eich，我们会怎么设计js的面向对象呢？
 
@@ -196,7 +172,7 @@ js在面向对象上遭遇的争议，完全是因为商业因素导致作者失
 
 
 
-```
+```js
 class Empolyee{  
     String name;  
     public Employee(String name){  
@@ -220,15 +196,13 @@ class Coder extends Employee {
 
 
 
-**1 实现创建对象**
+###  1 实现创建对象
 
  
 
 现有的对象都是基本类型，怎么创建用户自定义的对象呢？
 
-(解释：
-
-var i = 1;
+(解释：var i = 1;
 
 这里的i是解释器帮忙封装的Number对象，虽然看起来跟C的int没区别，但实际上可以i.toString()。
 
@@ -236,27 +210,23 @@ var i = 1;
 
 java使用构造函数来产生对象，我们尝试把java的Empolyee的构造函数代码拷贝下来，看看可不可以模仿
 
-```
+```js
 function Empolyee(name){  
     this.name = name;  
 }  
 ```
 
- 
-
 我们只要生成一个空对象obj，再把函数里面的this换成obj，执行函数，就可以生成自定义对象啦！我们把Employee这样用来创建对象的函数称作构造函数。
 
  
 
- 
+1) 首先我们用原生的方式为function添加方法call和apply，实现把把函数里面的this替换成obj。
 
-1) 首先我们用原生的方式为function添加方法call和apply，实现把把函数里面的this替换成obj。call,apply在Lisp语言中已经有实现，很好参考和实现。
-
- 
+call,apply在Lisp语言中已经有实现，很好参考和实现。
 
 2) 然后实现生成实例 
 
-```
+```js
 function Empolyee(name){  
     this.name = name;  
 }  
@@ -268,14 +238,14 @@ Employee.call(employee,'Jack');
 
 我们的function是第一类对象，可以运行时创建，可以当做变量赋值，所以没有问题
 
-```
+```js
 function Empolyee(name){  
     this.name = name;  
     this.getName = function(){return this.name};  
 }  
 ```
 
-**2 实现继承**
+###  2 实现继承
 
 创建对象成功了，接着考虑实现继承。现在我们所有数据都是对象，没有类，有两种方案摆在我们的面前
 
@@ -283,17 +253,13 @@ a.类继承
 
 b.原型继承
 
- 
-
-**2.a实现类继承**
-
- 
+###  2.a实现类继承
 
 a方案是首选方案，因为跟java相似的话，JS更容易被接受
 
 先粘贴Java构造函数的代码
 
-```
+```js
 function Coder extends Employee(name,language){  
     super(name);  
     this.language = language;  
@@ -320,19 +286,19 @@ a方案宣告失败
 
  
 
-**2.b 实现原型继承**
+###  2.b 实现原型继承
 
 看b方案。我们现在的js语言，一切都是对象，显然非常适合使用基于原型的继承方式，就看具体如何实现了。
 
+我们新建一个topObject来代表顶层对象,那么创建employee对象的时候，应该在employee对象内部设置一个属性引用topObject;
+
+同理,创建coder对象的时候,应该在coder对象内部设置一个属性引用employee对象,我们把这个引用原型对象的属性命名约定为"__proto__"。更进一步，为了构建一个对象的过程更自然，构建时候应该先在新对象中设置引用原型对象的属性，以表示先用模板制作出一个和模板一致的对象，然后再才执行构造函数初始化这个新对象自身的属性，以添加个性化的东西。具体实现代码如下：
+
  
 
-我们新建一个topObject来代表顶层对象,那么创建employee对象的时候，应该在employee对象内部设置一个属性引用topObject;同理,创建coder对象的时候,应该在coder对象内部设置一个属性引用employee对象,我们把这个引用原型对象的属性命名约定为"__proto__"。更进一步，为了构建一个对象的过程更自然，构建时候应该先在新对象中设置引用原型对象的属性，以表示先用模板制作出一个和模板一致的对象，然后再才执行构造函数初始化这个新对象自身的属性，以添加个性化的东西。具体实现代码如下：
-
- 
 
 
-
-```
+```js
 var topObject = {  
     __version__ : 1.0;  
 };  
@@ -362,21 +328,17 @@ Coder.call(coder,'Coder Jack','Java');
 
  
 
-**优化1. 函数封装**
-
- 
+###  优化1. 函数封装
 
 这一切看起来并不是那么美好，我们创建一个employee对象需要3行代码，我们需要这么一个函数封装这3行代码
 
 function newInstance(prototype,constructor,arg1,arg2,....);
 
-//第一个参数是原型对象，第二个是构造函数，后面的是构造函数的参数
+第一个参数是原型对象，第二个是构造函数，后面的是构造函数的参数
 
 可以这么实现
 
-
-
-```
+```js
 function sliceArguments(argumentsObj,n){  
     var args = [];  
     for(var i=0;i<argumentsObj.length;i++){  
@@ -385,7 +347,7 @@ function sliceArguments(argumentsObj,n){
         }  
     }  
 }  
-function newInstance(prototype,constructor){  
+function newInstance(prototype,constructor){
     var obj = {};  
     obj.__proto__ = prototype;  
     constructor.apply(obj,sliceArguments(arguments,2));  
@@ -396,9 +358,7 @@ var coder = newInstance(employee,Coder,'Coder Jack','Java');
 
 
 
-**优化2. 缩减参数**
-
- 
+###  优化2. 缩减参数
 
 仔细一看，function newInstance的参数可以更少,我们可以把原型对象prototype作为属性放在constructor，那样我们的函数就可以只有一个参数了。属性名就约定为prototype吧。
 
@@ -406,38 +366,45 @@ var coder = newInstance(employee,Coder,'Coder Jack','Java');
 
 2.2 优化后的代码如下
 
+```js
+// 看下new的js本质
+function newInstance(constructor) {
+  var obj = {};
+  obj.__proto__ = constructor.prototype;
+  const sliceArguments = function (arguParam,index) {
+    const outArr = [];
+    for (let i = index, Len = arguParam.length;i < Len;i++){
+      outArr[i-1] = arguParam[i]
+    }
+    return outArr
+  }
+  constructor.apply(obj, sliceArguments(arguments, 1));
+  return obj;
+}
+function Employee(name) {
+  this.name = name;
+  this.getName = function () {
+    return this.name
+  };
+}
+var employee = newInstance(Employee, 'Jack');
+var employee2 = newInstance(Employee, 'Jack2');
+var employee3 = newInstance(Employee, 'Jack3');
+function Coder(name, language) {
+  this.name = name;
+  this.language = language;
+  this.getLanguage = function () { return this.language };
+}
+Coder.prototype = newInstance(Employee, '');
 
-
+var coder = newInstance(Coder, 'Coder Jack', 'Java');
+var coder2 = newInstance(Coder, 'Coder Lee', 'C#');
+var coder3 = newInstance(Coder, 'Coder Liu', 'C++');
+var coder4 = newInstance(Coder, 'Coder Liu', 'JavaScript');
+console.log(coder,coder,coder,coder);
 ```
-function newInstance(constructor){  
-    var obj = {};  
-    obj.__proto__ = constructor.prototype;  
-    constructor.apply(obj,sliceArguments(arguments,1));  
-    return obj;  
-}  
-function Employee(name){  
-    this.name = name;  
-    this.getName = function(){return this.name};  
-}  
-var employee = newInstance(Empolyee,'Jack');  
-var employee2 = newInstance(Empolyee,'Jack2');  
-var employee3 = newInstance(Empolyee,'Jack3');  
-function Coder(name,language){  
-    this.name = name;  
-    this.language = language;  
-    this.getLanguage = function(){return this.language};  
-}  
-Coder.prototype = newInstance(Empolyee,'');  
-  
-var coder = newInstance(Coder,'Coder Jack','Java');  
-var coder2 = newInstance(Coder,'Coder Lee','C#');  
-var coder3 = newInstance(Coder,'Coder Liu','C++');  
-var coder4 = newInstance(Coder,'Coder Liu','JavaScript');  
-```
 
 
-
- 
 
 到达这一步，可以发现,我们的最终实现和Breandan Eich非常类似，在期待尽量模仿java创建对象的前提下，Brendan Eich 当时的设计是合乎情理的，是良好的。他相对于我们方案的唯一不同就是他使用了new关键字，而我们使用了newInstance函数。
 
@@ -517,7 +484,7 @@ __proto__指向Object.prototype的目的是为了使生成的实例对象继承�
 
 构造函数，原型对象，实例对象的**三角关系图**如下
 
-![img](/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/protoType__proto__.png)
+![img](/jsObjectBaseOnPrototype.assets/protoType__proto__.png)
 
 4) **可以修改或替换构造函数都会默认关联的原型对象。**需要注意的的是，不少资料说，如果是使用自定义的对象替换了构造函数f默认关联的原型对象，最好添加一行代码
 
@@ -633,7 +600,7 @@ Coder.prototype.isPrototypeOf(coder)//true
 
  单线箭头，表示的是对象继承关系。
 
-![img](/images/JS/selfFunction/jsObjectBaseOnPrototype.assets/extend.png)
+![img](/jsObjectBaseOnPrototype.assets/extend.png)
 
  
 

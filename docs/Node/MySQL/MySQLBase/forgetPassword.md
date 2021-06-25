@@ -1,6 +1,6 @@
 ## mysql root密码忘记重置密码
 
-```
+```js
 【摘要】因为每个系统mysql 的配置文件位置不同，我们只需要修改mysql的配置文件my.cnf即可实现免密登录 1、修改mysql配置文件 在mysql的配置文件里面添加skip-grant-tables保存即可 [mysqld] bind-address = 0.0.0.0 skip-grant-tables    #添加此行代码即可 2、重启mysql服务 servier  mys...
 ```
 

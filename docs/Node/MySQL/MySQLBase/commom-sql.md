@@ -1,11 +1,11 @@
 # mysql语句大全
 
-```
+### 操作数据库
+```sql
 #登录数据库
 mysql -hlocalhost -uroot -p;
 #修改密码
 mysqladmin -uroot -pold password new;
-
 
 #显示数据库
 show databases;
@@ -17,6 +17,10 @@ use examples;
 create database `examples` default character set utf8 collate utf8_general_ci;
 #删除数据库
 drop database examples;
+```
+
+### 表相关
+```sql
 #创建表
 create table test(
     id int(10) unsigned zerofill not null auto_increment,
@@ -41,6 +45,10 @@ alter table test drop cn;
 alter table test add index (cn,id);
 #删除索引
 alter table test drop index cn
+```
+
+### 数据操作
+```sql
 #插入数据
 insert into test (id,email,ip,state) values(2,'qq@qq.com','127.0.0.1','0');
 #删除数据 
@@ -83,8 +91,11 @@ alter table A add unique(name) #唯一索引
 alter table A add index name(name) #普通索引
 alter table A add fulltext(name) #全文索引
 alter table A add index name(id,name) #多列索引
+```
 
-#常用函数
+
+### 常用函数
+```sql
 abs(-1)#绝对值
 pi()#pi值
 sqrt(2)#平方根
@@ -127,28 +138,22 @@ bin(100),hex(100),oct(100)#返回二进制 十六进制 八进制
 conv(10001,2,8);#各种进制相互转换
 rand()#生成0到1之间随机数
 sleep(0.02)#暂停秒数
----------------------------------
 ```
 
 
 
-```
----------------------------------
-```
+### MySQL DATE_FORMAT() 函数
 
-# MySQL DATE_FORMAT() 函数
-
+```sql
 [MySQL Date 函数](http://www.w3school.com.cn/sql/sql_dates.asp)
 
 ## 定义和用法
-
 DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。
-
 ### 语法
+```
 
-```
 DATE_FORMAT(date,format)
-```
+```sql
 
  参数是合法的日期。 规定日期/时间的输出格式。
 
@@ -189,12 +194,12 @@ DATE_FORMAT(date,format)
 | %x   | 年，其中的星期一是周的第一天，4 位，与 %v 使用 |
 | %Y   | 年，4 位                                       |
 | %y   | 年，2 位                                       |
-
-## 实例
+```
+### 实例
 
 下面的脚本使用 DATE_FORMAT() 函数来显示不同的格式。我们使用 NOW() 来获得当前的日期/时间：
 
-```
+```sql
 DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')
 DATE_FORMAT(NOW(),'%m-%d-%Y')
 DATE_FORMAT(NOW(),'%d %b %y')

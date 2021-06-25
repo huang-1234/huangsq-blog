@@ -152,6 +152,44 @@ let p2 = new fn;
 console.log(p2.name); //输出：hsq
 ```
 
+> 没有返回值，或者返回值为一个非对象，this指向函数的实例
+
+```js
+function Person(name='huang',fullName='huangsq',age=18,sex='male') {
+  this.name = name;
+  this.fullName = fullName;
+  this.age = age
+  // return { sex:sex }
+  return 1
+}
+
+const p1 = new Person('jsHuang', 'jsHuangsq', 20, 'real male');
+const p2 = new Person;
+console.log(p1);  //Person { name: 'jsHuang', fullName: 'jsHuangsq', age: 20 }
+console.log(p2);  //Person { name: 'huang', fullName: 'huangsq', age: 18 }
+```
+
+> 返回值为一个对象，数组，或者类对象,this则指向那个对象。
+
+```js
+function Person(name='huang',fullName='huangsq',age=18,sex='male') {
+  this.name = name;
+  this.fullName = fullName;
+  this.age = age
+  // return { sex:sex }
+  return [1,2.3]
+}
+
+const p1 = new Person('jsHuang', 'jsHuangsq', 20, 'real male');
+const p2 = new Person;
+console.log(p1);  //[ 1, 2.3 ]
+console.log(p2);  //[ 1, 2.3 ]
+```
+
+
+
+
+
 **如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this则指向函数的实例。**
 
 ## `this` 优先级(优先级向下递减)
