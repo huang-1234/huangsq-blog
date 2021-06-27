@@ -504,11 +504,11 @@ type 属性不在内置规则的 token 将会被被传入 [renderToken](https://
 
 回到我们的例子中来：
 
-heading_open 会被渲染成 <h1>
+heading_open 会被渲染成`<h1>`
 
 inline 中的 js 会被渲染成 我是一个例子
 
-heading_close 会被渲染成 </h1>
+heading_close 会被渲染成` </h1>`
 
 ### markdown-it 插件
 
@@ -526,7 +526,7 @@ heading_close 会被渲染成 </h1>
 
 实际上，我们会逐行扫描，找到匹配 ::: tip 这样的内容块语法，将它作为一个块结构开始进行解析，直到有 ::: 的行结束。其中的每一行，都将解析为 paragraph_open、inline、paragraph_close。
 
-解析后的 token 流最后分别渲染 <div> 、若干 p 标签、 </div>。
+解析后的 token 流最后分别渲染` <div>` 、若干 p 标签、 `</div>`
 
 ### markdown-it-anchor
 
