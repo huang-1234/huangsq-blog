@@ -364,3 +364,38 @@ function App() {
 ```
 
 在这段代码中，我们使用 `startTransition` 包装了我们的数据获取。这使我们可以立即开始获取用户资料的数据，同时推迟下一个用户资料页面以及其关联的 `Spinner` 的渲染 2 秒钟（ `timeoutMs` 中显示的时间）。
+
+## useMyselfHooks
+
+### 自定义Hook
+
+自定义Hook是一个函数，其名称约定以use开头，以便可以看出这是一个Hooks方法。如果某函数的名称以use开头，并且调用了其他Hooks，就称其为一个自定义Hook。自定义Hook就像普通函数一样，可以定义任意的入参与出参，唯一要注意的是自定义Hook需要遵循Hooks的基本准则，如不能在条件循环中使用、不能在普通函数中使用。
+
+自定义Hook解决了之前React组件中的共享逻辑问题。通过自定义Hook，可将如表单处理、动画、声明订阅等逻辑抽象到函数中。自定义Hook是重用逻辑的一种方式，不受内部调用情况的约束。事实上，每次调用Hooks都会有一个完全隔离的状态。因此，可以在一个组件中使用两次相同的自定义Hook。下面是两个常用自定义Hook的示例：
+
+```js
+// 获取forceUpdate函数的自定义Hook
+export default function useForceUpdate() {
+    const [, dispatch] = useState(Object.create(null));
+    const memoizedDispatch = useCallback(() => {
+        // 引用变化
+        dispatch(Object.create(null));
+    }, [dispatch]);
+    return memoizedDispatch;
+}
+```
+
+获取某个变量上一次渲染的值：
+
+```js
+// 获取上一次渲染的值
+function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    }, [value]);
+    return ref.current;
+}
+```
+
+可基于基础的React Hooks定义许多自定义Hook，如useLocalStorage、useLocation、useHistory （将在第5章中进行介绍）等。将逻辑抽象到自定义Hook中后，代码将更具有可维护性。

@@ -823,7 +823,7 @@ render num:  4	testUseCallback.tsx?a1ea:25
 
 使用方法：
 
-```
+```tsx
 const handleClick = useCallback(()=>{
     // 业务代码
 },[ count ])
@@ -896,3 +896,95 @@ export default React.memo(ChildrenComponent, (prevProps, nextProps):boolean => {
   return true
 })
 ```
+
+### Memo
+
+为了提高React的运行性能，React v16.6.0提供了一个高阶组件——React.memo。当React.memo包装一个函数组件时，React会缓存输出的渲染结果，之后当遇到相同的渲染条件时，会跳过此次渲染。与React的PureComponent组件类似，React.memo默认使用了浅比较的缓存策略，但React.memo对应的是函数组件，而React.PureComponent对应的是类组件。React.memo的签名如下：
+
+```tsx
+function memo<P extends object>(  
+  Component: SFC<P>,  
+  propsAreEqual?: (prevProps: Readonly<PropsWithChildren<P>>, 
+  nextProps: Readonly<PropsWithChildren<P>>
+) => boolean): NamedExoticComponent<P>;
+```
+
+React.memo参数列表中的第一个参数接收一个函数组件，第二个参数表示可选的props比对函数。React.memo包装函数组件后，会返回一个新的记忆化组件。以一个示例来说明，若有一个子组件ChildComponent，没有通过React.memo记忆化：
+
+```tsx
+function ChildComponent({ count }) {
+    console.log('childComponent render', count);
+    return <>count:{count}</>;
+}
+const App = () => {
+    const [count] = useState(0);
+    const [childShow, setChild] = useState(true);
+    return (
+        <div>
+            {' '}
+            <button onClick={() => setChild(c => !c)}>隐藏/展示内容</button>{' '}
+            {childShow && <div>内容</div>} <ChildComponent count={count} />{' '}
+        </div>
+    );
+};
+```
+
+当重复单击按钮时，由于触发了重新渲染，ChildComponent将得到更新，将多次打印“childComponent render”。若引入React.memo(ChildComponent)缓存组件，则在渲染组件时，React将进行检查。如果该组件渲染的props与先前渲染的props不同，则React将触发渲染；反之，如果props前后没有变化，则React不执行渲染，更不会执行虚拟DOM差异检查，其将使用上一次的渲染结果。
+
+```tsx
+function ChildComponent({ count }) {
+    console.log('childComponent render');
+    return <>count:{count}</>;
+}
+const MemoChildComponent = React.memo(ChildComponent);
+const App = () => {
+    const [count] = useState(0);
+    const [childShow, setChild] = useState(true);
+    return (
+        <div>
+            {' '}
+            <button onClick={() => setChild(c => !c)}> 隐藏/展示内容</button>{' '}
+            {childShow && <div>内容</div>} <MemoChildComponent count={count} />{' '}
+        </div>
+    );
+};
+```
+
+当单击“隐藏/展示内容”按钮时，会导致重新渲染，但由于原组件通过React.memo包装过，使用了包装后的组件MemoChildComponent，在多次渲染时props没有变化，因此这时不会多次打印“childComponent render”。
+
+同时，React.memo可以使用第二个参数propsAreEqual来自定义渲染与否的逻辑：
+
+```tsx
+const MemoChildComponent = React.memo(ChildComponent, function propsAreEqual(prevProps, nextProps) {
+    return prevProps.count === nextProps.count;
+});
+```
+
+propsAreEqual接收上一次的prevProps与即将渲染的nextProps，函数返回的boolean值表明前后的props是否相等。若返回“true”，则认为前后props相等；反之，则认为不相等，React将根据函数的返回值决定组件的渲染情况（与shouldComponentUpdate类似）。因此，可认为函数返回“true”，props相等，不进行渲染；函数返回“false”则认为props有变化，React会执行渲染。 注意，不能把React.memo放在组件渲染过程中。
+
+```tsx
+const App = () => {
+    // 每次都获得新的记忆化组件
+    const MemoChildComponent = React.memo(ChildComponent);
+    const [count] = useState(0);
+    const [childShow, setChild] = useState(true);
+    return (
+        <div>
+            {' '}
+            <button onClick={() => setChild(c => !c)}>隐藏/展示内容</button>{' '}
+            {childShow && <div>内容</div>} <MemoChildComponent count={count} />{' '}
+        </div>
+    );
+};
+```
+
+这相当于每次渲染都开辟一块新的缓存，原缓存无法得到利用，React.memo的记忆化将失效，开发者需要特别注意。
+
+## 参考文献
+
+- [https://zh-hans.reactjs.org/d...](https://zh-hans.reactjs.org/docs/context.html.)
+- [https://en.wikipedia.org/wiki...](https://en.wikipedia.org/wiki/Sideeffect(computer_science).)
+- [https://zh-hans.reactjs.org/d...](https://zh-hans.reactjs.org/docs/hooks-reference.html#usecontext.)
+- [https://github.com/facebook/r...](https://github.com/facebook/react/blob/v16.8.6/packages/shared/shallowEqual.js.)
+- [https://developer.mozilla.org...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description.)
+
