@@ -16,7 +16,7 @@ const sidebar = {
   '/React/': getReact(),
   '/Vue/': getVue(),
   //以Node为代表的后端
-  '/Node/': getNode(),
+  '/BE/': getNode(),
   '/Cplus/': getCplus(),
   '/Go/': getGo(),
 
@@ -329,7 +329,7 @@ function getJQuery() {
     {
       titie: 'JQueryBase',
       children: [
-        
+
       ]
     }
   ]
@@ -339,7 +339,7 @@ function getAngular() {
     {
       title: 'AngularBase',
       children: [
-        
+
       ]
     }
   ]

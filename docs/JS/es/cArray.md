@@ -168,6 +168,7 @@ console.log(promise['var']);
 
 
 ![JS几种数组遍历方式以及性能分析对比2](cArray.assets/6e424f8bfc9fad4e4c044d38351a0f3c1603445364296)
+<img src="cArray.assets/6e424f8bfc9fad4e4c044d38351a0f3c1603445364296" alt="JS几种数组遍历方式以及性能分析对比2" style="zoom:100%;" />
 
 ## length 和数字下标之间的关系
 
@@ -230,11 +231,11 @@ myArray = myRe.exec("Shuiqing");
 
 下面的这些方法会改变调用它们的对象自身的值：
 
-- [`Array.prototype.copyWithin()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin) 
+- [`Array.prototype.copyWithin()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
 
   在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。
 
-- [`Array.prototype.fill()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill) 
+- [`Array.prototype.fill()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
 
   将数组中指定区间的所有元素的值，都替换成某个固定的值。
 
@@ -276,7 +277,7 @@ myArray = myRe.exec("Shuiqing");
 
   返回一个由当前数组和其它若干个数组或者若干个非数组值组合而成的新数组。
 
-- [`Array.prototype.includes()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) 
+- [`Array.prototype.includes()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
 
   判断当前数组是否包含某指定的值，如果是返回 `true`，否则返回 `false`。
 
@@ -288,7 +289,7 @@ myArray = myRe.exec("Shuiqing");
 
   抽取当前数组中的一段元素组合成一个新数组。
 
-- [`Array.prototype.toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toSource) 
+- [`Array.prototype.toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toSource)
 
   返回一个表示当前数组字面量的字符串。遮蔽了原型链上的 [`Object.prototype.toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource) 方法。
 
@@ -307,7 +308,7 @@ myArray = myRe.exec("Shuiqing");
 - [`Array.prototype.lastIndexOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
 
   返回数组中最后一个（从右边数第一个）与指定值相等的元素的索引，如果找不到这样的元素，则返回 -1。
-  
+
 ## 迭代方法
 
 在下面的众多遍历方法中，有很多方法都需要指定一个回调函数作为参数。在每一个数组元素都分别执行完回调函数之前，数组的length属性会被缓存在某个地方，所以，如果你在回调函数中为当前数组添加了新的元素，那么那些新添加的元素是不会被遍历到的。此外，如果在回调函数中对当前数组进行了其它修改，比如改变某个元素的值或者删掉某个元素，那么随后的遍历操作可能会受到未预期的影响。总之，不要尝试在遍历过程中对原数组进行任何修改，虽然规范对这样的操作进行了详细的定义，但为了可读性和可维护性，请不要这样做。
@@ -316,7 +317,7 @@ myArray = myRe.exec("Shuiqing");
 
   为数组中的每个元素执行一次回调函数。
 
-- [`Array.prototype.entries()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries) 
+- [`Array.prototype.entries()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)
 
   返回一个数组迭代器对象，该迭代器会包含所有数组元素的键值对。
 
@@ -332,15 +333,15 @@ myArray = myRe.exec("Shuiqing");
 
   将所有在过滤函数中返回 `true` 的数组元素放进一个新数组中并返回。
 
-- [`Array.prototype.find()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find) 
+- [`Array.prototype.find()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
   找到第一个满足测试函数的元素并返回那个元素的值，如果找不到，则返回 `undefined`。
 
-- [`Array.prototype.findIndex()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) 
+- [`Array.prototype.findIndex()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
 
   找到第一个满足测试函数的元素并返回那个元素的索引，如果找不到，则返回 `-1`。
 
-- [`Array.prototype.keys()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys) 
+- [`Array.prototype.keys()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys)
 
   返回一个数组迭代器对象，该迭代器会包含所有数组元素的键。
 
@@ -356,11 +357,11 @@ myArray = myRe.exec("Shuiqing");
 
   从右到左为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值。
 
-- [`Array.prototype.values()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values) 
+- [`Array.prototype.values()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values)
 
   返回一个数组迭代器对象，该迭代器会包含所有数组元素的值。
 
-- [`Array.prototype[@@iterator]()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator) 
+- [`Array.prototype[@@iterator]()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)
 
   和上面的 `values() 方法是同一个函数。`
 

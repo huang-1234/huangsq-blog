@@ -55,7 +55,7 @@ const nav = [
       {
         text: 'Nodejs',
         items: [
-          { text: 'NodeBase', link: '/Node/' }
+          { text: 'NodeBase', link: '/BE/' }
         ]
       },
       {
@@ -118,7 +118,7 @@ const nav = [
 
 ];
 
-// 
+//
 module.exports = {
   nav: nav
 };

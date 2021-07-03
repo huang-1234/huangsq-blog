@@ -14,7 +14,7 @@
 
 #### interface
 
-```
+```ts
 interface User {
   name: string
   age: number
@@ -27,7 +27,7 @@ interface SetUser {
 
 #### type
 
-```
+```ts
 type User = {
   name: string
   age: number
@@ -44,7 +44,7 @@ interface 可以 extends， 但 type 是不允许 extends 和 implement 的，**
 
 #### interface extends interface
 
-```
+```ts
 interface Name { 
   name: string; 
 }
@@ -55,7 +55,7 @@ interface User extends Name {
 
 #### type 与 type 交叉
 
-```
+```ts
 type Name = { 
   name: string; 
 }
@@ -64,7 +64,7 @@ type User = Name & { age: number  };
 
 #### interface extends type
 
-```
+```ts
 type Name = { 
   name: string; 
 }
@@ -75,7 +75,7 @@ interface User extends Name {
 
 #### type 与 interface 交叉
 
-```
+```ts
 interface Name { 
   name: string; 
 }
@@ -90,7 +90,7 @@ type User = Name & {
 
 - type 可以声明基本类型别名，联合类型，元组等类型
 
-```
+```ts
 // 基本类型别名
 type Name = string
 
@@ -110,7 +110,7 @@ type PetList = [Dog, Pet]
 
 - type 语句中还可以使用 typeof 获取实例的 类型进行赋值
 
-```
+```ts
 // 当你想获取一个变量的类型时，使用 typeof
 let div = document.createElement('div');
 type B = typeof div
@@ -118,7 +118,7 @@ type B = typeof div
 
 - 其他骚操作
 
-```
+```ts
 type StringOrNumber = string | number;  
 type Text = string | { text: string };  
 type NameLookup = Dictionary<string, Person>;  
@@ -132,7 +132,7 @@ type Tree<T> = T | { left: Tree<T>, right: Tree<T> };
 
 interface 能够声明合并
 
-```
+```ts
 interface User {
   name: string
   age: number
