@@ -12,14 +12,14 @@ ECMAScript 标准提供的内置对象有：
 
 我们可以在 TypeScript 中将变量定义为这些类型：
 
-```js
+```ts
 let B: Boolean = new Boolean('1');
 console.log(B); //Boolean {true}
 ```
 
 而他们的定义文件，则在 [TypeScript 核心库的定义文件](https://github.com/Microsoft/TypeScript/tree/master/src/lib)中。
 
-```js
+```ts
 interface Boolean {
     /** Returns the primitive value of the specified object. */
     valueOf(): boolean;
@@ -37,13 +37,13 @@ DOM 和 BOM 提供的内置对象有：
 
 `Document`、`HTMLElement`、`Event`、`NodeList` 等。
 
-```js
+```ts
 let body: HTMLElement = document.body;
 ```
 
 它们的定义文件同样在 [TypeScript 核心库的定义文件](https://github.com/Microsoft/TypeScript/tree/master/src/lib)中。
 
-```js
+```ts
 interface HTMLElement extends Element { }
 ```
 
@@ -53,14 +53,14 @@ interface HTMLElement extends Element { }
 
 当你在使用一些常用的方法的时候，TypeScript 实际上已经帮你做了很多类型判断的工作了，比如：
 
-```js
+```ts
 Math.pow(10, '2');
 //Argument of type '"2"' is not assignable to parameter of type 'number'.
 ```
 
 定义如下：
 
-```js
+```ts
 interface Math {
     /**
      * Returns the value of a base expression taken to a specified power.

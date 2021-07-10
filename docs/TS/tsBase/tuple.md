@@ -4,19 +4,19 @@
 
 我们先来看一个数组和这个数组注解的缺点，比如我们有一个小姐姐数组，数组中有姓名、职业和年龄，代码如下：
 
-```js
+```ts
 const boy = ["yiyang", "teacher", 28];
 ```
 
 这时候把鼠标放到`boy`变量上面，可以看出推断出来的类型。我们就用类型注解的形式给他作一个注解，代码如下：
 
-```js
+```ts
 const boy: (string | number)[] = ["yiyang", "teacher", 28];
 ```
 
 这时候你已经增加了代码注解，但是这并不能很好的限制，比如我们把代码改成下面的样子，`TypeScript`依然不会报错。
 
-```js
+```ts
 const boy: (string | number)[] = ["yiyang", 28, "teacher"];
 ```
 
@@ -24,7 +24,7 @@ const boy: (string | number)[] = ["yiyang", 28, "teacher"];
 
 元组和数组类似，但是类型注解时会不一样。
 
-```js
+```ts
 const boy: [string, string, number] = ["yiyang", "teacher", 28];
 ```
 
@@ -34,7 +34,7 @@ const boy: [string, string, number] = ["yiyang", "teacher", 28];
 
 目前我的工作中不经常使用元组，因为如果要使用元组，完全可以使用对象的形式来代替，但是如果你维护老系统，你会发现有一种数据源时`CSV`,这种文件提供的就是用逗号隔开的，如果要严谨的编程就需要用到元组了。例如我们有这样一组由`CSV`提供的（注意这里只是模拟数据）。
 
-```js
+```ts
 "yiyang", "teacher", 28;
 "niuniu", "teacher", 18;
 "chenyu", "teacher", 25;
@@ -42,7 +42,7 @@ const boy: [string, string, number] = ["yiyang", "teacher", 28];
 
 如果数据源得到的数据时这样的，你就可以使用元组了。
 
-```js
+```ts
 const boys: [string, string, number][] = [
   ["yiyang", "teacher", 28],
   ["niuniu", "teacher", 18],

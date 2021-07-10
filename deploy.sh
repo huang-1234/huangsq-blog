@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update hooks and react-life'
+git commit -m 'update regExp'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull
