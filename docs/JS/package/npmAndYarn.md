@@ -220,3 +220,80 @@ cheerio	抓取页面模块
 安装node_modules缺失的包
 npm install --ignore-scripts=false --verbose
 
+## 安装包的区别
+
+首先看下这个表现：
+
+```bash
+13770@HSQ MINGW64 /g/Study/Code/Web/learnFrontTest/Webpack/xc-cli (master)
+$ npm i
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: xc-cli@1.0.0
+npm ERR! Found: webpack@3.12.0
+npm ERR! node_modules/webpack
+npm ERR!   dev webpack@"^3.10.0" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer webpack@"^4.0.0 || ^5.0.0" from file-loader@6.2.0
+npm ERR! node_modules/file-loader
+npm ERR!   peer file-loader@"*" from url-loader@0.6.2
+npm ERR!   node_modules/url-loader
+npm ERR!     dev url-loader@"^0.6.2" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See F:\JS_SoftWare\node.js\node_cache\eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     F:\JS_SoftWare\node.js\node_cache\_logs\2021-07-11T01_19_38_135Z-debug.log
+
+13770@HSQ MINGW64 /g/Study/Code/Web/learnFrontTest/Webpack/xc-cli (master)
+$ yarn
+yarn install v1.22.10
+info No lockfile found.
+[1/4] Resolving packages...
+warning babel-core > babel-register > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of 
+issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
+warning babel-core > babel-runtime > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
+warning babel-polyfill > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, 
+upgrade your dependencies to the actual version of core-js.
+warning css-loader > cssnano > autoprefixer > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other 
+tools.
+warning css-loader > cssnano > postcss-merge-rules > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
+warning css-loader > cssnano > postcss-merge-rules > caniuse-api > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 
+config used in other tools.
+warning extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+warning html-webpack-plugin@2.30.1: out of support
+warning less > request > har-validator@4.2.1: this library is no longer supported
+warning less > request > hawk@3.1.3: This module moved to @hapi/hawk. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+warning less > request > hawk > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid 
+support is available for older versions (hapi.im/commercial).
+warning less > request > hawk > cryptiles@2.0.5: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+warning less > request > hawk > boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid 
+support is available for older versions (hapi.im/commercial).
+warning less > request > hawk > cryptiles > boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+warning less > request > hawk > boom > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+warning less > request > hawk > sntp@1.0.9: This module moved to @hapi/sntp. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
+warning less > request > hawk > sntp > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
+warning webpack > watchpack > watchpack-chokidar2 > chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+warning webpack > node-libs-browser > url > querystring@0.2.0: The
+warning webpack > watchpack > watchpack-chokidar2 > chokidar > fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+warning webpack > watchpack > watchpack-chokidar2 > chokidar > braces > snapdragon > source-map-resolve > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning webpack > watchpack > watchpack-chokidar2 > chokidar > braces > snapdragon > source-map-resolve > resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+warning webpack-dev-server > chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+[2/4] Fetching packages...
+info fsevents@2.3.2: The platform "win32" is incompatible with this module.
+info "fsevents@2.3.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "win32" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > url-loader@0.6.2" has unmet peer dependency "file-loader@*".
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 272.28s.
+```
+

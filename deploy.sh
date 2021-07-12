@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update hooks and react-life'
+git commit -m 'update dec of ts'
 
 # git remote -v
 # git pull
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update regExp'
+git commit -m 'update dec of ts'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull
