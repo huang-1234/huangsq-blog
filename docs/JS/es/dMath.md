@@ -246,16 +246,40 @@ function getRandomIntInclusive(min, max) {
 }
 ```
 
-## Math.floor()
+## javascript取整方法floor、round、ceil
 
-`**Math.floor()**` 返回小于或等于一个给定数字的最大整数。
+**floor向下取整:**
 
-Note: 可以理解 `**Math.floor()**`为向下取整
+```js
+Math.floor(0.20); // 0
+Math.floor(0.90); // 0
+Math.floor(-0.90); // -1
+Math.floor(-0.20); // -1
+```
+
+**round四舍五入**
+
+```js
+Math.round(0.2) // 0
+Math.round(0.9) // 1
+Math.round(-0.9) // -1
+Math.round(-0.2) // 0
+```
+
+**ceil向上取整**
+
+```js
+Math.ceil(0.2) // 1
+Math.ceil(0.9) // 1
+Math.ceil(-0.9) // 0
+Math.ceil(-0.2) // 0
+```
 
 ## Math.max()
 
-`**Math.max()**` 函数返回一组数中的最大值。
+`Math.max()` 函数返回一组数中的最大值。
 
 > 返回值
 
 返回给定的一组数字中的最大值。如果给定的参数中至少有一个参数无法被转换成数字，则会返回 [`NaN`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN)。
+
