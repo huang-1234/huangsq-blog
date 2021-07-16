@@ -57,7 +57,7 @@ git remote add origin
 删除与远程仓库的关联就比较简单了，直接输入以下命令：
 
 ```git
-$ git remote rm **github**
+$ git remote rm github
 ```
 
 **注意：** 以上**github** 是远程仓库在本地Git中的名称。就是上面的origin
