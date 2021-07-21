@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue变化侦测原理 | H先森</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+    <meta name="description" content="From FE Arch、To Full Stack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.e16fe094.css" as="style"><link rel="preload" href="/assets/js/app.7a931dbd.js" as="script"><link rel="preload" href="/assets/js/3.cb1bd57e.js" as="script"><link rel="preload" href="/assets/js/1.76b43f87.js" as="script"><link rel="preload" href="/assets/js/459.1c8af501.js" as="script"><link rel="prefetch" href="/assets/js/10.f7968b57.js"><link rel="prefetch" href="/assets/js/100.0a35b7aa.js"><link rel="prefetch" href="/assets/js/101.28b47d31.js"><link rel="prefetch" href="/assets/js/102.44bb77a6.js"><link rel="prefetch" href="/assets/js/103.d50ca5d6.js"><link rel="prefetch" href="/assets/js/104.5cb3044b.js"><link rel="prefetch" href="/assets/js/105.44fee43b.js"><link rel="prefetch" href="/assets/js/106.e83e34ef.js"><link rel="prefetch" href="/assets/js/107.47535d2f.js"><link rel="prefetch" href="/assets/js/108.da25818e.js"><link rel="prefetch" href="/assets/js/109.f9808a3e.js"><link rel="prefetch" href="/assets/js/11.9d739371.js"><link rel="prefetch" href="/assets/js/110.b31f01c4.js"><link rel="prefetch" href="/assets/js/111.777c4cc8.js"><link rel="prefetch" href="/assets/js/112.6daaa871.js"><link rel="prefetch" href="/assets/js/113.05145e77.js"><link rel="prefetch" href="/assets/js/114.852f8aa5.js"><link rel="prefetch" href="/assets/js/115.9626ea3d.js"><link rel="prefetch" href="/assets/js/116.f002fb73.js"><link rel="prefetch" href="/assets/js/117.8757b698.js"><link rel="prefetch" href="/assets/js/118.0af4189e.js"><link rel="prefetch" href="/assets/js/119.f8ebb71c.js"><link rel="prefetch" href="/assets/js/12.df60c4af.js"><link rel="prefetch" href="/assets/js/120.821e605b.js"><link rel="prefetch" href="/assets/js/121.822e632c.js"><link rel="prefetch" href="/assets/js/122.b282e5e0.js"><link rel="prefetch" href="/assets/js/123.907309ae.js"><link rel="prefetch" href="/assets/js/124.94a90d9d.js"><link rel="prefetch" href="/assets/js/125.d16e84ee.js"><link rel="prefetch" href="/assets/js/126.86a4d740.js"><link rel="prefetch" href="/assets/js/127.79a6c5a3.js"><link rel="prefetch" href="/assets/js/128.073722bb.js"><link rel="prefetch" href="/assets/js/129.fb854f9b.js"><link rel="prefetch" href="/assets/js/13.0cce83ea.js"><link rel="prefetch" href="/assets/js/130.eb93dddf.js"><link rel="prefetch" href="/assets/js/131.43fde497.js"><link rel="prefetch" href="/assets/js/132.e9bd8521.js"><link rel="prefetch" href="/assets/js/133.2b057a2f.js"><link rel="prefetch" href="/assets/js/134.490d63a3.js"><link rel="prefetch" href="/assets/js/135.498e3920.js"><link rel="prefetch" href="/assets/js/136.8c193e39.js"><link rel="prefetch" href="/assets/js/137.72c28dab.js"><link rel="prefetch" href="/assets/js/138.4409711d.js"><link rel="prefetch" href="/assets/js/139.986d69a5.js"><link rel="prefetch" href="/assets/js/14.8ebfd10a.js"><link rel="prefetch" href="/assets/js/140.3276c923.js"><link rel="prefetch" href="/assets/js/141.83b62f04.js"><link rel="prefetch" href="/assets/js/142.c0d87649.js"><link rel="prefetch" href="/assets/js/143.1e4a18bc.js"><link rel="prefetch" href="/assets/js/144.a6fd687b.js"><link rel="prefetch" href="/assets/js/145.16a42457.js"><link rel="prefetch" href="/assets/js/146.f4af405b.js"><link rel="prefetch" href="/assets/js/147.2ca97d43.js"><link rel="prefetch" href="/assets/js/148.073039aa.js"><link rel="prefetch" href="/assets/js/149.b74b6154.js"><link rel="prefetch" href="/assets/js/15.f0a85aaf.js"><link rel="prefetch" href="/assets/js/150.53d97faf.js"><link rel="prefetch" href="/assets/js/151.2727431a.js"><link rel="prefetch" href="/assets/js/152.185a6195.js"><link rel="prefetch" href="/assets/js/153.a8f4d078.js"><link rel="prefetch" href="/assets/js/154.b3b685dc.js"><link rel="prefetch" href="/assets/js/155.7c661b78.js"><link rel="prefetch" href="/assets/js/156.652f0028.js"><link rel="prefetch" href="/assets/js/157.8c9d30d3.js"><link rel="prefetch" href="/assets/js/158.5d243f10.js"><link rel="prefetch" href="/assets/js/159.2b121e02.js"><link rel="prefetch" href="/assets/js/16.120c65f0.js"><link rel="prefetch" href="/assets/js/160.4f7a6efe.js"><link rel="prefetch" href="/assets/js/161.c84cee5a.js"><link rel="prefetch" href="/assets/js/162.e72c47f6.js"><link rel="prefetch" href="/assets/js/163.cc63ec11.js"><link rel="prefetch" href="/assets/js/164.78ab4510.js"><link rel="prefetch" href="/assets/js/165.64453a8e.js"><link rel="prefetch" href="/assets/js/166.173d924c.js"><link rel="prefetch" href="/assets/js/167.32a14cb8.js"><link rel="prefetch" href="/assets/js/168.577cedfa.js"><link rel="prefetch" href="/assets/js/169.6220bf0b.js"><link rel="prefetch" href="/assets/js/17.bf53e77a.js"><link rel="prefetch" href="/assets/js/170.696a7577.js"><link rel="prefetch" href="/assets/js/171.df68bfc5.js"><link rel="prefetch" href="/assets/js/172.8c4f0e72.js"><link rel="prefetch" href="/assets/js/173.554999f9.js"><link rel="prefetch" href="/assets/js/174.647f4443.js"><link rel="prefetch" href="/assets/js/175.e610702c.js"><link rel="prefetch" href="/assets/js/176.37f4f52b.js"><link rel="prefetch" href="/assets/js/177.93980159.js"><link rel="prefetch" href="/assets/js/178.c4d027c3.js"><link rel="prefetch" href="/assets/js/179.3f1c1c4d.js"><link rel="prefetch" href="/assets/js/18.95f92415.js"><link rel="prefetch" href="/assets/js/180.6607e7c1.js"><link rel="prefetch" href="/assets/js/181.823ac9f5.js"><link rel="prefetch" href="/assets/js/182.868888ad.js"><link rel="prefetch" href="/assets/js/183.21f57a2d.js"><link rel="prefetch" href="/assets/js/184.e0d08b3e.js"><link rel="prefetch" href="/assets/js/185.ea578a2e.js"><link rel="prefetch" href="/assets/js/186.71f730ea.js"><link rel="prefetch" href="/assets/js/187.2445a492.js"><link rel="prefetch" href="/assets/js/188.166e639f.js"><link rel="prefetch" href="/assets/js/189.59eb02bc.js"><link rel="prefetch" href="/assets/js/19.6ec9118d.js"><link rel="prefetch" href="/assets/js/190.72309005.js"><link rel="prefetch" href="/assets/js/191.0ddd2e23.js"><link rel="prefetch" href="/assets/js/192.c4ff7887.js"><link rel="prefetch" href="/assets/js/193.e7d4aab5.js"><link rel="prefetch" href="/assets/js/194.10f14566.js"><link rel="prefetch" href="/assets/js/195.4d62ba8e.js"><link rel="prefetch" href="/assets/js/196.d626f365.js"><link rel="prefetch" href="/assets/js/197.3204d102.js"><link rel="prefetch" href="/assets/js/198.1744d3b8.js"><link rel="prefetch" href="/assets/js/199.481dbdc9.js"><link rel="prefetch" href="/assets/js/20.c0b1b4c2.js"><link rel="prefetch" href="/assets/js/200.8adcff2f.js"><link rel="prefetch" href="/assets/js/201.31f259aa.js"><link rel="prefetch" href="/assets/js/202.6dd72f27.js"><link rel="prefetch" href="/assets/js/203.bd9f7627.js"><link rel="prefetch" href="/assets/js/204.e41f95c7.js"><link rel="prefetch" href="/assets/js/205.10b8b3c9.js"><link rel="prefetch" href="/assets/js/206.47074910.js"><link rel="prefetch" href="/assets/js/207.f310c845.js"><link rel="prefetch" href="/assets/js/208.0407e506.js"><link rel="prefetch" href="/assets/js/209.07690c7f.js"><link rel="prefetch" href="/assets/js/21.bd552340.js"><link rel="prefetch" href="/assets/js/210.f5445b85.js"><link rel="prefetch" href="/assets/js/211.4e75a316.js"><link rel="prefetch" href="/assets/js/212.664cf263.js"><link rel="prefetch" href="/assets/js/213.f218266c.js"><link rel="prefetch" href="/assets/js/214.e92d9eac.js"><link rel="prefetch" href="/assets/js/215.0d41c07b.js"><link rel="prefetch" href="/assets/js/216.85a56a56.js"><link rel="prefetch" href="/assets/js/217.9873d75d.js"><link rel="prefetch" href="/assets/js/218.aee0e064.js"><link rel="prefetch" href="/assets/js/219.d422b915.js"><link rel="prefetch" href="/assets/js/22.3b8fd5bb.js"><link rel="prefetch" href="/assets/js/220.33cbc705.js"><link rel="prefetch" href="/assets/js/221.3ced99d4.js"><link rel="prefetch" href="/assets/js/222.906813b3.js"><link rel="prefetch" href="/assets/js/223.deb5c1ad.js"><link rel="prefetch" href="/assets/js/224.278e0825.js"><link rel="prefetch" href="/assets/js/225.c5700991.js"><link rel="prefetch" href="/assets/js/226.9dfa10e2.js"><link rel="prefetch" href="/assets/js/227.e462c747.js"><link rel="prefetch" href="/assets/js/228.a84a539d.js"><link rel="prefetch" href="/assets/js/229.7c0ae9ab.js"><link rel="prefetch" href="/assets/js/23.e36bd760.js"><link rel="prefetch" href="/assets/js/230.a540ca93.js"><link rel="prefetch" href="/assets/js/231.8b1f2a8f.js"><link rel="prefetch" href="/assets/js/232.7504b52b.js"><link rel="prefetch" href="/assets/js/233.39cdf44d.js"><link rel="prefetch" href="/assets/js/234.c945fdc7.js"><link rel="prefetch" href="/assets/js/235.b8137bc3.js"><link rel="prefetch" href="/assets/js/236.2731a0a4.js"><link rel="prefetch" href="/assets/js/237.51c968b4.js"><link rel="prefetch" href="/assets/js/238.17559732.js"><link rel="prefetch" href="/assets/js/239.f74ad94a.js"><link rel="prefetch" href="/assets/js/24.f9e9c9e9.js"><link rel="prefetch" href="/assets/js/240.0e3a8d09.js"><link rel="prefetch" href="/assets/js/241.3fae0748.js"><link rel="prefetch" href="/assets/js/242.e59c2500.js"><link rel="prefetch" href="/assets/js/243.ad20e684.js"><link rel="prefetch" href="/assets/js/244.a7471694.js"><link rel="prefetch" href="/assets/js/245.e82b6cd7.js"><link rel="prefetch" href="/assets/js/246.745e9c0a.js"><link rel="prefetch" href="/assets/js/247.98341746.js"><link rel="prefetch" href="/assets/js/248.28fc4fbc.js"><link rel="prefetch" href="/assets/js/249.2d7cec23.js"><link rel="prefetch" href="/assets/js/25.9d52ce46.js"><link rel="prefetch" href="/assets/js/250.473aadad.js"><link rel="prefetch" href="/assets/js/251.84def0dd.js"><link rel="prefetch" href="/assets/js/252.828feb84.js"><link rel="prefetch" href="/assets/js/253.a7115f5c.js"><link rel="prefetch" href="/assets/js/254.ea67d3fa.js"><link rel="prefetch" href="/assets/js/255.ec89ca42.js"><link rel="prefetch" href="/assets/js/256.16327a0c.js"><link rel="prefetch" href="/assets/js/257.e5d49c1c.js"><link rel="prefetch" href="/assets/js/258.3c29f9b0.js"><link rel="prefetch" href="/assets/js/259.52922663.js"><link rel="prefetch" href="/assets/js/26.57967f4d.js"><link rel="prefetch" href="/assets/js/260.2c91b0d0.js"><link rel="prefetch" href="/assets/js/261.880467dc.js"><link rel="prefetch" href="/assets/js/262.9c41c444.js"><link rel="prefetch" href="/assets/js/263.f58c507d.js"><link rel="prefetch" href="/assets/js/264.f78f3804.js"><link rel="prefetch" href="/assets/js/265.0eaadcf9.js"><link rel="prefetch" href="/assets/js/266.f22cac3c.js"><link rel="prefetch" href="/assets/js/267.07b039e8.js"><link rel="prefetch" href="/assets/js/268.45f0999f.js"><link rel="prefetch" href="/assets/js/269.852f8536.js"><link rel="prefetch" href="/assets/js/27.880778a8.js"><link rel="prefetch" href="/assets/js/270.044b4726.js"><link rel="prefetch" href="/assets/js/271.2085710f.js"><link rel="prefetch" href="/assets/js/272.5cb40892.js"><link rel="prefetch" href="/assets/js/273.415d713f.js"><link rel="prefetch" href="/assets/js/274.7ccc2aae.js"><link rel="prefetch" href="/assets/js/275.711379cc.js"><link rel="prefetch" href="/assets/js/276.156113c8.js"><link rel="prefetch" href="/assets/js/277.b63e44a2.js"><link rel="prefetch" href="/assets/js/278.1439c962.js"><link rel="prefetch" href="/assets/js/279.e26dd777.js"><link rel="prefetch" href="/assets/js/28.9e0cd3f4.js"><link rel="prefetch" href="/assets/js/280.e701d732.js"><link rel="prefetch" href="/assets/js/281.43f84dd3.js"><link rel="prefetch" href="/assets/js/282.771433ee.js"><link rel="prefetch" href="/assets/js/283.f4aa5aab.js"><link rel="prefetch" href="/assets/js/284.9871c0b2.js"><link rel="prefetch" href="/assets/js/285.58646fef.js"><link rel="prefetch" href="/assets/js/286.73bf8acb.js"><link rel="prefetch" href="/assets/js/287.2045b05c.js"><link rel="prefetch" href="/assets/js/288.62a356ae.js"><link rel="prefetch" href="/assets/js/289.e8329547.js"><link rel="prefetch" href="/assets/js/29.53621564.js"><link rel="prefetch" href="/assets/js/290.76ff6e37.js"><link rel="prefetch" href="/assets/js/291.ffed6b3f.js"><link rel="prefetch" href="/assets/js/292.008a2bfa.js"><link rel="prefetch" href="/assets/js/293.e28076cd.js"><link rel="prefetch" href="/assets/js/294.f97aa15e.js"><link rel="prefetch" href="/assets/js/295.8f19ebc3.js"><link rel="prefetch" href="/assets/js/296.0ab7324a.js"><link rel="prefetch" href="/assets/js/297.4dc0c035.js"><link rel="prefetch" href="/assets/js/298.50b5ccd1.js"><link rel="prefetch" href="/assets/js/299.e2307a03.js"><link rel="prefetch" href="/assets/js/30.f92fe035.js"><link rel="prefetch" href="/assets/js/300.237a290c.js"><link rel="prefetch" href="/assets/js/301.cb85ace9.js"><link rel="prefetch" href="/assets/js/302.6e6e240f.js"><link rel="prefetch" href="/assets/js/303.1f53327c.js"><link rel="prefetch" href="/assets/js/304.c0c5ef8e.js"><link rel="prefetch" href="/assets/js/305.cda38615.js"><link rel="prefetch" href="/assets/js/306.11b9649e.js"><link rel="prefetch" href="/assets/js/307.2ae2e7ac.js"><link rel="prefetch" href="/assets/js/308.2d248bdb.js"><link rel="prefetch" href="/assets/js/309.839ec42c.js"><link rel="prefetch" href="/assets/js/31.46d6329f.js"><link rel="prefetch" href="/assets/js/310.365ef872.js"><link rel="prefetch" href="/assets/js/311.5734b21e.js"><link rel="prefetch" href="/assets/js/312.4b16e609.js"><link rel="prefetch" href="/assets/js/313.a42773c4.js"><link rel="prefetch" href="/assets/js/314.d9041802.js"><link rel="prefetch" href="/assets/js/315.181e468f.js"><link rel="prefetch" href="/assets/js/316.7d78bd0d.js"><link rel="prefetch" href="/assets/js/317.34fd5829.js"><link rel="prefetch" href="/assets/js/318.36b1f1dd.js"><link rel="prefetch" href="/assets/js/319.2c452ace.js"><link rel="prefetch" href="/assets/js/32.24fe834b.js"><link rel="prefetch" href="/assets/js/320.12558f0a.js"><link rel="prefetch" href="/assets/js/321.951df11c.js"><link rel="prefetch" href="/assets/js/322.04da0e18.js"><link rel="prefetch" href="/assets/js/323.57eea7a0.js"><link rel="prefetch" href="/assets/js/324.872654eb.js"><link rel="prefetch" href="/assets/js/325.d0aef154.js"><link rel="prefetch" href="/assets/js/326.b4c119a6.js"><link rel="prefetch" href="/assets/js/327.9c1c0f92.js"><link rel="prefetch" href="/assets/js/328.5b4bc210.js"><link rel="prefetch" href="/assets/js/329.5ddc431f.js"><link rel="prefetch" href="/assets/js/33.13747d1e.js"><link rel="prefetch" href="/assets/js/330.19e99ccc.js"><link rel="prefetch" href="/assets/js/331.84ba8003.js"><link rel="prefetch" href="/assets/js/332.ac41651b.js"><link rel="prefetch" href="/assets/js/333.077ab95e.js"><link rel="prefetch" href="/assets/js/334.c92c91de.js"><link rel="prefetch" href="/assets/js/335.e584a44d.js"><link rel="prefetch" href="/assets/js/336.5596f4d1.js"><link rel="prefetch" href="/assets/js/337.eb1dc038.js"><link rel="prefetch" href="/assets/js/338.3ef03cdb.js"><link rel="prefetch" href="/assets/js/339.400ce6e5.js"><link rel="prefetch" href="/assets/js/34.448f8066.js"><link rel="prefetch" href="/assets/js/340.974365c2.js"><link rel="prefetch" href="/assets/js/341.be4c7a56.js"><link rel="prefetch" href="/assets/js/342.ee0aef41.js"><link rel="prefetch" href="/assets/js/343.cf6b466f.js"><link rel="prefetch" href="/assets/js/344.1582b764.js"><link rel="prefetch" href="/assets/js/345.aa35724c.js"><link rel="prefetch" href="/assets/js/346.ccf97c3d.js"><link rel="prefetch" href="/assets/js/347.f21dadfd.js"><link rel="prefetch" href="/assets/js/348.18ce9c8b.js"><link rel="prefetch" href="/assets/js/349.3ab97007.js"><link rel="prefetch" href="/assets/js/35.767de3ec.js"><link rel="prefetch" href="/assets/js/350.31446a92.js"><link rel="prefetch" href="/assets/js/351.f48c3be2.js"><link rel="prefetch" href="/assets/js/352.59802bc7.js"><link rel="prefetch" href="/assets/js/353.1090949b.js"><link rel="prefetch" href="/assets/js/354.766f58b8.js"><link rel="prefetch" href="/assets/js/355.8ee877cf.js"><link rel="prefetch" href="/assets/js/356.655627cb.js"><link rel="prefetch" href="/assets/js/357.eaf0799a.js"><link rel="prefetch" href="/assets/js/358.dc01ca52.js"><link rel="prefetch" href="/assets/js/359.aa14567c.js"><link rel="prefetch" href="/assets/js/36.8c2d8e9b.js"><link rel="prefetch" href="/assets/js/360.dd821f66.js"><link rel="prefetch" href="/assets/js/361.36190ed8.js"><link rel="prefetch" href="/assets/js/362.43a484fe.js"><link rel="prefetch" href="/assets/js/363.e963c5fa.js"><link rel="prefetch" href="/assets/js/364.a7b50af3.js"><link rel="prefetch" href="/assets/js/365.2137be03.js"><link rel="prefetch" href="/assets/js/366.8ae46e8c.js"><link rel="prefetch" href="/assets/js/367.2054d41c.js"><link rel="prefetch" href="/assets/js/368.d663a7bb.js"><link rel="prefetch" href="/assets/js/369.deb9ea63.js"><link rel="prefetch" href="/assets/js/37.6ac84ad6.js"><link rel="prefetch" href="/assets/js/370.b414a2c3.js"><link rel="prefetch" href="/assets/js/371.ddb35e81.js"><link rel="prefetch" href="/assets/js/372.b8345a44.js"><link rel="prefetch" href="/assets/js/373.696fa001.js"><link rel="prefetch" href="/assets/js/374.ff0f8d68.js"><link rel="prefetch" href="/assets/js/375.bf538d1d.js"><link rel="prefetch" href="/assets/js/376.37023ce2.js"><link rel="prefetch" href="/assets/js/377.7e058298.js"><link rel="prefetch" href="/assets/js/378.d7fedcea.js"><link rel="prefetch" href="/assets/js/379.9701f5e4.js"><link rel="prefetch" href="/assets/js/38.da455680.js"><link rel="prefetch" href="/assets/js/380.6bbc65b3.js"><link rel="prefetch" href="/assets/js/381.8b801598.js"><link rel="prefetch" href="/assets/js/382.744eaba6.js"><link rel="prefetch" href="/assets/js/383.e2506b2d.js"><link rel="prefetch" href="/assets/js/384.f67244ff.js"><link rel="prefetch" href="/assets/js/385.720740f3.js"><link rel="prefetch" href="/assets/js/386.645dc8a6.js"><link rel="prefetch" href="/assets/js/387.eaa4a0f5.js"><link rel="prefetch" href="/assets/js/388.e821be6e.js"><link rel="prefetch" href="/assets/js/389.3d97af9d.js"><link rel="prefetch" href="/assets/js/39.4cb603e5.js"><link rel="prefetch" href="/assets/js/390.bb64bcce.js"><link rel="prefetch" href="/assets/js/391.196e74f1.js"><link rel="prefetch" href="/assets/js/392.ab7457ed.js"><link rel="prefetch" href="/assets/js/393.c3d5409b.js"><link rel="prefetch" href="/assets/js/394.09d5edc5.js"><link rel="prefetch" href="/assets/js/395.8afc7658.js"><link rel="prefetch" href="/assets/js/396.f796a44a.js"><link rel="prefetch" href="/assets/js/397.f8843ec2.js"><link rel="prefetch" href="/assets/js/398.dfc13551.js"><link rel="prefetch" href="/assets/js/399.e8260b9e.js"><link rel="prefetch" href="/assets/js/4.7bf9b271.js"><link rel="prefetch" href="/assets/js/40.96d324c0.js"><link rel="prefetch" href="/assets/js/400.95c7d03d.js"><link rel="prefetch" href="/assets/js/401.1c0d23b7.js"><link rel="prefetch" href="/assets/js/402.bd6f3e48.js"><link rel="prefetch" href="/assets/js/403.6698f839.js"><link rel="prefetch" href="/assets/js/404.82c45dd6.js"><link rel="prefetch" href="/assets/js/405.d7e0286f.js"><link rel="prefetch" href="/assets/js/406.d26c524e.js"><link rel="prefetch" href="/assets/js/407.e9f5832a.js"><link rel="prefetch" href="/assets/js/408.f259cf5e.js"><link rel="prefetch" href="/assets/js/409.9244c4b5.js"><link rel="prefetch" href="/assets/js/41.5bd9f6dc.js"><link rel="prefetch" href="/assets/js/410.10d8363c.js"><link rel="prefetch" href="/assets/js/411.81c8a66a.js"><link rel="prefetch" href="/assets/js/412.00d33282.js"><link rel="prefetch" href="/assets/js/413.9c72306e.js"><link rel="prefetch" href="/assets/js/414.8613e083.js"><link rel="prefetch" href="/assets/js/415.3ebdabc3.js"><link rel="prefetch" href="/assets/js/416.9d376d38.js"><link rel="prefetch" href="/assets/js/417.6f9a10a1.js"><link rel="prefetch" href="/assets/js/418.d0d51e61.js"><link rel="prefetch" href="/assets/js/419.c87e1fa1.js"><link rel="prefetch" href="/assets/js/42.cefc42c4.js"><link rel="prefetch" href="/assets/js/420.be0553a9.js"><link rel="prefetch" href="/assets/js/421.ef17fcae.js"><link rel="prefetch" href="/assets/js/422.2c86cace.js"><link rel="prefetch" href="/assets/js/423.df5324bb.js"><link rel="prefetch" href="/assets/js/424.0ebe6e2c.js"><link rel="prefetch" href="/assets/js/425.ef218f09.js"><link rel="prefetch" href="/assets/js/426.abe35334.js"><link rel="prefetch" href="/assets/js/427.5feb9ab8.js"><link rel="prefetch" href="/assets/js/428.e990d01a.js"><link rel="prefetch" href="/assets/js/429.745f9e1c.js"><link rel="prefetch" href="/assets/js/43.e45019dd.js"><link rel="prefetch" href="/assets/js/430.257c14bf.js"><link rel="prefetch" href="/assets/js/431.bd16174b.js"><link rel="prefetch" href="/assets/js/432.9fdd7133.js"><link rel="prefetch" href="/assets/js/433.bc234b97.js"><link rel="prefetch" href="/assets/js/434.9bc1504d.js"><link rel="prefetch" href="/assets/js/435.91639e95.js"><link rel="prefetch" href="/assets/js/436.4377d43c.js"><link rel="prefetch" href="/assets/js/437.22fe5b08.js"><link rel="prefetch" href="/assets/js/438.35fe960d.js"><link rel="prefetch" href="/assets/js/439.6ef31baa.js"><link rel="prefetch" href="/assets/js/44.84605b07.js"><link rel="prefetch" href="/assets/js/440.5c3abd0e.js"><link rel="prefetch" href="/assets/js/441.8d97b29f.js"><link rel="prefetch" href="/assets/js/442.909cd5b8.js"><link rel="prefetch" href="/assets/js/443.22432fa4.js"><link rel="prefetch" href="/assets/js/444.4d8dd10f.js"><link rel="prefetch" href="/assets/js/445.91b9f5a9.js"><link rel="prefetch" href="/assets/js/446.a3e1b09e.js"><link rel="prefetch" href="/assets/js/447.aa8a939e.js"><link rel="prefetch" href="/assets/js/448.1a32a0b8.js"><link rel="prefetch" href="/assets/js/449.9b1f18e4.js"><link rel="prefetch" href="/assets/js/45.b49682a6.js"><link rel="prefetch" href="/assets/js/450.ee592be2.js"><link rel="prefetch" href="/assets/js/451.96e61612.js"><link rel="prefetch" href="/assets/js/452.371c2aa9.js"><link rel="prefetch" href="/assets/js/453.a1b2bff4.js"><link rel="prefetch" href="/assets/js/454.f2a44dd6.js"><link rel="prefetch" href="/assets/js/455.fc6be7db.js"><link rel="prefetch" href="/assets/js/456.3c14341f.js"><link rel="prefetch" href="/assets/js/457.e5edd94a.js"><link rel="prefetch" href="/assets/js/458.a3ebc3ca.js"><link rel="prefetch" href="/assets/js/46.ecfe7502.js"><link rel="prefetch" href="/assets/js/460.862ea3d1.js"><link rel="prefetch" href="/assets/js/461.34967d9c.js"><link rel="prefetch" href="/assets/js/462.fc85a59e.js"><link rel="prefetch" href="/assets/js/463.3c9ed367.js"><link rel="prefetch" href="/assets/js/464.3574f10c.js"><link rel="prefetch" href="/assets/js/465.b5030936.js"><link rel="prefetch" href="/assets/js/466.2f413761.js"><link rel="prefetch" href="/assets/js/467.70a79854.js"><link rel="prefetch" href="/assets/js/468.80802098.js"><link rel="prefetch" href="/assets/js/469.819c527b.js"><link rel="prefetch" href="/assets/js/47.555156b7.js"><link rel="prefetch" href="/assets/js/470.2de81b50.js"><link rel="prefetch" href="/assets/js/471.2713a32c.js"><link rel="prefetch" href="/assets/js/48.0a2f7e05.js"><link rel="prefetch" href="/assets/js/49.f289e85d.js"><link rel="prefetch" href="/assets/js/5.f24ed8e2.js"><link rel="prefetch" href="/assets/js/50.6a7ae483.js"><link rel="prefetch" href="/assets/js/51.d21a570c.js"><link rel="prefetch" href="/assets/js/52.8b78746a.js"><link rel="prefetch" href="/assets/js/53.1ef20344.js"><link rel="prefetch" href="/assets/js/54.748798fd.js"><link rel="prefetch" href="/assets/js/55.e552fb5c.js"><link rel="prefetch" href="/assets/js/56.c5321f0d.js"><link rel="prefetch" href="/assets/js/57.0dd67987.js"><link rel="prefetch" href="/assets/js/58.c613bb27.js"><link rel="prefetch" href="/assets/js/59.77b626ed.js"><link rel="prefetch" href="/assets/js/6.806bb5df.js"><link rel="prefetch" href="/assets/js/60.5ca9bbbf.js"><link rel="prefetch" href="/assets/js/61.f4d1b15f.js"><link rel="prefetch" href="/assets/js/62.8e2d34bc.js"><link rel="prefetch" href="/assets/js/63.eac86097.js"><link rel="prefetch" href="/assets/js/64.5c6be1ae.js"><link rel="prefetch" href="/assets/js/65.1249cc66.js"><link rel="prefetch" href="/assets/js/66.f4d4d451.js"><link rel="prefetch" href="/assets/js/67.428ba424.js"><link rel="prefetch" href="/assets/js/68.ca2371b1.js"><link rel="prefetch" href="/assets/js/69.8df927b6.js"><link rel="prefetch" href="/assets/js/7.079dae5b.js"><link rel="prefetch" href="/assets/js/70.552ef413.js"><link rel="prefetch" href="/assets/js/71.1f29ff98.js"><link rel="prefetch" href="/assets/js/72.d5068349.js"><link rel="prefetch" href="/assets/js/73.b74fc6d3.js"><link rel="prefetch" href="/assets/js/74.611a1e89.js"><link rel="prefetch" href="/assets/js/75.c3ed0956.js"><link rel="prefetch" href="/assets/js/76.22f687c0.js"><link rel="prefetch" href="/assets/js/77.70031de4.js"><link rel="prefetch" href="/assets/js/78.d5bec854.js"><link rel="prefetch" href="/assets/js/79.c2cfc294.js"><link rel="prefetch" href="/assets/js/8.44bf364c.js"><link rel="prefetch" href="/assets/js/80.0bd68717.js"><link rel="prefetch" href="/assets/js/81.a1003b95.js"><link rel="prefetch" href="/assets/js/82.5ef84589.js"><link rel="prefetch" href="/assets/js/83.a9058669.js"><link rel="prefetch" href="/assets/js/84.c3a2178c.js"><link rel="prefetch" href="/assets/js/85.47e55e83.js"><link rel="prefetch" href="/assets/js/86.e7ecc4b6.js"><link rel="prefetch" href="/assets/js/87.87cdebb3.js"><link rel="prefetch" href="/assets/js/88.7452f3e8.js"><link rel="prefetch" href="/assets/js/89.06664ec5.js"><link rel="prefetch" href="/assets/js/9.fb874cdc.js"><link rel="prefetch" href="/assets/js/90.345b337b.js"><link rel="prefetch" href="/assets/js/91.6c50c80e.js"><link rel="prefetch" href="/assets/js/92.e0c83a6b.js"><link rel="prefetch" href="/assets/js/93.0cfd9dd9.js"><link rel="prefetch" href="/assets/js/94.15f3825b.js"><link rel="prefetch" href="/assets/js/95.9ece8751.js"><link rel="prefetch" href="/assets/js/96.cb1b1690.js"><link rel="prefetch" href="/assets/js/97.de0d036e.js"><link rel="prefetch" href="/assets/js/98.36e9ee4d.js"><link rel="prefetch" href="/assets/js/99.78366c3b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e16fe094.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>H先森</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>From FE Arch、To Full Stack</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/me.jpg" alt="H先森" class="logo"> <span class="site-name">H先森</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>Web</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/WebAPI/" class="nav-link"><i class="undefined"></i>
+  WebAPI
+</a></li><li class="dropdown-subitem"><a href="/WebStandard/" class="nav-link"><i class="undefined"></i>
+  WebStandard
+</a></li></ul></li><li class="dropdown-item"><h4>JQuery</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JQuery/" class="nav-link"><i class="undefined"></i>
+  JQueryBase
+</a></li></ul></li><li class="dropdown-item"><h4>Angular</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Angular/" class="nav-link"><i class="undefined"></i>
+  AngularBase
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link router-link-active"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BE/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      csBase
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSBase/" class="nav-link"><i class="undefined"></i>
+  CSBase
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/me.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <!----> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>437</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>0</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      FE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/JS/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/HTML/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/Styles/" class="nav-link"><i class="undefined"></i>
+  Styles
+</a></li><li class="dropdown-item"><!----> <a href="/TS/" class="nav-link"><i class="undefined"></i>
+  TS
+</a></li><li class="dropdown-item"><h4>Browser</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BrowserCore/" class="nav-link"><i class="undefined"></i>
+  BrCore(MP)
+</a></li><li class="dropdown-subitem"><a href="/BrowserModel/" class="nav-link"><i class="undefined"></i>
+  BrModel(MT)
+</a></li></ul></li><li class="dropdown-item"><h4>Web</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/WebAPI/" class="nav-link"><i class="undefined"></i>
+  WebAPI
+</a></li><li class="dropdown-subitem"><a href="/WebStandard/" class="nav-link"><i class="undefined"></i>
+  WebStandard
+</a></li></ul></li><li class="dropdown-item"><h4>JQuery</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/JQuery/" class="nav-link"><i class="undefined"></i>
+  JQueryBase
+</a></li></ul></li><li class="dropdown-item"><h4>Angular</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Angular/" class="nav-link"><i class="undefined"></i>
+  AngularBase
+</a></li></ul></li><li class="dropdown-item"><h4>React</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/React/" class="nav-link"><i class="undefined"></i>
+  ReactBase
+</a></li></ul></li><li class="dropdown-item"><h4>Vue</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Vue/" class="nav-link router-link-active"><i class="undefined"></i>
+  VueBase
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      BE
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Nodejs</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/BE/" class="nav-link"><i class="undefined"></i>
+  NodeBase
+</a></li></ul></li><li class="dropdown-item"><h4>cPlus</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Cplus/" class="nav-link"><i class="undefined"></i>
+  cPlus
+</a></li></ul></li><li class="dropdown-item"><h4>Go</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Go/" class="nav-link"><i class="undefined"></i>
+  Go
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Proj
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Project/" class="nav-link"><i class="undefined"></i>
+  Project
+</a></li><li class="dropdown-item"><h4>toolsForProject</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Tools/" class="nav-link"><i class="undefined"></i>
+  Git&amp;webpack
+</a></li></ul></li><li class="dropdown-item"><h4>other-ology</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/OtherOlogy/" class="nav-link"><i class="undefined"></i>
+  English
+</a></li></ul></li><li class="dropdown-item"><h4>W</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/Interface/" class="nav-link"><i class="undefined"></i>
+  interfaceEx
+</a></li></ul></li><li class="dropdown-item"><h4>AI</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/AlgorithmAI/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      csBase
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/CSBase/" class="nav-link"><i class="undefined"></i>
+  CSBase
+</a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>VueBase</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Vue/vueBase/dVueLife.html" class="sidebar-link">Vue生命周期</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vueExtend</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>youyuxi</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc></h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><!---->
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">vue变化侦测原理</h1> <div data-v-1ff7123e><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="vue变化侦测原理"><a href="#vue变化侦测原理" class="header-anchor">#</a> vue变化侦测原理</h1> <p>关于vue的内部原理其实有很多个重要的部分，变化侦测，模板编译，virtualDOM，整体运行流程等。</p> <p>今天主要把变化侦测这部分单独拿出来讲一讲。</p> <h2 id="如何侦测变化"><a href="#如何侦测变化" class="header-anchor">#</a> 如何侦测变化？</h2> <p>关于变化侦测首先要问一个问题，在 js 中，如何侦测一个对象的变化，其实这个问题还是比较简单的，学过js的都能知道，js中有两种方法可以侦测到变化，<code>Object.defineProperty</code> 和 ES6 的<code>proxy</code>。</p> <p>到目前为止vue还是用的 <code>Object.defineProperty</code>，所以我们拿 <code>Object.defineProperty</code>来举例子说明这个原理。</p> <p>这里我想说的是，不管以后vue是否会用 <code>proxy</code> 重写这部分，我讲的是原理，并不是api，所以不论以后vue会怎样改，这个原理是不会变的，哪怕vue用了其他完全不同的原理实现了变化侦测，但是本篇文章讲的原理一样可以实现变化侦测，原理这个东西是不会过时的。</p> <p>之前我写文章有一个毛病就是喜欢对着源码翻译，结果过了半年一年人家源码改了，我写的文章就一毛钱都不值了，而且对着源码翻译还有一个缺点是对读者的要求有点偏高，读者如果没看过源码或者看的和我不是一个版本，那根本就不知道我在说什么。</p> <p>好了不说废话了，继续讲刚才的内容。</p> <p>知道 <code>Object.defineProperty</code> 可以侦测到对象的变化，那么我们瞬间可以写出这样的代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function defineReactive (data, key, val) {
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function () {
+            return val
+        },
+        set: function (newVal) {
+            if(val === newVal){
+                return
+            }
+            val = newVal
+        }
+    })
+}
+</code></pre></div><p>写一个函数封装一下 <code>Object.defineProperty</code>，毕竟 <code>Object.defineProperty</code>的用法这么复杂，封装一下我只需要传递一个 data，和 key，val 就行了。</p> <p>现在封装好了之后每当 <code>data</code> 的 <code>key</code> 读取数据 <code>get</code> 这个函数可以被触发，设置数据的时候 <code>set</code> 这个函数可以被触发，但是，，，，，，，，，，，，，，，，，，发现好像并没什么鸟用？</p> <h2 id="怎么观察"><a href="#怎么观察" class="header-anchor">#</a> 怎么观察？</h2> <p>现在我要问第二个问题，“怎么观察？”</p> <p>思考一下，我们之所以要观察一个数据，目的是为了当数据的属性发生变化时，可以通知那些使用了这个 <code>key</code> 的地方。</p> <p>举个🌰：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;{{ key }}&lt;/div&gt;
+  &lt;p&gt;{{ key }}&lt;/p&gt;
+&lt;/template&gt;
+</code></pre></div><p>模板中有两处使用了 <code>key</code>，所以当数据发生变化时，要把这两处都通知到。</p> <p>所以上面的问题，我的回答是，先收集依赖，把这些使用到 <code>key</code> 的地方先收集起来，然后等属性发生变化时，把收集好的依赖循环触发一遍就好了~</p> <p>总结起来其实就一句话，<strong>getter中，收集依赖，setter中，触发依赖</strong>。</p> <h2 id="依赖收集在哪"><a href="#依赖收集在哪" class="header-anchor">#</a> 依赖收集在哪？</h2> <p>现在我们已经有了很明确的目标，就是要在getter中收集依赖，那么我们的依赖收集到哪里去呢？？</p> <p>思考一下，首先想到的是每个 <code>key</code> 都有一个数组，用来存储当前 <code>key</code> 的依赖，假设依赖是一个函数存在 <code>window.target</code> 上，先把 <code>defineReactive</code> 稍微改造一下：</p> <div class="language- extra-class"><pre class="language-text"><code>function defineReactive (data, key, val) {
+    let dep = [] // 新增
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function () {
+            dep.push(window.target) // 新增
+            return val
+        },
+        set: function (newVal) {
+            if(val === newVal){
+                return
+            }
+            
+            // 新增
+            for (let i = 0; i &lt; dep.length; i++) {
+            	 dep[i](newVal, val)
+            }
+            val = newVal
+        }
+    })
+}
+</code></pre></div><p>在 <code>defineReactive</code> 中新增了数组 dep，用来存储被收集的依赖。</p> <p>然后在触发 set 触发时，循环dep把收集到的依赖触发。</p> <p>但是这样写有点耦合，我们把依赖收集这部分代码封装起来，写成下面的样子：</p> <div class="language- extra-class"><pre class="language-text"><code>export default class Dep {
+  static target: ?Watcher;
+  id: number;
+  subs: Array&lt;Watcher&gt;;
+
+  constructor () {
+    this.id = uid++
+    this.subs = []
+  }
+
+  addSub (sub: Watcher) {
+    this.subs.push(sub)
+  }
+
+  removeSub (sub: Watcher) {
+    remove(this.subs, sub)
+  }
+
+  depend () {
+    if (Dep.target) {
+      this.addSub(Dep.target)
+    }
+  }
+
+  notify () {
+    // stabilize the subscriber list first
+    const subs = this.subs.slice()
+    for (let i = 0, l = subs.length; i &lt; l; i++) {
+      subs[i].update()
+    }
+  }
+}
+</code></pre></div><p>然后在改造一下 <code>defineReactive</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>function defineReactive (data, key, val) {
+    let dep = new Dep()        // 修改
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function () {
+            dep.depend() // 修改
+            return val
+        },
+        set: function (newVal) {
+            if(val === newVal){
+                return
+            }
+
+            dep.notify() // 新增
+            val = newVal
+        }
+    })
+}
+</code></pre></div><p>这一次代码看起来清晰多了，顺便回答一下上面问的问题，依赖收集到哪？收集到Dep中，Dep是专门用来存储依赖的。</p> <h2 id="收集谁"><a href="#收集谁" class="header-anchor">#</a> 收集谁？</h2> <p>上面我们假装 <code>window.target</code> 是需要被收集的依赖，细心的同学可能已经看到，上面的代码 <code>window.target</code> 已经改成了 <code>Dep.target</code>，那 <code>Dep.target</code>是什么？我们究竟要收集谁呢？？</p> <p>收集谁，换句话说是当属性发生变化后，通知谁。</p> <p>我们要通知那个使用到数据的地方，而使用这个数据的地方有很多，而且类型还不一样，有可能是模板，有可能是用户写的一个 watch，所以这个时候我们需要抽象出一个能集中处理这些不同情况的类，然后我们在依赖收集的阶段只收集这个封装好的类的实例进来，通知也只通知它一个，然后它在负责通知其他地方，所以我们要抽象的这个东西需要先起一个好听的名字，嗯，就叫它watcher吧~</p> <p>所以现在可以回答上面的问题，收集谁？？收集 Watcher。</p> <h2 id="什么是watcher"><a href="#什么是watcher" class="header-anchor">#</a> 什么是Watcher？</h2> <p>watcher 是一个中介的角色，数据发生变化通知给 watcher，然后watcher在通知给其他地方。</p> <p>关于watcher我们先看一个经典的使用方式：</p> <div class="language- extra-class"><pre class="language-text"><code>// keypath
+vm.$watch('a.b.c', function (newVal, oldVal) {
+  // do something
+})
+</code></pre></div><p>这段代码表示当 <code>data.a.b.c</code> 这个属性发生变化时，触发第二个参数这个函数。</p> <p>思考一下怎么实现这个功能呢？</p> <p>好像只要把这个 watcher 实例添加到 <code>data.a.b.c</code> 这个属性的 Dep 中去就行了，然后 <code>data.a.b.c</code> 触发时，会通知到watcher，然后watcher在执行参数中的这个回调函数。</p> <p>好，思考完毕，开工，写出如下代码：</p> <div class="language- extra-class"><pre class="language-text"><code>class Watch {
+    constructor (expOrFn, cb) {
+        // 执行 this.getter() 就可以拿到 data.a.b.c
+        this.getter = parsePath(expOrFn)
+        this.cb = cb
+        this.value = this.get()
+    }
+
+    get () {
+        Dep.target = this
+        value = this.getter.call(vm, vm)
+        Dep.target = undefined
+    }
+
+    update () {
+        const oldValue = this.value
+        this.value = this.get()
+        this.cb.call(this.vm, this.value, oldValue)
+    }
+}
+</code></pre></div><p>这段代码可以把自己主动 <code>push</code> 到 <code>data.a.b.c</code> 的 Dep 中去。</p> <p>因为我在 <code>get</code> 这个方法中，先把 Dep.traget 设置成了 <code>this</code>，也就是当前watcher实例，然后在读一下 <code>data.a.b.c</code> 的值。</p> <p>因为读了 <code>data.a.b.c</code> 的值，所以肯定会触发 <code>getter</code>。</p> <p>触发了 <code>getter</code> 上面我们封装的 <code>defineReactive</code>函数中有一段逻辑就会从 <code>Dep.target</code> 里读一个依赖 <code>push</code> 到 <code>Dep</code> 中。</p> <p>所以就导致，我只要先在 Dep.target 赋一个 <code>this</code>，然后我在读一下值，去触发一下 <code>getter</code>，就可以把 <code>this</code> 主动 <code>push</code> 到 <code>keypath</code> 的依赖中，有没有很神奇~</p> <p>依赖注入到 <code>Dep</code> 中去之后，当这个 <code>data.a.b.c</code> 的值发生变化，就把所有的依赖循环触发 update 方法，也就是上面代码中 update 那个方法。</p> <p><code>update</code> 方法会触发参数中的回调函数，将value 和 oldValue 传到参数中。</p> <p>所以其实不管是用户执行的 <code>vm.$watch('a.b.c', (value, oldValue) =&gt; {})</code> 还是模板中用到的data，都是通过 watcher 来通知自己是否需要发生变化的。</p> <h2 id="递归侦测所有key"><a href="#递归侦测所有key" class="header-anchor">#</a> 递归侦测所有key</h2> <p>现在其实已经可以实现变化侦测的功能了，但是我们之前写的代码只能侦测数据中的一个 key，所以我们要加工一下 <code>defineReactive</code> 这个函数：</p> <div class="language- extra-class"><pre class="language-text"><code>// 新增
+function walk (obj: Object) {
+  const keys = Object.keys(obj)
+  for (let i = 0; i &lt; keys.length; i++) {
+    defineReactive(obj, keys[i], obj[keys[i]])
+  }
+}
+
+function defineReactive (data, key, val) {
+    walk(val) // 新增
+    let dep = new Dep()
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function () {
+            dep.depend()
+            return val
+        },
+        set: function (newVal) {
+            if(val === newVal){
+                return
+            }
+
+            dep.notify()
+            val = newVal
+        }
+    })
+}
+</code></pre></div><p>这样我们就可以通过执行 <code>walk(data)</code>，把 <code>data</code> 中的所有 <code>key</code> 都加工成可以被侦测的，因为是一个递归的过程，所以 <code>key</code> 中的 <code>value</code> 如果是一个对象，那这个对象的所有key也会被侦测。</p> <h2 id="array怎么进行变化侦测"><a href="#array怎么进行变化侦测" class="header-anchor">#</a> Array怎么进行变化侦测？</h2> <p>现在又发现了新的问题，<code>data</code> 中不是所有的 <code>value</code> 都是对象和基本类型，如果是一个数组怎么办？？数组是没有办法通过 <code>Object.defineProperty</code> 来侦测到行为的。</p> <p>vue 中对这个数组问题的解决方案非常的简单粗暴，我说说vue是如何实现的，大体上分三步：</p> <p>第一步：先把原生 <code>Array</code> 的原型方法继承下来。</p> <p>第二步：对继承后的对象使用 <code>Object.defineProperty</code> 做一些拦截操作。</p> <p>第三步：把加工后可以被拦截的原型，赋值到需要被拦截的 <code>Array</code> 类型的数据的原型上。</p> <p><strong>vue的实现</strong></p> <p>第一步：</p> <div class="language- extra-class"><pre class="language-text"><code>const arrayProto = Array.prototype
+export const arrayMethods = Object.create(arrayProto)
+</code></pre></div><p>第二步：</p> <div class="language- extra-class"><pre class="language-text"><code>;[
+  'push',
+  'pop',
+  'shift',
+  'unshift',
+  'splice',
+  'sort',
+  'reverse'
+]
+.forEach(function (method) {
+  // cache original method
+  const original = arrayProto[method]
+
+  Object.defineProperty(arrayMethods, method, {
+    value: function mutator (...args) {
+      console.log(method) // 打印数组方法
+      return original.apply(this, args)
+    },
+    enumerable: false,
+    writable: true,
+    configurable: true
+  })
+})
+</code></pre></div><p>现在可以看到，每当被侦测的 <code>array</code> 执行方法操作数组时，我都可以知道他执行的方法是什么，并且打印到 <code>console</code> 中。</p> <p>现在我要对这个数组方法类型进行判断，如果操作数组的方法是 push unshift splice （这种可以新增数组元素的方法），需要把新增的元素用上面封装的 <code>walk</code> 来进行变化检测。</p> <p>并且不论操作数组的是什么方法，我都要触发消息，通知依赖列表中的依赖数据发生了变化。</p> <p>那现在怎么访问依赖列表呢，可能我们需要把上面封装的 <code>walk</code> 加工一下：</p> <div class="language- extra-class"><pre class="language-text"><code>// 工具函数
+function def (obj: Object, key: string, val: any, enumerable?: boolean) {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true
+  })
+}
+
+export class Observer {
+  value: any;
+  dep: Dep;
+  vmCount: number; // number of vms that has this object as root $data
+
+  constructor (value: any) {
+    this.value = value
+    this.dep = new Dep() // 新增
+    this.vmCount = 0
+    def(value, '__ob__', this) // 新增
+
+    // 新增
+    if (Array.isArray(value)) {
+      this.observeArray(value)
+    } else {
+      this.walk(value)
+    }
+  }
+
+  /**
+   * Walk through each property and convert them into
+   * getter/setters. This method should only be called when
+   * value type is Object.
+   */
+  walk (obj: Object) {
+    const keys = Object.keys(obj)
+    for (let i = 0; i &lt; keys.length; i++) {
+      defineReactive(obj, keys[i], obj[keys[i]])
+    }
+  }
+
+  /**
+   * Observe a list of Array items.
+   */
+  observeArray (items: Array&lt;any&gt;) {
+    for (let i = 0, l = items.length; i &lt; l; i++) {
+      new Observer(items[i])
+    }
+  }
+}
+</code></pre></div><p>我们定义了一个 <code>Observer</code> 类，他的职责是将 <code>data</code> 转换成可以被侦测到变化的 <code>data</code>，并且新增了对类型的判断，如果是 <code>value</code> 的类型是 <code>Array</code> 循环 Array将每一个元素丢到 Observer 中。</p> <p>并且在 value 上做了一个标记 <code>__ob__</code>，这样我们就可以通过 <code>value</code> 的 <code>__ob__</code> 拿到Observer实例，然后使用 <code>__ob__</code> 上的 <code>dep.notify()</code> 就可以发送通知啦。</p> <p>然后我们在改进一下Array原型的拦截器：</p> <div class="language- extra-class"><pre class="language-text"><code>;[
+  'push',
+  'pop',
+  'shift',
+  'unshift',
+  'splice',
+  'sort',
+  'reverse'
+]
+.forEach(function (method) {
+  // cache original method
+  const original = arrayProto[method]
+  def(arrayMethods, method, function mutator (...args) {
+    const result = original.apply(this, args)
+    const ob = this.__ob__
+    let inserted
+    switch (method) {
+      case 'push':
+      case 'unshift':
+        inserted = args
+        break
+      case 'splice':
+        inserted = args.slice(2)
+        break
+    }
+    if (inserted) ob.observeArray(inserted)
+    // notify change
+    ob.dep.notify()
+    return result
+  })
+})
+</code></pre></div><p>可以看到写了一个 <code>switch</code> 对 <code>method</code> 进行判断，如果是 <code>push</code>，<code>unshift</code>，<code>splice</code> 这种可以新增数组元素的方法就使用 <code>ob.observeArray(inserted)</code> 把新增的元素也丢到 <code>Observer</code> 中去转换成可以被侦测到变化的数据。</p> <p>在最后不论操作数组的方法是什么，都会调用 <code>ob.dep.notify()</code> 去通知 <code>watcher</code> 数据发生了改变。</p> <h2 id="arraymethods-是怎么生效的"><a href="#arraymethods-是怎么生效的" class="header-anchor">#</a> arrayMethods 是怎么生效的？</h2> <p>现在我们有一个 <code>arrayMenthods</code> 是被加工后的 <code>Array.prototype</code>，那么怎么让这个对象应用到<code>Array</code> 上面呢？</p> <p>思考一下，我们不能直接修改 <code>Array.prototype</code>因为这样会污染全局的Array，我们希望 <code>arrayMenthods</code> 只对 <code>data</code>中的<code>Array</code> 生效。</p> <p>所以我们只需要把 <code>arrayMenthods</code> 赋值给 <code>value</code> 的 <code>__proto__</code> 上就好了。</p> <p>我们改造一下 <code>Observer</code>：</p> <div class="language- extra-class"><pre class="language-text"><code>export class Observer {
+  constructor (value: any) {
+    this.value = value
+    this.dep = new Dep()
+    this.vmCount = 0
+    def(value, '__ob__', this)
+
+    if (Array.isArray(value)) {
+      value.__proto__ = arrayMethods // 新增
+      this.observeArray(value)
+    } else {
+      this.walk(value)
+    }
+  }
+}
+</code></pre></div><p>如果不能使用 <code>__proto__</code>，就直接循环 <code>arrayMethods</code>把它身上的这些方法直接装到 <code>value</code> 身上好了。</p> <p><strong>什么情况不能使用 <code>__proto__</code> 我也不知道，各位大佬谁知道能否给我留个言？跪谢~</strong></p> <p>所以我们的代码又要改造一下：</p> <div class="language- extra-class"><pre class="language-text"><code>// can we use __proto__?
+const hasProto = '__proto__' in {} // 新增
+export class Observer {
+  constructor (value: any) {
+    this.value = value
+    this.dep = new Dep()
+    this.vmCount = 0
+    def(value, '__ob__', this)
+
+    if (Array.isArray(value)) {
+      // 修改
+      const augment = hasProto
+        ? protoAugment
+        : copyAugment
+      augment(value, arrayMethods, arrayKeys)
+      this.observeArray(value)
+    } else {
+      this.walk(value)
+    }
+  }
+}
+
+function protoAugment (target, src: Object, keys: any) {
+  target.__proto__ = src
+}
+
+function copyAugment (target: Object, src: Object, keys: Array&lt;string&gt;) {
+  for (let i = 0, l = keys.length; i &lt; l; i++) {
+    const key = keys[i]
+    def(target, key, src[key])
+  }
+}
+</code></pre></div><h2 id="关于array的问题"><a href="#关于array的问题" class="header-anchor">#</a> 关于Array的问题</h2> <p>关于vue对Array的拦截实现上面刚说完，正因为这种实现方式，其实有些数组操作vue是拦截不到的，例如：</p> <div class="language- extra-class"><pre class="language-text"><code>this.list[0] = 2
+</code></pre></div><p>修改数组第一个元素的值，无法侦测到数组的变化，所以并不会触发 <code>re-render</code> 或 <code>watch</code> 等。</p> <p>在例如：</p> <div class="language- extra-class"><pre class="language-text"><code>this.list.length = 0
+</code></pre></div><p>清空数组操作，无法侦测到数组的变化，所以也不会触发 <code>re-render</code> 或 <code>watch</code> 等。</p> <p>因为vue的实现方式就决定了无法对上面举得两个例子做拦截，也就没有办法做到响应，ES6是有能力做到的，在ES6之前是无法做到模拟数组的原生行为的，现在 ES6 的 Proxy 可以模拟数组的原生行为，也可以通过 ES6 的继承来继承数组原生行为，从而进行拦截。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p><img src="defineReactive.assets/data.png" alt="响应式结构图"></p> <p>最后掏出vue官网上的一张图，这张图其实非常清晰，就是一个变化侦测的原理图。</p> <p><code>getter</code> 到 <code>watcher</code> 有一条线，上面写着收集依赖，意思是说 <code>getter</code> 里收集 <code>watcher</code>，也就是说当数据发生 <code>get</code> 动作时开始收集 <code>watcher</code>。</p> <p><code>setter</code> 到 <code>watcher</code> 有一条线，写着 <code>Notify</code> 意思是说在 <code>setter</code> 中触发消息，也就是当数据发生 <code>set</code> 动作时，通知 <code>watcher</code>。</p> <p><code>Watcher</code> 到 ComponentRenderFunction 有一条线，写着 <code>Trigger re-render</code> 意思很明显了。</p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#如何侦测变化" class="sidebar-link reco-side-如何侦测变化" data-v-70334359>如何侦测变化？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#怎么观察" class="sidebar-link reco-side-怎么观察" data-v-70334359>怎么观察？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#依赖收集在哪" class="sidebar-link reco-side-依赖收集在哪" data-v-70334359>依赖收集在哪？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#收集谁" class="sidebar-link reco-side-收集谁" data-v-70334359>收集谁？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#什么是watcher" class="sidebar-link reco-side-什么是watcher" data-v-70334359>什么是Watcher？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#递归侦测所有key" class="sidebar-link reco-side-递归侦测所有key" data-v-70334359>递归侦测所有key</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#array怎么进行变化侦测" class="sidebar-link reco-side-array怎么进行变化侦测" data-v-70334359>Array怎么进行变化侦测？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#arraymethods-是怎么生效的" class="sidebar-link reco-side-arraymethods-是怎么生效的" data-v-70334359>arrayMethods 是怎么生效的？</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#关于array的问题" class="sidebar-link reco-side-关于array的问题" data-v-70334359>关于Array的问题</a></li><li class="level-2" data-v-70334359><a href="/Vue/vueExtend/defineReactive.html#总结" class="sidebar-link reco-side-总结" data-v-70334359>总结</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.7a931dbd.js" defer></script><script src="/assets/js/3.cb1bd57e.js" defer></script><script src="/assets/js/1.76b43f87.js" defer></script><script src="/assets/js/459.1c8af501.js" defer></script>
+  </body>
+</html>

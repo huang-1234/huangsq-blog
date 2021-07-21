@@ -128,6 +128,8 @@ HTTPS 协议的主要作用可以分为两种：一种是建立一个信息安�
 
 ![img](/images/Browser/HTTP/http2.0.png)
 
+![img](G:\Study\Code\Web\myNotes\huangshuiqing\docs\.vuepress\public/images/Browser/HTTP/http2.0.png)
+
 -  多路复用：对于 HTTP/1.x，即使开启了长连接，请求的发送也是串行发送的，在带宽足够的情况下，对带宽的利用率不够，HTTP/2.0 采用了多路复用的方式，可以并行发送多个请求，提高对带宽的利用率。
 
 
