@@ -215,9 +215,29 @@ function getTS() {
       ]
     },
     {
+      title: 'type',
+      children: [
+        'type/enum',
+        'type/IntersectionUnion',
+      ]
+    },
+    {
       title: 'tsComponents',
       children: [
         'tsCom/ts_react_components',
+      ]
+    },
+    {
+      title: 'advanced',
+      children: [
+        'advanced/decorator'
+      ]
+    },
+    {
+      title: 'error',
+      children: [
+        'error/tsconfig',
+        'error/tsconfig',
       ]
     }
   ]

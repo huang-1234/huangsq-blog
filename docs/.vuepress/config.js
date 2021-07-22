@@ -37,6 +37,7 @@ const config = {
     searchMaxSuggestions: 10,
     sidebarDepth: 2,
     noFoundPageByTencent: false,
+    author: 'huangsq',
     /*     // 博客配置
         blogConfig: {
           category: {
