@@ -136,6 +136,178 @@ String ---> Function.prototype ---> Object.prototype
 
 Function.protype 不在 str 的原型链上，所以 str instanceof Function 返回 false
 
+### instanceof 举例
+
+1. **常规用法**
+
+
+
+```js
+var StringObje = new String("instanceof");
+console.log(StringObje instaceof String); // 输出为true
+```
+
+这段代码问的是，变量 `StringObje` 是不是 `String` 对象的实例，答案为 true，很显然是的 , typeof 只会返回 "Object"，所以 instanceof 还是有用的，当然你会发现 `StringObje instanceof Object` 也是true
+ **通常来讲使用 instanceof 就是判断一个实例是否属于某种类型**
+
+
+
+```js
+// 判断 foo 是否是 Foo 的实例
+function Foo(){}
+var foo = new Foo();
+console.log(foo instaceof Foo)  // true
+```
+
+1. **instanceof 在继承中关系应用 **
+
+
+
+```js
+// 判断 a 是否是A类的实例，和是否是其父类 AFather 的实例
+function AFather(){}
+function A(){}
+AFather.prototype = new A(){};  // js原型继承
+var a = new A();
+console.log(a instanceof A)  //true
+console.log(a instanceof AFather)   //true
+```
+
+在多层继承中，仍然适用。
+
+1. **instanceof 复杂用法**
+
+
+
+```js
+function Foo(){}
+console.log(Object instanceof Object);//1  true 
+console.log(Function instanceof Function);//2  true 
+console.log(Number instanceof Number);//3  false 
+console.log(String instanceof String);//4  false 
+console.log(Function instanceof Object);//5   true 
+console.log(Foo instanceof Function);//6  true 
+console.log(Foo instanceof Foo);//7  false
+```
+
+对上面的结果有没有感觉到奇怪，奇怪也正常，因为确实挺奇怪的！
+ 对上面的分析，首先要看看，你检测的到底是什么？
+
+
+
+```js
+console.log(Object,Function,String,Number,Foo);
+  /***
+  *  结果如下
+  *   function Object() { [native code] } 
+  *   function Function() { [native code] } 
+  *   function String() { [native code] } 
+  *   function Number() { [native code] } 
+  *   function Foo(){}
+  */
+```
+
+这已经很明显了，所有的`检测对象都是一个函数，那么必定属于函数类型和对象类型`，只剩下3,4,7有问题了，那么为什么是 `false` 呢？你想想，`Foo函数是Foo的实例吗`？显然不是啊，同理，`String和Number函数也不是其本身的实例`，new Func() , 这个才是实例对象。
+ 想彻底明白其中奥妙，必须要了解`语言规范`和`原型继承机制`
+
+1. **规范中 instanceof 运算符定义**
+    可以参考这个网址 ：[instanceof 语法](https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
+    　规范定义很晦涩，而且看起来比较复杂，涉及到很多概念，但把规范翻译成 JavaScript 代码却很简单，如下：
+
+```js
+ function instance_of(L, R) {    //L 表示左表达式，R 表示右表达式
+  var O = R.prototype;           // 取 R 的显示原型
+  L = L.__proto__;               // 取 L 的隐式原型
+  while (true) { 
+    if (L === null)  return false;
+    if (O === L)  return true;   // 这里重点：当 O 严格等于 L 时，返回 true 
+    L = L.__proto__; 
+  } 
+ }
+```
+
+> Javascript 原型继承机制
+
+   本文主要在分析 JavaScript instanceof 运算符，对于 JavaScript 的原型继承机制不再做详细的讲解，下面参考来自[http://www.mollypages.org/misc/js.mp](https://link.jianshu.com?t=http://www.mollypages.org/misc/js.mp) 的一张图片，此图片详细的描述了 JavaScript 各种对象的`显示和隐式原型链`结构。
+
+由其涉及显示原型和隐式原型，所以下面对这两个概念作一下简单说明。在 JavaScript 原型继承结构里面，规范中用 `[[Prototype]] 表示对象隐式的原型，在 JavaScript 中用 __proto__ 表示`，并且在 Firefox 和 Chrome 浏览器中是可以访问得到这个属性的，但是 IE 下不行。`所有 JavaScript 对象都有 __proto__ 属性，但只有 Object.prototype.__proto__ 为 null`，前提是没有在 Firefox 或者 Chrome 下修改过这个属性。这个属性指向它的原型对象。 至于`显示的原型，在 JavaScript 里用 prototype 属性表示`，这个是 JavaScript 原型继承的基础知识，在这里就不在叙述了。
+
+1. **上述复杂问题的推演过程**
+    如果你理解了 javascript 原型链，那么这个问题就简单了！
+    下面将详细讲解 `Object instanceof Object，Function instanceof Function 和 Foo instanceof Foo` 三个示例，其它示例读者可自行推演。
+
+
+
+```jsx
+ 1. Object instanceof Object
+```
+
+
+
+```dart
+ // 为了方便表述，首先区分左侧表达式和右侧表达式
+ ObjectL = Object, ObjectR = Object; 
+ // 下面根据规范逐步推演
+ O = ObjectR.prototype = Object.prototype 
+ L = ObjectL.__proto__ = Function.prototype 
+ // 第一次判断
+ O != L 
+ // 循环查找 L 是否还有 __proto__ 
+ L = Function.prototype.__proto__ = Object.prototype 
+ // 第二次判断
+ O == L 
+ // 返回 true
+```
+
+
+
+```jsx
+ 2. Function instanceof Function
+```
+
+
+
+```dart
+ // 为了方便表述，首先区分左侧表达式和右侧表达式
+ FunctionL = Function, FunctionR = Function; 
+ // 下面根据规范逐步推演
+ O = FunctionR.prototype = Function.prototype 
+ L = FunctionL.__proto__ = Function.prototype 
+ // 第一次判断
+ O == L 
+ // 返回 true
+```
+
+
+
+```java
+ 3. Foo instanceof Foo
+```
+
+
+
+```dart
+ // 为了方便表述，首先区分左侧表达式和右侧表达式
+ FooL = Foo, FooR = Foo; 
+ // 下面根据规范逐步推演
+ O = FooR.prototype = Foo.prototype 
+ L = FooL.__proto__ = Function.prototype 
+ // 第一次判断
+ O != L 
+ // 循环再次查找 L 是否还有 __proto__ 
+ L = Function.prototype.__proto__ = Object.prototype 
+ // 第二次判断
+ O != L 
+ // 再次循环查找 L 是否还有 __proto__ 
+ L = Object.prototype.__proto__ = null 
+ // 第三次判断
+ L == null 
+ // 返回 false
+```
+
+
+
+
 # typeof
 
 ## typeof 的定义
@@ -279,3 +451,4 @@ typeof null === 'object'; // 从一开始出现JavaScript就是这样的
 ```js
 typeof document.all === 'undefined';
 ```
+

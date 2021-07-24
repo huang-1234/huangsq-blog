@@ -23,7 +23,8 @@
 
 ```json
 {
-  "compilerOptions": { // 严格属性初始化
+  "compilerOptions": {
+    // 严格属性初始化
     "strictPropertyInitialization": false
   }
 }
