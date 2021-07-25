@@ -255,7 +255,7 @@ function getBrowserCore() {
     {
       title: 'Event机制',
       children: [
-        'Event/ajsEventLoop',
+        'Event/ajsEventLoopINmd',
       ]
     },
     {
@@ -569,13 +569,23 @@ function getTools() {
     {
       title: 'Git',
       children: [
-        'Git/gitCommand',
-        // 'Git/git',
         'Git/gitCmCmd',
+        'Git/commands_scene',
         'Git/error',
 
-
         'Git/GitHub',
+      ]
+    },
+    {
+      title: 'learn git',
+      children: [
+        'Git/learn/base',
+        'Git/learn/branch',
+        'Git/learn/merge',
+        'Git/learn/push',
+        'Git/learn/mutilBranchProject',
+        'Git/learn/log',
+        'Git/learn/summarize',
       ]
     },
     {

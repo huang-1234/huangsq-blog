@@ -2,7 +2,7 @@
 
 > 读史使人明智
 
-[了解一下整个浏览器技术和互联网的发展史](http://www.evolutionoftheweb.com/?hl=zh-cn)
+[了解一下整个浏览器技术和互联网的发展史](http://www.evolutionoftheweb.com/?hl=zh-cn)（因为是外网的资源，想看是需要翻墙的）
 
 
 <a href='/JS/es/aJSType'>learn JS</a>

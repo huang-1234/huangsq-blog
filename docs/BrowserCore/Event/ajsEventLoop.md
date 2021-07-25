@@ -1,4 +1,4 @@
-# JS事件循环(Event Loop)
+# JS事件循环(Event Loop) Full
 
 ### 概念
 
@@ -571,4 +571,5 @@ setImmediate 1000
 2. [Node.js Event Loop 的理解 Timers，process.nextTick()](https://cnodejs.org/topic/57d68794cb6f605d360105bf)
 3. [libuv/core.c](https://github.com/libuv/libuv/blob/v1.x/src/unix/core.c)
 4. [nodejs/next_tick.js](https://github.com/nodejs/node/blob/master/lib/internal/process/next_tick.js)
+5. [深入理解js事件循环机制（浏览器篇） - lynnelv's blog](http://lynnelv.github.io/js-event-loop-browser)
 
