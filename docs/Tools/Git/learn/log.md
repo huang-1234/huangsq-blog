@@ -6,13 +6,13 @@
 
 我们使用一个非常简单的 “simplegit” 项目作为示例。 运行下面的命令获取该项目：
 
-```console
+```shell
 $ git clone https://github.com/schacon/simplegit-progit
 ```
 
 当你在此项目中运行 `git log` 命令时，可以看到下面的输出：
 
-```console
+```shell
 $ git log
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -39,7 +39,7 @@ Date:   Sat Mar 15 10:31:28 2008 -0700
 
 其中一个比较有用的选项是 `-p` 或 `--patch` ，它会显示每次提交所引入的差异（按 **补丁** 的格式输出）。 你也可以限制显示的日志条目数量，例如使用 `-2` 选项来只显示最近的两次提交：
 
-```console
+```shell
 $ git log -p -2
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -84,7 +84,7 @@ index a0a60ae..47c6340 100644
 
 该选项除了显示基本信息之外，还附带了每次提交的变化。 当进行代码审查，或者快速浏览某个搭档的提交所带来的变化的时候，这个参数就非常有用了。 你也可以为 `git log` 附带一系列的总结性选项。 比如你想看到每次提交的简略统计信息，可以使用 `--stat` 选项：
 
-```console
+```shell
 $ git log --stat
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
@@ -120,7 +120,7 @@ Date:   Sat Mar 15 10:31:28 2008 -0700
 
 另一个非常有用的选项是 `--pretty`。 这个选项可以使用不同于默认格式的方式展示提交历史。 这个选项有一些内建的子选项供你使用。 比如 `oneline` 会将每个提交放在一行显示，在浏览大量的提交时非常有用。 另外还有 `short`，`full` 和 `fuller` 选项，它们展示信息的格式基本一致，但是详尽程度不一：
 
-```console
+```shell
 $ git log --pretty=oneline
 ca82a6dff817ec66f44342007202690a93763949 changed the version number
 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test
@@ -129,7 +129,7 @@ a11bef06a3f659402fe7563abf99ad00de2209e6 first commit
 
 最有意思的是 `format` ，可以定制记录的显示格式。 这样的输出对后期提取分析格外有用——因为你知道输出的格式不会随着 Git 的更新而发生改变：
 
-```console
+```shell
 $ git log --pretty=format:"%h - %an, %ar : %s"
 ca82a6d - Scott Chacon, 6 years ago : changed the version number
 085bb3b - Scott Chacon, 6 years ago : removed unnecessary test
@@ -160,7 +160,7 @@ a11bef0 - Scott Chacon, 6 years ago : first commit
 
 当 `oneline` 或 `format` 与另一个 `log` 选项 `--graph` 结合使用时尤其有用。 这个选项添加了一些 ASCII 字符串来形象地展示你的分支、合并历史：
 
-```console
+```shell
 $ git log --pretty=format:"%h %s" --graph
 * 2d3acf9 ignore errors from SIGCHLD on trap
 *  5e3ee11 Merge branch 'master' of git://github.com/dustin/grit
@@ -197,7 +197,7 @@ $ git log --pretty=format:"%h %s" --graph
 
 但是，类似 `--since` 和 `--until` 这种按照时间作限制的选项很有用。 例如，下面的命令会列出最近两周的所有提交：
 
-```console
+```shell
 $ git log --since=2.weeks
 ```
 
@@ -211,7 +211,7 @@ $ git log --since=2.weeks
 
 另一个非常有用的过滤器是 `-S`（俗称“pickaxe”选项，取“用鹤嘴锄在土里捡石头”之意）， 它接受一个字符串参数，并且只会显示那些添加或删除了该字符串的提交。 假设你想找出添加或删除了对某一个特定函数的引用的提交，可以调用：
 
-```console
+```shell
 $ git log -S function_name
 ```
 
@@ -231,7 +231,7 @@ $ git log -S function_name
 
 来看一个实际的例子，如果要在 Git 源码库中查看 Junio Hamano 在 2008 年 10 月其间， 除了合并提交之外的哪一个提交修改了测试文件，可以使用下面的命令：
 
-```console
+```shell
 $ git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" \
    --before="2008-11-01" --no-merges -- t/
 5610e3b - Fix testcase failure when extended attributes are in use

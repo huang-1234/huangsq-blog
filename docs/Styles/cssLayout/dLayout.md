@@ -40,7 +40,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
  ```css
  .box{
- display: flex;
+ 		display: flex;
  }
  ```
 
@@ -48,7 +48,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
  ```css
  .box{
- display: inline-flex;
+ 		display: inline-flex;
  }
  ```
 
@@ -90,7 +90,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
  ```css
  .box {
- flex-direction: row | row-reverse | column | column-reverse;
+ 		flex-direction: row | row-reverse | column | column-reverse;
  }
  ```
 
@@ -111,7 +111,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
  ```css
  .box{
- flex-wrap: nowrap | wrap | wrap-reverse;
+ 	flex-wrap: nowrap | wrap | wrap-reverse;
  }
  ```
 
@@ -145,7 +145,7 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
  ```css
  .box {
- justify-content: flex-start | flex-end | center | space-between | space-around;
+ 		justify-content: flex-start | flex-end | center | space-between | space-around;
  }
  ```
 

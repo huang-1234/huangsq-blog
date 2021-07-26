@@ -20,7 +20,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-    modified:   CONTRIBUTING.md
+modified:   CONTRIBUTING.md
 ```
 
 要查看尚未暂存的文件更新了哪些部分，不加参数直接输入 `git diff`：
