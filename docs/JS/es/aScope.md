@@ -49,14 +49,14 @@ function bar() {
     console.log(myName)
 }
 function foo() {
-    var myName = "jsChen"
+    var myName = "CodeHuang"
     bar()
 }
-var myName = "chenyilong369"
+var myName = "huangsq"
 foo()
 ```
 
-发现最后输出的是`chenyilong369`，为什么不是`jsChen`呢？
+发现最后输出的是huansgq，为什么不是`CodeHuang`呢？
 
 在每个执行上下文的变量环境中，都包含了一个外部引用，用来指向外部的执行上下文，我们把这个外部引用称为 outer。
 
