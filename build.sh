@@ -11,6 +11,6 @@ npm run build
 # git
 # git init
 git add .
-git commit -m 'change music'
+git commit -m 'update'
 # git remote add origin https://github.com/huang-1234/MyvuePressBlog.git
 git push -f origin main
