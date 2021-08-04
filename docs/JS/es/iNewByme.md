@@ -13,7 +13,7 @@ console.log(person1)  // Person {name: "Tom", age: 20}
 
 那么，我们使用new操作符的时候都发生了哪些事呢？
 
-备注：如果对JS中的prototype、__proto__与constructor属性不大熟悉的话，强烈建议先看一下这篇文章再来看一下内容：
+备注：如果对JS中的`prototype`、`__proto__`与`constructor`属性不大熟悉的话，强烈建议先看一下这篇文章再来看一下内容：
 [帮你彻底搞懂JS中的prototype、__proto__与constructor（图解）](./ProtoTypeAndproto)
 
 new关键字进行的操作
