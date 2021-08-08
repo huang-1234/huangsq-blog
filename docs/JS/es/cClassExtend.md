@@ -1,2 +1,2 @@
-# 3.simul Class and inherit
+# 3. 类的继承
 

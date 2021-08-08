@@ -34,7 +34,7 @@ export const EventBus = new Vue();
 
 现在假设 A 组件与 B 组件通信
 
-```
+```html
 <!-- A.vue -->
 <template>
     <p>{{msgB}}</p>
@@ -103,7 +103,7 @@ EventBus.$off('事件名', 回调函数)
 - `EventBus.$off('事件名')`，移除该事件所有的监听器。
 - `EventBus.$off()`， 移除所有的事件监听器，注意不需要添加任何参数。
 
-```
+```js
 // 导入我们刚刚创建的 EventBus
 import { EventBus } from '../Bus.js'
 
@@ -131,7 +131,7 @@ EventBus.$off('i-got-clicked', clickHandler);
 
 全局事件总线只不过是一个简单的 vue 组件。
 
-```
+```js
 var EventBus = new Vue();
 
 Object.defineProperties(Vue.prototype, {
@@ -148,7 +148,7 @@ Object.defineProperties(Vue.prototype, {
 
 在这个特定的总线中使用两个方法。一个用于创建发出的事件，它就是$emit；另一个用于订阅$on：
 
-```
+```js
 this.$bus.$emit('nameOfEvent',{ ... pass some event data ...});
 
 this.$bus.$on('nameOfEvent',($event) => {
