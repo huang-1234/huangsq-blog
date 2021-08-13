@@ -147,3 +147,4 @@ HTTPS 协议的主要作用可以分为两种：一种是建立一个信息安�
 
   -  HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPS。
   -  HTTP2.0 消息头的压缩算法采用 HPACK，而非 SPDY 采用的 DEFLATE。
+

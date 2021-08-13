@@ -89,10 +89,10 @@ const Person = function() {}
 const p1 = new Person()
 p1 instanceof Person // true
 
-var str = 'hello world'
+let str = 'hello world'
 str instanceof String // false
 
-var str1 = new String('hello world')
+let str1 = new String('hello world')
 str1 instanceof String // true
 ```
 
@@ -228,6 +228,8 @@ a > -1 // true
 Symbol.for() 可以在全局访问 symbol。
 
 ### {} + [] 和 [] + {} 的区别
+
+下面的说法来自《The Javascript You Dont Know》
 
 ```js
 [] + {} // "[object Object]"
@@ -486,7 +488,7 @@ console.log(toString.call(null));         // [object Null]
 在JavaScript中，想要判断某个对象值属于哪种内置类型，最靠谱的做法就是通过Object.prototype.toString方法.
 
 ```js
-var arr = [];
+let arr = [];
 console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 ```
 

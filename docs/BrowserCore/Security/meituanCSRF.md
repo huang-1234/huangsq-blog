@@ -195,7 +195,6 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 ```html
  <img src="http://bank.example/withdraw?amount=10000&for=hacker" referrerpolicy="no-referrer"> 
-
 ```
 
 那么这个请求发起的攻击将不携带Referer。
@@ -225,7 +224,6 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 ```
 Accept: text/html
 Method: GET
-
 ```
 
 但相应的，页面请求就暴露在了CSRF的攻击范围之中。如果你的网站中，在页面的GET请求中对当前用户做了什么操作的话，防范就失效了。
@@ -234,7 +232,6 @@ Method: GET
 
 ```
 GET https://example.com/addComment?comment=XXX&dest=orderId
-
 ```
 
 注：这种严格来说并不一定存在CSRF攻击的风险，但仍然有很多网站经常把主文档GET请求挂上参数来实现产品功能，但是这样做对于自身来说是存在安全风险的。
@@ -295,7 +292,7 @@ getRequestTest:== {
 
 这样，就把Token以参数的形式加入请求了。
 
-3.服务器验证Token是否正确
+3. 服务器验证Token是否正确
 
 当用户从客户端得到了Token，再次提交给服务器的时候，服务器需要判断Token的有效性，验证过程是先解密Token，对比加密字符串以及时间戳，如果加密字符串一致且时间未过期，那么这个Token就是有效的。
 
@@ -304,10 +301,10 @@ getRequestTest:== {
 ```js
 HttpServletRequest req = (HttpServletRequest)request; 
 HttpSession s = req.getSession(); 
- 
+
 // 从 session 中得到 csrftoken 属性
 String sToken = (String)s.getAttribute(“csrftoken”); 
-if(sToken == null){ 
+if(sToken == null){
    // 产生新的 token 放入 session 中
    sToken = generateToken(); 
    s.setAttribute(“csrftoken”,sToken); 
