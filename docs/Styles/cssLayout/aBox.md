@@ -120,3 +120,63 @@ box-sizing = border-box
 `width` = border + padding + 内容的宽度
 `height` = border + padding + 内容的高度
 ```
+
+### 正确使用"width:100%"
+
+"width:100%"是一个很常用的属性，当对子元素这样设置的时候，子元素的宽度就等于父元素的宽度。
+ 但是，这句话还不够准确。子元素的宽度指什么？子元素内容区域的宽度还是包括padding/border的总宽度？父元素的宽度指什么？父元素内容区域的宽度还是包括padding/border的总宽度？
+
+
+
+```html
+<style>
+	// css
+.parent{
+  margin:100px auto;
+  width:600px;
+  border:100px solid #ddd;
+  padding:100px;
+}
+.child{
+  width:100%;
+  border:50px solid pink;
+  padding:50px;
+}
+</style>
+// html
+<body>
+  <div class='parent'>
+    parent
+     <div class='child'>
+        child
+     </div>
+  </div>
+</body>
+```
+
+父元素内容区域宽度：600px，padding：100px，border：100px，总宽度：1000px;
+ 子元素内容区域宽度：600px，padding：50px，border：50px，总宽度：800px。
+ 由此可知，子元素设置宽度的百分比是指**子元素内容区域**相对于**父元素内容区域**；同时，正是由于子元素设置宽度的百分比是指子元素内容区域相对于父元素内容区域，所以造成了**子元素溢出了父元素**。
+
+在以上示例中，我们没有设置box-sizing属性，因此box-sizing默认为content-box。现在，我们为元素设置`box-sizing:content-box`，再看看结果：
+
+
+
+```css
+// css
+*{
+  box-sizing:border-box;
+}
+```
+
+由图可知：
+ 父元素内容区域宽度：200px，padding：100px，border：100px，总宽度：600px;
+ 子元素内容区域宽度：0px，padding：50px，border：50px，总宽度：200px。
+
+由此可知，当设置`box-sizing:border-box`时，子元素设置宽度的百分比是指**子元素整个盒子区域**相对于**父元素内容区域**。
+
+> 总结：
+>  1、当设置"box-sizing:content-box"时，子元素设置宽度的百分比是指**子元素内容区域**相对于**父元素内容区域**；
+>  2、当设置"box-sizing:border-box"时，子元素设置宽度的百分比是指**子元素整个盒子区域**相对于**父元素内容区域**；
+>  3、如果想要正确使用"width:100%"这一属性，一定要设置"box-sizing:border-box",否则会造成子元素溢出。
+

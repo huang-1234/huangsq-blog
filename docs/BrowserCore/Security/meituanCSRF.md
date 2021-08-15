@@ -90,7 +90,7 @@ GET类型的CSRF利用非常简单，只需要一个HTTP请求，一般会这样
 这种类型的CSRF利用起来通常使用的是一个自动提交的表单，如：
 
 ```html
- <form action="http://bank.example/withdraw" method=POST>
+<form action="http://bank.example/withdraw" method=POST>
     <input type="hidden" name="account" value="xiaoming" />
     <input type="hidden" name="amount" value="10000" />
     <input type="hidden" name="for" value="hacker" />

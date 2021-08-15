@@ -8,7 +8,7 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update dec of ts'
+git commit -m 'update review'
 
 # git remote -v
 # git pull
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update dec of ts'
+git commit -m 'update revire'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull

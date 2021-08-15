@@ -36,7 +36,7 @@ JavaScript 中 slice 、substr 和 substring的区别：
 
 String 对象的方法 slice()、substring() 和 substr() (不建议使用)都可返回字符串的指定部分。slice() 比 substring() 要灵活一些，因为它允许使用负数作为参数。slice() 与 substr() 有所不同，因为它用两个字符的位置来指定子串，而 substr() 则用字符位置和长度来指定子串。
 
-有三种提取部分字符串的方法：
+有三种提取部分字符串的方法：`return new string`
 
 - slice(*start*, *end*)
 - substring(*start*, *end*)
@@ -63,6 +63,8 @@ substring() 类似于 slice()。不同之处在于 substring() 无法接受负�
 substr() 类似于 slice()。
 
 不同之处在于<font color=red>第二个参数规定被提取部分的长度</font>。
+
+substr()会将**第一个**位置的**负值**参数加上字符串长度后转为正数
 
 如果省略第二个参数，则该 substr() 将裁剪字符串的剩余部分。
 

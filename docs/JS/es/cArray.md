@@ -46,9 +46,16 @@ js数组对象自带的方法有如下这些，除了`toSource()`这个方法比
 
 可以分为改变原数组(上述方法名为红色的方法)和不改变原数组
 
-改变原数组的方法：`pop(),push(),reverse(),shift(),sort(),splice(),unshift()`
+改变原数组的方法：
 
-JavaScript的 `**Array**` 对象是用于构造数组的全局对象，数组是类似于列表的高阶对象。
+```js
+`pop(),push(),reverse(),shift(),sort(),splice(),unshift()`
+// 补充一下：
+`arr.fill()`   fill() 方法用于将一个固定值替换数组的元素。
+`arr.copyWithin()` 方法用于从数组的指定位置拷贝元素到数组的另一个指定位置中。
+```
+JavaScript的 `Array` 对象是用于构造数组的全局对象，数组是类似于列表的高阶对象。
+
 ```js
 //1. 创建数组
 var fruits = ['Apple', 'Banana'];
@@ -136,7 +143,7 @@ JavaScript 数组的索引是从0开始的，第一个元素的索引为0，最�
 
 虽然数组元素可以看做是数组对象的属性，就像 `toString` 一样，但是下面的写法是错误的，运行时会抛出 `SyntaxError` 异常，而原因则是使用了非法的属性名：
 
-```js
+​```js
 console.log(arr.0); // a syntax error
 ```
 
