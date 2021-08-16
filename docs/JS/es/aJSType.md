@@ -16,7 +16,7 @@
 
 那么有个问题，为什么`1..toString()`是正确的？而`1.toString()`却不行了呢？
 
-原因在于数字1后面接的第一个点`.`,编译器是直接当成数字的一部分，而`1.`后面再接上一个点`.`才会被当成数字在调用方法，而这也只是数字的隐藏类`Number`在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。
+原因在于数字1后面接的第一个点`.`,编译器是直接当成数字的一部分，而`1.`后面再接上一个点`.`才会被当成数字在调用方法，而这也只是数字的隐藏类`Number`在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。这个也许就是你不知道的JS讲的行为委托设计思想。
 
 > 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的``Object.prototype.toString.call(target).slice(8,-1)`
 >
@@ -229,7 +229,7 @@ Symbol.for() 可以在全局访问 symbol。
 
 ### {} + [] 和 [] + {} 的区别
 
-下面的说法来自《The Javascript You Dont Know》
+下面的说法来自《The Javascript You Dont Know》, 但是现在好像都是显示"[object Object]" 了
 
 ```js
 [] + {} // "[object Object]"
@@ -354,7 +354,7 @@ console.log(typeof(test.testObjectNumber));    // object
 
 如上，可以看出，通过 `typeof`，我们可以判断大多数的类型，但是，它存在缺陷：
 
-1. 判断 `typeof null`，会得到 `object`；
+1. 判断 `typeof null`，会得到 `object`； 这是因为在大部分的JS编译器内部对对象的描述，其首地址都是规定以00开头的，而当初设计的时候，null的首地址又刚好就是00开头。
 2. 判断构造函数 `typeof new String('String')` 或者 `typeof new Number(123)` 等……，也会得到 `object`。
 
 即通过 `typeof` 进行数据类型判断会有一定的问题。
