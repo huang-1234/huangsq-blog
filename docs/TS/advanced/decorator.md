@@ -47,7 +47,7 @@ tsconfig.json:
 ## 为什么要用装饰器
 
 可能有些时候，我们会对传入参数的类型判断、对返回值的排序、过滤，对函数添加节流、防抖或其他的功能性代码，基于多个类的继承，各种各样的与函数逻辑本身无关的、重复性的代码。
-所以，对于装饰器，可以简单地理解为是非侵入式的行为修改。
+所以，对于装饰器，`可以简单地理解为是非侵入式的行为修改。`
 
 ## 如何定义装饰器
 
@@ -116,7 +116,7 @@ function Path(p1: string, p2: string) {
 ### 1.类装饰器
 
 应用于类构造函数，其参数是类的构造函数。
-**\*注意 class 并不是像 Java 那种强类型语言中的类，而是 JavaScript 构造函数的语法糖。**
+**注意 class 并不是像 Java 那种强类型语言中的类，而是 JavaScript 构造函数的语法糖**
 
 ```tsx
 function addAge(args: number) {
@@ -155,9 +155,7 @@ function addAge(constructor: Function) {
   constructor.prototype.age = 18;
 }
 
-function method(
-  target: any,
-  propertyKey: string,
+function method(target: any, propertyKey: string,
   descriptor: PropertyDescriptor
 ) {
   console.log(target);

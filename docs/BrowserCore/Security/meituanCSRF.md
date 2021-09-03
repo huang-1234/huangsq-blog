@@ -79,8 +79,7 @@ CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害�
 GET类型的CSRF利用非常简单，只需要一个HTTP请求，一般会这样利用：
 
 ```html
- <img src="http://bank.example/withdraw?amount=10000&for=hacker" > 
-
+<img src="http://bank.example/withdraw?amount=10000&for=hacker" > 
 ```
 
 在受害者访问含有这个img的页面后，浏览器会自动向`http://bank.example/withdraw?account=xiaoming&amount=10000&for=hacker`发出一次HTTP请求。bank.example就会收到包含受害者登录信息的一次跨域请求。

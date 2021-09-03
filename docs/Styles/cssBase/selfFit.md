@@ -11,12 +11,15 @@
 媒体查询可针对不同设备场景使用不同css，一般栅格系统和多套代码逻辑匹配页面是都要用媒体查询来确定页面大小。媒体查询技术的原理：**通过匹配不同屏幕设备的特征,让不同特征下的CSS代码生效。**
 
 **常用匹配特征 media features**
+
+```css
 `width/height: `浏览器宽高
 `max-width：` 表示小于最大宽度时生效
 `min-width：` 表示大于最小宽度时生效
 `device-width/device-height:` 设备屏幕分辨率宽高
 `resolution: `设备分辨率
 `orientation：`portrait(纵向),高度大于等于宽度时，landscape(横向),高度小于宽度时
+```
 
 **特征匹配操作符**
 当媒体类型匹配且表达式为真的时候，对应style就会起作用:

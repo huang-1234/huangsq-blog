@@ -24,10 +24,12 @@
 行内样式 权重 1000
 ！important 权重比单个最大 ie6不支持，权重 的大小按着256进制计算 可以叠加，但是只限于同一级别的选择器， 并不是10比1大9的关系
 
-### css选择器的优先级和权重问题,如果想深入了解，[请点击这里](/https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity)
+### css选择器的优先级和权重问题
+
+如果想深入了解，[请点击这里](/https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity)
 
 ## CSS选择器的种类：
-```text
+```css
 CSS选择器的种类：
 1.id选择器如：（id=”name”,id=”name_txt）（*name）
 2.class选择器（如：class=”head”,class=”head_logo”）(#head)
@@ -38,7 +40,7 @@ CSS选择器的种类：
 7.伪类选择器（如：就是链接样式,a元素的伪类，4种不同的状态：link、visited、active、hover。）
 ```
 ## CSS的优先级
-```text
+```css
 CSS的优先级
 选择器的优先级分为两种情况，第一种是选择器在同一级别的情况下，第二种是选择器在不同级别的情况下
 不同选择器级别：
@@ -218,7 +220,7 @@ html {
 
 唯一的问题是缺少IE8的支持。自2005年CSS3的第二稿以来，REM没有被认为重要的足以包括在四年以后发布的IE8中。不管怎样，正如我们知道如何解决IE的问题一样，我们开始使用REM的像素后退模式。
 
-```
+```css
 .my-text {
   font-size: 32px;
   font-size: 2rem;
@@ -231,7 +233,7 @@ CSS是温和的，它总是建立在优雅降级的概念上。如果渲染引�
 
 现今每个前端工程师意识到媒体查询是一个很有用的东西，在某种程度上我们几乎在每个项目中都用到它。在媒体查询变得流行，人们开始为移动设备设计他们的网站之后没多久开始了一些争论，关于使用像素还是相对字体单位`rem`或`em`来指定媒体查询。让我们来看看Zurb在2011年十月发布的响应式CSS框架Foundation2：
 
-```
+```css
 /* Mobile */
 @media only screen and (max-width: 767px) {}
 /* Modernizr-enabled tablet targeting */
@@ -242,7 +244,7 @@ CSS是温和的，它总是建立在优雅降级的概念上。如果渲染引�
 
 你还可以观察到，像素单位被用来指定媒体查询。让我们来看看Foundation更新的版本。Foundation 5是移动优先的，并且基于媒体查询的所有屏幕尺寸都是用`em`为单位的。
 
-```
+```css
 /* xs up */
 @media only screen {}
 /* small up */

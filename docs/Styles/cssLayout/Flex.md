@@ -8,7 +8,7 @@
 
 > ```css
 > .box{
->   display: flex;
+>   	display: flex;
 > }
 > ```
 
@@ -16,7 +16,7 @@
 
 > ```css
 > .box{
->   display: inline-flex;
+>   	display: inline-flex;
 > }
 > ```
 
@@ -24,8 +24,8 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 > ```css
 > .box{
->   display: -webkit-flex; /* Safari */
->   display: flex;
+>     display: -webkit-flex; /* Safari */
+>     display: flex;
 > }
 > ```
 

@@ -367,7 +367,7 @@ render(){
 
 第二个参数：`onRender`回调函数，用于渲染完成，接受渲染参数。
 
-```js
+```jsx
 const index = () => {
   const callback = (...arg) => console.log(arg)
   return <div >
