@@ -33,7 +33,7 @@ There are several decorators and 1 function (Mixin):
 
 ### `@Prop(options: (PropOptions | Constructor[] | Constructor) = {})` decorator
 
-```
+```tsx
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
@@ -46,7 +46,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   props: {
     propA: {
@@ -67,7 +67,7 @@ export default {
 1. Set `emitDecoratorMetadata` to `true`.
 2. Import `reflect-metadata` **before** importing `vue-property-decorator` (importing `reflect-metadata` is needed just once.)
 
-```
+```tsx
 import 'reflect-metadata'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
@@ -83,7 +83,7 @@ It's **not** supported to define each `default` property like `@Prop() prop = 'd
 
 ### `@PropSync(propName: string, options: (PropOptions | Constructor[] | Constructor) = {})` decorator
 
-```
+```tsx
 import { Vue, Component, PropSync } from 'vue-property-decorator'
 
 @Component
@@ -94,7 +94,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   props: {
     name: {
@@ -118,7 +118,7 @@ export default {
 
 ### `@Model(event?: string, options: (PropOptions | Constructor[] | Constructor) = {})` decorator
 
-```
+```tsx
 import { Vue, Component, Model } from 'vue-property-decorator'
 
 @Component
@@ -129,7 +129,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   model: {
     prop: 'checked',
@@ -147,7 +147,7 @@ export default {
 
 ### `@ModelSync(propName: string, event?: string, options: (PropOptions | Constructor[] | Constructor) = {})` decorator
 
-```
+```tsx
 import { Vue, Component, ModelSync } from 'vue-property-decorator'
 
 @Component
@@ -159,7 +159,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   model: {
     prop: 'checked',
@@ -187,7 +187,7 @@ export default {
 
 ### `@Watch(path: string, options: WatchOptions = {})` decorator
 
-```
+```tsx
 import { Vue, Component, Watch } from 'vue-property-decorator'
 
 @Component
@@ -205,7 +205,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   watch: {
     child: [
@@ -238,7 +238,7 @@ export default {
 
 ### `@Provide(key?: string | symbol)` / `@Inject(options?: { from?: InjectKey, default?: any } | InjectKey)` decorator
 
-```
+```tsx
 import { Component, Inject, Provide, Vue } from 'vue-property-decorator'
 
 const symbol = Symbol('baz')
@@ -257,7 +257,7 @@ export class MyComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 const symbol = Symbol('baz')
 
 export const MyComponent = Vue.extend({
@@ -286,7 +286,7 @@ export const MyComponent = Vue.extend({
 
 These decorators are reactive version of `@Provide` and `@Inject`. If a provided value is modified by parent component, then the child component can catch this modification.
 
-```
+```tsx
 const key = Symbol()
 @Component
 class ParentComponent extends Vue {
@@ -307,7 +307,7 @@ The functions decorated by `@Emit` `$emit` their return value followed by their 
 
 If the name of the event is not supplied via the `event` argument, the function name is used instead. In that case, the camelCase name will be converted to kebab-case.
 
-```
+```tsx
 import { Vue, Component, Emit } from 'vue-property-decorator'
 
 @Component
@@ -347,7 +347,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   data() {
     return {
@@ -386,7 +386,7 @@ export default {
 
 ### `@Ref(refKey?: string)` decorator
 
-```
+```tsx
 import { Vue, Component, Ref } from 'vue-property-decorator'
 
 import AnotherComponent from '@/path/to/another-component.vue'
@@ -400,7 +400,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   computed() {
     anotherComponent: {
@@ -421,7 +421,7 @@ export default {
 
 ### `@VModel(propsArgs?: PropOptions)` decorator
 
-```
+```tsx
 import { Vue, Component, VModel } from 'vue-property-decorator'
 
 @Component
@@ -432,7 +432,7 @@ export default class YourComponent extends Vue {
 
 is equivalent to
 
-```
+```tsx
 export default {
   props: {
     value: {

@@ -73,7 +73,7 @@ document.documentElement.style.fontSize = deviceWidth / 6.4 + 'px';
 
 淘宝的效果跟网易的效果其实是类似的，随着分辨率的变化，页面元素的尺寸和间距都相应变化，这是因为淘宝的尺寸也是使用了rem的原因。在介绍它的做法之前，先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:
 
-```
+```html
 <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 ```
 
@@ -89,16 +89,16 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 
 - （1）动态设置viewport的scale
 
-  ```
-  var scale = 1 / devicePixelRatio;
-  document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-  ```
+```js
+var scale = 1 / devicePixelRatio;
+document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+```
 
 - （2）动态计算html的font-size
 
-  ```
-  document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
-  ```
+```js
+document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+```
 
 - （3）布局的时候，各元素的css尺寸=设计稿标注尺寸/设计稿横向分辨率/10
 

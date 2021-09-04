@@ -3,16 +3,16 @@ const sidebar = {
   '/JS/': getJS(),
   '/HTML/': getHTML(),
   '/Styles/': getStyles(),
-  '/TS/':getTS(),
+  '/TS/': getTS(),
   // 浏览器
   '/BrowserCore/': getBrowserCore(),
   '/BrowserModel/': getBrowserModel(),
   // Web
-  '/WebAPI/':getWebAPI(),
+  '/WebAPI/': getWebAPI(),
   // '/WebStandard/': getWebStandard(),
   // 前端三大框架和js库
-  '/JQuery/':getJQuery(),
-  '/Angular/':getAngular(),
+  '/JQuery/': getJQuery(),
+  '/Angular/': getAngular(),
   '/React/': getReact(),
   '/Vue/': getVue(),
   //以Node为代表的后端
@@ -29,11 +29,11 @@ const sidebar = {
   '/Project/': getProject(),
   '/Echart/': getEchart(),
   '/Tools/': getTools(),
-  '/OtherOlogy/':getOtherOlogy(),
+  '/OtherOlogy/': getOtherOlogy(),
   // 工作和面试经历
   '/Interface/': getInterface(),
   // 计算机基础
-  '/CSBase/':getCSBase(),
+  '/CSBase/': getCSBase(),
 }
 module.exports = {
   sidebar: sidebar,
@@ -47,7 +47,8 @@ function getJS() {
       children: [
         // es基础
         'es/aJSType',
-        'es/aScope.md',
+        'es/aOperations',
+        'es/aScope',
         'es/bContext',
         'es/bThis',
         // es对象
@@ -126,6 +127,12 @@ function getJS() {
       title: 'selfFunc',
       children: [
         // 'selfFunction/jsObjectBaseOnPrototype'
+      ]
+    },
+    {
+      title: 'BrowserEnv',
+      children: [
+        'BrowserEnv/setTimeoutThis'
       ]
     }
   ]
@@ -663,7 +670,7 @@ function getInterface() {
 function getCSBase() {
   return [
     {
-      title:'csBase',
+      title: 'csBase',
       children: [
         'complier/PhrasesAndHandles',
         'complier/semanticAnalysis',

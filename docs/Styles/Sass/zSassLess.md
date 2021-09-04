@@ -78,5 +78,3 @@ border: (@width * 2) solid black;
 3. Mixin
     Sass中，需要进行Mixin操作的选择器需要@mixin关键字，选择器后可以传入变量和默认值。
 
-[原文](https://www.jianshu.com/p/6a35a548c9e1)
-

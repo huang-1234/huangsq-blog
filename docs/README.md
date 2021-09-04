@@ -14,8 +14,9 @@ actionText: Begin To learn→
 actionLink: /JS/#javascript
 features:
 - title: 简洁至上
-  details: 将简单的东西变复杂很简单，将复杂的东西变简单很复杂。
+  details: 将简单的东西变复杂很简单，将复杂的东西变简单很复杂。（熵增定律）
 - title: 追求信仰
-  details: 终身学习法。操千曲而后晓声、观千剑而后识器
-footer: MIT Licensed | hsq © 2021-present
+  details: 终身学习法。操千曲而后晓声、观千剑而后识器。（实践出真知）
+footer: MIT Licensed | hsq © 2021-present | 劝君惜取少年时!
 ---
+

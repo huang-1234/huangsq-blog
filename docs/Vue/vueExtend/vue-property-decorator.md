@@ -1,6 +1,6 @@
-# vue+ts项目vue-property-decorator
+# vue+ts 项目 vue-property-decorator
 
-在vue项目使用ts时，装饰器有以下几种，下面为这些装饰器的具体用法并且有和js中写法的对比：
+在 vue 项目使用 ts 时，装饰器有以下几种，下面为这些装饰器的具体用法并且有和 js 中写法的对比：
 
 1. @Component
 2. @Emit
@@ -14,38 +14,38 @@
 
 ### 1.@Component
 
-#### ts中引入组件components写在@Component中，如下：
+#### ts 中引入组件 components 写在@Component 中，如下：
 
-```
+```vue
 <template>
-    <div class="parent">
-        parent组件--{{title}}
-        <hr>
-        <Home v-model="title"></Home>
-        <About v-model="title"></About>
-    </div>
+  <div class="parent">
+    parent组件--{{title}}
+    <hr />
+    <Home v-model="title"></Home>
+    <About v-model="title"></About>
+  </div>
 </template>
 
-<script lang='ts'>
-    import Home from './Home.vue'
-    import About from './About.vue'
-    import { Component, Vue } from 'vue-property-decorator';
-    @Component({
-        components: {
-            Home,
-            About
-        }
-    })
-    export default class  extends Vue {
-        private title: string = '父组件中的值'
-    }
+<script lang="ts">
+  import Home from "./Home.vue";
+  import About from "./About.vue";
+  import { Component, Vue } from "vue-property-decorator";
+  @Component({
+    components: {
+      Home,
+      About,
+    },
+  })
+  export default class extends Vue {
+    private title: string = "父组件中的值";
+  }
 </script>
-复制代码
-```
-
-#### 下面为在js中引入组件components的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为在 js 中引入组件 components 的写法，与上面 ts 的代码效果一样：
+
+```vue
 <script>
 import Home from './Home.vue'
 import About from './About.vue'
@@ -61,14 +61,14 @@ export default {
     }
 }
 </script>
-复制代码
+
 ```
 
 ### 2.@Emit
 
-#### ts中@Emit的用法如下：
+#### ts 中@Emit 的用法如下：
 
-```
+```vue
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -95,12 +95,12 @@ export default class Home extends Vue {
   }
 }
 </script>
-复制代码
-```
-
-下面为@Emit的另一种写法，$on位置使用 - 链接，@Emit位置直接使用驼峰命名，则可以省略括号中的名称：”
 
 ```
+
+下面为@Emit 的另一种写法，\$on 位置使用 - 链接，@Emit 位置直接使用驼峰命名，则可以省略括号中的名称：”
+
+```tsx
 export default class Home extends Vue {
   private mounted() {
     this.$on('trigger-emit', (data: any): void => {
@@ -112,12 +112,12 @@ export default class Home extends Vue {
     console.log('hhh')
   }
 }
-复制代码
-```
-
-#### 下面为$Emit在js中的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为\$Emit 在 js 中的写法，与上面 ts 的代码效果一样：
+
+```tsx
 export default {
   data() {
     return {}
@@ -133,14 +133,14 @@ export default {
     }
   }
 }
-复制代码
+
 ```
 
 ### 3.@Prop
 
-#### ts中@Prop的用法如下：
+#### ts 中@Prop 的用法如下：
 
-```
+```tsx
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -155,16 +155,16 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component({})
 export default class Home extends Vue {
   @Prop() title!: string;
-  // prop的类型和默认值 
+  // prop的类型和默认值
   // @Prop({type: String, default: 'default value'}) title!: string;
 }
 </script>
-复制代码
-```
-
-#### 下面为prop在js中的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为 prop 在 js 中的写法，与上面 ts 的代码效果一样：
+
+```tsx
 export default {
   data() {
     return {}
@@ -177,14 +177,14 @@ export default {
   //   }
   // }
 }
-复制代码
+
 ```
 
 ### 4.@Watch
 
-#### ts中@Watch的用法如下
+#### ts 中@Watch 的用法如下
 
-```
+```tsx
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -208,15 +208,15 @@ export default class Home extends Vue {
   // valueChange(newValue: string, oldValue: string) {
   //   console.log(newValue, oldValue)
   // }
-   
+
 }
 </script>
-复制代码
-```
-
-#### 下面为watch在js中的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为 watch 在 js 中的写法，与上面 ts 的代码效果一样：
+
+```tsx
 export default {
   data() {
     return {
@@ -229,16 +229,16 @@ export default {
     }
   }
 }
-复制代码
+
 ```
 
 ### 5.@Model
 
-#### ts中@Model的用法如下
+#### ts 中@Model 的用法如下
 
 父组件代码如下
 
-```
+```vue
 <template>
     <div class="parent">
         parent组件--{{title}}
@@ -261,12 +261,12 @@ export default {
         private title: string = '父组件中的值'
     }
 </script>
-复制代码
-```
-
-子组件ts代码如下
 
 ```
+
+子组件 ts 代码如下
+
+```vue
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -288,15 +288,15 @@ export default class Home extends Vue {
   @Emit('changeValueFromModel')
   // 参数应该为输入框的值，所以上面传过来的值应该为value而不能是e
   valueChange(val: string) {}
-   
+
 }
 </script>
-复制代码
-```
-
-#### 下面为model在js中的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为 model 在 js 中的写法，与上面 ts 的代码效果一样：
+
+```tsx
 export default {
   model:{
     prop: 'valueFromModel',
@@ -316,18 +316,18 @@ export default {
       this.$emit('changeValueFromModel', e.target.value)
     }
   }
-  
+
 }
-复制代码
+
 ```
 
 ### 6.@Provide / @Inject
 
-#### ts中@Provide / @Inject用法如下
+#### ts 中@Provide / @Inject 用法如下
 
 父组件
 
-```
+```vue
 <template>
     <div class="parent">
         parent组件--{{title}}
@@ -347,17 +347,17 @@ export default {
         private title: string = '父组件中的值'
         @Provide()
         pOne = 'oneFromProvide'
-        
+
         @Provide('pTwo')
         two = 'twoFromProvide'
     }
 </script>
-复制代码
+
 ```
 
 子组件
 
-```
+```vue
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -374,7 +374,7 @@ import outMixins from './mixins';
 export default class Home extends Vue {
   @Inject('pOne')
     pOne!: string;
-    
+
   @Inject({
       from:'pTwo',
       default:'default value'
@@ -382,14 +382,14 @@ export default class Home extends Vue {
   pTwo!: string;
 }
 </script>
-复制代码
+
 ```
 
-#### 下面为project / inject在js中的写法，与上面ts的代码效果一样：
+#### 下面为 project / inject 在 js 中的写法，与上面 ts 的代码效果一样：
 
 父组件
 
-```
+```vue
 <template>
     <div class="parent">
         parent组件
@@ -411,12 +411,12 @@ export default {
     }
 }
 </script>
-复制代码
+
 ```
 
 子组件
 
-```
+```vue
 <template>
   <div class="home">
     vue+js项目
@@ -433,28 +433,28 @@ export default {
   }
 }
 </script>
-复制代码
+
 ```
 
 ### 7.Mixins
 
-#### ts中Mixins的用法如下
+#### ts 中 Mixins 的用法如下
 
-mixins.ts文件如下
+mixins.ts 文件如下
 
-```
+```tsx
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class myMixins extends Vue {
     valueFromMixins: string = "来自mixins的value"
 }
-复制代码
-```
-
-ts代码如下
 
 ```
+
+ts 代码如下
+
+```vue
 <template>
   <div class="home">
     vue+ts项目vue-property-decorator用法
@@ -473,12 +473,12 @@ import outMixins from './mixins';
 export default class Home extends Vue {}
 </script>
 
-复制代码
-```
-
-#### 下面为mixins在js中的写法，与上面ts的代码效果一样：
 
 ```
+
+#### 下面为 mixins 在 js 中的写法，与上面 ts 的代码效果一样：
+
+```vue
 <script>
 import {outMixins} from './mixins'
 export default {
@@ -486,5 +486,3 @@ export default {
 }
 </script>
 ```
-
-

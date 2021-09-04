@@ -23,14 +23,14 @@ HTML 页面的生命周期包含三个重要事件：
 
 我们必须使用 `addEventListener` 来捕获它：
 
-```javascript
+```js
 document.addEventListener("DOMContentLoaded", ready);
 // 不是 "document.onDOMContentLoaded = ..."
 ```
 
 例如：
 
-```markup
+```html
 <script>
   function ready() {
     alert('DOM is ready');
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", ready);
 
 因此，`DOMContentLoaded` 肯定在下面的这些脚本执行结束之后发生：
 
-```markup
+```html
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     alert("DOM ready!");
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", ready);
 
 但这里有一个陷阱。如果在样式后面有一个脚本，那么该脚本必须等待样式表加载完成：
 
-```markup
+```html
 <link type="text/css" rel="stylesheet" href="style.css">
 <script>
   // 在样式表加载完成之前，脚本都不会执行
@@ -112,7 +112,7 @@ Firefox，Chrome 和 Opera 都会在 `DOMContentLoaded` 中自动填充表单。
 
 下面的这个示例正确显示了图片大小，因为 `window.onload` 会等待所有图片加载完毕：
 
-```markup
+```html
 <script>
   window.onload = function() { // 与此相同 window.addEventListener('load', (event) => {
     alert('Page loaded');
@@ -141,7 +141,7 @@ Firefox，Chrome 和 Opera 都会在 `DOMContentLoaded` 中自动填充表单。
 
 使用方式如下：
 
-```javascript
+```js
 let analyticsData = { /* 带有收集的数据的对象 */ };
 
 window.addEventListener("unload", function() {
@@ -167,7 +167,7 @@ window.addEventListener("unload", function() {
 
 你可以通过运行下面这段代码，然后重新加载页面来进行尝试：
 
-```javascript
+```js
 window.onbeforeunload = function() {
   return false;
 };
@@ -177,7 +177,7 @@ window.onbeforeunload = function() {
 
 这里有个例子：
 
-```javascript
+```js
 window.onbeforeunload = function() {
   return "There are unsaved changes. Leave now?";
 };
@@ -205,7 +205,7 @@ window.onbeforeunload = function() {
 
 像这样：
 
-```javascript
+```js
 function work() { /*...*/ }
 
 if (document.readyState == 'loading') {
@@ -219,7 +219,7 @@ if (document.readyState == 'loading') {
 
 还有一个 `readystatechange` 事件，会在状态发生改变时触发，因此我们可以打印所有这些状态，就像这样：
 
-```javascript
+```js
 // 当前状态
 console.log(document.readyState);
 
@@ -233,7 +233,7 @@ document.addEventListener('readystatechange', () => console.log(document.readySt
 
 这是一个带有 `<iframe>`，`<img>` 和记录事件的处理程序的文档：
 
-```markup
+```html
 <script>
   log('initial readyState:' + document.readyState);
 
@@ -278,17 +278,17 @@ document.addEventListener('readystatechange', () => console.log(document.readySt
   document
   ```
 
-   
+
 
   上的
 
-   
+
 
   ```
   DOMContentLoaded
   ```
 
-   
+
 
   事件就会被触发。在这个阶段，我们可以将 JavaScript 应用于元素。
 
@@ -305,17 +305,17 @@ document.addEventListener('readystatechange', () => console.log(document.readySt
   document.readyState
   ```
 
-   
+
 
   是文档的当前状态，可以在
 
-   
+
 
   ```
   readystatechange
   ```
 
-   
+
 
   事件中跟踪状态更改：
 

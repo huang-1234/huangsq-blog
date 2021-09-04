@@ -12,13 +12,13 @@ EventBus 又称为事件总线。在Vue中可以使用 EventBus 来作为组件�
 
 - 第一种方式: 可以在 main.js中，初始化 EventBus
 
-```
+```tsx
 Vue.prototype.$EventBus = new Vue()
 ```
 
 - 第二种方式: 创建一个 Bus.js,再创建事件总线并将其导出，以便其它模块可以使用或者监听它
 
-```
+```tsx
 // Bus.js
 import Vue from 'vue'
 export const EventBus = new Vue();
@@ -41,7 +41,7 @@ export const EventBus = new Vue();
     <button @click="sendMsgA()">-</button>
 </template>
 
-<script> 
+<script>
 import { EventBus } from "../Bus.js";
 export default {
     data(){
@@ -60,7 +60,7 @@ export default {
             EventBus.$emit("aMsg", '来自A页面的消息'); // a 发送数据
         }
     }
-}; 
+};
 </script>
 
 
@@ -70,7 +70,7 @@ export default {
     <button @click="sendMsgB()">-</button>
 </template>
 
-<script> 
+<script>
 import { EventBus } from "../event-bus.js";
 export default {
     data(){
@@ -131,7 +131,7 @@ EventBus.$off('i-got-clicked', clickHandler);
 
 全局事件总线只不过是一个简单的 vue 组件。
 
-```js
+```tsx
 var EventBus = new Vue();
 
 Object.defineProperties(Vue.prototype, {

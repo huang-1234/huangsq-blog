@@ -70,13 +70,13 @@ test：
 
 ```js
 function sayName(place) {
-  console.log(`my name is ${this.name}. I am in ${place}. I want ${this.$fn}.`);
+  console.log(`my name is ${this.name}. I am in ${place}. I want go to${this.$fn}.`);
 }
 let o = {
   name: 'hsq',
-  $fn:'many money'
+  $fn:'hangzhou'
 }
-sayName.Apply(o,['changsha']);// 输出：my name is hsq. I am in changsha .I want many money.
+sayName.Apply(o,['changsha']);// 输出：my name is hsq. I am in changsha .I want go to hangzhou.
 ```
 
 ### bind()
