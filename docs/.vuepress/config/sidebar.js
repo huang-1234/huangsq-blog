@@ -81,6 +81,7 @@ function getJS() {
         // 手写相关
         'es/xClone',
         'es/xPromiseA+',
+        'es/xasyncAwait',
 
 
 
