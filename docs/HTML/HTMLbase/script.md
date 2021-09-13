@@ -56,7 +56,7 @@ type 为 module 时缺省为 defer 方式。
 
 等同于下面
 
-```html
+```js
 var script = document.createElement('script'); script.src = "file.js";
 document.body.appendChild(script); //从脚本中创建的脚本默认为异步。
 ```

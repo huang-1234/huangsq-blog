@@ -96,10 +96,12 @@ CSS文档描述一个页面的表现，浏览器通过 CSS 解析器将 CSS 解�
 本次介绍的主要就是浏览器从接收到服务器响应的HTML到展示完整页面的整个过程，下面开始——
 
 ## 3.2 浏览器渲染流程
+
 先来一张浏览器渲染流程图
 
+<img :src="$withBase('/images/Browser/bRenderEngine.assets/browserRenderG')" alt='浏览器渲染'/>
 
-<img :src="$withBase('/images/Browser/bRenderEngine.assets/20180628111024400')" alt='浏览器渲染'/>
+![img](G:\Study\Code\Web\myNotes\huangshuiqing\docs\.vuepress\public\images\Browser\bRenderEngine.assets/browserRenderG)
 
 从这张经典的图中可以看出以下几点：
 
@@ -112,6 +114,7 @@ CSS文档描述一个页面的表现，浏览器通过 CSS 解析器将 CSS 解�
 接下来我们一步步详细说明：
 
 ## 3.3 HTML解析与DOM树构建
+
 HTML解析这方面没啥好说的，大致流程是浏览器使用词法分析器和解析器将HTML内容解析成为语法树，也就是DOM树，DOM 树的构建过程是一个深度遍历过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 
 DOM树是由DOM元素和属性节点组成，DOM是文档对象模型（Document ObjectModel）的缩写，是HTML文档的对象表示，同时也是外部内容与HTML元素之间的借口。
@@ -169,9 +172,9 @@ DOM树和CSS树结合生成Render Tree（渲染树）——这是由可视化元
 
 但是浏览器很聪明，<font color=red>为了避免细小的改变就进行repaint或者reflow，浏览器采用一种"dirty"系统，会将这些改变操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow。</font>但是有些特殊情况不会这么做，比如：resize窗口，改变了页面默认的字体，等，对于这些操作，浏览器会马上进行reflow。
 
-但是有的时候，我们自己编写的脚本会阻止浏览器的这种操作，比如我们请求下面的值的时候：offsetTop, offsetLeft, offsetWidth, offsetHeight，scrollTop/Left/Width/Height，clientTop/Left/Width/Height，IE中的 getComputedStyle(), 或 currentStyle等，如果我们的程序运行的时候需要这些值，那么浏览器需要给我们返回最新的值，而这样就会将当前积攒的操作执行，从而引起频繁的reflow或者repaint。
+但是有的时候，我们自己编写的脚本会阻止浏览器的这种操作，比如我们请求下面的值的时候：offsetTop, offsetLeft, offsetWidth, offsetHeight，scrollTop/Left/Width/Height，clientTop/Left/Width/Height，IE中的 getComputedStyle(), 或 currentStyle等，如果我们的程序运行的时候需要这些值，那么浏览器需要给我们返回最新的值，而这样就会将当前积攒的操作执行，从而引起频繁的 reflow 或者 repaint 。
 
-通常reflow比repaint会耗费更多的时间，从而也就会影响性能，所以编写代码的时候要尽可能避免过多的reflow或者repaint。减少reflow/repaint的方法：
+通常 reflow 比 repaint 会耗费更多的时间，从而也就会影响性能，所以编写代码的时候要尽可能避免过多的 reflow 或者 repaint 。减少 reflow/repaint 的方法：
 
 1. 修改样式不要逐条修改，建议定义CSS样式的class，然后直接修改元素的className。
 2. 不要将DOM节点的属性值放在循环中当成循环的变量。

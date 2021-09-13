@@ -75,7 +75,7 @@
 
 为什么先说 reducer 呢? 因为其实我们的 state 都是 reducer 组成的, 上面那张图可以看出 (state, action) => state 是计算出 state 的规约公式, createStore() 这个 api 也是接受你的 reducer 来生成 state 的。 我们先来看看最外层我们需要为 state 生成 Initinalizing state 方式:
 
-```
+```jsx
 // 官网说无非两种方式
 // 最外层你有一个reducer:
 function rootReducer(state = 0, action) {  // 在你的createStore第二个参数没有的情况下,你是需要给state一个默认值
@@ -108,7 +108,7 @@ const rootReducer = combineReducers({ a, b })
 
 当然我觉得作者已经说的很清楚了,文章尾部也给了很多链接,但是这里还是有必要总结下这个规约的 state 范式化大概应该有些什么最佳实践:
 
-```
+```jsx
 // 首先先看下这里的 state 基本结构,当然文档中也没有限制你,鼓励你根据自己的业务形态去定制,但是却是有些比较好的实践方式
 {
   visibilityFilter: 'SHOW_ALL',
@@ -159,7 +159,7 @@ const rootReducer = combineReducers({ a, b })
 
 下面我来说下范式化 state 这个问题:
 
-```
+```jsx
 // 文档中列举了一个博客数据的例子(当然其实这个数据结构已经挺复杂的了)
 const blogPosts = [
   {

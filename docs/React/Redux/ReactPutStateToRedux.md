@@ -35,7 +35,7 @@ React 为组件的不同生命阶段，提供了近十个钩子方法。
 
 组件可以通过 Ajax 请求，从服务器获取数据。Ajax 请求一般在`componentDidMount`方法里面发出。
 
-```
+```jsx
 componentDidMount() {
   const url = '...';
   $.getJSON(url)
@@ -64,7 +64,7 @@ ReCharts 是一个 React 图表组件库。http://recharts.org/
 
 浏览器打开`demos/recharts-demo/index.html`，按照[《操作说明》](https://github.com/ruanyf/jstraining/blob/master/demos/README.md#recharts)，仔细查看源码，体会 JSX 语法对表达复杂组件的优势。
 
-```
+```jsx
 <LineChart width={1000} height={400} data={data}>
   <XAxis dataKey="name"/>
   <YAxis/>
@@ -90,7 +90,7 @@ view = f(state)
 
 React 的本质是将图形界面（GUI）函数化。
 
-```
+```jsx
 const person = {
   name: "michel",
   age: 31
@@ -190,7 +190,7 @@ MobX 的核心是观察者模式。
 
 ## MobX 的最简单例子
 
-```
+```jsx
 const {observable} = mobx;
 const {observer} = mobxReact;
 
@@ -218,7 +218,7 @@ UI 层是观察者，Store 是被观察者。
 
 Store 所有的属性，分成两大类：直接被观察的属性和自动计算出来的属性。
 
-```
+```jsx
 class Store {
   @observable name = 'Bartek';
   @computed get decorated() {
@@ -260,7 +260,7 @@ Redux 层保存所有状态，React 组件拿到状态以后，渲染出 HTML �
 - Redux 将组件分成 UI 组件和容器组件两类。
 - UI 组件是纯组件，不包含 state 和生命周期方法，不涉及组件的行为，只涉及组件的外观。
 
-```
+```jsx
 <div className="index">
   <p>{this.props.text}</p>
   <input
@@ -278,7 +278,7 @@ Redux 层保存所有状态，React 组件拿到状态以后，渲染出 HTML �
 - 负责订阅 Store，将 Store 的数据处理以后，再通过参数传给 UI 组件。
 - 用户给出配置以后，由 Redux 生成。
 
-```
+```jsx
 // MyComponent 是纯的 UI 组件
 const App = connect(
   mapStateToProps,
@@ -303,7 +303,7 @@ const App = connect(
 
 `reducer`是一个纯函数，用来接收`action`，算出新的`state`。
 
-```
+```jsx
 function reducer(state = {
   text: '你好，访问者',
   name: '访问者'
@@ -323,7 +323,7 @@ function reducer(state = {
 - `Store`由 Redux 提供的`createStore`方法生成，该方法接受`reducer`作为参数。
 - 为了把`Store`传入组件，必须使用 Redux 提供的`Provider`组件在应用的最外面，包裹一层。
 
-```
+```jsx
 const store = createStore(reducer);
 
 ReactDOM.render(

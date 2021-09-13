@@ -763,7 +763,10 @@ https就是安全版本的http，譬如一些支付等操作基本都是基于ht
 先看下这几个头部：
 
 ```http
-If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、Pragma/Expires
+If-None-Match/E-tag、
+If-Modified-Since/Last-Modified、
+Cache-Control/Max-Age、
+Pragma/Expires
 ```
 
 这些就是缓存中常用到的头部，这里不展开。仅列举下大致使用。
@@ -838,9 +841,9 @@ If-None-Match/E-tag、If-Modified-Since/Last-Modified、Cache-Control/Max-Age、
 
 而`E-tag`：
 
-- 是一种指纹机制，代表文件相关指纹
+- 是一种指纹机制，代表文件相关指纹（hash摘要）
 - 只有文件变才会变，也只要文件变就会变，
-- 也没有精确时间的限制，只要文件一遍，立马E-tag就不一样了
+- 也没有精确时间的限制，只要文件一变，立马E-tag就不一样了
 
 如果同时带有`E-tag`和`Last-Modified`，服务端会优先检查`E-tag`
 

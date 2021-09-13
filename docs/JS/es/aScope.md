@@ -105,7 +105,7 @@ function foo() {
   return bar; 
 }
 var baz = foo(); 
-baz(); // 2 —— 朋友，这就是闭包的效果。 
+baz(); // 2 —— 哎！朋友，这就是闭包的效果。 
 ```
 
 

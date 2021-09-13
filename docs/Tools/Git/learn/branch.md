@@ -149,7 +149,7 @@ git checkout -f test        //强制切换至 test 分支，丢弃当前分支�
     git checkout -- test.txt        //丢弃对 test.txt 的修改，其内容回退到上一次提交时的状态
 　　无法直接切换其他分支的原因即是存在未被保存的修改。此时若想要丢弃当前分支的修改，直接使用 git checkout -- 命令将文件修改丢弃即可。该方法主要适用于产生的改动比较少且相对不重要的情况。
 
-    git checkout -- test.txt        //丢掉 test.txt 文件新增的修改 
+git checkout -- test.txt        //丢掉 test.txt 文件新增的修改 
 ```
 
 
