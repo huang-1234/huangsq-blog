@@ -131,7 +131,7 @@ Object.setPrototypeOf(o, proto);
 
 
 
-```undefined
+```bash
 obj.__proto__ = proto;
 ```
 

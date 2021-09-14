@@ -6,9 +6,9 @@ MYSQL：ER_NOT_SUPPORTED_AUTH_MODE:Client does not support authentication protoc
 
 [](https://www.cnblogs.com/Jiangchuanwei/p/10238958.html)
 
-```
+```js
 Error: ER_BAD_DB_ERROR: Unknown database 'user'
-    at Handshake.Sequence._packetToError 
+    at Handshake.Sequence._packetToError
     (/Users/apple/Desktop/githubdoc/node/server/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
 ```
 
@@ -20,7 +20,7 @@ node使用mysql报错。
 
 　　在系统mysql终端输入下面命令
 
-```
+```js
 //password 是你的数据库账户密码，root和host也是
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
@@ -91,7 +91,7 @@ at internal/main/run_main_module.js:17:11
 
 导致这个错误的原因是，目前，最新的mysql模块并未完全支持MySQL 8的“caching_sha2_password”加密方式，而“caching_sha2_password”在MySQL 8中是默认的加密方式。因此，下面的方式命令是默认已经使用了“caching_sha2_password”加密方式，该账号、密码无法在mysql模块中使用。
 
-```mysql
+```sql
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 Query OK, 0 rows affected (0.12 sec)
 ```
@@ -101,7 +101,7 @@ Query OK, 0 rows affected (0.12 sec)
 
 解决方法是从新修改用户root的密码，并指定mysql模块能够支持的加密方式：
 
-```mysql
+```sql
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
 Query OK, 0 rows affected (0.12 sec)
 ```
@@ -110,7 +110,7 @@ Query OK, 0 rows affected (0.12 sec)
 
 再此运行应用，可以看到如下的控制台输出信息：
 
-```mysql
+```sql
 $ node index.js
 The result is: RowDataPacket { user_id: 1, username: '老卫' }
 ```
@@ -152,14 +152,14 @@ $ egg-bin dev
     at Handshake.Sequence._packetToError (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
     at Handshake.ErrorPacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
     at Protocol._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:433:10)    at Parser.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:43:10)        
-    at Protocol.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:38:16)    
-    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:88:28)       
-    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:526:10)      
+    at Parser._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:433:10)    at Parser.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:526:10)
     at Socket.emit (events.js:315:20)
     at addChunk (internal/streams/readable.js:309:12)
     --------------------
-    at Protocol._enqueue (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:144:48)    at Protocol.handshake (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:51:23)    at PoolConnection.connect (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:116:18)  
+    at Protocol._enqueue (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:144:48)    at Protocol.handshake (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:51:23)    at PoolConnection.connect (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:116:18)
     at Pool.getConnection (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Pool.js:48:16)
     at G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\ali-rds\node_modules\pify\index.js:29:7
     at new Promise (<anonymous>)
@@ -181,14 +181,14 @@ hostname: HSQ
     at Handshake.Sequence._packetToError (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
     at Handshake.ErrorPacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\sequences\Handshake.js:123:18)
     at Protocol._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:433:10)    at Parser.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:43:10)        
-    at Protocol.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:38:16)    
-    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:88:28)       
-    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:526:10)      
+    at Parser._parsePacket (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:433:10)    at Parser.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:526:10)
     at Socket.emit (events.js:315:20)
     at addChunk (internal/streams/readable.js:309:12)
     --------------------
-    at Protocol._enqueue (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:144:48)    at Protocol.handshake (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:51:23)    at PoolConnection.connect (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:116:18)  
+    at Protocol._enqueue (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:144:48)    at Protocol.handshake (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\protocol\Protocol.js:51:23)    at PoolConnection.connect (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Connection.js:116:18)
     at Pool.getConnection (G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\mysql\lib\Pool.js:48:16)
     at G:\Study\Code\Web\NodeJS\some-project\use-egg-build-middle\node_modules\ali-rds\node_modules\pify\index.js:29:7
     at new Promise (<anonymous>)

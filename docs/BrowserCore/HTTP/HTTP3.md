@@ -197,7 +197,7 @@ QUIC 接收者会通告每个流中最多想要接收到的数据的绝对字节
 
 TLS 1.3 支持 3 种基本密钥交换模式：
 
-```text
+```http
 (EC)DHE (基于有限域或椭圆曲线的 Diffie-Hellman)
 PSK - only
 PSK with (EC)DHE

@@ -4,14 +4,14 @@
 
 相关推荐：
 
-- [手把手带你刷二叉树（第二期）]() 
-- [滑动窗口技巧]() 
+- [手把手带你刷二叉树（第二期）]()
+- [滑动窗口技巧]()
 
 读完本文，你不仅学会了算法套路，还可以顺便去 LeetCode 上拿下如下题目：
 
 [46.全排列（中等）](https://leetcode-cn.com/problems/permutations)
 
-[51.N皇后（困难）](https://leetcode-cn.com/problems/n-queens)
+[51.N 皇后（困难）](https://leetcode-cn.com/problems/n-queens)
 
 本文有视频版：[回溯算法框架套路详解](https://www.bilibili.com/video/BV1P5411N7Xc)
 
@@ -35,9 +35,7 @@
 
 代码方面，回溯算法的框架：
 
-
-
-```
+```cpp
 result = []def backtrack(路径, 选择列表):    if 满足结束条件:        result.add(路径)        return
     for 选择 in 选择列表:        做选择        backtrack(路径, 选择列表)        撤销选择
 ```
@@ -68,7 +66,7 @@ PS：**为了简单清晰起见，我们这次讨论的全排列问题不包含�
 
 你现在就在做决策，可以选择 1 那条树枝，也可以选择 3 那条树枝。为啥只能在 1 和 3 之中选择呢？因为 2 这个树枝在你身后，这个选择你之前做过了，而全排列是不允许重复使用数字的。
 
-**现在可以解答开头的几个名词：****`[2]`** **就是「路径」，记录你已经做过的选择；****`[1,3]`** **就是「选择列表」，表示你当前可以做出的选择；「结束条件」就是遍历到树的底层，在这里就是选择列表为空的时候**。
+**现在可以解答开头的几个名词：\*\***`[2]`\*\* **就是「路径」，记录你已经做过的选择；\*\***`[1,3]`\*\* **就是「选择列表」，表示你当前可以做出的选择；「结束条件」就是遍历到树的底层，在这里就是选择列表为空的时候**。
 
 如果明白了这几个名词，**可以把「路径」和「选择」列表作为决策树上每个节点的属性**，比如下图列出了几个节点的属性：
 
@@ -78,9 +76,7 @@ PS：**为了简单清晰起见，我们这次讨论的全排列问题不包含�
 
 再进一步，如何遍历一棵树？这个应该不难吧。回忆一下之前 [学习数据结构的框架思维]() 写过，各种搜索问题其实都是树的遍历问题，而多叉树的遍历框架就是这样：
 
-
-
-```
+```cpp
 void traverse(TreeNode root) {
     for (TreeNode child : root.childern)
         // 前序遍历需要的操作
@@ -101,9 +97,7 @@ void traverse(TreeNode root) {
 
 现在，你是否理解了回溯算法的这段核心框架？
 
-
-
-```
+```cpp
 for 选择 in 选择列表:
     # 做选择
     将该选择从选择列表移除
@@ -118,9 +112,7 @@ for 选择 in 选择列表:
 
 下面，直接看全排列代码：
 
-
-
-```
+```cpp
 List<List<Integer>> res = new LinkedList<>();
 /* 主函数，输入一组不重复的数字，返回它们的全排列 */List<List<Integer>> permute(int[] nums) {    // 记录「路径」    LinkedList<Integer> track = new LinkedList<>();    backtrack(nums, track);    return res;}
 // 路径：记录在 track 中// 选择列表：nums 中不存在于 track 的那些元素// 结束条件：nums 中的元素全都在 track 中出现void backtrack(int[] nums, LinkedList<Integer> track) {    // 触发结束条件    if (track.size() == nums.length) {        res.add(new LinkedList(track));        return;    }
@@ -147,20 +139,41 @@ PS：皇后可以攻击同一行、同一列、左上左下右上右下四个方
 
 因为 C++ 代码对字符串的操作方便一些，所以这道题我用 C++ 来写解法，直接套用回溯算法框架:
 
-
-
-```
+```cpp
 vector<vector<string>> res;
-/* 输入棋盘边长 n，返回所有合法的放置 */vector<vector<string>> solveNQueens(int n) {    // '.' 表示空，'Q' 表示皇后，初始化空棋盘。    vector<string> board(n, string(n, '.'));    backtrack(board, 0);    return res;}
-// 路径：board 中小于 row 的那些行都已经成功放置了皇后// 选择列表：第 row 行的所有列都是放置皇后的选择// 结束条件：row 超过 board 的最后一行void backtrack(vector<string>& board, int row) {    // 触发结束条件    if (row == board.size()) {        res.push_back(board);        return;    }
-    int n = board[row].size();    for (int col = 0; col < n; col++) {        // 排除不合法选择        if (!isValid(board, row, col))             continue;        // 做选择        board[row][col] = 'Q';        // 进入下一行决策        backtrack(board, row + 1);        // 撤销选择        board[row][col] = '.';    }}
+/* 输入棋盘边长 n，返回所有合法的放置 */
+vector<vector<string>> solveNQueens(int n) {
+      // '.' 表示空，'Q' 表示皇后，初始化空棋盘。
+      vector<string> board(n, string(n, '.'));
+          backtrack(board, 0);
+          return res;}
+// 路径：board 中小于 row 的那些行都已经成功放置了皇后
+// 选择列表：第 row 行的所有列都是放置皇后的选择
+// 结束条件：row 超过 board 的最后一行
+void backtrack(vector<string>& board, int row) {
+      // 触发结束条件
+      if (row == board.size()) {
+                res.push_back(board);
+                        return;
+                         }
+    int n = board[row].size();
+    for (int col = 0; col < n; col++) {
+      // 排除不合法选择
+      if (!isValid(board, row, col))
+      continue;
+      // 做选择
+      board[row][col] = 'Q';
+      // 进入下一行决策
+      backtrack(board, row + 1);
+      // 撤销选择
+      board[row][col] = '.';
+          }
+          }
 ```
 
 这部分主要代码，其实跟全排列问题差不多，`isValid` 函数的实现也很简单：
 
-
-
-```
+```cpp
 /* 是否可以在 board[row][col] 放置皇后？ */
 bool isValid(vector<string>& board, int row, int col) {
     int n = board.size();
@@ -170,7 +183,7 @@ bool isValid(vector<string>& board, int row, int col) {
             return false;
     }
     // 检查右上方是否有皇后互相冲突
-    for (int i = row - 1, j = col + 1; 
+    for (int i = row - 1, j = col + 1;
             i >= 0 && j < n; i--, j++) {
         if (board[i][j] == 'Q')
             return false;
@@ -203,9 +216,7 @@ PS：肯定有读者问，按照 N 皇后问题的描述，我们为什么不检
 
 其实特别简单，只要稍微修改一下回溯算法的代码即可：
 
-
-
-```
+```cpp
 // 函数找到一个答案后就返回 truebool backtrack(vector<string>& board, int row) {    // 触发结束条件    if (row == board.size()) {        res.push_back(board);        return true;    }    ...    for (int col = 0; col < n; col++) {        ...        board[row][col] = 'Q';
         if (backtrack(board, row + 1))            return true;
         board[row][col] = '.';    }
@@ -218,9 +229,7 @@ PS：肯定有读者问，按照 N 皇后问题的描述，我们为什么不检
 
 回溯算法就是个多叉树的遍历问题，关键就是在前序遍历和后序遍历的位置做一些操作，算法框架如下：
 
-
-
-```
+```cpp
 def backtrack(...):
     for 选择 in 选择列表:
         做选择
@@ -232,4 +241,5 @@ def backtrack(...):
 
 其实想想看，回溯算法和动态规划是不是有点像呢？我们在动态规划系列文章中多次强调，动态规划的三个需要明确的点就是「状态」「选择」和「base case」，是不是就对应着走过的「路径」，当前的「选择列表」和「结束条件」？
 
-某种程度上说，动态规划的暴力求解阶段就是回溯算法。只是有的问题具有重叠子问题性质，可以用 dp table 或者备忘录优化，将递归树大幅剪枝，这就变成了动态规划。而今天的两个问题，都没有重叠子问题，也就是回溯算法问题了，复杂度非常高是不可避免的。
+某种程度上说，动态规划的暴力求解阶段就是回溯算法。只是有的问题具有重叠子问题性质，可以用 dp table 或者备忘录优化，将递归树大幅剪枝，
+这就变成了动态规划。而今天的两个问题，都没有重叠子问题，也就是回溯算法问题了，复杂度非常高是不可避免的。

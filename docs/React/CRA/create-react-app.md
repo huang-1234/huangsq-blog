@@ -2,7 +2,7 @@
 
 ## CRA需要安装的包
 
-```s
+```js
 ├─ @babel/helper-explode-assignable-expression@7.13.0
 ├─ @babel/helper-get-function-arity@7.12.13
 ├─ @babel/helper-hoist-variables@7.13.16
@@ -934,7 +934,7 @@ info "fsevents@2.3.2" is an optional dependency and failed compatibility check. 
 info fsevents@1.2.13: The platform "win32" is incompatible with this module.
 info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
-warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".        
+warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
 warning " > @testing-library/user-event@12.8.3" has unmet peer dependency "@testing-library/dom@>=7.21.4".
 [4/4] Building fresh packages...
 success Saved lockfile.
@@ -975,13 +975,13 @@ info "fsevents@2.3.2" is an optional dependency and failed compatibility check. 
 info fsevents@1.2.13: The platform "win32" is incompatible with this module.
 info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
 warning " > @testing-library/user-event@12.8.3" has unmet peer dependency "@testing-library/dom@>=7.21.4".
-warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".        
+warning "react-scripts > @typescript-eslint/eslint-plugin > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
 success Uninstalled packages.
 Done in 10.69s.
 
 Created git commit.
 
-Success! Created content-admin at G:\Study\Code\Web\NodeJS\some-project\content-admin  
+Success! Created content-admin at G:\Study\Code\Web\NodeJS\some-project\content-admin
 Inside that directory, you can run several commands:
 
   yarn start
@@ -1017,7 +1017,7 @@ I ran `npm ls <dependency-name@ver>` on each of these dependencies and each trac
         `-- babel-plugin-transform-object-rest-spread@6.26.0
           `-- babel-runtime@6.26.0
             `-- core-js@2.6.11`
- 
+
 `-- react-scripts@4.0.0-next.77
   `-- jest@26.1.0
     `-- @jest/core@26.4.0

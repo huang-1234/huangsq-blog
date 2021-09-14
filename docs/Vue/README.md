@@ -51,7 +51,7 @@ Vue提供了一个界面，可以根据当前的URL路径来改变页面上显�
 
 上面的代码:
 
-- 在[http://websitename.com/user/](https://link.zhihu.com/?target=http%3A//websitename.com/user/)<id>中设置一个前端路径。
+- 在[http://websitename.com/user/](https://link.zhihu.com/?target=http%3A//websitename.com/user/)`<id>`中设置一个前端路径。
 - 这将在(const User...)中定义的User组件中呈现。
 - 允许用户组件使用$route对象的params键输入用户的特定ID：$route.params.id。
 - 这个模板（根据传递到路由器中的参数变化）将被渲染到DOM的div#app里面的<router-view></router-view>。
@@ -103,4 +103,4 @@ Vue提供了一个界面，可以根据当前的URL路径来改变页面上显�
 
 MIT License
 
-1. 
+1.

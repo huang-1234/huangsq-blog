@@ -153,7 +153,7 @@ ENABLE_USER_SITE: True
 
 
 
-```undefined
+```python
 python -m site --user-site
 ```
 

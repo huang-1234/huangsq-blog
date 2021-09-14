@@ -34,7 +34,7 @@ taobao --https://registry.npm.taobao.org/
 
 ```js
 yarn global add [package]
-npm install [package] -g 
+npm install [package] -g
 ```
 
 ### 移除一个依赖
@@ -48,12 +48,12 @@ npm uninstall <packageName> -S
 
 ```js
 yarn global remove <packageName>
-npm uninstall -g <packageName>    
+npm uninstall -g <packageName>
 ```
 
 ### 安装所有依赖包
 ```js
-yarn 
+yarn
 npm i
 ```
 
@@ -147,11 +147,12 @@ npm i module_name -D(--save-dev)　  # 开发时依赖--save-dev 的意思是将
 
 **使用原则:**
 devDependencies 节点下的模块是我们在开发时需要用的，比如项目中使用的 gulp ，压缩css、js的模块。
-这些模块在我们的项目部署后是不需要的，所以我们可以使用-D的形式安装。像 emoudule_namepress 
+这些模块在我们的项目部署后是不需要的，所以我们可以使用-D的形式安装。像 emoudule_namepress
 这些模块是项目运行必备的，应该安装在 dependencies 节点下，所以我们应该使用-S的形式安装。
 
 **总结为一句话：运行时需要用到的包使用–S，否则使用–D。**
-```
+
+```js
 nodejs配置与命令
 配置
 第一步
@@ -174,8 +175,9 @@ electron安装
 prefix=X:\XX\nodejs\node_global
 cache=X:\XX\nodejs\node_cache
 ```
+
 命令
-```text
+```js
 命令|代码
 -|:-:|-:
 查看所有全局安装模块|	npm list -g --depth 0
@@ -256,24 +258,24 @@ $ yarn
 yarn install v1.22.10
 info No lockfile found.
 [1/4] Resolving packages...
-warning babel-core > babel-register > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of 
+warning babel-core > babel-register > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of
 issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
 warning babel-core > babel-runtime > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
-warning babel-polyfill > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, 
+warning babel-polyfill > core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please,
 upgrade your dependencies to the actual version of core-js.
-warning css-loader > cssnano > autoprefixer > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other 
+warning css-loader > cssnano > autoprefixer > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other
 tools.
 warning css-loader > cssnano > postcss-merge-rules > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
-warning css-loader > cssnano > postcss-merge-rules > caniuse-api > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 
+warning css-loader > cssnano > postcss-merge-rules > caniuse-api > browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0
 config used in other tools.
 warning extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
 warning html-webpack-plugin@2.30.1: out of support
 warning less > request > har-validator@4.2.1: this library is no longer supported
 warning less > request > hawk@3.1.3: This module moved to @hapi/hawk. Please make sure to switch over as this distribution is no longer supported and may contain bugs and critical security issues.
-warning less > request > hawk > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid 
+warning less > request > hawk > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid
 support is available for older versions (hapi.im/commercial).
 warning less > request > hawk > cryptiles@2.0.5: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
-warning less > request > hawk > boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid 
+warning less > request > hawk > boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid
 support is available for older versions (hapi.im/commercial).
 warning less > request > hawk > cryptiles > boom@2.10.1: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).
 warning less > request > hawk > boom > hoek@2.16.3: This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial).

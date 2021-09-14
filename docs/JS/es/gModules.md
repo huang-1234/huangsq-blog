@@ -1,6 +1,6 @@
 # 6.modules
 
-modules是ES6引入的最重要一个特性。 
+modules是ES6引入的最重要一个特性。
 所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
 
 modules规范分两部分，一部分是如何导出，一部分是如何导入。
@@ -9,8 +9,8 @@ modules规范分两部分，一部分是如何导出，一部分是如何导入�
 
 ## 命名导出(named exports)
 
-可以直接在任何变量或者函数前面加上一个 `export` 关键字，就可以将它导出。 
-这种写法非常简洁，和平时几乎没有区别，唯一的区别就是在需要导出的地方加上一个 export 关键字。 
+可以直接在任何变量或者函数前面加上一个 `export` 关键字，就可以将它导出。
+这种写法非常简洁，和平时几乎没有区别，唯一的区别就是在需要导出的地方加上一个 export 关键字。
 比如：
 
 ```js
@@ -47,12 +47,12 @@ console.log(diag(4, 3));
  square = lib.square;
 ```
 
-不过值得注意的一点是，如果你直接用babel编译，执行是会报错的。因为 babel 并不会完全编译 modules，他只是把 ES6 的modules语法编译成了 CMD 的语法，所以还需要用 browserify 之类的工具再次编译一遍。 
+不过值得注意的一点是，如果你直接用babel编译，执行是会报错的。因为 babel 并不会完全编译 modules，他只是把 ES6 的modules语法编译成了 CMD 的语法，所以还需要用 browserify 之类的工具再次编译一遍。
 如果你发现 browserify 找不到 `lib`，可以改成 `from ‘./lib’` 试试。
 
 ## 默认导出
 
-大家会发现上面的写法比较麻烦，因为必须要指定一个名字。其实很多时候一个模块只导出了一个变量，根本没必要指定一个名字。 
+大家会发现上面的写法比较麻烦，因为必须要指定一个名字。其实很多时候一个模块只导出了一个变量，根本没必要指定一个名字。
 还有一种用法叫默认导出，就是指定一个变量作为默认值导出：
 
 ```js
@@ -64,7 +64,7 @@ import myFunc from 'myFunc';
 myFunc();
 ```
 
-默认导出的时候不需要指定一个变量名，它默认就是文件名。 
+默认导出的时候不需要指定一个变量名，它默认就是文件名。
 这里的区别不仅仅是不用写名字，而是 导出的默认值就是模块本身，而不是模块下面的一个属性，即是 `import myFunc from 'myFunc’;` 而不是 `import {myFunc} from 'myFunc’;`
 
 ## 命名导出结合默认导出
@@ -208,7 +208,7 @@ require 和 import，都是为了JS模块化使用。最近项目中，因为多
 ```js
 function test (args) {
   // body...
-  console.log(args);	
+  console.log(args);
 }
 
 module.exports = {
@@ -232,7 +232,7 @@ a.js:
 ```js
 export function test (args) {
   // body...
-  console.log(args);	
+  console.log(args);
 }
 
 // 默认导出模块，一个文件中只能定义一个
@@ -273,7 +273,7 @@ let myAction = require(‘xxxxx‘);
 
 ### 3. md文档的表格写法:
 
-```text
+```js
 学号|姓名|分数
 -|:-:|-:
 小明|男|75
@@ -317,7 +317,7 @@ Node和浏览器端所支持的模块规范不同。
 引入	require	import；require
 
 1. 关于exports和module.exports
-在一个node执行一个文件时，会给这个文件内生成一个 exports和module对象， 
+在一个node执行一个文件时，会给这个文件内生成一个 exports和module对象，
 而module有一个exports属性。
 exports = module.exports = {};
 2. 关于 export 和export default
@@ -586,7 +586,7 @@ $ babel-node main.js
 
 这就证明了`x.js`和`y.js`加载的都是`C`的同一个实例。
 
-## Node.js 的模块加载方法 
+## Node.js 的模块加载方法
 
 JavaScript 现在有两种模块。一种是 ES6 模块，简称 ESM；另一种是 CommonJS 模块，简称 CJS。
 

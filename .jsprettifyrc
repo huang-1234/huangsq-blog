@@ -1,0 +1,57 @@
+{
+  // Details: https://github.com/victorporof/Sublime-HTMLPrettify#using-your-own-jsbeautifyrc-options
+  // Documentation: https://github.com/einars/js-beautify/
+  "html": {
+    "allowed_file_extensions": ["htm", "html", "xhtml", "shtml", "xml", "svg"],
+    "brace_style": "collapse", // [collapse|expand|end-expand|none]Put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line, or attempt to keep them where they are（没理解。。。）
+    "end_with_newline": false, // 结尾空出一行
+    "indent_char": " ", // 缩进字符类型（空格或者tab）
+    "indent_handlebars": false, // e.g. {{#foo}}, {{/foo}}
+    "indent_inner_html": false, // 缩进 <head> 和 <body> 片段
+    "indent_scripts": "keep", // [keep|separate|normal]
+    "indent_size": 4, // 缩进单位（这里是4个空格的意思）
+    "max_preserve_newlines": 0, // 在一个chunk中允许的最大换行数（0表示不允许）
+    "preserve_newlines": true, // 元素前的换行是否被允许存在（仅仅对于elemnet起作用，对tags和text都不起作用）
+    "unformatted": ["a", "span", "img", "code", "pre", "sub", "sup", "em", "strong", "b", "i", "u", "strike", "big", "small", "pre", "h1", "h2", "h3", "h4", "h5", "h6"], // 不被format的标签（没懂为何有这个选项）
+    "wrap_line_length": 0 // Lines should wrap at next opportunity after this number of characters (0 disables)
+  },
+  "css": {
+    "allowed_file_extensions": ["css", "scss", "sass", "less"],
+    "end_with_newline": false, // 结尾空出一行
+    "indent_char": " ", // 缩进字符方式（空格:` `;tab:`\t`）
+    "indent_size": 4, // 缩进单位（这里是4个空格的意思）
+    "newline_between_rules": true, // 每一条css规则之间插入一个空行
+    "selector_separator": " ",
+    "selector_separator_newline": true // 是否用空行分割选择器 (e.g. "a,\nbr" or "a, br")
+  },
+  "js": {
+    "allowed_file_extensions": ["js", "json", "jshintrc", "jsbeautifyrc"],
+
+    // Set brace_style
+    //  collapse: (old default) 将`{`、`}`置于控制语句同一行
+    //  collapse-preserve-inline: (new default) 与collapse规则一直但是对es6 import结构支持`{`不分行。 https://github.com/victorporof/Sublime-HTMLPrettify/issues/231
+    //  expand: 将`{`、`}`置于新一行(Allman / ANSI style)
+    //  end-expand: 将`}` 置于新一行
+    //  none: 不去处理，与原位置一直
+    "brace_style": "collapse-preserve-inline",
+
+    "break_chained_methods": false, // 将链式调用的函数置于新一行
+    "e4x": false, // Pass E4X xml literals through untouched
+    "end_with_newline": false, //结尾空出一行
+    "indent_char": " ", // 缩进字符方式（空格:` `;tab:`\t`）
+    "indent_level": 0, // Initial indentation level
+    "indent_size": 4, // 缩进单位（这里是4个空格的意思）
+    "indent_with_tabs": false, // 使用tab缩进，会覆盖 `indent_size` 和`indent_char`的设置
+    "jslint_happy": false, // 是否强制使用`jslint-stricter`的模式
+    "keep_array_indentation": false, // 保留数组缩进
+    "keep_function_indentation": false, // 保留函数缩进
+    "max_preserve_newlines": 0, // 在一个chunk中允许的最大换行数（0表示不允许）
+    "preserve_newlines": true, // 是否保留换行
+    "space_after_anon_function": false, // 匿名函数function关键字和括号之间的空格是否需要, "function()" vs "function ()"
+    "space_before_conditional": true, // 是否添加条件语句关键词和括号之间的空格, "if(true)" vs "if (true)"
+    "space_in_empty_paren": false, // 函数空参数时是否添加padding值, "f()" vs "f( )"
+    "space_in_paren": false, // 是否在函数参数与括号之间插入空格, ie. f( a, b )
+    "unescape_strings": false, // Should printable characters in strings encoded in \xNN notation be unescaped, "example" vs "\x65\x78\x61\x6d\x70\x6c\x65"
+    "wrap_line_length": 0 // Lines should wrap at next opportunity after this number of characters (0 disables)
+  }
+}

@@ -14,7 +14,7 @@
 
 ```js
 let a = [1,[2,3]];
-a.flat(); // [1,2,3] 
+a.flat(); // [1,2,3]
 a.flat(1); //[1,2,3]
 ```
 
@@ -144,7 +144,7 @@ flatten(arr1); //[1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
 
 ## 5.1 生成n维数组
 
-```text
+```js
 let arr =[];
 for(let i = 199; i> 0;i--){
       arr = [i].concat([arr]); //生成一个199维的数组
@@ -256,8 +256,8 @@ for(let i = 199; i> 0;i--){
       return ('' + arr).split(',').map(i => +i);
     }
 
-    
-   
+
+
     console.time('es6----->falt()');
     flatten(arr);
     console.timeEnd('es6----->falt()');
@@ -277,15 +277,15 @@ for(let i = 199; i> 0;i--){
     console.time('reduce----->');
     flatten31(arr);
     console.timeEnd('reduce----->');
-   
+
     console.time('stack----->');
     flatten41(arr);
     console.timeEnd('stack----->');
-   
+
     console.time('stack----->reverse');
     flatten42(arr);
     console.timeEnd('stack----->reverse');
-   
+
     console.time('toString----->');
     flatten51(arr);
     console.timeEnd('toString----->');
@@ -298,8 +298,8 @@ for(let i = 199; i> 0;i--){
     console.time('""+---------->');
     flatten54(arr);
     console.timeEnd('""+---------->');
-   
-  
+
+
   </script>
 </body>
 </html>

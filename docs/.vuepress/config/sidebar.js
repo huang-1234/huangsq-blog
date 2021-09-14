@@ -33,7 +33,7 @@ const sidebar = {
   // 工作和面试经历
   '/Interface/': getInterface(),
   // 计算机基础
-  '/CSBase/': getCSBase(),
+  '/csBase/': getCSBase(),
 }
 module.exports = {
   sidebar: sidebar,
@@ -628,7 +628,20 @@ function getOtherOlogy() {
         // 'english/',
         // 'english/',
       ]
-    }
+    },
+    {
+      title: 'economics',
+      children: [
+        'economics/wealth-nations',
+      ]
+    },
+    {
+      title: 'literature&history',
+      children: [
+        'literature&history/lunyu',
+        'literature&history/TangPoemSongja',
+      ]
+    },
   ]
 }
 
@@ -671,13 +684,46 @@ function getInterface() {
 function getCSBase() {
   return [
     {
-      title: 'csBase',
+      title: 'os',
       children: [
-        'complier/PhrasesAndHandles',
+        'os/memoryManagement/VirtualMemory',
+        'os/process/IPC',
+      ]
+    },
+    {
+      title: 'network',
+      children: [
+        'network/introduction',
+        'network/tcpudp',
+      ]
+    },
+    {
+      title: 'csCompose',
+      children: [
+
+      ]
+    },
+    {
+      title: 'linux',
+      children: [
+        'linux/createFlieOrDir',
+        'linux/sync',
+      ]
+    },
+    {
+      title: 'complier',
+      children: [
+        'complier/phrasesAndHandles',
         'complier/semanticAnalysis',
         'complier/syntaxAlex',
         'complier/LR',
       ]
-    }
+    },
+    {
+      title: 'logic',
+      children: [
+        'logic/xor&and&or',
+      ]
+    },
   ]
 }

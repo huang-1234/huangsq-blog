@@ -8,12 +8,12 @@ yarn run build
 
 # git init
 git add .
-git commit -m 'update review'
+git commit -m 'update origin'
 
 # git remote -v
 # git pull
 
-git push -f https://github.com/huang-1234/MyvuePressBlog.git main
+git push -f  origin master
 
 # 进入生成的文件夹
 cd dist
@@ -23,7 +23,7 @@ cd dist
 
 git init
 git add .
-git commit -m 'update revire'
+git commit -m 'update origin'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git pull

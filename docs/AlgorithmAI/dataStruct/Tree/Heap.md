@@ -2,8 +2,8 @@
 
 相关推荐：
 
-- [经典动态规划：完全背包问题]() 
-- [如何k个一组反转链表]() 
+- [经典动态规划：完全背包问题]()
+- [如何 k 个一组反转链表]()
 
 二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，`sink`（下沉）和 `swim`（上浮），用以维护二叉堆的性质。其主要应用有两个，首先是一种排序方法「堆排序」，第二是一种很有用的数据结构「优先级队列」。
 
@@ -15,9 +15,7 @@
 
 因为，二叉堆其实就是一种特殊的二叉树（完全二叉树），只不过存储在数组里。一般的链表二叉树，我们操作节点的指针，而在数组里，我们把数组索引作为指针：
 
-
-
-```
+```cpp
 // 父节点的索引
 int parent(int root) {
     return root / 2;
@@ -58,19 +56,36 @@ PS：因为数组索引是数组，为了方便区分，将字符作为数组元
 
 PS：为了清晰起见，这里用到 Java 的泛型，`Key` 可以是任何一种可比较大小的数据类型，你可以认为它是 int、char 等。
 
-
-
-```
+```cpp
 public class MaxPQ    <Key extends Comparable<Key>> {    // 存储元素的数组    private Key[] pq;    // 当前 Priority Queue 中的元素个数    private int N = 0;
-    public MaxPQ(int cap) {        // 索引 0 不用，所以多分配一个空间        pq = (Key[]) new Comparable[cap + 1];    }
-    /* 返回当前队列中最大元素 */    public Key max() {        return pq[1];    }
-    /* 插入元素 e */    public void insert(Key e) {...}
-    /* 删除并返回当前队列中最大元素 */    public Key delMax() {...}
-    /* 上浮第 k 个元素，以维护最大堆性质 */    private void swim(int k) {...}
-    /* 下沉第 k 个元素，以维护最大堆性质 */    private void sink(int k) {...}
-    /* 交换数组的两个元素 */    private void exch(int i, int j) {        Key temp = pq[i];        pq[i] = pq[j];        pq[j] = temp;    }
-    /* pq[i] 是否比 pq[j] 小？ */    private boolean less(int i, int j) {        return pq[i].compareTo(pq[j]) < 0;    }
-    /* 还有 left, right, parent 三个方法 */}
+    public MaxPQ(int cap) {
+      // 索引 0 不用，所以多分配一个空间
+      pq = (Key[]) new Comparable[cap + 1];
+    }
+    /* 返回当前队列中最大元素 */
+    public Key max() {
+      return pq[1];
+    }
+    /* 插入元素 e */
+    public void insert(Key e) {...}
+    /* 删除并返回当前队列中最大元素 */
+    public Key delMax() {...}
+    /* 上浮第 k 个元素，以维护最大堆性质 */
+    private void swim(int k) {...}
+    /* 下沉第 k 个元素，以维护最大堆性质 */
+    private void sink(int k) {...}
+    /* 交换数组的两个元素 */
+    private void exch(int i, int j) {
+      Key temp = pq[i];
+      pq[i] = pq[j];
+      pq[j] = temp;
+    }
+    /* pq[i] 是否比 pq[j] 小？ */
+    private boolean less(int i, int j) {
+      return pq[i].compareTo(pq[j]) < 0;
+    }
+    /* 还有 left, right, parent 三个方法 *
+    }
 ```
 
 空出来的四个方法是二叉堆和优先级队列的奥妙所在，下面用图文来逐个理解。
@@ -94,9 +109,7 @@ public class MaxPQ    <Key extends Comparable<Key>> {    // 存储元素的数�
 
 **上浮的代码实现：**
 
-
-
-```
+```cpp
 private void swim(int k) {
     // 如果浮到堆顶，就不能再上浮了
     while (k > 1 && less(parent(k), k)) {
@@ -118,9 +131,7 @@ private void swim(int k) {
 
 下沉比上浮略微复杂一点，因为上浮某个节点 A，只需要 A 和其父节点比较大小即可；但是下沉某个节点 A，需要 A 和其**两个子节点**比较大小，如果 A 不是最大的就需要调整位置，要把较大的那个子节点和 A 交换。
 
-
-
-```
+```cpp
 private void sink(int k) {
     // 如果沉到堆底，就沉不下去了
     while (left(k) <= N) {
@@ -156,9 +167,7 @@ private void sink(int k) {
 
 4
 
-
-
-```
+```cpp
 public void insert(Key e) {
     N++;
     // 先把新元素加到最后
@@ -170,9 +179,7 @@ public void insert(Key e) {
 
 **`delMax`** **方法先把堆顶元素 A 和堆底最后的元素 B 对调，然后删除 A，最后让 B 下沉到正确位置。**
 
-
-
-```
+```cpp
 public Key delMax() {
     // 最大堆的堆顶就是最大元素
     Key max = pq[1];

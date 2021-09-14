@@ -47,7 +47,7 @@
 
 
 ```js
-// === 
+// ===
 console.log(+0 === -0) // true
 console.log(+0 === 0) // true
 console.log(-0 === 0) // true
@@ -331,7 +331,7 @@ friend.sayName(); // 报错
 
 
 
-```undefined
+```bash
 原型链继承就是 **使子类的原型指向父类的构造出来的实例对象**
 ```
 
@@ -404,7 +404,7 @@ SuperType.prototype.sayName = function() {
 function SubType(name, age) {
     SuperType.call(this, name) // 借用构造函数继承 让SubType的每个实例都拥有name 和 colors属性，相互之间不受影响
     this.age = age
-} 
+}
 SubType.prototype = new SuperType() // 原型链继承父类
 SubType.prototype.sayAge = function() {
     console.log(this.age)
@@ -436,14 +436,14 @@ function object(o) {
     function F() {} // 创建一个临时构造函数F
     F.prototype = o // 构造函数F的原型指向o，说明F的实例对象能够访问到o的属性和方法
     return new F() // 返回构造函数F的实例对象
-}  
+}
 let person = { name: 'xiaoming', friends: ['xxx', 'yyy']}
 
 let anotherPerson = object(person) // 返回一个对象，这个对象的[[Prototype]]指针指向o
 anotherPerson.friends.push('zzz')
 let yetAnotherPerson = object(person)
 yetANotherPerson.friends.push('hhh')
-console.log(person) // ['xxx', 'yyy', 'zzz', 'hhh'] 
+console.log(person) // ['xxx', 'yyy', 'zzz', 'hhh']
 // 实际上，object()是对传入的对象执行了一次浅复制
 ```
 
@@ -462,7 +462,7 @@ console.log(person) // ['xxx', 'yyy', 'zzz', 'hhh']
 
 
 
-```undefined
+```bash
 寄生式继承与原型式继承比较接近。
 ```
 
@@ -510,7 +510,7 @@ function object(o) {
 function inheritPrototype(subType, superType) {
  let prototype = object(superType.prototype) // 返回父类构造函数的一个副本
  prototype.constructor = subType   // 修改constructor的指向
- subType.prototype = prototype // 
+ subType.prototype = prototype //
 }
 
 function SuperType(name) {
@@ -571,7 +571,7 @@ SubType.prototype.sayAge = function() {
 
 
 
-```undefined
+```bash
 类的语法可以非常方便地定义应该存在于实例上的成员、应该存在于原型上的成员，以及应该存在于类本身的成员
 ```
 

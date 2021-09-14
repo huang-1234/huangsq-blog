@@ -128,7 +128,7 @@ pm2 start bin/www
 - node v5.0.0
 - npm 3.3.6
 
-全局安装 `pm2` 
+全局安装 `pm2`
 
 ```shell
 $ npm install pm2 -g
@@ -205,7 +205,7 @@ $ pm2 list
 
 输入,下面命令配合id或者name可以查看某一个进程的详细信息
 
-```
+```bash
 $ pm2 show Wolverine 或者
 $ pm2 show 0
 ```
@@ -214,13 +214,13 @@ $ pm2 show 0
 
 输入
 
-```
+```bash
 $ pm2 monit
 ```
 
 停止、重启等命令
 
-```
+```bash
 $ pm2 stop [app-name|id]  #停止某一个进程，可以使用app-name或者id
 $ pm2 stop all            #停止所有进程
 
@@ -236,14 +236,14 @@ $ pm2 delete all          #删除并停止所有进程
 
 如果你一直使用 `tail -f log_file.log log_error.log` 来查看日志，你可能会爱上下面的这个功能。
 
-```
+```bash
 $ pm2 logs
 $ pm2 logs [app-name]
 ```
 
 我们可以实时查看全部进程的日志，或者只查看某一个。我们甚至可以使用json格式查看日志。
 
-```
+```bash
 $ pm2 logs --json
 ```
 
@@ -251,7 +251,7 @@ $ pm2 logs --json
 
 如果你不仅仅想监控被pm2管理的进程，还需要监控进程所运行的机器的信息，你可以使用下面这个API
 
-```
+```bash
 $ pm2 web
 ```
 

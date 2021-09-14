@@ -16,7 +16,7 @@ DOM1级定义了一个Node接口，该接口由DOM中所有节点类型实现。
 Node有一个属性nodeType表示Node的类型，它是一个整数，其数值分别表示相应的Node类型，具体如下：
 
 
-```text
+```js
 Node.ELEMENT_NODE:1
 Node.ATTRIBUTE_NODE:2
 Node.TEXT_NODE:3
@@ -46,7 +46,7 @@ console.log("Node is a element");
 Element提供了对元素标签名，子节点和特性的访问，我们常用HTML元素比如div，span，a等标签就是element中的一种。
 
 Element有下面几条特性：
-```text
+```js
 （1）nodeType为1
 （2）nodeName为元素标签名，tagName也是返回标签名
 （3）nodeValue为null
@@ -56,7 +56,7 @@ Element有下面几条特性：
 ## Text类型
 
 Text表示文本节点，它包含的是纯文本内容，不能包含html代码，但可以包含转义后的html代码。Text有下面的特性：
-```text
+```js
 （1）nodeType为3
 （2）nodeName为#text
 （3）nodeValue为文本内容
@@ -66,7 +66,7 @@ Text表示文本节点，它包含的是纯文本内容，不能包含html代码
 ## Attr类型
 
 Attr类型表示元素的特性，相当于元素的attributes属性中的节点，它有下面的特性：
-```text
+```js
 （1）nodeType值为2
 （2）nodeName是特性的名称
 （3）nodeValue是特性的值
@@ -75,7 +75,7 @@ Attr类型表示元素的特性，相当于元素的attributes属性中的节点
 ## Comment类型注释node
 
 Comment表示HTML文档中的注释，它有下面的几种特征：
-```text
+```js
 （1）nodeType为8
 （2）nodeName为#comment
 （3）nodeValue为注释的内容
@@ -85,7 +85,7 @@ Comment表示HTML文档中的注释，它有下面的几种特征：
 ## Document
 
 Document表示文档，在浏览器中，document对象是HTMLDocument的一个实例，表示整个页面，它同时也是window对象的一个属性。Document有下面的特性：
-```text
+```js
 （1）nodeType为9
 （2）nodeName为#document
 （3）nodeValue为null
@@ -95,7 +95,7 @@ Document表示文档，在浏览器中，document对象是HTMLDocument的一个�
 ## DocumentFragment类型
 
 DocumentFragment是所有节点中唯一一个没有对应标记的类型，它表示一种轻量级的文档，可能当作一个临时的仓库用来保存可能会添加到文档中的节点。DocumentFragment有下面的特性：
-```text
+```js
 （1）nodeType为11
 （2）nodeName为#document-fragment
 （3）nodeValue为null
@@ -134,7 +134,7 @@ createTextNode接收一个参数，这个参数就是文本节点中的文本，
 cloneNode是用来返回调用方法的节点的一个副本，它接收一个bool参数，用来表示是否复制子元素，使用如下：
 
 ```js
-var parent = document.getElementById("parentElement"); 
+var parent = document.getElementById("parentElement");
 var parent2 = parent.cloneNode(true);// 传入true
 parent2.id = "parent2";
 ```
@@ -165,7 +165,7 @@ document.getElementById("btnCopy").onclick = function(){
 这段代码很简单，主要是绑定button事件，事件内容是复制了一个parent，修改其id，然后添加到文档中。
 
 这里有几点要注意：
-```text
+```js
 （1）和createElement一样，cloneNode创建的节点只是游离有html文档外的节点，要调用appendChild方法才能添加到文档树中
 （2）如果复制的元素有id，则其副本同样会包含该id，由于id具有唯一性，所以在复制节点后必须要修改其id
 （3）调用接收的bool参数最好传入，如果不传入该参数，不同浏览器对其默认值的处理可能不同
@@ -173,7 +173,7 @@ document.getElementById("btnCopy").onclick = function(){
 除此之外，我们还有一个需要注意的点：如果被复制的节点绑定了事件，则副本也会跟着绑定该事件吗？
 
 这里要分情况讨论：
-```text
+```js
 （1）如果是通过addEventListener或者比如onclick进行绑定事件，则副本节点不会绑定该事件
 （2）如果是内联方式绑定比如
 ```
@@ -210,7 +210,7 @@ DocumentFragment不是文档树的一部分，它是保存在内存中的，所�
 
 ```js
 document.getElementById("btnAdd").onclick = function(){
-    var list = document.getElementById("list"); 
+    var list = document.getElementById("list");
     var fragment = document.createDocumentFragment();
 
     for(var i = 0;i < 100; i++){
@@ -228,7 +228,7 @@ document.getElementById("btnAdd").onclick = function(){
 ## 创建型API总结
 
 创建型api主要包括`createElement`，`createTextNode`，`cloneNode`和`createDocumentFragment`四个方法，需要注意下面几点：
-```text
+```js
 （1）它们创建的节点只是一个孤立的节点，要通过`appendChild`添加到文档中
 （2）`cloneNode`要注意如果被复制的节点是否包含子节点以及事件绑定等问题
 （3）使用`createDocumentFragment`来解决添加大量节点时的性能问题
@@ -260,7 +260,7 @@ child节点将会作为parent节点的最后一个子节点。
 <br/>
 <div id="parent">
     要移动的位置
-</div>      
+</div>
 <input id="btnMove" type="button" value="移动节点" />
 <script>
 document.getElementById("btnMove").onclick = function(){
@@ -291,7 +291,7 @@ parentNode.insertBefore(newNode,refNode);
 ```html
 <div id="parent">
     父节点
-    <div id="child">                
+    <div id="child">
         子元素
     </div>
 </div>
@@ -375,7 +375,7 @@ newChild是替换的节点，可以是新的节点，也可以是页面上的节
 <div>div2</div>
 
 <input type="button" value="显示数量" id="btnShowCount"/>
-<input type="button" value="新增div" id="btnAddDiv"/> 
+<input type="button" value="新增div" id="btnAddDiv"/>
 <script>
 var divList = document.getElementsByTagName("div");
 document.getElementById("btnAddDiv").onclick = function(){
@@ -437,10 +437,10 @@ var elements = document.getElementsByClassName("test1 test2");
 ```html
 <div>
     <div>
-        <span class="test">第三级的span</span>  
+        <span class="test">第三级的span</span>
     </div>
 </div>
-<div class="test">          
+<div class="test">
     同级的第二个div
 </div>
 <input type="button" id="btnGet" value="获取test元素" />
@@ -466,10 +466,10 @@ document.getElementById("btnGet").addEventListener("click",function(){
 <input id="btnShow" type="button" value="显示内容" />
 <script>
 document.getElementById("btnShow").addEventListener("click",function(){
-    var elements = document.querySelectorAll("#test,.test");    
+    var elements = document.querySelectorAll("#test,.test");
     for(var i = 0,length = elements.length;i<length;i++){
         alert(elements[i].textContent);
-    }   
+    }
 })
 </script>
 ```

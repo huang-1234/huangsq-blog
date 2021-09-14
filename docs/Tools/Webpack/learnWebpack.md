@@ -14,7 +14,7 @@
 
 这个webpack还真不是一两句话可以说清楚的。
 我们先看看官方的解释：
-At its core, webpack is a static module bundler for modern JavaScript applications. 
+At its core, webpack is a static module bundler for modern JavaScript applications.
 从本质上来讲，webpack是一个现代的JavaScript应用的静态模块打包工具。
 但是它是什么呢？用概念解释概念，还是不清晰。
 我们从两个点来解释上面这句话：模块 和 打包
@@ -67,7 +67,7 @@ webpack更加强调模块化开发管理，而文件压缩合并、预处理等�
 安装webpack首先需要安装Node.js，Node.js自带了软件包管理工具npm
 查看自己的node版本：
 
-```cmd
+```bash
 node -v
 ```
 
@@ -483,7 +483,7 @@ npm install vue --save
 
 在学习组件化开发的时候，我说过以后的Vue开发过程中，我们都会采用组件化开发的思想。
 那么，在当前项目中，如果我也想采用组件化的形式进行开发，应该怎么做呢？
-查看下面的代码：	
+查看下面的代码：
 当然，我们也可以将下面的代码抽取到一个js文件中，并且导出。
 
 ### 30. .vue文件封装处理
@@ -579,7 +579,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
-module.exports = { 
+module.exports = {
   plugins: [
     new webpack.BannerPlugin('最终版权归aaa所有'),
     new HtmlWebpackPlugin({  // 这个插件是将index.html打包到dist文件夹下,可以深入了解下

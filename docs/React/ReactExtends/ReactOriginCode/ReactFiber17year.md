@@ -129,7 +129,7 @@ render，应该是纯函数，多调用几次无妨，通过！
 
 虽然React Fiber还没有正式发布，现在你就可以试用React Fiber，用这种方式安装react和react-dom
 
-```text
+```bash
 yarn add react@next react-dom@next
 ```
 

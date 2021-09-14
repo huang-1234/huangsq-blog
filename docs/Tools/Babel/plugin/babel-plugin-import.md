@@ -187,7 +187,7 @@ e.g.
 
 
 
-```source-ts
+```js
 import { TimePicker } from "antd"
 ↓ ↓ ↓ ↓ ↓ ↓
 var _button = require('antd/lib/time-picker');
@@ -197,7 +197,7 @@ var _button = require('antd/lib/time-picker');
 
 
 
-```source-ts
+```js
 import { TimePicker } from "antd"
 ↓ ↓ ↓ ↓ ↓ ↓
 var _button = require('antd/lib/TimePicker');
@@ -226,7 +226,7 @@ var _button = require('antd/lib/TimePicker');
 
 
 
-```source-ts
+```js
 import { TimePicker } from "antd"
 ↓ ↓ ↓ ↓ ↓ ↓
 var _button = require('antd/lib/custom-time-picker');

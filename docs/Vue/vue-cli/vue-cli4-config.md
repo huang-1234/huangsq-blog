@@ -57,7 +57,7 @@
 
   serve 默认的本地开发环境配置
 
-```
+```js
 NODE_ENV = "development"
 BASE_URL = "./"
 VUE_APP_PUBLIC_PATH = "./"
@@ -68,7 +68,7 @@ VUE_APP_API = "https://test.staven630.com/api"
 
   build 默认的环境配置（正式服务器）
 
-```
+```js
 NODE_ENV = "production"
 BASE_URL = "https://prod.staven630.com/"
 VUE_APP_PUBLIC_PATH = "https://prod.oss.com/staven-blog"
@@ -85,7 +85,7 @@ PREFIX = "staven-blog"
 
   自定义 build 环境配置（预发服务器）
 
-```
+```js
 NODE_ENV = "production"
 BASE_URL = "https://crm.staven630.com/"
 VUE_APP_PUBLIC_PATH = "https://crm.oss.com/staven-blog"
@@ -102,7 +102,7 @@ IS_ANALYZE = true;
 
   修改 package.json
 
-```
+```js
 "scripts": {
   "build": "vue-cli-service build",
   "crm": "vue-cli-service build --mode crm"
@@ -111,11 +111,11 @@ IS_ANALYZE = true;
 
 ##### 使用环境变量
 
-```
+```js
 <template>
   <div class="home">
     <!-- template中使用环境变量 -->
-     API: 
+     API:
   </div>
 </template>
 
@@ -140,7 +140,7 @@ export default {
 
 ### ✅ 配置基础 vue.config.js
 
-```
+```js
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 module.exports = {
@@ -161,7 +161,7 @@ module.exports = {
 
   假设 mock 接口为https://www.easy-mock.com/mock/5bc75b55dc36971c160cad1b/sheets/1
 
-```
+```js
 module.exports = {
   devServer: {
     // overlay: { // 让浏览器 overlay 同时显示警告和错误
@@ -191,7 +191,7 @@ module.exports = {
 
   访问
 
-```
+```js
 <script>
 import axios from "axios";
 export default {
@@ -210,7 +210,7 @@ export default {
 
   如果热更新失效，如下操作：
 
-```
+```js
 module.exports = {
   chainWebpack: config => {
     // 修复HMR
@@ -223,7 +223,7 @@ module.exports = {
 
 ### ✅ 修复 Lazy loading routes Error： Cyclic dependency https://github.com/vuejs/vue-cli/issues/1669
 
-```
+```js
 module.exports = {
   chainWebpack: config => {
     // 如果使用多页面打包，使用vue inspect --plugins查看html是否在结果数组中
@@ -240,7 +240,7 @@ module.exports = {
 
 ### ✅ 添加别名 alias
 
-```
+```js
 const path = require("path");
 const resolve = dir => path.join(__dirname, dir);
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
@@ -268,13 +268,13 @@ module.exports = {
 
 ### ✅ 压缩图片
 
-```
+```js
 npm i -D image-webpack-loader
 ```
 
   在某些版本的 OSX 上安装可能会因缺少 libpng 依赖项而引发错误。可以通过安装最新版本的 libpng 来解决。
 
-```
+```js
 brew install libpng
 module.exports = {
   chainWebpack: config => {
@@ -301,7 +301,7 @@ module.exports = {
 
   默认 src/assets/icons 中存放需要生成雪碧图的 png 文件。首次运行 npm run serve/build 会生成雪碧图，并在跟目录生成 icons.json 文件。再次运行命令时，会对比 icons 目录内文件与 icons.json 的匹配关系，确定是否需要再次执行 webpack-spritesmith 插件。
 
-```
+```js
 npm i -D webpack-spritesmith
 let has_sprite = true;
 let files = [];
@@ -342,19 +342,19 @@ if (!files.length) {
 const SpritesmithTemplate = function(data) {
   // pc
   let icons = {};
-  let tpl = `.ico { 
-  display: inline-block; 
-  background-image: url(${data.sprites[0].image}); 
-  background-size: ${data.spritesheet.width}px ${data.spritesheet.height}px; 
+  let tpl = `.ico {
+  display: inline-block;
+  background-image: url(${data.sprites[0].image});
+  background-size: ${data.spritesheet.width}px ${data.spritesheet.height}px;
 }`;
 
   data.sprites.forEach(sprite => {
     const name = "" + sprite.name.toLocaleLowerCase().replace(/_/g, "-");
     icons[`${name}.png`] = true;
-    tpl = `${tpl} 
+    tpl = `${tpl}
 .ico-${name}{
-  width: ${sprite.width}px; 
-  height: ${sprite.height}px; 
+  width: ${sprite.width}px;
+  height: ${sprite.height}px;
   background-position: ${sprite.offset_x}px ${sprite.offset_y}px;
 }
 `;
@@ -406,13 +406,13 @@ module.exports = {
 
 ### ✅ SVG 转 font 字体
 
-```
+```js
 npm i -D svgtofont
 ```
 
   根目录新增 scripts 目录，并新建 svg2font.js 文件：
 
-```
+```js
 const svgtofont = require("svgtofont");
 const path = require("path");
 const pkg = require("../package.json");
@@ -456,14 +456,14 @@ svgtofont({
 
   添加 package.json scripts 配置：
 
-```
+```js
 "prebuild": "npm run font",
 "font": "node scripts/svg2font.js",
 ```
 
   执行：
 
-```
+```js
 npm run font
 ```
 
@@ -471,13 +471,13 @@ npm run font
 
 ### ✅ 使用 SVG 组件
 
-```
+```js
 npm i -D svg-sprite-loader
 ```
 
   新增 SvgIcon 组件。
 
-```
+```js
 <template>
   <svg class="svg-icon"
        aria-hidden="true">
@@ -515,7 +515,7 @@ export default {
 
   在 src 文件夹中创建 icons 文件夹。icons 文件夹中新增 svg 文件夹（用来存放 svg 文件）与 index.js 文件：
 
-```
+```js
 import SvgIcon from "@/components/SvgIcon";
 import Vue from "vue";
 
@@ -529,13 +529,13 @@ requireAll(req);
 
   在 main.js 中导入 icons/index.js
 
-```
+```js
 import "@/icons";
 ```
 
   修改 vue.config.js
 
-```
+```js
 const path = require("path");
 const resolve = dir => path.join(__dirname, dir);
 
@@ -567,13 +567,13 @@ module.exports = {
 
 - 方案一：@fullhuman/postcss-purgecss
 
-```
+```js
 npm i -D postcss-import @fullhuman/postcss-purgecss
 ```
 
   更新 postcss.config.js
 
-```
+```js
 const autoprefixer = require("autoprefixer");
 const postcssImport = require("postcss-import");
 const purgecss = require("@fullhuman/postcss-purgecss");
@@ -622,7 +622,7 @@ module.exports = {
 
 - 方案二：purgecss-webpack-plugin
 
-```
+```js
 npm i -D glob-all purgecss-webpack-plugin
 const path = require("path");
 const glob = require("glob-all");
@@ -673,7 +673,7 @@ module.exports = {
 
 ### ✅ 添加打包分析
 
-```
+```js
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
@@ -697,7 +697,7 @@ module.exports = {
 
   防止将某些 import 的包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展依赖
 
-```
+```js
 module.exports = {
   configureWebpack: config => {
     config.externals = {
@@ -733,7 +733,7 @@ module.exports = {
 
   在 html 中添加
 
-```
+```js
 <!-- 使用CDN的CSS文件 -->
 <% for (var i in htmlWebpackPlugin.options.cdn &&
 htmlWebpackPlugin.options.cdn.css) { %>
@@ -760,7 +760,7 @@ htmlWebpackPlugin.options.cdn.js) { %>
 
    配置多页面信息。src/main.js 文件对应 main 字段，其他根据参照 pages 为根路径为字段。如下:
 
-```
+```js
 module.exports = {
   'admin': {
     template: 'public/index.html',
@@ -784,7 +784,7 @@ module.exports = {
 
   vue.config.js 的 pages 字段为多页面提供配置
 
-```
+```js
 const glob = require("glob");
 const pagesInfo = require("./pages.config");
 const pages = {};
@@ -813,7 +813,7 @@ module.exports = {
 
   如果多页面打包需要使用 CDN，使用 vue inspect –plugins 查看 html 是否在结果数组中的形式。上例中 plugins 列表中存在’html-main’,’html-pages/admin’,’html-pages/mobile’， 没有’html’。因此不能再使用 config.plugin(“html”)。
 
-```
+```js
 const path = require("path");
 const resolve = dir => path.join(__dirname, dir);
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
@@ -884,7 +884,7 @@ module.exports = {
 
   删除 moment 除 zh-cn 中文包外的其它语言包，无需在代码中手动引入 zh-cn 语言包。
 
-```
+```js
 const webpack = require("webpack");
 
 module.exports = {
@@ -906,13 +906,13 @@ module.exports = {
 
 ##### 方法一：使用 babel-plugin-transform-remove-console 插件
 
-```
+```js
 npm i -D babel-plugin-transform-remove-console
 ```
 
 在 babel.config.js 中配置
 
-```
+```js
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 const plugins = [];
@@ -928,7 +928,7 @@ module.exports = {
 
 ##### 方法二：
 
-```
+```js
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 module.exports = {
   configureWebpack: config => {
@@ -962,7 +962,7 @@ module.exports = {
 
 ### 利用 splitChunks 单独打包第三方模块
 
-```
+```js
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 module.exports = {
@@ -1023,7 +1023,7 @@ module.exports = {
 
 ### ✅ 开启 gzip 压缩
 
-```
+```js
 npm i -D compression-webpack-plugin
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
@@ -1051,7 +1051,7 @@ module.exports = {
 
   还可以开启比 gzip 体验更好的 Zopfli 压缩详见https://webpack.js.org/plugins/compression-webpack-plugin
 
-```
+```js
 npm i -D @gfx/zopfli brotli-webpack-plugin
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const zopfli = require("@gfx/zopfli");
@@ -1092,15 +1092,15 @@ module.exports = {
 
 ### ✅ 开启 stylelint 检测scss, css语法
 
-```
+```js
 npm i -D stylelint stylelint-config-standard stylelint-config-prettier stylelint-webpack-plugin
 ```
 
 在文件夹创建stylelint.config.js,详细配置在[这里](https://stylelint.io/user-guide/configuration)
 
-```
+```js
 module.exports = {
-  ignoreFiles: ["**/*.js", "src/assets/css/element-variables.scss", "theme/"], 
+  ignoreFiles: ["**/*.js", "src/assets/css/element-variables.scss", "theme/"],
   extends: ["stylelint-config-standard", "stylelint-config-prettier"],
   rules: {
     "no-empty-source": null,
@@ -1116,7 +1116,7 @@ module.exports = {
 
 启用webpack配置
 
-```
+```js
 const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
@@ -1143,7 +1143,7 @@ module.exports = {
 
   css 中可以使用注入 sass 变量访问环境变量中的配置信息
 
-```
+```js
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 
 module.exports = {
@@ -1168,7 +1168,7 @@ module.exports = {
 
 在 scss 中引用
 
-```
+```js
 .home {
   background: url($src+"/images/500.png");
 }
@@ -1182,7 +1182,7 @@ module.exports = {
 
   在src/assets/less目录下新建variables.less文件，并定义全局less变量
 
-```less
+```js
 @primary-color: #1890ff;
 @normal-color: #d9d9d9;
 @text-color: #303753;
@@ -1190,7 +1190,7 @@ module.exports = {
 
   vue.config.js中为其添加相应less配置。
 
-```
+```js
 const path = require('path')
 const fs = require('fs')
 const postcss = require('postcss')
@@ -1225,7 +1225,7 @@ module.exports = {
 
 ### ✅ 为 stylus 提供全局变量
 
-```
+```js
 npm i -D style-resources-loader
 const path = require("path");
 const resolve = dir => path.resolve(__dirname, dir);
@@ -1251,7 +1251,7 @@ module.exports = {
 
 ### 预渲染 prerender-spa-plugin
 
-```
+```js
 npm i -D prerender-spa-plugin
 const PrerenderSpaPlugin = require("prerender-spa-plugin");
 const path = require("path");
@@ -1298,7 +1298,7 @@ module.exports = {
 
   mounted()中添加 document.dispatchEvent(new Event(‘render-event’))
 
-```
+```js
 new Vue({
   router,
   store,
@@ -1314,7 +1314,7 @@ new Vue({
 - 删除 public/index.html 中关于 description、content 的 meta 标签。保留 title 标签
 - 配置 router-config.js
 
-```
+```js
 module.exports = {
   "/": {
     title: "首页",
@@ -1396,7 +1396,7 @@ module.exports = {
   在 main.js 中添加
 
 ```
-import 'core-js/stable'; 
+import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 ```
 
@@ -1517,19 +1517,19 @@ if (!files.length) {
 const SpritesmithTemplate = function (data) {
   // pc
   let icons = {}
-  let tpl = `.ico { 
-  display: inline-block; 
-  background-image: url(${data.sprites[0].image}); 
-  background-size: ${data.spritesheet.width}px ${data.spritesheet.height}px; 
+  let tpl = `.ico {
+  display: inline-block;
+  background-image: url(${data.sprites[0].image});
+  background-size: ${data.spritesheet.width}px ${data.spritesheet.height}px;
 }`
 
   data.sprites.forEach(sprite => {
     const name = '' + sprite.name.toLocaleLowerCase().replace(/_/g, '-')
     icons[`${name}.png`] = true
-    tpl = `${tpl} 
+    tpl = `${tpl}
 .ico-${name}{
-  width: ${sprite.width}px; 
-  height: ${sprite.height}px; 
+  width: ${sprite.width}px;
+  height: ${sprite.height}px;
   background-position: ${sprite.offset_x}px ${sprite.offset_y}px;
 }
 `
