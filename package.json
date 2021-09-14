@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "myBlogForMynote",
   "main": "index.js",
-  "repository": "git@github.com:huang-1234/huang-1234.github.io.git",
+  "repository": "git@github.com:huang-1234/MyvuePressBlog.git",
   "author": "hsq",
   "license": "2021",
   "private": true,
@@ -20,7 +20,6 @@
     "pug-plain-loader": "^1.1.0",
     "sass-loader": "^11.0.1",
     "vuepress": "^1.8.2"
-    
   },
   "dependencies": {
     "surge": "^0.22.1",
