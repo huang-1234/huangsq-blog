@@ -358,7 +358,6 @@ Redux 本身是完全独立运行的库，不会基于某个库或框架、也�
   store.subscribe(render);
   render();
 </script>
-复制代码
 ```
 
 代码中有详尽的注释，这几乎是一个 redux 应用的最简版本。看明白这个例子，就搞懂了 redux 最基本的使用。
