@@ -1,4 +1,4 @@
-# 从 Promise 到 await
+# 10. 从 Promise 到 await
 
 
 ## 首先我们来看看 Promsie和宏任务之间的关系
