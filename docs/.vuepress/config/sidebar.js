@@ -700,7 +700,10 @@ function getCSBase() {
     {
       title: 'csCompose',
       children: [
-
+        'computeCompose/someQuestion',
+        'computeCompose/8086AssemblyInstrutionCheatsheet',
+        'computeCompose/io&interrupt',
+        'computeCompose/commomDigitInterface',
       ]
     },
     {
