@@ -1,6 +1,6 @@
 # 0. The life of JS
 
-> 读史使人明智
+> 读史使人明智. 只有成体系的才是具有价值的。
 
 [了解一下整个浏览器技术和互联网的发展史](http://www.evolutionoftheweb.com/?hl=zh-cn)（因为是外网的资源，想看是需要翻墙的）
 
