@@ -64,7 +64,6 @@ function getJS() {
 
         //es新增数据结构
         'es/es6Struct',
-        'es/eSet',
 
         //JSON
 
@@ -687,6 +686,7 @@ function getCSBase() {
       title: 'os',
       children: [
         'os/memoryManagement/VirtualMemory',
+        'os/memoryManagement/memoryLeak',
         'os/process/IPC',
       ]
     },
