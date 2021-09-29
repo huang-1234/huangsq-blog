@@ -14,7 +14,7 @@
 
 示例
 
-```
+```js
 {
   "name": "quanerp-pc-v4",
   "version": "4.0.0",

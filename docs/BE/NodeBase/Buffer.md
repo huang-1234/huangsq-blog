@@ -9,7 +9,7 @@
 
 
 
-```javascript
+```js
 var buf = new Buffer(size); //size表示需要设置的缓存区的大小，以字节为单位
 ```
 
@@ -17,7 +17,7 @@ var buf = new Buffer(size); //size表示需要设置的缓存区的大小，以�
 
 
 
-```javascript
+```js
 var buf = new Buffer(128);
 buf.fill(2, 2 ,10); //使用Buffer类的fill()方法初始化缓存区内容
 ```
@@ -27,7 +27,7 @@ buf.fill(2, 2 ,10); //使用Buffer类的fill()方法初始化缓存区内容
 
 
 
-```javascript
+```js
 var array = [1,2,3,4,5];
 var buff = new Buffer(array);   //将数组作为参数传入构造方法创建Buffer类的实例对象
 ```
@@ -36,7 +36,7 @@ var buff = new Buffer(array);   //将数组作为参数传入构造方法创建B
 
 
 
-```javascript
+```js
 var string = 'Hello World';
 var buffer = new Buffer(string);    //直接传入字符串创建Buffer类的实例对象
 ```
@@ -59,7 +59,7 @@ var buffer = new Buffer(string);    //直接传入字符串创建Buffer类的实
 
 
 
-```javascript
+```js
 var buffer = new Buffer("Buffer对象与字符串对象之间的转换。");
 console.log(buffer.toString("utf8", 6, 24));
 ```
@@ -69,7 +69,7 @@ console.log(buffer.toString("utf8", 6, 24));
 
 
 
-```javascript
+```js
 var buffer = new Buffer("我喜欢苹果。");
 buffer.write("吃", 3, 3);
 console.log(buffer.toString());
@@ -79,7 +79,7 @@ console.log(buffer.toString());
 
 
 
-```javascript
+```js
 var string_decoder = require("string_decoder");
 var StringDecoder = string_decoder.StringDecoder;
 var decoder = new StringDecoder([encoding]);    //encoding表示可设置字符集编码格式
@@ -91,7 +91,7 @@ var decoder = new StringDecoder([encoding]);    //encoding表示可设置字符�
 
 
 
-```javascript
+```js
 var buffer1 = new Buffer("明天是晴天。");
 console.log(buffer1.toString());
 var buffer2 = new Buffer("Hello World");

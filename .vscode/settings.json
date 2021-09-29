@@ -1,0 +1,79 @@
+// {
+//   // "compile-hero.disable-compile-files-on-did-save-code": false
+//     // compile hero
+//     "compile-hero.disable-compile-files-on-did-save-code": false,
+//     "compile-hero.javascript-output-directory": "./out",
+//     "compile-hero.javascript-output-toggle": false,
+//     "compile-hero.sass-output-directory": "./out",
+//     "compile-hero.sass-output-toggle": false,
+//     "compile-hero.scss-output-directory": "./out",
+//     "compile-hero.scss-output-toggle": false,
+//     "compile-hero.less-output-directory": "./out",
+//     "compile-hero.less-output-toggle": false,
+//     "compile-hero.pug-output-directory": "./out",
+//     "compile-hero.pug-output-toggle": false,
+//     "compile-hero.jade-output-directory": "./out",
+//     "compile-hero.jade-output-toggle": false,
+//     "compile-hero.typescript-output-directory": "./out",
+//     "compile-hero.typescript-output-toggle": false,
+//     "compile-hero.typescriptx-output-directory": "./out",
+//     "compile-hero.typescriptx-output-toggle": false,
+// }
+{
+  "C_Cpp.errorSquiggles": "Disabled",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxs": "javascript",
+    "*.less": "less",
+    "regex": "cpp",
+    "*.idl": "cpp",
+    "random": "cpp",
+    "limits": "cpp",
+    "type_traits": "cpp"
+  },
+  // "powermode":{
+  //   "enabled":true,
+  //     //样式
+  //   // "presets":"fireworks",
+  //   "presets":"flames",
+  //   // 时间间隔
+  //   "comboTimeout":10,
+  //   // 抖动
+  //   "enableShake":false,
+  //   "backgroundMode":"mask"
+  // },
+  // settings.json
+  // markdown-formatter conf
+  // 按照js格式化
+  "markdownFormatter.codeAreaToBlock": "cpp",
+  // 不格式化
+  // "markdownFormatter.codeAreaToBlock": "",
+  // 自动格式化标点
+  // "markdownFormatter.fullWidthTurnHalfWidth": "auto",
+  // 中文标点格式化为英文
+  "markdownFormatter.fullWidthTurnHalfWidth": "，：；！“”‘’（）？。",
+  "markdownFormatter.formatOpt": {
+    "indent_size": 2
+  },
+  "[markdown]": {
+    // 自动保存
+    "editor.formatOnSave": false,
+    // 显示空格
+    "editor.renderWhitespace": "all",
+    // 快速补全
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    // snippet 提示优先
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": "on",
+    // 使用enter 接受提示
+    "editor.acceptSuggestionOnEnter": "on",
+    // 默认格式化工具为本工具
+    "editor.defaultFormatter": "mervin.markdown-formatter"
+  },
+  //在为markdown文件格式化时，当单行段落长度超过80时自动换行。
+  "prettier.proseWrap": "always",
+}

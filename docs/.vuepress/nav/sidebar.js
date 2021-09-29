@@ -507,8 +507,8 @@ function getAlgorithm() {
     {
       title: 'Algorithm',
       children: [
-        'likou/findLongth',
-        'likou/double_pointer',
+        'leetcode/findLongth',
+        'leetcode/double_pointer',
       ]
     },
     {
@@ -522,7 +522,6 @@ function getAlgorithm() {
     {
       title: 'MachineLearning',
       children: [
-        // 'Test/test1/test1'
       ]
     },
     {

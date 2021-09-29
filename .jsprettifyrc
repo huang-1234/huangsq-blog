@@ -7,9 +7,9 @@
     "end_with_newline": false, // 结尾空出一行
     "indent_char": " ", // 缩进字符类型（空格或者tab）
     "indent_handlebars": false, // e.g. {{#foo}}, {{/foo}}
-    "indent_inner_html": false, // 缩进 <head> 和 <body> 片段
+    "indent_inner_html": true, // 缩进 <head> 和 <body> 片段
     "indent_scripts": "keep", // [keep|separate|normal]
-    "indent_size": 4, // 缩进单位（这里是4个空格的意思）
+    "indent_size": 2, // 缩进单位（这里是4个空格的意思）
     "max_preserve_newlines": 0, // 在一个chunk中允许的最大换行数（0表示不允许）
     "preserve_newlines": true, // 元素前的换行是否被允许存在（仅仅对于elemnet起作用，对tags和text都不起作用）
     "unformatted": ["a", "span", "img", "code", "pre", "sub", "sup", "em", "strong", "b", "i", "u", "strike", "big", "small", "pre", "h1", "h2", "h3", "h4", "h5", "h6"], // 不被format的标签（没懂为何有这个选项）
@@ -19,7 +19,7 @@
     "allowed_file_extensions": ["css", "scss", "sass", "less"],
     "end_with_newline": false, // 结尾空出一行
     "indent_char": " ", // 缩进字符方式（空格:` `;tab:`\t`）
-    "indent_size": 4, // 缩进单位（这里是4个空格的意思）
+    "indent_size": 2, // 缩进单位（这里是4个空格的意思）
     "newline_between_rules": true, // 每一条css规则之间插入一个空行
     "selector_separator": " ",
     "selector_separator_newline": true // 是否用空行分割选择器 (e.g. "a,\nbr" or "a, br")

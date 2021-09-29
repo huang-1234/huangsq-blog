@@ -1,6 +1,6 @@
 // 配置
-const { sidebar } = require('./config/sidebar');
-const { nav } = require('./config/nav');
+const { sidebar } = require('./nav/sidebar');
+const { nav } = require('./nav/nav');
 
 const config = {
   base: '/',
@@ -34,25 +34,26 @@ const config = {
     logo: '/me.jpg',
     // 搜索设置
     search: true,
-    searchMaxSuggestions: 10,
-    sidebarDepth: 2,
+    searchMaxSuggestions: 20,
+    sidebarDepth: 3,
     noFoundPageByTencent: false,
     author: 'huangsq',
-    /*     // 博客配置
-        blogConfig: {
-          category: {
-            location: 6,     // 在导航栏菜单中所占的位置，默认2
-            text: 'Category' // 默认文案 “分类”
-          },
-          tag: {
-            location: 6,     // 在导航栏菜单中所占的位置，默认3
-            text: 'Tag'      // 默认文案 “标签”
-          },
-          socialLinks: [     // 信息栏展示社交信息
-            { icon: 'reco-github', link: 'https://github.com/huang-1234' },
-            { icon: 'reco-npm', link: 'https://www.npmjs.com' }
-          ]
-        }, */
+    // 博客配置
+    // blogConfig: {
+    //   category: {
+    //     location: 6,     // 在导航栏菜单中所占的位置，默认2
+    //     text: 'Category' // 默认文案 “分类”
+    //   },
+    //   tag: {
+    //     location: 6,     // 在导航栏菜单中所占的位置，默认3
+    //     text: 'Tag'      // 默认文案 “标签”
+    //   },
+    //   socialLinks: [     // 信息栏展示社交信息
+    //     { icon: 'reco-github', link: 'https://github.com/huang-1234' },
+    //     { icon: 'reco-npm', link: 'https://www.npmjs.com' }
+    //   ]
+    // },
+
     // 密钥
     // keyPage: {
     //   keys: ['32位的 md5 加密密文'], // 1.3.0 版本后需要设置为密文

@@ -6,7 +6,7 @@
 
 现在来考虑以下例子 ：
 
-```
+```js
 function makeFunc() {
     var name = "Mozilla";
     function displayName() {
@@ -27,7 +27,7 @@ myFunc();
 
 下面是一个更有意思的示例 — 一个 `makeAdder` 函数：
 
-```
+```js
 function makeAdder(x) {
   return function(y) {
     return x + y;
@@ -57,7 +57,7 @@ console.log(add10(2)); // 12
 
 假如，我们想在页面上添加一些可以调整字号的按钮。一种方法是以像素为单位指定 `body` 元素的 `font-size`，然后通过相对的 `em` 单位设置页面中其它元素（例如`header`）的字号：
 
-```
+```js
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -76,7 +76,7 @@ h2 {
 
 以下是 JavaScript：
 
-```
+```js
 function makeSizer(size) {
   return function() {
     document.body.style.fontSize = size + 'px';
@@ -90,7 +90,7 @@ var size16 = makeSizer(16);
 
 `size12`，`size14` 和 `size16` 三个函数将分别把 `body` 文本调整为 12，14，16 像素。我们可以将它们分别添加到按钮的点击事件上。如下所示：
 
-```
+```js
 document.getElementById('size-12').onclick = size12;
 document.getElementById('size-14').onclick = size14;
 document.getElementById('size-16').onclick = size16;
@@ -142,7 +142,7 @@ console.log(Counter.value()); /* logs 1 */
 
 你应该注意到我们定义了一个匿名函数，用于创建一个计数器。我们立即执行了这个匿名函数，并将他的值赋给了变量`Counter`。我们可以把这个函数储存在另外一个变量`makeCounter`中，并用他来创建多个计数器。
 
-```
+```js
 var makeCounter = function() {
   var privateCounter = 0;
   function changeBy(val) {

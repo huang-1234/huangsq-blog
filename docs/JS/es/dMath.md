@@ -204,7 +204,7 @@ Math.trunc(x)
 
 ### 0<=getNum<1
 
-```
+```js
 function getRandom() {
   return Math.random();
 }
@@ -214,7 +214,7 @@ function getRandom() {
 
 这个例子返回了一个在指定值之间的随机数。这个值不小于 `min`（有可能等于），并且小于（不等于）`max`。
 
-```
+```js
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -242,7 +242,7 @@ function getRandomInt(min, max) {
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+  return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
 }
 ```
 
