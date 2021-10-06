@@ -24,5 +24,11 @@
   "dependencies": {
     "surge": "^0.22.1",
     "vuepress-theme-reco": "^1.6.6"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }
