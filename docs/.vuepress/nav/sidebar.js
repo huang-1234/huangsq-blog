@@ -85,6 +85,8 @@ function getJS() {
 
 
         // 'es/LongPromise',
+        // esNext
+        'es/es7ToesNext/esNextFeature'
       ]
     },
     {
