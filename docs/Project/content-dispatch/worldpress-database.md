@@ -6,7 +6,7 @@
 
  
 
-```js
+```sql
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -59,7 +59,7 @@ user_id – 某一评论对应的用户ID，只有当用户注册后才会生成
 
  
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -123,7 +123,7 @@ link_rss – 该链接的RSS地址，varchar(255)值。
 
  
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `link_url` varchar(255) NOT NULL DEFAULT '',
@@ -161,7 +161,7 @@ autoload – 选项是否每次都被自动加载，枚举enum(’yes’,’no�
 
  
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `option_name` varchar(191) NOT NULL DEFAULT '',
@@ -192,7 +192,7 @@ meta_value – 元信息的值，text值。
 
  
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
 
  
 
-```
+```sql
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
 (1, 2, '_wp_page_template', 'default');
 ```
@@ -270,7 +270,7 @@ comment_count – 评论计数，具体用途不详，bigint(20)值。
 
  
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
