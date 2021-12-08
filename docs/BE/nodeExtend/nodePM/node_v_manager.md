@@ -1,14 +1,7 @@
 # node 版本管理
 
 
-
-
-
 ## nvm
-
-欢迎您帮忙纠错, 一起帮助更多的人。 一起来学习交流React, QQ群：[413381701](http://shang.qq.com/wpa/qunwpa?idkey=3b9474dacbf35e4a9659e89399758406e510e5b8a3f81109f7d07efaadc6056d)
-
-首发于：[https://github.com/Kennytian/learning-react-native](https://github.com/Kennytian/learning-react-native/blob/master/environment/nvm.md)
 
 ### 前言
 
