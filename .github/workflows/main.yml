@@ -7,11 +7,11 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019 
     steps:
     - uses: actions/checkout@v1
     - run: yarn # 相当于npm install
-    - run: yarn run build
+    - run: yarn deploy
 
     #发布到mybells.github.io/master
     - name: Deploy mybells.github.io/master
