@@ -4,7 +4,7 @@ const { nav } = require('./nav/nav');
 
 const config = {
   base: '/',
-  dest: 'docs/.vuepress/dist',
+  dest: 'dist',
   title: 'H先森',
   // description: '往前端架构、向全栈开发',
   description: 'From FE Arch、To Full Stack',
