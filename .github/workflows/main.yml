@@ -22,7 +22,46 @@ jobs:
         PUBLISH_BRANCH: master
         PUBLISH_DIR: docs/.vuepress/dist
       with:
-          emptyCommits: false
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          command_timeout: 5m
+          script: |
+            set -e
+
+            # 生成静态文件
+            yarn run build
+
+            # git init
+            git add .
+            git commit -m 'update lang'
+
+            # git remote -v
+            # git pull
+
+            git push -f  origin master
+
+            # 进入生成的文件夹
+            cd docs/.vuepress/dist
+
+            # 如果是发布到自定义域名
+            # echo 'www.example.com' > CNAME
+
+            git init
+            git add .
+            git commit -m 'update lang'
+
+            # 如果发布到 https://<USERNAME>.github.io
+            # git pull
+
+            git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
+
+            # git remote -v
+
+            # git pull
+            # git push origin master
+
+            git push -f origin master
 
     # #发布到MyBlog/gh-pages 查看https://mybells.github.io/MyBlog/，需要修改base配置为MyBlog，修改图片路径
     # - name: Deploy MyBlog/gh-pages
