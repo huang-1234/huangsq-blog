@@ -20,6 +20,8 @@ npm install moment  或者  yarn add moment
 // require 方式
 var moment = require('moment');
 
+
+
 // import 方式
 import moment from 'moment'; 
 ```
