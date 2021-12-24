@@ -59,7 +59,7 @@ b()[a] -> b().then()[a] -> c[a?:a]
 
 下面是同样的程序，使用 `async/await` 而不是 `Promise` 编写：
 
-```
+```js
 const b = () => Promise.resolve()
 const a = async () => {
   await b()
