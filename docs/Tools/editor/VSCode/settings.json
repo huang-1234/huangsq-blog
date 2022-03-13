@@ -1,2 +1,316 @@
 {
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.foldingStrategy": "auto",
+  },
+  "html.format.extraLiners": "none",
+  // 在DOM标签上写东西
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "workbench.sideBar.location": "left", // 控制sideBar 的位置
+
+  "sync.gist": "80889bd6124775e46c77b94be37ff5a7",
+  "kite.showWelcomeNotificationOnStartup": false,
+  "files.defaultLanguage": "javascript", // ctrl+N新建文件后默认的语言
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced"
+  },
+
+  "eslint.format.enable": true,
+  //autoFix默认开启，只需输入字符串数组即可
+  "eslint.validate": [
+    "javascript",
+    "vue",
+    "html"
+  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "indentRainbow.includedLanguages": [],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "wxml": "html"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "Wscats.eno"
+  },
+  "git.autorefresh": false,
+  "gitlens.advanced.messages": {
+    "suppressGitDisabledWarning": true
+  },
+
+  "json.maxItemsComputed": 1000,
+  "[less]": {
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
+    "editor.defaultFormatter": "Wscats.eno",
+  },
+  "less.compile": {
+    // "out": "./"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "autoimport.useSemiColon": false,
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+
+
+  "git.ignoreLegacyWarning": true,
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "files.associations": {
+    "*.cjson": "jsonc",
+    // "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.less": "less"
+  },
+  "explorer.confirmDelete": false,
+
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "terminal.integrated.allowMnemonics": true,
+  "terminal.integrated.automationShell.osx": "",
+  "html.format.endWithNewline": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.templating": true,
+  // "C_Cpp.formatting": "Disabled",
+  // "C_Cpp.vcFormat.space.insertAfterSemicolon": true,
+  // "C_Cpp.updateChannel": "Insiders",
+  // "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": false,
+  // "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction": true,
+  // "C_Cpp.autocompleteAddParentheses": true,
+  // "C_Cpp.vcFormat.space.betweenEmptyParameterListParentheses": true,
+  // "C_Cpp.clang_format_style": "{ BasedOnStyle: Chromium, IndentWidth: 2}",
+  "[C_Cpp]": {
+    "formatting": "Disabled",
+    "vcFormat.space.insertAfterSemicolon": true,
+    "updateChannel": "Insiders",
+    "vcFormat.newLine.closeBraceSameLine.emptyFunction": true,
+    "autocompleteAddParentheses": true,
+    "vcFormat.space.betweenEmptyParameterListParentheses": true,
+    "clang_format_style": {
+      "BasedOnStyle": "Chromium",
+      "IndentWidth": 2
+    },
+    "clang_format_fallbackStyle": "Visual Studio",
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "vcFormat.space.betweenEmptySquareBrackets": true,
+    "workspaceParsingPriority": "medium",
+    "vcFormat.wrap.preserveBlocks": "never",
+    "inactiveRegionOpacity": null,
+  },
+  "terminal.integrated.tabs.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.fontSize": 12,
+  // "terminal.integrated.automationShell.windows": "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe",
+  // "terminal.integrated.defaultProfile.windows": "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe",
+  "diffEditor.ignoreTrimWhitespace":false,
+  // "terminal.integrated.shell.windows": "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe",
+  "search.followSymlinks": false,
+  "code-runner.runInTerminal": true,
+  "code-runner.clearPreviousOutput": true,
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "diffEditor.wordWrap": "off",
+  "[vue]": {
+    // "editor.defaultFormatter": "johnsoncodehk.volar"
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 12,
+  "editor.cursorStyle": "line-thin",
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnType": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.linkedEditing": true,
+  "editor.accessibilitySupport": "off",
+  "editor.wordWrapColumn": 150,
+  "editor.cursorBlinking": "smooth",
+  // "editor.minimap.maxColumn": 180,
+  "editor.wordWrap": "wordWrapColumn",
+
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.scrollToSwitchTabs": true,
+  "search.exclude": {
+    "**/env": true
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.DS_Store": true,
+    "**/.factorypath": true,
+    "**/.hg": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.svn": true,
+    "**/bower_components": true,
+    "**/CVS": true,
+    "**/node_modules": true,
+    "**/tmp": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/bower_components/**": true,
+    "**/dist/**": true
+  },
+  "timeline.excludeSources": [
+    "git-history"
+  ],
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe",
+        // "${env:windir}\\Sysnative\\cmd.exe",
+        // "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "bashPowder": {
+      "path": "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe",
+      // "args": ["/B", "F:\\JS_SoftWare\\Git\\Git\\bin\\bash.exe"]
+    },
+  },
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.automationShell.windows": "Command Prompt",
+  "gitlens.views.repositories.autoRefresh": false,
+  "debug.console.fontSize": 12,
+
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "G:\\Study\\Code\\Web\\myNotes\\learnFrontTest\\Algorithm\\leetcode",
+  "leetcode.defaultLanguage": "javascript",
+
+  "code-runner.terminalRoot": "/",
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runhaskell",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "mervin.markdown-formatter"
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.colorTheme": "Visual Studio Dark",
+
 }
