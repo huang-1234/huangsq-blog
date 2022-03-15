@@ -124,21 +124,22 @@ Tips to stash your work
 2.2 Commit Message 格式规范
 规范参考 https://www.conventionalcommits.org/en/v1.0.0/（由 Angular Commit 规范衍化而来），并结合直播中台客户端特点进行演变。
 Message 整体格式
-<type>(<scope>): <subject>
-<BLANK LINE>
+```html
+<!-- <type>(<scope>): <subject>
+<BLANK LINE />
 <body>
-<BLANK LINE>
-<footer>
+<BLANK LINE />
+<footer> -->
+```
 整体格式说明：
 1. Commit message 都包括三个部分：Header，Body 和 Footer。
 2. 其中，Header 是必需的，Body 和 Footer 可以省略。
 3. Header，Body 和 Footer 之前用空行分隔。
 4. 每一行内容长度都不能超过100个字符。
-# header: <type>(<scope>): <subject>，100-character line
+# header: type(scope): subject，100-character line
 # - type: feat, fix, docs, style, refactor, test, chore
 # - scope: can be empty (eg. if the change is a global or difficult to assign to a single component)
 # - subject: start with verb (such as 'change')
-#
 # body: 100-character wrapped. This should answer:
 # * Why was this change necessary?
 # * How does it address the problem?
@@ -172,7 +173,7 @@ ci: Changes to our CI configuration files and scripts
 
 chore: Other changes that don't modify src or test files
 
-revert: Reverts a previous commit. If the commit reverts a previous commit, it should begin with revert: , followed by the header of the reverted commit. In the body it should say: This reverts commit <hash>., where the hash is the SHA of the commit being reverted.
+revert: Reverts a previous commit. If the commit reverts a previous commit, it should begin with revert: , followed by the header of the reverted commit. In the body it should say: This reverts commit `hash`., where the hash is the SHA of the commit being reverted.
 Changelog 配置参考：如果 type 为 feat 和 fix ，则该 commit 信息将肯定出现在 change log 之中。其他情况（docs、chore、style、refactor、test）再定，建议是不要。
 
 scope（可选） 
@@ -244,7 +245,7 @@ Tips to change commit message
 如果你想修改本地不符合规范的 commit message，可以有多种方式供你选择：
 1. git commit --amend：修改最后一次 commit。
 2. git rebase -i HEAD~N：利用 rebase 修改最近的N次 commit。
-3. git reset --soft <commit hash>：利用 reset --soft 恢复修改到暂存区，然后重新进行 commit，可以修改最近多次的 commit。
+3. git reset --soft `<commit hash>`：利用 reset --soft 恢复修改到暂存区，然后重新进行 commit，可以修改最近多次的 commit。
 
 使用方法参考：
 https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message
@@ -261,7 +262,6 @@ https://gist.github.com/nepsilon/156387acf9e1e72d48fa35c4fabef0b4
 3. 结尾不加句号（.）。
 
 2.4 Commit Message Template
-header: <type>(<scope>): <subject>，100-character line
 # - type: feat, fix, docs, style, refactor, test, chore
 # - scope: can be empty (eg. if the change is a global or difficult to assign to a single component)
 # - subject: start with verb (such as 'change')

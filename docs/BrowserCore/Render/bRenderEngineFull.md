@@ -122,7 +122,6 @@ DOM树是由DOM元素和属性节点组成，DOM是文档对象模型（Document
 具体解析与构建过程如下：
 ```html
 <html>
-<html>
 <head>
     <title>Web page parsing</title>
 </head>

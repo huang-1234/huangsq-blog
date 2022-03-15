@@ -6,7 +6,7 @@
 
 在koa2中使用模板机制必须依靠中间件，我们这里选择koa-views中间件，先使用npm来进行安装。
 
-```
+```js
 cnpm install --save koa-views
 ```
 
@@ -51,7 +51,7 @@ npm install --save ejs
 
 > 编写use-koa2-ejs.js
 
-```
+```js
 const Koa = require('koa');
 const path = require('path');
 const views = require('koa-views');

@@ -45,17 +45,17 @@ CSS中有如下四种伪元素选择器：
 ## 结构性伪类选择器
 
 ```maxima
- 1.  四个最基本的：root、not、empty、target    
+ 1.  四个最基本的：root、not、empty、target
 
- 2. first-child、last-child、nth-child、nth-last-child、               
-nth-child(odd)、nth-child(even)、nth-last-child(odd)、nth-last-child(even) 
+ 2. first-child、last-child、nth-child、nth-last-child、
+nth-child(odd)、nth-child(even)、nth-last-child(odd)、nth-last-child(even)
 
- 3.  nth-of-type、nth-last-of-type    
- 4. 循环使用样式  
+ 3.  nth-of-type、nth-last-of-type
+ 4. 循环使用样式
  5. only-child
 ```
 
-`:root()`选择器，从字面上我们就可以很清楚的理解是根选择器，他的意思就是匹配元素E所在文档的根元素。在HTML文档中，根元素始终是<html>。“`:root`”选择器等同于<html>元素
+`:root()`选择器，从字面上我们就可以很清楚的理解是根选择器，他的意思就是匹配元素E所在文档的根元素。在HTML文档中，根元素始终是`<html>。“`:root`”选择器等同于</html>`元素
 
 `:not()`选择器称为否定选择器，和jQuery中的`:not`选择器一模一样，可以选择除某个元素之外的所有元素。
 
@@ -71,14 +71,14 @@ nth-child(odd)、nth-child(even)、nth-last-child(odd)、nth-last-child(even)
 **看下面一个例子：**
 
 ```xml
-    <style type="text/css"> 
+    <style type="text/css">
         div p:nth-last-child(2){
             color:red;
         }
     </style>
 </head>
 <body>
-    <div> 
+    <div>
         <p>前端</p>
         <p>开发</p>
         <p>工程</p>
@@ -100,17 +100,17 @@ nth-child(odd)、nth-child(even)、nth-last-child(odd)、nth-last-child(even)
         :nth-child(-n+length)/*选择小于length前面的元素*/
         :nth-child(n*length+1);/*表示隔几选一*/
         //上面length为整数
-    
+
 ```
 
 值得注意的是：nth-child(0)没有选择元素，nth-child(1)选择第一个元素。
 
 ```xml
-    <style type="text/css"> 
+    <style type="text/css">
             *{list-style:none;};
             .demo {
                 width: 400px;
-                padding: 10px;            
+                padding: 10px;
             }
             .demo li {
                 padding: 5px;
@@ -137,7 +137,7 @@ nth-child(odd)、nth-child(even)、nth-last-child(odd)、nth-last-child(even)
             .demo li:nth-child(2n){
                 background:#4679BD;
             }
-             
+
     </style>
 </head>
 <body>

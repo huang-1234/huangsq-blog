@@ -15,7 +15,7 @@ Command + W 关闭窗口
 
 ### 基本
 
-```mathematica
+```ts
 Command + X 剪切（未选中文本的情况下，剪切光标所在行）
 Command + C 复制（未选中文本的情况下，复制光标所在行）
 Option + Up 向上移动行
@@ -121,7 +121,7 @@ Ctrl + Shift + M Tab 切换焦点
 
 ### 编辑器管理
 
-```mathematica
+```ts
 Command + W 关闭编辑器
 Command + K F 关闭文件夹
 Command + \ 编辑器分屏
@@ -138,7 +138,7 @@ Command + K Right 激活右侧编辑组
 
 ### 文件管理
 
-```mathematica
+```ts
 Command + N 新建文件
 Command + O 打开文件
 Command + S 保存文件
@@ -157,7 +157,7 @@ Command + K O 新窗口打开当前文件
 
 ### 显示
 
-```mipsasm
+```ts
 Command + Ctrl + F 全屏、退出全屏
 Command + Option + 1 切换编辑器分屏方式（横、竖）
 Command + + 放大

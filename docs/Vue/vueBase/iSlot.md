@@ -132,7 +132,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 有时我们需要多个插槽。例如对于一个带有如下模板的 `<base-layout>` 组件：
 
-```
+```html
 <div class="container">
   <header>
     <!-- 我们希望把页头放这里 -->
@@ -148,7 +148,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 对于这样的情况，`<slot>` 元素有一个特殊的 attribute：`name`。这个 attribute 可以用来定义额外的插槽：
 
-```
+```html
 <div class="container">
   <header>
     <slot name="header"></slot>
@@ -166,7 +166,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 在向具名插槽提供内容的时候，我们可以在一个 `<template>` 元素上使用 `v-slot` 指令，并以 `v-slot` 的参数的形式提供其名称：
 
-```
+```html
 <base-layout>
   <template v-slot:header>
     <h1>Here might be a page title</h1>
@@ -185,7 +185,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 然而，如果你希望更明确一些，仍然可以在一个 `<template>` 中包裹默认插槽的内容：
 
-```
+```html
 <base-layout>
   <template v-slot:header>
     <h1>Here might be a page title</h1>
@@ -204,7 +204,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 任何一种写法都会渲染出：
 
-```
+```html
 <div class="container">
   <header>
     <h1>Here might be a page title</h1>
@@ -227,7 +227,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 有时让插槽内容能够访问子组件中才有的数据是很有用的。例如，设想一个带有如下模板的 `<current-user>` 组件：
 
-```
+```html
 <span>
   <slot>{{ user.lastName }}</slot>
 </span>
@@ -235,7 +235,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 我们可能想换掉备用内容，用名而非姓来显示。如下：
 
-```
+```html
 <current-user>
   {{ user.firstName }}
 </current-user>
@@ -245,7 +245,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 为了让 `user` 在父级的插槽内容中可用，我们可以将 `user` 作为 `<slot>` 元素的一个 attribute 绑定上去：
 
-```
+```html
 <span>
   <slot v-bind:user="user">
     {{ user.lastName }}
@@ -255,7 +255,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 绑定在 `<slot>` 元素上的 attribute 被称为**插槽 prop**。现在在父级作用域中，我们可以使用带值的 `v-slot` 来定义我们提供的插槽 prop 的名字：
 
-```
+```html
 <current-user>
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
@@ -269,7 +269,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 在上述情况下，当被提供的内容*只有*默认插槽时，组件的标签才可以被当作插槽的模板来使用。这样我们就可以把 `v-slot` 直接用在组件上：
 
-```
+```html
 <current-user v-slot:default="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
@@ -277,7 +277,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 这种写法还可以更简单。就像假定未指明的内容对应默认插槽一样，不带参数的 `v-slot` 被假定对应默认插槽：
 
-```
+```html
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
@@ -285,7 +285,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 注意默认插槽的缩写语法**不能**和具名插槽混用，因为它会导致作用域不明确：
 
-```
+```html
 <!-- 无效，会导致警告 -->
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
@@ -297,7 +297,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 只要出现多个插槽，请始终为*所有的*插槽使用完整的基于 `<template>` 的语法：
 
-```
+```html
 <current-user>
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
@@ -313,7 +313,7 @@ Vue 实现了一套内容分发的 API，这套 API 的设计灵感源自 [Web C
 
 作用域插槽的内部工作原理是将你的插槽内容包裹在一个拥有单个参数的函数里：
 
-```
+```js
 function (slotProps) {
   // 插槽内容
 }
@@ -321,7 +321,7 @@ function (slotProps) {
 
 这意味着 `v-slot` 的值实际上可以是任何能够作为函数定义中的参数的 JavaScript 表达式。所以在支持的环境下 ([单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)或[现代浏览器](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#浏览器兼容))，你也可以使用 [ES2015 解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#解构对象)来传入具体的插槽 prop，如下：
 
-```
+```html
 <current-user v-slot="{ user }">
   {{ user.firstName }}
 </current-user>
@@ -329,7 +329,7 @@ function (slotProps) {
 
 这样可以使模板更简洁，尤其是在该插槽提供了多个 prop 的时候。它同样开启了 prop 重命名等其它可能，例如将 `user` 重命名为 `person`：
 
-```
+```html
 <current-user v-slot="{ user: person }">
   {{ person.firstName }}
 </current-user>
@@ -337,7 +337,7 @@ function (slotProps) {
 
 你甚至可以定义后备内容，用于插槽 prop 是 undefined 的情形：
 
-```
+```html
 <current-user v-slot="{ user = { firstName: 'Guest' } }">
   {{ user.firstName }}
 </current-user>
@@ -349,7 +349,7 @@ function (slotProps) {
 
 [动态指令参数](https://cn.vuejs.org/v2/guide/syntax.html#动态参数)也可以用在 `v-slot` 上，来定义动态的插槽名：
 
-```
+```html
 <base-layout>
   <template v-slot:[dynamicSlotName]>
     ...
@@ -363,7 +363,7 @@ function (slotProps) {
 
 跟 `v-on` 和 `v-bind` 一样，`v-slot` 也有缩写，即把参数之前的所有内容 (`v-slot:`) 替换为字符 `#`。例如 `v-slot:header` 可以被重写为 `#header`：
 
-```
+```html
 <base-layout>
   <template #header>
     <h1>Here might be a page title</h1>
@@ -380,7 +380,7 @@ function (slotProps) {
 
 然而，和其它指令一样，该缩写只在其有参数的时候才可用。这意味着以下语法是无效的：
 
-```
+```html
 <!-- 这样会触发一个警告 -->
 <current-user #="{ user }">
   {{ user.firstName }}
@@ -389,7 +389,7 @@ function (slotProps) {
 
 如果你希望使用缩写的话，你必须始终以明确插槽名取而代之：
 
-```
+```html
 <current-user #default="{ user }">
   {{ user.firstName }}
 </current-user>
@@ -401,7 +401,7 @@ function (slotProps) {
 
 例如，我们要实现一个 `<todo-list>` 组件，它是一个列表且包含布局和过滤逻辑：
 
-```
+```html
 <ul>
   <li
     v-for="todo in filteredTodos"
@@ -414,7 +414,7 @@ function (slotProps) {
 
 我们可以将每个 todo 作为父级组件的插槽，以此通过父级组件对其进行控制，然后将 `todo` 作为一个插槽 prop 进行绑定：
 
-```
+```html
 <ul>
   <li
     v-for="todo in filteredTodos"
@@ -434,7 +434,7 @@ function (slotProps) {
 
 现在当我们使用 `<todo-list>` 组件的时候，我们可以选择为 todo 定义一个不一样的 `<template>` 作为替代方案，并且可以从子组件获取数据：
 
-```
+```html
 <todo-list v-bind:todos="todos">
   <template v-slot:todo="{ todo }">
     <span v-if="todo.isComplete">✓</span>
@@ -455,7 +455,7 @@ function (slotProps) {
 
 在 `<template>` 上使用特殊的 `slot` attribute，可以将内容从父级传给具名插槽 (把[这里](https://cn.vuejs.org/v2/guide/components-slots.html#具名插槽)提到过的 `<base-layout>` 组件作为示例)：
 
-```
+```html
 <base-layout>
   <template slot="header">
     <h1>Here might be a page title</h1>
@@ -472,7 +472,7 @@ function (slotProps) {
 
 或者直接把 `slot` attribute 用在一个普通元素上：
 
-```
+```html
 <base-layout>
   <h1 slot="header">Here might be a page title</h1>
 
@@ -485,7 +485,7 @@ function (slotProps) {
 
 这里其实还有一个未命名插槽，也就是**默认插槽**，捕获所有未被匹配的内容。上述两个示例的 HTML 渲染结果均为：
 
-```
+```html
 <div class="container">
   <header>
     <h1>Here might be a page title</h1>
@@ -506,7 +506,7 @@ function (slotProps) {
 
 在 `<template>` 上使用特殊的 `slot-scope` attribute，可以接收传递给插槽的 prop (把[这里](https://cn.vuejs.org/v2/guide/components-slots.html#作用域插槽)提到过的 `<slot-example>` 组件作为示例)：
 
-```
+```html
 <slot-example>
   <template slot="default" slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -518,7 +518,7 @@ function (slotProps) {
 
 这里的 `slot="default"` 可以被忽略为隐性写法：
 
-```
+```html
 <slot-example>
   <template slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -528,7 +528,7 @@ function (slotProps) {
 
 `slot-scope` attribute 也可以直接用于非 `<template>` 元素 (包括组件)：
 
-```
+```html
 <slot-example>
   <span slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -538,7 +538,7 @@ function (slotProps) {
 
 `slot-scope` 的值可以接收任何有效的可以出现在函数定义的参数位置上的 JavaScript 表达式。这意味着在支持的环境下 ([单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)或[现代浏览器](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#浏览器兼容))，你也可以在表达式中使用 [ES2015 解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#解构对象)，如下：
 
-```
+```html
 <slot-example>
   <span slot-scope="{ msg }">
     {{ msg }}
@@ -548,7 +548,7 @@ function (slotProps) {
 
 使用[这里](https://cn.vuejs.org/v2/guide/components-slots.html#其它示例)描述过的 `<todo-list>` 作为示例，与它等价的使用 `slot-scope` 的代码是：
 
-```
+```html
 <todo-list v-bind:todos="todos">
   <template slot="todo" slot-scope="{ todo }">
     <span v-if="todo.isComplete">✓</span>
