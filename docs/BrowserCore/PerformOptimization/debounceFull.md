@@ -5,17 +5,17 @@
 ## 前言
 
 在前端开发中会遇到一些频繁的事件触发，比如：
-
+```ts
 1. window 的 resize、scroll
 2. mousedown、mousemove
 3. keyup、keydown
-   ……
+```
 
 为此，我们举个示例代码来了解事件如何频繁的触发：
 
 我们写个 `index.html` 文件：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 
@@ -35,12 +35,12 @@
     <script src="debounce.js"></script>
 </body>
 
-</html>复制代码
+</html>
 ```
 
 `debounce.js` 文件的代码如下：
 
-```
+```js
 var count = 1;
 var container = document.getElementById('container');
 
@@ -48,13 +48,12 @@ function getUserAction() {
     container.innerHTML = count++;
 };
 
-
 container.onmousemove = getUserAction;
 ```
 
 从左边滑到右边就触发了 165 次 getUserAction 函数！
 
-因为这个例子很简单，所以浏览器完全反应的过来，可是如果是复杂的回调函数或是 ajax 请求呢？假设 1 秒触发了 60 次，每个回调就必须在 1000 / 60 = 16.67ms 内完成，否则就会有卡顿出现。
+因为这个例子很简单，所以浏览器完全反应的过来，可是如果是复杂的回调函数或是 ajax 请求呢？假设 1 秒触发了 60 次，每个回调就必须在 1000 / 60 = 16. 67ms 内完成，否则就会有卡顿出现。
 
 为了解决这个问题，一般有两种解决方案：
 
@@ -71,7 +70,7 @@ container.onmousemove = getUserAction;
 
 根据这段表述，我们可以写第一版的代码：
 
-```
+```js
 // 第一版
 function debounce(func, wait) {
     var timeout;
@@ -79,13 +78,13 @@ function debounce(func, wait) {
         clearTimeout(timeout)
         timeout = setTimeout(func, wait);
     }
-}复制代码
+}
 ```
 
 如果我们要使用它，以最一开始的例子为例：
 
-```
-container.onmousemove = debounce(getUserAction, 1000);复制代码
+```js
+container.onmousemove = debounce(getUserAction, 1000);
 ```
 
 现在随你怎么移动，反正你移动完 1000ms 内不再触发，我再执行事件。
@@ -96,10 +95,10 @@ container.onmousemove = debounce(getUserAction, 1000);复制代码
 
 ## this
 
-如果我们在 `getUserAction` 函数中 `console.log(this)`，在不使用 `debounce` 函数的时候，`this` 的值为：
+如果我们在 `getUserAction` 函数中 `console.log(this)` ，在不使用 `debounce` 函数的时候， `this` 的值为：
 
 ```
-<div id="container"></div>复制代码
+<div id="container"></div>
 ```
 
 但是如果使用我们的 debounce 函数，this 就会指向 Window 对象！
@@ -108,20 +107,20 @@ container.onmousemove = debounce(getUserAction, 1000);复制代码
 
 我们修改下代码：
 
-```
+``` js
 // 第二版
 function debounce(func, wait) {
     var timeout;
 
-    return function () {
+    return function() {
         var context = this;
 
         clearTimeout(timeout)
-        timeout = setTimeout(function(){
+        timeout = setTimeout(function() {
             func.apply(context)
         }, wait);
     }
-}复制代码
+}
 ```
 
 现在 this 已经可以正确指向了。让我们看下个问题：
@@ -134,7 +133,7 @@ JavaScript 在事件处理函数中会提供事件对象 event，我们修改下
 function getUserAction(e) {
     console.log(e);
     container.innerHTML = count++;
-};复制代码
+};
 ```
 
 如果我们不使用 debouce 函数，这里会打印 MouseEvent 对象
@@ -157,7 +156,7 @@ function debounce(func, wait) {
             func.apply(context, args)
         }, wait);
     }
-}复制代码
+}
 ```
 
 ## 返回值
@@ -180,7 +179,7 @@ function debounce(func, wait) {
 
         return result;
     }
-}复制代码
+}
 ```
 
 到此为止，我们修复了三个小问题：
@@ -226,7 +225,7 @@ function debounce(func, wait, immediate) {
 
         return result;
     }
-}复制代码
+}
 ```
 
 ## 取消
@@ -239,6 +238,6 @@ function debounce(func, wait, immediate) {
 
 ## 专题系列
 
-JavaScript专题系列目录地址：[github.com/mqyqingfeng…](https://github.com/mqyqingfeng/Blog)。
+JavaScript专题系列目录地址：[github. com/mqyqingfeng…](https://github.com/mqyqingfeng/Blog)。
 
 JavaScript专题系列预计写二十篇左右，主要研究日常开发中一些功能点的实现，比如防抖、节流、去重、类型判断、拷贝、最值、扁平、柯里、递归、乱序、排序等，特点是研(chao)究(xi) underscore 和 jQuery 的实现方式。

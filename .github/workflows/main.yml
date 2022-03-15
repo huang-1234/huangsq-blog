@@ -7,17 +7,13 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: windows-2019 
+    runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
     - run: yarn # 相当于npm install
     - run: yarn deploy
 
-<<<<<<< HEAD
-    #发布到 huang-1234.github.io/master
-=======
     #发布到huang-1234.github.io/master
->>>>>>> 6cf42e5921ca46552e66062be8e5c442081e4ee8
     - name: Deploy huang-1234.github.io/master
       uses: peaceiris/actions-gh-pages@v2
       env:

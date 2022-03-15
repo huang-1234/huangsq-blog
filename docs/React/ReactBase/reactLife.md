@@ -241,7 +241,7 @@ getDerivedStateFromError
 **误解一：** `getDerivedStateFromProps`  和  `componentWillReceiveProps`  只会在 `props` **改变** 时才会调用
 
 实际上，**只要父级重新渲染， `getDerivedStateFromProps`  和  `componentWillReceiveProps`  都会重新调用，不管 `props` 有没有变化**。所以，在这两个方法内直接将 props 赋值到 state 是不安全的。
-
+```tsx
 // 子组件
 class PhoneInput extends Component {
   state = { phone: this. props. phone };
@@ -318,13 +318,13 @@ class App extends Component {
 
   }
 }
-
+```
 [实例可点击这里查看](https://link.segmentfault.com/?enc=9yU3jvyXtpm9Mg9MdmrDzA%3D%3D. cpcvM8qSJ7iifBDLElSSzmgd%2F62gaS03XEIug9bsPc2u%2FWhe1vyN%2B7f%2Bj3wMF6vd)
 
 当然，我们可以在 父组件App 中 `shouldComponentUpdate` 比较 props 的 email 是不是修改再决定要不要重新渲染，但是如果子组件接受多个 props（较为复杂），就很难处理，而且 `shouldComponentUpdate` 主要是用来性能提升的，不推荐开发者操作 `shouldComponetUpdate` （可以使用 `React.PureComponet` ）。
 
 我们也可以使用 **在 props 变化后修改 state**。
-
+```tsx
 class PhoneInput extends Component {
   state = {
 
@@ -345,7 +345,7 @@ class PhoneInput extends Component {
 
   // ...
 }
-
+```
 但这种也会导致一个问题，当 props 较为复杂时，props 与 state 的关系不好控制，可能导致问题
 
 解决方案一：**完全可控的组件**
@@ -357,7 +357,7 @@ function PhoneInput(props) {
 **完全由 props 控制，不派生 state**
 
 解决方案二：**有 key 的非可控组件**
-
+```tsx
 class PhoneInput extends Component {
   state = { phone: this. props. defaultPhone };
 
@@ -378,7 +378,7 @@ class PhoneInput extends Component {
   defaultPhone={this. props. user. phone}
   key={this. props. user. id}
 />
-
+```
 当  `key`  变化时， React 会**创建一个新的而不是更新一个既有的组件**
 
 **误解二**：将 props 的值直接复制给 state
