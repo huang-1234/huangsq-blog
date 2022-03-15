@@ -18,7 +18,6 @@
 <a href = '/Tools/Webpack/'>learn Webpack</a>
 
 ```js
-阳光还自信，积极又上进
 微观而博取，厚积而博发
 先深刻相信，后始终践行
 ```
