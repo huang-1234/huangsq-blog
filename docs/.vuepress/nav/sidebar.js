@@ -688,6 +688,7 @@ function getCSBase() {
       children: [
         'os/memoryManagement/VirtualMemory',
         'os/memoryManagement/memoryLeak',
+        'os/commandTools/curl',
         'os/process/IPC',
       ]
     },
