@@ -114,12 +114,6 @@ function getJS() {
       ]
     },
     {
-      title: 'package',
-      children: [
-        'package/npmAndYarn',
-      ]
-    },
-    {
       title: 'V8',
       children: [
         'V8/V8memory'
