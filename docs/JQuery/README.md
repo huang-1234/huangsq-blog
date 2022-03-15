@@ -111,7 +111,7 @@ const fooDivs = $('.foo div');
 
 // native
 const fooDivs = document.querySelectorAll('.foo div');
-复制代码
+
 ```
 
 操作DOM元素可以用 `classList` :
@@ -122,7 +122,7 @@ $('#warning').toggleClass('visible');
 
 // native
 document.querySelector('#warning').classList.toggle('visible');
-复制代码
+
 ```
 
 您可能不需要jQuery网站列出了几个可以用原生代码替换jQuery代码的情况。有些开发人员总是会使用jQuery，因为他们并不知道这些API是可用的，但是随着开发人员了解它们，他们对jQuery的依赖性降低了。

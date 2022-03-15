@@ -30,7 +30,7 @@ myapp.Model = function() {
     this.getVal = function() {
         return val;
     };
-};复制代码
+};
 ```
 
 ### View
@@ -49,7 +49,7 @@ myapp.View = function() {
     this.render = function(model) {
         $num.text(model.getVal() + 'rmb');
     };
-};复制代码
+};
 ```
 
 现在通过Model&View完成了数据从模型层到视图层的逻辑。但对于一个应用程序，这远远是不够的，我们还需要响应用户的操作、同步更新View和Model。于是，在MVC中引入了控制器controller，让它来定义用户界面对用户输入的响应方式，它连接模型和视图，用于控制应用程序的流程，处理用户的行为和数据上的改变。
@@ -88,7 +88,7 @@ myapp.Model = function() {
     };
 
     ／* 观察者模式 *／
-    var self = this, 
+    var self = this,
         views = [];
 
     this.register = function(view) {
@@ -100,7 +100,7 @@ myapp.Model = function() {
             views[i].render(self);
         }
     };
-};复制代码
+};
 ```
 
 Model和View之间使用了观察者模式，View事先在此Model上注册，进而观察Model，以便更新在Model上发生改变的数据。
@@ -122,7 +122,7 @@ myapp.View = function(controller) {
     /*  绑定事件  */
     $incBtn.click(controller.increase);
     $decBtn.click(controller.decrease);
-};复制代码
+};
 ```
 
 如果要实现不同的响应的策略只要用不同的Controller实例替换即可。
@@ -156,7 +156,7 @@ myapp.Controller = function() {
         model.sub(1);
         model.notify();
     };
-};复制代码
+};
 ```
 
 这里我们实例化View并向对应的Model实例注册，当Model发生变化时就去通知View做更新，这里用到了观察者模式。
@@ -167,7 +167,7 @@ myapp.Controller = function() {
 (function() {
     var controller = new myapp.Controller();
     controller.init();
-})();复制代码
+})();
 ```
 
 可以明显感觉到，MVC模式的业务逻辑主要集中在Controller，而前端的View其实已经具备了独立处理用户事件的能力，当每个事件都流经Controller时，这层会变得**十分臃肿**。而且MVC中View和Controller一般是一一对应的，捆绑起来表示一个组件，视图与控制器间的过于紧密的连接让Controller的复用性成了问题，如果想多个View共用一个Controller该怎么办呢？这里有一个解决方案：
@@ -197,7 +197,7 @@ myapp.Model = function() {
     this.getVal = function() {
         return val;
     };
-};复制代码
+};
 ```
 
 Model层依然是主要与业务相关的数据和对应处理数据的方法。
@@ -220,7 +220,7 @@ myapp.View = function() {
         $incBtn.click(presenter.increase);
         $decBtn.click(presenter.decrease);
     };
-};复制代码
+};
 ```
 
 MVP定义了Presenter和View之间的接口，用户对View的操作都转移到了Presenter。比如这里可以让View暴露setter接口以便Presenter调用，待Presenter通知Model更新后，Presenter调用View提供的接口更新视图。
@@ -243,7 +243,7 @@ myapp.Presenter = function(view) {
         _model.sub(1);
         _view.render(_model);
     };
-};复制代码
+};
 ```
 
 Presenter作为View和Model之间的“中间人”，除了基本的业务逻辑外，还有大量代码需要对从View到Model和从Model到View的数据进行“手动同步”，这样Presenter显得很**重**，维护起来会比较困难。而且由于没有数据绑定，如果Presenter对视图渲染的需求增多，它不得不过多关注特定的视图，一旦视图需求发生改变，Presenter也需要改动。
@@ -254,7 +254,7 @@ Presenter作为View和Model之间的“中间人”，除了基本的业务逻�
 (function() {
     var view = new myapp.View();
     view.init();
-})();复制代码
+})();
 ```
 
 ## MVVM
@@ -272,7 +272,7 @@ MVVM把View和Model的同步逻辑自动化了。以前Presenter负责的View和
 ```
 var data = {
     val: 0
-};复制代码
+};
 ```
 
 ### View
@@ -288,7 +288,7 @@ var data = {
         <button v-on:click="sub(1)">-</button>
         <button v-on:click="add(1)">+</button>
     </div>
-</div>复制代码
+</div>
 ```
 
 ### ViewModel
@@ -311,7 +311,7 @@ new Vue({
             }
         }
     }
-});复制代码
+});
 ```
 
 整体来看，比MVC/MVP精简了很多，不仅仅简化了业务与界面的依赖，还解决了数据频繁更新（以前用jQuery操作DOM很繁琐）的问题。因为在MVVM中，View不知道Model的存在，ViewModel和Model也察觉不到View，这种低耦合模式可以使开发过程更加容易，提高应用的可重用性。
@@ -383,7 +383,7 @@ function defineReactive(obj, key, value) {
 }
 
 observe(foo)
-foo.name = 'angular' // “监听成功：vue --> angular”复制代码
+foo.name = 'angular' // “监听成功：vue --> angular”
 ```
 
 上面完成了对数据对象的监听，接下来还需要在监听到变化后去通知订阅者，这需要实现一个消息订阅器 `Dep` ，Watcher通过 `Dep` 添加订阅者，当数据改变便触发 `Dep.notify()` ，Watcher调用自己的 `update()` 方法完成视图更新。

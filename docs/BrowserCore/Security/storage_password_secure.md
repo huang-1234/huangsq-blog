@@ -242,7 +242,7 @@ else {
     else {
         echo return_value(20001, false);
     }
-}复制代码
+}
 ```
 
 现在是服务器登录接口做的事情：
@@ -271,7 +271,7 @@ if ($should_login) {
 }
 else {
     echo response(30001, false);
-}复制代码
+}
 ```
 
 剩下的无非是加密算法的不同，我最常用的是 md5，那么我们经过 md5 加密以后，其实还是不太安全，为什么呢？因为 md5 本身就不安全。虽然 md5 是不可逆的 hash 算法，反向算出来虽然困难，但是如果反向查询，密码设置的简单，也很容易被攻破。
@@ -288,7 +288,7 @@ salt = '#^&%**(^&(&*)_)_(*&^&#$%GVHKBJ(*^&*%^%&^&'
 password = '123456'
 post_body = salt + password
 print post_body.md5()
-// ffb34d898f6573a1cf14fdc34d3343c0复制代码
+// ffb34d898f6573a1cf14fdc34d3343c0
 ```
 
 现在，密码看起来挺靠谱的了，但是，我们知道加盐这种方式是比较早期的处理方式了，既然现在没有在大范围使用了，就说明单纯加盐还是存在缺陷的。
@@ -318,7 +318,7 @@ print post_body.md5()
 现在我们发送一个请求：
 
 ```
-GET http://localhost:8888/capsule/register.php?account=joy&password=789复制代码
+GET http://localhost:8888/capsule/register.php?account=joy&password=789
 ```
 
 服务器收到请求后，做了下面的事情：
@@ -356,14 +356,14 @@ else {
     else {
         echo response(20001, false);
     }
-}复制代码
+}
 ```
 
 服务器现在保存的是：
 
 ```
 account: joy
-password: 05575c24576复制代码
+password: 05575c24576
 ```
 
 客户端拿到的结果是：
@@ -375,16 +375,16 @@ password: 05575c24576复制代码
     "salt": "5633905fdc65b6c57be8698b1f0e884948c05d7f"
   },
   "errorInfo": ""
-}复制代码
+}
 ```
 
 那么客户端接下来应该做什么呢？把 `salt` 做本地的持久化，登录时将用户输入的密码做一次同样的 hmac，那么就能通过服务器的 `password: 05575c24576` 校验了，发起登录请求：
 
 ```
-GET http://localhost:8888/capsule/login.php?account=joy&password=789 
+GET http://localhost:8888/capsule/login.php?account=joy&password=789
 // fail
-GET http://localhost:8888/capsule/login.php?account=joy&password=05575c24576 
-// success复制代码
+GET http://localhost:8888/capsule/login.php?account=joy&password=05575c24576
+// success
 ```
 
 现在我们解决了依赖性太强的问题，盐我们可以随意的更改，甚至可以是随机的，每个用户都不一样。这样单个用户的安全性虽然没有加强，但是整个平台的安全性缺大大提升了，很少有人会针对一个用户搞事情。但是细心的同学应该可以想到，现在的盐，也就是秘钥是保存在本地的，如果用户的秘钥丢失，比如换手机了，那么岂不是**有正确的密码，也无法登陆了吗**？
@@ -407,7 +407,7 @@ func login(account, password) {
             login(account, password)
         })
     }
-}复制代码
+}
 ```
 
 那么可想而知，我们的注册接口现在也需要新加一个 `bundleId` 的请求参数，然后用 `account + bundleId` 作为 key，来保存 `salt`：
@@ -453,7 +453,7 @@ else {
     else {
         echo response(20001, false);
     }
-}复制代码
+}
 ```
 
 同时我们需要创建一个获取 `salt` 的接口：
@@ -475,7 +475,7 @@ if ($salt == '') {
 else {
     $data = ['salt'=>$salt];
     echo response(0, $data);
-}复制代码
+}
 ```
 
 写到这里，就可以给大家介绍一个比较好玩的东西了。
@@ -526,7 +526,7 @@ const currentTime = '201709171204'
 let password = '123456'
 // (hmac+currentTime).md5
 password = (password.hmac(salt) + currentTime).md5()
-network('login', {method: 'GET', params: {password:password}})复制代码
+network('login', {method: 'GET', params: {password:password}})
 ```
 
 服务器代码：
@@ -551,7 +551,7 @@ function should_login($account, $password)
     else {
         return false;
     }
-}复制代码
+}
 ```
 
 但是现在还有一点问题，那就是对时间的容错上，如果客户端发送的时候是 `201709171204`，服务器响应时却已经到了 `201709171205` 了，那么这样势必是不能通过的，这种情况，只需要服务器把当前的时间减去一分钟，再校验一次，符合其中之一就可以。

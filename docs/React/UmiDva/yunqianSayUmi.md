@@ -75,12 +75,12 @@ export default {
   chainWebpack(config, { webpack }) {
     // 设置 alias
     config.resolve.alias.set('a', 'path/to/a');
-  
+
     // 删除进度条插件
     config.plugins.delete('progress');
   },
 }
-复制代码
+
 ```
 
 ### `umi generate`
@@ -89,7 +89,7 @@ umi@2 支持 `umi generate`（`umi g`） 命令快速生成文件，
 
 ```
 $ umi g page index
-复制代码
+
 ```
 
 同时 `umi generate` 是可被扩展的，比如 umi-plugin-dva 就基于此扩展了 `dva:model` 等文件的快速生成。
@@ -128,7 +128,7 @@ $ umi dev
 
 # 构建上线
 $ umi build
-复制代码
+
 ```
 
 详见：[umijs.org/zh/guide/ge…](https://umijs.org/zh/guide/getting-started.html)，也可以观看 [10 分钟入门 umi 视频版](https://www.youtube.com/watch?v=vkAUGUlYm24)。

@@ -12,7 +12,7 @@
 
 ```
   UI=f(data)
-复制代码
+
 ```
 
 包括前端spa的流行我们日渐复杂的项目逻辑会有越来越难控制的 state, 也就是公式中的 data,而往往这些问题都来源于 data 本身可变的数据(mutation)和异步化(asynchronicity),作者把这两种问题的混合效应类比了这个[实验](https://en.wikipedia.org/wiki/Diet_Coke_and_Mentos_eruption)曼妥思和可乐,我在我家厕所试过。。劝你千万不要尝试。。。结局往往是爆炸的局面!!!那么这个lib就是用来规约这个状态让他可控的。(往往有人说Redux是一个全局状态管理模块,我个人觉得不尽然,它提供给我们所谓的规约以至于让我们的状态可控,它确实会维护一个唯一的状态state,并且所有的data都在这里,但是它是不是全局的却不是必须的!)
@@ -34,7 +34,7 @@
                                 |                                        |
                                 |                                        |
                                 +----------------------------------------+
-复制代码
+
 ```
 
 我们可以发现数据流向是单向的,这就是 Flux 核心理念,而 Redux 确实是遵循了这个理念但是又有些不同,不同在哪呢?
@@ -56,7 +56,7 @@
       +--------------+  View  <---+
                      +--------+
 
-复制代码
+
 ```
 
 我们可以从图中看到没有了 Dispatcher 反而多了一个 Reducers,这里不得不提一个点就是所有的 Flux 架构都围绕着所谓 Predictable(可预测的) 的概念来维护 state, 那么如何做到可预测的也就是我们必须保证我们的 state Immutable(数据不可变), Flux 里依靠 dispatcher 来分发保证 Entity 的不可变性,而 Redux 中是依靠 pure function 的概念来保证每次的 state 都是原始 state 的一个快照, 也是这个核心公式的实践 (state, action) => state 这样你的 Reducers 其实就是这样的任意多个 function,如何拆分这些 function 就是你需要考虑的事情了。而如果是 pure function 的话也利于我们去做函数复用和单元测试。这就是 Redux 向函数式编程的概念借鉴的理念, 如果你熟悉 Elm 你一定知道 Model 的概念,要更新一个 Model 并且映射到 view 上你需要有 updater 去更新你的 Model,这里 Redux 借鉴了 updater 的概念去做 reducers 拆分和复用。如果你对 Elm 也感兴趣可以看[这里](https://guide.elm-lang.org/architecture/)。
@@ -97,7 +97,7 @@ function b(state = 'zwt', action) { // 在你的createStore第二个参数没有
 
 const rootReducer = combineReducers({ a, b })
 
-复制代码
+
 ```
 
 既然初始化我们看到上面提到的规约公式可以初始化你的 state, 另一个数据流向是反向的, reducer 会从你的 state 拿到需要处理的 sliceState,这里就需要翻开书看看官方文档是怎么提这个所谓 state 的范式处理状态的, 文档会从三个地方提到这个 state 本身的规约处理,分别是
@@ -154,7 +154,7 @@ const rootReducer = combineReducers({ a, b })
   }
 }
 
-复制代码
+
 ```
 
 下面我来说下范式化 state 这个问题:
@@ -177,7 +177,7 @@ const blogPosts = [
         author: {username: "user3", name: "User 3"},
         comment: ".....",
       }
-    ]    
+    ]
   },
   {
     id: "post2",
@@ -199,7 +199,7 @@ const blogPosts = [
         author: {username : "user3", name : "User 3"},
         comment: ".....",
       }
-    ]    
+    ]
   }
   // 重复很多遍
 ]
@@ -213,13 +213,13 @@ const blogPosts = [
         id: "post1",
         author: "user1",
         body: "......",
-        comments: ["comment1", "comment2"]    
+        comments: ["comment1", "comment2"]
       },
       "post2": {
         id: "post2",
         author: "user2",
         body: "......",
-        comments: ["comment3", "comment4", "comment5"]    
+        comments: ["comment3", "comment4", "comment5"]
       }
     }
     allIds: ["post1", "post2"]
@@ -273,7 +273,7 @@ const blogPosts = [
   }
 }
 // 可以发现不同数据之间都被打成平级的关系,不需要去处理深层嵌套结构的问题,在给定的ID里去删查改除都比较方便!这里更新的话也是不会波及到别的 domainComponent 比如我们只是更新 users 里的信息只需要去更新 users > byId > user 这部分去做浅复制,它不会像上面那种嵌套数据结构整体更新影响别的相应渲染组件也去更新,这里其实还有一个优化点我们后面会说,就是我们在选择这个 sliceState 的时候, 从选择的 selector 不做重复运算。
-复制代码
+
 ```
 
 这里拍平方式建议采用[Normalizr](https://github.com/paularmstrong/normalizr)自己写也不是不行,但是情况会比较多,这个第三方库还是能比较好的解决这个问题。这里再提一句这个 Normalizer 有一个 denormalize 方法便于你把 normaliz 的数据结构给装回去。是不是感觉有点像范式数据库里的 join 表的过程呢? 如果你熟悉范式化数据库设计,你可能觉得这有一点点范式化数据库的概念,只不过这里确实是没有严格的定义必须遵循第几范式设计,它最重要的是你需要找到适合你的范式结构,这里作者也在文档中去给出一些链接(当然你没必要先去学习数据库的概念)可以简单了解下这些概念,包括多对多数据库设计:
@@ -326,7 +326,7 @@ console.log(totalSelector(exampleState))    // { total: 2.322 }
 
 // 这里使用reselect的作用是如果下次传入的shopItemsSelector,taxPercentSelector 并没有改变那么这个selector不会重新计算,这个大家有兴趣可以看下源码,本身源码也不多很容易看完!
 
-复制代码
+
 ```
 
 上面概念里提到了 selector 和 state 也能多少看到 state 本身只是可读(read only)并不可修改, 下面我来说下我们的函数 reducer 如何拆分,它的规约又是如何的(官方说有以下几种 reducer):
@@ -357,15 +357,15 @@ function combinedReducer(state, action) {      // 在 root 层去拿最外面的
         // 明确地把 state.b 作为额外参数进行传递
         a: sliceReducerA(state.a, action, state.b),
         b: sliceReducerB(state.b, action)
-      }        
+      }
     }
     case "ANOTHER_SPECIAL_ACTION": {
       return {
         a: sliceReducerA(state.a, action),
         // 明确地把全部的 state 作为额外参数进行传递
         b: sliceReducerB(state.b, action, state)
-      }         
-    }    
+      }
+    }
     default: return state;
   }
 }
@@ -383,7 +383,7 @@ function crossSliceReducer(state, action) {
           // state.b是额外的参数
           a: handleSpecialCaseForA(state.a, action, state.b),
           b: sliceReducerB(state.b, action)
-      }        
+      }
     }
     default: return state;
   }
@@ -396,7 +396,7 @@ function rootReducer(state, action) {
 }
 
 // 这都是官方推荐的方法, 但是你会发现万变不离其中,都需要从根部 root 去拿 state 达到共享数据的方式,并且无论是 combineReducers 还是 function 的方式都是要 Initinalizing state 的
-复制代码
+
 ```
 
 最后再来简单讨论下异步化的问题,首先在早期 Redux 版本源码里是兼顾了异步方案的,就是我们所熟悉的 redux-thunk 当然跟 react-redux 被整理出来单独作为项目一样的,它也被单独整理出来只是在文档中提及了一下。其实市面上的基于 Redux 异步解决方案也非常多,解决不同场景的 redux-thunk 应该就够了,但是还有很复杂的请求场景可能就需要下面两个现在比较流行的库去解决:
@@ -442,7 +442,7 @@ export const makeStore = (store) => {
   // 这里我还没想好如何维护整体代码结构。。
 }
 
-复制代码
+
 ```
 
 在我准备发文章的时候,已经有人完成了这类[库](https://github.com/didierfranc/react-waterfall),那我就只能安利一波了。希望大家能看到一个方向而不是全盘否决 Redux。 因为毕竟现在我们还没有真正做好代替它的准备,而且我相信你如果真的要代替的话,在现有的项目和新项目可能都会有不少坑,不过俗话说得好不踩坑怎么进步呢?(欢迎大家多多踩坑哈哈哈哈!!!!)

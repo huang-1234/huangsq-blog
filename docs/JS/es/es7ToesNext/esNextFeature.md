@@ -109,7 +109,7 @@ const arr = [];
 ```bash
 async getData(){
     const res = await api.getTableData(); // await 异步任务
-    // do something    
+    // do something
 }
 ```
 
@@ -146,8 +146,8 @@ Object.entries({a: 1, b: 2, c: 3}); // [["a", 1], ["b", 2], ["c", 3]]
 
 ```bash
 /**
- * 
- * @param {*} length 所创建的数组缓冲区的大小，以字节(byte)为单位。  
+ *
+ * @param {*} length 所创建的数组缓冲区的大小，以字节(byte)为单位。
  * @returns {SharedArrayBuffer} 一个大小指定的新 SharedArrayBuffer 对象。其内容被初始化为 0。
  */
 new SharedArrayBuffer(10)
@@ -292,9 +292,9 @@ Object.entries(obj).forEach(([key, value]) =>
 #### 不使用ES8
 
 ```javascript
-console.log('0.00')             
-console.log('10,000.00')    
-console.log('250,000.00')  
+console.log('0.00')
+console.log('10,000.00')
+console.log('250,000.00')
 ```
 
 输出结果如下：
@@ -310,9 +310,9 @@ console.log('250,000.00')
 使用[padStart()](https://link.segmentfault.com/?enc=67v%2BBcf%2BJKkq947YaEfGcw%3D%3D.t8KieOlB1KHjp8PuaUzewwSsdfiRfXbLC6jbdrQQPe3lnQxRsYYkMc3zAJAUl521j6Swv%2FCjDJoh0h00SJjScFrZOVE%2FKaDkdT4tliEl1Y0iUBHp52pJJDV7ZhKe1QToWbYXT6rQZg7SgsVDMD72Fg%3D%3D)可以在字符串前面填充指定的字符串：
 
 ```javascript
-console.log('0.00'.padStart(20))             
-console.log('10,000.00'.padStart(20))    
-console.log('250,000.00'.padStart(20))    
+console.log('0.00'.padStart(20))
+console.log('10,000.00'.padStart(20))
+console.log('250,000.00'.padStart(20))
 ```
 
 输出结果如下：
@@ -328,9 +328,9 @@ console.log('250,000.00'.padStart(20))
 #### 不使用ES8
 
 ```javascript
-console.log('0.00 ' + '0.00' )             
-console.log('10,000.00 ' + '10,000.00' )    
-console.log('250,000.00 ' + '250,000.00')  
+console.log('0.00 ' + '0.00' )
+console.log('10,000.00 ' + '10,000.00' )
+console.log('250,000.00 ' + '250,000.00')
 ```
 
 输出如下：
@@ -346,9 +346,9 @@ console.log('250,000.00 ' + '250,000.00')
 使用[padEnd()](https://link.segmentfault.com/?enc=K%2Fj80ECtFBMTiWmGSGe%2BRw%3D%3D.3T53X4baX8JoGtIqjIIAvhGpi8wJjQcZrYCCJGy8kSPNKg7LfzEEnNyeagfE4PLJp9ekvlEvpXDPvFWc9sQVJU%2BWcyAxAdiHtcBmKdi3hV5x4wjHlVDd%2Bd0wM8AAsQGF)可以在字符串后面填充指定的字符串：
 
 ```javascript
-console.log('0.00'.padEnd(20) + '0.00' )             
-console.log('10,000.00'.padEnd(20) + '10,000.00' )    
-console.log('250,000.00'.padEnd(20) + '250,000.00')  
+console.log('0.00'.padEnd(20) + '0.00' )
+console.log('10,000.00'.padEnd(20) + '10,000.00' )
+console.log('250,000.00'.padEnd(20) + '250,000.00')
 ```
 
 输出如下：
@@ -451,7 +451,7 @@ var f = function(a,
   b,
   c,
   d // d之后不能带逗号
-   ) { 
+   ) {
   console.log(d)
 }
 ```
@@ -463,7 +463,7 @@ var f = function(a,
   b,
   c,
   d, // d之后允许带逗号
-) { 
+) {
   console.log(d)
 }
 ```
@@ -723,17 +723,17 @@ function doSomething(obj){
 }
 function useObject(obj){
 	doSomething(obj)
-  
+
   let called = map.get(obj) || 0
-  called ++ 
-  
+  called ++
+
   if(called>1000){
      console.log('当前调用次数已经超过1000次了，over')
   }
-  
+
   map.set(obj, called)
 }
-复制代码
+
 ```
 
 如上虽然可以实现我们的功能，但是会发生内存溢出,因为传递给doSomething函数的每个对象都永久保存在map中，并且不会被GC回收，因此我们可以使用*WeakMap*
@@ -745,18 +745,18 @@ function doSomething(obj){
 }
 function useObject(obj){
 	doSomething(obj)
-  
+
   let called = wmap.get(obj) || 0
-  
+
   called ++
-  
+
   if(called>1000){
      console.log('当前调用次数已经超过1000次了，over')
   }
-  
+
   wmap.set(obj, called)
 }
-复制代码
+
 ```
 
 因为是弱引用，所以WeakMap、WeakSet的键值对是*不可枚举*的
@@ -777,7 +777,7 @@ ws.has(bar) //true
 ws.delete(foo) //删除foo对象
 ws.has(foo) //false 已删除
 ws.has(bar) //仍存在
-复制代码
+
 ```
 
 *WeakSet*与*Set*相比有以下两个区别
@@ -808,7 +808,7 @@ const fibonacciCached = (number) => {
   setValue(number, sum);
   return sum;
 };
-复制代码
+
 ```
 
 对于缓存远程数据来说，这可能不是一个好主意，因为远程数据可能会不可预测地从内存中删除。在这种情况下，最好使用LRU之类的缓存。
@@ -850,7 +850,7 @@ const pages = [
   },
   ...
 ]
-  
+
 for (const page of pages){
 	page.title ??= '默认标题'
 }
@@ -858,7 +858,7 @@ console.table(pages)
 //(index)  title       		path
 //0        "主会场"   	  "/"
 //1        "默认标题"  	 "/other"
-复制代码
+
 ```
 
 ### 小结：

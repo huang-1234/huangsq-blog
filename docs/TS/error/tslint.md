@@ -35,7 +35,7 @@ About.vue代码：
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"]
   }
 }
-复制代码
+
 ```
 
 参考链接:

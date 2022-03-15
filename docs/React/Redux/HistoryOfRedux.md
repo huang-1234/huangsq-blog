@@ -54,7 +54,7 @@ redux 官方自述是 A Predictable State Container for JS Apps，通俗理解�
     }
   }
 </script>
-复制代码
+
 ```
 
 可以看到，代码比较简单，这种代码在四五年前是非常流行的，但是现在已经很少有人这么写代码了。
@@ -95,7 +95,7 @@ redux 官方自述是 A Predictable State Container for JS Apps，通俗理解�
 
   render();
 </script>
-复制代码
+
 ```
 
 可以看到，比起原始版实现，状态版的代码好像更多。

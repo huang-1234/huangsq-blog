@@ -36,16 +36,16 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | 
 2. 查看安装效果，命令：`nvm list`，显示：
 
 ```
-   -)    v6.9.5
+   ->    v6.9.5
          v7.5.0
          system
-default -) node (-) v7.5.0)
-node -) stable (-) v7.5.0) (default)
-stable -) 7.5 (-) v7.5.0) (default)
-iojs -) N/A (default)
-lts/* -) lts/boron (-) v6.9.5)
-lts/argon -) v4.7.3 (-) N/A)
-lts/boron -) v6.9.5
+default -> node (-> v7.5.0)
+node -> stable (-> v7.5.0) (default)
+stable -> 7.5 (-> v7.5.0) (default)
+iojs -> N/A (default)
+lts/* -> lts/boron (-> v6.9.5)
+lts/argon -> v4.7.3 (-> N/A)
+lts/boron -> v6.9.5
 ```
 
 ### 切换版本
@@ -61,8 +61,8 @@ lts/boron -) v6.9.5
 
 你肯定也想到，每次输入v6.9.5 好麻烦。并且时间长了，不一定记得住后面是9.5，还是8.6的版本号。
 
-1. 设定 LTS 版别名，命令：`nvm alias 6 v6.9.5`，显示：`6 -) v6.9.5`
-2. 设定最新版别名，命令：`nvm alias 7 v7.5.0`，显示：`7 -) v7.5.0`
+1. 设定 LTS 版别名，命令：`nvm alias 6 v6.9.5`，显示：`6 -> v6.9.5`
+2. 设定最新版别名，命令：`nvm alias 7 v7.5.0`，显示：`7 -> v7.5.0`
 
 ## 一、NVM是什么？
 
@@ -105,14 +105,14 @@ mac的安装相对于window来说，稍微麻烦一丢丢，还受macOS的版本
 
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-复制代码
+
 ```
 
 #### 2. 检查安装
 
 ```
 $ nvm --version
-复制代码
+
 ```
 
 #### 3. 检查安装的前提是你安装成功了，事实往往不如人意，总会有坑的情况，你可能会遇到以下的？
@@ -121,7 +121,7 @@ $ nvm --version
 
 ```
 curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused
-复制代码
+
 ```
 
 **DNS污染解决方法：**
@@ -136,14 +136,14 @@ curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection re
 
 ```
 $ sudo vim /etc/hosts
-复制代码
+
 ```
 
 在host里面添加
 
 ```
 185.199.108.133 raw.githubusercontent.com
-复制代码
+
 ```
 
 搞完重新再拉取一次试试
@@ -172,12 +172,12 @@ $ sudo vim /etc/hosts
 
 简单的解读一下这张图，首先看到我电脑有三个node的版本
  分别是**v8.17.0、v12.18.4、v14.17.4**三个版本
- 当前正在使用的版本是v14.17.4   可以通过 ` nvm use (version) ` 切换版本
- 默认版本是：v14.17.4   为什么会有这个默认版本的存在？ 通过` nvm use (version) `切换的版本只是临时的，在你关闭终端后，就会恢复默认的版本，如果你想要长时间切换指定版本，那就设置这个默认版本
+ 当前正在使用的版本是v14.17.4   可以通过 ` nvm use <version> ` 切换版本
+ 默认版本是：v14.17.4   为什么会有这个默认版本的存在？ 通过` nvm use <version> `切换的版本只是临时的，在你关闭终端后，就会恢复默认的版本，如果你想要长时间切换指定版本，那就设置这个默认版本
 
-```bash
-nvm alias default (version)  如： nvm alias default v11.1.0
-复制代码
+```
+nvm alias default <version>  如： nvm alias default v11.1.0
+
 ```
 
 **2.  nvm ls-remote**
@@ -185,7 +185,7 @@ nvm alias default (version)  如： nvm alias default v11.1.0
 
 ```
 nvm ls-remote
-复制代码
+
 ```
 
 查看下有哪些node版本可以安装的
@@ -194,14 +194,14 @@ nvm ls-remote
 ```
 nvm install v11.1.0
 nvm ls
-复制代码
+
 ```
 
 如果我们只是短期在某个项目上用，那就直接nvm use vxx.xx.xx即可，如果长期用，记得设置默认版本
 
 ```
-nvm alias default (version)  如： nvm alias default v11.1.0
-复制代码
+nvm alias default <version>  如： nvm alias default v11.1.0
+
 ```
 
 ## 四、坑点记录
@@ -215,7 +215,7 @@ nvm alias default (version)  如： nvm alias default v11.1.0
 
 ```
 npm config ls  //查看下npm的配置
-复制代码
+
 ```
 
 问题来了，如果切换了node版本后，全局依赖安装失败，检查下npm prefix这个配置中的node是否是你当前使用的node版本
@@ -235,7 +235,7 @@ npm config set cache "D:\ProgramFiles\nvm\v12.12.0\node_cache"
 
 ### Mac 新版本安装 nvm 之后，出现 nvm command not found 的问题
 
-) `Mac` 安装 `nvm` 之后，执行 `source ~/.bash_profile`，当前终端可以使用 `nvm`，新 `tab` 或者退出重新打开，还是不能使用 `nvm`，还得再次执行 `source ~/.bash_profile`，才可以使用 `nvm`。
+> `Mac` 安装 `nvm` 之后，执行 `source ~/.bash_profile`，当前终端可以使用 `nvm`，新 `tab` 或者退出重新打开，还是不能使用 `nvm`，还得再次执行 `source ~/.bash_profile`，才可以使用 `nvm`。
 
 ### 原因
 
@@ -252,7 +252,7 @@ npm config set cache "D:\ProgramFiles\nvm\v12.12.0\node_cache"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-复制代码
+
 ```
 
 1. 保存
@@ -316,13 +316,13 @@ export NVM_DIR="$HOME/.nvm"
 
 windows 系统的版本管理软件是nodist
 
-mac系统的node版本管理根据是nvm  
+mac系统的node版本管理根据是nvm
 
 每次重启vscode软件后，nvm ls 看到的默认版本都会恢复到v5.5
 
 使用以下命令可以改变默认的版本：nvm alias default v4.3.0  这样就不用每次都切换版本了
 
- 
+
 
 nvm 安装： [转载](https://www.jianshu.com/p/01bbd7bf64a7)
 
@@ -334,23 +334,23 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | b
 
 根据终端的提示
 
-) =) Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
-)
-) =) Create one of them and run this script again
+> => Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
+>
+> => Create one of them and run this script again
 
 1.于是使用vim 创建一个~/.bash_profile文件
 
-) JasonLamdeMacBook-Pro:~ jasonlam$ vim ~/.bash_profile
+> JasonLamdeMacBook-Pro:~ jasonlam$ vim ~/.bash_profile
 
 2.将vim切换至insert状态后，写入所给脚本，然后:wq退出
 
-) export NVM_DIR="$HOME/.nvm"
-)
-) [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-)
-) [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
-)
-) :wq
+> export NVM_DIR="$HOME/.nvm"
+>
+> [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+>
+> [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+>
+> :wq
 
 重新启动终端,输入nvm --version会显示版本号即安装成功！！！
 
@@ -362,13 +362,12 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | b
 
 ● nvm install stable 安装最新稳定版 node
 
-● nvm install (version) 安装指定版本，如：安装v4.4.0，nvm install v4.4.0
+● nvm install <version> 安装指定版本，如：安装v4.4.0，nvm install v4.4.0
 
-● nvm uninstall (version) 删除已安装的指定版本，语法与install类似
+● nvm uninstall <version> 删除已安装的指定版本，语法与install类似
 
-● nvm use (version) 切换使用指定的版本node
+● nvm use <version> 切换使用指定的版本node
 
 ● nvm ls 列出所有安装的版本
 
-● nvm alias default (version) 如： nvm alias default v11.1.0
-
+● nvm alias default <version> 如： nvm alias default v11.1.0

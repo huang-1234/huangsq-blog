@@ -36,7 +36,7 @@
     <div id="out" class="test" onclick="out()">out1
       <div id="inner" class="test-inner" onclick="inner()">inner2
         <div id="inner3" onclick="inner3()">inner3
-        
+
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
       const out = function(){console.log('out')}
       const inner = function(){console.log('inner')}
       const inner3 = function(){console.log('inner3')}
-      
+
       const btn = document.getElementById("out");
       //捕获事件
       btn.addEventListener("click", function (e) {
@@ -162,12 +162,12 @@ btn.removeEventListener("click", fn, false);
 
 ```js
 const btn = document.getElementById("test");
- 
+
 //捕获事件
 btn.addEventListener("click", function(e){
     alert("capture is ok");
 }, true);
- 
+
 //冒泡事件
 btn.addEventListener("click", function(e){
     alert("bubble is ok");
@@ -187,7 +187,7 @@ const btnInner = document.getElementById("testInner");
 btnInner.addEventListener("click", function(e){
     alert("bubble is ok");
 }, false);
- 
+
 //捕获事件
 btnInner.addEventListener("click", function(e){
     alert("capture is ok");
@@ -428,7 +428,7 @@ class ShowImg extends Component {
           active: false
         };
     }
-  
+
     componentDidMount() {
         document.addEventListener('click', this.hideImg.bind(this));
     }
@@ -436,15 +436,15 @@ class ShowImg extends Component {
     componentWillUnmount() {
         document.removeEventListener('click', this.hideImg);
     }
-    
+
     hideImg () {
         this.setState({ active: false });
     }
-    
+
     handleClickBtn() {
         this.setState({ active: !this.state.active });
     }
-  
+
     handleClickImg (e) {
         e.stopPropagation();
     }
@@ -482,13 +482,13 @@ handleClickImg (e) {
 ```js
 componentDidMount() {
     document.addEventListener('click', this.hideImg.bind(this));
-    
+
     document.addEventListener('click', this.imgStopPropagation.bind(this));
 }
 
 componentWillUnmount() {
     document.removeEventListener('click', this.hideImg);
-    
+
     document.removeEventListener('click', this.imgStopPropagation);
 }
 
@@ -783,7 +783,7 @@ DOM2 级事件定义了**addEventListener()** 和 `removeEventListener()`两个�
 ```js
 //语法
 btn.addEventListener('click', function(){}, false);
-复制代码
+
 <input type="button" value="Click Me" id="btn">
 <script>
     let btn = document.getElementById("btn");

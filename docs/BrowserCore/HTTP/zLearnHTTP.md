@@ -30,17 +30,17 @@
 
 实际上我们输入URL后，我们的浏览器给Web服务器发送了一个Request, Web服务器接到Request后进行处理，生成相应的Response，然后发送给浏览器， 浏览器解析Response中的HTML,这样我们就看到了网页，过程如下图所示
 
- 
+
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012020910422542.png)
 
- 
+
 
 我们的Request 有可能是经过了代理服务器，最后才到达Web服务器的。
 
 过程如下图所示
 
- 
+
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012020910491417.png)
 
@@ -50,7 +50,7 @@
 
 2. 突破限制， 也就是FQ了
 
-3. 隐藏身份。 
+3. 隐藏身份。
 
 [note : 使用代理服务器无法保证账号安全， 输入的账号和密码可能会保存在代理服务器上]
 
@@ -76,9 +76,9 @@ anchor-       锚
 
 URL 的一个例子
 
-![复制代码](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
+![](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
 
-![复制代码](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
+![](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
 
 ```
 http://www.mywebsite.com/sj/test/test.aspx?name=sviergn&x=true#stuff
@@ -90,17 +90,17 @@ Query String:           name=sviergn&x=true
 Anchor:                 stuff
 ```
 
-![复制代码](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
+![](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
 
-![复制代码](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
+![](/images/Browser/HTTP/learnHTTP.assets/copycode.gif)
 
- 
+
 
 ## HTTP协议是无状态的
 
 http协议是无状态的，同一个客户端的这次请求和上次请求是没有对应关系，对http服务器来说，它并不知道这两个请求来自同一个客户端。 为了解决这个问题， Web程序引入了Cookie机制来维护状态.
 
- 
+
 
 ## 打开一个网页需要浏览器发送很多次Request
 
@@ -114,7 +114,7 @@ http协议是无状态的，同一个客户端的这次请求和上次请求是�
 
 4. 等所有的文件都下载成功后。 网页就被显示出来了。
 
- 
+
 
 ## HTTP消息的结构
 
@@ -139,7 +139,7 @@ Host: www.cnblogs.com
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012022009421183.png)
 
- 
+
 
 我们再看Response消息的结构, 和Request消息的结构基本一样。 同样也分为三部分,第一部分叫Response line, 第二部分叫Response header，第三部分是body. header和body之间也有个空行, 结构如下图
 
@@ -151,9 +151,9 @@ HTTP/version-number表示HTTP协议的版本号， status-code 和message 请看
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012022009373182.png)
 
- 
 
- 
+
+
 
 ## Get和Post方法的区别
 
@@ -169,7 +169,7 @@ Http协议定义了很多与服务器交互的方法，最基本的有4种，分
 
 4. GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.
 
- 
+
 
 ## 状态码 [详细了解点击](./)
 
@@ -189,7 +189,7 @@ HTTP/1.1中定义了5类状态码， 状态码由三位数字组成，第一个�
 
 5XX 服务器端错误 -  服务器未能实现合法的请求
 
- 
+
 
 看看一些常见的状态码
 
@@ -201,7 +201,7 @@ HTTP/1.1中定义了5类状态码， 状态码由三位数字组成，第一个�
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021114423456.png)
 
- 
+
 
 302 Found
 
@@ -211,7 +211,7 @@ HTTP/1.1中定义了5类状态码， 状态码由三位数字组成，第一个�
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021115280744.png)
 
- 
+
 
 304 Not Modified
 
@@ -223,7 +223,7 @@ HTTP/1.1中定义了5类状态码， 状态码由三位数字组成，第一个�
 
 提示：　如果你不想使用本地缓存可以用Ctrl+F5 强制刷新页面
 
- 
+
 
 400 Bad Request 客户端请求与语法错误，不能被服务器所理解
 
@@ -237,13 +237,13 @@ HTTP/1.1中定义了5类状态码， 状态码由三位数字组成，第一个�
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021114534541.png)
 
- 
+
 
 500 Internal Server Error 服务器发生了不可预期的错误
 
 503 Server Unavailable 服务器当前不能处理客户端的请求，一段时间后可能恢复正常
 
- 
+
 
 ## HTTP Request header
 
@@ -267,7 +267,7 @@ If-Modified-Since
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021322503738.png)
 
- 
+
 
 If-None-Match
 
@@ -279,7 +279,7 @@ If-None-Match
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021117041918.png)
 
- 
+
 
 Pragma
 
@@ -289,7 +289,7 @@ Pargma只有一个用法， 例如： Pragma: no-cache
 
 注意: 在HTTP/1.0版本中，只实现了Pragema:no-cache, 没有实现Cache-Control
 
- 
+
 
 Cache-Control
 
@@ -303,7 +303,7 @@ Cache-Control:no-cache 所有内容都不会被缓存
 
 还有其他的一些用法， 我没搞懂其中的意思， 请大家参考其他的资料
 
- 
+
 
 ### Client 头域
 
@@ -319,7 +319,7 @@ Accept
 
 例如  Accept: */*  代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)
 
- 
+
 
 Accept-Encoding：
 
@@ -327,17 +327,17 @@ Accept-Encoding：
 
 例如： Accept-Encoding: gzip, deflate
 
- 
+
 
 Accept-Language
 
-作用： 浏览器申明自己接收的语言。 
+作用： 浏览器申明自己接收的语言。
 
 语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；
 
 例如： Accept-Language: en-us
 
- 
+
 
 User-Agent
 
@@ -347,7 +347,7 @@ User-Agent
 
 例如： User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; CIBA; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; InfoPath.2; .NET4.0E)
 
- 
+
 
 Accept-Charset
 
@@ -355,7 +355,7 @@ Accept-Charset
 
 例如：
 
- 
+
 
 ### Cookie/Login 头域
 
@@ -377,7 +377,7 @@ Content-Type
 
 作用：
 
-例如：Content-Type: application/x-www-form-urlencoded 
+例如：Content-Type: application/x-www-form-urlencoded
 
 ## Miscellaneous 头域
 
@@ -395,7 +395,7 @@ Connection
 
 例如： Connection: close 代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭， 当客户端再次发送Request，需要重新建立TCP连接。
 
- 
+
 
 Host（发送请求时，该报头域是必需的）
 
@@ -409,7 +409,7 @@ Host：http://www.guet.edu.cn
 
 此处使用缺省端口号80，若指定了端口号，则变成：Host：指定端口号
 
- 
+
 
 ## HTTP Response header
 
@@ -425,9 +425,9 @@ Date
 
 作用: 生成消息的具体时间和日期
 
-例如：　Date: Sat, 11 Feb 2012 11:35:14 GMT 
+例如：　Date: Sat, 11 Feb 2012 11:35:14 GMT
 
- 
+
 
 Expires
 
@@ -435,7 +435,7 @@ Expires
 
 例如: Expires: Tue, 08 Feb 2022 11:35:14 GMT
 
- 
+
 
 Vary
 
@@ -443,7 +443,7 @@ Vary
 
 例如: Vary: Accept-Encoding
 
- 
+
 
 ### Cookie/Login 头域
 
@@ -453,7 +453,7 @@ P3P
 
 例如: P3P: CP=CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR
 
- 
+
 
 Set-Cookie
 
@@ -463,7 +463,7 @@ Set-Cookie
 
 ![img](/images/Browser/HTTP/learnHTTP.assets/2012021119563476.png)
 
- 
+
 
 ### Entity头域
 
@@ -473,7 +473,7 @@ ETag
 
 例如: ETag: "03f2b33c0bfcc1:0"
 
- 
+
 
 Last-Modified:
 
@@ -481,7 +481,7 @@ Last-Modified:
 
 例如: Last-Modified: Wed, 21 Dec 2011 09:09:10 GMT
 
- 
+
 
 Content-Type
 
@@ -495,7 +495,7 @@ Content-Type:text/html;charset=GB2312
 
 Content-Type: image/jpeg
 
- 
+
 
 Content-Length
 
@@ -503,7 +503,7 @@ Content-Length
 
 例如: Content-Length: 19847
 
- 
+
 
 Content-Encoding
 
@@ -511,7 +511,7 @@ WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响
 
 例如：Content-Encoding：gzip
 
- 
+
 
 Content-Language
 
@@ -519,7 +519,7 @@ Content-Language
 
 例如： Content-Language:da
 
- 
+
 
 ### Miscellaneous 头域
 
@@ -529,7 +529,7 @@ Server:
 
 例如:Server: Microsoft-IIS/7.5
 
- 
+
 
 X-AspNet-Version:
 
@@ -561,7 +561,7 @@ Location
 
  实例请看304状态实例
 
- 
+
 
 ## HTTP协议是无状态的和Connection: keep-alive的区别
 
