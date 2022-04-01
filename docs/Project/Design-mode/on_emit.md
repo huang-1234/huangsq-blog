@@ -119,7 +119,7 @@ class myEventEmitter {
   on(type, handler) {
     // hanlder 必须是一个函数，如果不是直接报错
     if (!(handler instanceof Function)) {
-      throw new Error("哥 你错了 请传一个函数");
+      throw new Error(`${handler} should be a function!!!`);
     }
     // 判断 type 事件对应的队列是否存在
     if (!this.eventMap[type]) {

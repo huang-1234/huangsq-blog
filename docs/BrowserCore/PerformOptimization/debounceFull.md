@@ -129,7 +129,7 @@ function debounce(func, wait) {
 
 JavaScript 在事件处理函数中会提供事件对象 event，我们修改下 getUserAction 函数：
 
-```
+```js
 function getUserAction(e) {
     console.log(e);
     container.innerHTML = count++;
