@@ -280,7 +280,6 @@ Object.keys(obj).forEach((key) =>
 
 ```javascript
 let obj = {a: 1, b: 2, c: 3};
-
 Object.entries(obj).forEach(([key, value]) =>
 {
     console.log(key + ": " + value); // 输出a: 1, b: 2, c: 3
@@ -299,7 +298,7 @@ console.log('250,000.00')
 
 输出结果如下：
 
-```apache
+```js
 0.00
 10,000.00
 250,000.00
@@ -317,7 +316,7 @@ console.log('250,000.00'.padStart(20))
 
 输出结果如下：
 
-```apache
+```js
                 0.00
            10,000.00
           250,000.00
@@ -353,7 +352,7 @@ console.log('250,000.00'.padEnd(20) + '250,000.00')
 
 输出如下：
 
-```apache
+```js
 0.00                0.00
 10,000.00           10,000.00
 250,000.00          250,000.00

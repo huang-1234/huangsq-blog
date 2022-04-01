@@ -4,7 +4,6 @@
 
 [了解一下整个浏览器技术和互联网的发展史](http://www.evolutionoftheweb.com/?hl=zh-cn)（因为是外网的资源，想看是需要翻墙的）
 
-
 <a href='/JS/es/aJSType'>learn JS</a>
 
 <a href='/Styles/'>learn CSS</a>
@@ -22,15 +21,11 @@
 先深刻相信，后始终践行
 ```
 
-
-
-
-
 ## JavaScript
 
 > JS之父简介
 
-JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
+JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立<http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014>年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
 
 ### 1. JS的诞生
 
@@ -64,14 +59,12 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 
 ### 2. JS的设计思路
 
-
 - 基本语法：借鉴 C 语言和 Java 语言。
 - 数据结构：借鉴Java语言的数据类型和内存管理，包括将值分成原始值和对象两大类。
 - 函数的用法：借鉴 Scheme 语言和 Awk 语言，将函数当作第一等公民，并引入闭包。
 - 原型继承模型：借鉴 Self 语言（Smalltalk 的一种变种）使用基于原型（prototype）的继承机制。。
 - 正则表达式：借鉴 Perl 语言。
 - 字符串和数组处理：借鉴 Python 语言。
-
 
 所以，Javascript语言实际上是两种语言风格的混合产物----（简化的）函数式编程+（简化的）面向对象编程。这是由Brendan Eich（函数式编程）与网景公司（面向对象编程）共同决定的。
 > 由js之父可以总结以下特点：
@@ -80,10 +73,13 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 - 不怕失业，总能找到其他事情做
 - 很容易创业
 - 可以干到50岁以上
+
 ### 3. JS的命名
+
 mocha => livescript => javascript, 一开始浏览器是同时支持java和javascript， 后来js胜了。
 
 ### 4. 浏览器大战
+
 1996年微软发布ie3，支持jscript（微软实现的js），浏览器大战开始，每家浏览器的脚本都不太一样，1996年11月，网景向ECMA提交语言标准，由于版权的问题，js的语言标准不叫Javascript， 而叫做ECMAScript，简称ES
 
 网景之死
@@ -107,6 +103,7 @@ IE6有很多令人蛋疼的bug，比如下面这个代码运行在IE6，会让�
  <input />
 </table>
 ```
+
 ### 5. Chrome的横空出世
 
 IE6的巨大成功且没有市场竞争对手让微软觉得再花费精力不值得，所以解散了IE6团队，但Firefox的出现让微软重组IE团队，但不是以前的IE6团队同一组人，所以IE7，8一直问题不断。
@@ -129,6 +126,7 @@ Javascript的兴起
 杀手级应用Gmail的兴起，2004年，谷歌发布Gmail在线网页，当时人们以为只能用网页来浏览文字和图片，Gmail的发布让用户和开发者眼前一亮，2005年，Jesse将谷歌用到的技术命名为AJAX，从此，前端技术正式出现，在此之前，网页开发都是由后端程序员和设计师完成，2006年，js前端库JQuery发布，大放异彩，直到IE不行了，JQuery才热度降低，至今还有很多人使用。
 
 ### 7. 中国的前端
+
 直至2010年左右，中国才慢慢有了前端这个概念，中国前端的来源一部分来自于自学的后端程序员，他们把java的思想代入js，面向对象成了js的主流思想，一部分来自于设计师，他们自学HTML和css，并独创了重构工程师的岗位，现已没落。
 
 Javascript的爆发
@@ -290,4 +288,3 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 <button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
   <a href="#" style="text-decoration:none;">回顶部↑</a>
 </button>
-

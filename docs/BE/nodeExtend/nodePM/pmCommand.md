@@ -90,7 +90,7 @@ $ npm list -g --depth 0
 
 ##### 基本用法
 
-```awk
+```bash
 # 读取package.json里面的配置单安装
 $ npm install
 //可简写成 npm i
@@ -222,7 +222,7 @@ $ npm link (in package dir)
 
 ##### 内部变量
 
-```awk
+```bash
 ---package.json文件---
 {
     "name": "npm_test",
@@ -244,7 +244,7 @@ $ npm link (in package dir)
 npm会先查看有没有定义prelint和postlint两个钩子，如果有的话，就会
 先执行`npm run pre-命令名`，然后执行`npm run 命令名`，最后执行`npm run post-命令名`。
 
-```awk
+```bash
 ---package.json文件---
 "scripts": {
     "lint": "eslint --cache --ext .js --ext .jsx src",

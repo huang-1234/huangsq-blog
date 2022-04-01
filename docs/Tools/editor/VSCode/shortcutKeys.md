@@ -157,7 +157,7 @@ Command + K O 新窗口打开当前文件
 
 ### 显示
 
-```mipsasm
+```bash
 Command + Ctrl + F 全屏、退出全屏
 Command + Option + 1 切换编辑器分屏方式（横、竖）
 Command + + 放大
