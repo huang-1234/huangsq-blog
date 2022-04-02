@@ -138,7 +138,7 @@ Object.entries({a: 1, b: 2, c: 3}); // [["a", 1], ["b", 2], ["c", 3]]
 
 ### 6. Object.getOwnPropertyDescriptors()
 
-> 获取一个对象的所有自身属性的描述符,如果没有任何自身属性，则返回空对象。
+> 获取一个对象的所有自身属性的描述符, 如果没有任何自身属性，则返回空对象。
 
 ### 7. SharedArrayBuffer对象
 
@@ -159,18 +159,18 @@ new SharedArrayBuffer(10)
 
 **ES7**只有2个特性:
 
-- [includes()](https://link.segmentfault.com/?enc=mZfEElOSWNEulRnHFrjYOw%3D%3D.7X3ZChUjIxS2AG3VYfoWnZHmyee8AmzU5UtkoiDPwE32gCxszVkLWD1vIChoSG04f5FC7jN%2B4svneAEoxIvSOUno5ODOrnwJhnLHqmobfnpH0FoHIPng75%2BxoX4VtX4v)
-- 指数操作符
+* [includes()](https://link.segmentfault.com/?enc=mZfEElOSWNEulRnHFrjYOw%3D%3D.7X3ZChUjIxS2AG3VYfoWnZHmyee8AmzU5UtkoiDPwE32gCxszVkLWD1vIChoSG04f5FC7jN%2B4svneAEoxIvSOUno5ODOrnwJhnLHqmobfnpH0FoHIPng75%2BxoX4VtX4v)
+* 指数操作符
 
 **ES8**尚未发布(2017年1月)，下面是它已经完成起草的一些特性：
 
-- [Object.values()](https://link.segmentfault.com/?enc=jLJh%2Bjn78JqZchQXutkgdA%3D%3D.31OvWvZ02OCpbwUSP2nfbfFB4SOBgOcWq%2F7SYCHzrbsV4AB6lT4u4Z1viTFXH4JGuKc89eBLjpTPz8ui9OWE0Em00lprG2hoI2nokFYlrFUrurZe9K0qzphBauuMeDxk)
-- [Object.entries()](https://link.segmentfault.com/?enc=bXLkPyXkEBINDesCv01e%2FQ%3D%3D.%2FcbCplpo9Wy1zGEqtyaQuhMFFyR%2FKA4YezMRFSlm6TDRR%2FqhlsKWVVDfdL0cqfguh4S2OjCRpRMrlHH8AATAMrAv9VdzaoLuWKPYaitV5xM508nlBNfnJTaBl6aNzpTl)
-- [padStart()](https://link.segmentfault.com/?enc=OMRTfmcVNMeokGUKUhxe1w%3D%3D.l4lwkQS%2FMjq41n1NGuJmiB7miIyPQvXm37AqvHB%2FlavUU0jgsvCvPhyF%2B3rZnkWFa1N1QlqPFDCdAa0xpRHf3%2FczzXwA1q69oYkj39%2FyuOcEcr44fNxCgTNFvPTzJzsSI%2FPFuPRU2qxtU%2FQynW5KnQ%3D%3D)
-- [padEnd()](https://link.segmentfault.com/?enc=GL2yFQ2%2BFeoJdC82CVTmsg%3D%3D.LmMnjp7NsX2zCJvxWIoq4lDNlguUKKy3NioZ6CSbltLDyqKyHlkJaHL2MhyDj6VMw6pL%2F9sVn5FpsI%2FH39qI4HnJUF6wz1SKByrPfBlL1iZm6uPoAcnpdTZ01qxn%2FCiL)
-- [Object.getOwnPropertyDescriptors()](https://link.segmentfault.com/?enc=I0roEJUcl2tW8vO8Rc4MuQ%3D%3D.IC3bth6a1%2BvoswXGTmB457HwQAWhAlyZ4ZkEvoi1ETODojQ1u7RM6cKK25%2FORAlcRNA3hP0YKyJ7JEKOjkHjpFujt7lBP5mEV5fcvhtd1k81hq3ewuRpBcTmM8QWngLGfOxrPRpK9PUON7OHXPxXp6NiXFV7x1au5Zi3evf184g%3D)
-- 函数参数列表结尾允许逗号
-- Async/Await
+* [Object.values()](https://link.segmentfault.com/?enc=jLJh%2Bjn78JqZchQXutkgdA%3D%3D.31OvWvZ02OCpbwUSP2nfbfFB4SOBgOcWq%2F7SYCHzrbsV4AB6lT4u4Z1viTFXH4JGuKc89eBLjpTPz8ui9OWE0Em00lprG2hoI2nokFYlrFUrurZe9K0qzphBauuMeDxk)
+* [Object.entries()](https://link.segmentfault.com/?enc=bXLkPyXkEBINDesCv01e%2FQ%3D%3D.%2FcbCplpo9Wy1zGEqtyaQuhMFFyR%2FKA4YezMRFSlm6TDRR%2FqhlsKWVVDfdL0cqfguh4S2OjCRpRMrlHH8AATAMrAv9VdzaoLuWKPYaitV5xM508nlBNfnJTaBl6aNzpTl)
+* [padStart()](https://link.segmentfault.com/?enc=OMRTfmcVNMeokGUKUhxe1w%3D%3D.l4lwkQS%2FMjq41n1NGuJmiB7miIyPQvXm37AqvHB%2FlavUU0jgsvCvPhyF%2B3rZnkWFa1N1QlqPFDCdAa0xpRHf3%2FczzXwA1q69oYkj39%2FyuOcEcr44fNxCgTNFvPTzJzsSI%2FPFuPRU2qxtU%2FQynW5KnQ%3D%3D)
+* [padEnd()](https://link.segmentfault.com/?enc=GL2yFQ2%2BFeoJdC82CVTmsg%3D%3D. LmMnjp7NsX2zCJvxWIoq4lDNlguUKKy3NioZ6CSbltLDyqKyHlkJaHL2MhyDj6VMw6pL%2F9sVn5FpsI%2FH39qI4HnJUF6wz1SKByrPfBlL1iZm6uPoAcnpdTZ01qxn%2FCiL)
+* [Object.getOwnPropertyDescriptors()](https://link.segmentfault.com/?enc=I0roEJUcl2tW8vO8Rc4MuQ%3D%3D. IC3bth6a1%2BvoswXGTmB457HwQAWhAlyZ4ZkEvoi1ETODojQ1u7RM6cKK25%2FORAlcRNA3hP0YKyJ7JEKOjkHjpFujt7lBP5mEV5fcvhtd1k81hq3ewuRpBcTmM8QWngLGfOxrPRpK9PUON7OHXPxXp6NiXFV7x1au5Zi3evf184g%3D)
+* 函数参数列表结尾允许逗号
+* Async/Await
 
 ### Array.prototype.includes()
 
@@ -178,11 +178,10 @@ new SharedArrayBuffer(10)
 
 使用[indexOf()](https://link.segmentfault.com/?enc=b7xGdoSyDJKyS6nrm0opUQ%3D%3D.p8lUDwIaMtfLRffF%2Brbt1N8TPI3QiPcIg6WlxT1b1VpONG93jBEGaugR5R0shqF641hwhJYv7vb7esxpxzXdDHVfn14PF24EqIMFeX48NLUb388t508vW7iZXKgY660T)验证数组中是否存在某个元素，这时需要根据返回值是否为**-1**来判断：
 
-```javascript
+```js
 let arr = ['react', 'angular', 'vue'];
 
-if (arr.indexOf('react') !== -1)
-{
+if (arr.indexOf('react') !== -1) {
     console.log('React存在');
 }
 ```
@@ -191,11 +190,10 @@ if (arr.indexOf('react') !== -1)
 
 使用[includes()](https://link.segmentfault.com/?enc=fnU4m4C0gzEYDZRrfafmJg%3D%3D.sykiIlvKj%2BUCqxw%2FhtNfmY3oLV2RPevNJv48vo6YLEaWk2bWrGYnbH%2BOFZfOPHABEP5xttV36XVTrXdh7uKoJ%2FdUPimxZEfZmZHMf%2FGhvBeBDFK3YcA%2FtBMnq3JR3Q%2BU)验证数组中是否存在某个元素，这样更加直观简单：
 
-```javascript
+```js
 let arr = ['react', 'angular', 'vue'];
 
-if (arr.includes('react'))
-{
+if (arr.includes('react')) {
     console.log('React存在');
 }
 ```
@@ -204,17 +202,13 @@ if (arr.includes('react'))
 
 #### 不使用ES7
 
-使用自定义的递归函数**calculateExponent**或者[Math.pow()](https://link.segmentfault.com/?enc=lKBbJD%2FzuCwjP%2B3R0fD61Q%3D%3D.RuGh%2F5i6d53VpQwOK%2Bu4nr5rUv1pccMuX7uo4d10ZAY4e3%2Ftg7LAxjDPCiP5sqn9hACMPTk7hJ8U0da%2FwqsLgXPEPiY3xZIT6rctQDZ5xh8p5B2Ceb%2Ff4P4XifaERQ7z)进行指数运算：
+使用自定义的递归函数**calculateExponent**或者[Math.pow()](https://link.segmentfault.com/?enc=lKBbJD%2FzuCwjP%2B3R0fD61Q%3D%3D. RuGh%2F5i6d53VpQwOK%2Bu4nr5rUv1pccMuX7uo4d10ZAY4e3%2Ftg7LAxjDPCiP5sqn9hACMPTk7hJ8U0da%2FwqsLgXPEPiY3xZIT6rctQDZ5xh8p5B2Ceb%2Ff4P4XifaERQ7z)进行指数运算：
 
-```javascript
-function calculateExponent(base, exponent)
-{
-    if (exponent === 1)
-    {
+```js
+function calculateExponent(base, exponent) {
+    if (exponent === 1) {
         return base;
-    }
-    else
-    {
+    } else {
         return base * calculateExponent(base, exponent - 1);
     }
 }
@@ -227,34 +221,40 @@ console.log(Math.pow(7, 3)); // 输出343
 
 使用指数运算符，就像**+**、**-**等操作符一样：
 
-```javascript
-console.log(7**3);
+```js
+console.log(7 ** 3);
 ```
 
 ### Object.values()
 
 #### 不使用ES8
 
-使用[Object.keys()](https://link.segmentfault.com/?enc=cYyc6OfgW0zB7cO6YeltLA%3D%3D.J5g0%2FmO7JD9gOLuGhmewDdWpgHjwovqgWAOme%2FSh5ekhIPTktiLW55vPj2NdK%2BCSUb1v3W5Q7W18vQfiBrLatckBrIHZtCZLBi1jwLH%2FsFNo2uG0r9wiVs3NaIFsshAh)遍历对象的属性值，需要通过属性名**key**去获取属性值：
+使用[Object.keys()](https://link.segmentfault.com/?enc=cYyc6OfgW0zB7cO6YeltLA%3D%3D. J5g0%2FmO7JD9gOLuGhmewDdWpgHjwovqgWAOme%2FSh5ekhIPTktiLW55vPj2NdK%2BCSUb1v3W5Q7W18vQfiBrLatckBrIHZtCZLBi1jwLH%2FsFNo2uG0r9wiVs3NaIFsshAh)遍历对象的属性值，需要通过属性名**key**去获取属性值：
 
-```javascript
-let obj = {a: 1, b: 2, c: 3};
+```js
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+};
 
-Object.keys(obj).forEach((key) =>
-{
+Object.keys(obj).forEach((key) => {
     console.log(obj[key]); // 输出1, 2, 3
 });
 ```
 
 #### 使用ES8
 
-使用[Object.values()](https://link.segmentfault.com/?enc=hBOaIdmRHVP4kCkpor7iMQ%3D%3D.QrI0RoLHlnqJ7aO0wUIlH2TC%2BgdP0T%2BOYD5nXHYpphuMsAM65pOoHrdSS04yg39ziekkN1TkVihAFDKgez4PzhDhb5uDUwKIEOOzOmX%2F78Cw4euXAgLcwhELJFncWorM)遍历对象的属性值，无需使用使用属性名：
+使用[Object.values()](https://link.segmentfault.com/?enc=hBOaIdmRHVP4kCkpor7iMQ%3D%3D. QrI0RoLHlnqJ7aO0wUIlH2TC%2BgdP0T%2BOYD5nXHYpphuMsAM65pOoHrdSS04yg39ziekkN1TkVihAFDKgez4PzhDhb5uDUwKIEOOzOmX%2F78Cw4euXAgLcwhELJFncWorM)遍历对象的属性值，无需使用使用属性名：
 
-```javascript
-let obj = {a: 1, b: 2, c: 3}
+```js
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+}
 
-Object.values(obj).forEach((value) =>
-{
+Object.values(obj).forEach((value) => {
     console.log(value); // 输出1, 2, 3
 });
 ```
@@ -263,13 +263,16 @@ Object.values(obj).forEach((value) =>
 
 #### 不使用ES8
 
-使用[Object.keys()](https://link.segmentfault.com/?enc=qMFsLL5Yyw28meTEhVeTYA%3D%3D.NENecAAtQI9GSuNgYrpNRAtTk5TSetRjvvEA05xVN%2FIhH5Ya0g9xPR48QRMilsE5d60Bxos5CloDDV0G1p4DdqqzhME7uGrOr6LQpgWTf2L55p0GXedP%2BxA5I3LHimbu)遍历对象的属性名和属性值：
+使用[Object.keys()](https://link.segmentfault.com/?enc=qMFsLL5Yyw28meTEhVeTYA%3D%3D. NENecAAtQI9GSuNgYrpNRAtTk5TSetRjvvEA05xVN%2FIhH5Ya0g9xPR48QRMilsE5d60Bxos5CloDDV0G1p4DdqqzhME7uGrOr6LQpgWTf2L55p0GXedP%2BxA5I3LHimbu)遍历对象的属性名和属性值：
 
-```javascript
-let obj = {a: 1, b: 2, c: 3};
+```js
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+};
 
-Object.keys(obj).forEach((key) =>
-{
+Object.keys(obj).forEach((key) => {
     console.log(key + ": " + obj[key]); // 输出a: 1, b: 2, c: 3
 })
 ```
@@ -278,10 +281,13 @@ Object.keys(obj).forEach((key) =>
 
 使用[Object.entries()](https://link.segmentfault.com/?enc=O48geOABnFSC0kx83ZZIbA%3D%3D.b3t8diNbUOUTpRA06e5uOlOdbyZ4izF1o1%2BKmhXrr5cM5dAk1%2B5%2F7hOEmGq8sOvxqc8uWcMqK2ljRF%2Ft9HgjtwkS9QG3Yogb7PSvwBvZtwrqXGbeXxt4RghdASKlK3vF)遍历对象的属性名和属性值：
 
-```javascript
-let obj = {a: 1, b: 2, c: 3};
-Object.entries(obj).forEach(([key, value]) =>
-{
+```js
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+};
+Object.entries(obj).forEach(([key, value]) => {
     console.log(key + ": " + value); // 输出a: 1, b: 2, c: 3
 })
 ```
@@ -290,7 +296,7 @@ Object.entries(obj).forEach(([key, value]) =>
 
 #### 不使用ES8
 
-```javascript
+```js
 console.log('0.00')
 console.log('10,000.00')
 console.log('250,000.00')
@@ -300,15 +306,15 @@ console.log('250,000.00')
 
 ```js
 0.00
-10,000.00
-250,000.00
+10, 000.00
+250, 000.00
 ```
 
 #### 使用ES8
 
 使用[padStart()](https://link.segmentfault.com/?enc=67v%2BBcf%2BJKkq947YaEfGcw%3D%3D.t8KieOlB1KHjp8PuaUzewwSsdfiRfXbLC6jbdrQQPe3lnQxRsYYkMc3zAJAUl521j6Swv%2FCjDJoh0h00SJjScFrZOVE%2FKaDkdT4tliEl1Y0iUBHp52pJJDV7ZhKe1QToWbYXT6rQZg7SgsVDMD72Fg%3D%3D)可以在字符串前面填充指定的字符串：
 
-```javascript
+```js
 console.log('0.00'.padStart(20))
 console.log('10,000.00'.padStart(20))
 console.log('250,000.00'.padStart(20))
@@ -318,55 +324,54 @@ console.log('250,000.00'.padStart(20))
 
 ```js
                 0.00
-           10,000.00
-          250,000.00
+                10, 000.00
+                250, 000.00
 ```
 
 ### padEnd()
 
 #### 不使用ES8
 
-```javascript
-console.log('0.00 ' + '0.00' )
-console.log('10,000.00 ' + '10,000.00' )
+```js
+console.log('0.00 ' + '0.00')
+console.log('10,000.00 ' + '10,000.00')
 console.log('250,000.00 ' + '250,000.00')
 ```
 
 输出如下：
 
-```javascript
+```js
 0.00 0.00
-10,000.00 10,000.00
-250,000.00 250,000.00
+10, 000.00 10, 000.00
+250, 000.00 250, 000.00
 ```
 
 #### 使用ES8
 
 使用[padEnd()](https://link.segmentfault.com/?enc=K%2Fj80ECtFBMTiWmGSGe%2BRw%3D%3D.3T53X4baX8JoGtIqjIIAvhGpi8wJjQcZrYCCJGy8kSPNKg7LfzEEnNyeagfE4PLJp9ekvlEvpXDPvFWc9sQVJU%2BWcyAxAdiHtcBmKdi3hV5x4wjHlVDd%2Bd0wM8AAsQGF)可以在字符串后面填充指定的字符串：
 
-```javascript
-console.log('0.00'.padEnd(20) + '0.00' )
-console.log('10,000.00'.padEnd(20) + '10,000.00' )
+```js
+console.log('0.00'.padEnd(20) + '0.00')
+console.log('10,000.00'.padEnd(20) + '10,000.00')
 console.log('250,000.00'.padEnd(20) + '250,000.00')
 ```
 
 输出如下：
 
 ```js
-0.00                0.00
-10,000.00           10,000.00
-250,000.00          250,000.00
+0.00 0.00
+10, 000.00 10, 000.00
+250, 000.00 250, 000.00
 ```
 
 ### Object.getOwnPropertyDescriptors()
 
 **azatsBooks**对象的定义如下：
 
-```javascript
+```js
 let azatsBooks = {
     books: ['React Quickly'],
-    get latest()
-    {
+    get latest() {
         let numberOfBooks = this.books.length;
         if (numberOfBooks == 0) return undefined;
         return this.books[numberOfBooks - 1];
@@ -380,7 +385,7 @@ let azatsBooks = {
 
 获取**azatsBooks**对象的**books**属性的属性描述符：
 
-```javascript
+```js
 console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'books'));
 
 /** 输出books属性的属性描述
@@ -395,7 +400,7 @@ console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'books'));
 
 获取**azatsBooks**对象的**lastest**方法的属性描述符：
 
-```javascript
+```js
 console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'latest'));
 
 /** 输出lastest方法的属性描述
@@ -414,9 +419,9 @@ console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'latest'));
 
 #### 使用ES8
 
-[Object.getOwnPropertyDescriptors()](https://link.segmentfault.com/?enc=CdErcGBsqz2bq%2FSViY4WxQ%3D%3D.kSYvoVwaawxJjY%2BOAAr%2BLRAiRyzm8vvtU6AvN1Inahdq%2FAtMTJAbPTXIqtczkTVWCH5f2lDyiMZxfOK98nPhGPia6QgUAMhIyjmcjb4xwaA%2FlsviYvCzzdGfBacZpXjUmFUS%2Bce2rH9grEIjWCnBRpIf6SNIDe8PJ72iZGH7aZI%3D)相当于[Object.getOwnPropertyDescriptor()](https://link.segmentfault.com/?enc=zWrw9y2KiV9ifbl5%2FyyByg%3D%3D.Vjic929iE7ZaMyPtCwaS403x40GNIchHcu%2BH%2FqJmAgdfOxmP5QiJxcAkCIKgl2NRNwoGqzW9roZZ5tVm3XfFz9uWL0N2r3vXjiV5q17yaG5EEbAiaUPBskB5MGwKtaowmRTYvgqClszxpXr4bQXoaYQudJ3oO0OPHZYnUIBx4zY%3D)的复数形式，可以获取对象的所有自身属性的描述符：
+[Object.getOwnPropertyDescriptors()](https://link.segmentfault.com/?enc=CdErcGBsqz2bq%2FSViY4WxQ%3D%3D.kSYvoVwaawxJjY%2BOAAr%2BLRAiRyzm8vvtU6AvN1Inahdq%2FAtMTJAbPTXIqtczkTVWCH5f2lDyiMZxfOK98nPhGPia6QgUAMhIyjmcjb4xwaA%2FlsviYvCzzdGfBacZpXjUmFUS%2Bce2rH9grEIjWCnBRpIf6SNIDe8PJ72iZGH7aZI%3D)相当于[Object.getOwnPropertyDescriptor()](https://link.segmentfault.com/?enc=zWrw9y2KiV9ifbl5%2FyyByg%3D%3D. Vjic929iE7ZaMyPtCwaS403x40GNIchHcu%2BH%2FqJmAgdfOxmP5QiJxcAkCIKgl2NRNwoGqzW9roZZ5tVm3XfFz9uWL0N2r3vXjiV5q17yaG5EEbAiaUPBskB5MGwKtaowmRTYvgqClszxpXr4bQXoaYQudJ3oO0OPHZYnUIBx4zY%3D)的复数形式，可以获取对象的所有自身属性的描述符：
 
-```javascript
+```js
 console.log(Object.getOwnPropertyDescriptors(azatsBooks))
 
 /** 输出azatsBooks对象所有自身属性的属性描述
@@ -445,29 +450,29 @@ console.log(Object.getOwnPropertyDescriptors(azatsBooks))
 
 #### 不使用ES8
 
-```javascript
+```js
 var f = function(a,
-  b,
-  c,
-  d // d之后不能带逗号
-   ) {
-  console.log(d)
+    b,
+    c,
+    d // d之后不能带逗号
+) {
+    console.log(d)
 }
 ```
 
 #### 使用ES8
 
-```javascript
+```js
 var f = function(a,
-  b,
-  c,
-  d, // d之后允许带逗号
+    b,
+    c,
+    d, // d之后允许带逗号
 ) {
-  console.log(d)
+    console.log(d)
 }
 ```
 
-允许逗号之后，可以避免一些不必要的报错。(如果你希望实时监控JavaScript应用的错误，欢迎免费使用[Fundebug](https://link.segmentfault.com/?enc=Wg9NXIgvWN3bbSFKwFC9oA%3D%3D.c%2BGTOqI5M58bTLx5tffVtVtFnDiHBDh9JzCUKy3U9jA%3D))
+允许逗号之后，可以避免一些不必要的报错。(如果你希望实时监控js应用的错误，欢迎免费使用[Fundebug](https://link.segmentfault.com/?enc=Wg9NXIgvWN3bbSFKwFC9oA%3D%3D.c%2BGTOqI5M58bTLx5tffVtVtFnDiHBDh9JzCUKy3U9jA%3D))
 
 ### Async/Await
 
@@ -475,11 +480,10 @@ var f = function(a,
 
 使用**Promise**写异步代码，会比较麻烦：
 
-```javascript
+```js
 axios.get(`/q?query=${query}`)
     .then(response => response.data)
-    .then(data =>
-    {
+    .then(data => {
         this.props.processfetchedData(data);
     })
     .catch(error => console.log(error));
@@ -489,23 +493,18 @@ axios.get(`/q?query=${query}`)
 
 **Async/Await**使得异步代码看起来像同步代码，这正是它的魔力所在：
 
-```javascript
-async fetchData(query) =>
-{
-    try
-    {
+```js
+async fetchData(query) => {
+    try {
         const response = await axios.get(`/q?query=${query}`);
         const data = response.data;
         return data;
-    }
-    catch (error)
-    {
+    } catch (error) {
         console.log(error)
     }
 }
 
-fetchData(query).then(data =>
-{
+fetchData(query).then(data => {
     this.props.processfetchedData(data)
 })
 ```
@@ -552,13 +551,11 @@ const match = reg.exec('2021-02-23');
 (?<=w)
 ```
 
-
-
 (?<!w)
 
 ### 6. 正则表达式dotAll模式
 
-> 正则表达式中点.匹配除回车外的任何单字符，标记s改变这种行为，允许行终止符的出现
+> 正则表达式中点. 匹配除回车外的任何单字符，标记s改变这种行为，允许行终止符的出现
 
 ```bash
 /hello.world/.test('hello\nworld');  // false
@@ -635,7 +632,7 @@ let u5 = user.u5 ?? '用户5'  // ''
 
 ### 2. Optional chaining（可选链）
 
-?.用户检测不确定的中间节点
+?. 用户检测不确定的中间节点
 
 ```bash
 let user = {}
@@ -669,9 +666,9 @@ Promise.allSettled(promiseList)
 
 ### 6. globalThis
 
-- 浏览器：window
-- worker：self
-- node：global
+* 浏览器：window
+* worker：self
+* node：global
 
 ## ES12（2021）
 
@@ -715,54 +712,56 @@ WeakRefs在很多情况下都很有用，比如使用Map对象来实现具有很
 
 我想要跟踪特定的对象调用某一特定方法的次数，超过1000条则做对应提示
 
-```javascript
+```js
 let map = new Map()
-function doSomething(obj){
-	...
-}
-function useObject(obj){
-	doSomething(obj)
 
-  let called = map.get(obj) || 0
-  called ++
-
-  if(called>1000){
-     console.log('当前调用次数已经超过1000次了，over')
-  }
-
-  map.set(obj, called)
+function doSomething(obj) {
+    ...
 }
 
+function useObject(obj) {
+    doSomething(obj)
+
+    let called = map.get(obj) || 0
+    called++
+
+    if (called > 1000) {
+        console.log('当前调用次数已经超过1000次了，over')
+    }
+
+    map.set(obj, called)
+}
 ```
 
-如上虽然可以实现我们的功能，但是会发生内存溢出,因为传递给doSomething函数的每个对象都永久保存在map中，并且不会被GC回收，因此我们可以使用*WeakMap*
+如上虽然可以实现我们的功能，但是会发生内存溢出, 因为传递给doSomething函数的每个对象都永久保存在map中，并且不会被GC回收，因此我们可以使用*WeakMap*
 
-```javascript
+```js
 let wmap = new WeakMap()
-function doSomething(obj){
-	...
-}
-function useObject(obj){
-	doSomething(obj)
 
-  let called = wmap.get(obj) || 0
-
-  called ++
-
-  if(called>1000){
-     console.log('当前调用次数已经超过1000次了，over')
-  }
-
-  wmap.set(obj, called)
+function doSomething(obj) {
+    ...
 }
 
+function useObject(obj) {
+    doSomething(obj)
+
+    let called = wmap.get(obj) || 0
+
+    called++
+
+    if (called > 1000) {
+        console.log('当前调用次数已经超过1000次了，over')
+    }
+
+    wmap.set(obj, called)
+}
 ```
 
 因为是弱引用，所以WeakMap、WeakSet的键值对是*不可枚举*的
 
 WeakSet和WeakMap相似，但是每个对象在WeakSet中的每个对象只可能出现一次，WeakSet中所有对象都是唯一的
 
-```javascript
+```js
 let ws = new WeakSet()
 let foo = {}
 let bar = {}
@@ -776,51 +775,47 @@ ws.has(bar) //true
 ws.delete(foo) //删除foo对象
 ws.has(foo) //false 已删除
 ws.has(bar) //仍存在
-
 ```
 
 *WeakSet*与*Set*相比有以下两个区别
 
-- WeakSet只能是对象集合，而不能是任何类型的任意值
-- WeakSet弱引用，集合中对象引用为弱引用，如果没有其他对WeakSet对象的引用，则会被GC回收
+* WeakSet只能是对象集合，而不能是任何类型的任意值
+* WeakSet弱引用，集合中对象引用为弱引用，如果没有其他对WeakSet对象的引用，则会被GC回收
 
 最后，*WeakRef*实例有一个方法*deref*，返回引用的原始对象，如果原始对象被回收，则返回*undefined*
 
-```javascript
+```js
 const cache = new Map();
 
-const setValue =  (key, obj) => {
-  cache.set(key, new WeakRef(obj));
+const setValue = (key, obj) => {
+    cache.set(key, new WeakRef(obj));
 };
 
 const getValue = (key) => {
-  const ref = cache.get(key);
-  if (ref) {
-    return ref.deref();
-  }
+    const ref = cache.get(key);
+    if (ref) {
+        return ref.deref();
+    }
 };
 
 const fibonacciCached = (number) => {
-  const cached = getValue(number);
-  if (cached) return cached;
-  const sum = calculateFibonacci(number);
-  setValue(number, sum);
-  return sum;
+    const cached = getValue(number);
+    if (cached) return cached;
+    const sum = calculateFibonacci(number);
+    setValue(number, sum);
+    return sum;
 };
-
 ```
 
 对于缓存远程数据来说，这可能不是一个好主意，因为远程数据可能会不可预测地从内存中删除。在这种情况下，最好使用LRU之类的缓存。
 
-
-
 ### 4. 逻辑运算符和赋值表达式
 
-> 逻辑运算符和赋值表达式，新特性结合了逻辑运算符（&&，||，??）和赋值表达式而JavaScript已存在的 复合赋值运算符有：
+> 逻辑运算符和赋值表达式，新特性结合了逻辑运算符（&&，||，??）和赋值表达式而js已存在的 复合赋值运算符有：
 
-- 操作运算符：+= -= *= /= %= **=
-- 位操作运算符：&= ^= |=
-- 按位运算符：<<= >>= >>>=
+* 操作运算符：+= -= *= /= %= **=
+* 位操作运算符：&= ^= |=
+* 按位运算符：<<= >>= >>>=
 
 ```bash
 a ||= b
@@ -838,33 +833,31 @@ a = a ?? (a = b)
 
 ### ??=可用来补充/初始化缺失的属性
 
-```javascript
-const pages = [
-  {
-  	title:'主会场',
-    path:'/'
-  },
-  {
-    path:'/other'
-  },
-  ...
+```js
+const pages = [{
+        title: '主会场',
+        path: '/'
+    },
+    {
+        path: '/other'
+    },
+    ...
 ]
 
-for (const page of pages){
-	page.title ??= '默认标题'
+for (const page of pages) {
+    page.title ?? = '默认标题'
 }
 console.table(pages)
 //(index)  title       		path
 //0        "主会场"   	  "/"
 //1        "默认标题"  	 "/other"
-
 ```
 
 ### 小结：
 
-- &&=：当LHS值存在时，将RHS变量赋值给LHS
-- ||=：当LHS值不存在时，将RHS变量赋值给LHS
-- ??= ：当LHS值为null或者undefined时，将RHS变量赋值给LHS
+* &&=：当LHS值存在时，将RHS变量赋值给LHS
+* ||=：当LHS值不存在时，将RHS变量赋值给LHS
+* ??= ：当LHS值为null或者undefined时，将RHS变量赋值给LHS
 
 ### 5. 数字分隔符
 

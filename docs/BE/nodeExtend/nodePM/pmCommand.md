@@ -40,7 +40,7 @@ $ npm config list -l
 #### 二、npm init 创建模块
 
 ```coffeescript
-$ npm init
+npm init
 ```
 
 `npm init`用来初始化生成一个新的`package.json`文件。它会向用户提问一系列问题，如果觉得不用修改默认配置，一路回车就可以了。
@@ -49,11 +49,7 @@ $ npm init
 
 以上创建好之后就可以在Package.json直接看了 还可以在里面修改更新。
 
-
-
 #### 三、npm set 设置环境变量
-
-
 
 ```csharp
 $ npm set init-author-name 'my name jerry'
@@ -69,7 +65,7 @@ $ npm init
 #### 四、npm search 搜索模块
 
 ```bnf
-$ npm search (搜索词) [-g]
+npm search (搜索词) [-g]
 ```
 
 `npm search`命令用于搜索npm仓库，它后面可以跟字符串，也可以跟正则表达式。
@@ -118,49 +114,49 @@ $ npm install (tarball url)
 
 ##### **配置选项说明:**
 
-) ```1c
-) #全局安装
-) -g | -global
-) //eg: npm i -g gulp 或者 npm i gulp -g
-)
-) #这是默认设置，除非-D或-O存在
-) #安装并将被添加到package.json的dependencies区。
-) -P | --save-prod
-)
-) #**（生产阶段的依赖）**
-) #安装并将被添加到package.json的dependencies区
-) -S | --save
-) //eg: npm i gulp --save 或 npm i gulp -S
-)
-) #**（开发阶段的依赖）**
-) #安装并将被添加到package.json的devDependencies区。
-) -D | --save-dev
-) //npm i gulp --save-dev 或 npm i gulp -D
-)
-) #**（可选阶段的依赖）**
-) #安装并将被添加到package.json的optionalDependencies区
-) -O | --save-optional
-)
-) #安装模块的确切版，而不是使用npm的默认semver range运算符
-) -E | --save-exact
-) //npm i gulp --save-exact 或 npm i gulp -E
-)
-) #安装并将被添加到`bundleDependencies`列表中
-) -B | --save-bundle
-)
-) #模块不管是否安装过，npm 都要强制重新安装
-) -f|--force
-) //eg:npm install sax --force
-) //补充：所有模块都要强制重新安装，那就删除`node_modules`，重新执行`npm install`
-) $ rm -rf node_modules //或者手动去删除node_modules目录
-) $ npm install
-)
-) #防止保存到`dependencies`
-) --no-save
-)
-) #报告安装状况而不是真的安装
-) --dry-run
-) ```
+```1c
+#全局安装
+-g | -global
+//eg: npm i -g gulp 或者 npm i gulp -g
+
+#这是默认设置，除非-D或-O存在
+#安装并将被添加到package.json的dependencies区。
+-P | --save-prod
+
+#**（生产阶段的依赖）**
+#安装并将被添加到package.json的dependencies区
+-S | --save
+//eg: npm i gulp --save 或 npm i gulp -S
+
+#**（开发阶段的依赖）**
+#安装并将被添加到package.json的devDependencies区。
+-D | --save-dev
+//npm i gulp --save-dev 或 npm i gulp -D
+
+#**（可选阶段的依赖）**
+#安装并将被添加到package.json的optionalDependencies区
+-O | --save-optional
+
+#安装模块的确切版，而不是使用npm的默认semver range运算符
+-E | --save-exact
+//npm i gulp --save-exact 或 npm i gulp -E
+
+#安装并将被添加到`bundleDependencies`列表中
+-B | --save-bundle
+
+#模块不管是否安装过，npm 都要强制重新安装
+-f|--force
+//eg:npm install sax --force
+//补充：所有模块都要强制重新安装，那就删除`node_modules`，重新执行`npm install`
+$ rm -rf node_modules //或者手动去删除node_modules目录
+$ npm install
+
+#防止保存到`dependencies`
+--no-save
+
+#报告安装状况而不是真的安装
+--dry-run
+```
 
 #### 五、npm uninstall 卸载模块
 
@@ -200,9 +196,9 @@ $ npm link (in package dir)
 
 `package.json`的`scripts`字段，可以用于指定脚本命令，供`npm`直接调用。`npm run`会创建一个Shell，执行指定的命令。
 
-##### 两个命令简写，`start`和`test`属于特殊命令，可以省略run,其余的都得带上run。
+##### 两个命令简写，`start`和`test`属于特殊命令，可以省略run,其余的都得带上run
 
-##### `npm run`的参数。
+##### `npm run`的参数
 
 - 如果不加任何参数，直接运行，会列出`package.json`里面所有可以执行的脚本命令
 
@@ -223,7 +219,7 @@ $ npm link (in package dir)
 ##### 内部变量
 
 ```bash
----package.json文件---
+---package.json文件
 {
     "name": "npm_test",
     "version": "1.0.0",
@@ -1117,6 +1113,3 @@ Configuration fields: npm help 7 config
 
 npm@7.12.1 F:\JS_SoftWare\node.js\node_global\node_modules\npm
 ```
-
-
-

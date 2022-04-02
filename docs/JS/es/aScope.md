@@ -44,12 +44,12 @@ function的创建、 初始化和赋值均会被提升。
 
 ```js
 function bar() {
-  console.log(myName)
+    console.log(myName)
 }
 
 function foo() {
-  var myName = "CodeHuang"
-  bar()
+    var myName = "CodeHuang"
+    bar()
 }
 var myName = "huangsq"
 foo()
@@ -91,12 +91,12 @@ foo()
 
 ```js
 function foo() {
-  var a = 2;
+    var a = 2;
 
-  function bar() {
-    console.log(a);
-  }
-  return bar;
+    function bar() {
+        console.log(a);
+    }
+    return bar;
 }
 var baz = foo();
 baz(); // 2 —— 哎！朋友，这就是闭包的效果。
@@ -129,15 +129,15 @@ f1是f2的父函数, 而f2被赋给了一个全局变量, 这导致f2始终在�
 
 ```js
  function f1() {
-   let n = 999;
-   nAdd = function() {
-     n += 1
-   }
+     let n = 999;
+     nAdd = function() {
+         n += 1
+     }
 
-   function f2() {
-     alert(n);
-   }
-   return f2;
+     function f2() {
+         alert(n);
+     }
+     return f2;
  }
  let result = f1();
  result(); // 999
@@ -192,10 +192,10 @@ console.log(Object.getOwnPropertyDescriptor(global, 'b'));
 
 ```js
 undefined {
-  value: 8,
-  writable: true,
-  enumerable: true,
-  configurable: true
+    value: 8,
+    writable: true,
+    enumerable: true,
+    configurable: true
 }
 ```
 

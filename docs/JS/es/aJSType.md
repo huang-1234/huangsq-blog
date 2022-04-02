@@ -4,33 +4,34 @@
 
 在 es 中，存在着 7 种原始类型：
 
-- `Boolean`
+* `Boolean`
 
-- `Null`
+* `Null`
 
-- `Undefined`
+* `Undefined`
 
-- `Number`
+* `Number`
 
-- `String`
+* `String`
 
-- `Symbol`
+* `Symbol`
 
-- `BigInt`
+* `BigInt`
 
   一种引用类型
 
-  `object`
+ `object`
 
 原始类型存储的是值，没有函数可以调用。
 
-那么有个问题，为什么`1..toString()`是正确的？而`1.toString()`却不行了呢？
+那么有个问题，为什么 `1..toString()` 是正确的？而 `1.toString()` 却不行了呢？
 
-原因在于数字1后面接的第一个点`.`,编译器是直接当成数字的一部分，而`1.`后面再接上一个点`.`才会被当成数字在调用方法，而这也只是数字的隐藏类`Number`在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。这个也许就是你不知道的JS讲的行为委托设计思想。
+原因在于数字1后面接的第一个点 `.` , 编译器是直接当成数字的一部分，而 `1.` 后面再接上一个点 `.` 才会被当成数字在调用方法，而这也只是数字的隐藏类 `Number` 在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。这个也许就是你不知道的JS讲的行为委托设计思想。
 
-> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的``Object.prototype.toString.call(target).slice(8,-1)`
+> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的` `Object.prototype.toString.call(target).slice(8,-1)`
+
 >
-> tartget是需要被检测的对象，后面再加一个slice(8,-1)是为了去掉前面的[object ]
+> tartget是需要被检测的对象，后面再加一个slice(8, -1)是为了去掉前面的[object ]
 
 ## 七种原始类型
 
@@ -38,52 +39,52 @@
 
 对于学过其他语言的程序员来说，JS中缺少显式整数类型常常令人困惑。许多编程语言支持多种数字类型，如浮点型、双精度型、整数型和双精度型，但JS却不是这样。在JS中，按照[IEEE 754-2008](https://link.segmentfault.com/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIEEE_754-2008_revision)标准的定义，所有数字都以[双精度64位浮点](https://link.segmentfault.com/?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDouble_precision_floating-point_format)格式表示。
 
-在此标准下，无法精确表示的非常大的整数将自动四舍五入。确切地说，JS 中的`Number`类型只能安全地表示`-9007199254740991 (-(2^53-1))` 和`9007199254740991(2^53-1)`之间的整数，任何超出此范围的整数值都可能失去精度。
+在此标准下，无法精确表示的非常大的整数将自动四舍五入。确切地说，JS 中的 `Number` 类型只能安全地表示 `-9007199254740991 (-(2^53-1))` 和 `9007199254740991(2^53-1)` 之间的整数，任何超出此范围的整数值都可能失去精度。
 
 ```js
-console.log(9999999999999999);    // → 10000000000000000
+console.log(9999999999999999); // → 10000000000000000
 ```
 
 该整数大于JS Number 类型所能表示的最大整数，因此，它被四舍五入的。意外四舍五入会损害程序的可靠性和安全性。这是另一个例子：
 
 ```js
 // 注意最后一位的数字
-9007199254740992 === 9007199254740993;    // → true
+9007199254740992 === 9007199254740993; // → true
 ```
 
-JS 提供`Number.MAX_SAFE_INTEGER`常量来表示 最大安全整数，`Number.MIN_SAFE_INTEGER`常量表示最小安全整数：
+JS 提供 `Number.MAX_SAFE_INTEGER` 常量来表示 最大安全整数， `Number.MIN_SAFE_INTEGER` 常量表示最小安全整数：
 
 ```js
 const minInt = Number.MIN_SAFE_INTEGER;
 
-console.log(minInt);         // → -9007199254740991
+console.log(minInt); // → -9007199254740991
 
-console.log(minInt - 5);     // → -9007199254740996
+console.log(minInt - 5); // → -9007199254740996
 
 // notice how this outputs the same value as above
-console.log(minInt - 4);     // → -9007199254740996
+console.log(minInt - 4); // → -9007199254740996
 ```
 
 #### 解决方案
 
 为了解决这些限制，一些JS开发人员使用字符串类型表示大整数。 例如，[Twitter API](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.twitter.com%2Fen%2Fdocs%2Fbasics%2Ftwitter-ids) 在使用 JSON 进行响应时会向对象添加字符串版本的 ID。 此外，还开发了许多库，例如 [bignumber.js](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FMikeMcl%2Fbignumber.js%2F)，以便更容易地处理大整数。
 
-使用BigInt，应用程序不再需要变通方法或库来安全地表示`Number.MAX_SAFE_INTEGER`和`Number.Min_SAFE_INTEGER`之外的整数。 现在可以在标准JS中执行对大整数的算术运算，而不会有精度损失的风险。
+使用BigInt，应用程序不再需要变通方法或库来安全地表示 `Number.MAX_SAFE_INTEGER` 和 `Number.Min_SAFE_INTEGER` 之外的整数。 现在可以在标准JS中执行对大整数的算术运算，而不会有精度损失的风险。
 
-要创建`BigInt`，只需在整数的末尾追加n即可。比较:
-
-```js
-console.log(9007199254740995n);    // → 9007199254740995n
-console.log(9007199254740995);     // → 9007199254740996
-```
-
-或者，可以调用`BigInt()`构造函数
+要创建 `BigInt` ，只需在整数的末尾追加n即可。比较:
 
 ```js
-BigInt("9007199254740995");    // → 9007199254740995n
+console.log(9007199254740995n); // → 9007199254740995n
+console.log(9007199254740995); // → 9007199254740996
 ```
 
-`BigInt`文字也可以用二进制、八进制或十六进制表示
+或者，可以调用 `BigInt()` 构造函数
+
+```js
+BigInt("9007199254740995"); // → 9007199254740995n
+```
+
+`BigInt` 文字也可以用二进制、八进制或十六进制表示
 
 ```js
 // binary
@@ -103,79 +104,81 @@ console.log(0400000000000000003n);
 // → SyntaxError
 ```
 
-请记住，不能使用严格相等运算符将`BigInt`与常规数字进行比较，因为它们的类型不同：
+请记住，不能使用严格相等运算符将 `BigInt` 与常规数字进行比较，因为它们的类型不同：
 
 ```js
-console.log(10n === 10);    // → false
+console.log(10n === 10); // → false
 
-console.log(typeof 10n);    // → bigint
-console.log(typeof 10);     // → number
+console.log(typeof 10n); // → bigint
+console.log(typeof 10); // → number
 ```
 
 相反，可以使用等号运算符，它在处理操作数之前执行隐式类型转换
 
 ```js
-console.log(10n == 10);    // → true
+console.log(10n == 10); // → true
 ```
 
-除一元加号(`+`)运算符外，所有算术运算符都可用于`BigInt`
+除一元加号( `+` )运算符外，所有算术运算符都可用于 `BigInt`
 
 ```js
-10n + 20n;    // → 30n
-10n - 20n;    // → -10n
-+10n;         // → TypeError: Cannot convert a BigInt value to a number
--10n;         // → -10n
-10n * 20n;    // → 200n
-20n / 10n;    // → 2n
-23n % 10n;    // → 3n
-10n ** 3n;    // → 1000n
+10n + 20n; // → 30n
+10n - 20n; // → -10n
++
+10n; // → TypeError: Cannot convert a BigInt value to a number
+-
+10n; // → -10n
+10n * 20n; // → 200n
+20n / 10n; // → 2n
+23n % 10n; // → 3n
+10n ** 3n; // → 1000n
 
 const x = 10n;
-++x;          // → 11n
---x;          // → 9n
+++x; // → 11n
+--x; // → 9n
 ```
 
-不支持一元加号（`+`）运算符的原因是某些程序可能依赖于`+`始终生成`Number`的不变量，或者抛出异常。 更改`+`的行为也会破坏`asm.js`代码。
+不支持一元加号（ `+` ）运算符的原因是某些程序可能依赖于 `+` 始终生成 `Number` 的不变量，或者抛出异常。 更改 `+` 的行为也会破坏 `asm.js` 代码。
 
-当然，与`BigInt`操作数一起使用时，算术运算符应该返回`BigInt`值。因此，除法(`/`)运算符的结果会自动向下舍入到最接近的整数。例如:
+当然，与 `BigInt` 操作数一起使用时，算术运算符应该返回 `BigInt` 值。因此，除法( `/` )运算符的结果会自动向下舍入到最接近的整数。例如:
 
 ```js
-25 / 10;      // → 2.5
-25n / 10n;    // → 2n
+25 / 10; // → 2.5
+25n / 10n; // → 2n
 ```
 
 #### 隐式类型转换
 
-因为隐式类型转换可能丢失信息，所以不允许在`bigint`和 `Number` 之间进行混合操作。当混合使用大整数和浮点数时，结果值可能无法由`BigInt`或`Number`精确表示。思考下面的例子：
+因为隐式类型转换可能丢失信息，所以不允许在 `bigint` 和 `Number` 之间进行混合操作。当混合使用大整数和浮点数时，结果值可能无法由 `BigInt` 或 `Number` 精确表示。思考下面的例子：
 
 ```js
 (9007199254740992n + 1n) + 0.5
 ```
 
-这个表达式的结果超出了`BigInt`和`Number`的范围。小数部分的`Number`不能精确地转换为`BigInt`。大于`2^53`的`BigInt`不能准确地转换为数字。
+这个表达式的结果超出了 `BigInt` 和 `Number` 的范围。小数部分的 `Number` 不能精确地转换为 `BigInt` 。大于 `2^53` 的 `BigInt` 不能准确地转换为数字。
 
-由于这个限制，不可能对混合使用`Number`和`BigInt`操作数执行算术操作。还不能将`BigInt`传递给Web api和内置的 JS 函数，这些函数需要一个 `Number` 类型的数字。尝试这样做会报`TypeError`错误
+由于这个限制，不可能对混合使用 `Number` 和 `BigInt` 操作数执行算术操作。还不能将 `BigInt` 传递给Web api和内置的 JS 函数，这些函数需要一个 `Number` 类型的数字。尝试这样做会报 `TypeError` 错误
 
 ```js
-10 + 10n;    // → TypeError
-Math.max(2n, 4n, 6n);    // → TypeError
+10 + 10n; // → TypeError
+Math.max(2n, 4n, 6n); // → TypeError
 ```
 
 **请注意**，关系运算符不遵循此规则，如下例所示：
 
 ```js
-10n > 5;    // → true
+10n > 5; // → true
 ```
 
-如果希望使用`BigInt`和`Number`执行算术计算，首先需要确定应该在哪个类型中执行该操作。为此，只需通过调用`Number()`或`BigInt()`来转换操作数：
+如果希望使用 `BigInt` 和 `Number` 执行算术计算，首先需要确定应该在哪个类型中执行该操作。为此，只需通过调用 `Number()` 或 `BigInt()` 来转换操作数：
 
 ```js
-BigInt(10) + 10n;    // → 20n
+BigInt(10) + 10n; // → 20n
 // or
-10 + Number(10n);    // → 20
+10 + Number(10n); // → 20
 ```
 
-当 `Boolean` 类型与`BigInt` 类型相遇时，`BigInt`的处理方式与`Number`类似，换句话说，只要不是`0n`，`BigInt`就被视为`truthy`的值：
+当 `Boolean` 类型与 `BigInt` 类型相遇时， `BigInt` 的处理方式与 `Number` 类似，换句话说，只要不是 `0n` ， `BigInt` 就被视为 `truthy` 的值：
 
 ```js
 if (5n) {
@@ -187,30 +190,30 @@ if (0n) {
 }
 ```
 
-排序`BigInts`和`Numbers`数组时，不会发生隐式类型转换：
+排序 `BigInts` 和 `Numbers` 数组时，不会发生隐式类型转换：
 
 ```js
 const arr = [3n, 4, 2, 1n, 0, -1n];
 
-arr.sort();    // → [-1n, 0, 1n, 2, 3n, 4]
+arr.sort(); // → [-1n, 0, 1n, 2, 3n, 4]
 ```
 
-位操作符如`|、&、<<、>>`和`^`对`Bigint`的操作方式与`Number`类似。下面是一些例子
+位操作符如 `|、&、<<、>>` 和 `^` 对 `Bigint` 的操作方式与 `Number` 类似。下面是一些例子
 
 ```js
-90 | 115;      // → 123
-90n | 115n;    // → 123n
-90n | 115;     // → TypeError
+90 | 115; // → 123
+90n | 115n; // → 123n
+90n | 115; // → TypeError
 ```
 
 #### BigInt构造函数
 
-与其他基本类型一样，可以使用构造函数创建`BigInt`。传递给`BigInt()`的参数将自动转换为`BigInt`:
+与其他基本类型一样，可以使用构造函数创建 `BigInt` 。传递给 `BigInt()` 的参数将自动转换为 `BigInt` :
 
 ```js
-BigInt("10");    // → 10n
-BigInt(10);      // → 10n
-BigInt(true);    // → 1n
+BigInt("10"); // → 10n
+BigInt(10); // → 10n
+BigInt(true); // → 1n
 ```
 
 无法转换的数据类型和值会引发异常:
@@ -221,25 +224,25 @@ BigInt(null);     // → TypeError
 BigInt("abc");    // → SyntaxError
 ```
 
-可以直接对使用构造函数创建的`BigInt`执行算术操作
+可以直接对使用构造函数创建的 `BigInt` 执行算术操作
 
 ```js
-BigInt(10) * 10n;    // → 100n
+BigInt(10) * 10n; // → 100n
 ```
 
-使用严格相等运算符的操作数时，使用构造函数创建的`Bigint`与常规`Bigint`的处理方式类似
+使用严格相等运算符的操作数时，使用构造函数创建的 `Bigint` 与常规 `Bigint` 的处理方式类似
 
 ```js
-BigInt(true) === 1n;    // → true
+BigInt(true) === 1n; // → true
 ```
 
 #### 库函数
 
-在撰写本文时，`Chrome +67` 和`Opera +54`完全支持`BigInt`数据类型。不幸的是，`Edge`和`Safari`还没有实现它。`Firefox`默认不支持BigInt，但是可以在`about:config`中将`javascript.options.bigint` 设置为`true`来开启它，最新支持的情况可在“[Can I use](https://link.segmentfault.com/?url=https%3A%2F%2Fcaniuse.com%2F%23search%3Dbigint)”上查看。
+在撰写本文时， `Chrome +67` 和 `Opera +54` 完全支持 `BigInt` 数据类型。不幸的是， `Edge` 和 `Safari` 还没有实现它。 `Firefox` 默认不支持BigInt，但是可以在 `about:config` 中将 `javascript.options.bigint` 设置为 `true` 来开启它，最新支持的情况可在“[Can I use](https://link.segmentfault.com/?url=https%3A%2F%2Fcaniuse.com%2F%23search%3Dbigint)”上查看。
 
-不幸的是，转换`BigInt`是一个极其复杂的过程，这会导致严重的运行时性能损失。直接polyfill `BigInt`也是不可能的，因为该提议改变了几个现有操作符的行为。目前，更好的选择是使用[JSBI](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FGoogleChromeLabs%2Fjsbi)库，它是`BigInt`提案的纯JS实现。
+不幸的是，转换 `BigInt` 是一个极其复杂的过程，这会导致严重的运行时性能损失。直接polyfill `BigInt` 也是不可能的，因为该提议改变了几个现有操作符的行为。目前，更好的选择是使用[JSBI](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FGoogleChromeLabs%2Fjsbi)库，它是 `BigInt` 提案的纯JS实现。
 
-这个库提供了一个与原生`BigInt`行为完全相同的API。下面是如何使用JSBI：
+这个库提供了一个与原生 `BigInt` 行为完全相同的API。下面是如何使用JSBI：
 
 ```js
 import JSBI from './jsbi.mjs';
@@ -249,33 +252,29 @@ const b2 = JSBI.BigInt('10');
 
 const result = JSBI.add(b1, b2);
 
-console.log(String(result));    // → '9007199254741001'
+console.log(String(result)); // → '9007199254741001'
 ```
 
-使用`JSBI`的一个优点是，一旦浏览器支持，就不需要重写代码。 相反，可以使用`babel`插件自动将JSBI代码编译为原生 `BigInt`代码。
+使用 `JSBI` 的一个优点是，一旦浏览器支持，就不需要重写代码。 相反，可以使用 `babel` 插件自动将JSBI代码编译为原生 `BigInt` 代码。
 
 #### 总结
 
-`BigInt`是一种新的数据类型，用于当整数值大于`Number`数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。
+`BigInt` 是一种新的数据类型，用于当整数值大于 `Number` 数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。
 
-重要的是要记住，不能使用`Number`和`BigInt`操作数的混合执行算术运算，需要通过显式转换其中的一种类型。 此外，出于兼容性原因，不允许在`BigInt`上使用一元加号（`+`）运算符。
-
-
-
-
+重要的是要记住，不能使用 `Number` 和 `BigInt` 操作数的混合执行算术运算，需要通过显式转换其中的一种类型。 此外，出于兼容性原因，不允许在 `BigInt` 上使用一元加号（ `+` ）运算符。
 
 ```js
 function test(person) {
-  person.age = 18
-  person = {
-    name: 'Andy',
-    age: 19
-  }
-  return person
+    person.age = 18
+    person = {
+        name: 'Andy',
+        age: 19
+    }
+    return person
 }
 const p1 = {
-  name: 'sq',
-  age: 20
+    name: 'sq',
+    age: 20
 }
 const p2 = test(p1)
 console.log(p1) // -> ?
@@ -285,8 +284,14 @@ console.log(p2) // -> ?
 结果:
 
 ```js
-p1：{ name: 'sq', age: 18 }
-p2: { name: 'Andy', age: 19 }
+p1： {
+    name: 'sq',
+    age: 18
+}
+p2: {
+    name: 'Andy',
+    age: 19
+}
 ```
 
 > 原因: 在函数传参的时候传递的是对象在堆中的内存地址值，test函数中的实参person是p1对象的内存地址，通过调用person.age = 18确实改变了p1的值，但随后person变成了另一块内存空间的地址，并且在最后将这另外一份内存空间的地址返回，赋给了p2。
@@ -316,7 +321,7 @@ typeof true // 'boolean'
 typeof Symbol() // 'symbol'
 ```
 
-`typeof` 对于对象来说，除了函数都会显示 `object`，所以说 `typeof` 并不能准确判断变量到底是什么类型.
+`typeof` 对于对象来说，除了函数都会显示 `object` ，所以说 `typeof` 并不能准确判断变量到底是什么类型.
 
 ```js
 typeof [] // 'object'
@@ -324,7 +329,7 @@ typeof {} // 'object'
 typeof console.log // 'function'
 ```
 
-如果我们想判断一个对象的正确类型，这时候可以考虑使用 `instanceof`，因为内部机制是通过原型链来判断的。
+如果我们想判断一个对象的正确类型，这时候可以考虑使用 `instanceof` ，因为内部机制是通过原型链来判断的。
 
 ```js
 const Person = function() {}
@@ -342,24 +347,25 @@ str1 instanceof String // true
 
 ```js
 class PrimitiveString {
-  static [Symbol.hasInstance](x) {
-    return typeof x === 'string'
-  }
+    static[Symbol.hasInstance](x) {
+        return typeof x === 'string'
+    }
 }
-console.log('hello world' instanceof PrimitiveString) // true
+console.log('hello world'
+    instanceof PrimitiveString) // true
 ```
 
 ### 类型转换
 
-在` js `中，只有三种类型转换
+在 ` js ` 中，只有三种类型转换
 
-- 转换为布尔值
-- 转换为数字
-- 转换为字符串
+* 转换为布尔值
+* 转换为数字
+* 转换为字符串
 
 ### 转Boolean
 
-在条件判断时，除了 `undefined`， `null`， `false`， `NaN`， `''`， `0`， `-0`，其他所有值都转为 `true`，包括所有对象。
+在条件判断时，除了 `undefined` ， `null` ， `false` ， `NaN` ， `''` ， `0` ， `-0` ，其他所有值都转为 `true` ，包括所有对象。
 
 ### 对象转原始类型
 
@@ -367,23 +373,23 @@ console.log('hello world' instanceof PrimitiveString) // true
 
 对象在转换类型的时候，会调用内置的 `[[ToPrimitive]]` 函数，对于该函数来说，算法逻辑一般来说如下：
 
-- 先检测该对象中是否存在 `valueOf` 方法，如果有并返回了原始类型，那么就使用该值进行强制类型转换；
-- 如果 `valueOf` 没有返回原始类型，那么就使用 `toString` 方法的返回值；
-- 如果 `vauleOf` 和 `toString` 两个方法都不返回基本类型值，便会触发一个 `TypeError` 的错误。
+* 先检测该对象中是否存在 `valueOf` 方法，如果有并返回了原始类型，那么就使用该值进行强制类型转换；
+* 如果 `valueOf` 没有返回原始类型，那么就使用 `toString` 方法的返回值；
+* 如果 `vauleOf` 和 `toString` 两个方法都不返回基本类型值，便会触发一个 `TypeError` 的错误。
 
 也可以重写 `Symbol.toPrimitive` ，该方法在转原始类型时调用优先级最高。
 
 ```js
 let a = {
-  valueOf() {
-    return 0
-  },
-  toString() {
-    return '1'
-  },
-  [Symbol.toPrimitive]() {
-    return 2
-  }
+    valueOf() {
+        return 0
+    },
+    toString() {
+        return '1'
+    },
+    [Symbol.toPrimitive]() {
+        return 2
+    }
 }
 1 + a // => 3
 ```
@@ -392,13 +398,13 @@ let a = {
 
 加法运算符不同于其他几个运算符，它有以下几个特点：
 
-- 运算中其中一方为字符串，那么就会把另一方也转换为字符串。
-- 如果一方不是字符串或者数字，那么会将它转换为数字或者字符串
+* 运算中其中一方为字符串，那么就会把另一方也转换为字符串。
+* 如果一方不是字符串或者数字，那么会将它转换为数字或者字符串
 
 ```js
 1 + '1' // '11'
 true + true // 2
-4 + [1,2,3] // "41,2,3"
+4 + [1, 2, 3] // "41,2,3"
 ```
 
 对于除了加法的运算符来说，只要其中一方是数字，那么另一方就会被转为数字
@@ -411,17 +417,17 @@ true + true // 2
 
 ### 比较运算符
 
-- 如果是对象，就通过 `toPrimitive` 转换对象
-- 如果是字符串，就通过 `unicode` 字符索引来比较
+* 如果是对象，就通过 `toPrimitive` 转换对象
+* 如果是字符串，就通过 `unicode` 字符索引来比较
 
 ```js
 let a = {
-  valueOf() {
-    return 0
-  },
-  toString() {
-    return '1'
-  }
+    valueOf() {
+        return 0
+    },
+    toString() {
+        return '1'
+    }
 }
 a > -1 // true
 ```
@@ -478,31 +484,31 @@ Symbol.for() 可以在全局访问 symbol。
 {} + [] // 0
 ```
 
-看第一个，[] 会强转为 ""，{}强转为字符串为 `"[object Object]"`。两个字符串相加，得到最终结果。
+看第一个，[] 会强转为 ""，{}强转为字符串为 `"[object Object]"` 。两个字符串相加，得到最终结果。
 
-第二个，编译器会把 {} 当作一个空代码块，可以理解为全局作用域下一个没有用的 {} 符号而已，可以把 `{} + []` 当作 `+ []`，而`+ []`是强制将`[]`转换为number ,转换的过程是 `+ []` --> `+""` -->`0` 最终的结果就是0。
+第二个，编译器会把 {} 当作一个空代码块，可以理解为全局作用域下一个没有用的 {} 符号而已，可以把 `{} + []` 当作 `+ []` ，而 `+ []` 是强制将 `[]` 转换为number , 转换的过程是 `+ []` --> `+""` --> `0` 最终的结果就是0。
 
-但是我们执行`console.log({}+[])`和`console.log([]+{})`,结果是一样的，因为{}没有一个语句或者表达式的头部。
+但是我们执行 `console.log({}+[])` 和 `console.log([]+{})` , 结果是一样的，因为{}没有一个语句或者表达式的头部。
 
 ### Symbol 类型转换
 
-- 不能被转换为数字
-- 能被转换为布尔值（都是 true）
-- 可以被转换成字符串 "Symbol(cool)"
+* 不能被转换为数字
+* 能被转换为布尔值（都是 true）
+* 可以被转换成字符串 "Symbol(cool)"
 
 ### 假值列表
 
-- undefined
-- null
-- false
-- +0, -0, NaN
-- ""
+* undefined
+* null
+* false
+* +0, -0, NaN
+* ""
 
 ### NAN 以及 typeof NAN
 
 NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 
-##  js中`==`和`===`区别
+##  js中 `==` 和 `===` 区别
 
 ### 简单概要
 
@@ -517,42 +523,39 @@ NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 > 双等号==：
 
 ```js
-（1）如果两个值类型相同，再进行三个等号(===)的比较
-（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：
-   a）如果一个是null，一个是undefined，那么相等
-   b）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较
+（
+1） 如果两个值类型相同， 再进行三个等号( === ) 的比较（ 2） 如果两个值类型不同， 也有可能相等， 需根据以下规则进行类型转换在比较：
+a） 如果一个是null， 一个是undefined， 那么相等
+b） 如果一个是字符串， 一个是数值， 把字符串转换成数值之后再进行比较
 ```
 
 > 三等号===:
 
 ```js
-（1）如果类型不同，就一定不相等
+（
+1） 如果类型不同， 就一定不相等
 
-（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。
-（判断一个值是否是NaN，只能使用isNaN( ) 来判断）
+（ 2） 如果两个都是数值， 并且是同一个值， 那么相等； 如果其中至少一个是NaN， 那么不相等。（ 判断一个值是否是NaN， 只能使用isNaN() 来判断）
 
-（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。
-（4）如果两个值都是true，或是false，那么相等
-（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等
-（6）如果两个值都是null，或是undefined，那么相等.
+（ 3） 如果两个都是字符串， 每个位置的字符都一样， 那么相等， 否则不相等。（ 4） 如果两个值都是true， 或是false， 那么相等（ 5） 如果两个值都引用同一个对象或是函数， 那么相等， 否则不相等（ 6） 如果两个值都是null， 或是undefined， 那么相等.
 ```
 
 # 判断数据类型
 
 本文将通过下方知识点，来讲解判断 JavaScript 数据类型的 4 种方法：
 
-- `typeof()`
-- `instanceof()`
-- `constructor`
-- `Object.prototype.toString.call()`
+* `typeof()`
+* `instanceof()`
+* `constructor`
+* `Object.prototype.toString.call()`
 
 不管是面试中，亦或在工作上，会出现这么个场景：
 
-- **如何判断某个 JavaScript 字段的数据类型？**
+* **如何判断某个 JavaScript 字段的数据类型？**
 
 当然，它还可能是某个知识点的附赠品，例如：
 
-- **当你进行深拷贝数据的时候，你是如何判断这个字段是什么类型的？你知道判断数据类型有几种方式么？它们优缺点在哪？**
+* **当你进行深拷贝数据的时候，你是如何判断这个字段是什么类型的？你知道判断数据类型有几种方式么？它们优缺点在哪？**
 
 那么，本文来讲解下，判断 JavaScript 数据类型的四种方法！
 
@@ -564,44 +567,42 @@ NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
  * @description 通过 typeof 检测各个数据类型的返回
  */
 const test = {
-  testUndefined: undefined,
-  testNull: null,
-  testBoolean: true,
-  testNumber: 123,
-  testBigInt: BigInt(1234), // 大于 2 的 53 次方算 BigInt
-  testString: '123',
-  testSymbol: Symbol(),
-  testFunction: function() {
-    console.log('function');
-  },
-  testObject: {
-    obj: 'yes',
-  },
-  testObjectString: new String('String'),
-  testObjectNumber: new Number(123),
+    testUndefined: undefined,
+    testNull: null,
+    testBoolean: true,
+    testNumber: 123,
+    testBigInt: BigInt(1234), // 大于 2 的 53 次方算 BigInt
+    testString: '123',
+    testSymbol: Symbol(),
+    testFunction: function() {
+        console.log('function');
+    },
+    testObject: {
+        obj: 'yes',
+    },
+    testObjectString: new String('String'),
+    testObjectNumber: new Number(123),
 }
 
 console.log(typeof(test.testUndefined)); // undefined
-console.log(typeof(test.testNull));      // object
-console.log(typeof(test.testBoolean));   // boolean
-console.log(typeof(test.testNumber));    // number
-console.log(typeof(test.testBigInt));    // bigint
-console.log(typeof(test.testString));    // string
-console.log(typeof(test.testSymbol));    // symbol
-console.log(typeof(test.testFunction));  // function
-console.log(typeof(test.testObject));    // object
-console.log(typeof(test.testObjectString));    // object
-console.log(typeof(test.testObjectNumber));    // object
+console.log(typeof(test.testNull)); // object
+console.log(typeof(test.testBoolean)); // boolean
+console.log(typeof(test.testNumber)); // number
+console.log(typeof(test.testBigInt)); // bigint
+console.log(typeof(test.testString)); // string
+console.log(typeof(test.testSymbol)); // symbol
+console.log(typeof(test.testFunction)); // function
+console.log(typeof(test.testObject)); // object
+console.log(typeof(test.testObjectString)); // object
+console.log(typeof(test.testObjectNumber)); // object
 ```
 
-如上，可以看出，通过 `typeof`，我们可以判断大多数的类型，但是，它存在缺陷：
+如上，可以看出，通过 `typeof` ，我们可以判断大多数的类型，但是，它存在缺陷：
 
 1. 判断 `typeof null`，会得到 `object`； 这是因为在大部分的JS编译器内部对对象的描述，其首地址都是规定以00开头的，而当初设计的时候，null的首地址又刚好就是00开头。
 2. 判断构造函数 `typeof new String('String')` 或者 `typeof new Number(123)` 等……，也会得到 `object`。
 
 即通过 `typeof` 进行数据类型判断会有一定的问题。
-
-
 
 ### 四 instanceof
 
@@ -637,11 +638,9 @@ console.log(simpleOjbect instanceof Object); // true
 console.log(newObject instanceof Object); // true
 ```
 
-如上，`instanceof` 可能表现的差强人意，虽然它是可以检测数据类型，但是对于 `'' instanceof String` 以及 `123 instanceof Number` 等会返回 `false`，不太满足我们需求。
+如上， `instanceof` 可能表现的差强人意，虽然它是可以检测数据类型，但是对于 `'' instanceof String` 以及 `123 instanceof Number` 等会返回 `false` ，不太满足我们需求。
 
 其实 `instanceof` 主要用于检测构造函数的 `prototype` 属性是否出现在某个实例对象的原型链上，这块知识点到时候我们可以进一步进行学习探索。（一件值得期待的事）
-
-
 
 ### 五 constructor
 
@@ -674,11 +673,11 @@ const undefin = undefined;
 // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 ```
 
-`constructor` 和前面的 `typeof`、`instanceof` 不同，`typeof` 和 `instanceof` 是属于 **表达式和运算符** 分类下的，而 `constructor` 是直接关系到内置对象 `Object` 下。
+`constructor` 和前面的 `typeof` 、 `instanceof` 不同， `typeof` 和 `instanceof` 是属于 **表达式和运算符** 分类下的，而 `constructor` 是直接关系到内置对象 `Object` 下。
 
-当然，这里我们讲的是校验数据类型，通过 `[].constructor === Array` 或者 `(1).constructor === Number` 会返回 `true`，符合我们的预期。
+当然，这里我们讲的是校验数据类型，通过 `[].constructor === Array` 或者 `(1).constructor === Number` 会返回 `true` ，符合我们的预期。
 
-但是很遗憾的表示，当你使用 `null.constructor` 或者 `undefined.constructor` 它会毫不留情的给你报：`Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5`，所以我们也不能强行使用 `constructor` 来做深拷贝时候的判断数据类型。
+但是很遗憾的表示，当你使用 `null.constructor` 或者 `undefined.constructor` 它会毫不留情的给你报： `Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5` ，所以我们也不能强行使用 `constructor` 来做深拷贝时候的判断数据类型。
 
 ### 六Object.toString.call()
 
@@ -691,47 +690,42 @@ Object.prototype.toString.call()
  */
 const toString = Object.prototype.toString;
 
-console.log(toString.call(new Date));     // [object Date]
-console.log(toString.call(new String));   // [object String]
-console.log(toString.call(Math));         // [object Math]
-console.log(toString.call('feHuang'));    // [object String]
-console.log(toString.call(123));          // [object Number]
-console.log(toString.call([]));           // [object Array]
-console.log(toString.call({}));           // [object Object]
-console.log(toString.call(undefined));    // [object Undefined]
-console.log(toString.call(null));         // [object Null]
+console.log(toString.call(new Date)); // [object Date]
+console.log(toString.call(new String)); // [object String]
+console.log(toString.call(Math)); // [object Math]
+console.log(toString.call('feHuang')); // [object String]
+console.log(toString.call(123)); // [object Number]
+console.log(toString.call([])); // [object Array]
+console.log(toString.call({})); // [object Object]
+console.log(toString.call(undefined)); // [object Undefined]
+console.log(toString.call(null)); // [object Null]
 ```
 
-在前面三种心有余而力不足的情况下，`Object.prototype.toString.call()` 就显得稳定而实用了。
+在前面三种心有余而力不足的情况下， `Object.prototype.toString.call()` 就显得稳定而实用了。
 
-如果你看过 jQuery 源码，你会发现它的数据类型检测也是通过这个实现的（`jQuery.type(obj)`）。
+如果你看过 jQuery 源码，你会发现它的数据类型检测也是通过这个实现的（ `jQuery.type(obj)` ）。
 
-在检测数据类型方面，你不管检测 `Object.prototype.toString.call('aaa')`、`Object.prototype.toString.call(null)` 亦或者 `Object.prototype.toString.call(undefined)` 都能得到你要的类型格式：`[object String]`、`[object Null]`、`[object Undefined]`。
-
-
+在检测数据类型方面，你不管检测 `Object.prototype.toString.call('aaa')` 、 `Object.prototype.toString.call(null)` 亦或者 `Object.prototype.toString.call(undefined)` 都能得到你要的类型格式： `[object String]` 、 `[object Null]` 、 `[object Undefined]` 。
 
 ### 七 总结
 
 如上，通过对比，我们得出结论，在进行 JavaScript 数据类型判断的时候，推荐使用：
 
-- `Object.prototype.toString.call()`
+* `Object.prototype.toString.call()`
 
 当然，写到这里，虽然我们的文章看起来可能简洁短小点，但是感觉讲出了这四种方法在判断数据类型上的优缺点。
 
-- `apply()`
-- `bind()`
-- `call()`
-- `apply()、bind() 以及 call() 的区别`
-
-
-
+* `apply()`
+* `bind()`
+* `call()`
+* `apply()、bind() 以及 call() 的区别`
 # Object.prototype.toString方法的原理
 
 在JavaScript中，想要判断某个对象值属于哪种内置类型，最靠谱的做法就是通过Object.prototype.toString方法.
 
 ```js
 let arr = [];
-console.log(Object.prototype.toString.call(arr))  //"[object Array]"
+console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 ```
 
 本文要讲的就是，toString方法是如何做到这一点的，原理是什么.
@@ -742,21 +736,21 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 
 > 15.2.4.2 Object.prototype.toString()
 >
-> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`**`连接后的新字符串.`3. 返回第二步的操作结果Result(2).
+> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`** `连接后的新字符串.` 3. 返回第二步的操作结果Result(2).
 
-[[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性.在规范中，[[Class]]是这么定义的
+[[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性. 在规范中，[[Class]]是这么定义的
 
 | 内部属性  | 描述                             |
 | --------- | -------------------------------- |
-| [[Class]] | 一个字符串值,表明了该对象的类型. |
+| [[Class]] | 一个字符串值, 表明了该对象的类型. |
 
 然后给了一段解释:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型.需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
 也就是说，把Object.prototype.toString方法返回的字符串，去掉前面固定的**`"[object "`**和后面固定的**"]"，**就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery中的工具方法$.type()，就是干这个的.
 
-在ES3中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有10种.分别是:`"Array"`， `"Boolean"`， `"Date"`， `"Error"`， `"Function"`， `"Math"`， `"Number"`， `"Object"`， `"RegExp"`， `"String".`
+在ES3中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有10种. 分别是: `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `"String".`
 
 ### ECMAScript 5
 
@@ -766,17 +760,17 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 >
 > 在**`toString`**方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**，则返回`"[object Undefined]"`.
-> 2. 如果**this**的值为**null**，则返回`"[object Null]"`.
+> 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
+> 2. 如果**this**的值为**null**，则返回 `"[object Null]"` .
 > 3. 让*O*成为调用ToObject(**this)**的结果.
 > 4. 让*class*成为*O*的内部属性[[Class]]的值.
-> 5. 返回三个字符串**`"[object "，`** *class*， 以及 **`"]"`**`连接后的新字符串```.
+> 5. 返回三个字符串**`"[object "，`** *class*， 以及 **`"]"`** `连接后的新字符串` ``.
 
-可以看出，比ES3多了1，2，3步.第1，2步属于新规则，比较特殊，因为"`Undefined"`和"`Null"`并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this的值才会保持undefined或null，非严格模式下会自动成为全局对象).第3步并不算是新规则，因为在ES3的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来.ES5中，[[Class]]属性的解释更加详细:
+可以看出，比ES3多了1，2，3步. 第1，2步属于新规则，比较特殊，因为" `Undefined"` 和" `Null"` 并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this的值才会保持undefined或null，非严格模式下会自动成为全局对象). 第3步并不算是新规则，因为在ES3的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来. ES5中，[[Class]]属性的解释更加详细:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的.所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的.需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-和ES3对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了12种，一种是arguments对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象JSON，它的[[class]]值为"JSON".第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这12种值冲突，不过在支持ES3的浏览器中，貌似也没有发现哪些宿主对象故意使用那10个值.
+和ES3对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了12种，一种是arguments对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象JSON，它的[[class]]值为"JSON". 第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这12种值冲突，不过在支持ES3的浏览器中，貌似也没有发现哪些宿主对象故意使用那10个值.
 
 ### ECMAScript 6
 
@@ -784,11 +778,11 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 
 > | 内部属性        | 属性值                     | 描述                                                         |
 > | --------------- | -------------------------- | ------------------------------------------------------------ |
-> | [[NativeBrand]] | 枚举NativeBrand的一个成员. | 该属性的值对应一个标志值(tag value),可以用来区分原生对象的类型. |
+> | [[NativeBrand]] | 枚举NativeBrand的一个成员. | 该属性的值对应一个标志值(tag value), 可以用来区分原生对象的类型. |
 
  [[NativeBrand]]属性的解释:
 
-> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个:NativeFunction， NativeArray， StringWrapper， BooleanWrapper， NumberWrapper， NativeMath， NativeDate， NativeRegExp， NativeError， NativeJSON， NativeArguments， NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的ECMAScript原生对象.只有在表10中明确指出的对象类型才有[[NativeBrand]]内部属性.
+> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个: NativeFunction， NativeArray， StringWrapper， BooleanWrapper， NumberWrapper， NativeMath， NativeDate， NativeRegExp， NativeError， NativeJSON， NativeArguments， NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的ECMAScript原生对象. 只有在表10中明确指出的对象类型才有[[NativeBrand]]内部属性.
 >
 > 表10 — [[NativeBrand]]内部属性的值
 >
@@ -807,48 +801,48 @@ console.log(Object.prototype.toString.call(arr))  //"[object Array]"
 > | NativeArguments   | Arguments objects    |
 > | NativePrivateName | Private Name objects |
 
-可见，和[[class]]不同的是，并不是每个对象都拥有[[NativeBrand]].同时，Object.prototype.toString方法的规范也改成了下面这样:
+可见，和[[class]]不同的是，并不是每个对象都拥有[[NativeBrand]]. 同时，Object.prototype.toString方法的规范也改成了下面这样:
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
 > 在**`toString`**方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**，则返回`"[object Undefined]"`.
-> 2. ``如果**this**的值为**null**，则返回`"[object Null]"`.
+> 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
+> 2. ` `如果**this**的值为**null**，则返回` "[object Null]"`.
 > 3. 让*O*成为调用ToObject(**this)**的结果.
 > 4. 如果*O*有[[NativeBrand]]内部属性，让*tag*成为表29中对应的值.
 > 5. 否则
->    1. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
->    2. 如果*hasTag*为**false**，则让*tag*为`"Object"`.
->    3. 否则，
->       1. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
->       2. 如果*tag*是一个abrupt completion，则让*tag*成为NormalCompletion(`"???"`).
->       3. 让*tag*成为*tag*.[[value]].
->       4. 如果Type(*tag*)不是字符串，则让*tag成为*`"???"`.
->       5. 如果*tag*的值为`"Arguments"`， `"Array"`， `"Boolean"`， `"Date"`， `"Error"`， `"Function"`， `"JSON"`， `"Math"`， `"Number"`， `"Object"`， `"RegExp"`，`或者"String"中的任一个，则让`*tag*成为字符串`"~"和`*tag*当前的值连接后的结果.
-> 6. 返回三个字符串"[object "， tag， and "]"`连接后的新字符串```.
+> 1. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
+> 2. 如果*hasTag*为**false**，则让*tag*为 `"Object"` .
+> 3. 否则，
+> 1. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
+> 2. 如果*tag*是一个abrupt completion，则让*tag*成为NormalCompletion( `"???"` ).
+> 3. 让*tag*成为*tag*.[[value]].
+> 4. 如果Type(*tag*)不是字符串，则让*tag成为* `"???"` .
+> 5. 如果*tag*的值为 `"Arguments"` ， `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"JSON"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `或者"String"中的任一个，则让` *tag*成为字符串 `"~"和` *tag*当前的值连接后的结果.
+> 6. 返回三个字符串"[object "， tag， and "]" `连接后的新字符串` ``.
 >
 > 表29 — [[NativeBrand]] 标志值
 >
 > | [[NativeBrand]]值 | 标志值        |
 > | ----------------- | ------------- |
-> | NativeFunction    | `"Function"`  |
-> | NativeArray       | `"Array"`     |
-> | StringWrapper     | `"String"`    |
-> | BooleanWrapper    | `"Boolean"`   |
-> | NumberWrapper     | `"Number"`    |
-> | NativeMath        | `"Math"`      |
-> | NativeDate        | `"Date"`      |
-> | NativeRegExp      | `"RegExp"`    |
-> | NativeError       | `"Error"`     |
-> | NativeJSON        | `"JSON"`      |
+> | NativeFunction    | `"Function"` |
+> | NativeArray       | `"Array"` |
+> | StringWrapper     | `"String"` |
+> | BooleanWrapper    | `"Boolean"` |
+> | NumberWrapper     | `"Number"` |
+> | NativeMath        | `"Math"` |
+> | NativeDate        | `"Date"` |
+> | NativeRegExp      | `"RegExp"` |
+> | NativeError       | `"Error"` |
+> | NativeJSON        | `"JSON"` |
 > | NativeArguments   | `"Arguments"` |
 >
 >
 
 可以看到，在规范上有了很大的变化，不过对于普通用户来说，貌似感觉不到.
 
-也许你发现了，ES6里的新类型Map，Set等，都没有在表29中.它们在执行toString方法的时候返回的是什么?
+也许你发现了，ES6里的新类型Map，Set等，都没有在表29中. 它们在执行toString方法的时候返回的是什么?
 
 ```
 console.log(Object.prototype.toString.call(Map()))   //"[object Map]"
@@ -862,7 +856,7 @@ console.log(Object.prototype.toString.call(Set()))   //"[object Set]"
 >
 > @@toStringTag 属性的初始值为字符串**"Map"**.
 
-由于ES6的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节.看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
+由于ES6的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节. 看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
 
 http://stackoverflow.com/questions/13151643/access-nativebrand-class-in-es6-ecmascript-6
 

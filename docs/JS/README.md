@@ -17,15 +17,15 @@
 <a href = '/Tools/Webpack/'>learn Webpack</a>
 
 ```js
-微观而博取，厚积而博发
-先深刻相信，后始终践行
+微观而博取， 厚积而博发
+先深刻相信， 后始终践行
 ```
 
 ## JavaScript
 
 > JS之父简介
 
-JavaScript由美国人Brendan.Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立<http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014>年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
+JavaScript由美国人Brendan. Eich所发明, Brendan 1995年进入网景公司，为其浏览器开发了js功能，1998年他协助成立<http://mozilla.org，担任首席架构师，在网景公司倒闭后，他成立了mozilla基金会，firefox就是由该基金会维护。2014>年 Brendan晋升为mozilla的CEO，但10天后被赶下台。2015年成立Brave公司，开发专门保护个人隐私的浏览器。
 
 ### 1. JS的诞生
 
@@ -59,20 +59,21 @@ Netscape 公司很快发现，Navigator 浏览器需要一种可以嵌入网页�
 
 ### 2. JS的设计思路
 
-- 基本语法：借鉴 C 语言和 Java 语言。
-- 数据结构：借鉴Java语言的数据类型和内存管理，包括将值分成原始值和对象两大类。
-- 函数的用法：借鉴 Scheme 语言和 Awk 语言，将函数当作第一等公民，并引入闭包。
-- 原型继承模型：借鉴 Self 语言（Smalltalk 的一种变种）使用基于原型（prototype）的继承机制。。
-- 正则表达式：借鉴 Perl 语言。
-- 字符串和数组处理：借鉴 Python 语言。
+* 基本语法：借鉴 C 语言和 Java 语言。
+* 数据结构：借鉴Java语言的数据类型和内存管理，包括将值分成原始值和对象两大类。
+* 函数的用法：借鉴 Scheme 语言和 Awk 语言，将函数当作第一等公民，并引入闭包。
+* 原型继承模型：借鉴 Self 语言（Smalltalk 的一种变种）使用基于原型（prototype）的继承机制。。
+* 正则表达式：借鉴 Perl 语言。
+* 字符串和数组处理：借鉴 Python 语言。
 
 所以，Javascript语言实际上是两种语言风格的混合产物----（简化的）函数式编程+（简化的）面向对象编程。这是由Brendan Eich（函数式编程）与网景公司（面向对象编程）共同决定的。
+
 > 由js之父可以总结以下特点：
 
-- 从来不会只学一门语言
-- 不怕失业，总能找到其他事情做
-- 很容易创业
-- 可以干到50岁以上
+* 从来不会只学一门语言
+* 不怕失业，总能找到其他事情做
+* 很容易创业
+* 可以干到50岁以上
 
 ### 3. JS的命名
 
@@ -97,10 +98,12 @@ IE6有很多令人蛋疼的bug，比如下面这个代码运行在IE6，会让�
 
 ```html
 <style>
- *{position: relative}
+    * {
+        position: relative
+    }
 </style>
 <table>
- <input />
+    <input />
 </table>
 ```
 
@@ -280,11 +283,11 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 
 ## 参考链接
 
-- Axel Rauschmayer, [The Past, Present, and Future of JavaScript](http://oreilly.com/javascript/radarreports/past-present-future-javascript.csp)
-- John Dalziel, [The race for speed part 4: The future for JavaScript](http://creativejs.com/2013/06/the-race-for-speed-part-4-the-future-for-javascript/)
-- Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
-- resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](
+* Axel Rauschmayer, [The Past, Present, and Future of JavaScript](http://oreilly.com/javascript/radarreports/past-present-future-javascript.csp)
+* John Dalziel, [The race for speed part 4: The future for JavaScript](http://creativejs.com/2013/06/the-race-for-speed-part-4-the-future-for-javascript/)
+* Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
+* resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](
 
-<button class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
-  <a href="#" style="text-decoration:none;">回顶部↑</a>
+<button class="bottom-bar-item" style="position: fixed; right:2rem; bottom:2rem; ">
+  <a href="#" style="text-decoration:none; ">回顶部↑</a>
 </button>
