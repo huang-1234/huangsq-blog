@@ -16,6 +16,9 @@
 
 <a href = '/Tools/Webpack/'>learn Webpack</a>
 
+<a href = '/OtherOlogy/literature&history/'>literature history</a>
+
+
 ```js
 微观而博取， 厚积而博发
 先深刻相信， 后始终践行

@@ -634,6 +634,7 @@ function getOtherOlogy() {
       children: [
         'literature&history/lunyu',
         'literature&history/TangPoemSongja',
+        'literature&history/zuowen',
       ]
     },
   ]
