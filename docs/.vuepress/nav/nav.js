@@ -115,6 +115,18 @@ const nav = [
       }
     ]
   },
+  {
+    text: 'OtherOlogy',
+    ariaLabel: 'webDesign',
+    items: [
+      {
+        text: 'literature&history',
+        items: [
+          { text: 'OtherOlogy', link: '/OtherOlogy/' },
+        ]
+      },
+    ]
+  },
 
 ];
 
