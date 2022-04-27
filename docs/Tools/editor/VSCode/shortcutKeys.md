@@ -103,7 +103,7 @@ Command + K M 更改文件语言
 
 ### 导航
 
-```dos
+```shell
 Command + T 显示所有符号
 Ctrl + G 跳转至某行
 Command + P 跳转到某个文件

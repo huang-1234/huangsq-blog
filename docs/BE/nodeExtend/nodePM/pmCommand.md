@@ -114,7 +114,7 @@ $ npm install (tarball url)
 
 ##### **配置选项说明:**
 
-```1c
+```shell
 #全局安装
 -g | -global
 //eg: npm i -g gulp 或者 npm i gulp -g

@@ -61,7 +61,7 @@ React.createElement(
 
 如果用 JSX 语法来写，就会变成这样
 
-```HTMLBars
+```html
 <ComponentA attr1="A" attr2={0}>
     <ComponentB1 attr1="B" attr2={1}>
         <ComponentC1 {...propsC1} />
@@ -77,7 +77,7 @@ JSX 语法在运行前会通过编译工具转成普通的 JavaScript 语法。
 >
 > 在 React V17 之前需要注意，编译工具只是改语法，对于编译结果 `React.createElement` 的调用，React 本身的引入需要自己处理。所以，**凡是用到** **JSX** **语法的文件，一定要在头部写****`import React from 'react';`**来导入 React 这个变量。如果不导入，那么 React 变量就不存在，会导致 `React is not defined` 报错。
 >
-> 
+>
 >
 > **After React V17**
 >
@@ -724,9 +724,9 @@ const memoCallback = useCallback((...args) => {
 
 > 在么有遇到性能问题时，不要使用 useCallback 和 useMemo，性能优化先交给框架处理解决。手工的微优化在没有对框架和业务场景有深入了解时，可能出现性能劣化。
 >
-> [致命的 useCallback/useMemo（翻译）](https://bytedance.feishu.cn/docs/doccnKcSsW0lazRObCmw3GlGkmd) 
+> [致命的 useCallback/useMemo（翻译）](https://bytedance.feishu.cn/docs/doccnKcSsW0lazRObCmw3GlGkmd)
 >
-> [useCallback hell问题总结](https://bytedance.feishu.cn/docs/doccn9SDGhQJ6mM58BxjfRJFs3d) 
+> [useCallback hell问题总结](https://bytedance.feishu.cn/docs/doccn9SDGhQJ6mM58BxjfRJFs3d)
 >
 > 关于如何减少 useCallback 看 **[第二天](https://bytedance.feishu.cn/docs/doccnmgIb5KcV3F0zeE47o6PvCh#KQKJ2M)**
 
@@ -938,7 +938,7 @@ React.memo(Component, areEqual);
 
 比较函数，比较函数的入参有两个，arg0 为 前一次渲染的 props, arg1 为本次渲染的 props。如果返回 true，则该节点本次渲染将被标记为无需重新计算，从而使其所有子节点、孙子节点都无需计算。
 
-areEqual 如果不传，默认使用 
+areEqual 如果不传，默认使用
 
 ```Lisp
 (prevProps, nextProps) => shallowEqual(prevProps, nextProps)
@@ -1041,7 +1041,7 @@ const reducer = produce((draft, action) => { });
 
 ## React 常见 TypeScript 问题
 
-详见：[React@16.8.4+ 常用 Typescript 定义](https://bytedance.feishu.cn/docs/doccnWCkCq6eKsPyjhme6GtM3ld) 
+详见：[React@16.8.4+ 常用 Typescript 定义](https://bytedance.feishu.cn/docs/doccnWCkCq6eKsPyjhme6GtM3ld)
 
 ## 常用库
 
@@ -1270,7 +1270,7 @@ react 本质上将 ref 作为 Mutable 对象来看待，通过 ref 可以反向�
 ```JavaScript
 function Component(props, ref) {
   const [internalState, setInternalState] = useState(initialState);
-  
+
   useImperativeHandle(props.withRef, () => {
     return {
       reset: () => { setInternalState(initialState); }
@@ -1294,7 +1294,7 @@ export const Component = React.forwardRef(_Component);
 function MyInput(props) {
   const { focus, onFocusChange, ...restProps } = props;
   const inputRef = useRef(null);
-  
+
   useEffect(() => {
     onFocusChange();
   }, [focus]);
