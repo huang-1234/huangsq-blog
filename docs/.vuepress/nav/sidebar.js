@@ -635,6 +635,7 @@ function getOtherOlogy() {
         'literature&history/lunyu',
         'literature&history/TangPoemSongja',
         'literature&history/zuowen',
+        'literature&history/movie',
       ]
     },
   ]
