@@ -16,7 +16,7 @@
 
 <a href = '/Tools/Webpack/'>learn Webpack</a>
 
-<a href = '/OtherOlogy/literature&history/'>literature history</a>
+<a href = '/OtherOlogy/'>其他神学（经济学，历史，哲学，物理，音乐，科学，英语，食谱......）</a>
 
 
 ```js
