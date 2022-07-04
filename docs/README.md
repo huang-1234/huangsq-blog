@@ -8,7 +8,7 @@ heroImageStyle: {
   borderRadius: '50%',
   boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
 }
-heroText: H先森
+heroText: H_xian_sen
 # tagline: 点击快速上手
 actionText: Begin To learn→
 actionLink: /JS/#javascript
