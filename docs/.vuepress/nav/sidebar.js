@@ -15,6 +15,8 @@ const sidebar = {
   '/Angular/': getAngular(),
   '/React/': getReact(),
   '/Vue/': getVue(),
+  // fe 日常学习
+  '/books/': getBooks(),
   //以Node为代表的后端
   '/BE/': getNode(),
   '/Cplus/': getCplus(),
@@ -431,6 +433,17 @@ function getVue() {
       children: [
         'YouYuXi/Vite2.0',
         'YouYuXi/VueAndReact'
+      ]
+    }
+  ]
+}
+
+function getBooks() {
+  return [
+    {
+      title: 'daily-learning',
+      children: [
+        'survival/collapse',
       ]
     }
   ]

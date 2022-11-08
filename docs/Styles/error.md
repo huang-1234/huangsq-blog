@@ -3,7 +3,7 @@
 **今天用webpack打包项目，安装了less-loader模块之后报错，如下图：
 ![less报错](error.assets/20210202134021528.png)
 **原因： less-loader安装的版本过高
-**解决方案：** 
+**解决方案：**
 
 1. npm uninstall less-loader
 
@@ -61,7 +61,7 @@ node-sass版本不匹配
 在项目环境中执行
 ```bash
 npm uninstall node-sass
-npm install node-sass@版本号 --save-dev 
+npm install node-sass@版本号 --save-dev
 ```
 查看node-sass和sass-loader版本是否对应
 以下是部分版本号对应，具体可百度

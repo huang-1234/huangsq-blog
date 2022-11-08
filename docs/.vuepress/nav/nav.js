@@ -45,7 +45,13 @@ const nav = [
         items: [
           { text: 'VueBase', link: '/Vue/' }
         ]
-      }
+      },
+      {
+        text: 'books',
+        items: [
+          { text: 'books', link: '/books/' }
+        ]
+      },
     ],
   },
   {
