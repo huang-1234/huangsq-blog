@@ -61,4 +61,4 @@ awesome-weekly
 
 
 ## 贡献
-[欢迎补充](https://github.com/huixisheng/FE-Weekly/issues)
+[欢迎补充](https://github.com/huang-1234/MyvuePressBlog/issues)
