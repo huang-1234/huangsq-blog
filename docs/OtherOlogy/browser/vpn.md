@@ -1,7 +1,7 @@
 # 推荐几个靠谱的付费大机场
 
-- [代理](https://www.joeyne.cool/category/http/proxy/)
-- [网络](https://www.joeyne.cool/category/http/network/)
+* [代理](https://www.joeyne.cool/category/http/proxy/)
+* [网络](https://www.joeyne.cool/category/http/network/)
 
 ## 一、[Wgetcloud – 全球网络加速](https://invite.wgetcloud.ltd/auth/register?code=bQ9T)（推荐，我也在用这个，适合需求频繁，需要稳定和速度的用户）
 
@@ -9,10 +9,10 @@
 
 ### 特点：
 
-- 支持SS、SSR. V2ray、 Trojan协议；Windows、 Android、 macoS、 Linux全系列可用
-- Netflix、 Hulu、 HBO、 TVB、Happyon、 AbemaTV 等在内的多种流媒体视频解锁
-- Spotify、 Pandora 等在内的流媒体音乐解锁
-- 稳定
+* 支持SS、SSR. V2ray、 Trojan协议；Windows、 Android、 macoS、 Linux全系列可用
+* Netflix、 Hulu、 HBO、 TVB、Happyon、 AbemaTV 等在内的多种流媒体视频解锁
+* Spotify、 Pandora 等在内的流媒体音乐解锁
+* 稳定
 
 ### 速度：
 
@@ -44,9 +44,9 @@
 
 ### 特点：
 
-- 稳定（十年以上稳定机场）
-- 国际专线 IPLC
-- 一流的安全性和加密
+* 稳定（十年以上稳定机场）
+* 国际专线 IPLC
+* 一流的安全性和加密
 
 ### 价格：
 
@@ -66,8 +66,8 @@
 
 ### 特点：
 
-- 含 IEPL 内网专线
-- 最大限度解锁流媒体
+* 含 IEPL 内网专线
+* 最大限度解锁流媒体
 
 ### 测速
 
@@ -83,3 +83,38 @@
 | 一年套餐｜含IEPL内网专线｜一次性1200GiB流量｜同时3台在线设备｜流媒体解锁 | ¥258/年 |
 | 一年套餐｜含IEPL内网专线｜一次性2000GiB流量｜同时3台在线设备｜流媒体解锁 | ¥388/年 |
 | 一年套餐｜含IEPL内网专线｜一次性4000GiB流量｜同时10台在线设备｜流媒体解锁 | ¥698/年 |
+
+## Clash. NET 一款全新UI代理工具，可代替clash for windows
+
+### 先上图
+
+![img](https://cdn.joeyne.cool/2022/12/20221210234706615.png!pic.normal.view)
+
+### 应用介绍
+
+> Clash. NET 是一款全新设计的Windows代理工具，可以完全替代原来的Clash for windows。
+>
+> 项目原先在[Github](https://github.com/ClashDotNetFramework/ClashDotNetFramework)的地址已经下架，不过我这里保存了该项目发布的最后一个Release安装包。需要的可以页面最下方自行下载。
+
+### 功能介绍
+
+> Clash. NET作为一款Windows平台的代理工具，其功能可以说是非常全面了。此外这个代理工具最大的特点就是高颜值的UI设计，其UI设计有点类似MacOS上的Surge。
+
+![img](https://cdn.joeyne.cool/2022/12/20221210235924618.png!pic.normal.view)
+
+![img](https://cdn.joeyne.cool/2022/12/20221210235951500.png!pic.normal.view)
+
+![img](https://cdn.joeyne.cool/2022/12/20221211000042883.png!pic.normal.view)
+
+> 当然，不止UI，其性能表现也胜过clash for windows
+
+![img](https://cdn.joeyne.cool/2022/12/20221211000522905.png!pic.normal.view)
+
+![img](https://cdn.joeyne.cool/2022/12/20221211000318130.png!pic.normal.view)
+
+性能测试（左：clash for windows，右：clash. NET)
+
+### 下载地址
+
+> 1. [百度网盘](https://pan.baidu.com/s/1KPAVySph4pbhHc6A5LZL6g?pwd=ih9d)
+> 2. [阿里云盘](https://www.aliyundrive.com/s/s7YysGGXVKG)(由于阿里云盘分享时的文件类型过滤机制限制，修改文件类型为txt才可以分享；因此下载后的文件后缀为txt，只需修改文件后缀，删除txt保留exe后缀即可。)
