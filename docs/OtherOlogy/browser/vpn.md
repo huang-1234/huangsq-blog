@@ -1,9 +1,7 @@
 # 推荐几个靠谱的付费大机场
 
-* [代理](https://www.joeyne.cool/category/http/proxy/)
-* [网络](https://www.joeyne.cool/category/http/network/)
 
-## 一、[Wgetcloud – 全球网络加速](https://invite.wgetcloud.ltd/auth/register?code=bQ9T)（推荐，我也在用这个，适合需求频繁，需要稳定和速度的用户）
+## 一、[Wgetcloud – 全球网络加速](https://invite.wgetcloud.ltd/auth/register?code=DD2z)（推荐，我也在用这个，适合需求频繁，需要稳定和速度的用户）
 
 > 建议按季度付费（因为会不定期发布优惠策略）
 
@@ -112,9 +110,5 @@
 
 ![img](https://cdn.joeyne.cool/2022/12/20221211000318130.png!pic.normal.view)
 
-性能测试（左：clash for windows，右：clash. NET)
-
-### 下载地址
-
-> 1. [百度网盘](https://pan.baidu.com/s/1KPAVySph4pbhHc6A5LZL6g?pwd=ih9d)
-> 2. [阿里云盘](https://www.aliyundrive.com/s/s7YysGGXVKG)(由于阿里云盘分享时的文件类型过滤机制限制，修改文件类型为txt才可以分享；因此下载后的文件后缀为txt，只需修改文件后缀，删除txt保留exe后缀即可。)
+性能测试
+(左：clash for windows，右：clash. NET)
