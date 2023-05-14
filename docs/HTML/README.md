@@ -349,7 +349,7 @@ HTML 语言有自己的空格处理规则。标签内容的头部和尾部的空
 
 ```html
 <p>hello
-  
+
 world
 </p>
 ```
@@ -378,6 +378,7 @@ HTML 代码可以包含注释，浏览器会自动忽略注释。注释以`<!--`
 
 注释有助于理解代码的含义，复杂的代码块前面最好加上注释。
 
+```html
 <button id="top-btn-html" class="bottom-bar-item" style="position: fixed;right:2rem;bottom:2rem;">
   <a href="" style="text-decoration:none;">回顶部↑</a>
 </button>
@@ -394,3 +395,5 @@ HTML 代码可以包含注释，浏览器会自动忽略注释。注释以`<!--`
   btn.addEventListener('click', gotoTop);
 
 </script>
+
+```
