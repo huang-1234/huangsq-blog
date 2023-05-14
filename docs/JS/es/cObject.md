@@ -27,7 +27,7 @@ ECMA-262 使用一些内部特性来描述属性的特征。这些特性是由�
 [[Writable]]都会被设置为 true，而[[Value]]特性会被设置为指定的值。比如：
 
 ```js
-let person = {  name: "shuiqing" }; 
+let person = {  name: "shuiqing" };
 ```
 
 这里，我们创建了一个名为 name 的属性，并给它赋予了一个值"shuiqing"。这意味着[[Value]]
@@ -42,50 +42,51 @@ let person = {  name: "shuiqing" };
 
 的特性，可以设置其中一个或多个值。比如：
 ```js
-let person = {}; 
-Object.defineProperty(person, "name", { 
- writable: false, 
- value: "shuiqing" 
-}); 
+let person = {};
+Object.defineProperty(person, "name", {
+ writable: false,
+ value: "shuiqing"
+});
 
-console.log(person.name); // "shuiqing" 
-person.name = "Greg"; 
-console.log(person.name); // "shuiqing" 
+console.log(person.name); // "shuiqing"
+person.name = "Greg";
+console.log(person.name); // "shuiqing"
 ```
 这个例子创建了一个名为 name 的属性并给它赋予了一个只读的值"shuiqing"。这个属性的值就
 不能再修改了，在非严格模式下尝试给这个属性重新赋值会被忽略。在严格模式下，尝试修改只读属性
 的值会抛出错误。
-类似的规则也适用于创建不可配置的属性。比如：8.1 理解对象 
+类似的规则也适用于创建不可配置的属性。比如：8.1 理解对象
 
 ```js
-let person = {}; 
-Object.defineProperty(person, "name", { 
- configurable: false, 
- value: "shuiqing" 
-}); 
+let person = {};
+Object.defineProperty(person, "name", {
+ configurable: false,
+ value: "shuiqing"
+});
 
-console.log(person.name); // "shuiqing" 
-delete person.name; 
-console.log(person.name); // "shuiqing" 
+console.log(person.name); // "shuiqing"
+delete person.name;
+console.log(person.name); // "shuiqing"
 ```
 这个例子把 configurable 设置为 false，意味着这个属性不能从对象上删除。非严格模式下对
 这个属性调用 delete 没有效果，严格模式下会抛出错误。此外，一个属性被定义为不可配置之后，就
-不能再变回可配置的了。再次调用 
+不能再变回可配置的了。再次调用
 Object.defineProperty()并修改任何非 writable 属性会导致
 错误：
 
 ```js
-let person = {}; 
-Object.defineProperty(person, "name", { 
- configurable: false, 
- value: "shuiqing" 
+let person = {};
+Object.defineProperty(person, "name", {
+ configurable: false,
+ value: "shuiqing"
 }); // 抛出错误
 
-Object.defineProperty(person, "name", { 
+Object.defineProperty(person, "name", {
  configurable: true,
- value: "shuiqing" 
-}); 
+ value: "shuiqing"
+});
 ```
+
 因此，虽然可以对同一个属性多次调用 Object.defineProperty()，但在把 configurable 设置为 false 之后就会受限制了。在调用 Object.defineProperty()时，configurable、enumerable 和 writable 的值如果不指定，则都默认为 false。多数情况下，可能都不需要 Object.defineProperty()提供的这些强大的设置，但要理解 JavaScript 对象，就要理解这些概念。
 
 ## 1.2. 访问器属性
@@ -100,36 +101,36 @@ Object.defineProperty(person, "name", {
 
 1. [[Configurable]]：表示属性是否可以通过 delete 删除并重新定义，是否可以修改它的特
 性，以及是否可以把它改为数据属性。默认情况下，所有直接定义在对象上的属性的这个特性
-都是 true。 
+都是 true。
 
 2. [[Enumerable]]：表示属性是否可以通过 for-in 循环返回。默认情况下，所有直接定义在对
-象上的属性的这个特性都是 true。 
+象上的属性的这个特性都是 true。
 
-3. [[Get]]：获取函数，在读取属性时调用。默认值为 undefined。 
+3. [[Get]]：获取函数，在读取属性时调用。默认值为 undefined。
 4. [[Set]]：设置函数，在写入属性时调用。默认值为 undefined。
 
 访问器属性是不能直接定义的，必须使用 Object.defineProperty()。下面是一个例子：
-//定义一个对象，包含伪私有成员 year_和公共成员 edition 
+//定义一个对象，包含伪私有成员 year_和公共成员 edition
 ```js
-let book = { 
- year_: 2017, 
- edition: 
-}; 
+let book = {
+ year_: 2017,
+ edition:
+};
 
-Object.defineProperty(book, "year", { 
- get() { 
- return this.year_; 
- }, 
+Object.defineProperty(book, "year", {
+ get() {
+ return this.year_;
+ },
 
- set(newValue) { 
-   if (newValue > 2017) { 
-   this.year_ = newValue; 
-   this.edition += newValue - 2017; 
- 	} 
- } 
-}); 
-book.year = 2018; 
-console.log(book.edition); // 2 
+ set(newValue) {
+   if (newValue > 2017) {
+   this.year_ = newValue;
+   this.edition += newValue - 2017;
+ 	}
+ }
+});
+book.year = 2018;
+console.log(book.edition); // 2
 ```
 在这个例子中，对象 book 有两个默认属性：year_和 edition。year_中的下划线常用来表示该属性并不希望在对象方法的外部被访问。另一个属性 year 被定义为一个访问器属性，其中获取函数简单地返回 year_的值，而设置函数会做一些计算以决定正确的版本（edition）。因此，把 year 属性修改为 2018 会导致 year_变成 2018，edition 变成 2。这是访问器属性的典型使用场景，即设置一个属性值会导致一些其他变化发生。获取函数和设置函数不一定都要定义。只定义获取函数意味着属性是只读的，尝试修改属性会被忽略。在严格模式下，尝试写入只定义了获取函数的属性会抛出错误。类似地，只有一个设置函数的属性是不能读取的，非严格模式下读取会返回 undefined，严格模式下会抛出错误。在不支持 Object.defineProperty()的浏览器中没有办法修改[[Configurable]]或[[Enumerable]]。
 
@@ -1578,37 +1579,37 @@ JavaScript中的所有对象都来自 `Object`；所有对象从[`Object.prototy
 
   特定的函数，用于创建一个对象的原型。
 
-- [`Object.prototype.__proto__` (en-US)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) 
+- [`Object.prototype.__proto__` (en-US)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)
 
   指向当对象被实例化的时候，用作原型的对象。
 
-- `Object.prototype.__noSuchMethod__` 
+- `Object.prototype.__noSuchMethod__`
 
   当未定义的对象成员被调用作方法的时候，允许定义并执行的函数。
 
-- `Object.prototype.__count__` 
+- `Object.prototype.__count__`
 
   用于直接返回用户定义的对象中可数的属性的数量。已被废除。
 
-- `Object.prototype.__parent__` 
+- `Object.prototype.__parent__`
 
   用于指向对象的内容。已被废除。
 
 ### [方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object#methods_of_object_instances)
 
-- [`Object.prototype.__defineGetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) 
+- [`Object.prototype.__defineGetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__)
 
   关联一个函数到一个属性。访问该函数时，执行该函数并返回其返回值。
 
-- [`Object.prototype.__defineSetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) 
+- [`Object.prototype.__defineSetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__)
 
   关联一个函数到一个属性。设置该函数时，执行该修改属性的函数。
 
-- [`Object.prototype.__lookupGetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__) 
+- [`Object.prototype.__lookupGetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__)
 
   返回使用 [`__defineGetter__` (en-US)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) 定义的方法函数 。
 
-- [`Object.prototype.__lookupSetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) 
+- [`Object.prototype.__lookupSetter__()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__)
 
   返回使用 [`__defineSetter__` (en-US)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) 定义的方法函数。
 
@@ -1624,7 +1625,7 @@ JavaScript中的所有对象都来自 `Object`；所有对象从[`Object.prototy
 
   判断指定属性是否可枚举，内部属性设置参见 [ECMAScript [[Enumerable\]] attribute](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#properties) 。
 
-- [`Object.prototype.toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource) 
+- [`Object.prototype.toSource()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource)
 
   返回字符串表示此对象的源代码形式，可以使用此字符串生成一个新的相同的对象。
 
@@ -1636,7 +1637,7 @@ JavaScript中的所有对象都来自 `Object`；所有对象从[`Object.prototy
 
   返回对象的字符串表示。
 
-- `Object.prototype.unwatch()` 
+- `Object.prototype.unwatch()`
 
   移除对象某个属性的监听。
 
@@ -1644,11 +1645,11 @@ JavaScript中的所有对象都来自 `Object`；所有对象从[`Object.prototy
 
   返回指定对象的原始值。
 
-- `Object.prototype.watch()` 
+- `Object.prototype.watch()`
 
   给对象的某个属性增加监听。
 
-- `Object.prototype.eval()` 
+- `Object.prototype.eval()`
 
   在指定对象为上下文情况下执行javascript字符串代码，已经废弃。
 
@@ -1683,17 +1684,17 @@ var o = new Object(Boolean());
 
 ```js
  1 var aaa = {
- 2 
+ 2
  3     i:10,
- 4 
+ 4
  5     valueOf:function () {
  6         return this.i + 30;
  7     },
- 8 
+ 8
  9     toString:function () {
 10         return this.valueOf() + 10;
 11     }
-12 
+12
 13 };
 14 alert(aaa > 20); // true
 15 alert(+aaa); // 40
@@ -1703,23 +1704,23 @@ var o = new Object(Boolean());
  之所以有这样的结果，因为它们偷偷地调用valueOf或toString方法。但如何区分什么情况下是调用了哪个方法呢，我们可以通过另一个方法测试一下。
 
 ```js
-var bbb = { 
-    i:10, 
-    toString:function () { 
-        console.log('toString'); 
-        return this.i; 
-    }, 
-    valueOf:function () { 
-        console.log('valueOf'); 
-        return this.i; 
-    } 
-}; 
-alert(bbb);// 10 toString 
-alert(+bbb); // 10 valueOf 
-alert('' + bbb); // 10 valueOf 
-alert(String(bbb)); // 10 toString 
-alert(Number(bbb)); // 10 valueOf 
-alert(bbb == '10'); // true valueOf 
+var bbb = {
+    i:10,
+    toString:function () {
+        console.log('toString');
+        return this.i;
+    },
+    valueOf:function () {
+        console.log('valueOf');
+        return this.i;
+    }
+};
+alert(bbb);// 10 toString
+alert(+bbb); // 10 valueOf
+alert('' + bbb); // 10 valueOf
+alert(String(bbb)); // 10 toString
+alert(Number(bbb)); // 10 valueOf
+alert(bbb == '10'); // true valueOf
 alert(bbb === '10'); // false
 ```
 
@@ -1752,7 +1753,7 @@ alert(aa == '10'); // true toString
  5         return this.i;
  6     }
  7 };
- 8 
+ 8
  9 alert(bb);// [object Object]
 10 alert(+bb); // 10 valueOf
 11 alert(''+bb); // 10 valueOf
@@ -1771,7 +1772,7 @@ alert(aa == '10'); // true toString
  5         return this.i;
  6     }
  7 };
- 8 
+ 8
  9 alert(cc);// 10 valueOf
 10 alert(+cc); // 10 valueOf
 11 alert(''+cc); // 10 valueOf
