@@ -3,14 +3,14 @@ name: CI
 #on: [push]
 
 # 在main分支发生push事件时触发。
-on: 
+on:
   push:
     branches:
       - master
 
 jobs:
   build-and-deploy:
-    runs-on: windows-2019 
+    runs-on: windows-2019
     steps:
       - name: Checkout
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 - must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -19,6 +19,7 @@ jobs:
 
       - name: Install and Build
         run: |
+          npx browserslist@latest --update-db
           yarn install
           yarn run build
           yarn deploy
