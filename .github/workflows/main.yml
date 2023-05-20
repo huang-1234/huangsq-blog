@@ -7,15 +7,15 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
     - run: yarn # 相当于npm install
     - run: yarn deploy
 
     #发布到huang-1234.github.io/master
-    - name: Deploy huang-1234.github.io/master
-      uses: peaceiris/actions-gh-pages@v2
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.9.3
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         EXTERNAL_REPOSITORY: huang-1234/huang-1234.github.io #可以新建一个huang-1234.github.io仓库发布到master
