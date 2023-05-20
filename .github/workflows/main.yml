@@ -22,6 +22,7 @@ jobs:
         PUBLISH_BRANCH: master
         PUBLISH_DIR: dist
       with:
+          node-version: '16'
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
