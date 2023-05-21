@@ -28,7 +28,7 @@ git commit -m 'update'
 # 如果发布到 https://<USERNAME>.github.io
 # git pull
 
-git remote add origin git@github.com:huang-1234/huang-1234.github.io.git
+git remote add origin https://github.com/huang-1234/huang-1234.github.io.git
 
 # git remote -v
 
