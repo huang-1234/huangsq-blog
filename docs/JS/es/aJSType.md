@@ -1,4 +1,4 @@
-#  1. 浅谈 JS 类型
+# 1. 浅谈 JS 类型
 
 ## 原始类型
 
@@ -26,18 +26,17 @@
 
 那么有个问题，为什么 `1..toString()` 是正确的？而 `1.toString()` 却不行了呢？
 
-原因在于数字1后面接的第一个点 `.` , 编译器是直接当成数字的一部分，而 `1.` 后面再接上一个点 `.` 才会被当成数字在调用方法，而这也只是数字的隐藏类 `Number` 在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。这个也许就是你不知道的JS讲的行为委托设计思想。
+原因在于数字 1 后面接的第一个点 `.` , 编译器是直接当成数字的一部分，而 `1.` 后面再接上一个点 `.` 才会被当成数字在调用方法，而这也只是数字的隐藏类 `Number` 在调用它原型上的方法，数字本身只是基本类型，没有方法和属性，如果调用就会调用相应隐藏类的方法和属性。这个也许就是你不知道的 JS 讲的行为委托设计思想。
 
-> 引用数据类型: 对象Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的` `Object.prototype.toString.call(target).slice(8,-1)`
+> 引用数据类型: 对象 Object（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function），区分它们最好的方法就是后面将要介绍的 ` ` Object.prototype.toString.call(target).slice(8, -1)`
 
->
-> tartget是需要被检测的对象，后面再加一个slice(8, -1)是为了去掉前面的[object ]
+> tartget 是需要被检测的对象，后面再加一个 slice(8, -1)是为了去掉前面的[object ]
 
 ## 七种原始类型
 
-### bigint类型
+### bigint 类型
 
-对于学过其他语言的程序员来说，JS中缺少显式整数类型常常令人困惑。许多编程语言支持多种数字类型，如浮点型、双精度型、整数型和双精度型，但JS却不是这样。在JS中，按照[IEEE 754-2008](https://link.segmentfault.com/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIEEE_754-2008_revision)标准的定义，所有数字都以[双精度64位浮点](https://link.segmentfault.com/?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDouble_precision_floating-point_format)格式表示。
+对于学过其他语言的程序员来说，JS 中缺少显式整数类型常常令人困惑。许多编程语言支持多种数字类型，如浮点型、双精度型、整数型和双精度型，但 JS 却不是这样。在 JS 中，按照[IEEE 754-2008](https://link.segmentfault.com/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIEEE_754-2008_revision)标准的定义，所有数字都以[双精度 64 位浮点](https://link.segmentfault.com/?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDouble_precision_floating-point_format)格式表示。
 
 在此标准下，无法精确表示的非常大的整数将自动四舍五入。确切地说，JS 中的 `Number` 类型只能安全地表示 `-9007199254740991 (-(2^53-1))` 和 `9007199254740991(2^53-1)` 之间的整数，任何超出此范围的整数值都可能失去精度。
 
@@ -45,7 +44,7 @@
 console.log(9999999999999999); // → 10000000000000000
 ```
 
-该整数大于JS Number 类型所能表示的最大整数，因此，它被四舍五入的。意外四舍五入会损害程序的可靠性和安全性。这是另一个例子：
+该整数大于 JS Number 类型所能表示的最大整数，因此，它被四舍五入的。意外四舍五入会损害程序的可靠性和安全性。这是另一个例子：
 
 ```js
 // 注意最后一位的数字
@@ -67,11 +66,11 @@ console.log(minInt - 4); // → -9007199254740996
 
 #### 解决方案
 
-为了解决这些限制，一些JS开发人员使用字符串类型表示大整数。 例如，[Twitter API](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.twitter.com%2Fen%2Fdocs%2Fbasics%2Ftwitter-ids) 在使用 JSON 进行响应时会向对象添加字符串版本的 ID。 此外，还开发了许多库，例如 [bignumber.js](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FMikeMcl%2Fbignumber.js%2F)，以便更容易地处理大整数。
+为了解决这些限制，一些 JS 开发人员使用字符串类型表示大整数。 例如，[Twitter API](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.twitter.com%2Fen%2Fdocs%2Fbasics%2Ftwitter-ids) 在使用 JSON 进行响应时会向对象添加字符串版本的 ID。 此外，还开发了许多库，例如 [bignumber.js](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FMikeMcl%2Fbignumber.js%2F)，以便更容易地处理大整数。
 
-使用BigInt，应用程序不再需要变通方法或库来安全地表示 `Number.MAX_SAFE_INTEGER` 和 `Number.Min_SAFE_INTEGER` 之外的整数。 现在可以在标准JS中执行对大整数的算术运算，而不会有精度损失的风险。
+使用 BigInt，应用程序不再需要变通方法或库来安全地表示 `Number.MAX_SAFE_INTEGER` 和 `Number.Min_SAFE_INTEGER` 之外的整数。 现在可以在标准 JS 中执行对大整数的算术运算，而不会有精度损失的风险。
 
-要创建 `BigInt` ，只需在整数的末尾追加n即可。比较:
+要创建 `BigInt` ，只需在整数的末尾追加 n 即可。比较:
 
 ```js
 console.log(9007199254740995n); // → 9007199254740995n
@@ -157,7 +156,7 @@ const x = 10n;
 
 这个表达式的结果超出了 `BigInt` 和 `Number` 的范围。小数部分的 `Number` 不能精确地转换为 `BigInt` 。大于 `2^53` 的 `BigInt` 不能准确地转换为数字。
 
-由于这个限制，不可能对混合使用 `Number` 和 `BigInt` 操作数执行算术操作。还不能将 `BigInt` 传递给Web api和内置的 JS 函数，这些函数需要一个 `Number` 类型的数字。尝试这样做会报 `TypeError` 错误
+由于这个限制，不可能对混合使用 `Number` 和 `BigInt` 操作数执行算术操作。还不能将 `BigInt` 传递给 Web api 和内置的 JS 函数，这些函数需要一个 `Number` 类型的数字。尝试这样做会报 `TypeError` 错误
 
 ```js
 10 + 10n; // → TypeError
@@ -206,7 +205,7 @@ arr.sort(); // → [-1n, 0, 1n, 2, 3n, 4]
 90n | 115; // → TypeError
 ```
 
-#### BigInt构造函数
+#### BigInt 构造函数
 
 与其他基本类型一样，可以使用构造函数创建 `BigInt` 。传递给 `BigInt()` 的参数将自动转换为 `BigInt` :
 
@@ -238,11 +237,11 @@ BigInt(true) === 1n; // → true
 
 #### 库函数
 
-在撰写本文时， `Chrome +67` 和 `Opera +54` 完全支持 `BigInt` 数据类型。不幸的是， `Edge` 和 `Safari` 还没有实现它。 `Firefox` 默认不支持BigInt，但是可以在 `about:config` 中将 `javascript.options.bigint` 设置为 `true` 来开启它，最新支持的情况可在“[Can I use](https://link.segmentfault.com/?url=https%3A%2F%2Fcaniuse.com%2F%23search%3Dbigint)”上查看。
+在撰写本文时， `Chrome +67` 和 `Opera +54` 完全支持 `BigInt` 数据类型。不幸的是， `Edge` 和 `Safari` 还没有实现它。 `Firefox` 默认不支持 BigInt，但是可以在 `about:config` 中将 `javascript.options.bigint` 设置为 `true` 来开启它，最新支持的情况可在“[Can I use](https://link.segmentfault.com/?url=https%3A%2F%2Fcaniuse.com%2F%23search%3Dbigint)”上查看。
 
-不幸的是，转换 `BigInt` 是一个极其复杂的过程，这会导致严重的运行时性能损失。直接polyfill `BigInt` 也是不可能的，因为该提议改变了几个现有操作符的行为。目前，更好的选择是使用[JSBI](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FGoogleChromeLabs%2Fjsbi)库，它是 `BigInt` 提案的纯JS实现。
+不幸的是，转换 `BigInt` 是一个极其复杂的过程，这会导致严重的运行时性能损失。直接 polyfill `BigInt` 也是不可能的，因为该提议改变了几个现有操作符的行为。目前，更好的选择是使用[JSBI](https://link.segmentfault.com/?url=https%3A%2F%2Fgithub.com%2FGoogleChromeLabs%2Fjsbi)库，它是 `BigInt` 提案的纯 JS 实现。
 
-这个库提供了一个与原生 `BigInt` 行为完全相同的API。下面是如何使用JSBI：
+这个库提供了一个与原生 `BigInt` 行为完全相同的 API。下面是如何使用 JSBI：
 
 ```js
 import JSBI from './jsbi.mjs';
@@ -255,11 +254,11 @@ const result = JSBI.add(b1, b2);
 console.log(String(result)); // → '9007199254741001'
 ```
 
-使用 `JSBI` 的一个优点是，一旦浏览器支持，就不需要重写代码。 相反，可以使用 `babel` 插件自动将JSBI代码编译为原生 `BigInt` 代码。
+使用 `JSBI` 的一个优点是，一旦浏览器支持，就不需要重写代码。 相反，可以使用 `babel` 插件自动将 JSBI 代码编译为原生 `BigInt` 代码。
 
 #### 总结
 
-`BigInt` 是一种新的数据类型，用于当整数值大于 `Number` 数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数id，等等，而不需要使用库。
+`BigInt` 是一种新的数据类型，用于当整数值大于 `Number` 数据类型支持的范围时。这种数据类型允许我们安全地对大整数执行算术操作，表示高分辨率的时间戳，使用大整数 id，等等，而不需要使用库。
 
 重要的是要记住，不能使用 `Number` 和 `BigInt` 操作数的混合执行算术运算，需要通过显式转换其中的一种类型。 此外，出于兼容性原因，不允许在 `BigInt` 上使用一元加号（ `+` ）运算符。
 
@@ -294,7 +293,7 @@ p2: {
 }
 ```
 
-> 原因: 在函数传参的时候传递的是对象在堆中的内存地址值，test函数中的实参person是p1对象的内存地址，通过调用person.age = 18确实改变了p1的值，但随后person变成了另一块内存空间的地址，并且在最后将这另外一份内存空间的地址返回，赋给了p2。
+> 原因: 在函数传参的时候传递的是对象在堆中的内存地址值，test 函数中的实参 person 是 p1 对象的内存地址，通过调用 person.age = 18 确实改变了 p1 的值，但随后 person 变成了另一块内存空间的地址，并且在最后将这另外一份内存空间的地址返回，赋给了 p2。
 
 ### 对象类型
 
@@ -357,13 +356,13 @@ console.log('hello world'
 
 ### 类型转换
 
-在 ` js ` 中，只有三种类型转换
+在 `js` 中，只有三种类型转换
 
 * 转换为布尔值
 * 转换为数字
 * 转换为字符串
 
-### 转Boolean
+### 转 Boolean
 
 在条件判断时，除了 `undefined` ， `null` ， `false` ， `NaN` ， `''` ， `0` ， `-0` ，其他所有值都转为 `true` ，包括所有对象。
 
@@ -486,7 +485,7 @@ Symbol.for() 可以在全局访问 symbol。
 
 看第一个，[] 会强转为 ""，{}强转为字符串为 `"[object Object]"` 。两个字符串相加，得到最终结果。
 
-第二个，编译器会把 {} 当作一个空代码块，可以理解为全局作用域下一个没有用的 {} 符号而已，可以把 `{} + []` 当作 `+ []` ，而 `+ []` 是强制将 `[]` 转换为number , 转换的过程是 `+ []` --> `+""` --> `0` 最终的结果就是0。
+第二个，编译器会把 {} 当作一个空代码块，可以理解为全局作用域下一个没有用的 {} 符号而已，可以把 `{} + []` 当作 `+ []` ，而 `+ []` 是强制将 `[]` 转换为 number , 转换的过程是 `+ []` --> `+""` --> `0` 最终的结果就是 0。
 
 但是我们执行 `console.log({}+[])` 和 `console.log([]+{})` , 结果是一样的，因为{}没有一个语句或者表达式的头部。
 
@@ -508,36 +507,36 @@ Symbol.for() 可以在全局访问 symbol。
 
 NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 
-##  js中 `==` 和 `===` 区别
+## js 中 `==` 和 `===` 区别
 
 ### 简单概要
 
 简单来说： == 代表相同， ===代表严格相同, 为啥这么说呢，
 
-这么理解： 当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行\=\==比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而\=\==比较时， 如果类型不同，直接就是false.
+这么理解： 当进行双等号比较时候： 先检查两个操作数数据类型，如果相同， 则进行\=\==比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而\=\==比较时， 如果类型不同，直接就是 false.
 
-操作数1 == 操作数2， 操作数1 === 操作数2
+操作数 1 == 操作数 2， 操作数 1 === 操作数 2
 
 比较过程：
 
 > 双等号==：
 
 ```js
-（
-1） 如果两个值类型相同， 再进行三个等号( === ) 的比较（ 2） 如果两个值类型不同， 也有可能相等， 需根据以下规则进行类型转换在比较：
-a） 如果一个是null， 一个是undefined， 那么相等
-b） 如果一个是字符串， 一个是数值， 把字符串转换成数值之后再进行比较
+（1） 如果两个值类型相同， 再进行三个等号( === ) 的比较
+（ 2） 如果两个值类型不同， 也有可能相等， 需根据以下规则进行类型转换在比较：
+    a） 如果一个是null， 一个是undefined， 那么相等
+    b） 如果一个是字符串， 一个是数值， 把字符串转换成数值之后再进行比较
 ```
 
 > 三等号===:
 
 ```js
-（
-1） 如果类型不同， 就一定不相等
-
-（ 2） 如果两个都是数值， 并且是同一个值， 那么相等； 如果其中至少一个是NaN， 那么不相等。（ 判断一个值是否是NaN， 只能使用isNaN() 来判断）
-
-（ 3） 如果两个都是字符串， 每个位置的字符都一样， 那么相等， 否则不相等。（ 4） 如果两个值都是true， 或是false， 那么相等（ 5） 如果两个值都引用同一个对象或是函数， 那么相等， 否则不相等（ 6） 如果两个值都是null， 或是undefined， 那么相等.
+（1） 如果类型不同， 就一定不相等
+（2） 如果两个都是数值， 并且是同一个值， 那么相等； 如果其中至少一个是NaN， 那么不相等。（ 判断一个值是否是NaN， 只能使用isNaN() 来判断）
+（3） 如果两个都是字符串， 每个位置的字符都一样， 那么相等， 否则不相等。
+（4） 如果两个值都是true， 或是false， 那么相等
+（5） 如果两个值都引用同一个对象或是函数， 那么相等， 否则不相等
+（6） 如果两个值都是null， 或是undefined， 那么相等.
 ```
 
 # 判断数据类型
@@ -599,7 +598,7 @@ console.log(typeof(test.testObjectNumber)); // object
 
 如上，可以看出，通过 `typeof` ，我们可以判断大多数的类型，但是，它存在缺陷：
 
-1. 判断 `typeof null`，会得到 `object`； 这是因为在大部分的JS编译器内部对对象的描述，其首地址都是规定以00开头的，而当初设计的时候，null的首地址又刚好就是00开头。
+1. 判断 `typeof null`，会得到 `object`； 这是因为在大部分的 JS 编译器内部对对象的描述，其首地址都是规定以 00 开头的，而当初设计的时候，null 的首地址又刚好就是 00 开头。
 2. 判断构造函数 `typeof new String('String')` 或者 `typeof new Number(123)` 等……，也会得到 `object`。
 
 即通过 `typeof` 进行数据类型判断会有一定的问题。
@@ -679,7 +678,7 @@ const undefin = undefined;
 
 但是很遗憾的表示，当你使用 `null.constructor` 或者 `undefined.constructor` 它会毫不留情的给你报： `Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5` ，所以我们也不能强行使用 `constructor` 来做深拷贝时候的判断数据类型。
 
-### 六Object.toString.call()
+### 六 Object.toString.call()
 
 Object.prototype.toString.call()
 
@@ -719,42 +718,42 @@ console.log(toString.call(null)); // [object Null]
 * `bind()`
 * `call()`
 * `apply()、bind() 以及 call() 的区别`
-# Object.prototype.toString方法的原理
+# Object.prototype.toString 方法的原理
 
-在JavaScript中，想要判断某个对象值属于哪种内置类型，最靠谱的做法就是通过Object.prototype.toString方法.
+在 JavaScript 中，想要判断某个对象值属于哪种内置类型，最靠谱的做法就是通过 Object.prototype.toString 方法.
 
 ```js
 let arr = [];
 console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 ```
 
-本文要讲的就是，toString方法是如何做到这一点的，原理是什么.
+本文要讲的就是，toString 方法是如何做到这一点的，原理是什么.
 
 ### ECMAScript 3
 
-在[ES3](http://bclary.com/2004/11/07/)中，Object.prototype.toString方法的规范如下:
+在[ES3](http://bclary.com/2004/11/07/)中，Object.prototype.toString 方法的规范如下:
 
 > 15.2.4.2 Object.prototype.toString()
 >
-> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取this对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果Result(1)， 以及 **`"]"`** `连接后的新字符串.` 3. 返回第二步的操作结果Result(2).
+> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取 this 对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果 Result(1)， 以及 **`"]"`** `连接后的新字符串.` 3. 返回第二步的操作结果 Result(2).
 
 [[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性. 在规范中，[[Class]]是这么定义的
 
-| 内部属性  | 描述                             |
-| --------- | -------------------------------- |
+| 内部属性  | 描述                              |
+| --------- | --------------------------------- |
 | [[Class]] | 一个字符串值, 表明了该对象的类型. |
 
 然后给了一段解释:
 
 > 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-也就是说，把Object.prototype.toString方法返回的字符串，去掉前面固定的**`"[object "`**和后面固定的**"]"，**就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery中的工具方法$.type()，就是干这个的.
+也就是说，把 Object.prototype.toString 方法返回的字符串，去掉前面固定的**`"[object "`**和后面固定的**"]"，**就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery 中的工具方法$.type()，就是干这个的.
 
-在ES3中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有10种. 分别是: `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `"String".`
+在 ES3 中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有 10 种. 分别是: `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `"String".`
 
 ### ECMAScript 5
 
-在[ES5.1](http://ecma-international.org/ecma-262/5.1)中，除了规范写的更详细一些以外，Object.prototype.toString方法和[[class]]内部属性的定义上也有一些变化，Object.prototype.toString方法的规范如下:
+在[ES5.1](http://ecma-international.org/ecma-262/5.1)中，除了规范写的更详细一些以外，Object.prototype.toString 方法和[[class]]内部属性的定义上也有一些变化，Object.prototype.toString 方法的规范如下:
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
@@ -762,29 +761,29 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 >
 > 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
 > 2. 如果**this**的值为**null**，则返回 `"[object Null]"` .
-> 3. 让*O*成为调用ToObject(**this)**的结果.
+> 3. 让*O*成为调用 ToObject(**this)**的结果.
 > 4. 让*class*成为*O*的内部属性[[Class]]的值.
-> 5. 返回三个字符串**`"[object "，`** *class*， 以及 **`"]"`** `连接后的新字符串` ``.
+> 5. 返回三个字符串**`"[object "，`** _class_， 以及 **`"]"`** `连接后的新字符串` ``.
 
-可以看出，比ES3多了1，2，3步. 第1，2步属于新规则，比较特殊，因为" `Undefined"` 和" `Null"` 并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this的值才会保持undefined或null，非严格模式下会自动成为全局对象). 第3步并不算是新规则，因为在ES3的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来. ES5中，[[Class]]属性的解释更加详细:
+可以看出，比 ES3 多了 1，2，3 步. 第 1，2 步属于新规则，比较特殊，因为" `Undefined"` 和" `Null"` 并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this 的值才会保持 undefined 或 null，非严格模式下会自动成为全局对象). 第 3 步并不算是新规则，因为在 ES3 的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来. ES5 中，[[Class]]属性的解释更加详细:
 
 > 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-和ES3对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了12种，一种是arguments对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象JSON，它的[[class]]值为"JSON". 第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这12种值冲突，不过在支持ES3的浏览器中，貌似也没有发现哪些宿主对象故意使用那10个值.
+和 ES3 对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了 12 种，一种是 arguments 对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象 JSON，它的[[class]]值为"JSON". 第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这 12 种值冲突，不过在支持 ES3 的浏览器中，貌似也没有发现哪些宿主对象故意使用那 10 个值.
 
 ### ECMAScript 6
 
 [ES6](http://people.mozilla.org/~jorendorff/es6-draft.html)目前还只是工作草案，但能够肯定的是，**[[class]]内部属性没有了**，取而代之的是另外一个内部属性[[NativeBrand]].[[NativeBrand]]属性是这么定义的:
 
-> | 内部属性        | 属性值                     | 描述                                                         |
-> | --------------- | -------------------------- | ------------------------------------------------------------ |
-> | [[NativeBrand]] | 枚举NativeBrand的一个成员. | 该属性的值对应一个标志值(tag value), 可以用来区分原生对象的类型. |
+> | 内部属性        | 属性值                       | 描述                                                             |
+> | --------------- | ---------------------------- | ---------------------------------------------------------------- |
+> | [[NativeBrand]] | 枚举 NativeBrand 的一个成员. | 该属性的值对应一个标志值(tag value), 可以用来区分原生对象的类型. |
 
- [[NativeBrand]]属性的解释:
+[[NativeBrand]]属性的解释:
 
-> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个: NativeFunction， NativeArray， StringWrapper， BooleanWrapper， NumberWrapper， NativeMath， NativeDate， NativeRegExp， NativeError， NativeJSON， NativeArguments， NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的ECMAScript原生对象. 只有在表10中明确指出的对象类型才有[[NativeBrand]]内部属性.
+> [[NativeBrand]]内部属性用来识别某个原生对象是否为符合本规范的某一种特定类型的对象.[[NativeBrand]]内部属性的值为下面这些枚举类型的值中的一个: NativeFunction， NativeArray， StringWrapper， BooleanWrapper， NumberWrapper， NativeMath， NativeDate， NativeRegExp， NativeError， NativeJSON， NativeArguments， NativePrivateName.[[NativeBrand]]内部属性仅用来区分区分特定类型的 ECMAScript 原生对象. 只有在表 10 中明确指出的对象类型才有[[NativeBrand]]内部属性.
 >
-> 表10 — [[NativeBrand]]内部属性的值
+> 表 10 — [[NativeBrand]]内部属性的值
 >
 > | 属性值            | 对应类型             |
 > | ----------------- | -------------------- |
@@ -801,28 +800,28 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 > | NativeArguments   | Arguments objects    |
 > | NativePrivateName | Private Name objects |
 
-可见，和[[class]]不同的是，并不是每个对象都拥有[[NativeBrand]]. 同时，Object.prototype.toString方法的规范也改成了下面这样:
+可见，和[[class]]不同的是，并不是每个对象都拥有[[NativeBrand]]. 同时，Object.prototype.toString 方法的规范也改成了下面这样:
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
 > 在**`toString`**方法被调用时，会执行下面的操作步骤:
 >
 > 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
-> 2. ` `如果**this**的值为**null**，则返回` "[object Null]"`.
-> 3. 让*O*成为调用ToObject(**this)**的结果.
-> 4. 如果*O*有[[NativeBrand]]内部属性，让*tag*成为表29中对应的值.
+> 2. ` ` 如果**this**的值为**null**，则返回 ` "[object Null]"` .
+> 3. 让*O*成为调用 ToObject(**this)**的结果.
+> 4. 如果*O*有[[NativeBrand]]内部属性，让*tag*成为表 29 中对应的值.
 > 5. 否则
-> 1. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
-> 2. 如果*hasTag*为**false**，则让*tag*为 `"Object"` .
-> 3. 否则，
-> 1. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
-> 2. 如果*tag*是一个abrupt completion，则让*tag*成为NormalCompletion( `"???"` ).
-> 3. 让*tag*成为*tag*.[[value]].
-> 4. 如果Type(*tag*)不是字符串，则让*tag成为* `"???"` .
-> 5. 如果*tag*的值为 `"Arguments"` ， `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"JSON"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `或者"String"中的任一个，则让` *tag*成为字符串 `"~"和` *tag*当前的值连接后的结果.
-> 6. 返回三个字符串"[object "， tag， and "]" `连接后的新字符串` ``.
+> 6. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
+> 7. 如果*hasTag*为**false**，则让*tag*为 `"Object"` .
+> 8. 否则，
+> 9. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
+> 10. 如果*tag*是一个 abrupt completion，则让*tag*成为 NormalCompletion( `"???"` ).
+> 11. 让*tag*成为*tag*.[[value]].
+> 12. 如果 Type(_tag_)不是字符串，则让*tag 成为* `"???"` .
+> 13. 如果*tag*的值为 `"Arguments"` ， `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"JSON"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `或者"String"中的任一个，则让` *tag*成为字符串 `"~"和` *tag*当前的值连接后的结果.
+> 14. 返回三个字符串"[object "， tag， and "]" `连接后的新字符串` ``.
 >
-> 表29 — [[NativeBrand]] 标志值
+> 表 29 — [[NativeBrand]] 标志值
 >
 > | [[NativeBrand]]值 | 标志值        |
 > | ----------------- | ------------- |
@@ -837,12 +836,10 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 > | NativeError       | `"Error"` |
 > | NativeJSON        | `"JSON"` |
 > | NativeArguments   | `"Arguments"` |
->
->
 
 可以看到，在规范上有了很大的变化，不过对于普通用户来说，貌似感觉不到.
 
-也许你发现了，ES6里的新类型Map，Set等，都没有在表29中. 它们在执行toString方法的时候返回的是什么?
+也许你发现了，ES6 里的新类型 Map，Set 等，都没有在表 29 中. 它们在执行 toString 方法的时候返回的是什么?
 
 ```
 console.log(Object.prototype.toString.call(Map()))   //"[object Map]"
@@ -856,7 +853,7 @@ console.log(Object.prototype.toString.call(Set()))   //"[object Set]"
 >
 > @@toStringTag 属性的初始值为字符串**"Map"**.
 
-由于ES6的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节. 看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
+由于 ES6 的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节. 看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
 
 http://stackoverflow.com/questions/13151643/access-nativebrand-class-in-es6-ecmascript-6
 

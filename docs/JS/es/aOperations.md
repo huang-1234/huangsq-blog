@@ -424,6 +424,7 @@ function iife() {
     console.log('foo')
 }() // 报错，因为JS引擎把IIFE识别为了函数声明
 void
+
 function iife() {
     console.log('foo')
 }() // 正常调用

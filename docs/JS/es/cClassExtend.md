@@ -1,22 +1,15 @@
 # 3. 类的继承
 
-# JavaScript深入之继承的多种方式和优缺点
+## JS继承的多种方式和优缺点
 
-> 讲解JavaScript各种继承方式和优缺点.
 
-## 写在前面
-
-本文讲解JavaScript各种继承方式和优缺点.
-
-但是注意:
-
-这篇文章更像是笔记, 哎, 再让我感叹一句:《JavaScript高级程序设计》写得真是太好了!
+《JavaScript高级程序设计》写得真是太好了!
 
 ## 1. 原型链继承
 
 ```js
 function Parent() {
-  this.name = 'kevin';
+  this.name = 'shiqi';
 }
 
 Parent.prototype.getName = function() {
@@ -31,7 +24,7 @@ Child.prototype = new Parent();
 
 var child1 = new Child();
 
-console.log(child1.getName()) // kevin
+console.log(child1.getName()) // shiqi
 ```
 
 问题:
@@ -40,7 +33,7 @@ console.log(child1.getName()) // kevin
 
 ```js
 function Parent() {
-  this.names = ['kevin', 'daisy'];
+  this.names = ['shiqi', 'shuiqing'];
 }
 
 function Child() {
@@ -51,13 +44,13 @@ Child.prototype = new Parent();
 
 var child1 = new Child();
 
-child1.names.push('yayu');
+child1.names.push('huangsq369');
 
-console.log(child1.names); // ["kevin", "daisy", "yayu"]
+console.log(child1.names); // ["shiqi", "shuiqing", "huangsq369"]
 
 var child2 = new Child();
 
-console.log(child2.names); // ["kevin", "daisy", "yayu"]
+console.log(child2.names); // ["shiqi", "shuiqing", "huangsq369"]
 ```
 
 2. 在创建 Child 的实例时, 不能向Parent传参
@@ -66,7 +59,7 @@ console.log(child2.names); // ["kevin", "daisy", "yayu"]
 
 ```js
 function Parent() {
-  this.names = ['kevin', 'daisy'];
+  this.names = ['shiqi', 'shuiqing'];
 }
 
 function Child() {
@@ -75,13 +68,13 @@ function Child() {
 
 var child1 = new Child();
 
-child1.names.push('yayu');
+child1.names.push('huangsq369');
 
-console.log(child1.names); // ["kevin", "daisy", "yayu"]
+console.log(child1.names); // ["shiqi", "shuiqing", "huangsq369"]
 
 var child2 = new Child();
 
-console.log(child2.names); // ["kevin", "daisy"]
+console.log(child2.names); // ["shiqi", "shuiqing"]
 ```
 
 优点:
@@ -101,18 +94,16 @@ function Child(name) {
   Parent.call(this, name);
 }
 
-var child1 = new Child('kevin');
+var child1 = new Child('shiqi');
 
-console.log(child1.name); // kevin
+console.log(child1.name); // shiqi
 
-var child2 = new Child('daisy');
+var child2 = new Child('shuiqing');
 
-console.log(child2.name); // daisy
+console.log(child2.name); // shuiqing
 ```
 
-缺点:
-
-方法都在构造函数中定义, 每次创建实例都会创建一遍方法.
+缺点:方法都在构造函数中定义, 每次创建实例都会创建一遍方法.
 
 ## 3. 组合继承
 
@@ -138,17 +129,17 @@ function Child(name, age) {
 
 Child.prototype = new Parent();
 
-var child1 = new Child('kevin', '18');
+var child1 = new Child('shiqi', '18');
 
 child1.colors.push('black');
 
-console.log(child1.name); // kevin
+console.log(child1.name); // shiqi
 console.log(child1.age); // 18
 console.log(child1.colors); // ["red", "blue", "green", "black"]
 
-var child2 = new Child('daisy', '20');
+var child2 = new Child('shuiqing', '20');
 
-console.log(child2.name); // daisy
+console.log(child2.name); // shuiqing
 console.log(child2.age); // 20
 console.log(child2.colors); // ["red", "blue", "green"]
 ```
@@ -167,24 +158,22 @@ function createObj(o) {
 
 就是 ES5 Object.create 的模拟实现, 将传入的对象作为创建的对象的原型.
 
-缺点:
-
-包含引用类型的属性值始终都会共享相应的值, 这点跟原型链继承一样.
+缺点: 包含引用类型的属性值始终都会共享相应的值, 这点跟原型链继承一样.
 
 ```js
 var person = {
-  name: 'kevin',
-  friends: ['daisy', 'kelly']
+  name: 'shiqi',
+  friends: ['shuiqing', 'kelly']
 }
 
 var person1 = createObj(person);
 var person2 = createObj(person);
 
 person1.name = 'person1';
-console.log(person2.name); // kevin
+console.log(person2.name); // shiqi
 
 person1.firends.push('taylor');
-console.log(person2.friends); // ["daisy", "kelly", "taylor"]
+console.log(person2.friends); // ["shuiqing", "kelly", "taylor"]
 ```
 
 注意: 修改 `person1.name` 的值, `person2.name` 的值并未发生改变, 并不是因为 `person1` 和 `person2` 有独立的 name 值, 而是因为 `person1.name = 'person1'` , 给 `person1` 添加了 name 值, 并非修改了原型上的 name 值.
@@ -226,7 +215,7 @@ function Child(name, age) {
 
 Child.prototype = new Parent();
 
-var child1 = new Child('kevin', '18');
+var child1 = new Child('shiqi', '18');
 
 console.log(child1)
 ```
@@ -242,7 +231,7 @@ Child.prototype = new Parent();
 一次在创建子类型实例的时候:
 
 ```js
-var child1 = new Child('kevin', '18');
+var child1 = new Child('shiqi', '18');
 ```
 
 回想下 new 的模拟实现, 其实在这句中, 我们会执行:
@@ -283,7 +272,7 @@ F.prototype = Parent.prototype;
 
 Child.prototype = new F();
 
-var child1 = new Child('kevin', '18');
+var child1 = new Child('shiqi', '18');
 
 console.log(child1);
 ```
@@ -309,4 +298,5 @@ prototype(Child, Parent);
 
 引用《JavaScript高级程序设计》中对寄生组合式继承的夸赞就是:
 
-这种方式的高效率体现它只调用了一次 Parent 构造函数, 并且因此避免了在 Parent.prototype 上面创建不必要的、多余的属性. 与此同时, 原型链还能保持不变; 因此, 还能够正常使用 instanceof 和 isPrototypeOf. 开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式.
+这种方式的高效率体现它只调用了一次 Parent 构造函数, 并且因此避免了在 Parent.prototype 上面创建不必要的、多余的属性。
+与此同时, 原型链还能保持不变; 因此, 还能够正常使用 instanceof 和 isPrototypeOf. 开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式.
