@@ -460,7 +460,8 @@ const func = () => void customMethod() // 特别是给一个事件或者回调�
 
 > 参考文档：
 >
-> 1. [运算符优先级 - JavaScript | MDN](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FReference%2FOperators%2FOperator_Precedence)
-> 2. [JS 中可以提升幸福度的小技巧](https://link.segmentfault.com/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F6844903641468403726)
-> 3. [4个未听说过的强大JavaScript操作符](https://link.segmentfault.com/?url=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FekZCR7BNVnIzHx5YoYl7qg)
-> 4. [聊聊JavaScript中的二进制数](https://link.segmentfault.com/?url=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F22297104)
+> 1. [运算符优先级 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+> 2. [JS 中可以提升幸福度的小技巧](https://juejin.cn/post/6844903641468403726)
+> 3. [这些 JS 中强大的操作符，总有几个你没听说过](https://zhuanlan.zhihu.com/p/345118267)
+> 4. [4个未听说过的强大JavaScript操作符](https://zhuanlan.zhihu.com/p/336093302)
+> 5. [聊聊JavaScript中的二进制数](https://zhuanlan.zhihu.com/p/22297104)
