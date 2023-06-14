@@ -22,12 +22,12 @@ jobs:
         PUBLISH_BRANCH: master
         PUBLISH_DIR: dist
       with:
-          node-version: '16'
+          node-version: 16
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          command_timeout: 5m
-          script: |
+          command_timeout: 50m
+          script:
             set -e
 
             # 生成静态文件
