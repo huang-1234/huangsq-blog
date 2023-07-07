@@ -8,7 +8,7 @@
 
 另外，更重的一点是 instanceof 可以在继承关系中用来判断一个实例是否属于它的父类型。
 
-**简单用法**
+`简单用法`
 
 ```js
 function Fn () {}
@@ -17,7 +17,7 @@ fn instanceof Fn
 // true
 ```
 
-**实现如下：**
+`实现如下：`
 
 ```js
 // left instanceof right
@@ -96,7 +96,7 @@ console.log(str.__proto__ === String.prototype); //true
 console.log( Object.prototype.__proto__ === null ); //true
 ```
 
-**指向关系**
+`指向关系`
 
 ```js
 //表达式一的指向
@@ -138,7 +138,7 @@ Function.protype 不在 str 的原型链上，所以 str instanceof Function 返
 
 ### instanceof 举例
 
-1. **常规用法**
+1. `常规用法`
 
 
 
@@ -148,7 +148,7 @@ console.log(StringObje instaceof String); // 输出为true
 ```
 
 这段代码问的是，变量 `StringObje` 是不是 `String` 对象的实例，答案为 true，很显然是的 , typeof 只会返回 "Object"，所以 instanceof 还是有用的，当然你会发现 `StringObje instanceof Object` 也是true
- **通常来讲使用 instanceof 就是判断一个实例是否属于某种类型**
+ `通常来讲使用 instanceof 就是判断一个实例是否属于某种类型`
 
 
 
@@ -159,7 +159,7 @@ var foo = new Foo();
 console.log(foo instaceof Foo)  // true
 ```
 
-1. **instanceof 在继承中关系应用 **
+1. `instanceof 在继承中关系应用 `
 
 
 
@@ -175,18 +175,18 @@ console.log(a instanceof AFather)   //true
 
 在多层继承中，仍然适用。
 
-1. **instanceof 复杂用法**
+1. `instanceof 复杂用法`
 
 
 
 ```js
 function Foo(){}
-console.log(Object instanceof Object);//1  true 
-console.log(Function instanceof Function);//2  true 
-console.log(Number instanceof Number);//3  false 
-console.log(String instanceof String);//4  false 
-console.log(Function instanceof Object);//5   true 
-console.log(Foo instanceof Function);//6  true 
+console.log(Object instanceof Object);//1  true
+console.log(Function instanceof Function);//2  true
+console.log(Number instanceof Number);//3  false
+console.log(String instanceof String);//4  false
+console.log(Function instanceof Object);//5   true
+console.log(Foo instanceof Function);//6  true
 console.log(Foo instanceof Foo);//7  false
 ```
 
@@ -197,12 +197,12 @@ console.log(Foo instanceof Foo);//7  false
 
 ```js
 console.log(Object,Function,String,Number,Foo);
-  /***
+  /`*
   *  结果如下
-  *   function Object() { [native code] } 
-  *   function Function() { [native code] } 
-  *   function String() { [native code] } 
-  *   function Number() { [native code] } 
+  *   function Object() { [native code] }
+  *   function Function() { [native code] }
+  *   function String() { [native code] }
+  *   function Number() { [native code] }
   *   function Foo(){}
   */
 ```
@@ -210,7 +210,7 @@ console.log(Object,Function,String,Number,Foo);
 这已经很明显了，所有的`检测对象都是一个函数，那么必定属于函数类型和对象类型`，只剩下3,4,7有问题了，那么为什么是 `false` 呢？你想想，`Foo函数是Foo的实例吗`？显然不是啊，同理，`String和Number函数也不是其本身的实例`，new Func() , 这个才是实例对象。
  想彻底明白其中奥妙，必须要了解`语言规范`和`原型继承机制`
 
-1. **规范中 instanceof 运算符定义**
+1. `规范中 instanceof 运算符定义`
     可以参考这个网址 ：[instanceof 语法](https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
     　规范定义很晦涩，而且看起来比较复杂，涉及到很多概念，但把规范翻译成 JavaScript 代码却很简单，如下：
 
@@ -218,11 +218,11 @@ console.log(Object,Function,String,Number,Foo);
  function instance_of(L, R) {    //L 表示左表达式，R 表示右表达式
   var O = R.prototype;           // 取 R 的显示原型
   L = L.__proto__;               // 取 L 的隐式原型
-  while (true) { 
+  while (true) {
     if (L === null)  return false;
-    if (O === L)  return true;   // 这里重点：当 O 严格等于 L 时，返回 true 
-    L = L.__proto__; 
-  } 
+    if (O === L)  return true;   // 这里重点：当 O 严格等于 L 时，返回 true
+    L = L.__proto__;
+  }
  }
 ```
 
@@ -232,7 +232,7 @@ console.log(Object,Function,String,Number,Foo);
 
 由其涉及显示原型和隐式原型，所以下面对这两个概念作一下简单说明。在 JavaScript 原型继承结构里面，规范中用 `[[Prototype]] 表示对象隐式的原型，在 JavaScript 中用 __proto__ 表示`，并且在 Firefox 和 Chrome 浏览器中是可以访问得到这个属性的，但是 IE 下不行。`所有 JavaScript 对象都有 __proto__ 属性，但只有 Object.prototype.__proto__ 为 null`，前提是没有在 Firefox 或者 Chrome 下修改过这个属性。这个属性指向它的原型对象。 至于`显示的原型，在 JavaScript 里用 prototype 属性表示`，这个是 JavaScript 原型继承的基础知识，在这里就不在叙述了。
 
-1. **上述复杂问题的推演过程**
+1. `上述复杂问题的推演过程`
     如果你理解了 javascript 原型链，那么这个问题就简单了！
     下面将详细讲解 `Object instanceof Object，Function instanceof Function 和 Foo instanceof Foo` 三个示例，其它示例读者可自行推演。
 
@@ -246,16 +246,16 @@ console.log(Object,Function,String,Number,Foo);
 
 ```dart
  // 为了方便表述，首先区分左侧表达式和右侧表达式
- ObjectL = Object, ObjectR = Object; 
+ ObjectL = Object, ObjectR = Object;
  // 下面根据规范逐步推演
- O = ObjectR.prototype = Object.prototype 
- L = ObjectL.__proto__ = Function.prototype 
+ O = ObjectR.prototype = Object.prototype
+ L = ObjectL.__proto__ = Function.prototype
  // 第一次判断
- O != L 
- // 循环查找 L 是否还有 __proto__ 
- L = Function.prototype.__proto__ = Object.prototype 
+ O != L
+ // 循环查找 L 是否还有 __proto__
+ L = Function.prototype.__proto__ = Object.prototype
  // 第二次判断
- O == L 
+ O == L
  // 返回 true
 ```
 
@@ -269,12 +269,12 @@ console.log(Object,Function,String,Number,Foo);
 
 ```dart
  // 为了方便表述，首先区分左侧表达式和右侧表达式
- FunctionL = Function, FunctionR = Function; 
+ FunctionL = Function, FunctionR = Function;
  // 下面根据规范逐步推演
- O = FunctionR.prototype = Function.prototype 
- L = FunctionL.__proto__ = Function.prototype 
+ O = FunctionR.prototype = Function.prototype
+ L = FunctionL.__proto__ = Function.prototype
  // 第一次判断
- O == L 
+ O == L
  // 返回 true
 ```
 
@@ -288,20 +288,20 @@ console.log(Object,Function,String,Number,Foo);
 
 ```dart
  // 为了方便表述，首先区分左侧表达式和右侧表达式
- FooL = Foo, FooR = Foo; 
+ FooL = Foo, FooR = Foo;
  // 下面根据规范逐步推演
- O = FooR.prototype = Foo.prototype 
- L = FooL.__proto__ = Function.prototype 
+ O = FooR.prototype = Foo.prototype
+ L = FooL.__proto__ = Function.prototype
  // 第一次判断
- O != L 
- // 循环再次查找 L 是否还有 __proto__ 
- L = Function.prototype.__proto__ = Object.prototype 
+ O != L
+ // 循环再次查找 L 是否还有 __proto__
+ L = Function.prototype.__proto__ = Object.prototype
  // 第二次判断
- O != L 
- // 再次循环查找 L 是否还有 __proto__ 
- L = Object.prototype.__proto__ = null 
+ O != L
+ // 再次循环查找 L 是否还有 __proto__
+ L = Object.prototype.__proto__ = null
  // 第三次判断
- L == null 
+ L == null
  // 返回 false
 ```
 
@@ -327,13 +327,13 @@ console.log(typeof declaredButUndefinedVariable);
 
 从上面的例子我们可以看出，typeof 操作符用于检测给定变量的数据类型。对于一个值使用 typeof 操作符，可能返回以下几个字符串：
 
-- **boolean** -- 代表这个值是布尔值
-- **string** -- 代表这个值是字符串
-- **number** -- 代表这个值是数值
-- **symbol** -- 代表这个值是Symbol
-- **undefined** -- 代表这个值未定义
-- **object** -- 代表这个值是对象或null
-- **function** -- 代表这个值是函数
+- `boolean` -- 代表这个值是布尔值
+- `string` -- 代表这个值是字符串
+- `number` -- 代表这个值是数值
+- `symbol` -- 代表这个值是Symbol
+- `undefined` -- 代表这个值未定义
+- `object` -- 代表这个值是对象或null
+- `function` -- 代表这个值是函数
 
 ### 返回 boolean、string、number 的情况
 
@@ -394,7 +394,7 @@ let a = 1;// a 已经声明并且是数字
 typeof a === "number"
 // b 是为定义的变量，并且当前块作用域中，没有与之同名的通过let和const声明的变量
 typeof b === "undefined"
-//当前块作用域中，通过let声明了c，在c未被初始化之前，存在暂时性死区，此时使用 typeof 抛出 ReferenceErrortypeof c 
+//当前块作用域中，通过let声明了c，在c未被初始化之前，存在暂时性死区，此时使用 typeof 抛出 ReferenceErrortypeof c
 // ReferenceErrorlet c;
 ```
 
@@ -411,7 +411,7 @@ typeof new Function() === 'function';
 //
 ```
 
-**需要注意的问题**
+`需要注意的问题`
 
 这里有一个历史遗留问题，需要我们考虑
 

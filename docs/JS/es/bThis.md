@@ -4,11 +4,11 @@ JS里面this关键字的指向问题(在浏览器环境下).
 
 > 下面引自MDN对this的一段介绍
 
-与其他语言相比, **函数的 [this]([this - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)) 关键字**在 JavaScript 中的表现略有不同, 此外, 在[严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)和非严格模式之间也会有一些差别.
+与其他语言相比, `函数的 [this]([this - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)) 关键字`在 JavaScript 中的表现略有不同, 此外, 在[严格模式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)和非严格模式之间也会有一些差别.
 
 在绝大多数情况下, 函数的调用方式决定了 `this` 的值(运行时绑定). `this` 不能在执行期间被赋值, 并且在每次函数被调用时 `this` 的值也可能会不同. ES5 引入了 [bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 方法来设置函数的 `this` 值, 而不用考虑函数如何被调用的. ES2015 引入了[箭头函数](https://wiki.developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions), 箭头函数不提供自身的 this 绑定( `this` 的值将保持为闭合词法上下文的值).
 
-**this的指向在函数定义的时候是确定不了的, 只有函数执行的时候才能确定this到底指向谁**, **实际上this的最终指向的是那个调用它的对象**
+`this的指向在函数定义的时候是确定不了的, 只有函数执行的时候才能确定this到底指向谁`, `实际上this的最终指向的是那个调用它的对象`
 
 * 如果一个函数中有this, 但是它没有被上一级的对象所调用, 那么this指向的就是window, js的严格版中this指向的不是window而是 undefined.
 * 如果一个函数中有this, 这个函数有被上一级的对象所调用, 那么this指向的就是上一级的对象.
@@ -188,7 +188,7 @@ console.log(p1); //[ 1, 2.3 ]
 console.log(p2); //[ 1, 2.3 ]
 ```
 
-**如果返回值是一个对象, 那么this指向的就是那个返回的对象, 如果返回值不是一个对象那么this则指向函数的实例.**
+`如果返回值是一个对象, 那么this指向的就是那个返回的对象, 如果返回值不是一个对象那么this则指向函数的实例.`
 
 ## `this` 优先级(优先级向下递减)
 

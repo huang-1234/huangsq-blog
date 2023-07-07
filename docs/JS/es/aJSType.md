@@ -130,7 +130,7 @@ console.log(10n == 10); // → true
 10n * 20n; // → 200n
 20n / 10n; // → 2n
 23n % 10n; // → 3n
-10n ** 3n; // → 1000n
+10n ` 3n; // → 1000n
 
 const x = 10n;
 ++x; // → 11n
@@ -163,7 +163,7 @@ const x = 10n;
 Math.max(2n, 4n, 6n); // → TypeError
 ```
 
-**请注意**，关系运算符不遵循此规则，如下例所示：
+`请注意`，关系运算符不遵循此规则，如下例所示：
 
 ```js
 10n > 5; // → true
@@ -433,11 +433,11 @@ a > -1 // true
 
 ### == VS ===
 
-对于 `==` 来说，如果对比双方的类型**不一样**的话，就会进行**类型转换**.
+对于 `==` 来说，如果对比双方的类型`不一样`的话，就会进行`类型转换`.
 
 假如我们需要对比 `x` 和 `y` 是否相同，就会进行如下判断流程：
 
-1. 首先会判断两者类型是否**相同**。相同的话就是比大小了
+1. 首先会判断两者类型是否`相同`。相同的话就是比大小了
 2. 类型不相同的话，那么就会进行类型转换
 3. 会先判断是否在对比 `null` 和 `undefined`，是的话就会返回 `true`
 4. 判断两者类型是否为 `string` 和 `number`，是的话就会将字符串转换为 `number`
@@ -458,7 +458,7 @@ a > -1 // true
 
 在两数相加时，会先转换成二进制，0.1 和 0.2 转换成二进制的时候尾数会发生无限循环，然后进行对阶运算，JS 引擎对二进制进行截断，所以造成精度丢失。
 
-所以总结：**精度丢失可能出现在进制转换和对阶运算中**
+所以总结：`精度丢失可能出现在进制转换和对阶运算中`
 
 ### JS 整数是怎么表示的？
 
@@ -550,18 +550,18 @@ NaN 指的是 Not a Number，表示非数字，typeof NaN = 'number'
 
 不管是面试中，亦或在工作上，会出现这么个场景：
 
-* **如何判断某个 JavaScript 字段的数据类型？**
+* `如何判断某个 JavaScript 字段的数据类型？`
 
 当然，它还可能是某个知识点的附赠品，例如：
 
-* **当你进行深拷贝数据的时候，你是如何判断这个字段是什么类型的？你知道判断数据类型有几种方式么？它们优缺点在哪？**
+* `当你进行深拷贝数据的时候，你是如何判断这个字段是什么类型的？你知道判断数据类型有几种方式么？它们优缺点在哪？`
 
 那么，本文来讲解下，判断 JavaScript 数据类型的四种方法！
 
 ### 三 typeof
 
 ```js
-/**
+/`
  * @name typeof示例
  * @description 通过 typeof 检测各个数据类型的返回
  */
@@ -606,7 +606,7 @@ console.log(typeof(test.testObjectNumber)); // object
 ### 四 instanceof
 
 ```js
-/**
+/`
  * @name instanceof示例1
  * @description 检测字符串类型
  */
@@ -616,7 +616,7 @@ const newString = new String('这是 New 出来的 String');
 console.log(simpleString instanceof String); // false，检查原型链会返回 undefined
 console.log(newString instanceof String); // true
 
-/**
+/`
  * @name instanceof示例2
  * @description 检测数字类型
  */
@@ -626,7 +626,7 @@ const newNumber = new Number(123);
 console.log(simpleNumber instanceof Number); // false
 console.log(newNumber instanceof Number); // true
 
-/**
+/`
  * @name instanceof示例3
  * @description 检测对象类型
  */
@@ -644,7 +644,7 @@ console.log(newObject instanceof Object); // true
 ### 五 constructor
 
 ```js
-/**
+/`
  * @name constructor示例
  * @description constructor 检测对象类型
  */
@@ -672,7 +672,7 @@ const undefin = undefined;
 // 报错：Uncaught TypeError: Cannot read property 'constructor' of null at <anonymous>:1:5
 ```
 
-`constructor` 和前面的 `typeof` 、 `instanceof` 不同， `typeof` 和 `instanceof` 是属于 **表达式和运算符** 分类下的，而 `constructor` 是直接关系到内置对象 `Object` 下。
+`constructor` 和前面的 `typeof` 、 `instanceof` 不同， `typeof` 和 `instanceof` 是属于 `表达式和运算符` 分类下的，而 `constructor` 是直接关系到内置对象 `Object` 下。
 
 当然，这里我们讲的是校验数据类型，通过 `[].constructor === Array` 或者 `(1).constructor === Number` 会返回 `true` ，符合我们的预期。
 
@@ -683,7 +683,7 @@ const undefin = undefined;
 Object.prototype.toString.call()
 
 ```js
-/**
+/`
  * @name toString示例
  * @description toString 检测对象类型
  */
@@ -735,7 +735,7 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 
 > 15.2.4.2 Object.prototype.toString()
 >
-> 在**`toString`**方法被调用时，会执行下面的操作步骤:1. 获取 this 对象的[[Class]]属性的值.2. 计算出三个字符串**`"[object "，`** 第一步的操作结果 Result(1)， 以及 **`"]"`** `连接后的新字符串.` 3. 返回第二步的操作结果 Result(2).
+> 在``toString``方法被调用时，会执行下面的操作步骤:1. 获取 this 对象的[[Class]]属性的值.2. 计算出三个字符串``"[object "，`` 第一步的操作结果 Result(1)， 以及 ``"]"`` `连接后的新字符串.` 3. 返回第二步的操作结果 Result(2).
 
 [[Class]]是一个内部属性，所有的对象(原生对象和宿主对象)都拥有该属性. 在规范中，[[Class]]是这么定义的
 
@@ -745,9 +745,9 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 
 然后给了一段解释:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是任意值，甚至可以是内置对象使用过的[[Class]]属性的值.[[Class]]属性的值可以用来判断一个原生对象属于哪种内置类型. 需要注意的是，除了通过``Object.prototype.toString``方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
-也就是说，把 Object.prototype.toString 方法返回的字符串，去掉前面固定的**`"[object "`**和后面固定的**"]"，**就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery 中的工具方法$.type()，就是干这个的.
+也就是说，把 Object.prototype.toString 方法返回的字符串，去掉前面固定的``"[object "``和后面固定的`"]"，`就是内部属性[[class]]的值，也就达到了判断对象类型的目的.jQuery 中的工具方法$.type()，就是干这个的.
 
 在 ES3 中，规范文档并没有总结出[[class]]内部属性一共有几种，不过我们可以自己统计一下，原生对象的[[class]]内部属性的值一共有 10 种. 分别是: `"Array"` ， `"Boolean"` ， `"Date"` ， `"Error"` ， `"Function"` ， `"Math"` ， `"Number"` ， `"Object"` ， `"RegExp"` ， `"String".`
 
@@ -757,23 +757,23 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
-> 在**`toString`**方法被调用时，会执行下面的操作步骤:
+> 在``toString``方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
-> 2. 如果**this**的值为**null**，则返回 `"[object Null]"` .
-> 3. 让*O*成为调用 ToObject(**this)**的结果.
+> 1. 如果`this`的值为`undefined`，则返回 `"[object Undefined]"` .
+> 2. 如果`this`的值为`null`，则返回 `"[object Null]"` .
+> 3. 让*O*成为调用 ToObject(`this)`的结果.
 > 4. 让*class*成为*O*的内部属性[[Class]]的值.
-> 5. 返回三个字符串**`"[object "，`** _class_， 以及 **`"]"`** `连接后的新字符串` ``.
+> 5. 返回三个字符串``"[object "，`` _class_， 以及 ``"]"`` `连接后的新字符串` ``.
 
 可以看出，比 ES3 多了 1，2，3 步. 第 1，2 步属于新规则，比较特殊，因为" `Undefined"` 和" `Null"` 并不属于[[class]]属性的值，需要注意的是，这里和严格模式无关(大部分函数在严格模式下，this 的值才会保持 undefined 或 null，非严格模式下会自动成为全局对象). 第 3 步并不算是新规则，因为在 ES3 的引擎中，也都会在这一步将三种原始值类型转换成对应的包装对象，只是规范中没写出来. ES5 中，[[Class]]属性的解释更加详细:
 
-> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的. 需要注意的是，除了通过**`Object.prototype.toString`**方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
+> 所有内置对象的[[Class]]属性的值是由本规范定义的. 所有宿主对象的[[Class]]属性的值可以是除了"Arguments"， "Array"， "Boolean"， "Date"， "Error"， "Function"， "JSON"， "Math"， "Number"， "Object"， "RegExp"， "String"之外的的任何字符串.[[Class]]内部属性是引擎内部用来判断一个对象属于哪种类型的值的. 需要注意的是，除了通过``Object.prototype.toString``方法之外，本规范没有提供任何其他方式来让程序访问该属性的值(查看 15.2.4.2).
 
 和 ES3 对比一下，第一个差别就是[[class]]内部属性的值多了两种，成了 12 种，一种是 arguments 对象的[[class]]成了"Arguments"，而不是以前的"Object"，还有就是多个了全局对象 JSON，它的[[class]]值为"JSON". 第二个差别就是，宿主对象的[[class]]内部属性的值，不能和这 12 种值冲突，不过在支持 ES3 的浏览器中，貌似也没有发现哪些宿主对象故意使用那 10 个值.
 
 ### ECMAScript 6
 
-[ES6](http://people.mozilla.org/~jorendorff/es6-draft.html)目前还只是工作草案，但能够肯定的是，**[[class]]内部属性没有了**，取而代之的是另外一个内部属性[[NativeBrand]].[[NativeBrand]]属性是这么定义的:
+[ES6](http://people.mozilla.org/~jorendorff/es6-draft.html)目前还只是工作草案，但能够肯定的是，`[[class]]内部属性没有了`，取而代之的是另外一个内部属性[[NativeBrand]].[[NativeBrand]]属性是这么定义的:
 
 > | 内部属性        | 属性值                       | 描述                                                             |
 > | --------------- | ---------------------------- | ---------------------------------------------------------------- |
@@ -804,15 +804,15 @@ console.log(Object.prototype.toString.call(arr)) //"[object Array]"
 
 > ##### 15.2.4.2 Object.prototype.toString ( )
 >
-> 在**`toString`**方法被调用时，会执行下面的操作步骤:
+> 在``toString``方法被调用时，会执行下面的操作步骤:
 >
-> 1. 如果**this**的值为**undefined**，则返回 `"[object Undefined]"` .
-> 2. ` ` 如果**this**的值为**null**，则返回 ` "[object Null]"` .
-> 3. 让*O*成为调用 ToObject(**this)**的结果.
+> 1. 如果`this`的值为`undefined`，则返回 `"[object Undefined]"` .
+> 2. ` ` 如果`this`的值为`null`，则返回 ` "[object Null]"` .
+> 3. 让*O*成为调用 ToObject(`this)`的结果.
 > 4. 如果*O*有[[NativeBrand]]内部属性，让*tag*成为表 29 中对应的值.
 > 5. 否则
 > 6. 让*hasTag*成为调用*O*的[[HasProperty]]内部方法后的结果，参数为@@toStringTag.
-> 7. 如果*hasTag*为**false**，则让*tag*为 `"Object"` .
+> 7. 如果*hasTag*为`false`，则让*tag*为 `"Object"` .
 > 8. 否则，
 > 9. 让*tag*成为调用*O*的[[Get]]内部方法后的结果，参数为@@toStringTag.
 > 10. 如果*tag*是一个 abrupt completion，则让*tag*成为 NormalCompletion( `"???"` ).
@@ -849,9 +849,9 @@ console.log(Object.prototype.toString.call(Set()))   //"[object Set]"
 
 其中的字符串"Map"是怎么来的呢:
 
-> **15.14.5.13** Map.prototype.@@toStringTag
+> `15.14.5.13` Map.prototype.@@toStringTag
 >
-> @@toStringTag 属性的初始值为字符串**"Map"**.
+> @@toStringTag 属性的初始值为字符串`"Map"`.
 
 由于 ES6 的规范还在制定中，各种相关规定都有可能改变，所以如果想了解更多细节. 看看下面这两个链接，现在只需要知道的是:[[class]]没了，使用了更复杂的机制.
 

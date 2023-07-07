@@ -1,8 +1,8 @@
 # 10个最佳ES6特性
 
-**为了保证可读性，本文采用意译而非直译，并且对源代码进行了大量修改。另外，本文版权归原作者所有，翻译仅用于学习。**
+`为了保证可读性，本文采用意译而非直译，并且对源代码进行了大量修改。另外，本文版权归原作者所有，翻译仅用于学习。`
 
-**ES6**，正式名称是**ECMAScript2015**，但是**ES6**这个名称更加简洁。**ES6**已经不再是JavaScript最新的标准，但是它已经广泛用于编程实践中。如果你还没用过**ES6**，现在还不算太晚…
+`ES6`，正式名称是`ECMAScript2015`，但是`ES6`这个名称更加简洁。`ES6`已经不再是JavaScript最新的标准，但是它已经广泛用于编程实践中。如果你还没用过`ES6`，现在还不算太晚…
 
 下面是10个ES6最佳特性，排名不分先后：
 
@@ -19,7 +19,7 @@
 
 ### 1. 函数参数默认值
 
-#### 不使用**ES6**
+#### 不使用`ES6`
 
 为函数的参数设置默认值：
 
@@ -32,13 +32,13 @@ function foo(height, color)
 }
 ```
 
-这样写一般没问题，但是，当参数的布尔值为**false**时，是会出事情的！比如，我们这样调用**foo**函数：
+这样写一般没问题，但是，当参数的布尔值为`false`时，是会出事情的！比如，我们这样调用`foo`函数：
 
 ```js
 foo(0, "", "")
 ```
 
-因为**0**的布尔值为**false**，这样**height**的取值将是**50**。同理**color**的取值为**‘red’**。
+因为`0`的布尔值为`false`，这样`height`的取值将是`50`。同理`color`的取值为`‘red’`。
 
 #### 使用ES6
 
@@ -53,7 +53,7 @@ function foo(height = 50, color = 'red')
 
 #### 不使用ES6
 
-使用**+**号将变量拼接为字符串：
+使用`+`号将变量拼接为字符串：
 
 ```js
 var name = 'Your name is ' + first + ' ' + last + '.'
@@ -67,13 +67,13 @@ var name = 'Your name is ' + first + ' ' + last + '.'
 var name = `Your name is ${first} ${last}.`
 ```
 
-**ES6**的写法更加简洁、直观。
+`ES6`的写法更加简洁、直观。
 
 ### 3. 多行字符串
 
 #### 不使用ES6
 
-使用**“\n\t”**将多行字符串拼接起来：
+使用`“\n\t”`将多行字符串拼接起来：
 
 ```js
 var roadPoem = 'Then took the other, as just as fair,\n\t'
@@ -85,7 +85,7 @@ var roadPoem = 'Then took the other, as just as fair,\n\t'
 
 #### 使用ES6
 
-将多行字符串放在反引号**``**之间就好了：
+将多行字符串放在反引号````之间就好了：
 
 ```js
 var roadPoem = `Then took the other, as just as fair,
@@ -158,7 +158,7 @@ var baz = { bar, foo };
 
 #### 不使用ES6
 
-普通函数体内的**this**，指向调用时所在的对象。
+普通函数体内的`this`，指向调用时所在的对象。
 
 ```js
 function foo()
@@ -175,7 +175,7 @@ foo.call({ id: 2 }); // 输出2
 
 #### 使用ES6
 
-箭头函数体内的**this**，就是定义时所在的对象，而不是调用时所在的对象。
+箭头函数体内的`this`，就是定义时所在的对象，而不是调用时所在的对象。
 
 ```js
 var foo = () => {
@@ -193,7 +193,7 @@ foo.call({ id: 2 }); // 输出1
 
 #### 不使用ES6
 
-嵌套两个**setTimeout**回调函数：
+嵌套两个`setTimeout`回调函数：
 
 ```js
 setTimeout(function()
@@ -208,7 +208,7 @@ setTimeout(function()
 
 #### 使用ES6
 
-使用两个**then**是异步编程串行化，避免了回调地狱：
+使用两个`then`是异步编程串行化，避免了回调地狱：
 
 ```js
 var wait1000 = new Promise(function(resolve, reject)
@@ -232,7 +232,7 @@ wait1000
 
 #### 使用Var
 
-**var**定义的变量未函数级作用域：
+`var`定义的变量未函数级作用域：
 
 ```js
 {
@@ -244,7 +244,7 @@ console.log(a); // 输出10
 
 #### 使用let与const
 
-**let**定义的变量为块级作用域，因此会报错：(如果你希望实时监控JavaScript应用的错误，欢迎免费使用[Fundebug](https://www.fundebug.com/))
+`let`定义的变量为块级作用域，因此会报错：(如果你希望实时监控JavaScript应用的错误，欢迎免费使用[Fundebug](https://www.fundebug.com/))
 
 ```js
 {
@@ -254,7 +254,7 @@ console.log(a); // 输出10
 console.log(a); // 报错“ReferenceError: a is not defined”
 ```
 
-**const**与**let**一样，也是块级作用域。
+`const`与`let`一样，也是块级作用域。
 
 ### 9. 类
 
@@ -280,7 +280,7 @@ console.log(p.add()); // 输出3
 
 #### 使用ES6
 
-使用**Class**定义类，更加规范，且你能够继承：
+使用`Class`定义类，更加规范，且你能够继承：
 
 ```js
 class Point
@@ -304,13 +304,13 @@ console.log(p.add()); // 输出3
 
 ### 10. 模块化
 
-JavaScript一直没有官方的模块化解决方案，开发者在实践中主要采用**CommonJS**和**AMD**规范。而**ES6**制定了模块(Module)功能。
+JavaScript一直没有官方的模块化解决方案，开发者在实践中主要采用`CommonJS`和`AMD`规范。而`ES6`制定了模块(Module)功能。
 
 #### 不使用ES6
 
-Node.js采用**CommenJS**规范实现了模块化，而前端也可以采用，只是在部署时需要使用[Browserify](http://browserify.org/)等工具打包。这里不妨介绍一下**CommenJS**规范。
+Node.js采用`CommenJS`规范实现了模块化，而前端也可以采用，只是在部署时需要使用[Browserify](http://browserify.org/)等工具打包。这里不妨介绍一下`CommenJS`规范。
 
-**module.js**中使用**module.exports**导出**port**变量和**getAccounts**函数：
+`module.js`中使用`module.exports`导出`port`变量和`getAccounts`函数：
 
 ```js
 module.exports = {
@@ -321,7 +321,7 @@ module.exports = {
 }
 ```
 
-**main.js**中使用**require**导入**module.js**：
+`main.js`中使用`require`导入`module.js`：
 
 ```js
 var service = require('module.js')
@@ -330,9 +330,9 @@ console.log(service.port) // 输出3000
 
 #### 使用ES6
 
-**ES6**中使用**export**与**import**关键词实现模块化。
+`ES6`中使用`export`与`import`关键词实现模块化。
 
-**module.js**中使用**export**导出**port**变量和**getAccounts**函数：
+`module.js`中使用`export`导出`port`变量和`getAccounts`函数：
 
 ```js
 export var port = 3000
@@ -341,7 +341,7 @@ export function getAccounts(url) {
 }
 ```
 
-**main.js**中使用**import**导入**module.js**，可以指定需要导入的变量：
+`main.js`中使用`import`导入`module.js`，可以指定需要导入的变量：
 
 ```js
 import {port, getAccounts} from 'module'

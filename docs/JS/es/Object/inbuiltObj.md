@@ -6,7 +6,7 @@
 
 
 
-**`Number.MAX_SAFE_INTEGER`** 常量表示在 JavaScript 中最大的安全整数（maxinum safe integer)（`253 - 1）。`
+``Number.MAX_SAFE_INTEGER`` 常量表示在 JavaScript 中最大的安全整数（maxinum safe integer)（`253 - 1）。`
 
 | `Number.MAX_SAFE_INTEGER` 属性的属性特性： |       |
 | :----------------------------------------- | ----- |

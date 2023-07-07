@@ -92,7 +92,7 @@ var newLength = fruits.unshift('Strawberry') // add to the front
 fruits.push('Mango'); // ["Strawberry", "Banana", "Mango"]
 var pos = fruits.indexOf('Banana'); // 1
 
-//9. 通过索引删除某个元素**
+//9. 通过索引删除某个元素`
 var removedItem = fruits.splice(pos, 1); // this is how to remove an item
 // ["Strawberry", "Mango"]
 

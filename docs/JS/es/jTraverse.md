@@ -73,7 +73,7 @@ for(var value of aArray){
 所以说, 作用于数组的 `for-in` 循环除了遍历数组元素以外, 还会遍历自定义属性.
 
 ```
-for...of`循环不会循环对象的key，只会循环出数组的value，因此`for...of`不能循环遍历**普通对象**,对普通对象的属性遍历推荐使用`for...in
+for...of`循环不会循环对象的key，只会循环出数组的value，因此`for...of`不能循环遍历`普通对象`,对普通对象的属性遍历推荐使用`for...in
 ```
 
 如果实在想用 `for...of` 来遍历普通对象的属性的话, 可以通过和 `Object.keys()` 搭配使用, 先获取对象的所有key的数组
@@ -451,7 +451,7 @@ while (!$result.done) {
 
 有一些场合会默认调用 Iterator 接口(即 `Symbol.iterator` 方法), 除了下文会介绍的 `for...of` 循环, 还有几个别的场合.
 
-**(1)解构赋值**
+`(1)解构赋值`
 
 对数组和 Set 结构进行解构赋值时, 会默认调用 `Symbol.iterator` 方法.
 
@@ -465,7 +465,7 @@ let [first, ...rest] = set;
 // first='a'; rest=['b','c'];
 ```
 
-**(2)扩展运算符**
+`(2)扩展运算符`
 
 扩展运算符(...)也会调用默认的 Iterator 接口.
 
@@ -488,7 +488,7 @@ let arr = ['b', 'c'];
 let arr = [...iterable];
 ```
 
-**(3)yield\***
+`(3)yield\`*
 
 `yield*` 后面跟的是一个可遍历的结构, 它会调用该结构的遍历器接口.
 
@@ -509,7 +509,7 @@ iterator.next() // { value: 5, done: false }
 iterator.next() // { value: undefined, done: true }
 ```
 
-**(4)其他场合**
+`(4)其他场合`
 
 由于数组的遍历会调用遍历器接口, 所以任何接受数组作为参数的场合, 其实都调用了遍历器接口. 下面是一些例子.
 

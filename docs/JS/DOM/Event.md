@@ -128,12 +128,12 @@ function getEvent(event) {
 child.addEventListener('click', getEvent, false);
 ```
 
-如果你需要兼容IE8及以下版本浏览器，则需要利用**cancelBubble**来代替stopPropagation，因为低版本IE不支持stopPropagation方法。
+如果你需要兼容IE8及以下版本浏览器，则需要利用`cancelBubble`来代替stopPropagation，因为低版本IE不支持stopPropagation方法。
 
 ```
 function getEvent(event) {
     event = event || window.event;
-        
+
     if (event.stopPropagation) {
         event.stopPropagation();
     } else {
@@ -166,13 +166,13 @@ go.addEventListener('click', goFn, false);
 ```
 function goFn(event) {
     event = event || window.event;
-    
+
     if (event.preventDefault) {
         event.preventDefault();
     } else {
         event.returnValue = false;
     }
-    
+
     console.log('我没有跳转！');
 }
 ```
@@ -189,7 +189,7 @@ var go = document.getElementById('go');
 function goFn(event) {
     event.preventDefault();
     event.stopImmediatePropagation(); // 阻止事件冒泡并阻止同类型事件
-    
+
     console.log('我没有跳转！');
 }
 
@@ -232,7 +232,7 @@ var go = document.getElementById('go');
 
 function goFn(event) {
     var target = event.target;
-    
+
     console.log(target === go) // 返回true
 }
 
@@ -243,9 +243,9 @@ go.addEventListener('click', goFn, false);
 
 ```
 function goFn(event) {
-    var event = event || window.event,    
+    var event = event || window.event,
         target = event.target || event.srcElement;
-    
+
     console.log(target === go) // 返回true
 }
 ```
@@ -379,7 +379,7 @@ domElement.onclick = function( e ){
 | keypress  | 键盘按键按住 |
 | keyup     | 键盘按键松开 |
 
-**监听某个按键事件**
+`监听某个按键事件`
 
 
 
@@ -400,7 +400,7 @@ document.onkeyup = function (event) {
 };
 ```
 
-**event参数**
+`event参数`
  该参数为 `KeyboardEvent` 事件对象，其中包含按键相关的一些属性。
 
 - `type`：事件类型
@@ -442,7 +442,7 @@ document.onkeydown = function(event) {
 | onmouseover | 鼠标移动到监听该事件的元素或子元素时触发的事件 |
 | onmouseup   | 鼠标按键被松开时触发的事件                     |
 
-**示例：**
+`示例：`
 
 ```html
 <script type="text/javascript">
@@ -496,7 +496,7 @@ document.onkeydown = function(event) {
 - `shiftKey`: 布尔值，表示此时的shift键是否也按下
 - `metaKey`: 布尔值，windows平台表示Window键是否同时按下，mac表示Command键是否同时按下
 
-**示例：**点击鼠标右键，弹出div
+`示例：`点击鼠标右键，弹出div
 
 
 
@@ -517,7 +517,7 @@ document.body.onmouseup = function(e){     //在body里点击触发事件
         }else{
             res.style.display = 'none';         //否则不显示div盒子
         }
-    } 
+    }
 ```
 
 ## 焦点事件
@@ -544,11 +544,11 @@ form.txt1.onblur=function(){
     console.log(2);
 }　　//元素失去焦点时触发该事件
 form.btn.onclick=function(){
-    form.txt1.select(); 
+    form.txt1.select();
 }  //选中输入框中的所有文字
-form.btn.onclick=function(){ 
-    form.txt1.setSelectionRange(2,5) ; 
-    form.txt1.focus(); 
+form.btn.onclick=function(){
+    form.txt1.setSelectionRange(2,5) ;
+    form.txt1.focus();
 } // setSelectionRange需要配合着focus()使用才看得到效果，其中setSelectionRange的结束位置不包含
 //在内，setSelectionRange（start，end）包含两个参数，一个是start：起始位置；一个是end：结束位置。
 ```
