@@ -2,9 +2,9 @@
 
 本章介绍和说明了 JavaScript 中所有的标准内置对象、以及它们的方法和属性。
 
-这里的术语"全局对象"（或标准内置对象）不应与**global对象**混淆。这里的"全局对象"指的是**处在全局作用域里的多个对象**。
+这里的术语"全局对象"（或标准内置对象）不应与`global对象`混淆。这里的"全局对象"指的是`处在全局作用域里的多个对象`。
 
-**global对象**可以在全局作用域里通过使用[`this`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)访问到（但只有在 ECMAScript 5 的非严格模式下才可以，在严格模式下得到的是 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)）。其实全局作用域**包含**全局对象中的属性，包括它可能继承来的属性。
+`global对象`可以在全局作用域里通过使用[`this`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this)访问到（但只有在 ECMAScript 5 的非严格模式下才可以，在严格模式下得到的是 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)）。其实全局作用域`包含`全局对象中的属性，包括它可能继承来的属性。
 
 全局作用域中的其他对象则可[由用户的脚本创建](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#creating_new_objects)，或由宿主程序提供。浏览器环境中所提供的宿主对象的说明可以在这里找到：[API 参考](https://developer.mozilla.org/zh-CN/docs/Web/API)。
 

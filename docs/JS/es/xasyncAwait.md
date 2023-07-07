@@ -180,9 +180,9 @@ async1 end
 setTimeout
 ```
 
-看完答案后, 我与很多人一样无论如何也不理解 **为什么明明这个async1 end的微任务代码在promise2和promise3的前面呀! 怎么??? 怎么还像是延迟输出了一样的……我的第一反应是 **我对 await 的理解有偏差, 所以我决心要把这个问题弄明白.
+看完答案后, 我与很多人一样无论如何也不理解 `为什么明明这个async1 end的微任务代码在promise2和promise3的前面呀! 怎么??? 怎么还像是延迟输出了一样的……我的第一反应是 `我对 await 的理解有偏差, 所以我决心要把这个问题弄明白.
 
-本文主要解释浏览器对 await 的处理, **并一步步将原题代码转换为原生Promsie实现**.
+本文主要解释浏览器对 await 的处理, `并一步步将原题代码转换为原生Promsie实现`.
 
 所有执行顺序以 Chrome71 为准, 不讨论 Babel 和 Promise 垫片.
 
@@ -249,7 +249,7 @@ new Promise((r) => {
 
 *为什么要先放出这段代码?*
 
-因为 ** `async/await` 可视为 Promise 的语法糖, 同样基于微任务实现**; 本题主要纠结的点在于 **await 到底做了什么导致 `async1 end` 晚于 `promise2` 输出**. 问题的关键在于其**执行过程中的微任务数量**, 下文中我们需要用上述代码中的方式对微任务的执行顺序进行标记, 以辅助我们理解这其中的执行过程.
+因为 ` `async/await` 可视为 Promise 的语法糖, 同样基于微任务实现`; 本题主要纠结的点在于 `await 到底做了什么导致 `async1 end` 晚于 `promise2` 输出`. 问题的关键在于其`执行过程中的微任务数量`, 下文中我们需要用上述代码中的方式对微任务的执行顺序进行标记, 以辅助我们理解这其中的执行过程.
 
 ### 分析
 
@@ -263,7 +263,7 @@ new Promise((r) => {
 * 如果 Promise 的状态是 pending, 那么 `then` 会在该 Promise 上注册一个回调, 当其状态发生变化时, 对应的回调将作为一个微任务被推入微任务队列
 * 如果 Promise 的状态已经是 fulfilled 或 rejected, 那么 `then()` 会立即创建一个微任务, 将传入的对应的回调推入微任务队列
 
-**为了更好的解析问题, 下面我对原题代码进行一些修改, 剔除和主要问题无关的代码**
+`为了更好的解析问题, 下面我对原题代码进行一些修改, 剔除和主要问题无关的代码`
 
 (转换1)
 
@@ -303,11 +303,11 @@ async1 end
 4
 ```
 
-我们剔除了 `setTimeout` 和一些同步代码, 然后为 `Promise` 的 `then` 链增加了一个回调, 而最终结果中 **async1 end 在 3 后输出, 而不是在 2 后!**
+我们剔除了 `setTimeout` 和一些同步代码, 然后为 `Promise` 的 `then` 链增加了一个回调, 而最终结果中 `async1 end 在 3 后输出, 而不是在 2 后!`
 
-** `await` 一定是做了一些我们不理解的"诡异操作", 令其后续代码 `console.log('async1 end')` 被推迟了2个时序.**
+` `await` 一定是做了一些我们不理解的"诡异操作", 令其后续代码 `console.log('async1 end')` 被推迟了2个时序.`
 
-换句话说, `async/await` 是 Promise 的语法糖, 同样基于微任务实现, 不可能有其他超出我们理解的东西, 所以可以断定:**在 `console.log('async1 end')` 执行前, 额外执行了2个微任务, 所以导致被推迟2个时序!**
+换句话说, `async/await` 是 Promise 的语法糖, 同样基于微任务实现, 不可能有其他超出我们理解的东西, 所以可以断定:`在 `console.log('async1 end')` 执行前, 额外执行了2个微任务, 所以导致被推迟2个时序!`
 
 如果你无法理解上面这段话, 没关系, 请继续向下看.
 
@@ -334,7 +334,7 @@ function async2() {
 
 这里需要引入 [TC39 规范](https://link.segmentfault.com/?url=https%3A%2F%2Ftc39.github.io%2Fecma262%2F%23await):
 
-**简单说, await v 初始化步骤有以下组成**
+`简单说, await v 初始化步骤有以下组成`
 
 > 1. 把 v 转成一个 promise(跟在 await 后面的).
 > 2. 绑定处理函数用于后期恢复.
@@ -394,11 +394,11 @@ new Promise((resolve) => {
 })
 ```
 
-到了这, 你是不是感觉整个思路变清晰了? 不过, 还是不能很好的解释 **为什么 `console.log('async1 end')` 在3后面输出**, 下面将说明其中的原因.
+到了这, 你是不是感觉整个思路变清晰了? 不过, 还是不能很好的解释 `为什么 `console.log('async1 end')` 在3后面输出`, 下面将说明其中的原因.
 
 ## PromiseResolveThenableJob: 浏览器对 `new Promise(resolve => resolve(thenable))` 的处理
 
-仔细观察 **<转换4>** 中的 `async1` 函数, 不难发现 `return new Promise(resolve => resolve(async2()))` 中, Promise resolve 的是 `async2()` , 而 `async2()` 返回了一个状态为 `<resolved>: undefined` 的 Promsie, **Promise 是一个 thenable 对象**.
+仔细观察 `<转换4>` 中的 `async1` 函数, 不难发现 `return new Promise(resolve => resolve(async2()))` 中, Promise resolve 的是 `async2()` , 而 `async2()` 返回了一个状态为 `<resolved>: undefined` 的 Promsie, `Promise 是一个 thenable 对象`.
 
 对于 thenable 对象, 《ECMAScript 6 入门》中这样描述:
 
@@ -419,7 +419,7 @@ let thenable = {
 ### 总结:
 
 * 对于一个对象 `o`, 如果 `o.then` 是一个 `function`, 那么 `o` 就可以被称为 `thenable` 对象
-* 对于 `new Promise(resolve => resolve(thenable))`, 即"在 Promise 中 resolve 一个 thenable 对象", 需要先将 thenable 转化为 Promsie, 然后立即调用 thenable 的 then 方法, 并且 **这个过程需要作为一个 job 加入微任务队列, 以保证对 then 方法的解析发生在其他上下文代码的解析之后**
+* 对于 `new Promise(resolve => resolve(thenable))`, 即"在 Promise 中 resolve 一个 thenable 对象", 需要先将 thenable 转化为 Promsie, 然后立即调用 thenable 的 then 方法, 并且 `这个过程需要作为一个 job 加入微任务队列, 以保证对 then 方法的解析发生在其他上下文代码的解析之后`
 
 ```js
 let thenable = {
@@ -470,17 +470,17 @@ thenable ok
 #### 解析
 
 * `in thenable` 后于 `in p1` 而先于 `1` 输出, 同时 `thenable ok` 在 `1` 后输出
-* 在执行完同步任务后, 微任务队列中只有2个微任务: 第一个是 **转换thenable为Promise的过程, 即 PromiseResolveThenableJob**, 第二个是 `console.log('1')`
+* 在执行完同步任务后, 微任务队列中只有2个微任务: 第一个是 `转换thenable为Promise的过程, 即 PromiseResolveThenableJob`, 第二个是 `console.log('1')`
 * 在 PromiseResolveThenableJob 执行中会执行 `thenable.then()`, 从而注册了另一个微任务:`console.log('thenable ok')`
-* **正是由于规范中对 `thenable` 的处理需要在一个微任务中完成, 从而导致了第一个 Promise 的后续回调被延后了1个时序**
+* `正是由于规范中对 `thenable` 的处理需要在一个微任务中完成, 从而导致了第一个 Promise 的后续回调被延后了1个时序`
 
 ### 如果在 Promise 中 resolve 一个 Promise 实例呢?
 
 1. 由于 Promise 实例是一个对象，其原型上有 then 方法，所以这也是一个 thenable 对象。
-2. 同样的，浏览器会创建一个 PromiseResolveThenableJob 去处理这个 Promise 实例，**这是一个微任务**。
+2. 同样的，浏览器会创建一个 PromiseResolveThenableJob 去处理这个 Promise 实例，`这是一个微任务`。
 3. 在 PromiseResolveThenableJob 执行中，执行了 `Promise.prototype.then`，而这时 Promise 如果已经是 resolved 状态 ，then 的执行会再一次创建了一个微任务
 
-**最终结果就是: 额外创建了两个Job, 表现上就是后续代码被推迟了2个时序**
+`最终结果就是: 额外创建了两个Job, 表现上就是后续代码被推迟了2个时序`
 
 ## 最终转换
 
@@ -615,4 +615,4 @@ async1 end
 ## 还需要补充的要点
 
 1. `Promise.resolve(v)` 不等于 `new Promise(r => r(v))`, 因为如果 v 是一个 Promise 对象, 前者会直接返回 v, 而后者需要经过一系列的处理(主要是 PromiseResolveThenableJob)
-2. 宏任务的优先级是高于微任务的, 而原题中的 `setTimeout` 所创建的宏任务可视为 **第二个宏任务**, 第一个宏任务是这段程序本身
+2. 宏任务的优先级是高于微任务的, 而原题中的 `setTimeout` 所创建的宏任务可视为 `第二个宏任务`, 第一个宏任务是这段程序本身

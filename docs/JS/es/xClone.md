@@ -6,8 +6,8 @@
 
 数据分为基本数据类型和引用数据类型。
 
-- **基本数据类型**：String、Number、Boolean、Null、Undefined、Symbol。基本数据类型是直接存储在栈中的数据。
-- **引用数据类型**：Array、Object。引用数据类型存储的是该对象在栈中引用，真实的数据存储在内存中。
+- `基本数据类型`：String、Number、Boolean、Null、Undefined、Symbol。基本数据类型是直接存储在栈中的数据。
+- `引用数据类型`：Array、Object。引用数据类型存储的是该对象在栈中引用，真实的数据存储在内存中。
 
 为了能直观的了解，我们先来看看下面的代码：
 
@@ -34,7 +34,7 @@ console.log(arr2); // [1, 2, 3, 4]
 初步了解上面的基本数据类型和引用数据类型之后，再来看看赋值，浅拷贝和深拷贝
 
 ```js
-/**
+/`
  * @name 赋值
  */
 const dataOne = {
@@ -49,7 +49,7 @@ console.log(dataOne);
 console.log(dataTwo);
 // dataTwo: { title: 'play', number: ['null'] }
 
-/**
+/`
  * @name 浅拷贝
  */
 const dataThree = {
@@ -64,7 +64,7 @@ console.log(datadataThreeOne);
 console.log(dataFour);
 // dataFour: { title: 'play', number: ['null'] }
 
-/**
+/`
  * @name 深拷贝
  */
 const dataFive = {
@@ -88,7 +88,7 @@ console.log(dataSix);
 
 - 深拷贝：无限层级拷贝。在深拷贝中，修改基本数据类型和引用数据类型都不会影响原有的数据类型。
 
-  
+
 
 ```js
 const arr1 = [1, 2, ['PonyHuang', 'hsq'], 4];
@@ -138,7 +138,7 @@ const deepClone = (target) => {
   for (index in target) {
     const value = target[index];
     if (checkType(value) === 'Object' || checkType(value) === 'Array') {
-      
+
       Result[index] = deepClone(target[index])
     } else {
       Result[index] = value;
@@ -170,7 +170,7 @@ console.log('o1:', o1.course.major.math, 'o2:', o2.course.major.math);
 
 ## 遍历对象改用for in
 
-**for in可以遍历所有可枚举属性以及原型上的属性**
+`for in可以遍历所有可枚举属性以及原型上的属性`
 
 ```js
 var createObj = function(){
@@ -194,7 +194,7 @@ key: age
 value: 10
 ```
 
-**hasOwnProperty()不会从原型上寻找属性**
+`hasOwnProperty()不会从原型上寻找属性`
 
 ```js
 var resName = obj1.hasOwnProperty("name");
@@ -216,7 +216,7 @@ age false
 一个特例：循环引用。
 
 ```js
-let obj = { 
+let obj = {
 	name:'hsq'
 };
 obj.link = obj;
@@ -239,7 +239,7 @@ const deepClone = (target, map = new WeakMap()) => {
   if (!arguments) throw new Error('there is no params');
   //为了解决属性类型为数组Array，增加类型函数
   const checkType = target => Object.prototype.toString.call(target).slice(8, -1);
-  
+
   let Result, targetType = checkType(target);
   if (targetType === 'Object') {
     Result = {};
@@ -257,7 +257,7 @@ const deepClone = (target, map = new WeakMap()) => {
     }
     map.set(target, value);
     if (checkType(value) === 'Object' || checkType(value) === 'Array') {
-      
+
       Result[index] = deepClone(target[index])
     } else {
       Result[index] = value;
@@ -266,7 +266,7 @@ const deepClone = (target, map = new WeakMap()) => {
   console.log('map:',map);
   return Result;
 }
-/* 
+/*
 let o1 = {
   name: 'hsq',
   course: {
@@ -395,7 +395,7 @@ function cloneForce(x) {
   const uniqueList = []; // 用来去重
   // =============
   let root = {};
-  
+
   // 循环数组
   const loopList = [
     {

@@ -102,7 +102,7 @@ null;
 
 这就是 Object 函数不一样的地方了，`Object.prototype.__proto__ === null`，这就是 Javescript 原型链的终点了。那为什么是这个样子呢？
 
-`typeof Object.prototye === 'object'`,说明他是一个 object 类型的对象，如果他是由 Object 函数生成的，那么`Object.prototype.__proto__ === Object.prototype`。那么`Object.prototype.__proto__`指向自身，那么以**proto**属性构成的原型链将没有终点了，所以为了让原型链有终点。Javascript 规定，`Object.prototype.__proto__ === null`。
+`typeof Object.prototye === 'object'`,说明他是一个 object 类型的对象，如果他是由 Object 函数生成的，那么`Object.prototype.__proto__ === Object.prototype`。那么`Object.prototype.__proto__`指向自身，那么以`proto`属性构成的原型链将没有终点了，所以为了让原型链有终点。Javascript 规定，`Object.prototype.__proto__ === null`。
 
 那么`Function`又是什么情况呢。
 
@@ -111,7 +111,7 @@ typeof Function.prototype;
 ("function");
 ```
 
-可以看出 Function 属性的 prototype 是一个`"function"`类型的对象，而不像其他的对象是`"object"`对象，那么既然是对象，那也是有**proto**属性的，那么`Function.prototype.__proto__`是什么呢
+可以看出 Function 属性的 prototype 是一个`"function"`类型的对象，而不像其他的对象是`"object"`对象，那么既然是对象，那也是有`proto`属性的，那么`Function.prototype.__proto__`是什么呢
 
 ```js
 Function.prototype.__proto__

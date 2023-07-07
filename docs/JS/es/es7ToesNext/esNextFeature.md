@@ -97,7 +97,7 @@ const arr = [];
 ### 2. 指数操作符
 
 ```bash
-2**10; // 1024
+2`10; // 1024
 ```
 
 ## ES8（2017）
@@ -145,7 +145,7 @@ Object.entries({a: 1, b: 2, c: 3}); // [["a", 1], ["b", 2], ["c", 3]]
 > SharedArrayBuffer 对象用来表示一个通用的，固定长度的原始二进制数据缓冲区，
 
 ```bash
-/**
+/`
  *
  * @param {*} length 所创建的数组缓冲区的大小，以字节(byte)为单位。
  * @returns {SharedArrayBuffer} 一个大小指定的新 SharedArrayBuffer 对象。其内容被初始化为 0。
@@ -157,12 +157,12 @@ new SharedArrayBuffer(10)
 
 > Atomics 对象提供了一组静态方法用来对 SharedArrayBuffer 对象进行原子操作。
 
-**ES7**只有2个特性:
+`ES7`只有2个特性:
 
 * [includes()](https://link.segmentfault.com/?enc=mZfEElOSWNEulRnHFrjYOw%3D%3D.7X3ZChUjIxS2AG3VYfoWnZHmyee8AmzU5UtkoiDPwE32gCxszVkLWD1vIChoSG04f5FC7jN%2B4svneAEoxIvSOUno5ODOrnwJhnLHqmobfnpH0FoHIPng75%2BxoX4VtX4v)
 * 指数操作符
 
-**ES8**尚未发布(2017年1月)，下面是它已经完成起草的一些特性：
+`ES8`尚未发布(2017年1月)，下面是它已经完成起草的一些特性：
 
 * [Object.values()](https://link.segmentfault.com/?enc=jLJh%2Bjn78JqZchQXutkgdA%3D%3D.31OvWvZ02OCpbwUSP2nfbfFB4SOBgOcWq%2F7SYCHzrbsV4AB6lT4u4Z1viTFXH4JGuKc89eBLjpTPz8ui9OWE0Em00lprG2hoI2nokFYlrFUrurZe9K0qzphBauuMeDxk)
 * [Object.entries()](https://link.segmentfault.com/?enc=bXLkPyXkEBINDesCv01e%2FQ%3D%3D.%2FcbCplpo9Wy1zGEqtyaQuhMFFyR%2FKA4YezMRFSlm6TDRR%2FqhlsKWVVDfdL0cqfguh4S2OjCRpRMrlHH8AATAMrAv9VdzaoLuWKPYaitV5xM508nlBNfnJTaBl6aNzpTl)
@@ -176,7 +176,7 @@ new SharedArrayBuffer(10)
 
 #### 不使用ES7
 
-使用[indexOf()](https://link.segmentfault.com/?enc=b7xGdoSyDJKyS6nrm0opUQ%3D%3D.p8lUDwIaMtfLRffF%2Brbt1N8TPI3QiPcIg6WlxT1b1VpONG93jBEGaugR5R0shqF641hwhJYv7vb7esxpxzXdDHVfn14PF24EqIMFeX48NLUb388t508vW7iZXKgY660T)验证数组中是否存在某个元素，这时需要根据返回值是否为**-1**来判断：
+使用[indexOf()](https://link.segmentfault.com/?enc=b7xGdoSyDJKyS6nrm0opUQ%3D%3D.p8lUDwIaMtfLRffF%2Brbt1N8TPI3QiPcIg6WlxT1b1VpONG93jBEGaugR5R0shqF641hwhJYv7vb7esxpxzXdDHVfn14PF24EqIMFeX48NLUb388t508vW7iZXKgY660T)验证数组中是否存在某个元素，这时需要根据返回值是否为`-1`来判断：
 
 ```js
 let arr = ['react', 'angular', 'vue'];
@@ -202,7 +202,7 @@ if (arr.includes('react')) {
 
 #### 不使用ES7
 
-使用自定义的递归函数**calculateExponent**或者[Math.pow()](https://link.segmentfault.com/?enc=lKBbJD%2FzuCwjP%2B3R0fD61Q%3D%3D. RuGh%2F5i6d53VpQwOK%2Bu4nr5rUv1pccMuX7uo4d10ZAY4e3%2Ftg7LAxjDPCiP5sqn9hACMPTk7hJ8U0da%2FwqsLgXPEPiY3xZIT6rctQDZ5xh8p5B2Ceb%2Ff4P4XifaERQ7z)进行指数运算：
+使用自定义的递归函数`calculateExponent`或者[Math.pow()](https://link.segmentfault.com/?enc=lKBbJD%2FzuCwjP%2B3R0fD61Q%3D%3D. RuGh%2F5i6d53VpQwOK%2Bu4nr5rUv1pccMuX7uo4d10ZAY4e3%2Ftg7LAxjDPCiP5sqn9hACMPTk7hJ8U0da%2FwqsLgXPEPiY3xZIT6rctQDZ5xh8p5B2Ceb%2Ff4P4XifaERQ7z)进行指数运算：
 
 ```js
 function calculateExponent(base, exponent) {
@@ -219,17 +219,17 @@ console.log(Math.pow(7, 3)); // 输出343
 
 #### 使用ES7
 
-使用指数运算符，就像**+**、**-**等操作符一样：
+使用指数运算符，就像`+`、`-`等操作符一样：
 
 ```js
-console.log(7 ** 3);
+console.log(7 ` 3);
 ```
 
 ### Object.values()
 
 #### 不使用ES8
 
-使用[Object.keys()](https://link.segmentfault.com/?enc=cYyc6OfgW0zB7cO6YeltLA%3D%3D. J5g0%2FmO7JD9gOLuGhmewDdWpgHjwovqgWAOme%2FSh5ekhIPTktiLW55vPj2NdK%2BCSUb1v3W5Q7W18vQfiBrLatckBrIHZtCZLBi1jwLH%2FsFNo2uG0r9wiVs3NaIFsshAh)遍历对象的属性值，需要通过属性名**key**去获取属性值：
+使用[Object.keys()](https://link.segmentfault.com/?enc=cYyc6OfgW0zB7cO6YeltLA%3D%3D. J5g0%2FmO7JD9gOLuGhmewDdWpgHjwovqgWAOme%2FSh5ekhIPTktiLW55vPj2NdK%2BCSUb1v3W5Q7W18vQfiBrLatckBrIHZtCZLBi1jwLH%2FsFNo2uG0r9wiVs3NaIFsshAh)遍历对象的属性值，需要通过属性名`key`去获取属性值：
 
 ```js
 let obj = {
@@ -366,7 +366,7 @@ console.log('250,000.00'.padEnd(20) + '250,000.00')
 
 ### Object.getOwnPropertyDescriptors()
 
-**azatsBooks**对象的定义如下：
+`azatsBooks`对象的定义如下：
 
 ```js
 let azatsBooks = {
@@ -383,27 +383,27 @@ let azatsBooks = {
 
 使用[Object.getOwnPropertyDescriptor()](https://link.segmentfault.com/?enc=034PGI5pxRw5MhESUAueRg%3D%3D.ashxHbzixG1E7TxgFBtLAv4Du9kpmW4%2Fva50tUmP9GEr0R63GEcrFJdWMs5TFD0AdZaJ7Hk7RwyWQqyd65HRiWO95xoKg8%2FEP4cA0sIUT4cytU8HjPFIPNBUOqnrx1fpA7QVeC%2FMD5uQgx%2B2nCkbdFpC7pCbhFZW68a8GmDgFIY%3D)获取单个属性的属性描述符。
 
-获取**azatsBooks**对象的**books**属性的属性描述符：
+获取`azatsBooks`对象的`books`属性的属性描述符：
 
 ```js
 console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'books'));
 
-/** 输出books属性的属性描述
+/` 输出books属性的属性描述
 [object Object] {
   configurable: true,
   enumerable: true,
   value: ["React Quickly"],
   writable: true
 }
-**/
+`/
 ```
 
-获取**azatsBooks**对象的**lastest**方法的属性描述符：
+获取`azatsBooks`对象的`lastest`方法的属性描述符：
 
 ```js
 console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'latest'));
 
-/** 输出lastest方法的属性描述
+/` 输出lastest方法的属性描述
 [object Object] {
   configurable: true,
   enumerable: true,
@@ -414,7 +414,7 @@ console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'latest'));
   },
   set: undefined
 }
-**/
+`/
 ```
 
 #### 使用ES8
@@ -424,7 +424,7 @@ console.log(Object.getOwnPropertyDescriptor(azatsBooks, 'latest'));
 ```js
 console.log(Object.getOwnPropertyDescriptors(azatsBooks))
 
-/** 输出azatsBooks对象所有自身属性的属性描述
+/` 输出azatsBooks对象所有自身属性的属性描述
 [object Object] {
   books: [object Object] {
     configurable: true,
@@ -443,7 +443,7 @@ console.log(Object.getOwnPropertyDescriptors(azatsBooks))
     set: undefined
   }
 }
-**/
+`/
 ```
 
 ### 函数参数列表结尾允许逗号
@@ -478,7 +478,7 @@ var f = function(a,
 
 #### 使用Promise
 
-使用**Promise**写异步代码，会比较麻烦：
+使用`Promise`写异步代码，会比较麻烦：
 
 ```js
 axios.get(`/q?query=${query}`)
@@ -491,7 +491,7 @@ axios.get(`/q?query=${query}`)
 
 #### 使用Async/Await
 
-**Async/Await**使得异步代码看起来像同步代码，这正是它的魔力所在：
+`Async/Await`使得异步代码看起来像同步代码，这正是它的魔力所在：
 
 ```js
 async fetchData(query) => {
@@ -574,7 +574,7 @@ flat()
 flatMap()
 
 ```bash
-[1, 2, 3, 4].flatMap(a => [a**2]); // [1, 4, 9, 16]
+[1, 2, 3, 4].flatMap(a => [a`2]); // [1, 4, 9, 16]
 ```
 
 ### 2. String.trimStart()和String.trimEnd()
@@ -813,7 +813,7 @@ const fibonacciCached = (number) => {
 
 > 逻辑运算符和赋值表达式，新特性结合了逻辑运算符（&&，||，??）和赋值表达式而js已存在的 复合赋值运算符有：
 
-* 操作运算符：+= -= *= /= %= **=
+* 操作运算符：+= -= *= /= %= `=
 * 位操作运算符：&= ^= |=
 * 按位运算符：<<= >>= >>>=
 

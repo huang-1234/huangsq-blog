@@ -12,16 +12,16 @@
 
 那这样就出现了一个问题, 是先在目标元素上触发事件, 还是先在祖先元素上触发呢? 这就是事件流的概念.
 
-**事件流是事件在目标元素和祖先元素间的触发顺序**, 在早期，微软和网景实现了相反的事件流, 网景主张捕获方式, 微软主张冒泡方式:
+`事件流是事件在目标元素和祖先元素间的触发顺序`, 在早期，微软和网景实现了相反的事件流, 网景主张捕获方式, 微软主张冒泡方式:
 
-- **捕获** - Capture - 事件由最顶层逐级向下传播, 直至到达目标元素.
-- **冒泡** - Bubble - 顾名思义, 类似水中冒泡, 从下往上. 事件由第一个被触发的元素接收, 然后逐级向上传播.
+- `捕获` - Capture - 事件由最顶层逐级向下传播, 直至到达目标元素.
+- `冒泡` - Bubble - 顾名思义, 类似水中冒泡, 从下往上. 事件由第一个被触发的元素接收, 然后逐级向上传播.
 
 后来 w3c 采用折中的方式, 规定先捕获再冒泡平息了战火. 如此一个事件就被分成了三个阶段(是的, 不光是捕获和冒泡):
 
-1. **捕获阶段** - The capture phase - 事件从最顶层元素 window 一直传递到目标元素的父元素.
-2. **目标阶段** - The target phase - 事件到达目标元素. 如果事件指定不冒泡. 那就会在这里中止.
-3. **冒泡阶段** - The bubble phase - 事件从目标元素父元素向上逐级传递直到最顶层元素 window. 及捕获阶段的反方向.
+1. `捕获阶段` - The capture phase - 事件从最顶层元素 window 一直传递到目标元素的父元素.
+2. `目标阶段` - The target phase - 事件到达目标元素. 如果事件指定不冒泡. 那就会在这里中止.
+3. `冒泡阶段` - The bubble phase - 事件从目标元素父元素向上逐级传递直到最顶层元素 window. 及捕获阶段的反方向.
 
 那这里又有一个新的疑问, 既然捕获和冒泡阶段都会触发事件, 那先捕获再冒泡, 岂不是路径上的元素都会触发两次事件?
 
@@ -63,7 +63,7 @@ target.addEventListener(type, listener[, useCapture, wantsUntrusted  ]);  // Gec
 
 > 具体使用参考另一篇笔记. TODO
 
-> 注意: 对于目标元素上的事件监听器来说, 事件会处于**目标阶段**, 而不是冒泡阶段或者捕获阶段. 在目标阶段的事件会触发该元素上的所有监听器, 而不在乎这个监听器到底在注册时 useCapture 是 true 还是 false.
+> 注意: 对于目标元素上的事件监听器来说, 事件会处于`目标阶段`, 而不是冒泡阶段或者捕获阶段. 在目标阶段的事件会触发该元素上的所有监听器, 而不在乎这个监听器到底在注册时 useCapture 是 true 还是 false.
 
 ## 事件监听添加与移除
 
@@ -103,10 +103,10 @@ element.onclick = function // 只会在冒泡阶段生效
     <div id="child" onclick="console.log('html')"/>
 </div>
 <script>
-const child = document.getElementById('child') 
+const child = document.getElementById('child')
 
 child.onclick = function () { console.log('DOM0A') } // 覆盖了 HTML 的方式
-child.onclick = function () { console.log('DOM0B') } // 覆盖了上一条 DOM0A   
+child.onclick = function () { console.log('DOM0B') } // 覆盖了上一条 DOM0A
 
 child.addEventLisnter('click', function () { console.log('lisnterA') })
 child.addEventLisnter('click', function () { console.log('lisnterB') }) // 不会覆盖
@@ -186,13 +186,13 @@ child.removeEventLisnter('设置相同的参数')
 奇怪! 这时候不是应该先捕获, capture 在前吗? 别急, 这时候如果调换 parent event 与 parent event capture 的 `addEventListener` 顺序, 会发现, 输出顺序也变了:
 
 1. parent html
-2. **parent event capture**
-3. **parent event**
+2. `parent event capture`
+3. `parent event`
 4. body
 5. html
 6. window
 
-其实这时候的输出顺序只和 `addEventListener` 的顺序有关. 是否开启 `capture` 无关. 因为我们是直接点击了 `parent`. 对于 `parent` 自身而言. 它在整个点击传递过程中处于**目标阶段**. 并不涉及捕获和冒泡. 同时我们也发现. html 设置的点击是优先于 `addEventListener` 的方式的.
+其实这时候的输出顺序只和 `addEventListener` 的顺序有关. 是否开启 `capture` 无关. 因为我们是直接点击了 `parent`. 对于 `parent` 自身而言. 它在整个点击传递过程中处于`目标阶段`. 并不涉及捕获和冒泡. 同时我们也发现. html 设置的点击是优先于 `addEventListener` 的方式的.
 
 我们再来看下点击 child:
 
@@ -208,7 +208,7 @@ child.removeEventLisnter('设置相同的参数')
 
 首先, child html 没有输出, 因为被 child onclick 覆盖掉了.
  第二点, child onclick 的优先级也是高于 `addEventListener` 的.
- 再然后, 点击事件传递过程中, 首先在捕获阶段, 输出了 parent event capture. 然后到达**目标阶段**. 同理之前点击 parent. 如果此时调换 child event 与 child event capture 的 `addEventListener` 顺序. 输出顺序也会改变.
+ 再然后, 点击事件传递过程中, 首先在捕获阶段, 输出了 parent event capture. 然后到达`目标阶段`. 同理之前点击 parent. 如果此时调换 child event 与 child event capture 的 `addEventListener` 顺序. 输出顺序也会改变.
  最后, 到达冒泡阶段, 由于 html 的优先级高于 `addEventListener`. 所以被输出. (别忘了, 默认都是开启冒泡)
 
 但是. 如果使用 Safari 浏览器, 则会发现, 点击 parent, 输出:
@@ -232,7 +232,7 @@ child.removeEventLisnter('设置相同的参数')
 8. html
 9. window
 
-会发现, 对于捕获阶段的处理不一样了. 点击目标元素时, 目标元素不仅处于**目标阶段**, 也处于**捕获阶段的终点和冒泡阶段的起点**. 所以会进行 `capture` 的判断. 所以在代码编写时这里要尤为注意.
+会发现, 对于捕获阶段的处理不一样了. 点击目标元素时, 目标元素不仅处于`目标阶段`, 也处于`捕获阶段的终点和冒泡阶段的起点`. 所以会进行 `capture` 的判断. 所以在代码编写时这里要尤为注意.
 
 ## 参考
 

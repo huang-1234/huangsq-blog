@@ -198,7 +198,7 @@ Math.trunc(x)
 
 ## Math.random()
 
-**Math.random()** 函数返回一个浮点数,  伪随机数在范围从**0到**小于**1**，也就是说，从0（包括0）往上，但是不包括1（排除1），然后您可以缩放到所需的范围。实现将初始种子选择到随机数生成算法;它不能被用户选择或重置。
+`Math.random()` 函数返回一个浮点数,  伪随机数在范围从`0到`小于`1`，也就是说，从0（包括0）往上，但是不包括1（排除1），然后您可以缩放到所需的范围。实现将初始种子选择到随机数生成算法;它不能被用户选择或重置。
 
 请注意, 由于 JavaScript 中的数字是 IEEE 754 浮点数字，具有最近舍入（ round-to-nearest-even）的行为, 因此以下函数的范围 (不包括`Math.random()` 本身) 并不准确。如果选择了非常大的边界 (253 或更高), 在极罕见的情况下会计算通常-排除（usually-excluded）的上界。（注：round-to-nearest-even采用最近舍入的去偶数舍入的方式，对.5的舍入上，采用取偶数的方式）
 
@@ -248,7 +248,7 @@ function getRandomIntInclusive(min, max) {
 
 ## javascript取整方法floor、round、ceil
 
-**floor向下取整:**
+`floor向下取整:`
 
 ```js
 Math.floor(0.20); // 0
@@ -257,7 +257,7 @@ Math.floor(-0.90); // -1
 Math.floor(-0.20); // -1
 ```
 
-**round四舍五入**
+`round四舍五入`
 
 ```js
 Math.round(0.2) // 0
@@ -266,7 +266,7 @@ Math.round(-0.9) // -1
 Math.round(-0.2) // 0
 ```
 
-**ceil向上取整**
+`ceil向上取整`
 
 ```js
 Math.ceil(0.2) // 1

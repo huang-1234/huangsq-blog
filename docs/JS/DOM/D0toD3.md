@@ -8,7 +8,7 @@ DOM 事件级别分为三个级别：
 
 
 
-1. **DOM0 级事件**
+1. `DOM0 级事件`
 
 
 
@@ -25,23 +25,23 @@ DOM 事件级别分为三个级别：
 
 > 缺点：无法设置多个事件处理函数
 
-1. **DOM2 级事件**
+1. `DOM2 级事件`
 
 
 
 ```html
 <button id="btn" type="button"></button>
 <script>
-    var btn = document.getElementById('btn');    
+    var btn = document.getElementById('btn');
     btn.addEventListener('click', showFn, false)
     btn.addEventListener('click', showFn2, false)
-    // btn.removeEventListener('click', showFn, false) // 解绑事件 
+    // btn.removeEventListener('click', showFn, false) // 解绑事件
     function showFn() {
         alert('Hello World');
     }
      function showFn2() {
         alert('Hello World2');
-    } 
+    }
 </script>
 ```
 
@@ -49,7 +49,7 @@ DOM 事件级别分为三个级别：
 
 需要注意的是在 IE8 及以下版本需要用 `attachEvent` 和 `detachEvent` 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。
 
-1. **DOM3 级事件**
+1. `DOM3 级事件`
 
 > DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。
 
@@ -82,8 +82,8 @@ setTimeout(function() {
 
 > 想象画在一张纸上的一组同心圆。如果把手指放在圆心上，那么手指指向的不仅仅是一个圆，而是纸上的所有圆。所以如果点击了某个按钮，点击事件不仅仅发生在这个按钮上，整个页面也被点击了。
 
-事件流又称为事件传播，描述的是从页面中接收事件的顺序。DOM2 级事件规定事件流包括三个阶段: **事件捕获(capture phase)**、**目标事件(target phase)**、**事件冒泡(bubblingphase)**。
- 
+事件流又称为事件传播，描述的是从页面中接收事件的顺序。DOM2 级事件规定事件流包括三个阶段: `事件捕获(capture phase)`、`目标事件(target phase)`、`事件冒泡(bubblingphase)`。
+
 
  发生的顺序是：事件捕获阶段 --> 目标事件阶段 --> 事件冒泡阶段
 
@@ -115,27 +115,27 @@ setTimeout(function() {
 <script>
   var parent = document.getElementById('parent')
   var child = document.getElementById('child')
-  
+
   parent.addEventListener('click', function(e) {
       console.log('parent bubbling')
   }, false)
-  
+
   child.addEventListener('click', function() {
       console.log('target bubbling')
   }, false)
-  
+
   document.body.addEventListener('click', function() {
       console.log('body bubbling')
   }, false)
-  
+
   document.documentElement.addEventListener('click', function() {
       console.log('html bubbling')
   }, false)
-  
+
   document.addEventListener('click', function() {
       console.log('document bubbling')
   }, false)
-  
+
   window.addEventListener('click', function() {
       console.log('window bubbling')
   }, false)
@@ -170,27 +170,27 @@ setTimeout(function() {
 <script>
   var parent = document.getElementById('parent')
   var child = document.getElementById('child')
-  
+
   parent.addEventListener('click', function(e) {
       console.log('parent capture')
   }, true)
-  
+
   child.addEventListener('click', function() {
       console.log('target capture')
   }, true)
-  
+
   document.body.addEventListener('click', function() {
       console.log('body capture')
   }, true)
-  
+
   document.documentElement.addEventListener('click', function() {
       console.log('html capture')
   }, true)
-  
+
   document.addEventListener('click', function() {
       console.log('document capture')
   }, true)
-  
+
   window.addEventListener('click', function() {
       console.log('window capture')
   }, true)
@@ -220,7 +220,7 @@ setTimeout(function() {
 </div>
 <script>
     var parent = document.getElementById('parent')
-    
+
     function handler(e) {
         console.log(e.target)
         console.log(e.currentTarget)
@@ -353,13 +353,13 @@ function removeEvent(element, type, fn) {
 | timeStamp             | 返回事件生成的日期和时间。                     |
 | type                  | 返回当前 Event 对象表示的事件的名称。          |
 | initEvent()           | 初始化新创建的 Event 对象的属性。              |
-| **preventDefault()**  | 通知浏览器不要执行与事件关联的默认动作。       |
-| **stopPropagation()** | 不再派发事件（常用于阻止事件冒泡）。           |
+| `preventDefault()`  | 通知浏览器不要执行与事件关联的默认动作。       |
+| `stopPropagation()` | 不再派发事件（常用于阻止事件冒泡）。           |
 
 ------
 
 [阅读原文](https://inknight.cn/2019/01/23/DOM-事件总结/)
- 
+
 
  参考：# [事件流理解](https://segmentfault.com/a/1190000006027988)
  、#[javascript event（事件对象）详解](https://www.cnblogs.com/fireporsche/p/6239298.html)

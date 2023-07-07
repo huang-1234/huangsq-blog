@@ -84,7 +84,7 @@ promise.then(onFulfilled, onRejected)
 
 ### 2.3 Promise解析过程
 
-**Promise解析过程** 是以一个promise和一个值做为参数的抽象过程，可表示为`[[Resolve]](promise, x)`. 过程如下；
+`Promise解析过程` 是以一个promise和一个值做为参数的抽象过程，可表示为`[[Resolve]](promise, x)`. 过程如下；
 
 1. 如果`promise` 和 `x` 指向相同的值, 使用 `TypeError`做为原因将`promise`拒绝。
 
@@ -115,7 +115,7 @@ promise.then(onFulfilled, onRejected)
 
  * https://malcolmyu.github.io/2015/06/12/Promises-A-Plus/#note-4
 
-    
+
 
 英文原文地址：[http://promisesaplus.com](http://promisesaplus.com/)
 若要了解文中每一条规则，则参阅其测试仓库：
@@ -176,7 +176,7 @@ $.get(url, data1 => {
 
 
 ```js
-const request = url => { 
+const request = url => {
     return new Promise((resolve, reject) => {
         $.get(url, data => {
             resolve(data)
@@ -186,7 +186,7 @@ const request = url => {
 
 // 请求data1
 request(url).then(data1 => {
-    return request(data1.url);   
+    return request(data1.url);
 }).then(data2 => {
     return request(data2.url);
 }).then(data3 => {
@@ -259,9 +259,9 @@ const promise = new Promise((resolve, reject) => {
    resolve('fulfilled'); // 状态由 pending => fulfilled
 });
 promise.then(result => { // onFulfilled
-    console.log(result); // 'fulfilled' 
+    console.log(result); // 'fulfilled'
 }, reason => { // onRejected 不会被调用
-    
+
 })
 ```
 
@@ -274,8 +274,8 @@ const promise = new Promise((resolve, reject) => {
    reject('rejected'); // 状态由 pending => rejected
 });
 promise.then(result => { // onFulfilled 不会被调用
-  
-}, reason => { // onRejected 
+
+}, reason => { // onRejected
     console.log(rejected); // 'rejected'
 })
 ```
@@ -293,11 +293,11 @@ promise.then(null, onRrejected);
 
 // 注意
 // onRejected 不能捕获当前onFulfilled中的异常
-promise.then(onFulfilled, onRrejected); 
+promise.then(onFulfilled, onRrejected);
 
 // 可以写成：
 promise.then(onFulfilled)
-       .catch(onRrejected);   
+       .catch(onRrejected);
 ```
 
 ###  4.promise chain
@@ -372,7 +372,7 @@ const p3 = new Promise((resolve, reject) => {
   reject(3);
 });
 
-Promise.all([p1, p2, p3]).then(data => { 
+Promise.all([p1, p2, p3]).then(data => {
   console.log(data); // [1, 2, 3] 结果顺序和promise实例数组顺序是一致的
 }, err => {
   console.log(err);
@@ -466,14 +466,14 @@ function Promise(excutor) {
   }
 }
 
-/**
+/`
  * resolve中的值几种情况：
  * 1.普通值
  * 2.promise对象
  * 3.thenable对象/函数
  */
 
-/**
+/`
  * 对resolve 进行改造增强 针对resolve中不同值情况 进行处理
  * @param  {promise} promise2 promise1.then方法返回的新的promise对象
  * @param  {[type]} x         promise1中onFulfilled的返回值
@@ -524,7 +524,7 @@ function resolvePromise(promise2, x, resolve, reject) {
   }
 }
 
-/**
+/`
  * [注册fulfilled状态/rejected状态对应的回调函数]
  * @param  {function} onFulfilled fulfilled状态时 执行的函数
  * @param  {function} onRejected  rejected状态时 执行的函数
@@ -556,7 +556,7 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   // p1.then((value) => { // 此时p1.status 由pedding状态 => fulfilled状态
   //     console.log(value); // resolve
   //     // console.log(p1.status); // fulfilled
-  //    p1.then(value => {// 再次p1.then 这时已经为fulfilled状态 走的是fulfilled状态判断里的逻辑 
+  //    p1.then(value => {// 再次p1.then 这时已经为fulfilled状态 走的是fulfilled状态判断里的逻辑
   //所以我们也要确保判断里面onFuilled异步执行
   //         console.log(value); // 'resolve'
   //     });
@@ -571,7 +571,7 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
         try {
           let x = onFulfilled(that.value);
           // 新的promise resolve 上一个onFulfilled的返回值
-          resolvePromise(newPromise, x, resolve, reject); 
+          resolvePromise(newPromise, x, resolve, reject);
         } catch (e) {
           reject(e); // 捕获前面onFulfilled中抛出的异常 then(onFulfilled, onRejected);
         }
@@ -615,7 +615,7 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   }
 };
 
-/**
+/`
  * Promise.all Promise进行并行处理
  * 参数: promise对象组成的数组作为参数
  * 返回值: 返回一个Promise实例
@@ -644,7 +644,7 @@ function gen(length, resolve) {
   }
 }
 
-/**
+/`
  * Promise.race
  * 参数: 接收 promise对象组成的数组作为参数
  * 返回值: 返回一个Promise实例
@@ -676,7 +676,7 @@ Promise.reject = function (reason) {
   });
 }
 
-/**
+/`
  * 基于Promise实现Deferred的
  * Deferred和Promise的关系
  * - Deferred 拥有 Promise
@@ -694,7 +694,7 @@ Promise.deferred = function () { // 延迟对象
   return defer;
 }
 
-/**
+/`
  * Promise/A+规范测试
  * npm i -g promises-aplus-tests
  * promises-aplus-tests Promise.js

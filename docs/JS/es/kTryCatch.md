@@ -291,13 +291,13 @@ at < anonymous >: 11: 7
 
 #### 3.1 Error
 
-JavaScript 有内置的错误对象, 它通常由 `try` 块抛出, 并在 `catch` 块中捕获, **Error** 对象包含以下属性:
+JavaScript 有内置的错误对象, 它通常由 `try` 块抛出, 并在 `catch` 块中捕获, `Error` 对象包含以下属性:
 
-* **name**: 是错误的名称, 例如 "Error", "SyntaxError", "ReferenceError" 等.
-* **message**: 有关错误详细信息的消息.
-* **stack**: 是用于调试目的的错误的堆栈跟踪.
+* `name`: 是错误的名称, 例如 "Error", "SyntaxError", "ReferenceError" 等.
+* `message`: 有关错误详细信息的消息.
+* `stack`: 是用于调试目的的错误的堆栈跟踪.
 
-我们创建一个**Error** 对象, 并查看它的名称和消息属性:
+我们创建一个`Error` 对象, 并查看它的名称和消息属性:
 
 ```js
 const err = new Error('Error while executing the code');
@@ -313,11 +313,11 @@ while executing the code
 at < anonymous >: 1: 13
 ```
 
-JavaScript 有以下内置错误, 这些错误是从 **Error** 对象继承而来的
+JavaScript 有以下内置错误, 这些错误是从 `Error` 对象继承而来的
 
 #### 3.2 EvalError
 
-**EvalError** 表示关于全局 `eval()` 函数的错误, 这个异常不再由 JS 抛出, 它的存在是为了向后兼容.
+`EvalError` 表示关于全局 `eval()` 函数的错误, 这个异常不再由 JS 抛出, 它的存在是为了向后兼容.
 
 #### 3.3 RangeError
 
@@ -330,7 +330,7 @@ JavaScript 有以下内置错误, 这些错误是从 **Error** 对象继承而�
 
 #### 3.4 ReferenceError
 
-当引用一个不存在的变量时, 将引发 **ReferenceError**.
+当引用一个不存在的变量时, 将引发 `ReferenceError`.
 
 ```js
 ➤

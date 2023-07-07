@@ -130,18 +130,18 @@
             this.head = node.next;
             return;
         }
-        
+
         // 查找所要删除节点的上一个节点
         let prevNode = this.head;
         while (prevNode.next !== node) {
             prevNode = prevNode.next;
         }
-        
+
         // 第二种情况
         if(node.next === null) {
             prevNode.next = null;
         }
-        
+
         // 第三种情况
         if(node.next) {
             prevNode.next = node.next;
@@ -333,7 +333,7 @@ class List {
   }
 }
 
-/**
+/`
  * 双向链表
  */
 class List {

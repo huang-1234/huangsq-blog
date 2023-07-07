@@ -5,9 +5,9 @@
 1. length 属性返回字符串的长度：
 ```js
 let txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let sln = txt.length;  
+let sln = txt.length;
 ```
-2. 
+2.
 
 + 查找字符串中的字符串
 indexOf() 方法返回字符串中指定文本首次出现的索引（位置）：
@@ -64,7 +64,7 @@ substr() 类似于 slice()。
 
 不同之处在于<font color=red>第二个参数规定被提取部分的长度</font>。
 
-substr()会将**第一个**位置的**负值**参数加上字符串长度后转为正数
+substr()会将`第一个`位置的`负值`参数加上字符串长度后转为正数
 
 如果省略第二个参数，则该 substr() 将裁剪字符串的剩余部分。
 
@@ -144,7 +144,7 @@ String.fromCharCode(num1);  // 'd'
 | 1. trimRight()        | 从字符串的右侧去除空格。                                     |                                                      |
 | 1. valueOf()          | 返回特定对象的原始值，重写 Object.prototype.valueOf 方法。   |                                                      |
 
-String.prototype[@@iterator]() 
+String.prototype[@@iterator]()
 
 返回一个新的迭代器对象，该对象遍历字符串值的索引位置，将每个索引值作为字符串值返回。
 

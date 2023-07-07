@@ -10,7 +10,7 @@
 
 3 除了语言原生的顶级对象，每一个对象都有自己的原型对象，所有对象构成一个树状的层级系统。root 节点的顶层对象是一个语言原生的对象，其他所有对象都直接或间接继承它的属性。
 
-显然，基于原型的语言比基于类的语言简单得多，**我们只需要知道"用对象去创建对象"，就可以在原型的世界里大行其道了！**
+显然，基于原型的语言比基于类的语言简单得多，`我们只需要知道"用对象去创建对象"，就可以在原型的世界里大行其道了！`
 
 ### 二、基于原型的语言中对象的创建
 
@@ -26,7 +26,7 @@
 
 这两个步骤很自然，也很好理解，比使用类构造对象从概念上简单得多了。对于习惯了 java 基于类的面向对象的语言的程序员, 这种"新颖"的生成对象的方式一定会让他们感到好奇
 
-### 三、原型，为复用代码而生 
+### 三、原型，为复用代码而生
 
 使用原型，能复用代码，节省内存空间
 
@@ -36,14 +36,14 @@
 newObject = create(oldObject);
 ```
 
-那么新对象 newObject 同样具有属性 name，值也是’Andy’，也有一个方法 getName()。值得注意的是，**newObject 并不是在内存中克隆了 oldObject，它只是引用了 oldObject 的属性,** 导致实际的效果好像"复制"了 newObject 一样。
+那么新对象 newObject 同样具有属性 name，值也是’Andy’，也有一个方法 getName()。值得注意的是，`newObject 并不是在内存中克隆了 oldObject，它只是引用了 oldObject 的属性,` 导致实际的效果好像"复制"了 newObject 一样。
 
 newObject = create(oldObject);创建的对象 newObject 只有一个属性，这个属性的值是原型对象的地址(或者引用)，如下图所示。
 
 ![img](/images/JS/es/self-function/jsObjectBaseOnPrototype.assets/__proto__.png)
 ![img](./jsObjectBaseOnPrototype.assets/__proto__.png)
 
-当对象访问属性的时候，如果在内部找不到，那么会在原型对象中查找到属性；如果原型对象中仍然找不到属性，原型对象会查找自身的原型对象，如此循环下去，直至找到属性或者到达顶级对象。对象查找属性的过程所经过的对象构成一条链条，称之为原型链。**newObject,oldObject 和 topObject 就构成一条原型链。**
+当对象访问属性的时候，如果在内部找不到，那么会在原型对象中查找到属性；如果原型对象中仍然找不到属性，原型对象会查找自身的原型对象，如此循环下去，直至找到属性或者到达顶级对象。对象查找属性的过程所经过的对象构成一条链条，称之为原型链。`newObject,oldObject 和 topObject 就构成一条原型链。`
 
 下面列出 newObject 的 3 种的查找属性情况
 
@@ -69,7 +69,7 @@ newObject = create(oldObject);创建的对象 newObject 只有一个属性，这
 
 3 topObject 中还是找不到，而且 topObject 是顶层对象，所以返回错误或者空值。
 
-**对象会通过原型链动态地查找属性，对象的所拥有的属性并不是静态的。**如果原型链上的一个对象发生的改变，那么这个改变也会马上会反应到在原型链中处于该对象下方的所有对象。
+`对象会通过原型链动态地查找属性，对象的所拥有的属性并不是静态的。`如果原型链上的一个对象发生的改变，那么这个改变也会马上会反应到在原型链中处于该对象下方的所有对象。
 
 ### 四、继承
 
@@ -85,7 +85,7 @@ newObject = create(oldObject);创建的对象 newObject 只有一个属性，这
 
 ## 主题二、深刻理解 JavaScript 基于原型的面向对象
 
-### 一、饱受争议的 javascript 
+### 一、饱受争议的 javascript
 
 javascript 本质上是基于原型的语言，但是却引入了基于类的语言的 new 关键字和 constructor 模式，导致 javascript 饱受争议。
 
@@ -93,7 +93,7 @@ javascript 的作者 Brendan Eich 1994 年研发这门语言的时候，C++语�
 
 > 实际上，事实证明引入 new 是个错误的决定。
 
-C++/java 程序员看到 new 一个 function 的时候，他们会认为 js 通过 function 创建对象，function 相当于类，接着他们会尝试在 js 挖掘类似 java/C++面向类的编程特性，结果他们发现 function 没有 extends，反而有个很奇怪的 prototype 对象，于是他们开始咒骂，js 的面向对象太糟糕了。确实，new 的引入让他们以为 js 的面向对象与 java/C++类似，实际上并不是，如果不是以原型本质去理解 js 的面向对象，注定要遭受挫折，new，prototype，**proto**才是 javascript 实现原型的具体手段。
+C++/java 程序员看到 new 一个 function 的时候，他们会认为 js 通过 function 创建对象，function 相当于类，接着他们会尝试在 js 挖掘类似 java/C++面向类的编程特性，结果他们发现 function 没有 extends，反而有个很奇怪的 prototype 对象，于是他们开始咒骂，js 的面向对象太糟糕了。确实，new 的引入让他们以为 js 的面向对象与 java/C++类似，实际上并不是，如果不是以原型本质去理解 js 的面向对象，注定要遭受挫折，new，prototype，`proto`才是 javascript 实现原型的具体手段。
 
 另一方面，理解原型的程序员，也表示不高兴，因为居然要使用 new function 的语法来间接实现原型继承，三行代码才做到最基本的原型继承,下面是实现对象 newObject 继承对象 oldObject 的代码，
 
@@ -123,7 +123,7 @@ func.call(newObject);
 
 这样程序员才好理解。如果想把这两个步骤合二为一，应该使用 new 以外的关键字。
 
-到这里，我们务必要牢牢印入脑海的是，**js 的面向对象是基于原型的面向对象，对象创建的方式根本上只有一种，就是以原型对象为模板创建对象**，newObject = create(oldObject)。new function 不是通过函数创建对象，只是刻意模仿 java 的表象。
+到这里，我们务必要牢牢印入脑海的是，`js 的面向对象是基于原型的面向对象，对象创建的方式根本上只有一种，就是以原型对象为模板创建对象`，newObject = create(oldObject)。new function 不是通过函数创建对象，只是刻意模仿 java 的表象。
 
 js 在面向对象上遭遇的争议，完全是因为商业因素导致作者失去了自己的立场。就像现在什么产品都加个云一样，如果那时候不加个 new 关键字来标榜自己面向对象，产生"js 其实类似 c++/java"的烟幕，可能根本没有人去关注 javascript。更令人啼笑皆非的是，原本称作 LiveScript 的 javascript，因为 后期和 SUN 合作，并且为了沾上当时被 SUN 炒得火热的 Java 的光，发布的时候居然改名成 Javascript。
 
@@ -255,7 +255,7 @@ a 方案宣告失败
 
 我们新建一个 topObject 来代表顶层对象,那么创建 employee 对象的时候，应该在 employee 对象内部设置一个属性引用 topObject;
 
-同理,创建 coder 对象的时候,应该在 coder 对象内部设置一个属性引用 employee 对象,我们把这个引用原型对象的属性命名约定为"**proto**"。更进一步，为了构建一个对象的过程更自然，构建时候应该先在新对象中设置引用原型对象的属性，以表示先用模板制作出一个和模板一致的对象，然后再才执行构造函数初始化这个新对象自身的属性，以添加个性化的东西。具体实现代码如下：
+同理,创建 coder 对象的时候,应该在 coder 对象内部设置一个属性引用 employee 对象,我们把这个引用原型对象的属性命名约定为"`proto`"。更进一步，为了构建一个对象的过程更自然，构建时候应该先在新对象中设置引用原型对象的属性，以表示先用模板制作出一个和模板一致的对象，然后再才执行构造函数初始化这个新对象自身的属性，以添加个性化的东西。具体实现代码如下：
 
 ```js
 var topObject = {
@@ -281,7 +281,7 @@ coder.__proto__ = employee;
 Coder.call(coder,'Coder Jack','Java');
 ```
 
-当然我们还要做的工作就是在 javascript 解释器中增加对**proto**的支持，当一个对象访问一个自身没有的属性的时候，就通过**proto**属性查找原型链上是否存在该属性。
+当然我们还要做的工作就是在 javascript 解释器中增加对`proto`的支持，当一个对象访问一个自身没有的属性的时候，就通过`proto`属性查找原型链上是否存在该属性。
 
 ### 优化 1. 函数封装
 
@@ -408,11 +408,11 @@ javascript 把生成一个对象所需的两个元素——"原型对象"和"初
 
 ### 2. 简单罗列 javascript 构造器模式的特点
 
-**1) javascript 的顶层对象是 Object.prototype**
+`1) javascript 的顶层对象是 Object.prototype`
 
-**2) 所有对象有一个**proto**属性。****proto**指向自己的"原型对象"，搜索属性的原型链以**proto**为基础。
+`2) 所有对象有一个`proto`属性。``proto`指向自己的"原型对象"，搜索属性的原型链以`proto`为基础。
 
-**3) 每个函数都会默认关联一个原型对象。**javascript 每创建一个函数的时候，都同时创建一个原型对象，赋值到函数的 prototype 属性，用作使用 new 生成实例对象的默认原型对象。该默认原型对象的内容是
+`3) 每个函数都会默认关联一个原型对象。`javascript 每创建一个函数的时候，都同时创建一个原型对象，赋值到函数的 prototype 属性，用作使用 new 生成实例对象的默认原型对象。该默认原型对象的内容是
 
 ```json
 {
@@ -421,11 +421,11 @@ javascript 把生成一个对象所需的两个元素——"原型对象"和"初
 }
 ```
 
-**proto**指向 Object.prototype 的目的是为了使生成的实例对象继承顶层对象 Object.prototype;
+`proto`指向 Object.prototype 的目的是为了使生成的实例对象继承顶层对象 Object.prototype;
 
 而 constructor 指向函数本身的目的是为了使生成的实例对象 newObject 可以直接通过 newObject.constructor 访问到构造函数，同时构造函数和原型对象可以互相访问也是个良好的设计。但是，实际上，constructor 并没有什么用，所以大家可以不理会这个属性，这仅仅是一个优化的设计。
 
-构造函数，原型对象，实例对象的**三角关系图**如下
+构造函数，原型对象，实例对象的`三角关系图`如下
 
 ![img](/images/JS/es/self-function/jsObjectBaseOnPrototype.assets/protoType__proto__.png)
 ![img](./jsObjectBaseOnPrototype.assets/protoType__proto__.png)
@@ -480,7 +480,7 @@ console.log(coder instanceof Coder); //true
 console.log(Coder.prototype.isPrototypeOf(coder)); //true
 ```
 
- 也就是说**原型对象的 construtctor 属性根本不影响继承，它只是普通的一个附加属性，没有任何特殊作用，我们可以完全无视这个属性。**
+ 也就是说`原型对象的 construtctor 属性根本不影响继承，它只是普通的一个附加属性，没有任何特殊作用，我们可以完全无视这个属性。`
 
 不写上一行 Coder.prototype.constructor = Coder;，唯一会引起的错误只有，coder.constructor 的结果是 Employee,而不是 Coder。实
 
@@ -582,7 +582,7 @@ console.log(Coder.prototype.isPrototypeOf(coder)); //true
 
 下图是上面 5.a 代码的对象整体结构图(图片较大,可以下载到本地缩小来看)
 
-**从整体上看，这像极了 java 的类继承体系结构，实际上这就是 js 的对象继承体系结构。**
+`从整体上看，这像极了 java 的类继承体系结构，实际上这就是 js 的对象继承体系结构。`
 
 里面的对象有三种角色，紫色的是构造函数，黄色的是原型对象，绿色的是实例对象，当然不能严格区分这些角色，例如匿名的 Employee 实例对象充当了 Coder 的原型对象。
 
@@ -657,7 +657,7 @@ var newObject = Object.create(oldObject);
 
 在 JS 中，从形式上，除去字面量方式创建对象之外，有三种常单创建对象的形式(or you can call it a "pattern",anyway)
 
-**1) 使用构造函数创建对象(constructor pattern)**
+`1) 使用构造函数创建对象(constructor pattern)`
 
 Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits 方法"美化"了传统构造模式创建对象的代码。
 
@@ -665,7 +665,7 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
 
 ```html
 <script>
-  /**
+  /`
     * 以原型对象为模板创建出新对象
     * 这个函数已经被Chrome和IE9采用，所以需要有个判断这个函数是否已经存在，Crockford的影响力可见一斑
     */
@@ -676,7 +676,7 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
       return new F();
     }
   }
-  /**
+  /`
     * 在构造函数的原型对象上添加方法
     * 非常推荐这个函数，因为这个函数能够培养出在原型对象中定义方法的良好习惯
     */
@@ -686,7 +686,7 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
       return this;
     }
   };
-  /**
+  /`
     * 使构造函数“继承”其他构造函数
     * 实际上是将构造函数的原型对象替换为另外构造函数产生的对象
     *
@@ -696,9 +696,9 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
     return this;
   });
 
-  /*****************************************
+  /````````````````````*
     *使用链式代码清晰紧凑地定义构造函数
-    *****************************************/
+    ````````````````````*/
   let Employee = function (name) {
     this.name = name;
   }.method('getName', function () {
@@ -725,15 +725,15 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
 </script>
 ```
 
-**增强 1.模拟私有变量。**
+`增强 1.模拟私有变量。`
 
 上面构造函数所产生的对象只有 public 成员，没有 private 成员，可以通过闭包实现私有成员
 
 ```html
 <script>
-  /*****************************************
+  /````````````````````*
    * 模拟私有变量
-   ****************************************
+   ````````````````````
    */
   var Employee = function (name) {
     //私有变量
@@ -750,15 +750,15 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
 
 私有成员带来的代价是，访问私有变量的方法不能放置在原型对象中被共享，导致每个生成的对象在内存都独立拥有一份访问私有变量方法的代码。
 
-**增前 2. 模拟 super.method.**
+`增前 2. 模拟 super.method.`
 
 构造函数 coder 能不能模仿出 java 中类似 super.method 的效果呢？答案是可以的，最简单的实现是在对象内部创建一个副对象的副本。缺点是增加了内存的消耗。
 
 ```html
 <script>
-  /******************
+  /`````````
  *模拟super.method()
- ******************/
+ `````````/
   var Coder = function (name, language) {
     var _super = new Employee('');
     this.name = name;
@@ -778,13 +778,13 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
 </script>
 ```
 
-**2) 使用原型创建对象(prototypal pattern)**
+`2) 使用原型创建对象(prototypal pattern)`
 
 这种创建方式直白地显示了原型语言创建对象的特点
 
 ```html
 <script>
-  /**
+  /`
    * 以原型对象为模板创建出新对象
    */
   if (!Object.create) {
@@ -796,10 +796,10 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
     }
   }
 
-  /*****************************************
+  /````````````````````*
    * 使用原型对象创建对象，创建之后再对象初始化，
    * 这种创建方式直白地显示了原型语言创建对象的特点
-   *****************************************/
+   ````````````````````*/
   let employee = {
     name: 'Jack',
     getName: function () {
@@ -818,7 +818,7 @@ Crockford 通过函数 Function.prototype.method 和 Function.prototype.inherits
 </script>
 ```
 
-**3) 使用函数创建对象并返回(functional pattern)**
+`3) 使用函数创建对象并返回(functional pattern)`
 
 这种方式很简单，在函数内部先新建一个对象 var object = ｛｝,然后为这个对象设置属性，最后返回这个对象
 
@@ -834,7 +834,7 @@ c.具有类似 java 中 super.method()的访问"父对象"方法的能力
 
 ```html
 <script>
-  /**
+  /`
    * 以原型对象为模板创建出新对象
    * 这个函数已经被Chrome和IE9采用，所以需要有个判断这个函数是否已经存在，Crockford的影响力可见一斑
    */
@@ -847,7 +847,7 @@ c.具有类似 java 中 super.method()的访问"父对象"方法的能力
       return new F();
     }
   }
-  /**
+  /`
    * 在构造函数的原型对象上添加方法
    * 非常推荐这个函数，因为这个函数能够培养出在原型对象中定义方法的良好习惯
    */
@@ -857,7 +857,7 @@ c.具有类似 java 中 super.method()的访问"父对象"方法的能力
       return this;
     }
   };
-  /**
+  /`
    * 使构造函数“继承”其他构造函数
    * 实际上是将构造函数的原型对象替换为另外构造函数产生的对象
    *
@@ -867,11 +867,11 @@ c.具有类似 java 中 super.method()的访问"父对象"方法的能力
     return this;
   });
 
-  /*****************************************
+  /````````````````````*
    * 使用函数创建对象
    * 1 使用函数的闭包实现私有属性
    * 2 子对象可以调用父对象的方法
-   *****************************************/
+   ````````````````````*/
   function employee(name) {
     var object = {};
     //name属性是私有变量

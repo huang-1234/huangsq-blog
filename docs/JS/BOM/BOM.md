@@ -1,6 +1,6 @@
 # BOM概要
 
-ECMAScript是JavaScript的核心，但如果要在Web中使用JavaScript，那么BOM（浏览器对象模型）则无疑才是真正的核心。BOM提供了很多对象，用于访问浏览器的功能，**这些功能与任何网页内容无关**。多年来，缺少事实上的规范导致BOM既有意思又有问题，因为浏览器提供商会按照各自的想法随意去扩展它。于是，浏览器之间的共有的对象就成为了事实上的标准。W3C为了把浏览器中JavaScript最基本的部分标准化，已经将BOM的主要方面纳入了HTML5规范中。
+ECMAScript是JavaScript的核心，但如果要在Web中使用JavaScript，那么BOM（浏览器对象模型）则无疑才是真正的核心。BOM提供了很多对象，用于访问浏览器的功能，`这些功能与任何网页内容无关`。多年来，缺少事实上的规范导致BOM既有意思又有问题，因为浏览器提供商会按照各自的想法随意去扩展它。于是，浏览器之间的共有的对象就成为了事实上的标准。W3C为了把浏览器中JavaScript最基本的部分标准化，已经将BOM的主要方面纳入了HTML5规范中。
 
 ## window对象
 
@@ -10,7 +10,7 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 
 全局作用域中所有声明的变量、函数都会变成window对象的属性和方法。
 
-抛开全局变量会成为window对象的属性不谈，定义全局变量与在window对象上直接定义属性还是有一点差别：**全局变量不能通过delete操作符删除，而直接在window对象上的定义的属性可以。**
+抛开全局变量会成为window对象的属性不谈，定义全局变量与在window对象上直接定义属性还是有一点差别：`全局变量不能通过delete操作符删除，而直接在window对象上的定义的属性可以。`
 
 ```html
   <script defer>
@@ -48,8 +48,6 @@ BOM的核心对象，表示一个浏览器的一个实例。在浏览器中，wi
 
 尝试访问未声明的变量会抛出错误，但是通过查询window对象，可以知道某个可能未声明的变量是否存在。
 
-
-
 ```js
 // 这里会抛出错误，因为oldValue未定义
 let newValue = oldValue;
@@ -61,10 +59,8 @@ let newValue = window.oldValue;
 
 ## 窗口位置
 
-**screenLeft** 和 **screenTop**
- 分别表示窗口相对于屏幕左边和上边的位置。Firefox则在**screenX**和**screenTop**属性中提供相同的窗口位置信息，使用下列代码可以跨浏览器取得窗口左边和上边的位置。
-
-
+`screenLeft` 和 `screenTop`
+ 分别表示窗口相对于屏幕左边和上边的位置。Firefox则在`screenX`和`screenTop`属性中提供相同的窗口位置信息，使用下列代码可以跨浏览器取得窗口左边和上边的位置。
 
 ```js
 let leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screenX;
@@ -75,21 +71,19 @@ let topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 ## 窗口大小
 
-**innerWidth** 、**innerHeight**、**outerWidth**、**outerHeight**。
+`innerWidth` 、`innerHeight`、`outerWidth`、`outerHeight`。
  支持IE9+，Firefox，safari，opera，chrome均支持。
 
-**innerWidth**：表示页面视图区的度（减去边框宽度）。
- **innerHieght**：表示页面视图区高度（减去边框宽度）。
+`innerWidth`：表示页面视图区的度（减去边框宽度）。
+ `innerHieght`：表示页面视图区高度（减去边框宽度）。
 
-**outerWidth**：返回浏览器窗口本身长度。
- **outerHeight**：返回浏览器窗口本身高度。
+`outerWidth`：返回浏览器窗口本身长度。
+ `outerHeight`：返回浏览器窗口本身高度。
 
 在IE，Firefox，safari，opera，chrome中，document.documentElement.clientWidth和document.documentElement.clientHeight中保存了页面视口的信息。IE6中，这些属性必须在标准模式下才有效；如果是混杂模式，必须通过document.body.client(Width/Height)取得相同信息。
  而对于chrome，哪种都行。
 
 虽然最终无法确定浏览器窗口本身大小，但是可以取得页面视口大小。
-
-
 
 ```js
     let pageWidth = window.innerWidth;
@@ -110,15 +104,13 @@ let topPos = (typeof window.screenTop == "number") ? window.screenTop : window.s
 
 使用resizeTo()和resizeBy()方法可以调整浏览器窗口大小。
 
-**resizeTo**：接受浏览器窗口的新宽度和新高度
- **resizeBy**：接受新窗口与原窗口的**宽度之差和高度之差**
+`resizeTo`：接受浏览器窗口的新宽度和新高度
+ `resizeBy`：接受新窗口与原窗口的`宽度之差和高度之差`
 
 > 从 Firefox 7 开始，不能改变浏览器窗口的大小了，要依据下面的规则：
 >
 > - 不能设置那些不是通过 window.open 创建的窗口或 Tab 的大小。
 > - 当一个窗口里面含有一个以上的 Tab 时，无法设置窗口的大小。
-
-
 
 ```html
 <!DOCTYPE html>
@@ -166,7 +158,7 @@ window.open("http://www.wrox.com/","topFrame");
 // 等同于：<a href="http://www.wrox.com" target="topFrame"></a>
 ```
 
-**弹出窗口**
+`弹出窗口`
  如果给window.open()传递的第二个参数不是一个已经存在的窗口或框架，那么该方法就会根据在第三个参数位置上传入的字符串创建一个新窗口或新标签页。如果没有传入第三个参数，那么就会打开一个带有全部默认设置（工具栏、地址栏、状态栏）的新浏览器窗口。
 
 第三个参数是一个逗号分隔的设置字符串，表示新窗口中都显示哪些特性。
@@ -202,8 +194,6 @@ width                 数值              表示新窗口的宽度，不能小�
 
 window.open()方法会返回一个指向新窗口的引用。引用的对象与其他window对象大致相似，但我们可以对其进行更多控制。例如，有些浏览器在默认情况下可能不允许我们针对主浏览器窗口调整大小或移动位置，但却允许我们针对通过window.open()创建的窗口调整大小或移动位置。
 
-
-
 ```js
 let wroxWin = window.open("http://www.wrox.com/","wroxWindow","height=400,width=400,top=10,left=10,resizable=yes");
 
@@ -222,8 +212,6 @@ wroxWin.close();
 
 但是，这个方法仅适用于通过window.open()打开的弹出窗口。对于浏览器的主窗口，如果没有得到用于允许是不能关闭它的。不过，弹出窗口倒是可以调用top.close()在不经用户允许的情况下关闭自己。弹出窗口关闭之后，窗口的引用仍然还在，但除了像下面这样检测其closed属性之外，已经没有其他用处了。
 
-
-
 ```go
 wroxWin.close();
 alert(wroxWin.closed);      // true
@@ -236,8 +224,6 @@ alert(wroxWin.closed);      // true
 JavaScript是单线程语言，但它允许通过设置超时值和间歇时间值来调度代码在特定的时刻执行。前者是在指定的时间过后执行代码，后者则是在每隔指定的时间就执行一次代码。
 
 超时调用需要使用window对象的setTimeout()方法，接受两个参数，要执行的代码和以毫秒表示的时间（即在执行代码前需要等待多少毫秒）。其中，第一个参数可以是一个包含JavaScript代码的字符串（就和在eval()函数中使用的字符串一样），也可以是一个函数。
-
-
 
 ```js
 // 不建议传递字符串！
@@ -254,12 +240,12 @@ setTimeout(function() {
 
 ## 系统对话框
 
-**alert()**
+`alert()`
  alert()接受一个字符串并将其显示给用户。具体来说，调用alert()方法的结果就是向用户显示一个系统对话框，其中包含指定的文本和一个OK按钮。
 
 通常使用alert()生成的警告对话框向用户显示一些他们无法控制的消息，例如错误消息。而用户看完消息后关闭对话框。
 
-**confirm()**
+`confirm()`
  confirm()方法，从向用户显示消息的方面看，这种确认对话框很像一个警告对话框，但二者的主要区别在于确认对话框除了显示OK按钮外，还会显示一个Cancel按钮，两个按钮可以让用户决定是否执行给定操作。
  `confirm("Are you sure?");`
 
@@ -273,7 +259,7 @@ if (confirm("Are you sure?")) {
 
 为了确定用户是单击了OK还是Cancel，可以检查confirm方法返回的布尔值。OK按钮返回true，Cancel按钮返回false。右上角关闭按钮和ESC也会返回false。
 
-**prompt()**
+`prompt()`
  这是一个提示框，用于提示用户输入一些文本信息，提示框中除了显示OK和Cancel按钮外，还会显示一个文本输入域。
  prompt()方法接受两个参数：要显示给用户的文本提示和文本输入域的默认值（可以是一个空字符串）。
 
@@ -288,4 +274,3 @@ if (result !== null) {
 ```
 
 这些系统对话框很适合向用户显示消息并请用户作出决定。由于不涉及HTML，CSS或JavaScript，因此它们是增强Web应用程序的一种便携方式。
-

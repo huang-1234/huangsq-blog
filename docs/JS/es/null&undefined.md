@@ -2,7 +2,7 @@
 
 大多数计算机语言，有且仅有一个表示"无"的值，比如，C 语言的 NULL，Java 语言的 null，Python 语言的 None，Ruby 语言的 nil。
 
-有点奇怪的是，JavaScript 语言居然有**两个**表示"无"的值：undefined 和 null。这是为什么？
+有点奇怪的是，JavaScript 语言居然有`两个`表示"无"的值：undefined 和 null。这是为什么？
 
 ## 一、相似性
 
@@ -59,7 +59,7 @@ Number(null);
 
 ## 三、最初设计
 
-JavaScript 的最初版本是这样区分的：**null 是一个表示"无"的对象，转为数值时为 0；undefined 是一个表示"无"的原始值，转为数值时为 NaN。**
+JavaScript 的最初版本是这样区分的：`null 是一个表示"无"的对象，转为数值时为 0；undefined 是一个表示"无"的原始值，转为数值时为 NaN。`
 
 ```javascript
 Number(undefined);
@@ -73,7 +73,7 @@ Number(undefined);
 
 但是，上面这样的区分，在实践中很快就被证明不可行。目前，null 和 undefined 基本是同义的，只有一些细微的差别。
 
-**null 表示"没有对象"，即该处不应该有值。**典型用法是：
+`null 表示"没有对象"，即该处不应该有值。`典型用法是：
 
 (1) 作为函数的参数，表示该函数的参数不是对象。
 
@@ -84,7 +84,7 @@ Object.getPrototypeOf(Object.prototype);
 // null
 ```
 
-**undefined 表示"缺少值"，就是此处应该有一个值，但是还没有定义。**典型用法是：
+`undefined 表示"缺少值"，就是此处应该有一个值，但是还没有定义。`典型用法是：
 
 (1)变量被声明了，但没有赋值时，就等于 undefined。
 
@@ -135,7 +135,7 @@ Uncaught TypeError: Right-hand side of 'instanceof' is not an object
 
 在 javascript 的最初版本中，使用的 32 位系统，为了性能考虑使用低位存储了变量的类型信息：
 
-- **000：对象**
+- `000：对象`
 - 1：整数
 - 010：浮点数
 - 100：字符串

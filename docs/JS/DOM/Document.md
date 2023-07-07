@@ -62,7 +62,7 @@ document.location.port     // 端口号
 document.location.protocol   // 网络协议(http:)
 document.location.search    // ?号后的部分
 ```
-**常用对象事件:**
+`常用对象事件:`
 ```js
 documeny.location.reload()     //刷新网页
 document.location.reload(URL)    //打开新的网页
@@ -75,31 +75,31 @@ document.location.replace(URL)   //打开新的网页
 ```js
 document.href，document.location，window.location区别
 
-document.href="http://www.master.net" 
+document.href="http://www.master.net"
 
-document.location="http://www.master.net" 
+document.location="http://www.master.net"
 
-window.location="http://www.master.net" 
+window.location="http://www.master.net"
 ```
 只是属于包含的问题，一个是window,一个是document
 
 location 是个对象，比如本页的document.location和window.location，它的属性有：
 ```js
-  location.hostname  =  community.csdn.net 
+  location.hostname  =  community.csdn.net
 
-  location.href  =  http://community.csdn.net/Expert/topic/4033/4033372.xml?temp=2.695864E-02 
+  location.href  =  http://community.csdn.net/Expert/topic/4033/4033372.xml?temp=2.695864E-02
 
-  location.host  =  community.csdn.net 
+  location.host  =  community.csdn.net
 
-  location.hash  =  
-  location.port  =  
-  location.pathname  =  /Expert/topic/4033/4033372.xml 
+  location.hash  =
+  location.port  =
+  location.pathname  =  /Expert/topic/4033/4033372.xml
 
-  location.search  =  ?temp=2.695864E-02 
+  location.search  =  ?temp=2.695864E-02
 
-  location.protocol  =  http:  
+  location.protocol  =  http:
 ```
-  href 是location的属性，类别是string。用户不能改变document.location(因为这是当前显示文档的位置)。但是可以改变window.location (用其它文档取代当前文档) . document.location是只读的。window.location是可读可写的。 
+  href 是location的属性，类别是string。用户不能改变document.location(因为这是当前显示文档的位置)。但是可以改变window.location (用其它文档取代当前文档) . document.location是只读的。window.location是可读可写的。
 
 # JS document(文档节点)
 
